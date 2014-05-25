@@ -1,0 +1,361 @@
+Building a New Ruby on Rails Application
+
+* Development Documentation
+
+** CREATE a new Rails application
+   
+  : rails new Application
+
+   - [ ] rename application.css to application.css.scss
+
+** UPDATE the README file
+
+  : mv README.rdoc README.org
+
+   start making edits
+
+** TEST the skeletal application
+
+  : rails server
+
+** UPDATE the Gemfile
+
+*** Make Changes
+   
+   - [ ] remove unnecessary comments
+
+   - [ ] update rails
+
+     : gem 'rails', '4.1.0'
+
+   - [ ] specify explicit version for ruby
+
+     : ruby '2.1.1'
+
+   - [ ] create groups for development and production databases (postgres/sqlite3)
+
+	  : group :development, :test do
+          :  gem 'sqlite3'
+          : end
+
+	  : group :production do
+	  :  gem 'pg', '0.15.1'
+	  :  gem 'rails_12factor', '0.0.2'
+	  : end
+     
+     - [ ] remove "gem 'sqlite3'"
+
+   - [ ] minor package updates
+
+     - [ ] gem 'jquery-rails' 
+     : gem 'jquery-rails', '3.0.4'
+     - [ ] gem 'sass-rails', '~> 4.0.0'
+     : gem 'sass-rails', '4.0.3'
+     - [ ] gem 'uglifier', '>= 1.3.0'
+     : gem 'uglifier', '2.1.1'
+     - [ ] gem 'coffee-rails', '~> 4.0.0'
+     : gem 'coffee-rails', '4.0.1'
+
+*** Update the bundle
+
+    - [ ] UPDATE
+
+      : bundle update
+
+    - [ ] INSTALL the updates
+
+      : bundle install --without production
+      
+      NOTE: all future updates only "bundle install" needed, unless and update 
+      is needed
+
+** START working on the application!
+
+*** *ModelViewControl* Organization
+
+**** MODEL
+
+***** Models
+
+       | Model |                     |                           |                 |
+       |-------+---------------------+---------------------------+-----------------|
+       |       | attribute           | example                   | type            |
+       |-------+---------------------+---------------------------+-----------------|
+       |       | id                  | 1                         | integer         |
+       |       |                     |                           |                 |
+       |       | name                | "Ander Son"               | string          |
+       |       |                     |                           |                 |
+       |       | username            | "Son"                     | string          |
+       |       |                     |                           |                 |
+       |       | email               | "son@lincolnix.net"       | string          |
+       |       |                     |                           |                 |
+       |       | age                 | 33                        | integer         |
+       |       |                     |                           |                 |
+       |       | location            | "Omaha, NE"               | string          |
+       |       |                     |                           |                 |
+       |       | pictures            | [ "one.jpg" , "two.jpg" ] | array[strings]  |
+       |       |                     |                           |                 |
+       |       | connections/friends | [ 2 , 3 , 12 ]            | array[user_ids] |
+       |       |                     |                           |                 |
+
+
+**** VIEW
+
+     When in doubt, make sure a view exists for the page you are trying to route!
+     
+***** Setup BOOTSTRAP
+
+****** Install Bootstrap
+
+      - [ ] Install the Bootstrap Gem 
+
+	: gem 'bootstrap-sass'
+
+	: bundle install
+
+      - [ ] Create/add to app/assets/stylesheets/bootstrap_and_customization.css.scss
+
+	: @import 'bootstrap';
+
+      - [ ] Restart your server
+
+****** Add a container to our app
+
+       - [ ] modify app/views/layouts/application.html.erb, varying links as necessary
+
+	 - application.html.erb is a wrapper for each page
+
+	 : <%= link_to "Home", root_path %>
+	 : <%= link_to "About", about_path %>
+	 : <%= link_to "Contact", contact_path %>
+	 : <%= link_to "Sign Up", sign_up_path %>
+	 : <%= link_to "Log In", log_in_path %>
+	 : <div class="container">
+	 :     <%= yield %>
+	 : </div>
+
+       - [X] *ERROR* SOLVED
+	 
+	 - [X]  When in doubt, check for outdated gems
+
+	 : bundle outdated
+	 
+	 - [X] trials
+
+	 : NoMethodError in Pages#welcome
+
+	 : Showing /home/son/RAILS-dev/son/nebraska-dating/app/views/layouts/application.html.erb where line #5 raised:
+
+	 : undefined method 'environment' for nil:NilClass
+	 :  (in /home/son/RAILS-dev/son/nebraska-dating/app/assets/stylesheets/bootstrap_and_customizations.css.scss)
+
+         : <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+	 My first search found this stackoverflow post:
+	 http://stackoverflow.com/questions/22392862/undefined-method-environment-for-nilnilclass-when-importing-bootstrap
+
+	 It seems to have something to do with a adding @import 'bootstrap': line
+
+	 There are several suggestions posed. May have something to do with sass-rails version being used.
+
+	 - [X] SOLVED updated sass-rails to 4.0.3
+
+	 - [X] check for [[./outdated-gems.org][outdated gems]]
+
+	   : bundle outdated
+
+	   It looks like I have quite a few outdated gems! Not sure if I should 
+	   update all of them or not.
+
+	 - [X] update the bundle
+
+	   : bundle update
+
+	   same error
+
+	 - [X] restart the server
+
+	   same error
+
+****** Create a _header.html.erb Partial
+
+       [[http://guides.rubyonrails.org/layouts_and_rendering.html][Layouts and Rendering]]
+
+       - [ ] app/views/layouts/_header.html.erb
+
+       - [ ] create a link to the partial in application.html.erb
+
+	 : <%= render 'layouts/header' %>
+
+       - [ ] add a navigation bar in _header.html.erb
+
+         : <nav class="navbar navbar-default" role="navigation">
+         :   <!-- Brand and toggle get grouped for better mobile display -->
+         :   <div class="navbar-header">
+         :     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+         :       <span class="sr-only">Toggle navigation</span>
+         :       <span class="icon-bar"></span>
+         :       <span class="icon-bar"></span>
+         :       <span class="icon-bar"></span>
+         :     </button>
+         :     <a class="navbar-brand" href="#">Nebraska Dating</a>
+         :   </div>
+
+         :   <!-- Collect the nav links, forms, and other content for toggling -->
+         :   <div class="collapse navbar-collapse navbar-ex1-collapse">
+         :     <ul class="nav navbar-nav navbar-right">
+         :       <li><%= link_to "Home", root_path %></li>
+         :       <li><%= link_to "About", about_path %></li> 
+         :     </ul>
+         :   </div><!-- /.navbar-collapse -->
+         : </nav>
+
+       - [ ] require Bootstrap's JavaScript, after jquery_ujs
+
+	     app/assets/javascripts/application.js
+
+	     : //= require jquery_ujs
+	     ...
+	     : //= require bootstrap
+	     ...
+	     : //= require turbolinks
+
+       - [ ] Add Viewport
+
+	 views/layouts/application.html.erb
+
+	 : <meta name="viewport" content="width=device-width, intial-scale=1.0">
+
+***** Visual Design Concept
+
+****** Aesthetic
+
+****** Functionality       
+     
+**** CONTROL    
+
+*** GENERAL setup options
+
+**** SCAFFOLDS
+
+     - [ ] Disable scaffold stylesheet creation because it overrides Bootstrap CSS
+
+       Add the following to config/application.rb
+
+       : config.generators do |g|
+       :   g.stylesheets false
+       : end
+
+     - [-] Generate a scaffold for each model
+
+	   : rails generate scaffold Resource attribute:type attribute:type
+
+       - [-] User
+
+	 Question: Use Devise or set up authentication from scratch?
+
+	 I have set up and used devise for previous applications. 
+	 For thorough learning purposes here, I am going to learn to 
+	 create user authentication from scratch, following this guide:
+
+         [[http://www.sitepoint.com/rails-userpassword-authentication-from-scratch-part-i/][Authentication from Scratch]]
+
+	 _The basics (from SitePoint):_
+
+	 *Sign-up*: Create a new [[*User][User]]. This user will register with a username, 
+	 password (which will be encrypted in the database), email, etc.
+
+	 *Login*: Allow a user to sign in with his/her valid username and password.
+	 The authentication process happens by matching the username and password
+	 in the database, allowing the user access to the protected actions only
+	 if the given information matches the recorded values successfully.
+	 If not, the user will be redirected to the login page again.
+
+	 *Access Restriction*: Create a session to hold the authenticated user
+	 ID after login, so navigation through additional protected actions can
+	 be done easily by just checking the userID in the current session.
+
+	 *Logout*: Allow the user to sign out and set the authenticated userID
+	 in session file to nil.
+
+	 - [X] Add bcrypt to the Gemfile and update
+
+	   : gem 'bcrypt-ruby', '~> 3.1.2'
+	   
+	   : bundle install
+
+	 - [ ] Generate User scaffold
+
+	   : rails generate scaffold User name:string username:string email:string age:integer location:string pictures:text friends:text encrypted_password:string salt:string timestamps:string
+
+	   Note: [[http://www.therailsway.com/2009/8/3/users-and-passwords/][Salting]] is a way to prevent being opent to [[http://en.wikipedia.org/wiki/Rainbow_table][rainbow attacks]]. 
+           It stores a small random value against each of your users and adds
+	   that to the password before hashing it.
+
+	   - [ ] what type should the salt be?
+	     
+	     string?
+
+     - [ ] Migrate the database
+
+       : rake db:migrate
+
+**** MODELS
+
+**** CONTROLLERS
+
+**** HELPERS
+
+**** MAILERS
+
+**** MIGRATIONS
+
+**** RESOURCES    
+
+
+*** Create views for each of the pages needed in app/views/...
+
+*** Configure ROUTES
+
+    - [ ] Add root route to config/routes.rb
+
+      : root "pages#welcome"
+
+    - [ ] create paths for desired routes
+
+      : get "about" => "pages#about"
+      : get "contact" => "pages#contact"
+      : get "sign_up" => "pages#sign_up"
+      : get "log_in" => "pages#log_in"
+
+* TODO
+
+  - [ ] come up with a clever name
+  - [ ] set up sonix server to host production
+  - [X] develop this document into a template for future application guidance
+
+** Research
+
+   - [ ] TDD(Test Driven Development)
+   - [ ] agile
+   - [ ] organizational methods
+   - [ ] payment servicing
+   - [-] hosting rails production app on debian server
+     - [-] setup for easy pushing equivalent to heroku setup
+
+       - [X] install Rails
+       - [X] install Ruby
+       - [X] install sqlite3
+       - [ ] setup git
+	 
+   - [ ] [[http://guides.rubyonrails.org/command_line.html][Rails Guides]]
+   - [ ] [[http://www.sitepoint.com/rails-userpassword-authentication-from-scratch-part-i/][Authentication from Scratch]]
+   - [ ] [[http://stackoverflow.com/questions/5966776/rails-scaffold-without-the-css-file][configure rails not to create scaffold stylesheet]]
+
+* REMINDERS
+
+  - [ ] BE DELIBERATE
+  - [ ] BE ORGANIZED
+  - [ ] TAKE TIME
+  - [ ] DOCUMENT AS MUCH AS POSSIBLE
+  - [ ] learn TEST DRIVEN DEVELOPMENT!

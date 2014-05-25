@@ -1,0 +1,47 @@
+<div id="banner", class="container">
+
+  <div class="head">
+    <h1 id="title">PRAIRIE HILL Learning Center</h1>
+
+    <div class="menu">
+      <ul class="nav nav-pills">
+	<li><%= nav_link "HOME", root_path %></li>
+	<li><%= nav_link "ABOUT", about_path %></li>
+	<li><%= nav_link "NEWS", news_path %></li>
+	<li><%= nav_link "PROGRAMS", programs_path %></li>
+	<li><%= nav_link "CALENDAR", calendar_path %></li>
+	<li><%= nav_link "CONTACT", contact_path %></li>
+	<li><%= nav_link "Staff & Board of Directors", staff_bod_path %></li>
+	<li><%= nav_link "Employment", jobs_path %></li>
+	<li><%= nav_link "Donation", donate_path %></li>
+	<li><%= nav_link "SUMMER CAMP", camp_path %></li>
+	<% if user_signed_in? %>
+	  <li><%= link_to destroy_user_session_path, method: :delete do %>
+	    Log Out</li>
+	  <% end %>
+	<% else %>
+	  <li><%= nav_link "Log In", new_user_session_path %></li>
+	<% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+  </div>
+
+  <div class="tiny-parallax">
+    <div>
+      <%= image_tag("logo.png", class: "logo") %><br/>
+    </div>
+    <div id="quote">
+      <strong><p>Education is a natural process spontaneously carried out by the human
+	individual, and is acquired not by listening to words but by experiencing
+	them.</p>
+	<p><em>--Maria Montessori, Education for a New World</em></p></strong>
+    </div>
+  </div>
+
+</div>

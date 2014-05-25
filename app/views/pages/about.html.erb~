@@ -1,0 +1,7 @@
+<div class="container content">
+
+  <section id="about">
+    <%= render 'about' %>
+  </section>
+
+</div>

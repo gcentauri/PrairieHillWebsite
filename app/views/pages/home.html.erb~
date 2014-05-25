@@ -1,0 +1,17 @@
+
+<div id="content-box"></div>
+
+  <div class="container content">
+
+    <section id="latest-news">
+      <%= render 'news' %>
+    </section>
+
+    <section id="about">
+      <%= render 'about' %>
+    </section>
+
+
+  </div>
+
+

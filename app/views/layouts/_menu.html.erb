@@ -1,0 +1,25 @@
+
+
+<div>
+  <ul>
+    <li><%= nav_link "HOME", root_path %></li>
+    <li><%= nav_link "ABOUT", about_path %></li>
+    <li><%= nav_link "NEWS", news_path %></li>
+    <li><%= nav_link "PROGRAMS", programs_path %></li>
+    <li><%= nav_link "CALENDAR", calendar_path %></li>
+    <li><%= nav_link "CONTACT", contact_path %></li>
+    <li><%= nav_link "STAFF & BOARD", staff_bod_path %></li>
+    <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
+    <li><%= nav_link "DONATION", donate_path %></li>
+    <li><%= nav_link "SUMMER CAMP", camp_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to destroy_user_session_path, method: :delete do %>
+	LOG OUT</li>
+      <% end %>
+    <% else %>
+      <li><%= nav_link "LOG IN", new_user_session_path %></li>
+    <% end %>
+  </ul>
+</div>
+
+
