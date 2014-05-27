@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Full-featured Website: Prairie Hill Learning Center"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-05-10T07:00+0000"/>
+<meta name="generated" content="2014-05-27T21:32+0000"/>
 <meta name="author" content="Ander"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -1678,6 +1678,61 @@ get "log_in" =&gt; "pages#log_in"
 <li><code>[X]</code> install sqlite3
 </li>
 <li><code>[&nbsp;]</code> setup git
+
+<ul>
+<li><code>[&nbsp;]</code> TODO: review ssh key pairing and complete new section
+
+</li>
+<li><code>[&nbsp;]</code> initialize GIT repository &amp; add, commit, and push initial changes
+
+<ol>
+<li>git init
+</li>
+<li>edit gitignore file appropriately
+</li>
+<li>git add . (add everything)
+</li>
+<li>git commit -m $COMMIT<sub>MESSAGE</sub>
+</li>
+<li>git remote add origin $REPO<sub>ADDRESS</sub>
+</li>
+<li>git push -u origin master
+</li>
+</ol>
+
+</li>
+</ul>
+
+</li>
+<li><code>[&nbsp;]</code> heroku deployment (minus database migration commands&hellip; see below)
+
+<pre class="example">
+heroku create
+git push heroku master
+</pre>
+
+
+<ul>
+<li><code>[&nbsp;]</code> if changes made to databases
+
+<pre class="example">
+heroku run rake db:migrate (also)
+</pre>
+
+
+</li>
+<li><code>[&nbsp;]</code> Other useful heroku commands:
+
+<pre class="example">
+heroku rename $NEW_NAME
+heroku open
+heroku logs --tail
+heroku run rails console
+</pre>
+
+
+</li>
+</ul>
 
 </li>
 </ul>

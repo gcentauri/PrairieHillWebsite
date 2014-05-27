@@ -745,6 +745,32 @@ Full-featured Website: Prairie Hill Learning Center
        - [X] install Ruby
        - [X] install sqlite3
        - [ ] setup git
+
+         - [ ] TODO: review ssh key pairing and complete new section
+
+	 - [ ] initialize GIT repository & add, commit, and push initial changes
+
+	   1. git init
+	   2. edit gitignore file appropriately
+	   3. git add . (add everything)
+	   4. git commit -m $COMMIT_MESSAGE
+	   5. git remote add origin $REPO_ADDRESS
+	   6. git push -u origin master
+       - [ ] heroku deployment (minus database migration commands... see below)
+
+	     : heroku create
+     	     : git push heroku master
+
+	 - [ ] if changes made to databases
+   
+               : heroku run rake db:migrate (also)
+
+	 - [ ] Other useful heroku commands:
+
+	       : heroku rename $NEW_NAME
+ 	       : heroku open
+	       : heroku logs --tail
+ 	       : heroku run rails console
 	 
    - [ ] [[http://guides.rubyonrails.org/command_line.html][Rails Guides]]
    - [ ] [[http://www.sitepoint.com/rails-userpassword-authentication-from-scratch-part-i/][Authentication from Scratch]]

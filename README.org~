@@ -1,38 +1,145 @@
-Building a New Ruby on Rails Application
+Full-featured Website: Prairie Hill Learning Center
+
+* Description
+
+  After over 2 years of frustration with the wordpress managed website content
+  for the Prairie Hill website (whether due to the way that wordpress arranges
+  itself or my own ignorance and lack of education in web design), this is an
+  attempt to try something new. Having a nice solid foundation in building
+  an application with Rails, I feel like now is the time to build something
+  from the ground up that will hopefully meet my needs for control and 
+  understanding for building and modifying the backend functionality (most
+  importantly without having to go through all of BS of using the actual
+  web content management editors and having so many extraneous steps and 
+  instead just use my phracking text editor!), as well as the front end need
+  for admin staff to update content, which is what is important to them in
+  the basic functionality of the site. I take care of the functionality and
+  aesthetic; they give it the words.
+
+  What we need to look at for functionality:
+
+  - [ ] We need USERs with authenticatable accounts
+    
+    These users will have various access to update content and that's really
+    all that they need. However,
+
+    - [ ] Admin vs normal user?
+
+      Perhaps that won't be necessary. The only need for a user is to be able
+      to update content. Even an admin, at this point, will not need to change 
+      anything else.
+
+      Although, getting people to sign up for general user accounts for signing 
+      up for summer camp will be helpful for collection of contact data
+
+    - [ ] Content updating forms 
+        should 
+      - [ ] be able to have images added to content by users
+      - [ ] accept HTML input 
+	OR, for what they are used to is WYSIWYG
+      - [ ] WYSIWYG
+	or both...
+	in other words, select a word, push a button that makes it bold, italic, etc
+	Uggg, this is where this shit gets annoying. You end up building a bunch of nonsense
+	that actually makes it more complicated in a way, when it would be simpler to learn
+	some basic html... but that's my opinion. I also feel like this is where Wordpress
+	has gone a little haywire at times, adding markup where it's not needed, while
+	at the same time not allowing some user provided markup to pass through unless
+	placed within a <code> element.
+
+    - [ ] Private content
+
+      - [ ] admin vs common user accounts
+
+    - [ ] User profiles?
+
+    - [ ] Summer Camp Registration model?
+
+    - [ ] Volunteers/CCF
+
+  - [ ] BLOG/NEWSfeed for news updates?
+
+  - [ ] PAGEs for general website content
 
 * Development Documentation
 
 ** CREATE a new Rails application
+
+   - [X] create a new application
    
   : rails new Application
 
-   - [ ] rename application.css to application.css.scss
+   - [ ] RESEARCH Spring?
+
+   Something new showed up. I'm not sure what to make of it, but if I experience 
+   problems, I'll return
+
+     : run  bundle exec spring binstub -all
+
+     : * bin/rake: spring inserted
+     : * bin/rails: spring inserted
+
+   - [X] rename application.css to application.css.scss
+
+     
 
 ** UPDATE the README file
+
+   - [X] mv, rm, or recreate the README file
+
+     I'm now using the NEW app template found in RAILS-dev directory
 
   : mv README.rdoc README.org
 
    start making edits
 
+
 ** TEST the skeletal application
 
+   - [X] basic rails server is functional?
+
   : rails server
+
+   - [-] Something else new came up regarding 'Spring'
+
+     [[https://github.com/rails/spring][Spring?]]
+
+     : Warning: Running 'gem pristine --all' to regenerate your installed gemspecs
+     :  (and deleting then reinstalling your bundle if you use bundle --path) will
+     :  improve the startup performance of Spring.
+
+     - [-] run 'gem pristine --all
+
+       - [-] ERROR: While executing gem ... (Gem::InstallError)
+	 
+	 :invalid gem: No such file or directory @ rb_sysopen - /home/son/.rvm/gems/ruby-1.9.2-p320/cache/minitest-1.6.0.gem
+
+	 - [X] update bundle
+
+	   : bundle update
+
+	 - [ ] solved?
+
+     - [ ] restart server, see if same warning occurs
+
+       - [ ] same errors
+
 
 ** UPDATE the Gemfile
 
 *** Make Changes
    
-   - [ ] remove unnecessary comments
+   - [X] remove unnecessary comments
 
-   - [ ] update rails
+   - [X] update rails
 
      : gem 'rails', '4.1.0'
 
-   - [ ] specify explicit version for ruby
+   - [X] specify explicit version for ruby
 
      : ruby '2.1.1'
 
-   - [ ] create groups for development and production databases (postgres/sqlite3)
+   - [X] create groups for development and production databases (postgres/sqlite3)
 
 	  : group :development, :test do
           :  gem 'sqlite3'
@@ -43,39 +150,43 @@ Building a New Ruby on Rails Application
 	  :  gem 'rails_12factor', '0.0.2'
 	  : end
      
-     - [ ] remove "gem 'sqlite3'"
+     - [X] remove "gem 'sqlite3'"
 
-   - [ ] minor package updates
+   - [X] minor package updates
 
-     - [ ] gem 'jquery-rails' 
+     - [X] gem 'jquery-rails' 
      : gem 'jquery-rails', '3.0.4'
-     - [ ] gem 'sass-rails', '~> 4.0.0'
+     - [X] gem 'sass-rails', '~> 4.0.0'
      : gem 'sass-rails', '4.0.3'
-     - [ ] gem 'uglifier', '>= 1.3.0'
+     - [X] gem 'uglifier', '>= 1.3.0'
      : gem 'uglifier', '2.1.1'
-     - [ ] gem 'coffee-rails', '~> 4.0.0'
+     - [X] gem 'coffee-rails', '~> 4.0.0'
      : gem 'coffee-rails', '4.0.1'
 
 *** Update the bundle
 
-    - [ ] UPDATE
+    - [X] UPDATE
 
       : bundle update
 
-    - [ ] INSTALL the updates
+    - [X] INSTALL the updates
 
       : bundle install --without production
       
       NOTE: all future updates only "bundle install" needed, unless and update 
       is needed
 
+
 ** START working on the application!
+
 
 *** *ModelViewControl* Organization
 
 **** MODEL
 
 ***** Models
+
+****** SAMPLE      
 
        | Model |                     |                           |                 |
        |-------+---------------------+---------------------------+-----------------|
@@ -99,6 +210,194 @@ Building a New Ruby on Rails Application
        |       |                     |                           |                 |
 
 
+
+
+
+****** PAGEs      
+
+       | PAGES |                     |                                |                 |
+       |-------+---------------------+--------------------------------+-----------------|
+       |       | attribute           | example                        | type            |
+       |-------+---------------------+--------------------------------+-----------------|
+       |       | id                  | 1                              | integer         |
+       |       |                     |                                |                 |
+       |       | title               | "Home"                         | string          |
+       |       |                     |                                |                 |
+       |       | description         | "Prairie Hill Learning Center" | string          |
+       |       |                     |                                |                 |
+
+
+
+
+****** USERs
+
+       | User |                     |                           |                 |
+       |------+---------------------+---------------------------+-----------------|
+       |      | attribute           | example                   | type            |
+       |------+---------------------+---------------------------+-----------------|
+       |      | id                  | 1                         | integer         |
+       |      |                     |                           |                 |
+       |      | name                | "Ander Son"               | string          |
+       |      |                     |                           |                 |
+       |      | username            | "Son"                     | string          |
+       |      |                     |                           |                 |
+       |      | email               | "son@lincolnix.net"       | string          |
+       |      |                     |                           |                 |
+
+       Setting up a User model with Devise creates only attributes for email and
+       encrypted password, plus some others that aren't necessarily important to
+       the surface use of our model. Following the Devise [[https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-sign-in-using-their-username-or-email-address][documentation]] for adding
+       a new attribute, for example:
+
+       - [X] Create username field
+
+	 - [X] create a migration
+
+	   : rails generate migration AddUsernameToUsers username:string:uniq
+
+	 - [X] migrate the database
+
+	   : rake db:migrate
+
+	 - [X] Modify application_controller.rb
+
+	   - [X] add username, email, password, password confirmation and
+	     remember me to configure_permitted_parameters
+
+	     see also [[https://github.com/plataformatec/devise#strong-parameters][strong parameters documentation for Devise]]
+
+	     : class ApplicationController < ActionController::Base
+             :   before_filter :configure_permitted_parameters, if: :devise_controller?
+
+             :   protected
+
+             :   def configure_permitted_parameters
+             :     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
+             :     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+             :     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
+             :   end
+             : end
+
+       - [-] Create a login virtual attribute in the User model
+
+	 - [X] Add login as an attr_accessor in app/models/user.rb
+
+	   : # Virtual attribute for authenticating by either username or email
+	   : # This is in addition to a real persisted field like 'username'
+	   : attr_accessor :login
+
+	 - [ ] if you will use this variable somewhere else in the code
+
+	   : def login=(login)
+	   :   @login = login
+	   : end
+	   :
+	   : def login
+	   :   @login || self.username || self.email
+	   : end
+
+       - [-] Tell Devise to use :login in the authentication_keys
+
+	 - [X] Modify config/initializers/devise.rb to have:
+
+	   : config.authentication_keys = [ :login ]
+
+	 - [ ] If you are using multiple models with Devise, it is best to set 
+           the authentication_keys on the model itself if the keys may differ:
+
+	   : devise :database_authenticatable, :registerable,
+           :        :recoverable, :rememberable, :trackable, 
+           :        :validatable, :authentication_keys => [:login]
+
+       - [-] Overwrite Devise's find_for_database_authentication method in User model (user.rb)
+
+	 Because we want to change the behavior of the login action, we have to 
+         overwrite the find_for_database_authentication method. The methods' 
+         stack works like this : find_for_database_authentication calls 
+         find_for_authentication which calls find_first_by_auth_conditions. 
+         Overriding the find_for_database_authentication method allows you to 
+         edit database authentication ; overriding find_for_authentication allows 
+         you to redefine authentication at a specific point (such as token, LDAP or database). 
+         Finally, if you override the find_first_by_auth_conditions method, you 
+         can customize finder methods (such as authentication, account unlocking 
+         or password recovery)
+
+	 - [-] For Active Record:
+
+	   : # app/models/user.rb
+
+           :     def self.find_first_by_auth_conditions(warden_conditions)
+           :       conditions = warden_conditions.dup
+           :       if login = conditions.delete(:login)
+           :         where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+           :       else
+           :         where(conditions).first
+           :       end
+           :     end
+
+           : #### This is the correct method you override with the code above
+           : #### def self.find_for_database_authentication(warden_conditions)
+           : #### end
+
+	   - [ ] Be sure to add case insensitivity to your validations on :username:
+	     
+	     : # app/models/user.rb
+
+             : validates :username,
+             :   :uniqueness => {
+             :     :case_sensitive => false
+             :   },
+             :   :format => { ... } # etc.
+
+	   - [X] Alternatively, change the find conditions like so:
+
+	     : # when allowing distinct User records with, e.g., "username" and "UserName"...
+             : where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
+
+       - [X] Update your views
+
+	 : rails g devise:views
+
+       - [X] Modify the views
+
+	 app/views/devise/sessions/new.html.erb
+
+	 - [X] remove
+
+	   : <div><%= f.label :email %><br />
+	   : <%= f.email_field :email %></div>
+
+	 - [X] add
+
+	   : <div><%= f.label :login %><br/>
+	   : <%= f.text_field :login %></div>
+
+       - [ ] Manipulate the :login label that Rails will display
+
+       - [ ] Allow users to recover their password or confirm their account using
+	 either username or email address
+
+
+****** CONTENTs?       
+
+       | Content |           |                                               |         |
+       |---------+-----------+-----------------------------------------------+---------|
+       |         | attribute | example                                       | type    |
+       |---------+-----------+-----------------------------------------------+---------|
+       |         | id        | 1                                             | integer |
+       |         |           |                                               |         |
+       |         | title     | "News"                                        | string  |
+       |         |           |                                               |         |
+       |         | content   | "The Children's Country Fair is coming up..." | text    |
+       |         |           |                                               |         |
+       |         | page      | "Home"                                        | string  |
+       |         |           |                                               |         |
+
+       
+
+
+****** POSTs       
+
 **** VIEW
 
      When in doubt, make sure a view exists for the page you are trying to route!
@@ -107,21 +406,21 @@ Building a New Ruby on Rails Application
 
 ****** Install Bootstrap
 
-      - [ ] Install the Bootstrap Gem 
+      - [X] Install the Bootstrap Gem 
 
 	: gem 'bootstrap-sass'
 
 	: bundle install
 
-      - [ ] Create/add to app/assets/stylesheets/bootstrap_and_customization.css.scss
+      - [X] Create/add to app/assets/stylesheets/bootstrap_and_customization.css.scss
 
 	: @import 'bootstrap';
 
-      - [ ] Restart your server
+      - [X] Restart your server
 
 ****** Add a container to our app
 
-       - [ ] modify app/views/layouts/application.html.erb, varying links as necessary
+       - [X] modify app/views/layouts/application.html.erb, varying links as necessary
 
 	 - application.html.erb is a wrapper for each page
 
@@ -181,13 +480,37 @@ Building a New Ruby on Rails Application
 
        [[http://guides.rubyonrails.org/layouts_and_rendering.html][Layouts and Rendering]]
 
-       - [ ] app/views/layouts/_header.html.erb
+       - [X] require Bootstrap's JavaScript, after jquery_ujs
 
-       - [ ] create a link to the partial in application.html.erb
+	     app/assets/javascripts/application.js
+
+	     : //= require jquery_ujs
+	     ...
+	     : //= require bootstrap
+	     ...
+	     : //= require turbolinks
+
+       - [X] app/views/layouts/_header.html.erb
+
+       - [-] create a link to the partial in application.html.erb
+
+	 - [X] 
 
 	 : <%= render 'layouts/header' %>
+	 
+	 - [ ] Make a habit of keeping things clean by using partials
 
-       - [ ] add a navigation bar in _header.html.erb
+       - [X] add a navigation bar in _header.html.erb
+
+	 SIMPLE NAV with tabs:
+
+	 : <ul class="nav nav-tabs">
+	 :   <li><%= link_to "ABOUT", about_path %></li>
+         :   <li><%= link_to "NEWS", news_path %></li>
+         :   <li><%= link_to "PROGRAMS", programs_path %></li>
+	 : </ul>
+
+         NAVBAR:
 
          : <nav class="navbar navbar-default" role="navigation">
          :   <!-- Brand and toggle get grouped for better mobile display -->
@@ -210,17 +533,7 @@ Building a New Ruby on Rails Application
          :   </div><!-- /.navbar-collapse -->
          : </nav>
 
-       - [ ] require Bootstrap's JavaScript, after jquery_ujs
-
-	     app/assets/javascripts/application.js
-
-	     : //= require jquery_ujs
-	     ...
-	     : //= require bootstrap
-	     ...
-	     : //= require turbolinks
-
-       - [ ] Add Viewport
+       - [X] Add Viewport
 
 	 views/layouts/application.html.erb
 
@@ -228,17 +541,22 @@ Building a New Ruby on Rails Application
 
 ***** Visual Design Concept
 
+      based off of current website, built on wordpress
+
+      - [ ] all built-in variable changes need to go above '@import 'bootstrap'
+
 ****** Aesthetic
 
 ****** Functionality       
      
 **** CONTROL    
 
+
 *** GENERAL setup options
 
 **** SCAFFOLDS
 
-     - [ ] Disable scaffold stylesheet creation because it overrides Bootstrap CSS
+     - [X] Disable scaffold stylesheet creation because it overrides Bootstrap CSS
 
        Add the following to config/application.rb
 
@@ -250,7 +568,87 @@ Building a New Ruby on Rails Application
 
 	   : rails generate scaffold Resource attribute:type attribute:type
 
-       - [-] User
+       - [X] PAGE
+
+	 : rails generate scaffold Page title:string description:string index
+
+	 - [X] Migrate the database
+
+           : rake db:migrate
+
+	 - [X] restart the server
+
+       - [ ] CONTENT
+
+	 
+
+       - [-] USER
+
+	 - [X] setup Devise
+
+	   - [X] add the Devise gem
+
+	     : gem 'devise'
+
+	   - [X] update the bundle
+
+	     : bundle install
+
+	   - [X] install Devise
+
+	     : rails generate devise:install
+
+	   - [X] Ensure you have defined default url options in your environments
+	     files. Here is an example of default_url_options appropriate for a 
+	     development environment in config/environments/development.rb:
+
+	     - [X] development
+
+	     : config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+	     In production, :host should be set to the actual host of your application
+	     config/environments/production.rb
+	     
+	     - [X] production
+
+	     : config.action_mailer.default_url_options = { host: 'http://www.prairiehill.com' }
+
+	   - [X] Ensure you have defined root_url to *something* in your config/routes.rb
+
+	     : root "pages#home"
+
+	   - [X] Ensure you have flash messages in app/views/layouts/application.html.erb
+	     
+	     : <% flash.each do |name, msg| %>
+	     :     <%= content_tag(:div, msg, class: "alert alert-info") %>
+	     : <% end %>
+
+	   - [X] Set Precompile to False
+	     config/application.rb
+
+	     : config.assets.initialize_on_precompile = false
+
+	   - [X] Copy Devise views (for customization) to your app
+
+	     : rails g devise:views
+
+	 - [X] Set up a USER model
+	   
+	   - [X] generate a user model
+
+	     : rails g devise user
+
+	     - if you made a mistake, you can destroy a model
+
+	       : rails destroy devise user 
+	     
+	   - [X] migrate your database
+
+	     : rake db:migrate
+
+	   - [X] restart the server
+
+	 - [ ] 
 
 	 Question: Use Devise or set up authentication from scratch?
 
@@ -280,7 +678,7 @@ Building a New Ruby on Rails Application
 
 	 - [X] Add bcrypt to the Gemfile and update
 
-	   : gem 'bcrypt-ruby', '~> 3.1.2'
+	   : gem 'bcrypt'
 	   
 	   : bundle install
 
@@ -296,7 +694,7 @@ Building a New Ruby on Rails Application
 	     
 	     string?
 
-     - [ ] Migrate the database
+       - [ ] Migrate the database
 
        : rake db:migrate
 
@@ -317,7 +715,7 @@ Building a New Ruby on Rails Application
 
 *** Configure ROUTES
 
-    - [ ] Add root route to config/routes.rb
+    - [X] Add root route to config/routes.rb
 
       : root "pages#welcome"
 
