@@ -626,6 +626,8 @@ Full-featured Website: Prairie Hill Learning Center
 	   - [X] Set Precompile to False
 	     config/application.rb
 
+	     Place the following ABOVE the module APP definition!
+
 	     : config.assets.initialize_on_precompile = false
 
 	   - [X] Copy Devise views (for customization) to your app
