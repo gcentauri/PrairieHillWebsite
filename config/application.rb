@@ -12,7 +12,7 @@ Bundler.require(*Rails.groups)
 
 module PrairieHillWebsite
 
-  config.assets.initialize_on_precompile = false
+#  config.assets.initialize_on_precompile = false
   class Application < Rails::Application
 
 
