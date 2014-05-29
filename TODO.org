@@ -1,0 +1,15 @@
+- [ ] Heroku
+  - [ ] connect application to image server
+    - [ ] AWS?
+      
+
+- [ ] CSS
+  - [ ] build media queries for mobile devices
+
+- [ ] Application
+  - [ ] Volunteer
+  - [ ] CMS
+  - [ ] Devise
+  - [ ] Enrollment
+  - [ ] Mailer
+  
