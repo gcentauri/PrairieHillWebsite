@@ -203,17 +203,18 @@ a:hover {
 .logo-box {
     background: $phill-gold;
     border-radius: 2px;
-    opacity: 0.9;
-    height: 18%;
-    width: 30%;
+
+/*    height: 18%;*/
+    height: 170px;
+    width: 40%;
 }
 
 #title {
     font-size: 40px;
-    background: #3f8000;
+    background: $phill-gold;
     height: 60px;
-    opacity: 0.8;
-    padding: 0 15px 0 15px;
+    opacity: 0.9;
+
     text-align: left;
     z-index: 3;
     clear: both;
@@ -221,14 +222,17 @@ a:hover {
 
 .title-name {
     color: white;
+    padding: 0 0 0 15px;
+    font-size: 70px;
+    background: $phill-grn;
 }
 
 .title-sub-name {
     font-family: 'Shadows Into Light Two';
     text-align: right;
-/*    color: $phill-gold;*/
     color: black;
     opacity: 0.8;
+    padding: 0 15px 0 0;
 }
 
 .name {
@@ -245,11 +249,13 @@ a:hover {
     right: 0px;
     top: 0px;
     position: absolute;
+    border-radius: 0 0 0 4px;
+    opacity: 0.9;
 }
 
 #menu {
-    background: #ffef19;
-    opacity: 0.8;
+    background: $phill-gold;
+    opacity: 0.9;
     padding-bottom: 5px;
     width: 100%;
     position: fixed;
@@ -320,6 +326,19 @@ ul li {
     right: 0px;
     top: 0px;
     position: absolute;
+}
+
+.title-logo {
+/*    width: 29%;*/
+    height: 170px;
+    float: left;
+    left: 0px;
+    top: 0px;
+    position: relative;
+    background: white;
+    margin-right: 15px;
+/*    transform: scaleX(-1);
+    filter: FlipH;*/
 }
 
 #filler {
