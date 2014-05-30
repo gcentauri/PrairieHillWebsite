@@ -2,15 +2,14 @@
 
 <div class="blue-box-light">
   <div class="large-img">
-    <%= image_tag("camp-50.jpg", class: "larg-img") %>
+    <%= image_tag("camp-50.jpg", class: "large-img") %>
   <div>
     <%= link_to "Sign up for PRAIRIE HILL summer camp!", "#", class: "important-link" %></div>
 
   <section id="parent-tour" class="section">
 
-    <h2>Prospective Parent Tour Date:</h2>
-    <div><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></div>
-
+    <h2 class="sub-title">Prospective Parent Tour Date:</h2>
+    <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
 
   </section>
 </div>
