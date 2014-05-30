@@ -140,8 +140,14 @@ $link-color: $phill-grn;
     margin-bottom: 5%;
 }
 
+ul {
+    list-style-type: none;
+}
+
+
 #child-activities {
     background: $phill-gold;
+
     ul {
 	list-style-type: none;
     }
