@@ -140,6 +140,18 @@ $link-color: $phill-grn;
     margin-bottom: 5%;
 }
 
+#child-activities {
+    background: $phill-gold;
+    ul {
+	list-style-type: none;
+    }
+    ul li {
+	
+    }
+}
+
+
+
 /* footer */
 
 #footer {
@@ -249,7 +261,7 @@ a:hover {
     right: 0px;
     top: 0px;
     position: absolute;
-    border-radius: 0 0 0 4px;
+    border-radius: 0 0 0 3px;
     opacity: 0.9;
 }
 
