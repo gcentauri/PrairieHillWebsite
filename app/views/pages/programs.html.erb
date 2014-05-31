@@ -1,1 +1,28 @@
-programs/communities
+<div class="container content-top">
+
+  <h1 class="section-title">Programs</h1>
+  <section id="YCC">
+
+    <div class="blue-box-light">
+      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
+    </div>
+
+  </section>
+
+  <section id="Primary">
+    
+    <div class="blue-box-light">
+      <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
+    </div>
+    
+  </section>
+
+  <section id="Elementary">
+    
+    <div class="blue-box-light">
+      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+    </div>
+    
+  </section>
+
+</div>
