@@ -15,13 +15,18 @@ gem 'pg'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'aws-sdk', '~> 1.20.0'
+gem 'mail_form'
+gem 'simple_form'
+gem 'cells'
+gem 'inherited_resources'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-#group :development, :test do
-#  gem 'sqlite3'
-#end
+group :development, :test do
+  gem 'sqlite3'
+  gem 'foreman'
+end
 
 #group :production do
 #  gem 'pg', '0.15.1'

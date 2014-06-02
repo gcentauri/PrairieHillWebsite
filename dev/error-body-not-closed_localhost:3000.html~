@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrairieHillWebsite</title>
+    <link data-turbolinks-track="true" href="/assets/NEW.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/bootstrap_and_customization.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/comfortable_mexican_sofa/admin/application.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+    <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/affix.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/alert.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/button.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/carousel.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/collapse.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/dropdown.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/tab.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/transition.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/scrollspy.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/modal.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/tooltip.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap/popover.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bootstrap.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/comfortable_mexican_sofa/admin/application.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/pages.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="d1BoppkEf8dhBAwSiMRhuK4XrrgulQnUdDPDlWr2GUo=" name="csrf-token" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div id="wrapper">
+
+      <div>
+      </div>
+
+      <div id="head">
+	<div class="logo-box" style="border-right: 2px solid #3f8000;">
+  <div id="title">
+    <div>
+      <img alt="Logo transparent" class="title-logo" src="/assets/logo-transparent.png" />
+    </div>
+    <div class="title-name">
+      <strong>PRAIRIE HILL</strong>
+    </div> 
+    <div class="title-sub-name">
+      <em>Learning Center</em>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div style="display:none;" class="phone">(402) 438-6668</div>
+</div>
+
+<div id="filler">
+</div>
+
+      </div>
+
+      <div id="info-column">
+	<div>
+	  
+<div id="quote">
+  <div>
+  <div class="text">
+    <strong>Education is a natural process spontaneously carried out by the human 
+      individual, and is acquired not by listening to words but by experiencing
+      them.</strong>
+  </div>
+  <div class="author">
+    <em>--Maria Montessori, Education for a New World</em>
+  </div>
+
+  <div>
+    <img alt="Logo transparent" class="logo" src="/assets/logo-transparent.png" />
+  </div>
+</div>
+
+</div>
+
+<div class="content container">
+
+  <div id="latest-news">
+    <h2 class="section-title"><span class=""></span> News </h2>
+
+<div class="blue-box-light">
+  <div class="large-img">
+    <img alt="Camp 50" class="large-img" src="/assets/camp-50.jpg" />
+  <div>
+    <a class="important-link" href="#">Sign up for PRAIRIE HILL summer camp!</a></div>
+
+  <div id="parent-tour" class="section">
+
+    <h2 class="sub-title">Prospective Parent Tour Date:</h2>
+    <h3 class="hi-li center"><em>(Next tour to be held in fall of 2014)</em>&nbsp;&nbsp;</h3>
+<div class="container">
+<h3 class="justify">Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.</h3>
+</div>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a class="important-link" href="http://prairiehill.com/what-makes-prairie-hill-learning-center-unique/"> &nbsp;&nbsp; What Makes PRAIRIE HILL Learning Center Unique?</a></p>
+
+  </div>
+</div>
+
+  </div>
+
+  <div id="about">
+    <h2 class="section-title"><span class="glyphicon glyphicon-home"></span> About PRAIRIE HILL</h2>
+
+<div class="blue-box-light">
+
+  <div class="large-img">
+    <img alt="Boot scraping" class="large-img" src="/assets/boot-scraping.jpg" />
+  </div>
+
+  <div id="mission" class="section">
+    <div class="container">
+<h3>PRAIRIE HILL LEARNING CENTER is a nonprofit corporation for the purpose of offering Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a<a title="Farm Environment" href="http://prairiehill.com/?page_id=15" target="_self">country outdoor environment.</a></h3>
+</div>
+  </div>
+
+  <div id="philosophy" class="section">
+    <p><img class="large-img" src="/system/comfy/cms/files/files/000/000/003/original/cate.jpg" alt="" /></p>
+<div class="container">
+<h3>PRAIRIE HILL uses educational methods formulated by Maria Montessori in the early 1900s. It is a child-centered approach that accepts the special characteristics of the developing child and emphasizes the child's potential to learn through experience.The learning activities in Montessori programs are child-initiated and appropriate for the child's level. Materials are selected to isolate specific learning tasks. They are self-teaching and self-correcting. Teachers encourage discovery and understanding through manipulation of materials. Mutual respect for the child and of children for each other are important aspects of the Montessori philosophy. The Montessori philosophy expects the child to become a good worker and encourages this through independent activity.</h3>
+<h3>PRAIRIE HILL is a place where children as young as 1-1/2 years old can:</h3>
+</div>
+<div>
+<p>&nbsp;</p>
+<ul id="child-activities">
+<li>splash in a rain puddle</li>
+<li>collect eggs from chickens</li>
+<li>groom a pony after having a ride</li>
+<li>catch snowflakes on their mittens</li>
+<li>take a nature walk at their pace</li>
+<li>go bird-watching on a crisp autumn morning</li>
+<li>cut fresh flowers and arrange them in a small vase</li>
+<li>harvest produce from the garden or orchard, wash and eat them for lunch</li>
+<li>experience the beginning of the life cycle as they observe lambs and chicks</li>
+<li>learn how to care for their bodies and personal belongings</li>
+<li>wash their hands as many times as they want</li>
+<li>choose activities independently or with a small group</li>
+<li>serve themselves food and offer some to another person</li>
+<li>pour themselves a drink of water</li>
+</ul>
+</div>
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+
+
+	</div>
+	<div id="contact">
+	  <h2 class="section-title"><span class="glyphicon glyphicon-envelope"></span><span class="glyphicon glyphicon-earphone"></span> Contact Us</h2>
+
+<div class="blue-box-light">
+  <div id="contact-info" class="section">
+    <p>logo</p>
+<p>17705 South 12th Street</p>
+<p>Roca, NE 68430</p>
+<p>(402) 438-6668</p>
+<p>prairiehillschool@yahoo.com</p>
+<p>"Just 7 miles south of Lincoln, NE"</p>
+  </div>
+  <div id="contact-form" class="section">
+    Name (required)
+    Email (required)
+    Website
+    Subject
+    Message
+    <button>Submit Button</button>
+  </div>
+</div>
+
+
+
+	      
+	</div>
+      </div>
+
+      <div id="menu">
+	
+
+<div>
+  <ul>
+    <li><li class="active"><a href="/">HOME</a></li></li>
+    <li><li class=""><a href="/about">ABOUT</a></li></li>
+    <li><li class=""><a href="/news">NEWS</a></li></li>
+    <li><li class=""><a href="/programs">PROGRAMS</a></li></li>
+    <li><li class=""><a href="/calendar">CALENDAR</a></li></li>
+    <li><li class=""><a href="/contact">CONTACT</a></li></li>
+    <li><li class=""><a href="/staff_bod">STAFF &amp; BOARD</a></li></li>
+    <li><li class=""><a href="/jobs">EMPLOYMENT</a></li></li>
+    <li><li class=""><a href="/donate">DONATION</a></li></li>
+    <li><li class=""><a href="/camp">SUMMER CAMP</a></li></li>
+      <li><li class=""><a href="/users/sign_in">LOG IN</a></li></li>
+  </ul>
+</div>
+
+
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

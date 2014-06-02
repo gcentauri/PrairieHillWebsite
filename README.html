@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Full-featured Website: Prairie Hill Learning Center"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-05-27T22:37+0000"/>
+<meta name="generated" content="2014-06-02T17:44+0000"/>
 <meta name="author" content="Ander"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -165,6 +165,8 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-2-5-3">2.5.3 Create views for each of the pages needed in app/views/&hellip;</a></li>
 <li><a href="#sec-2-5-4">2.5.4 Configure ROUTES</a></li>
+<li><a href="#sec-2-5-5">2.5.5 simple<sub>form</sub></a></li>
+<li><a href="#sec-2-5-6">2.5.6 mailer contact</a></li>
 </ul></li>
 </ul>
 </li>
@@ -1627,6 +1629,61 @@ get "sign_up" =&gt; "pages#sign_up"
 get "log_in" =&gt; "pages#log_in"
 </pre>
 
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-5-5" class="outline-4">
+<h4 id="sec-2-5-5"><span class="section-number-4">2.5.5</span> simple<sub>form</sub></h4>
+<div class="outline-text-4" id="text-2-5-5">
+
+
+<ul>
+<li><code>[&nbsp;]</code> gem 'simple<sub>form'</sub>
+
+</li>
+<li><code>[&nbsp;]</code> bundle install
+
+</li>
+<li><code>[&nbsp;]</code> rails g simple<sub>form</sub>:install &ndash;bootstrap
+
+<p>
+       Be sure to have a copy of the Bootstrap stylesheet available on your
+       application, you can get it on <a href="http://twitter.github.com/bootstrap">http://twitter.github.com/bootstrap</a>.
+</p>
+<p>
+       Inside your views, use the 'simple<sub>form</sub><sub>for'</sub> with one of the Bootstrap form
+       classes, '.form-horizontal', '.form-inline', '.form-search' or
+       '.form-vertical', as the following:
+</p>
+<p>
+       = simple<sub>form</sub><sub>for</sub>(@user, html: {class: 'form-horizontal' }) do |form|
+</p></li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-5-6" class="outline-4">
+<h4 id="sec-2-5-6"><span class="section-number-4">2.5.6</span> mailer contact</h4>
+<div class="outline-text-4" id="text-2-5-6">
+
+
+<p>
+    <a href="http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/">http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/</a>
+</p>
+<p>
+    set up successfully in development
+</p>
+<ul>
+<li><code>[&nbsp;]</code> change heroku configs to prairiehill email authentication for production
 </li>
 </ul>
 

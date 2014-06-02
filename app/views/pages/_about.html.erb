@@ -1,12 +1,19 @@
-<h2 class="section-title"><span class="glyphicon glyphicon-home"></span> About PRAIRIE HILL</h2>
 
-<div class="blue-box-light">
-  <div class="large-img">
-    <%= image_tag("boot-scraping.jpg", class: "large-img") %>
+  <h2 class="section-title"><span class="glyphicon glyphicon-home"></span> About PRAIRIE HILL</h2>
+
+  <div class="blue-box-light">
+
+    <div class="large-img">
+      <%= image_tag("boot-scraping.jpg", class: "large-img") %>
+    </div>
+
+    <div id="mission" class="section">
+      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    </div>
+
+    <div id="philosophy" class="section">
+      <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+    </div>
+
   </div>
-    <section id="mission" class="section">
-      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %></section>
-    <section id="philosophy" class="section">
-      <%= cms_snippet_content('philosophy', @cms_site).html_safe %></div>
-  </div>
-</div>
+

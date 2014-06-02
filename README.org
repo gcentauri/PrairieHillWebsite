@@ -728,6 +728,32 @@ Full-featured Website: Prairie Hill Learning Center
       : get "sign_up" => "pages#sign_up"
       : get "log_in" => "pages#log_in"
 
+
+*** simple_form
+
+    - [ ] gem 'simple_form'
+
+    - [ ] bundle install
+      
+    - [ ] rails g simple_form:install --bootstrap
+
+       Be sure to have a copy of the Bootstrap stylesheet available on your
+       application, you can get it on http://twitter.github.com/bootstrap.
+
+       Inside your views, use the 'simple_form_for' with one of the Bootstrap form
+       classes, '.form-horizontal', '.form-inline', '.form-search' or
+       '.form-vertical', as the following:
+
+       = simple_form_for(@user, html: {class: 'form-horizontal' }) do |form|
+
+*** mailer contact
+
+    http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
+
+    set up successfully in development
+    
+    - [ ] change heroku configs to prairiehill email authentication for production
+
 * TODO
 
   - [ ] come up with a clever name

@@ -1,9 +1,5 @@
-class PagesController < ApplicationController
+class PagesController < InheritedResources::Base
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-
-  def home
-    @contact = Contact.new
-  end
 
   def index
     @pages = Page.all

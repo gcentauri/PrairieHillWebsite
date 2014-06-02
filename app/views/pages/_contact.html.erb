@@ -1,6 +1,34 @@
+<h2 class="section-title"><span class="glyphicon glyphicon-envelope"></span> Contact Us <span class="glyphicon glyphicon-earphone"></span></h2>
+
+<div class="blue-box-light">
+
+  <div id="contact-info" class="section">
+    <div>
+      <%= image_tag("logo-transparent.png", class: "title-logo") %>
+    </div>
+    <div>
+      <%= cms_snippet_content('contact-info', @cms_site).html_safe %>
+    </div>
+  </div>
+
+  <div id="contact-form" class="container section field form-group">
+
+  <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :message, :as => :text, :required => true %>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+  <% end %>
+  </div>
 
 
-<p>Place contact information here.</p>
+</div>
 
-<p>Place contact form here.</p>
+
 

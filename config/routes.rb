@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
   
   comfy_route :cms_admin, :path => '/admin'
 
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   get "news" => "pages#news"
   get "programs" => "pages#programs"
   get "calendar" => "pages#calendar"
-  get "contact" => "pages#contact"
+  get "contact" => "contacts#new"
   get "staff_bod" => "pages#staff"
   get "jobs" => "pages#jobs"
   get "donate" => "pages#donate"

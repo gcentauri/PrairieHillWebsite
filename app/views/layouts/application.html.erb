@@ -17,19 +17,21 @@
 	<% end %>
       </div>
 
-      <section id="head">
+      <div id="head">
 	<%= render 'layouts/header' %>
-      </section>
+      </div>
 
-      <section id="info-column">
+      <div id="info-column">
 	<div>
 	  <%= yield %>
+	  <%= render 'pages/contact' %>	      
+	
 	</div>
-      </section>
+      </div>
 
-      <section id="menu">
+      <div id="menu">
 	<%= render 'layouts/menu' %>
-      </section>
+      </div>
 
     </div>
 
