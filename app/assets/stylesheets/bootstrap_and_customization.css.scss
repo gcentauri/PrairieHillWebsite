@@ -47,14 +47,14 @@ $link-color: $phill-grn;
 
 .blue-box {
     margin-top: -30px;
-    background: $phill-blu;
+    background: white;
     padding: 25px;
     z-index: 3;
 }
 
 .blue-box-light {
     @extend .blue-box;
-    background: $phill-blu-light;
+    background: white;
 }
 
 .important-link {
@@ -310,6 +310,12 @@ a:hover {
     @extend #contact-info;
 }
 
+#mcd_13 {
+    height: 1000px;
+    resize: both;
+    overflow: auto;
+}
+
 .hidden {
     display: none;
 }
@@ -350,7 +356,7 @@ a:hover {
     
 }
 
-.text {
+.quote-text {
     font-size: 25px;
     width: 100%;
     padding: 0 35% 3% 0;
