@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_area: MyString
+  coordinator: MyString
+  sign: false
+  num_tickets: 1
+  vol_needed: MyString
+  shift_ids: MyText
+
+two:
+  work_area: MyString
+  coordinator: MyString
+  sign: false
+  num_tickets: 1
+  vol_needed: MyString
+  shift_ids: MyText

@@ -1,0 +1,9 @@
+<div id="spacer"></div>
+
+<div class="content container">
+
+<%= form_tag about_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import CSV" %>
+<% end %>
+

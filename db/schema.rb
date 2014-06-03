@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602214511) do
+ActiveRecord::Schema.define(version: 20140603205044) do
+
+  create_table "activities", force: true do |t|
+    t.string   "work_area"
+    t.string   "coordinator"
+    t.boolean  "sign"
+    t.integer  "num_tickets"
+    t.string   "vol_needed"
+    t.text     "shift_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comfy_cms_blocks", force: true do |t|
     t.string   "identifier",                      null: false
@@ -147,6 +158,14 @@ ActiveRecord::Schema.define(version: 20140602214511) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "shifts_volunteers", id: false, force: true do |t|
+    t.integer "volunteer_id"
+    t.integer "product_id"
+    t.integer "shift_id"
+  end
+
+  add_index "shifts_volunteers", ["shift_id"], name: "index_shifts_volunteers_on_shift_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

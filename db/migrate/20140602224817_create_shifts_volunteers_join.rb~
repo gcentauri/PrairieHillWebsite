@@ -1,0 +1,6 @@
+class CreateShiftsVolunteersJoin < ActiveRecord::Migration
+  def change
+    create_table :shifts_volunteers_joins do |t|
+    end
+  end
+end

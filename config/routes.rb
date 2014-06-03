@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :activities
+
   resources :shifts
   resources :volunteers
 
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   get "jobs" => "pages#jobs"
   get "donate" => "pages#donate"
   get "camp" => "pages#summer_camp"
+  get "csv" => "pages#csvupload"
 
 
   # Make sure this routeset is defined last

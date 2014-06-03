@@ -304,10 +304,14 @@ a:hover {
 #contact-info {
     font-weight: bold;
     font-size: 25px;
+    width: 50%;
+    margin: 0 auto 0 auto;
 }
 
 #contact-form {
     @extend #contact-info;
+    
+    padding-left: 10%;
 }
 
 #mcd_13 {
@@ -408,6 +412,26 @@ a:hover {
 
 #spacer {
     height: 500px;
+}
+
+.inner {
+    padding-top: 60px;
+}
+
+.show {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    background: $phill-blu-light;
+    padding: 100px;
+}
+
+.contact-show {
+    @extend .show;
+    
+    font-size: 20px;
+    padding: 14px;
+
 }
 
 /*flash*/
