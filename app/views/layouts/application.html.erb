@@ -7,7 +7,9 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
+  <body data-0="background-position: center 100%;"
+	data-500="background-position: center 40%;"
+	>
 
     <div id="wrapper">
 
@@ -17,7 +19,9 @@
 	<% end %>
       </div>
 
-      <div id="head">
+      <div id="head"
+	   data-0="height:100%;"
+	   data-500="height:0%;">
 	<%= render 'layouts/header' %>
       </div>
 
@@ -25,7 +29,6 @@
 	<div>
 	  <%= yield %>
 	  <%= render 'pages/contact' %>	      
-	
 	</div>
       </div>
 

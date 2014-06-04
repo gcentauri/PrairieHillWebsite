@@ -140,7 +140,7 @@ $link-color: $phill-grn;
     position: relative;
     width: 100%;
     overflow: hidden;
-
+    margin-top: 35%;
 }
 
 .content-top {
@@ -206,8 +206,10 @@ html, body {
     width: 100%;
     margin: auto;
     font-family: 'News Cycle';
-/*    background: $phill-gold;*/
+    background: $phill-gold;
 /*    background-image: url('earth.jpg');*/
+    background-image: url('hay-slide.png');
+    background-size: cover;
 }
 
 a {
