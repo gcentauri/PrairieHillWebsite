@@ -19,7 +19,7 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'cells'
 gem 'inherited_resources'
-
+gem 'skrollr-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development

@@ -173,6 +173,8 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    skrollr-rails (0.6.21)
+      rails (>= 3.1.0)
     spring (1.1.2)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -226,6 +228,7 @@ DEPENDENCIES
   sass-rails (= 4.0.3)
   sdoc (~> 0.4.0)
   simple_form
+  skrollr-rails
   spring
   sqlite3
   turbolinks
