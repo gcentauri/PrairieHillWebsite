@@ -17,11 +17,11 @@
 	<% end %>
       </div>
 
-      <!-- contains quote and logo box -->
-      <div id="head">
+      <div id="head"
+	   data-0="height:100%;"
+	   data-2000="height:0%;">
 	<%= render 'layouts/header' %>
       </div>
-
 
       <div id="skrollr-body">
 	<div id="info-column">

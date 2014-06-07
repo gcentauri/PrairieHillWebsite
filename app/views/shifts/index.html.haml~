@@ -1,0 +1,26 @@
+.content
+  %h2{:class => "section-title"} Shifts:
+
+  .blue-box-light
+
+    %table
+      %tr
+        %th Title
+        %th Time
+        %th Volunteers Needed
+        %th
+          %th
+            %th
+
+              - @shifts.each do |shift|
+                %tr
+                  %td= shift.title
+                  %td= shift.time
+                  %td= shift.vols_needed
+                  %td= link_to 'Show', shift
+                  %td= link_to 'Edit', edit_shift_path(shift)
+                  %td= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+                  %br
+
+                  = link_to 'New Shift', new_shift_path

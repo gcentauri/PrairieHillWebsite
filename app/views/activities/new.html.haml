@@ -1,5 +1,10 @@
-%h1 New activity
+#spacer
 
-= render 'form'
+.content
+  %h2{:class => "section-title"} Add a New Activity
 
-= link_to 'Back', activities_path
+  .blue-box-light
+
+    = render 'form'
+
+    = link_to 'Back', activities_path

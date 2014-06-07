@@ -1,5 +1,7 @@
-<div class="logo-box">
-
+<div class="logo-box" style="border-right: 2px solid #3f8000;"
+     data-0="opacity:1;"
+     data-500="opacity:0;"
+     >
   <div id="title">
     <div>
       <%= image_tag("logo-transparent.png", class: "title-logo") %>
@@ -13,14 +15,8 @@
   </div>
 </div>
 
-<% if current_page?(root_path) %>
-  <div id="quote"
-       data-0="opacity:0.5;"
-       data-500="opacity:0;"
-       >
-    <%= render 'layouts/quote' %>
-  </div>
-<% end %>
-
+<div>
+  <div style="display:none;" class="phone">(402) 438-6668</div>
+</div>
 
 

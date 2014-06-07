@@ -1,24 +1,29 @@
-%p#notice= notice
+.content
+  %h2{:class => "section-title"} Activity Created:
 
-%p
-  %b Work area:
-  = @activity.work_area
-%p
-  %b Coordinator:
-  = @activity.coordinator
-%p
-  %b Sign:
-  = @activity.sign
-%p
-  %b Num tickets:
-  = @activity.num_tickets
-%p
-  %b Vol needed:
-  = @activity.vol_needed
-%p
-  %b Shift ids:
-  = @activity.shift_ids
+  .blue-box-light
 
-= link_to 'Edit', edit_activity_path(@activity)
-\|
-= link_to 'Back', activities_path
+    %p#notice.inner= notice
+
+    %p
+      %b Work area:
+      = @activity.work_area
+    %p
+      %b Coordinator:
+      = @activity.coordinator
+    %p
+      %b Sign:
+      = @activity.sign
+    %p
+      %b Num tickets:
+      = @activity.num_tickets
+    %p
+      %b Vol needed:
+      = @activity.vol_needed
+    %p
+      %b Shift ids:
+      = @activity.shift_ids
+
+    = link_to 'Edit', edit_activity_path(@activity)
+    \|
+    = link_to 'Back', activities_path

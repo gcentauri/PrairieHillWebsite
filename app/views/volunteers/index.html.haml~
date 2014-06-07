@@ -1,0 +1,26 @@
+.content
+  %h2{:class => "section-title"} Volunteers:
+
+  .blue-box-light
+
+    %table
+      %tr
+        %th Name
+        %th Email
+        %th Phone Number
+        %th
+          %th
+            %th
+
+              - @volunteers.each do |volunteer|
+                %tr
+                  %td= volunteer.name
+                  %td= volunteer.email
+                  %td= volunteer.phone
+                  %td= link_to 'Show', volunteer
+                  %td= link_to 'Edit', edit_volunteer_path(volunteer)
+                  %td= link_to 'Destroy', volunteer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+                  %br
+
+                  = link_to 'New Volunteer', new_volunteer_path

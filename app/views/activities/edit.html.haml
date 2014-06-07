@@ -1,7 +1,10 @@
-%h1 Editing activity
+.content
+  %h2{:class => "section-title"} Edit Activity:
 
-= render 'form'
+  .blue-box-light
 
-= link_to 'Show', @activity
-\|
-= link_to 'Back', activities_path
+    = render 'form'
+
+    = link_to 'Show', @activity
+    \|
+    = link_to 'Back', activities_path

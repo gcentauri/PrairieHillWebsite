@@ -1,11 +1,7 @@
-<div id="spacer"></div>
-
 <div class="content container">
 
 <h2 class="section-title">
-
   Volunteer has been created!
-
 </h2>
 
 <div class="blue-box-light">
@@ -13,4 +9,9 @@
     <%= @volunteer.name %><br />
     <%= @volunteer.email %><br />
     <%= @volunteer.phone %><br />
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_volunteer_path(@volunteer) %>
+    <%= link_to 'Volunteers', volunteers_path(@volunteer) %>
+    <%= link_to 'New', new_volunteer_path(@volunteer) %>
   </p>

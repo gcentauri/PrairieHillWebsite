@@ -1,6 +1,18 @@
-<div id="spacer"></div>
-
 <div class="content container">
 
-<div class="inner">
-  show
+<h2 class="section-title">
+  Shift has been created!
+</h2>
+
+<div class="blue-box-light">
+  <p class="show">
+    <%= @shift.title %><br />
+    <%= @shift.time %><br />
+    <%= @shift.vols_needed %><br />
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_shift_path(@shift) %>
+    <%= link_to 'Shifts', shifts_path(@shift) %>
+    <%= link_to 'New', new_shift_path(@shift) %>
+  </p>
+
