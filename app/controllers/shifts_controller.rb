@@ -5,6 +5,10 @@ class ShiftsController < ApplicationController
     @shifts = Shift.all
   end
 
+  def volunteer
+    @shifts = Shift.all
+  end
+
   def show
   end
 

@@ -33,8 +33,13 @@
 
       <div id="skrollr-body">
 	<div id="info-column">
-	  <%= yield %>
-	  <%= render 'pages/contact' %>	      
+	  <% if !current_page?(contact_path) %>
+	    <%= yield %>
+	    <%= render 'pages/contact' %>	      
+	  <% else %>
+	    <%= request.env['PATH_INFO'] %>
+	    <%= render 'pages/contact' %>	      
+	  <% end %>
 	</div>
       </div>
 

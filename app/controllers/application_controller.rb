@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_contacts
+
   def set_contacts
     @contact = Contact.new
   end

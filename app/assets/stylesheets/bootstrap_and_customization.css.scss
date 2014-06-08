@@ -92,11 +92,11 @@ $link-color: $phill-grn;
 
 }
 
-.med-img {
-    width: 50%;
-    border-radius: 5px;
-    margin: 10px;
-}
+/* .med-img { */
+/*     width: 50%; */
+/*     border-radius: 5px; */
+/*     margin: 10px; */
+/* } */
 
 .large-img {
     width: 100%;
@@ -104,6 +104,12 @@ $link-color: $phill-grn;
     padding: 0;
     top: 0;
     overflow: hidden;
+}
+
+.med-img {
+    @extend .large-img;
+
+    width: 50%;
 }
 
 .nav-pills {
