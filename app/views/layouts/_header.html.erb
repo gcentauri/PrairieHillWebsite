@@ -4,6 +4,12 @@
     <div>
       <%= image_tag("logo-transparent.png", class: "title-logo") %>
     </div>
+    <div style="display: none;"
+	 data-0="opacity:0;"
+	 data-600="opacity:0.9;"
+	 >
+      <%= image_tag("logo-transparent.png", class: "title-logo-fixed") %>
+    </div>
     <div class="title-name">
       <strong>PRAIRIE HILL</strong>
     </div> 
@@ -14,13 +20,19 @@
 </div>
 
 <% if current_page?(root_path) %>
-  <div id="quote"
-       data-0="opacity:0.5;"
-       data-500="opacity:0;"
-       >
-    <%= render 'layouts/quote' %>
-  </div>
+  <%= render 'page_add_quote' %>
+<% else %>
+  <% $current_uri = request.env['PATH_INFO'] %>
+  <% case $current_uri %>
+  <% when about_path %>
+  <%= render 'page_add_about' %>
+  <% when news_path %>
+  <%= render 'page_add_news' %>
 <% end %>
+<% end %>
+
+
+
 
 
 

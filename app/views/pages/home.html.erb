@@ -1,20 +1,20 @@
 <div class="slide-1"
-     data-0="background-position: 0% 100%;"
-     data-2000="background-position: 50% 0%;">
-<div id="mission-statement"
-     data-250="opacity:0;"
-     data-500="opacity:0.5;">
-  <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-</div>
+     data-0="background-position: 0% 130%;"
+     data-2000="background-position: 0% 0%;">
+  <div id="mission-statement"
+       data-250="opacity:0;"
+       data-500="opacity:0.5;">
+    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+  </div>
 </div>
 
 <div class="content">
 
-  <div id="latest-news">
+  <div id="latest-news" class="content-top">
     <%= render 'news' %>
   </div>
 
-  <div id="about">
+  <div id="about" class="content-top">
     <%= render 'about' %>
   </div>
 

@@ -18,10 +18,18 @@
       </div>
 
       <!-- contains quote and logo box -->
-      <div id="head">
-	<%= render 'layouts/header' %>
-      </div>
-
+      <% if current_page?(root_path) %>
+	<div id="head">
+	  <%= render 'layouts/header' %>
+	</div>
+      <% else %>
+	<div id="head"
+	     data-0="height:100%;"
+	     data-500="height:50%;"
+	     >
+	  <%= render 'layouts/header' %>
+	</div>
+      <% end %>
 
       <div id="skrollr-body">
 	<div id="info-column">
