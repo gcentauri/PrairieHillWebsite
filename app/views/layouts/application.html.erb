@@ -11,26 +11,25 @@
 
     <div id="wrapper">
 
+      <!-- HEADER -->
+      <% if current_page?(root_path) %>
+	<div id="head">
+	  <%= render 'layouts/header' %>
+	</div>
+      <% else %>
+	<div id="head" style="height:50%;">
+	  <%= render 'layouts/header' %>
+	</div>
+      <% end %>
+      <!-- END HEADER -->
+
       <div>
 	<% flash.each do |name, msg| %>
 	  <%= content_tag(:div, msg, class: "alert alert-info") %>
 	<% end %>
       </div>
 
-      <!-- contains quote and logo box -->
-      <% if current_page?(root_path) %>
-	<div id="head">
-	  <%= render 'layouts/header' %>
-	</div>
-      <% else %>
-	<div id="head"
-	     data-0="height:100%;"
-	     data-500="height:50%;"
-	     >
-	  <%= render 'layouts/header' %>
-	</div>
-      <% end %>
-
+      <!-- CONTENT -->
       <div id="skrollr-body">
 	<div id="info-column">
 	  <% if !current_page?(contact_path) %>
@@ -41,7 +40,12 @@
 	    <%= render 'pages/contact' %>	      
 	  <% end %>
 	</div>
+	<div class="container">
+	  <%= cms_snippet_content('legal', @cms_site).html_safe %>
+	</div>
       </div>
+      <!-- END CONTENT -->
+
 
       <div id="menu">
 	<%= render 'layouts/menu' %>
@@ -49,6 +53,7 @@
 
     </div>
 
+    <!-- jSCRIPT -->
     <script>
      (function($){
        skrollr.init({
@@ -57,6 +62,7 @@
        }).refresh();
      } (jQuery));
     </script>
+    <!-- END jSCRIPT -->
 
   </body>
 </html>

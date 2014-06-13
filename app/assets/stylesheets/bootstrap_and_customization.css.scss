@@ -11,6 +11,17 @@ $nav-link-hover-bg: $phill-gold;
 $font-family-sans-serif: 'News Cycle', 'Roboto';
 $link-color: $phill-grn;
 
+$list-group-link-color: white;
+$list-group-link-hover-color: $phill-grn;
+$list-group-hover-bg: $phill-gold;
+$list-group-border: white;
+
+$badge-color: $phill-gold;
+$badge-bg: transparent;
+$list-group-bg: $phill-grn;
+$badge-border-radius: 50%;
+$badge-link-hover-color: $phill-grn;
+
 
 @import 'bootstrap';
 @import 'NEW';
@@ -233,7 +244,7 @@ html, body {
     width: 100%;
     margin: auto;
     font-family: 'News Cycle';
-    background: $phill-blu-light;
+    background: white;
 }
 
 a {
@@ -289,6 +300,13 @@ a:hover {
     background: $phill-gold;
     padding: 15px;
     width: 100%;
+}
+
+.hi-li-simple {
+/*    color: $phill-gold;
+    background: $phill-grn;*/
+    padding: 0 5px 0 5px;
+    margin-bottom: 8px;
 }
 
 .title-name {
@@ -464,6 +482,10 @@ a:hover {
     padding-top: 80px;
 }
 
+.inner-lower {
+    padding-top: 160px;
+}
+
 .show {
     font-weight: bold;
     font-size: 35px;
@@ -538,4 +560,37 @@ a:hover {
 /*	position: relative;*/
     }
 
+}
+
+.badge {
+    padding: 7px;
+    min-width: 20px;
+    font-size: 40px;
+}
+
+.badge-volunteer {
+    @extend .badge;
+    
+    color: white;
+    background: $phill-grn;
+}
+
+.list-group-item {
+    font-size: 45px;
+    padding: 25px 25px 45px 25px;
+    border-width: 3px;
+    
+    &:hover,
+    &:focus {
+	.badge {
+	    color: $phill-grn;
+	}
+    }
+}
+
+#legal {
+    background: $phill-blu-light;
+    margin: 0 auto 10em auto;
+    width: 75%;
+    padding: 20px;
 }

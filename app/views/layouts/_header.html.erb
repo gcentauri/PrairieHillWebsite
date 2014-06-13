@@ -21,20 +21,6 @@
 
 <% if current_page?(root_path) %>
   <%= render 'page_add_quote' %>
-<% else %>
-  <% $current_uri = request.env['PATH_INFO'] %>
-  <% case $current_uri %>
-  <% when about_path %>
-  <%= render 'page_add_about' %>
-  <% when news_path %>
-  <%= render 'page_add_news' %>
-  <% when programs_path %>
-  <%= render 'page_add_programs' %>
-  <% when calendar_path %>
-  <%= render 'page_add_calendar' %>
-  <% when contact_path %>
-  <%= render '/pages/page_add_contact' %>
-<% end %>
 <% end %>
 
 
