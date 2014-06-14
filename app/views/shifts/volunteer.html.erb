@@ -11,40 +11,42 @@
 
     <div class="list-group">
       <% @uniq_shifts.each do |title| %>
+	<% @shifts_by_title = @shifts.where(title: title) %>
 	<% @vols = @shifts.where(title: title).pluck(:vols_needed).sum %>
+	<% @times = @shifts.where(title: title).pluck(:time) %>
+	<% @time_vols = @shifts.where(title: title).pluck(:vols_needed) %>	
 
 	<% if @vols > 0 %>
-	  <a href="#" class="list-group-item">
-	    <%= title %>
-	    <span class="badge"><%= @vols %></span>
-	  </a>
+
+	  <div class="activity">
+	    <a href="#" class="list-group-item">
+	      <%= title %>
+	      <span class="badge"><%= @vols %></span>
+	    </a>
+	  </div>
+
+	  <div class="sub" style="display:none;">
+	    <% @shifts_by_title.each do |shift| %>
+	      <a href="#" class="list-group-item-sub">
+		<%= shift.time %>
+		<span class="badge"><%= shift.vols_needed %></span>
+	      </a>
+	    <% end %>
+	  </div>
 	<% end %>
 
       <% end %>
     </div>
   </div>
 
-  <div class="hidden">    
-    <div class="panel-heading">Activity Shifts needing assistance</div>
-    <div class="panel-body">
-      Some information about volunteering...
-    </div>
+  <script>
 
-    <div>
-      <table class="table">
+   $(".activity").click(function(){
+     $(this).next('.sub').toggle('slow');
+     return false;
+   });
 
-	<% @uniq_shifts.each do |title| %>
-	  <% @vols = @shifts.where(title: title).pluck(:vols_needed).sum %>
-	  <tr class="well">
-
-	    <td style="color:green;"><%= title %></td>
-	    <td><%= @vols %></td>
-	  </tr>
-	<% end %>
-
-      </table>
-    </div>
-  </div>
-
+  </script>
+  
 </div>
 

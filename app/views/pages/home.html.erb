@@ -6,6 +6,12 @@
        data-500="opacity:0.5;">
     <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
   </div>
+  <div id="unique">
+    <h2 class="hi-li-2 container center" style="margin: 0 0 0 55%;background:green;width:35%;">What makes PRAIRIE HILL unique?</h2>
+    <div>
+      <%= cms_snippet_content('ph-unique', @cms_site).html_safe %>
+    </div>
+  </div>
 </div>
 
 <div class="content">
@@ -20,5 +26,19 @@
 
 </div>
 
+<script>
+
+ $("#slideshow > div:gt(0)").hide();
+
+ setInterval(function() { 
+   $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+ },  6000);
+
+</script>
 
 

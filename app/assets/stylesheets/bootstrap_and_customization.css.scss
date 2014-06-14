@@ -34,6 +34,14 @@ $badge-link-hover-color: $phill-grn;
     text-align: center;
 }
 
+.right {
+    text-align: right;
+}
+
+.script {
+    font-family: 'Shadows Into Light Two';
+}
+
 .section-title {
     font-family: 'Shadows Into Light Two', 'Playball', 'Open Sans Condensed', 'Poiret One', 'BenchNine', 'Kaushan Script', 'Clicker Script';
     font-size: 55px;
@@ -72,6 +80,40 @@ $badge-link-hover-color: $phill-grn;
 .section {
     padding: 20px 0 10px 0;
     clear: both;
+}
+
+#slideshow {
+ /*   margin: 50px auto; */
+    position: relative; 
+/*    width: 240px; 
+    height: 240px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); */
+}
+
+#slideshow > div { 
+    @extend #unique-box;
+    position: absolute; 
+    right: 0;
+/*    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; */
+}
+
+#unique {
+    margin: 50px 0 0 0;
+}
+
+#unique-box {
+/*    background: $phill-gold;*/
+    background: white;
+    opacity: 0.7;
+    font-size: 25px;
+    font-weight: bold;
+    width: 35%;
+    margin: 0 10% 0 auto;
+    padding: 15px;
 }
 
 .blue-box {
@@ -300,6 +342,11 @@ a:hover {
     background: $phill-gold;
     padding: 15px;
     width: 100%;
+}
+
+.hi-li-2 {
+    color: $phill-gold;
+    font-family: 'Shadows Into Light Two';
 }
 
 .hi-li-simple {
@@ -588,9 +635,30 @@ a:hover {
     }
 }
 
+.list-group-item-sub {
+    @extend .list-group-item;
+    
+    width: 80%;
+}
+
+a.list-group-item-sub {
+    background: white;
+    color: $phill-grn;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 #legal {
     background: $phill-blu-light;
     margin: 0 auto 10em auto;
     width: 75%;
     padding: 20px;
+}
+
+.sub {
+
+}
+
+div.list-group-item {
+    @extend a.list-group-item
 }

@@ -56,10 +56,30 @@ Full-featured Website: Prairie Hill Learning Center
     - [ ] Summer Camp Registration model?
 
     - [ ] Volunteers/CCF
+      
+      - [ ] connect devise users with shifts?
 
-  - [ ] BLOG/NEWSfeed for news updates?
+      - [ ] Sign up views
 
-  - [ ] PAGEs for general website content
+	- [ ] if user signed in...
+
+	- [ ] time to learn some jQuery!
+
+	  
+
+	- [ ] FIRST: Shows Activity titles and a number of volunteers total needed
+	  
+	- [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
+	  and number of volunteers still needed for each, just after a description
+	  of the activity itself
+
+	  - [ ] checkboxes for selected desired shifts?
+	    
+	  - [ ] ability to remove volunteer from shifts
+
+	- [ ] BLOG/NEWSfeed for news updates?
+
+	- [ ] PAGEs for general website content
 
 * Development Documentation
 
