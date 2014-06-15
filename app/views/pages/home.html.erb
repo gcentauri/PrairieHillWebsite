@@ -16,7 +16,9 @@
 
 <div class="content">
 
-  <div id="latest-news" class="content-top">
+  <div id="latest-news" class="content-top"
+       data-0="opacity:0;"
+       data-2000="opacity:1;">
     <%= render 'news' %>
   </div>
 
@@ -32,12 +34,12 @@
 
  setInterval(function() { 
    $('#slideshow > div:first')
-    .fadeOut(1000)
+    .fadeOut(2000)
     .next()
-    .fadeIn(1000)
+    .fadeIn(2000)
     .end()
     .appendTo('#slideshow');
- },  6000);
+ },  9000);
 
 </script>
 
