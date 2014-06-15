@@ -4,8 +4,12 @@
   <p class="show">
     <%= @shift.title %><br />
     <%= @shift.time %><br />
-    <%= @shift.vols_needed %><br />
-    <%= @shift.user_ids %>
+    <%= (@shift.vols_needed) - @volunteered %><br />
+
+      <% @shift.user_ids.each do |user| %>
+	<%= User.find(user).name %><br />
+      <% end %>
+
   </p>
   <p>
     <%= render 'form' %>
