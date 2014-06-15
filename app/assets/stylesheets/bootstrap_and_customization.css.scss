@@ -147,6 +147,29 @@ $badge-link-hover-color: $phill-grn;
 
 /* header */
 
+#log-in-out {
+    font-size: 2vw;
+    color: $phill-gold;
+    float: right;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    ul {
+	list-style-type: none;
+    }
+
+    ul li {
+	font-family: 'Shadows Into Light Two';
+	padding: 1px 8px 0 0;
+    }
+
+    ul li a {
+	color: $phill-gold;
+    }
+}
+
 .head {
 
     background: white;
@@ -242,27 +265,26 @@ ul {
     list-style-type: none;
 }
 
-#child-activities {
-    margin: 10px;
+#activities {
+    margin: 0 auto 0 auto;
+    width: 50%;
+    height: 700px;
+    
+    ul {
+	list-style-type: none;
+	margin: 5px;
+    }
+
+    ul li {
+	font-size: 6vw;
+	background: $phill-gold;
+	padding: 15px;
+	margin: 5px 15px 5px 15px;
+	border-radius: 4px;
+	text-align: center;
+	display: block;
+    }
 }
-
-#child-activites ul {
-    list-style-type: none;
-    margin: 5px;
-}
-
-#child-activities li {
-    font-size: 26px;
-    background: $phill-gold;
-    padding: 5px 15px 5px 15px;
-    margin: 5px 15px 5px 15px;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: bold;
-    display: block;
-}
-
-
 
 
 /* footer */
@@ -301,7 +323,7 @@ a {
     color: #3f8000;
     text-decoration: none;
     font-weight: bold;
-    padding: 12px;
+
 }
 
 a:hover {
@@ -324,22 +346,7 @@ a:hover {
     z-index: 0;
 }
 
-.logo-box {
-    background: $phill-gold;
-    border-radius: 2px;
-    height: 170px;
-    width: 40%;
-}
 
-#title {
-    background: $phill-gold;
-    height: 60px;
-    opacity: 0.9;
-
-    text-align: left;
-    z-index: 3;
-    clear: both;
-}
 
 .sub-title {
     text-align: center;
@@ -363,10 +370,27 @@ a:hover {
     margin-bottom: 8px;
 }
 
+.logo-box {
+    background: $phill-gold;
+    border-radius: 2px;
+    height: 170px;
+    width: 40%;
+}
+
+#title {
+    background: $phill-gold;
+    height: 60px;
+    opacity: 0.9;
+
+    text-align: left;
+    z-index: 3;
+    clear: both;
+}
+
 .title-name {
     color: white;
-    padding: 0 0 0 15px;
-    font-size: 5vw;
+    padding: 0 15px 0 15px;
+    font-size: 4.8vw;
     background: $phill-grn;
 }
 
@@ -436,9 +460,13 @@ a:hover {
     }
 
     ul li {
-	font-size: 1.45vw;
+	font-size: 1.44vw;
 	display: inline;
 	text-align: center;
+    }
+
+    a {
+        padding: 12px;
     }
 }
 
@@ -663,9 +691,13 @@ div.list-group-item {
 
     .logo-box {
 	width: 100%;
+	height: 10%;
     }
 
-
+    .title-name {
+	width: 50%;
+    }
+    
     #menu {
 /*	position: relative;*/
     }

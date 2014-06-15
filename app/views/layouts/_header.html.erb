@@ -19,6 +19,26 @@
   </div>
 </div>
 
+<div id="log-in-out">
+  <ul>
+    <% if user_signed_in? %>
+      <li>
+	<em>
+	  <%= link_to destroy_user_session_path, method: :delete do %>
+	    Sign out
+	  <% end %>
+	</em>
+      </li>
+    <% else %>
+      <li>
+	<em>
+	  <%= nav_link "Sign in", new_user_session_path %>
+	</em>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <% if current_page?(root_path) %>
   <%= render 'page_add_quote' %>
 <% end %>

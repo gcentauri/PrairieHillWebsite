@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603205044) do
+ActiveRecord::Schema.define(version: 20140615221019) do
 
   create_table "activities", force: true do |t|
     t.string   "work_area"
@@ -157,6 +157,12 @@ ActiveRecord::Schema.define(version: 20140603205044) do
     t.integer  "vols_needed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "user_ids"
+  end
+
+  create_table "shifts_users", force: true do |t|
+    t.integer "shift_id"
+    t.integer "user_id"
   end
 
   create_table "shifts_volunteers", id: false, force: true do |t|
@@ -187,6 +193,11 @@ ActiveRecord::Schema.define(version: 20140603205044) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
+
+  create_table "users_shifts", force: true do |t|
+    t.integer "user_id"
+    t.integer "shift_id"
+  end
 
   create_table "volunteers", force: true do |t|
     t.string   "name"

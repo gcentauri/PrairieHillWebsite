@@ -1,6 +1,6 @@
 
 
-<div>
+<div id="menu-browser">
   <ul>
     <li><%= nav_link "HOME", root_path %></li>
     <li><%= nav_link "ABOUT", about_path %></li>
@@ -12,14 +12,10 @@
     <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
     <li><%= nav_link "DONATION", donate_path %></li>
     <li><%= nav_link "SUMMER CAMP", camp_path %></li>
-    <% if user_signed_in? %>
-      <li><%= link_to destroy_user_session_path, method: :delete do %>
-	LOG OUT</li>
-      <% end %>
-    <% else %>
-      <li><%= nav_link "LOG IN", new_user_session_path %></li>
-    <% end %>
+    <li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
   </ul>
 </div>
 
+<div id="menu-mobile" style="display:none;">
 
+</div>

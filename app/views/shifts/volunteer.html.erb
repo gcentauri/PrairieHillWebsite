@@ -31,6 +31,10 @@
 		<%= shift.time %>
 		<span class="badge"><%= shift.vols_needed %></span>
 	      </a>
+	      <%= form_for shift, :method => :put do |f| %>
+		<%= f.hidden_field :user_ids, :value => shift.add_user_id(@user.id) %>
+		<%= f.submit "sign up", class: "btn" %>
+	      <% end %>
 	    <% end %>
 	  </div>
 	<% end %>

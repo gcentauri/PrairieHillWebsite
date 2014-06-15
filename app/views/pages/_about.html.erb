@@ -22,3 +22,17 @@
 </div>
 
 
+<script>
+
+ $("#activities-list > li:gt(0)").hide();
+
+ setInterval(function() { 
+   $('#activities-list > li:first')
+    .fadeOut(5000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#activities-list');
+ },  9000);
+
+</script>

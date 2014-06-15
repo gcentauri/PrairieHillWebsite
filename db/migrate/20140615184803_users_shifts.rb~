@@ -1,0 +1,4 @@
+class UsersShifts < ActiveRecord::Migration
+  def change
+  end
+end

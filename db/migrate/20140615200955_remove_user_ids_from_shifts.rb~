@@ -1,0 +1,4 @@
+class RemoveUserIdsFromShifts < ActiveRecord::Migration
+  def change
+  end
+end
