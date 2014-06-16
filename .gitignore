@@ -15,5 +15,7 @@
 /log/*.log
 /tmp
 
-.env
+.env*
 Procfile
+
+/config/secrets.yml
