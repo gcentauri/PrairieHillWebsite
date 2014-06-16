@@ -31,6 +31,15 @@
 	</em>
       </li>
 
+      <% if current_user.admin == true %>
+
+	<li>
+	  <em>
+	    <%= link_to "Admin", comfy_admin_cms_path %>
+	  </em>
+	</li>
+      <% end %>
+
     <% else %>
 
       <li>
