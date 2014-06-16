@@ -1,15 +1,14 @@
-<div class="container content-high">
+<div class="">
 
   <h2 class="section-title">Create an account:</h2>
-  <div class="blue-box-light">
-
+  <div class="">
 
     <div class="center inner">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 	<%= devise_error_messages! %>
 
 	<div><%= f.label :name %><br />
-	  <%= f.text_field :name, autofocus: true %></div>
+	  <%= f.text_field :name %></div>
 
 	<div><%= f.label :username %><br />
 	  <%= f.text_field :username %></div>

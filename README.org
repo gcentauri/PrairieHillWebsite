@@ -4,14 +4,14 @@ Full-featured Website: Prairie Hill Learning Center
 
   After over 2 years of frustration with the wordpress managed website content
   for the Prairie Hill website (whether due to the way that wordpress arranges
-  itself or my own ignorance and lack of education in web design), this is an
-  attempt to try something new. Having a nice solid foundation in building
-  an application with Rails, I feel like now is the time to build something
-  from the ground up that will hopefully meet my needs for control and 
-  understanding for building and modifying the backend functionality (most
-  importantly without having to go through all of BS of using the actual
-  web content management editors and having so many extraneous steps and 
-  instead just use my phracking text editor!), as well as the front end need
+  itself or my own ignorance and lack of education in web design, php, etc), 
+  this is an attempt to try something new. Having a nice solid foundation in 
+  building an application with Rails, I feel like now is the time to build 
+  something from the ground up that will hopefully meet my needs for control 
+  and understanding for building and modifying the backend functionality 
+  (most importantly without having to go through all of hassle of using the 
+  actual web content management editors and having so many extraneous steps,
+  instead of just using my text editor...), as well as the front end need
   for admin staff to update content, which is what is important to them in
   the basic functionality of the site. I take care of the functionality and
   aesthetic; they give it the words.
@@ -23,29 +23,25 @@ Full-featured Website: Prairie Hill Learning Center
     These users will have various access to update content and that's really
     all that they need. However,
 
-    - [ ] Admin vs normal user?
+    - [ ] Admin user?
 
       Perhaps that won't be necessary. The only need for a user is to be able
       to update content. Even an admin, at this point, will not need to change 
       anything else.
 
-      Although, getting people to sign up for general user accounts for signing 
-      up for summer camp will be helpful for collection of contact data
+    - [ ] Using ComfortableMexicanSofa for Content Management
 
-    - [ ] Content updating forms 
-        should 
-      - [ ] be able to have images added to content by users
-      - [ ] accept HTML input 
-	OR, for what they are used to is WYSIWYG
+      - [ ] already set up to use Paperclip for images
+
       - [ ] WYSIWYG
-	or both...
-	in other words, select a word, push a button that makes it bold, italic, etc
-	Uggg, this is where this shit gets annoying. You end up building a bunch of nonsense
-	that actually makes it more complicated in a way, when it would be simpler to learn
-	some basic html... but that's my opinion. I also feel like this is where Wordpress
-	has gone a little haywire at times, adding markup where it's not needed, while
-	at the same time not allowing some user provided markup to pass through unless
-	placed within a <code> element.
+
+	- [ ] how to modify editor page styles
+
+	  
+
+	  - [ ] editor window is very short
+
+
 
     - [ ] Private content
 
@@ -64,8 +60,6 @@ Full-featured Website: Prairie Hill Learning Center
 	- [ ] if user signed in...
 
 	- [ ] time to learn some jQuery!
-
-	  
 
 	- [ ] FIRST: Shows Activity titles and a number of volunteers total needed
 	  

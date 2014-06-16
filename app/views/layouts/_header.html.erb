@@ -22,6 +22,7 @@
 <div id="log-in-out">
   <ul>
     <% if user_signed_in? %>
+
       <li>
 	<em>
 	  <%= link_to destroy_user_session_path, method: :delete do %>
@@ -29,12 +30,18 @@
 	  <% end %>
 	</em>
       </li>
+
     <% else %>
+
       <li>
 	<em>
 	  <%= nav_link "Sign in", new_user_session_path %>
 	</em>
+	<em>
+	  <%= nav_link "Sign up", new_user_registration_path %>
+	</em>
       </li>
+
     <% end %>
   </ul>
 </div>
