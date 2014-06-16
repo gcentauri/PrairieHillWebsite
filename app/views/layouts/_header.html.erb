@@ -1,22 +1,23 @@
 <div class="logo-box">
 
   <div id="title">
+
+
     <div>
       <%= image_tag("logo-transparent.png", class: "title-logo") %>
     </div>
-    <div style="display: none;"
-	 data-0="opacity:0;"
-	 data-600="opacity:0.9;"
-	 >
-      <%= image_tag("logo-transparent.png", class: "title-logo-fixed") %>
-    </div>
+
     <div class="title-name">
       <strong>PRAIRIE HILL</strong>
     </div> 
+
     <div class="title-sub-name">
       <em>Learning Center</em>
     </div>
+
+
   </div>
+
 </div>
 
 <div id="log-in-out">
@@ -28,6 +29,12 @@
 	  <%= link_to destroy_user_session_path, method: :delete do %>
 	    Sign out
 	  <% end %>
+	</em>
+      </li>
+
+      <li>
+	<em>
+	  <%= link_to "Country Fair", ccf_path %>
 	</em>
       </li>
 

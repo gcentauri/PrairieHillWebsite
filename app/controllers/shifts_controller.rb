@@ -9,7 +9,7 @@ class ShiftsController < ApplicationController
   def volunteer
     @shifts = Shift.all
     @user = current_user
-    @volunteered = @shift.user_ids.length
+#    @volunteered = @shift.user_ids.length
 
   end
 

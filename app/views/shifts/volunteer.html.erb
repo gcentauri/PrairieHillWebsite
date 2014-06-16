@@ -18,25 +18,34 @@
 
 	<% if @vols > 0 %>
 
-	  <div class="activity">
+	  <div id=<%= "activity#{title}" %> class="activity">
+
 	    <a href="#" class="list-group-item">
 	      <%= title %>
-	      <span class="badge"><%= @vols %></span>
+	      <span class="badge-volunteer"><%= @vols %></span>
 	    </a>
+
 	  </div>
 
-	  <div class="sub" style="display:none;">
-	    <% @shifts_by_title.each do |shift| %>
-	      <a href="#" class="list-group-item-sub">
-		<%= shift.time %>
-		<span class="badge"><%= shift.vols_needed %></span>
-	      </a>
-	      <%= form_for shift, :method => :put do |f| %>
-		<%= f.hidden_field :user_ids, :value => shift.add_user_id(@user.id) %>
-		<%= f.submit "sign up", class: "btn" %>
+	    <div class="sub" style="display:none;">
+	      <% @shifts_by_title.each do |shift| %>
+
+		<a href="#" class="list-group-item-sub">
+		  <%= shift.time %>
+		  <span class="badge">
+		    <%= shift.vols_needed %>
+		    <%= form_for shift, :method => :put do |f| %>
+		      <%= f.hidden_field :user_ids, :value => shift.add_user_id(@user.id) %>
+		      <%= f.submit "sign up", class: "btn btn-primary" %>
+		    <% end %>
+
+		  </span>
+		</a>
+
+
 	      <% end %>
-	    <% end %>
-	  </div>
+	    </div>
+	  
 	<% end %>
 
       <% end %>
@@ -45,7 +54,7 @@
 
   <script>
 
-   $(".activity").click(function(){
+   $('.activity').click(function(){
      $(this).next('.sub').toggle('slow');
      return false;
    });

@@ -267,7 +267,7 @@ ul {
 
 #activities {
     margin: 0 auto 0 auto;
-    width: 50%;
+    width: 100%;
     height: 700px;
     
     ul {
@@ -389,7 +389,7 @@ a:hover {
 
 .title-name {
     color: white;
-    padding: 0 15px 0 15px;
+    padding: 0 10px 0 15px;
     font-size: 4.8vw;
     background: $phill-grn;
 }
@@ -484,22 +484,6 @@ a:hover {
     position: absolute;
 }
 
-.slide-1 {
-    height: 1250px;
-    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/024/original/hay-slide.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0% 70%;
-}
-
-#mission-statement {
-    @extend #quote;
-
-    height: 200px;
-    position: relative;
-    top: 10px;
-}
-
 .quote-text {
     font-size: 2vw; /*25px;*/
     width: 100%;
@@ -516,6 +500,23 @@ a:hover {
     width: 60%;
     padding: auto;
 }
+
+.slide-1 {
+    height: 1250px;
+    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/024/original/hay-slide.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 70%;
+}
+
+#mission-statement {
+    @extend #quote;
+
+    height: 200px;
+    position: relative;
+    top: 10px;
+}
+
 
 #info-column {
     padding-bottom: 3em;
@@ -623,6 +624,8 @@ a:hover {
     padding: 7px;
     min-width: 20px;
     font-size: 40px;
+    color: $phill-grn;
+    background: $phill-gold;
 }
 
 .badge-volunteer {
@@ -634,13 +637,15 @@ a:hover {
 
 .list-group-item {
     font-size: 45px;
-    padding: 25px 25px 45px 25px;
+    padding: 25px 25px 65px 25px;
     border-width: 3px;
+    position: static;
     
     &:hover,
     &:focus {
-	.badge {
+	.badge-volunteer {
 	    color: $phill-grn;
+	    background: $phill-gold;
 	}
     }
 }
@@ -648,14 +653,21 @@ a:hover {
 .list-group-item-sub {
     @extend .list-group-item;
     
-    width: 80%;
+    width: 90%;
+    position: static;
 }
 
 a.list-group-item-sub {
-    background: white;
     color: $phill-grn;
     font-size: 20px;
     font-weight: bold;
+    background: white;
+
+    &:hover,
+    &:focus {
+	background: $phill-blu-light;	
+    }
+
 }
 
 #legal {
@@ -665,8 +677,13 @@ a.list-group-item-sub {
     padding: 20px;
 }
 
-.sub {
+.activity {
+    position: static;
+}
 
+.sub {
+    position: static;
+    float: right;
 }
 
 div.list-group-item {
@@ -694,12 +711,36 @@ div.list-group-item {
 	height: 10%;
     }
 
+    #title {
+	height: 100%;
+    }
+
     .title-name {
-	width: 50%;
+	width: 70%;
+	font-size: 8vw;
+	height: 100%;
+	padding: 0 0 0 15px;
+	margin-top: 10px;
+    }
+
+    .title-sub-name {
+	margin-top: -65px;
+	padding: 0 20px 0 0;
+    }
+
+    .quote-text {
+	font-size: 4vw;
+    }
+
+    .author {
+	font-size: 2vw;
     }
     
     #menu {
 /*	position: relative;*/
+	ul li {
+	    font-size: 3vw;
+	}
     }
 
 }
