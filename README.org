@@ -23,11 +23,11 @@ Full-featured Website: Prairie Hill Learning Center
     These users will have various access to update content and that's really
     all that they need. However,
 
-    - [ ] Admin user?
+    - [ ] Admin/General user
 
-      Perhaps that won't be necessary. The only need for a user is to be able
-      to update content. Even an admin, at this point, will not need to change 
-      anything else.
+      We will have user accounts for general things like summer camp and country fair sign up
+
+      We will also have admin users who also have access to CMS
 
     - [ ] Using ComfortableMexicanSofa for Content Management
 
