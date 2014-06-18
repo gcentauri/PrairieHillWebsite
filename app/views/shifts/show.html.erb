@@ -1,22 +1,24 @@
-<div class="content container">
-
-<div class="blue-box-light">
-  <p class="show">
-    <%= @shift.title %><br />
-    <%= @shift.time %><br />
+<div class="show">
+  <%= @shift.title %><br />
+  <%= @shift.time %><br />
+  <% unless @shift.vols_needed.integer?  %>
     <%= (@shift.vols_needed) - @volunteered %><br />
+  <% else %>
+    Thanks for your help!<br/>
+  <% end %>
 
-      <% @shift.user_ids.each do |user| %>
-	<%= User.find(user).name %><br />
-      <% end %>
+  <% @shift.user_ids.each do |user| %>
+    <%= User.find(user).name %><br />
+  <% end %>
+</div>
 
-  </p>
-  <p>
-    <%= render 'form' %>
-  </p>
+<div class="container extra">
+  <%= render 'form' %>
+
   <p>
     <%= link_to 'Edit', edit_shift_path(@shift) %>
     <%= link_to 'Shifts', shifts_path(@shift) %>
     <%= link_to 'New', new_shift_path(@shift) %>
   </p>
+</div>
 
