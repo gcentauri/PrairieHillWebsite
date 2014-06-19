@@ -7,7 +7,31 @@
 <div class="blue-box-light">
 
   <div class="inner">
-    <%= render 'form' %>
-  </div>
+    <% if user_signed_in? %>
+      <%= render 'form' %>
+    <% else %>
+      <br/>
+      <br/>
+      <p class="hi-li-alert">
+	You must be signed in to perform this action.
+
+	<div class="center">
+	  <ul>
+	    <li>
+	      <em>
+		<%= nav_link "Sign in", new_user_session_path %>
+	      </em>
+	      <em>
+		<%= nav_link "Sign up", new_user_registration_path %>
+	      </em>
+	    </li>
+	  </ul>
+	</div>
+
+      </p>
+    <% end %>
+    </div>
+
+    
 
 </div>

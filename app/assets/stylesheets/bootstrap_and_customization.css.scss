@@ -363,6 +363,13 @@ a:hover {
     font-family: 'Shadows Into Light Two';
 }
 
+.hi-li-alert {
+    @extend .hi-li;
+    
+    text-align: center;
+    font-size: 2vw;
+}
+
 .hi-li-simple {
 /*    color: $phill-gold;
     background: $phill-grn;*/

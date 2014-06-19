@@ -11,6 +11,10 @@ class ShiftsController < ApplicationController
     @user = current_user
 #    @volunteered = @shift.user_ids.length
 
+    unless current_user
+      render action: 'new'
+    end
+
   end
 
   def show
