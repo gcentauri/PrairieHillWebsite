@@ -461,6 +461,18 @@ a:hover {
     display: none;
 }
 
+.invisible {
+    opacity: 0.9;
+}
+
+.faded {
+    opacity: 0.5;
+}
+
+.stop {
+    opacity: 0;
+}
+
 #menu {
     background: $phill-gold;
     opacity: 0.9;
