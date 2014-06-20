@@ -17,13 +17,8 @@
 	  <%= render 'layouts/header' %>
 	</div>
       <% else %>
-	<div id="head" style="height:50%;">
+	<div id="head" style="height:50%;"> 
 	  <%= render 'layouts/header' %>
-	</div>
-	<div>
-	  <% flash.each do |name, msg| %>
-	    <%= content_tag(:div, msg, class: "alert alert-info") %>
-	  <% end %>
 	</div>
       <% end %>
       <!-- END HEADER -->
@@ -63,8 +58,39 @@
        }).refresh();
      } (jQuery));
 
+     $(document).ready(function(){
+       var backImage = [
+	 'boot-scraping.jpg',
+	 'cate.jpg',
+	 'camp.jpg',
+	 'feeding-patches.jpg',
+	 'george-primary.jpg',
+	 'hay-slide-cropped.jpg',
+	 'leo-hay.jpg',
+	 'logo-borderless.png',
+	 'muddy.jpg',
+	 'muddy2.jpg',
+	 'audrey-primary.jpg'
+       ];
 
+       var i = 0;
+
+       var rotateBg = setInterval(function(){
+	 $('#head').css('background-image', "url('/assets/" + newBg[i] + "')");
+	 if(i==11)
+	 i=0;
+	 else
+	 i++;
+       }, 50);
+
+       rotateBg();       
+
+     });
+
+    
+//     $('#head').css('background-image', "url('/assets/boot-scraping.jpg')");//
     </script>
+
     <!-- END jSCRIPT -->
 
   </body>
