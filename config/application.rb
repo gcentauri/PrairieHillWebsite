@@ -12,6 +12,8 @@ module PrairieHillWebsite
 #  config.assets.initialize_on_precompile = false
   class Application < Rails::Application
 
+    config.serve_static_assets = true
+
     config.generators do |g|
       g.stylesheets false
     end
