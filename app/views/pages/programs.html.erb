@@ -2,7 +2,8 @@
 
   <section id="YCC">
 
-    <div>
+    <div data-0="opacity:1;"
+	 data-1000="opacity:0;">
       <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
     </div>
 
@@ -10,7 +11,9 @@
 
   <section id="Primary">
     
-    <div>
+    <div data-0="opacity:0;"
+	 data-900="opacity:1;"
+	 data-1500="opacity:0;">
       <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
     </div>
     
@@ -18,7 +21,9 @@
 
   <section id="Elementary">
     
-    <div>
+    <div data-0="opacity:0;"
+	 data-1000="opacity:0;"
+	 data-1800="opacity:1;">
       <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
     </div>
     

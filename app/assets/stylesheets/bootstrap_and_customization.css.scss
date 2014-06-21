@@ -183,6 +183,24 @@ $badge-link-hover-color: $phill-grn;
 /*     margin: 10px; */
 /* } */
 
+#full {
+    height: 900px; 
+    background-size: cover;
+}
+
+.info {
+    position: relative;
+    bottom: 50px;
+    opacity: 0.8;
+    h3 {
+	color: white;
+	background: black;
+	padding: 15px;
+    }
+}
+
+
+
 .large-img {
     width: 100%;
     margin: 0;
@@ -360,6 +378,10 @@ a:hover {
 
 .sub-title {
     text-align: center;
+}
+
+.yellow {
+    color: $phill-gold;
 }
 
 .hi-li {

@@ -87,6 +87,20 @@
 
      });
 
+     var winWidth = $(window).width();
+     var winHeight = $(window).height();
+
+     $('#full').css({
+       'width': winWidth,
+       'height': winHeight,
+     });
+     
+     $(window).resize(function(){
+       $('#full').css({
+	 'width': winWidth,
+	 'height': winHeight,
+       });
+     });
     
 //     $('#head').css('background-image', "url('/assets/boot-scraping.jpg')");//
     </script>
