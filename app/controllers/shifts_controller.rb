@@ -9,7 +9,9 @@ class ShiftsController < ApplicationController
   def volunteer
     @shifts = Shift.all
     @user = current_user
-#    @volunteered = @shift.user_ids.length
+    @shift_titles = @shifts.pluck(:title)
+    @uniq_shifts = @shift_titles.uniq
+    @vols_needed = @shifts.pluck(:vols_needed)
 
     unless current_user
       render action: 'new'

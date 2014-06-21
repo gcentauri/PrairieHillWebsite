@@ -4,13 +4,9 @@
 <div class="container">
   <div style="width:60%;margin:0 auto 0 auto;" class="inner-lower">
 
-    <% @shift_titles = @shifts.pluck(:title) %> 
-    <% @uniq_shifts = @shift_titles.uniq %>
-    <% @vols_needed = @shifts.pluck(:vols_needed) %>
-
     <div class="list-group">
       <% @uniq_shifts.each do |title| %>
-
+	
 	<% @shifts_by_title = @shifts.where(title: title) %>
 	<% @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
 	<% @times = @shifts_by_title.pluck(:time) %>
@@ -18,10 +14,12 @@
 
 	<% if @title_vols > 0 %>
 
+	  <!-- ACTIVITY TITLE -->
 	  <div id=<%= "activity#{title}" %> class="activity">
 
 	    <a href="#" class="list-group-item">
 	      <%= title %>
+	      <!-- ACTIVITY NUMBER VOLUNTEERS NEEDED-->
 	      <span class="badge-volunteer"><%= @title_vols %></span>
 	    </a>
 
@@ -31,14 +29,18 @@
 	  <div class="sub" style="display:none;">
 
 	    <% @shifts_by_title.each do |shift| %>
-
+	      <!-- ACTIVITY SHIFT -->
 	      <a href="#" class="list-group-item-sub">
+		<!-- ACTIVITY SHIFT TIME -->
 		<%= shift.time %>
 		<span class="badge">
+		  <!-- ACTIVITY SHIFT NUMBER OF VOLUNTEERS NEEDED -->
 		  <%= shift.vols_needed %>
 
-		  <%= form_for shift, :method => :put do |f| %>
-		    <%= f.hidden_field :user_ids, :value => shift.add_user_id(@user.id) %>
+		  <% @current_shift = shift %>
+		  
+		  <%= form_for @current_shift, :method => :put do |f| %>
+		    <%= f.hidden_field :user_ids, :value => @current_shift.add_user_id(@user.id) %>
 		    <%= f.submit "sign up", class: "btn btn-primary" %>
 		  <% end %>
 
