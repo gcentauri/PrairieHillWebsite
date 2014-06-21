@@ -36,7 +36,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'rails_12factor', group: :production
+#gem 'rails_12factor', group: :production
 
 # gem 'unicorn'
 # gem 'capistrano-rails', group: :development
