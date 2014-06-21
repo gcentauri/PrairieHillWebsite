@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/staff', as: 'rails_admin'
+
   resources :activities
   resources :shifts
   resources :volunteers
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "programs" => "pages#programs"
   get "calendar" => "pages#calendar"
   get "contact" => "contacts#new"
-  get "staff_bod" => "pages#staff"
+  get "staffandboard" => "pages#staff"
   get "jobs" => "pages#jobs"
   get "donate" => "pages#donate"
   get "camp" => "pages#summer_camp"

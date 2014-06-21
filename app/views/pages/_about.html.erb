@@ -7,13 +7,18 @@
     </h2>
   <% end %>
 
-  <div class="large-img">
-    <%= image_tag("boot-scraping.jpg", class: "large-img") %>
+  <div class="img-bg-test" style="height:900px;background-size:cover;">
+    
+    <div class="container justify info info-secondary"
+	 data-0="opacity:0.7;"
+	 data-300="opacity:0;">
+      <h3 style="color:white;background:black;padding:15px;">
+	<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+      </h3>
+    </div>
   </div>
 
-  <div id="mission" class="section">
-    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-  </div>
+
 
   <div id="philosophy" class="section">
     <%= cms_snippet_content('philosophy', @cms_site).html_safe %>

@@ -1,6 +1,22 @@
+<div style="background-image: url('/assets/bg-land.jpg');background-size:cover;height:900px;">
+  <div id="staff">
+    <%= cms_snippet_content('staff-biographies', @cms_site).html_safe %>
+  </div>
+</div>
 
-<div id="spacer"></div>
+<script>
 
-<div class="content container">
+ $("#staff > div:gt(0)").hide();
 
-Staff & BOD
+ setInterval(function() { 
+   $('#staff > div:first')
+    .fadeOut(1)
+    .next()
+    .fadeIn(2000)
+    .end()
+    .appendTo('#staff');
+ },  9000);
+
+</script>
+
+

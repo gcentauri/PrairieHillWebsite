@@ -185,11 +185,14 @@ $badge-link-hover-color: $phill-grn;
 /*     margin: 10px; */
 /* } */
 
-
+.img-bg-test {
+    background-image:url('boot-scraping.jpg');
+}
 
 #full {
     height: 900px; 
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .info {
@@ -222,6 +225,50 @@ $badge-link-hover-color: $phill-grn;
     @extend .large-img;
 
     width: 50%;
+}
+
+#staff {
+    position: absolute;
+    left: 20%;
+    top: 25%;
+
+}
+
+.staff-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 250px;
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+}
+
+.staff-name {
+    text-align: center;
+    position: relative;
+    top: 80%;
+    background: $phill-gold;
+    opacity: 0.8;
+    padding: 0 0 5px 5px;
+}
+
+.bio {
+    color: white;
+    background: $phill-grn;
+    position: relative;
+    left: 90%;
+    padding: 15px;
+    font-size: 20px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+#jobs {
+    h2, h3, p {
+	padding: 25px;
+	text-align: justify;
+    }
 }
 
 .nav-pills {
@@ -393,10 +440,19 @@ a:hover {
     color: $phill-gold;
 }
 
+
 .hi-li {
     background: $phill-gold;
     padding: 15px;
     width: 100%;
+}
+
+.gr-li {
+    @extend .hi-li;
+
+    background: $phill-grn;
+    color: white;
+    padding: 10px;
 }
 
 .hi-li-2 {
