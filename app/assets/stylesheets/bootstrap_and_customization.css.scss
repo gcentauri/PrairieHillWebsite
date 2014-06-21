@@ -147,13 +147,15 @@ $badge-link-hover-color: $phill-grn;
 /* header */
 
 #log-in-out {
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: $phill-gold;
-    float: right;
+    background: black;
+    opacity: 0.6;
+
     text-align: right;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     border: 1px solid $phill-gold;
 
     ul {
@@ -162,8 +164,8 @@ $badge-link-hover-color: $phill-grn;
 
     ul li {
 	font-family: 'Shadows Into Light Two';
-	padding: 1px 8px 0 0;
-
+	padding: 2px 8px 0 0;
+	text-align: left;
     }
 
     ul li a {
