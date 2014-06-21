@@ -186,7 +186,7 @@ $badge-link-hover-color: $phill-grn;
 /* } */
 
 .img-bg-test {
-    background-image:image-url('boot-scraping.jpg');
+    background-image: asset-data-url('boot-scraping.jpg');
 }
 
 #full {
