@@ -31,10 +31,10 @@ group :development, :test do
   gem 'foreman'
 end
 
-#group :production do
+group :production do
 #  gem 'pg', '0.15.1'
-#  gem 'rails_12factor'
-#end
+  gem 'rails_12factor'
+end
 
 gem 'rails_12factor', group: :production
 
