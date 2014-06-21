@@ -185,23 +185,34 @@ $badge-link-hover-color: $phill-grn;
 /*     margin: 10px; */
 /* } */
 
+
+
 #full {
     height: 900px; 
     background-size: cover;
 }
 
+.ccf {
+    background-image:url('hattie-ccf.jpg');
+}
+
 .info {
     position: relative;
     bottom: 50px;
-    opacity: 0.8;
-    h3 {
-	color: white;
-	background: black;
-	padding: 15px;
-    }
+    opacity: 0.7;
 }
 
+.info-secondary {
+    @extend .info;
 
+    position: fixed;
+}
+
+.info-text {
+    color: white;
+    background: black;
+    padding: 15px;
+}
 
 .large-img {
     width: 100%;
