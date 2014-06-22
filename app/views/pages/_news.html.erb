@@ -2,9 +2,14 @@
   <div class="large-img news-bg"
        style="background-size:cover;height:900px;">
 
-    <div class="anchor-trans"
-	 data-0="top:60%;"
-	 data-500="top:100%;">
+    <% if current_page?(news_path) %>
+      <div class="anchor-trans"
+	   data-0="top:60%;"
+	   data-500="top:100%;">
+    <% else %>
+      <div class="anchor-trans"
+	   >
+    <% end %>
       <%= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
     </div>
 
