@@ -189,6 +189,11 @@ $badge-link-hover-color: $phill-grn;
     height: 900px;
 }
 
+.philosophy-bg {
+    background: image-url('cate.jpg');
+    background-size: cover;
+}
+
 #full {
     height: 900px; 
     background-size: cover;
@@ -213,6 +218,12 @@ $badge-link-hover-color: $phill-grn;
     padding: 15px;
 }
 
+.info-text-b {
+    color: black;
+    background: white;
+    padding: 15px;
+}
+
 .large-img {
     width: 100%;
     margin: 0;
@@ -225,6 +236,12 @@ $badge-link-hover-color: $phill-grn;
     @extend .large-img;
 
     width: 50%;
+}
+
+.parent-bg {
+    background: image-url('mural.jpg');
+    background-size: cover;
+    height: 900px;
 }
 
 .news-bg {
@@ -365,20 +382,20 @@ ul {
 }
 
 #activities {
-    margin: 0 auto 0 auto;
+
     width: 100%;
     height: 700px;
     
     ul {
 	list-style-type: none;
-	margin: 5px;
+
     }
 
     ul li {
 	font-size: 6vw;
 	background: $phill-gold;
 	padding: 15px;
-	margin: 5px 15px 5px 15px;
+
 	border-radius: 4px;
 	text-align: center;
 	display: block;

@@ -8,16 +8,18 @@
 	 data-2990="opacity:0;"
 	 data-3800="opacity:0.7;"
 	 data-4000="opacity:0;">
-      <h3 style="color:white;background:black;padding:15px;">
+      <div>
 	<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-      </h3>
+      </div>
     </div>
   </div>
 
 
 
-  <div id="philosophy" class="section">
-    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+  <div id="philosophy" class="section philosophy-bg" style="height:1200px;">
+    <div class="" style="background:white;opacity:0.7;height:25%;padding:15px;position:relative;top:50%;">
+      <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+    </div>
   </div>
 
 </div>
@@ -29,7 +31,7 @@
 
  setInterval(function() { 
    $('#activities-list > li:first')
-    .fadeOut(5000)
+    .fadeOut(500)
     .next()
     .fadeIn(1000)
     .end()
