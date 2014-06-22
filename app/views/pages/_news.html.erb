@@ -1,17 +1,13 @@
-<div>
+<div> 
+  <div class="large-img news-bg"
+       style="background-size:cover;height:900px;">
 
-  <% if !current_page?(news_path) %>
-    <h2 class="section-title">
-      News 
-    </h2>
-  <% end %>
+    <div class="anchor-trans"
+	 data-0="top:60%;"
+	 data-500="top:100%;">
+      <%= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
+    </div>
 
-
-  <div class="large-img">
-    <%= image_tag("camp-50.jpg", class: "large-img") %>
-  </div>
-  <div>
-    <%= link_to "Sign up for PRAIRIE HILL summer camp!", "#", class: "important-link" %>
   </div>
 
   <div id="parent-tour" class="section">

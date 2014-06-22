@@ -2,9 +2,12 @@
      data-0="background-position: 0% 130%;"
      data-2000="background-position: 0% 0%;">
   <div id="mission-statement"
+       style="background: white;color:black;font-size:2vw;padding: 15px;"
        data-250="opacity:0;"
        data-500="opacity:0.5;">
-    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    <div class="container">
+      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    </div>
   </div>
   <div id="unique">
     <h2 class="hi-li-2 container center" style="margin: 0 0 0 55%;background:green;width:35%;">What makes PRAIRIE HILL unique?</h2>
@@ -18,6 +21,7 @@
 
   <div id="latest-news" class="content-top"
        data-0="opacity:0;"
+       data-1500="opacity:0;"       
        data-2000="opacity:1;">
     <%= render 'news' %>
   </div>
