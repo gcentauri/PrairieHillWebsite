@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :activities
   resources :shifts
   resources :volunteers

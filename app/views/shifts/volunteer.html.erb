@@ -39,8 +39,13 @@
 		</span>
 	      </a>
 
+	      <% @instance = shift %>
+
+	      <%= link_to "sign up for this shift", shift_path(@instance, { :user_ids => @instance.user_ids + [@user.id] }), :method => :put, :confirm => "Are you sure?" %>
+
+	      <!-- i am executing my instance class method add_user_id from a controller -->
 	      <%= form_for shift, :method => :put do |f| %>
-		<%= f.hidden_field :user_ids, :value => shift.add_user_id(@user.id) %>
+		<%= f.hidden_field :user_ids, { :value => [@user.id] } %>
 		<%= f.submit "sign up", class: "btn btn-primary" %>
 	      <% end %>
 

@@ -16,7 +16,6 @@ class ShiftsController < ApplicationController
     unless current_user
       render action: 'new'
     end
-
   end
 
   def show
