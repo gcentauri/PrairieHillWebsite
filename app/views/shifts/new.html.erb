@@ -1,37 +1,41 @@
-<div class="content container">
+<div id="" style="height:400px; background:image-url('hattie-ccf.jpg');"></div>
 
-<h2 class="section-title">
-  Create a New Activity Shift
-</h2>
+<div>
+  <h1 class="hi-li">
+    <strong>
+      Create a New Activity Shift
+    </strong>
+  </h1>
 
-<div class="blue-box-light">
+  <div>
+    <div class="inner">
+      <% if user_signed_in? %>
+	<%= render 'form' %>
+      <% else %>
+	<br/>
+	<br/>
+	<p class="hi-li-alert">
+	  You must be signed in to perform this action.
 
-  <div class="inner">
-    <% if user_signed_in? %>
-      <%= render 'form' %>
-    <% else %>
-      <br/>
-      <br/>
-      <p class="hi-li-alert">
-	You must be signed in to perform this action.
+	  <div class="center">
+	    <ul>
+	      <li>
+		<em>
+		  <%= nav_link "Sign in", new_user_session_path %>
+		</em>
+		<em>
+		  <%= nav_link "Sign up", new_user_registration_path %>
+		</em>
+	      </li>
+	    </ul>
+	  </div>
 
-	<div class="center">
-	  <ul>
-	    <li>
-	      <em>
-		<%= nav_link "Sign in", new_user_session_path %>
-	      </em>
-	      <em>
-		<%= nav_link "Sign up", new_user_registration_path %>
-	      </em>
-	    </li>
-	  </ul>
-	</div>
-
-      </p>
-    <% end %>
+	</p>
+      <% end %>
     </div>
 
     
 
+  </div>
 </div>
+
