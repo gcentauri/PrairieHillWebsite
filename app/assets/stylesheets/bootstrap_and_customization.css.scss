@@ -24,7 +24,7 @@ $badge-link-hover-color: $phill-grn;
 
 
 @import 'bootstrap';
-@import 'skrollr';
+
 
 .justify {
     text-align: justify;
@@ -442,7 +442,8 @@ html, body {
     width: 100%;
     margin: auto;
     font-family: 'News Cycle';
-    background: image-url('bg-land.jpg');
+//    background: image-url('bg-land.jpg');
+    background: white;
 }
 
 a {

@@ -173,7 +173,7 @@
 
     https://github.com/reed/skrollr-rails
 
-    "@import 'skrollr';" in [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]?
+    ???"@import 'skrollr';" in [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]?
 
     - [X] add skrollr script
 
