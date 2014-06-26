@@ -11,6 +11,13 @@
     <div>
       <% if user_signed_in? %>
 	<%= render 'form' %>
+
+	<div>
+	  <p>
+	    <%= link_to 'Shifts', shifts_path %>
+	  </p>
+	</div>
+
       <% else %>
 	<br/>
 	<br/>
