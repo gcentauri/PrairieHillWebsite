@@ -41,9 +41,6 @@
     - [ ] change heroku configs to prairiehill email authentication for production
 
 
-	   - [ ] run the following command to precompile assets
-
-	     : RAILS_ENV=production bundle exec rake assets:precompile
 
 
 
@@ -287,6 +284,10 @@
        [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
 
        : background: image-url('image.jpg')
+       
+     - [ ] run the following command to precompile assets
+
+	  : RAILS_ENV=production bundle exec rake assets:precompile
 
      - [ ] set video as background?
 
