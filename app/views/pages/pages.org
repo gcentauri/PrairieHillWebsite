@@ -2,15 +2,23 @@
 
 [[./.][Directory]]
 
-[[../../../config/routes.rb][Routes]]
-
-[[../../controllers][Controllers]]
-
-
 
 * Application
 
   [[../layouts/application.html.erb]]
+
+
+** Resources
+
+[[../../../config/routes.rb][Routes]]
+
+[[../../controllers][Controllers]]
+
+[[../devise][Devise]]
+
+[[../shifts][Shifts]]
+
+[[../../assets/stylesheets/][Stylesheets]]
 
 * Pages 
 

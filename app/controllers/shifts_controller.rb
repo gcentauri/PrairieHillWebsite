@@ -50,7 +50,7 @@ class ShiftsController < ApplicationController
 
   def destroy
     @shift.destroy
-    redirect_to pages_url, notice: 'Shift was successfully destroyed.'
+    redirect_to shifts_url, notice: 'Shift was successfully destroyed.'
   end
 
   private
