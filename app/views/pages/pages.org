@@ -54,4 +54,18 @@
 
 *** Volunteer Application
 
+    - [ ] update redirect_to?
+
+** Shifts
+
+
+   [[../shifts][Shifts]]
+
+
+   - [ ] new, minor css
+     - [ ] form - select from series(title, time
+     - [ ] create redirect_to ?
+     - [ ] show - minor css
+     - [ ] notifications, minor css
+
     
