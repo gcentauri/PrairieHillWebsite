@@ -1,1 +1,466 @@
-just a moment...
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.5.0/
+#+TITLE: Prairie Hill Learning Center Website
+#+AUTHOR: AnderSon
+#+EMAIL: son@lincolnix.net
+#+OPTIONS: toc:nil num:nil
+
+
+* Prairie Hill Learning Center
+
+  http://phill-new.herokuapp.com
+
+  - [ ] re-route http://www.prairiehill.com => heroku app
+
+
+* Description
+
+  After over 2 years of cumbersome working with the wordpress managed website 
+  content for the Prairie Hill website (whether due to the way that wordpress 
+  arranges itself or my own ignorance and lack of education in web design, php, 
+  etc), this is an attempt to try something new. Having a nice solid foundation 
+  in building an application with Rails, I feel like now is the time to build 
+  something from the ground up that will hopefully meet my needs for control 
+  and understanding for building and modifying the backend functionality 
+  (most importantly without having to go through all of hassle of using the 
+  actual web content management editors and having so many extraneous steps,
+  instead of just using my text editor...), as well as the front end need
+  for admin staff to update content, which is what is important to them in
+  the basic functionality of the site. I take care of the functionality and
+  aesthetic; they give it the words.
+
+** NB
+
+*** What we need to look at for functionality:
+
+**** mailer contact
+
+    http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
+
+    set up successfully in development
+    
+    - [ ] change heroku configs to prairiehill email authentication for production
+
+
+	   - [ ] run the following command to precompile assets
+
+	     : RAILS_ENV=production bundle exec rake assets:precompile
+
+
+
+
+**** user accounts
+
+  - [ ] We need USERs with authenticatable accounts
+    
+    These users will have various access to update content and that's really
+    all that they need. However,
+
+    - [ ] Admin/General user
+
+      We will have user accounts for general things like summer camp and 
+      country fair sign up
+
+      We will also have admin users who also have access to CMS
+
+      - [ ] install & configure RailsAdmin
+
+            https://github.com/sferik/rails_admin
+
+	- [ ] bundle the gem
+	
+	    : gem 'rails_admin'
+	    : bundle install
+
+	- [ ] install RailsAdmin
+
+	      : rails g rails_admin:install
+
+	- [ ] configure for Devise
+
+	  https://github.com/sferik/rails_admin/wiki/Devise
+
+    - [ ] Using ComfortableMexicanSofa for Content Management
+
+      - [ ] already set up to use Paperclip for images
+
+      - [ ] WYSIWYG
+
+	[[./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css]]
+
+	  - [X] editor window is very short
+
+    - [ ] Private content
+
+      - [ ] admin vs common user accounts
+
+    - [ ] User profiles?
+
+    - [ ] Summer Camp Registration model?
+
+    - [ ] Volunteers/CCF
+      
+      - [ ] connect devise users with shifts?
+
+      - [ ] Sign up views
+
+	- [ ] if user signed in...
+
+	- [ ] time to learn some jQuery!
+
+	- [ ] FIRST: Shows Activity titles and a number of volunteers total needed
+	  
+	- [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
+	  and number of volunteers still needed for each, just after a description
+	  of the activity itself
+
+	  - [ ] checkboxes for selected desired shifts?
+	    
+	  - [ ] ability to remove volunteer from shifts
+
+	- [ ] BLOG/NEWSfeed for news updates?
+
+	- [ ] PAGEs for general website content
+
+
+* ModelViewControl
+
+** Model
+
+   Pages
+
+   [[./app/controllers/pages_controller.rb]]
+   [[./app/models/page.rb]]
+
+*** Page
+
+    - [X] Create Static Pages
+
+      http://www.railstutorial.org/book/static_pages
+
+      - [X] Generate a Pages controller
+
+	[[./app/controllers/static_pages_controller.rb]]
+	[[./config/routes.rb]]
+
+	: rails g controller StaticPages home
+
+
+*** Rails Generation
+
+**** Scaffolding
+
+     - [X] Disable scaffold stylesheet creation 
+
+       [[./config/application.rb]]
+
+       	: config.generators do |g|
+       	:   g.stylesheets false
+       	: end
+
+     - [ ] Generate a scaffold
+
+       EXAMPLE
+       : rails g scaffold Page index
+
+     - [ ] migrate the database
+
+       : rake db:migrate
+
+
+** View
+
+*** Skrollr   
+
+    https://github.com/reed/skrollr-rails
+
+    "@import 'skrollr';" in [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]?
+
+    - [X] add skrollr script
+
+      - [X] make sure skrollr-rails is in the Gemfile
+
+        [[./Gemfile]]
+
+	: gem 'skrollr-rails'
+
+      - [X] add the following script just before </body> tag
+
+	[[./app/views/layouts/application.html.erb]]
+
+	: <script>
+        :  (function($){
+	:    skrollr.init({
+	:      forceHeight: false,
+	:      smoothScrolling: false
+	:    }).refresh();
+        :  } (jQuery));
+	: </script>
+
+      - [X] Place #skrollr-body div tag around <%= yield %> tag
+
+	: <div id="skrollr-body">
+
+
+    - [X] require skrollr in application.js
+
+      [[./app/assets/javascripts/application.js]]
+
+      : //= require skrollr
+
+      - [X] For IE compatibility
+
+	: //= require skrollr
+	: //= require skrollr.ie
+
+      - [X] This plugin makes hashlinks scroll nicely to their target position.
+
+	: //= require skrollr
+	: //= require skrollr.menu
+      
+
+*** Bootstrap-sass
+    
+    - [X] Create custom bootstrap stylesheet
+
+      [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+      
+      - [X] create file
+
+            : echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
+
+      *NOTE* Place new variables before "@import 'bootstrap'"
+
+      - [X] Fonts
+
+  	    /EXAMPLE:/
+	    : @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
+
+      - [X] Variables
+
+	    : $phill-grn: #3f8000;
+
+    - [X] Require Bootstrap's Javascript, after jquery_ujs 
+
+      [[./app/assets/javascripts/application.js]]
+
+      : //= require jquery
+      : //= require jquery_ujs
+      : //= require bootstrap
+      : //= require turbolinks
+      : //= require_tree .
+
+
+*** Assets
+
+**** Stylesheets
+
+     [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
+**** Javascripts
+
+     - [X] Replace turbolinks with jquery-turbolinks
+
+       [[./app/assets/javascripts/application.js]]
+
+       - [X] Check for jquery-turbolinks in Gemfile
+
+	 [[./Gemfile]]
+
+	 : gem 'jquery-turbolinks'
+	 : bundle
+
+       - [X] remove turbolinks line
+
+	 : //= require turbolinks
+
+       - [X] add jquery.turbolinks under bootstrap
+
+	 : //= require bootstrap
+	 : //= require jquery.turbolinks
+
+	 - [X] Restart the server
+
+**** Images   
+
+     - [X] css background images 
+
+       [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
+       : background: image-url('image.jpg')
+
+     - [ ] set video as background?
+
+       
+
+*** Views
+
+**** Application
+
+    [[./app/views/]]
+
+    - [X] add viewport
+
+      [[./app/views/layouts/application.html.erb]]
+
+      : <meta name="viewport" content="width=device-width, intial-scale=1.0">
+
+    - [ ] Optional page refresh interval
+
+        : <meta http-equiv="REFRESH" content="60" />
+
+
+**** Pages
+
+     [[./app/views/pages/]]
+     [[./app/views/pages/pages.org]]
+
+
+** Control
+
+*** Routes
+
+    [[./app/views/][Views Directory]]
+
+    [[./config/routes.rb]]
+
+    - [X] create root path
+
+      : root 'static_pages#home'
+
+    - [ ] create paths for desired routes
+
+      : get "about" => "pages#about"
+      : get "news" => "pages#news"
+      : get "programs" => "pages#programs"
+      : get "calendar" => "pages#calendar"
+      : get "contact" => "contacts#new"
+      : get "staffandboard" => "pages#staff"
+      : get "jobs" => "pages#jobs"
+      : get "donate" => "pages#donate"
+      : get "camp" => "pages#summer_camp"
+      : get "csv" => "pages#csvupload"
+      : get "ccf" => "shifts#volunteer"
+
+
+
+*** Controllers   
+
+    [[./app/controllers/application_controller.rb]]
+
+    [[./app/controllers/pages_controller.rb]]
+
+
+* Application skeleton BASICS
+
+
+** Useful commands
+
+*** Rake
+
+    : rake routes
+
+
+*** Rails
+
+    : rails console
+
+    : rails s
+    : rails s -e production
+
+*** Heroku
+
+    	       : heroku rename $NEW_NAME
+ 	       : heroku open
+	       : heroku logs --tail
+ 	       : heroku run rails console
+	       
+	       : heroku config:set <ENV_NAME>=<variable>
+	       : heroku config:unset
+	       : heroku config:get
+
+
+*** Git    
+
+** Essential Files
+
+   [[./Gemfile][Gemfile]]
+
+** Create the default skeletal application
+
+  - [X] create a new application
+
+    : rails new PrairieHillWebsite
+ 
+  - [X] update README
+
+    : rm README.rdoc
+    : touch README.org
+
+  - [X] rename application.css to application.css.scss
+
+    [[./app/assets/stylesheets/application.css.scss]]
+
+    : cd app/assets/stylesheets
+    : mv application.css application.css.scss
+
+  - [X] Test the skeletal application
+
+    - [X] Start the Rails server
+
+      : rails s
+    
+    - [X] open your browser to localhost, port 3000
+
+      : localhost:3000
+
+  - [X] update the Gemfile
+
+    [[./Gemfile]]
+
+    : cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+
+  - [X] update the bundle
+
+    : bundle update
+    : bundle install --without production
+
+*** Set up Git and Heroku
+
+**** Git
+
+   - [X] initialize git repo
+
+     : git init
+
+   - [X] update .gitignore
+
+     [[./.gitignore]]
+
+     : echo ".env" >> .gitignore
+     : echo "Procfile" >> .gitignore
+
+   - [X] initial stage and commit of all files
+
+     : git add .
+     : git commit -am "initial commit"
+
+   - [X] add the origin
+
+     : git remote add origin https://github.com/son1112/PrairieHillWebsite.git
+
+   - [X] initial push
+
+     : git push -u origin master
+
+**** Heroku
+
+     - [X] Create and push a new heroku app
+
+       : heroku create
+       : git push heroku master
+       
+     - [X] Rename the heroku app
+
+       : heroku rename phill-new
+
+
