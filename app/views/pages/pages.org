@@ -45,6 +45,8 @@
 ** Contact
 
 ** Staff & Board
+   
+   [[./staff.html.erb]]
 
 ** Employment
 
