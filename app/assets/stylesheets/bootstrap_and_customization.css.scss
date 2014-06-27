@@ -310,6 +310,13 @@ $badge-link-hover-color: $phill-grn;
     word-wrap: break-word;
 }
 
+.bio-title {
+    @extend .bio;
+
+    color: $phill-grn;
+    background: $phill-gold;
+}
+
 .wrap {
     word-wrap: break-word;
 }
