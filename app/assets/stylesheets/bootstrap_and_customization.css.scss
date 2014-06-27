@@ -292,10 +292,11 @@ $badge-link-hover-color: $phill-grn;
 .staff-name {
     text-align: center;
     position: relative;
-    top: 80%;
+    top: 90%;
+    width: 85%;
     background: $phill-gold;
     opacity: 0.8;
-    padding: 0 0 5px 5px;
+    padding: 0 5px 2px 5px; 
 }
 
 .bio {
