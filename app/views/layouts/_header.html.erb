@@ -1,7 +1,5 @@
 <div class="logo-box">
-
   <div id="title">
-
 
     <div>
       <%= image_tag("logo-transparent.png", class: "title-logo") %>
@@ -14,10 +12,7 @@
     <div class="title-sub-name">
       <em>Learning Center</em>
     </div>
-
-
   </div>
-
 </div>
 
 <div>
@@ -26,65 +21,27 @@
   <% end %>
 </div>
 
-
-<div id="log-in-out">
-  <ul>
-    <% if user_signed_in? %>
-
-      <li>
-	<em>
-	  <%= link_to destroy_user_session_path, method: :delete do %>
-	    Sign out
-	  <% end %>
-	</em>
-      </li>
-
-      <li>
-	<em>
-	  <%= link_to "Settings", edit_user_registration_path %>
-	</em>
-      </li>
-
-      <li>
-	<em>
-	  <%= link_to "Country Fair", ccf_path %>
-	</em>
-      </li>
-
-      <% if current_user.admin == true %>
-
-	<li>
-	  <em>
-	    <%= link_to "Admin", comfy_admin_cms_path %>
-	  </em>
-	</li>
-
-	<li>
-	  <em>
-	    <%= link_to "Shifts", shifts_path %>
-	  </em>
-	</li>
-
-      <% end %>
-
-    <% else %>
-
-      <li>
-	<em>
-	  <%= nav_link "Sign in", new_user_session_path %>
-	</em>
-	<em>
-	  <%= nav_link "Sign up", new_user_registration_path %>
-	</em>
-      </li>
-
-    <% end %>
-  </ul>
+<div>
+  <div>
+    <%= render 'layouts/user_menu' %>
+  </div>
 </div>
+
 
 <% if current_page?(root_path) %>
   <%= render 'page_add_quote' %>
 <% end %>
+
+<script>
+
+ $('#user-menu').hover(function(){
+   $(this).children('.menu').toggle('slow');
+ 
+   return false;
+ });
+
+
+</script>
 
 
 

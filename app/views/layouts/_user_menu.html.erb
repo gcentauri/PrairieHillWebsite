@@ -1,0 +1,55 @@
+<div id="user-menu"> <span>User Menu</span>
+  <ul class="menu" style="display:none;"> 
+    <% if user_signed_in? %>
+      <li>
+	<em>
+	  <%= link_to destroy_user_session_path, method: :delete do %>
+	    Sign out
+	  <% end %>
+	</em>
+      </li>
+
+      <li>
+	<em>
+	  <%= link_to "Settings", edit_user_registration_path %>
+	</em>
+      </li>
+
+
+      <% if current_user.admin == true %>
+
+	<li>
+	  <em>
+	    <%= link_to "Admin", comfy_admin_cms_path %>
+	  </em>
+	</li>
+
+	<li>
+	  <em>
+	    <%= link_to "Shifts", shifts_path %>
+	  </em>
+	</li>
+
+      <% end %>
+
+      <li>
+	<em>
+	  <%= link_to "Country Fair", ccf_path %>
+	</em>
+      </li>
+
+
+    <% else %>
+
+      <li>
+	<em>
+	  <%= nav_link "Sign in", new_user_session_path %>
+	</em>
+	<em>
+	  <%= nav_link "Sign up", new_user_registration_path %>
+	</em>
+      </li>
+
+    <% end %>
+  </ul>
+</div>

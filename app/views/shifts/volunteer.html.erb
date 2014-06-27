@@ -62,19 +62,13 @@
   <script>
 
    $('.activity').click(function(){
-     // if the Shift title click is a faded shift
      if ( $(this).hasClass('faded')) {
-       // do nothing
        $(this).toggleClass('');
      }
      else {
-       // when Shift title is clicked
        $(this).next('.sub').toggle('slow');
-       // show the shift info
        $(this).prevAll('.activity').toggleClass('faded');
-       // fade the previous Shifts
        $(this).nextAll('.activity').toggle('slow');
-       // hide the next Shifts
      }
 
      return false;

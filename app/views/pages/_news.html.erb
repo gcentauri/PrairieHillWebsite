@@ -7,17 +7,17 @@
 	   data-0="top:60%;"
 	   data-500="top:100%;">
     <% else %>
-      <div class="anchor-trans"
-	   >
+	<div class="anchor-trans">
     <% end %>
-      <%= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
-    </div>
+    <%= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
+	</div>
+
+      </div>
+
+      <div id="parent-tour" class="section parent-bg">
+	<h2 class="sub-title hi-li">Prospective Parent Tour Date:</h2>
+	<%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
+      </div>
 
   </div>
-
-  <div id="parent-tour" class="section parent-bg">
-    <h2 class="sub-title hi-li">Prospective Parent Tour Date:</h2>
-    <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
-  </div>
-
 </div>

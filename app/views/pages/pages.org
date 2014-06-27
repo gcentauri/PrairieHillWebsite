@@ -2,7 +2,6 @@
 
 [[./.][Directory]]
 
-
 * Application
 
   [[../layouts/application.html.erb]]
@@ -10,21 +9,34 @@
 
 ** Resources
 
-[[../../../config/routes.rb][Routes]]
+   [[../../../config/routes.rb][Routes]]
 
-[[../../controllers][Controllers]]
+   [[../../controllers][Controllers]]
 
-[[../devise][Devise]]
+   [[../devise][Devise]]
 
-[[../shifts][Shifts]]
+   [[../shifts][Shifts]]
 
-[[../../assets/stylesheets/][Stylesheets]]
+   [[../../assets/stylesheets/][Stylesheets]]
+
 
 * Pages 
+
+** [[../layouts][Partials]]
+
+*** [[../layouts/_header.html.erb][Header]]
+
+    [[../layouts/_user_menu.html.erb][User Menu]]
+
+    [[./_page_add_quote.html.erb][Quote]]
+
 
 ** About
 
 ** News
+
+   [[./news.html.erb]]
+   [[./_news.html.erb]]
 
 ** Programs
 
