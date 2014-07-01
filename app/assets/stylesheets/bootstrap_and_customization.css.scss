@@ -145,6 +145,14 @@ $badge-link-hover-color: $phill-grn;
 
 /* header */
 
+.menu-title {
+    font-weight: bold;
+    text-align: center;
+    &:hover {
+
+    }
+}
+
 #user-menu {
     font-size: 1.5vw;
     color: $phill-gold;
@@ -192,7 +200,7 @@ $badge-link-hover-color: $phill-grn;
 /* } */
 
 .img-bg-test {
-    background: image-url('boot-scraping.jpg');
+    background: image-url('boot-scraping-40.jpg');
     background-size: cover;
     height: 900px;
 }
@@ -257,7 +265,7 @@ $badge-link-hover-color: $phill-grn;
 }
 
 .staff-bg {
-    background: image-url('bg-land.jpg');
+    background: image-url('bg-land-25.jpg');
 }
 
 .camp-bg {
@@ -265,11 +273,11 @@ $badge-link-hover-color: $phill-grn;
 }
 
 .donate-bg {
-    background: image-url('watering-cans.jpg');
+    background: image-url('watering-cans-30.jpg');
 }
 
 .jobs-bg {
-    background: image-url('watering-cans.jpg');
+    @extend .donate-bg;
 }
 
 #staff {
@@ -691,7 +699,7 @@ a:hover {
 
 .slide-1 {
     height: 1250px;
-    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/024/original/hay-slide.png');
+    background: image-url('hay-slide.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% 70%;

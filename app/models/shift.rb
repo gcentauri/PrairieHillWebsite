@@ -1,15 +1,13 @@
 class Shift < ActiveRecord::Base
   has_and_belongs_to_many :users
 
-  # def add_user_id_to_shift(user_id)
+  def add_user_idee(id)
 
-  #   user_ids_will_change!
+    user_ids_will_change!
     
-  #   #update_attribute :user_ids, shift.user_ids << user_id
-    
-  #   update_attributes user_ids: self.user_ids + [ user_id ]
-  #   self.save
-  # end
+    update_attributes user_ids: user_ids + [ id ]
+
+  end
 
 
 end

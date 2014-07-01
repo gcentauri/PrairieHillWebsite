@@ -1,4 +1,9 @@
-<div id="user-menu"> <span>User Menu</span>
+<div id="user-menu"> 
+  <% if user_signed_in? %> 
+    <span class="menu-title">User Menu</span>
+  <% else %>
+    <span class="menu-title">Sign In</span>
+  <% end %>
   <ul class="menu" style="display:none;"> 
     <% if user_signed_in? %>
       <li>

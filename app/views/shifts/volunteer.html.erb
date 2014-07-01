@@ -1,6 +1,5 @@
 <%= cms_snippet_content('ccf', @cms_site).html_safe %>
   
-
 <div class="container">
   <div style="width:60%;margin:0 auto 0 auto;" class="inner-lower">
 
@@ -15,7 +14,7 @@
 	<% if @title_vols > 0 %>
 
 	  <!-- ACTIVITY TITLE -->
-	  <div id=<%= "activity#{title}" %> class="activity">
+	  <div id=<%= "activity-#{title}" %> class="activity">
 
 	    <a href="#" class="list-group-item">
 	      <%= title %>
@@ -33,23 +32,20 @@
 	      <a href="#" class="list-group-item-sub">
 		<!-- ACTIVITY SHIFT TIME -->
 		<%= shift.time %>
+		<%= shift.user_ids %>
 		<span class="badge">
 		  <!-- ACTIVITY SHIFT NUMBER OF VOLUNTEERS NEEDED -->
 		  <%= shift.vols_needed %>
 		</span>
 	      </a>
 
-	      <% @instance = shift %>
-
-	      <%= link_to "sign up for this shift", shift_path(@instance, { :user_ids => @instance.user_ids + [@user.id] }), :method => :put, :confirm => "Are you sure?" %>
-
-	      <!-- i am executing my instance class method add_user_id from a controller -->
-	      <%= form_for shift, :method => :put do |f| %>
-		<%= f.hidden_field :user_ids, { :value => [@user.id] } %>
-		<%= f.submit "sign up", class: "btn btn-primary" %>
+	      <%= form_for shift do |f| %>
+		<%= f.hidden_field :user_ids, :value => shift.add_user_idee(@user.id) %>
+		<%= f.submit "Sign Up" %>
 	      <% end %>
-
+	      
 	    <% end %>
+
 	  </div>
 
 	  

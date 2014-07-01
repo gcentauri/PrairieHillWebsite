@@ -30,8 +30,13 @@
 
     [[./_page_add_quote.html.erb][Quote]]
 
+** Home
+
+   [[./home.html.erb]]
 
 ** About
+
+   [[./_about2.html.erb]]
 
 ** News
 
@@ -39,6 +44,8 @@
    [[./_news.html.erb]]
 
 ** Programs
+
+   [[./programs.html.erb]]
 
 ** Calendar
 
@@ -59,6 +66,8 @@
    [[../shifts/volunteer.html.erb]]
 
    [[../../controllers/shifts_controller.rb]]
+
+   [[../../models/shift.rb]]
    
    [[../shifts/new.html.erb]]
 
