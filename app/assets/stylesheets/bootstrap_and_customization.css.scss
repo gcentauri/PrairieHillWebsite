@@ -25,6 +25,47 @@ $badge-link-hover-color: $phill-grn;
 
 @import 'bootstrap';
 
+.green-bg {
+    background: $phill-grn;
+}
+
+.green {
+    color: $phill-grn;
+}
+
+.gold-bg {
+    background: $phill-gold;
+}
+
+.green-border {
+    border: 2px solid $phill-grn;
+}
+
+.gold {
+    color: $phill-gold;
+}
+
+.gold-bottom {
+    border-bottom: 2px solid $phill-gold;
+}
+
+.alt-font {
+    font-family: 'Shadows Into Light Two';
+}
+
+.alt-font-bold {
+    @extend .alt-font;
+    
+    font-weight: bold;
+}
+
+.padded {
+    padding: 15px;
+}
+
+.spaced {
+    margin: 5px;
+}
 
 .justify {
     text-align: justify;
@@ -528,6 +569,13 @@ a:hover {
     font-family: 'Shadows Into Light Two';
 }
 
+.hi-li-3 {
+    @extend .hi-li-2;
+
+    position: relative;
+    left: 40%;
+}
+
 .hi-li-alert {
     @extend .hi-li;
     
@@ -650,6 +698,21 @@ a:hover {
 
     a {
         padding: 12px;
+    }
+}
+
+#volunteer-menu {
+    @extend #menu;
+
+    position: relative;
+
+    ul {
+	padding: 15px;
+    }
+
+    ul li {
+	padding: 0 20px 0 20px;
+	display: inline;
     }
 }
 
@@ -816,6 +879,14 @@ a:hover {
     position: static;
 }
 
+.shift-show {
+    @extend .show;
+    
+    background: $phill-grn;
+    color: white;
+    opacity: 0.9;
+}
+
 .extra {
     position: static;
 }
@@ -863,9 +934,10 @@ a:hover {
 }
 
 .badge {
-    padding: 7px;
-    min-width: 20px;
-    font-size: 40px;
+    padding: auto;
+    width: 60px;
+    height: 60px;
+    font-size: 3vw;
     color: $phill-grn;
     background: $phill-gold;
 }
@@ -898,6 +970,7 @@ a:hover {
     
     width: 90%;
     position: static;
+
 }
 
 a.list-group-item-sub {
@@ -927,6 +1000,8 @@ a.list-group-item-sub {
 .sub {
     position: static;
     float: right;
+    width: 95%;
+
 }
 
 div.list-group-item {

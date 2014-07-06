@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "camp" => "pages#summer_camp"
   get "csv" => "pages#csvupload"
   get "ccf" => "shifts#volunteer"
-
+  get "test" => "shifts#sandbox"
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => false

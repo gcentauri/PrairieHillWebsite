@@ -22,6 +22,9 @@ gem 'cells'
 gem 'inherited_resources'
 gem 'skrollr-rails'
 gem 'rails_admin'
+gem 'picturefill'
+
+
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -29,6 +32,7 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'sqlite3'
   gem 'foreman'
+  gem 'pry-rails'
 end
 
 group :production do

@@ -1,23 +1,21 @@
 <div class="container" style="margin-top:15em;">
-  <div class="show">
-    <%= @shift.title %><br />
-    <%= @shift.time %><br />
-    <% unless @shift.vols_needed.integer?  %>
-      <%= (@shift.vols_needed) - @volunteered %> volunteers still needed.<br />
-    <% else %>
-      
-    <% end %>
+  <div class="shift-show">
+    Thank you, <span class="hi-li-2"><%= @shift.volunteer %></span> !<br /><br />
+    <div class="hi-li-3"><%= @shift.title %><br />
+    <%= @shift.time %><br /></div>
 
-    <% @shift.user_ids.each do |user| %>
-      <%= User.find(user).name %><br />
-    <% end %>
   </div>
 
-  <div>
-    <p>
-      <%= link_to 'Edit', edit_shift_path(@shift) %>
-      <%= link_to 'Shifts', shifts_path %>
-      <%= link_to 'New', new_shift_path %>
-    </p>
+  <div id="volunteer-menu">
+    <ul>
+      <% if current_user.admin == true %>
+	<li><%= link_to 'Edit', edit_shift_path(@shift) %></li>
+	<li><%= link_to 'Shifts', shifts_path %></li>
+	<li><%= link_to 'New', new_shift_path %></li>
+	<li><%= link_to 'Volunteer for Country Fair Shifts', ccf_path %></li>
+      <% else %>
+	<li><%= link_to 'Volunteer for Country Fair Shifts', ccf_path %></li>
+      <% end %>
+    </ul>
   </div>
 </div>

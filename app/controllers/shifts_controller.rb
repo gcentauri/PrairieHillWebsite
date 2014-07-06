@@ -5,16 +5,25 @@ class ShiftsController < ApplicationController
   def index
     @shifts = Shift.all
   end
-
+  
   def volunteer
     @shifts = Shift.all
     @user = current_user
     @shift_titles = @shifts.pluck(:title)
     @uniq_shifts = @shift_titles.uniq
     @vols_needed = @shifts.pluck(:vols_needed)
-
+    
     unless current_user
       render action: 'new'
+    end
+  end
+
+  def sandbox
+    @shifts = Shift.all
+
+    respond_to do |format|
+      format.html
+      format.json {}
     end
   end
 
@@ -41,11 +50,20 @@ class ShiftsController < ApplicationController
   def update
     @user = current_user
 
+    shift = Shift.find params[:id]
+
+#    if @shift.update_attribute(:user_ids, params[:user_ids])
+#      redirect_to @shift, notice: 'Shift was successfully updated.'
+#    else
+#      render :edit
+#    end
+
     if @shift.update(shift_params)
-      redirect_to @shift, notice: 'Shift was successfully updated.'
+      redirect_to @shift, notice: 'THANK YOU!'
     else
       render :edit
     end
+
   end
 
   def destroy
@@ -61,6 +79,6 @@ class ShiftsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def shift_params
-    params.require(:shift).permit(:title, :time, :vols_needed, :user_ids => [])
+    params.require(:shift).permit(:title, :time, :vols_needed, :volunteer)
   end
 end

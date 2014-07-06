@@ -11,6 +11,10 @@
 
   - [ ] re-route http://www.prairiehill.com => heroku app
 
+** Essential Files
+
+   [[./FILES.org]]
+
 
 * Description
 
@@ -317,6 +321,358 @@
 
 
 ** Control
+
+*** AngularJS (Honeybadger tutorial)
+      
+      This example from honeybadger may be my key to fixing the issue I am having with
+      the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
+      app. Once I understand what is going on and how to impliment Angular, maybe it 
+      will be a better solution than all of that erb crap I was trying to use...
+
+      https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails
+
+****** Initial setup
+
+       - [X] create the project
+
+       	 : rails new rest --database=postgresql --skip-test-unit
+
+       - [ ] create the PostgreSQL database user:
+
+       	 : createuser -P -s -e rest
+
+       - [ ] Add RSpec to your Gemfile & Install RSpec
+
+       	 [[./Gemfile]]
+
+       	 : gem "rspec-rails", "~> 2.14.0"
+
+       	 : bundle install
+
+       	 : rails g rspec:install
+
+       - [ ] Create the database:
+
+       	 : rake db:create
+
+
+****** Creating the Restaurant model
+
+       - [ ] Create the Restaurant resource
+
+       	 : rails g scaffold restaurant name:string
+
+       - [ ] Make sure restaurant names are unique
+
+       	 [[./db/migrate/]]
+
+       	 : class CreateRestaurants < ActiveRecord::Migration
+       	 :   def change
+       	 :     create_table :restaurants do |t|
+       	 :       t.string :name
+       	 :
+       	 :       t.timestamps
+       	 :     end
+       	 :
+       	 :     add_index :restaurants, :name, unique: true
+       	 :   end
+       	 : end
+
+       	 - [ ] Run the migration
+
+       	   : rake db:migrate
+
+       	 - [ ] Add some specs...
+       	   
+       	   Need to start learning TDD, but I'm lazy right now
+
+
+****** Bringing AngularJS into the mix
+
+       - [X] Create the controller
+
+       	 : rails g controller static_pages index
+
+       - [X] Update routes
+	 
+       	 [[./config/routes.rb]]
+
+       	 : root 'static_pages#index'
+
+       - [X] Download Angular
+
+       	 : wget http://code.angularjs.org/1.1.5/angular.js \
+       	 : http://code.angularjs.org/1.1.5/angular-mocks.js
+
+       	 : mv angular* app/assets/javascripts
+
+       - [-] Add it to the asset pipeline
+
+       	 [[./app/assets/javascripts/application.js]]
+
+       	 - [ ] Remove turbolinks line
+
+	   Keeping it in for now as a test
+
+       	 - [ ] Add the following two lines
+
+       	   : //= require angular
+       	   : //= require main
+
+       	 - [X] Set up the layout
+
+       	   [[./app/views/layouts/application.html.erb]]
+	   
+	   naming the app via angular "phill" for simplicity
+	   keeping turbolinks code in for now until I see a real reason to 
+           take it out
+
+	   - [X] tested taking out turbolinks markup
+
+       	   : <!DOCTYPE html>
+       	   : <html ng-app="phill">
+       	   : <head>
+       	   :   <title>Rest</title>
+       	   :   <%= stylesheet_link_tag    'application', media: 'all' %>
+       	   :   <%= javascript_include_tag 'application' %>
+       	   :   <%= csrf_meta_tags %>
+       	   : </head>
+       	   : <body>
+       	   :
+       	   : <div ng-view>
+       	   :   <%= yield %>
+       	   : </div>
+       	   :
+       	   : </body>
+       	   : </html>
+
+       	 - [X] Creating an Angular controller
+
+       	   : mkdir -p app/assets/javascripts/angular/controllers
+
+       	   - [X] Create the controller
+
+	     [[./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee]]
+
+	     : @phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+	     : 
+	     : ]
+
+       	   - [X] Add an Angular route
+
+	     [[./app/assets/javascripts/main.js.coffee]]
+
+	     : # This line is related to our Angular app, not to our
+             : # HomeCtrl specifically. This is basically how we tell
+             : # Angular about the existence of our application.
+             : @phill = angular.module('phill', [])
+
+	     : # This routing directive tells Angular about the default
+             : # route for our application. The term "otherwise" here
+             : # might seem somewhat awkward, but it will make more
+             : # sense as we add more routes to our application.
+             : @phill.config(['$routeProvider', ($routeProvider) ->
+             :   $routeProvider.
+             :     otherwise({
+             :       templateUrl: '../templates/home.html',
+             :       controller: 'HomeCtrl'
+             :     }) 
+             : ])
+
+       	   - [X] Add an Angular template
+
+	     : mkdir public/templates
+
+	     [[./public/templates/home.html]]
+
+	     : This is the home page
+
+	     - [X] An example of data binding
+
+	       [[./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee]]
+
+	       : @phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+               :   $scope.foo = 'bar'        
+               : ]
+
+	       [[./public/templates/home.html]]
+
+	       : Value of "foo": {{foo}}
+
+
+****** Doing it for real this time
+
+       - [ ] Seed the database
+
+       	 [[./db/seeds.rb]]
+
+       	 : Restaurant.create([
+       	 :   { name: "The French Laundry" },
+       	 :   { name: "Chez Panisse" },
+       	 :   { name: "Bouchon" },
+       	 :   { name: "Noma" },
+       	 :   { name: "Taco Bell" },
+       	 : ])
+
+       	 : rake db:seed
+
+       - [X] Creating a shift index page
+
+       	 : mkdir public/templates/shifts
+
+       	 [[./public/templates/shifts/index.html]]
+
+       	 : <a href="/#">index</a>
+       	 : <ul ng-repeat="restaurant in restaurants">
+       	 :   <li>
+       	 :     <a ng-click="viewRestaurant(restaurant.id)">
+       	 :       {{ restaurant.name }}
+       	 :     </a>
+       	 :   </li>
+       	 : </ul>
+
+	 OR rather
+
+	 : <a href="/#">Shifts</a>
+         : <ul ng-repeat="shift in shifts">
+         :   <li>
+         :     <a ng-click="viewShift(shift.id)">
+         :       {{ shift.title }}
+         :     </a>
+         :   </li>
+         : </ul>
+
+       - [X] Create the controller
+
+       	 [[./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee]]
+
+       	 : @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+       	 :   $scope.restaurants = []
+       	 :   $http.get('./restaurants.json').success((data) ->
+       	 :     $scope.restaurants = data
+       	 :   )
+       	 : ]
+
+	 OR rather
+
+	 : @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+         :   $scope.shifts = []
+         :   $http.get('./shifts.json').success((data) ->
+         :     $scope.shifts = data
+         :   )
+         : ]
+
+       - [X] Adjust routing configuration
+
+       	 [[./app/assets/javascripts/main.js.coffee]]
+
+       	 : @phill = angular.module('phill', [])
+       	 :
+       	 : @phill.config(['$routeProvider', ($routeProvider) ->
+       	 :   $routeProvider.
+       	 :     when('/shifts', {
+       	 :       templateUrl: '../templates/shifts/index.html',
+       	 :       controller: 'ShiftIndexCtrl'
+       	 :     }).
+       	 :     otherwise({
+       	 :       templateUrl: '../templates/home.html',
+       	 :       controller: 'HomeCtrl'
+       	 :     })
+       	 : ])
+
+
+****** Adding our first test
+
+       fill in later
+
+
+****** Building out the shifts page
+
+       When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
+
+       [[./app/views/shifts/index.json.jbuilder]]
+
+       - [X] Add :id parameter for json.extract!
+
+       	 : json.array!(@restaurants) do |restaurant|
+       	 :   json.extract! restaurant, :id, :name
+       	 :   json.url restaurant_url(restaurant, format: :json)
+       	 : end
+
+	 OR rather
+
+	 : json.array!(@shifts) do |shift|
+         :   json.extract! shift, :id, :title, :vols_needed, :user_ids
+         :   json.url shift_url(shift, format: :json)
+         : end
+
+       - [ ] define pushShift()
+
+       	 [[./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee]]
+
+       - [X] define viewShift()
+
+       	 [[./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee]]
+
+       	 : @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+       	 :   $scope.restaurants = []
+       	 :   $http.get('./restaurants.json').success((data) ->
+       	 :     $scope.restaurants = data
+       	 :   )
+       	 :
+       	 :   $scope.viewRestaurant = (id) ->
+       	 :     $location.url "/restaurants/#{id}"
+       	 : ]
+
+	 OR rather
+
+	 : @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+         :   $scope.shifts = []
+         :   $http.get('./shifts.json').success((data) ->
+         :     $scope.shifts = data
+         :   )
+	 : 
+         :   $scope.viewShift = (id) ->
+         :     $location.url "/shifts/#{id}"        
+         : ]
+
+       - [X] Create show template, route and controller
+
+       	 [[./public/templates/shifts/show.html]]
+
+       	 : <h1>{{shift.title}}</h1>
+
+       	 [[./app/assets/javascripts/main.js.coffee]]
+
+       	 : @rest = angular.module('rest', [])
+       	 :
+       	 : @rest.config(['$routeProvider', ($routeProvider) ->
+       	 :   $routeProvider.
+       	 :     when('/restaurants', {
+       	 :       templateUrl: '../templates/restaurants/index.html',
+       	 :       controller: 'RestaurantIndexCtrl'
+       	 :     }).
+       	 :     when('/restaurants/:id', {
+       	 :       templateUrl: '../templates/restaurants/show.html',
+       	 :       controller: 'RestaurantShowCtrl'
+       	 :     }).
+       	 :     otherwise({
+       	 :       templateUrl: '../templates/home.html',
+       	 :       controller: 'HomeCtrl'
+       	 :     })
+       	 : ])
+
+       	 [[./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee]]
+
+       	 : @rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) ->
+       	 :   $http.get("./restaurants/#{$routeParams.id}.json").success((data) ->
+       	 :     $scope.restaurant = data
+       	 :   )
+       	 : ]
+
+
+
+
 
 *** Routes
 

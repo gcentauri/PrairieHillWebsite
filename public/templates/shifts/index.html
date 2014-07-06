@@ -1,0 +1,11 @@
+<a href="/#">Shifts</a>
+<ul ng-repeat="shift in shifts">
+  <li>
+    <a ng-click="viewShift(shift.id)">
+      {{ shift.title }}
+      {{ shift.time }}
+      {{ shift.vols_needed }}
+      {{ shift.user_ids }}
+    </a>
+  </li>
+</ul>

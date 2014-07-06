@@ -71,13 +71,171 @@
    
    [[../shifts/new.html.erb]]
 
+   [[../shifts/edit.html.erb]]
+
+   [[../../../config/routes.rb]]
+   
 *** Images
 
     [[../../assets/images]]
 
+    - [ ] picturefill-rails
+
+      https://github.com/Werbeboten/picturefill-rails
+
+      : gem 'picturefill'
+      : bundle
+
+      [[../../views/layouts/application.html.erb]]
+
+      : = javascript_include_tag 'picturefill.all'
+
+      : <%= picturefill(default_url, "AltText") do %>
+      :   <%= image(small_url) %>
+      :   <%= image(medium_url, :min => 400) %>
+      :   <%= image(medium_high_dpi_url, :min => 400, :ratio => 1.5) %>
+      :   <%= image(large_url, :min => 1000) %>
+      :   <%= image(large_high_dpi_url, "(min-width: 1000px) and (min-device-pixel-ratio: 1.5)") %>
+      : <%= end %>
+
+      [[../../views/pages/sandbox.html.erb]]
+
 *** Volunteer Application
 
-    - [ ] update redirect_to?
+    - [ ] document array attribute update problem
+      
+      The [[../shifts/volunteer.html.erb][volunteer view]] contains a set of divs created by shift
+    [[../../models/shift.rb][  model]] and [[../../controllers/shifts_controller.rb][control]]. Their behavior is run by a jQuery script.
+      Looking at it like a jewelry box, the outside:
+      
+      - [ ] .container
+	- [ ] .
+	  - [ ] .list-group
+	    - [ ] [[../../controllers/shifts_controller.rb][uniq_shifts]]
+
+	      - [ ] shifts = Shift.all
+		
+		An ActiveRecord_Relation of all Shift records
+
+	      - [ ] user = current_user
+
+	      - [ ] shift_titles = shifts.pluck(:title)
+
+		an Array of every instance of the Shift attribute, 
+                title (string)
+
+	      - [ ] vols_needed = shifts.pluck(:vols_needed)
+
+		Array, volunteers needed for each shift
+
+	      - [ ] uniq_shifts = shift_titles.uniq
+
+		an Array of only the unique Shift titles	
+
+	    - [ ] uniq_shifts.each do |title|
+
+	      : => ["Signage", "Music", "General Setup and Tear Down" ]
+
+		: => "Signage"
+
+	      - [ ] shifts_by_title = shifts.where(title: title)
+
+		Relation: 'set' (???) of records
+
+		:  => #<ActiveRecord::Relation 
+                :      [#<Shift id: 3, title: "Signage", 
+                :               time: "Saturday 9-11am Setup", 
+                :               vols_needed: 1, 
+                :               created_at: "2014-06-03 20:39:13", 
+                :               updated_at: "2014-07-01 18:01:50", 
+                :               user_ids: "--- []\n">, 
+                :       #<Shift id: 4, title: "Signage", 
+                :               time: "Saturday 3-5pm Tear Down", 
+                :               vols_needed: 1, 
+                :               created_at: "2014-06-03 20:53:53", 
+                :               updated_at: "2014-07-01 18:01:50", 
+                :               user_ids: "--- []\n">]> 
+
+	      - [ ] title_vols = shifts_by_title.pluck(:vols_needed).sum
+		
+		- [ ] shifts.where(title: "Signage").pluck(:vols_needed).sum
+
+		  : [1, 1]
+		  
+		- [ ] [1, 1].sum
+
+		  : 2
+
+	      - [ ] if title_vols > 0
+
+		- [ ] Create the activity divs
+
+		  - [ ] #activity-title
+
+		    : activity-Signage
+		    
+		    - [ ] a.list-group-item
+		      
+		      - [ ] title
+
+		        : Signage
+
+		      - [ ] .badge-volunteer
+			
+			- [ ] title_vols
+
+			  : 2
+
+		  - [ ] .sub
+
+		    - [ ] shifts_by_title.each do |shift|
+		      
+		      : #<Shift id: 3, title: "Signage", 
+                      :         time: "Saturday 9-11am Setup",
+                      :         vols_needed: 1,
+                      :         created_at: "2014-06-03 20:39:13", 
+                      :         updated_at: "2014-07-01 18:01:50", 
+                      :         user_ids: "--- []\n">
+
+		      - [ ] .list-group-item-sub
+			
+			- [ ] shift.time
+
+			  : "Saturday 9-11am Setup"
+
+			- [ ] shift.user_ids
+			  
+			  : --- []\n
+			  
+			  : [4]
+
+			- [ ] .badge
+
+			  - [ ] shift.vols_needed
+
+			    : 1
+
+		      - [ ] form_for shift do |f|
+
+			[[../../models/shift.rb]]
+
+			: def add_user_idee(id)
+                        :   user_ids_will_change!
+                        :   update_attributes user_ids: user_ids + [ id ]
+                        : end
+
+			- [ ] f.hidden_field :user_ids, :value => shift.add_user_idee(@user.id)
+
+			  : shift.user_ids = [4]
+
+			- [ ] f.submit "Sign Up"
+
+			  Clicking the submit button updates the user_ids of 
+                          each Shift that exists. Upon further investigation, 
+			  it appears that the user_ids attributes for each of 
+                          the Shifts are being updated...
+
+      - [ ] update redirect_to?
 
 ** Shifts
 
@@ -92,3 +250,7 @@
      - [ ] notifications, minor css
 
     
+
+** sandbox
+
+   [[./sandbox.html.erb]]

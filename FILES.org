@@ -1,0 +1,5 @@
+[[./Gemfile][Gemfile]]
+[[./config/environments/development.rb][development]]
+  nb: start server with 'rails s' instead of 'foreman start' when debugging
+[[./config/routes.rb][routes]]
+[[./db/migrate][migrations]]
