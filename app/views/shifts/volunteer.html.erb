@@ -36,7 +36,7 @@
 		  <h2 class="alt-font-bold"><%= shift.time %></h2>
 
 		  <% if shift.volunteer == nil %>
-		    <div class="field form-group"
+		    <div class="field form-group">
 		    <%= form_for shift do |s| %>
 		      <%= s.text_field :volunteer, class: "form-control" %><br/>
 		      <%= s.submit "Sign Up", class: "btn btn-primary" %>
