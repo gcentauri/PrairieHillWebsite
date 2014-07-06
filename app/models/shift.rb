@@ -7,13 +7,16 @@ class Shift < ActiveRecord::Base
     user_ids_will_change!
     update_attribute(:user_ids, self.user_ids << id)
 
-    #update_attribute(:user_ids, user_ids + [ id ])
-    #update_attributes user_ids: user_ids.unshift(id)
-
     self.save
 
   end
 
+  def cancel_shift
+
+    shift.volunteer = nil
+    shift.save
+
+  end
   
 
 

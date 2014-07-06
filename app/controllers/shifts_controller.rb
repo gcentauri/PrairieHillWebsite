@@ -52,12 +52,6 @@ class ShiftsController < ApplicationController
 
     shift = Shift.find params[:id]
 
-#    if @shift.update_attribute(:user_ids, params[:user_ids])
-#      redirect_to @shift, notice: 'Shift was successfully updated.'
-#    else
-#      render :edit
-#    end
-
     if @shift.update(shift_params)
       redirect_to @shift, notice: 'THANK YOU!'
     else

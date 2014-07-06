@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :activities
-  resources :shifts
+  resources :shifts 
+
   resources :volunteers
 
   match '/contacts', to: 'contacts#new', via: 'get'

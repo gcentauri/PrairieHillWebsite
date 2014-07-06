@@ -3,3 +3,4 @@
   nb: start server with 'rails s' instead of 'foreman start' when debugging
 [[./config/routes.rb][routes]]
 [[./db/migrate][migrations]]
+[[./app/assets/javascripts/application.js][application.js]]
