@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     @contact = Contact.new
   end
 
+  def after_sign_in_path_for(resource)
+    ccf_path
+  end
+
   protected
 
   def configure_permitted_parameters

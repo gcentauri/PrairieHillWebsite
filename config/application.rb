@@ -4,7 +4,6 @@ require 'csv'
 require 'rails/all'
 
 
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -13,7 +12,6 @@ module PrairieHillWebsite
 
 #  config.assets.initialize_on_precompile = false
   class Application < Rails::Application
-
 
 
     config.generators do |g|
