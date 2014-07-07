@@ -1,1 +1,1 @@
-web: bundle exec unicorns_rails -p $PORT -c ./config/unicorn.rb
+web: bundle exec unicorns_rails -p 5000 -c ./config/unicorn.rb
