@@ -1,3 +1,4 @@
+
 [[./Gemfile][Gemfile]]
 [[./config/environments/development.rb][development]]
   nb: start server with 'rails s' instead of 'foreman start' when debugging
@@ -9,4 +10,6 @@
 [[./config/unicorn.rb][unicorn.rb]]
 [[./config/newrelic.yml][newrelic.yml]]
 [[./config/secrets.yml][yore]]
-
+[[./config/environments/production.rb][production.rb]]
+[[./config/initializers/assets.rb][assets.rb]]
+[[./test/test_helper.rb]]
