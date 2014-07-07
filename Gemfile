@@ -23,6 +23,8 @@ gem 'inherited_resources'
 gem 'skrollr-rails'
 gem 'rails_admin'
 gem 'picturefill'
+gem 'unicorn'
+gem 'newrelic_rpm'
 
 
 

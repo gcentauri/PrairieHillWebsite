@@ -6,3 +6,7 @@
 [[./app/assets/javascripts/application.js][application.js]]
 [[./config/application.rb][application.rb]]
 [[./app/controllers/application_controller.rb][application controller]]
+[[./config/unicorn.rb][unicorn.rb]]
+[[./config/newrelic.yml][newrelic.yml]]
+[[./config/secrets.yml][yore]]
+

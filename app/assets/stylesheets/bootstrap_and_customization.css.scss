@@ -590,7 +590,7 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.logo-box {
+.logo-box { //display: none;
     background: $phill-gold;
     border-radius: 2px;
     height: 170px;
@@ -774,6 +774,10 @@ a:hover {
     height: 200px;
     position: relative;
     top: 10px;
+}
+
+.mission {
+    text-align: center;
 }
 
 #cal {
@@ -1045,6 +1049,14 @@ div.list-group-item {
     .title-sub-name {
 	margin-top: -65px;
 	padding: 0 20px 0 0;
+	z-index: 3;
+    }
+
+    .title-logo {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	opacity: 0.1;
     }
 
     .quote-text {
@@ -1054,11 +1066,29 @@ div.list-group-item {
     .author {
 	font-size: 2vw;
     }
+
+    .mission-statement {
+	height: 25%;
+	.mission {
+	    font-size: 5vw;
+	    text-align: center;
+	}
+    }
+
+    .mission {
+    }
+
+    #unique {
+    }
+
+    #slideshow {
+	
+    }
     
     #menu {
-/*	position: relative;*/
+	
 	ul li {
-	    font-size: 3vw;
+	    font-size: 6vw;
 	}
     }
 
