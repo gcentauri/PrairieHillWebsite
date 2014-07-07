@@ -33,7 +33,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'foreman'
   gem 'pry-rails'
-  gem 'unicorn'
 end
 
 group :production do
