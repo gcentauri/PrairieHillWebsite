@@ -75,6 +75,10 @@ $badge-link-hover-color: $phill-grn;
     text-align: center;
 }
 
+.left {
+    text-align: left;
+}
+
 .right {
     text-align: right;
 }
@@ -84,7 +88,7 @@ $badge-link-hover-color: $phill-grn;
 }
 
 .bottom-shadow {
-    box-shadow: 0 9px 10px 3px black;
+    box-shadow: 0 5px 10px 3px black;
 }
 
 .top-shadow {
@@ -136,13 +140,17 @@ $badge-link-hover-color: $phill-grn;
 #slideshow {
  /*   margin: 50px auto; */
     position: relative; 
-    top: 2em;
+    top: -6em;
     opacity: 1;
+    z-index: 5;
+    .unique-subtitle {
+    }
     p {
 	padding: 15px;
 	background: white;
-
+	z-index: 4;
     }
+    
 }
 
 #slideshow > div { 
@@ -157,22 +165,30 @@ $badge-link-hover-color: $phill-grn;
 }
 
 #unique-box {
-/*    background: $phill-gold;*/
+//    background: $phill-gold;
     background: white;
     opacity: 0.7;
     font-size: 2vw;
     font-weight: bold;
     width: 35%;
-    margin: 0 10% 0 auto;
+    margin: 9px 10% 0 auto;
     padding: 15px;
 }
 
 .unique-subtitle {
     text-align: center;
     color: $phill-grn;
-    font-size: 30px;
+    background-color: $phill-gold;
+    opacity: 1;
+    font-size: 3vw;
     font-family: 'Open Sans Condensed', 'Poiret One', 'BenchNine', 'Kaushan Script', 'Clicker Script';
-    margin: 0 5px 0 5px;
+    margin: 0 auto 0 auto; 
+    position: relative;
+    right: 5%;
+    z-index: 5;
+    width: 110%;
+    height: 60px;
+    @extend .bottom-shadow;
 }
 
 .blue-box {
