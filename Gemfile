@@ -23,9 +23,7 @@ gem 'inherited_resources'
 gem 'skrollr-rails'
 gem 'rails_admin'
 gem 'picturefill'
-gem 'unicorn'
 gem 'newrelic_rpm'
-
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -35,11 +33,14 @@ group :development, :test do
   gem 'sqlite3'
   gem 'foreman'
   gem 'pry-rails'
+  gem 'unicorn'
 end
 
 group :production do
 #  gem 'pg', '0.15.1'
   gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'unicorn-rails'
 end
 
 #gem 'rails_12factor', group: :production

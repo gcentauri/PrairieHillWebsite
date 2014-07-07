@@ -247,6 +247,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unicorn-rails (2.1.1)
+      rack
+      unicorn
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -283,3 +286,4 @@ DEPENDENCIES
   turbolinks
   uglifier (= 2.5.1)
   unicorn
+  unicorn-rails
