@@ -36,6 +36,7 @@
 
 ** About
 
+   [[./_about.html.erb]]
    [[./_about2.html.erb]]
 
 ** News

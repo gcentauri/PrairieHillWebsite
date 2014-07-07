@@ -2,21 +2,39 @@
      data-0="background-position: 0% 150%;"
      data-2000="background-position: 0% 0%;">
 
-  <div class="mission-statement"
-       style="background:white;
+  <div class="mission-statement padded"
+       style="background:transparent;
               color:black;
-              font-size:2vw;
-              padding:15px;"
-       data-250="opacity:0;"
-       data-500="opacity:0.5;">
+              font-size:2vw;"
 
-    <div class="container">
-      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+       data-250="opacity:0;"
+       data-400="opacity:0.8;">
+
+    <div class="container" style="color:white;">
+      <div class="mission">
+	<div class="green gold-bg" 
+	     data-0="font-size:6vw;opacity:1;" 
+	     data-500="font-size:4vw;"
+	     data-900="opacity:0;">
+	  PRAIRIE HILL LEARNING CENTER</div>
+	<div class="green-bg padded bottom-shadow">
+	  <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+	  </div>
+      </div>
     </div>
   </div>
-  <div id="unique">
-    <h2 class="hi-li-2 container center" style="margin: 0 0 0 55%;background:green;width:35%;">What makes PRAIRIE HILL unique?</h2>
-    <div>
+
+  <div id="unique"
+       data-0="opacity:0;"
+       data-1000="opacity:0;"
+       data-1180="opacity:1;">
+    <h1 class="hi-li-2 container center padded green-bg" 
+	style="height:60px;width:100%;"
+	data-1100="opacity:0;bottom:0;"
+	data-1200="opacity:0.9;bottom:90%;">
+      What makes PRAIRIE HILL unique?
+    </h1>
+    <div class="justify">
       <%= cms_snippet_content('ph-unique', @cms_site).html_safe %>
     </div>
   </div>
@@ -24,14 +42,14 @@
 
 <div class="content">
 
-  <div id="latest-news" class="content-top"
+  <div id="latest-news" class=""
        data-0="opacity:0;"
        data-1500="opacity:0;"       
        data-2000="opacity:1;">
     <%= render 'news' %>
   </div>
 
-  <div id="about" class="content-top">
+  <div id="about">
     <%= render 'about2' %>
   </div>
 

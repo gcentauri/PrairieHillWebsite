@@ -1,29 +1,10 @@
-<div>
+<div class="boot-scraping" style="height:900px;background-size:cover;"></div>
 
-
-  <div class="img-bg-test" style="height:900px;background-size:cover;">
-    
-    <div class="container justify info info-secondary"
-	 data-0="opacity:0;"
-	 data-2990="opacity:0;"
-	 data-3800="opacity:0.7;"
-	 data-4000="opacity:0;">
-      <div>
-	<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-      </div>
-    </div>
+<div id="philosophy" class="section philosophy-bg" style="height:1200px;">
+  <div style="background:white;opacity:0.7;height:25%;padding:15px;position:relative;top:50%;">
+    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
   </div>
-
-
-
-  <div id="philosophy" class="section philosophy-bg" style="height:1200px;">
-    <div class="" style="background:white;opacity:0.7;height:25%;padding:15px;position:relative;top:50%;">
-      <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-    </div>
-  </div>
-
 </div>
-
 
 <script>
 
