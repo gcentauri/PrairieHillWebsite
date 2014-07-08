@@ -1,8 +1,22 @@
-<div class="logo-box">
+<div class="logo-box" style="position:absolute;top:10px;left:10px;">
+
   <div data-0="opacity:0.9;"
        data-1000="opacity:0;"
        >
+
     <%= image_tag("logo-transparent.png", class: "title-logo") %>
+
+    <div class="welcome-msg padded hidden">
+
+      <p style="margin: 0 auto 0 auto;">
+	<span class="glyphicon glyphicon-leaf"></span>
+	Welcome to Prairie Hill Learning Center! Feel free to look around and 
+      <strong><em><%= link_to 'contact us', contact_path, class: 'gold' %></em></strong> if you have any questions!
+      <br/>
+      <span style="float:right;"><strong>(402) 438-6668</strong></span>
+      </p>
+    </div>
+
     <div class="title-name">
       <strong>PRAIRIE HILL</strong>
     </div> 
@@ -11,12 +25,7 @@
     </div>
 
   </div>
-
-  <!-- <div id="title">-->
-
-
 </div>
-
 
 <div>
   <% flash.each do |name, msg| %>
@@ -34,18 +43,19 @@
 
 <script>
 
- $('#user-menu').click(function(){
-   $(this).children('.menu').toggle('slow');
+ $('.user-menu').click(function(){
+   $(this).siblings('.menu-list').toggle('slow').css({'z-index':'5'});
    $(this).children('.menu-title').toggle('slow');
+   $('.title-name').toggle('slow');
+   $('.title-sub-name').toggle('slow');
+//   $('.title-name').toggleClass('hidden');
+//   $('.title-sub-name').toggleClass('hidden');
+//   $('.title-name').fadeToggle(5000);
+//   $('.title-sub-name').fadeToggle(5000);
+   $('.welcome-msg').toggleClass('hidden');
  
    return false;
  });
 
 
 </script>
-
-
-
-
-
-

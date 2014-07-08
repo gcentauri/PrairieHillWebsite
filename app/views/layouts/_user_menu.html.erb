@@ -1,67 +1,72 @@
-<div id="user-menu"> 
-  
-  <% if user_signed_in? %> 
-    <span class="menu-title">User Menu </span>
-  <% else %>
-    <span class="menu-title">Sign In </span>
-  <% end %>
-  <span class="glyphicon glyphicon-leaf"></span> 
-  <ul class="menu" style="display:none;"> 
-    <% if user_signed_in? %>
-      <li>
-	<em>
-	  <%= link_to destroy_user_session_path, method: :delete do %>
-	    Sign out
-	  <% end %>
-	</em>
-      </li>
+<div>
+  <div class="user-menu"> 
 
-      <li>
-	<em>
-	  <%= link_to "Settings", edit_user_registration_path %>
-	</em>
-      </li>
-
-
-      <% if current_user.admin == true %>
-
+    <% if user_signed_in? %> 
+      <span class="menu-title">User Menu </span>
+    <% else %>
+      <span class="menu-title">Sign In </span>
+    <% end %>
+    <span class="glyphicon glyphicon-leaf"></span> 
+  </div>
+  <div class="menu-list" style="display:none;">
+    <ul class="menu-items"> 
+      <% if user_signed_in? %>
 	<li>
 	  <em>
-	    <%= link_to "Admin", comfy_admin_cms_path %>
+	    <%= link_to destroy_user_session_path, method: :delete do %>
+	      Sign out
+	    <% end %>
 	  </em>
 	</li>
 
 	<li>
 	  <em>
-	    <%= link_to "Shifts", shifts_path %>
+	    <%= link_to "Settings", edit_user_registration_path %>
+	  </em>
+	</li>
+
+
+	<% if current_user.admin == true %>
+
+	  <li>
+	    <em>
+	      <%= link_to "Admin", comfy_admin_cms_path %>
+	    </em>
+	  </li>
+
+	  <li>
+	    <em>
+	      <%= link_to "Shifts", shifts_path %>
+	    </em>
+	  </li>
+
+	<% end %>
+
+	<li>
+	  <em>
+	    <%= link_to "Country Fair", ccf_path %>
+	  </em>
+	</li>
+	<li>
+	  <em>
+	    <%= link_to "My Shifts", user_shifts_path %>
+	  </em>
+	</li>
+
+
+      <% else %>
+
+	<li>
+	  <em>
+	    <%= nav_link "Sign in", new_user_session_path %>
+	  </em>
+	  <em>
+	    <%= nav_link "Sign up", new_user_registration_path %>
 	  </em>
 	</li>
 
       <% end %>
+    </ul>
+  </div>
 
-      <li>
-	<em>
-	  <%= link_to "Country Fair", ccf_path %>
-	</em>
-      </li>
-      <li>
-	<em>
-	  <%= link_to "My Shifts", user_shifts_path %>
-	</em>
-      </li>
-
-
-    <% else %>
-
-      <li>
-	<em>
-	  <%= nav_link "Sign in", new_user_session_path %>
-	</em>
-	<em>
-	  <%= nav_link "Sign up", new_user_registration_path %>
-	</em>
-      </li>
-
-    <% end %>
-  </ul>
 </div>
