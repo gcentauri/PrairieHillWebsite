@@ -8,8 +8,11 @@
     <% end %>
     <span class="glyphicon glyphicon-leaf"></span> 
   </div>
+
   <div class="menu-list" style="display:none;">
+
     <ul class="menu-items"> 
+
       <% if user_signed_in? %>
 	<li>
 	  <em>
@@ -25,8 +28,8 @@
 	  </em>
 	</li>
 
-
-	<% if current_user.admin == true %>
+	
+	<% if current_user.try(:admin?) %>
 
 	  <li>
 	    <em>
@@ -37,6 +40,12 @@
 	  <li>
 	    <em>
 	      <%= link_to "Shifts", shifts_path %>
+	    </em>
+	  </li>
+
+	  <li>
+	    <em>
+	      <%= link_to "Activities", activities_path %>
 	    </em>
 	  </li>
 

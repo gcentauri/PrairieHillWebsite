@@ -15,6 +15,9 @@
 
    [[./FILES.org]]
 
+*** excel export
+
+    http://railscasts.com/episodes/362-exporting-csv-and-excel
 
 * Description
 
@@ -57,6 +60,8 @@
     all that they need. However,
 
     - [ ] Admin/General user
+
+       https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
 
       We will have user accounts for general things like summer camp and 
       country fair sign up
