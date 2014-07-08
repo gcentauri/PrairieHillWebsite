@@ -38,13 +38,15 @@
 		  <% if shift.volunteer == nil || shift.volunteer == "" %>
 		    <div class="field form-group">
 		    <%= form_for shift do |s| %>
-		      <%= s.text_field :volunteer, class: "form-control" %><br/>
+		      <%= s.text_field :volunteer, class: "form-control", value: @user.name %><br/>
 		      <%= s.submit "Sign Up", class: "btn btn-primary" %>
 		    <% end %>
 		    </div>
 		  <% else %>
 		    <h3>Volunteer: <span style="color:white;"><%= shift.volunteer %></span></h3>
-		    <span class="green"><%= button_to 'Cancel', shift_path(shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-primarys" %></span>
+		    <% if shift.volunteer == @user.name %>
+		      <span class="green"><%= button_to 'Cancel', shift_path(shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-primarys" %></span>
+		    <% end %>
 		  <% end %>
 		</div>
 

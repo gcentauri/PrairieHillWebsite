@@ -28,10 +28,10 @@
 	<li><%= link_to 'Edit', edit_shift_path(@shift) %></li>
 	<li><%= link_to 'Shifts', shifts_path %></li>
 	<li><%= link_to 'New', new_shift_path %></li>
-	<li><%= link_to 'Volunteer for Country Fair Shifts', ccf_path %></li>
+	<li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
 	<li><%= link_to 'Cancel', shift_path(@shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "green" %></li>
       <% else %>
-	<li><%= link_to 'Volunteer for Country Fair Shifts', ccf_path %></li>
+	<li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
 	<li><%= link_to 'Cancel', shift_path(@shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "green" %></li>
       <% end %>
     </ul>
