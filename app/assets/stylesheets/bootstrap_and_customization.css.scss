@@ -22,6 +22,8 @@ $list-group-bg: $phill-grn;
 $badge-border-radius: 50%;
 $badge-link-hover-color: $phill-grn;
 
+$btn-primary-bg: $phill-grn;
+$btn-primary-color: white;
 
 @import 'bootstrap';
 
@@ -88,7 +90,7 @@ $badge-link-hover-color: $phill-grn;
 }
 
 .bottom-shadow {
-    box-shadow: 0 5px 10px 3px black;
+    box-shadow: 0 5px 10px 0.2px black;
 }
 
 .top-shadow {
@@ -996,8 +998,29 @@ a:hover {
 .badge-volunteer {
     @extend .badge;
     
-    color: white;
-    background: $phill-grn;
+    color: $phill-gold;
+    background: transparent;
+    font-size: 2vw;
+    margin-right: 35%;
+    margin-top: 2%;
+}
+
+.info-flag {
+    color: green;
+    font-weight: bold;
+    font-size: 1vw;
+    background: gold;
+    padding: 15px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    border-radius: 15px 0 15px 0;
+}
+
+.info-flag-lg {
+    @extend .info-flag;
+    
+    font-size: 3vw;
 }
 
 .list-group-item {
@@ -1011,7 +1034,7 @@ a:hover {
     &:focus {
 	.badge-volunteer {
 	    color: $phill-grn;
-	    background: $phill-gold;
+	    background: transparent;
 	}
     }
 }
@@ -1046,6 +1069,7 @@ a.list-group-item-sub {
 
 .activity {
     position: static;
+    margin-bottom: 15px;
 }
 
 .sub {

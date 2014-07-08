@@ -7,15 +7,24 @@ class ShiftsController < ApplicationController
   end
   
   def volunteer
+    @activities = Activity.all
     @shifts = Shift.all
     @user = current_user
     @shift_titles = @shifts.pluck(:title)
     @uniq_shifts = @shift_titles.uniq
     @vols_needed = @shifts.pluck(:vols_needed)
+    @username = @user.first_name + " " + @user.last_name
     
     unless current_user
       render action: 'new'
     end
+  end
+
+  def user_shifts
+    @user = current_user
+    @shifts = Shift.all
+    @username = @user.first_name + " " + @user.last_name
+    @user_shifts = @shifts.where(volunteer: @username)
   end
 
   def sandbox
@@ -73,6 +82,6 @@ class ShiftsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def shift_params
-    params.require(:shift).permit(:title, :time, :vols_needed, :volunteer)
+    params.require(:shift).permit(:title, :time, :vols_needed, :volunteer, :comments)
   end
 end

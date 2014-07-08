@@ -4,17 +4,19 @@
       Please sign up for this shift! <br/>
       <div class="field form-group" style="width:50%;">
 	<%= form_for @shift do |s| %>
-	  <%= s.text_field :volunteer, class: "form-control" %>
-	  <%= s.submit "Sign Up", class: "btn btn-primary" %>
+	  <%= s.hidden_field :volunteer, class: "form-control", value: @username %>
+	  <span style="margin-left:90%;"><%= s.submit "Sign Up", class: "info-flag bottom-shadow" %></span>
 	<% end %>
       </div>
-      <div class="hi-li-3">
+      <div class="info-flag-lg bottom-shadow">
 	<%= @shift.title %><br />
 	<%= @shift.time %><br />
       </div>
     <% else %>
-      Thank you, <span class="hi-li-2"><%= @shift.volunteer %></span> !<br /><br />
-      <div class="hi-li-3">
+      Thank you!<br/> <br/> 
+      <span class="info-flag-lg">
+	<%= @shift.volunteer %></span> is now signed up for:<br/><br/>
+      <div class="info-flag-lg bottom-shadow" style="width:60%;margin-left:40%;">
 	<%= @shift.title %><br />
 	<%= @shift.time %><br />
       </div>
@@ -22,18 +24,6 @@
 
   </div>
 
-  <div id="volunteer-menu">
-    <ul>
-      <% if current_user.admin == true %>
-	<li><%= link_to 'Edit', edit_shift_path(@shift) %></li>
-	<li><%= link_to 'Shifts', shifts_path %></li>
-	<li><%= link_to 'New', new_shift_path %></li>
-	<li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
-	<li><%= link_to 'Cancel', shift_path(@shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "green" %></li>
-      <% else %>
-	<li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
-	<li><%= link_to 'Cancel', shift_path(@shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "green" %></li>
-      <% end %>
-    </ul>
-  </div>
+  <%= render 'layouts/volunteer_menu' %>
+
 </div>

@@ -103,7 +103,53 @@
 
 *** Volunteer Application
 
+**** Wish List
+
+     - [X] Users
+
+       New Registration "Create an account" ([[../devise/registrations/new.html.erb][devise-new]])
+
+       - [X] Add/adjust fields for 
+	 - [X] First Name
+	 - [X] Last Name
+	 - [X] Phone number
+
+	 - [X] update registration edit as well
+	 - [X] will need to update the model, db, etc for change of attributes
+
+     - [-] Data
+
+       - [ ] Admin download spreadsheet of volunteers
+
+       - [-] additional info in database for shifts
+
+	 [[../../../db/seeds.rb]]
+
+	 - [-] Use Activity model to hold additional information for reference
+
+	   - [X] Work Area
+	   - [X] Coordinator
+	   - [-] Has Sign?
+	     - [X] add activity comment section 
+	       OR
+	     - [ ] change activity from boolean to string (for comment)
+	   - [X] Number of Tickets for activity
+	   - [X] General Comment Section (put sign comments here as well?)
+
+     
+
+**** Issues
+
     - [ ] document array attribute update problem
+
+      UPDATE: Tue Jul  8 05:26:58 UTC 2014
+      
+      I've decided for now to go with a simpler work around for this problem.
+
+      A user has to be signed in to view the volunteer page. The sign-up text 
+      fields autofill the user's name. The cancel button only appears if the 
+      shift volunteer matches the user's name.
+
       
       The [[../shifts/volunteer.html.erb][volunteer view]] contains a set of divs created by shift
     [[../../models/shift.rb][  model]] and [[../../controllers/shifts_controller.rb][control]]. Their behavior is run by a jQuery script.

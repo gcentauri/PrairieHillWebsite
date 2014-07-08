@@ -6,12 +6,144 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# TEST for use of variables
+@mandie = "Mandie Schadwinkel"
+
+Activity.create([
+                 { work_area: "LEAD",
+                   coordinator: "Gena Foster"
+                 },
+                 { work_area: "Tours of Earth House",
+                   coordinator: "Jason Nord"
+                 },
+                 { work_area: "Signage",
+                   coordinator: "Older Elementary",
+                   comments: "Older Elementary gets down signs and cleans them off"
+                 },
+                 { work_area: "Music",
+                   coordinator: "Stacey Skold"
+                 },
+                 { work_area: "General Setup and Tear Down",
+                   coordinator: "Dan Inman, David Foster",
+                   comments: "Includes tables/tents/etc"
+                 },
+                 { work_area: "Montessori Information Booth",
+                   coordinator: "Jeanne Hevener, Chris Eigbrett, " + @mandie
+                 },
+                 { work_area: "Bake Sale",
+                   sign: true
+                 },
+                 { work_area: "Food & Drink Concessions",
+                   coordinator: "Lesley Hammerschmidt",
+                   sign: true,
+                   comments: "There is a Drinks sign"
+                 },
+                 { work_area: "Ticket/Raffle Sales",
+                   coordinator: "Cheryl Schoneweis",
+                   sign: true,
+                   comments: "There are paper signs on stakes"
+                 },
+                 { work_area: "Pony Rides",
+                   sign: true,
+                   num_tickets: 4,
+                   comments: "Old sign needs repair. Horse experience needed to volunteer."
+                 },
+                 { work_area: "Pony Wagon Rides",
+                   coordinator: "Deb Cirksena",
+                   sign: true,
+                   num_tickets: 4,
+                   comments: "Sign needs to be touched up. Wagon experience needed to volunteer."
+                 },
+                 { work_area: "Face Painting",
+                   coordinator: "Anderson Reinkordt",
+                   sign: true,
+                   num_tickets: 3
+                 },
+                 { work_area: "Water Play and Bubbles",
+                   coordinator: "Chris Eigbrett, Ania Szary-Berkowitz",
+                   sign: true,
+                   num_tickets: 1
+                 },
+                 { work_area: "Treasure Hunt",
+                   coordinator: "Mandie Schadwinkel, Justin Fearing",
+                   sign: true,
+                   num_tickets: 1
+                 },
+                 { work_area: "Cake Walk",
+                   coordinator: @mandie + ", Justin Fearing",
+                   sign: true,
+                   num_tickets: 3
+                 },
+                 { work_area: "Dress Up",
+                   coordinator: @mandie + ", Justin Fearing",
+                   sign: true,
+                   num_tickets: 1
+                 },
+                 { work_area: "Obstacle Course",
+                   coordinator: "Justin Fearing",
+                   sign: true,
+                   num_tickets: 1,
+                   comments: "Sign needs touch up."
+                 },
+                 { work_area: "Penny Toss",
+                   sign: true,
+                   num_tickets: 1
+                 },
+                 { work_area: "Pocket Person",
+                   coordinator: "Chris Eigbrett",
+                   num_tickets: 1
+                 },
+                 { work_area: "Dunk Tank",
+                   sign: true,
+                   num_tickets: 2
+                 },
+                 { work_area: "Sock Puppets",
+                   coordinator: "Amy Willeke",
+                   num_tickets: 4
+                 },
+                 { work_area: "Parking Cars",
+                   coordinator: "David Foster"
+                 },
+                 { work_area: "Photographers",
+                   coordinator: "Keith Lawson"
+                 },
+                 { work_area: "Runners"
+                 },
+                 { work_area: "Chess / Board Games",
+                   coordinator: "Gena Foster"
+                 },
+                 { work_area: "Dummy Goat Roping",
+                   coordinator: "Harper Lawson",
+                   num_tickets: 2
+                 },
+                 { work_area: "Cider Press",
+                   coordinator: "Stacey Skold",
+                   num_tickets: 2
+                 },
+                 { work_area: "Pinwheel Craft",
+                   coordinator: "Staci Lawson",
+                   num_tickets: 3
+                 },
+                 { work_area: "Corn Box",
+                   coordinator: "David",
+                   num_tickets: 2
+                 },
+                 { work_area: "Broom Maker",
+                   coordinator: "Clarence"
+                 },
+                 { work_area: "Origami",
+                   num_tickets: 2
+                 }
+])
+
 Shift.create([
               { title: "Signage",
                 time: "Saturday 9-11 Setup"},
               { title: "Signage",
                 time: "Saturday 3-5 Tear Down"},
 
+              { title: "Music",
+                time: "Saturday 9-11 Setup"},
               { title: "Music",
                 time: "Saturday 3-5 Tear Down"},
               { title: "Music",
@@ -53,6 +185,19 @@ Shift.create([
               { title: "Bake Sale",
                 time: "Saturday 2-3"},
               { title: "Bake Sale",
+                time: "Saturday 3-5 Tear Down"},
+
+              { title: "Food & Drink Concessions",
+                time: "Saturday 9-11 setup"},
+              { title: "Food & Drink Concessions",
+                time: "Saturday 11-12"},
+              { title: "Food & Drink Concessions",
+                time: "Saturday 12-1"},
+              { title: "Food & Drink Concessions",
+                time: "Saturday 1-2"},
+              { title: "Food & Drink Concessions",
+                time: "Saturday 2-3"},
+              { title: "Food & Drink Concessions",
                 time: "Saturday 3-5 Tear Down"},
 
               { title: "Ticket/Raffle Sales",

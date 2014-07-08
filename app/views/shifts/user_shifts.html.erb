@@ -1,0 +1,35 @@
+<%= cms_snippet_content('ccf', @cms_site).html_safe %>
+
+<div class="info-flag-lg center">My Shifts</div>
+
+<div class="container">
+  <div style="margin:60px;width:80%;">
+    <table class="table table-striped">
+      <tr>
+	<th>Work Area</th>
+	<th>Shift Time</th>
+	<th></th>
+      </tr>
+      <% @user_shifts.each do |s| %>
+	<tr>
+	  <td>
+	    <%= s.title %>
+	  </td>
+	  <td>
+	    <%= s.time %>
+	  </td>
+	  <td>
+	    <%= button_to 'Cancel', shift_path(s, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-primarys" %>
+	  </td>
+	</tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div id="volunteer-menu">
+    <ul>
+      <li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
+    </ul>
+  </div>
+
+</div>

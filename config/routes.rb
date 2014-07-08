@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "csv" => "pages#csvupload"
   get "ccf" => "shifts#volunteer"
   get "test" => "shifts#sandbox"
+  get "user_shifts" => "shifts#user_shifts"
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => false
