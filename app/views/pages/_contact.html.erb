@@ -1,38 +1,33 @@
-<div>
-  <h2 class="section-title" style="display:none;">
-    <span class="glyphicon glyphicon-envelope"></span> 
-    Contact Us 
-    <span class="glyphicon glyphicon-earphone"></span>
-  </h2>
+<div class="container section">
 
   <div>
-    <div id="" class="container section">
-      <div>
-	<%= image_tag("logo-transparent.png", class: "title-logo") %>
-      </div>
-      <div>
-	<%= cms_snippet_content('contact-info', @cms_site).html_safe %>
-      </div>
-    </div>
-
-    <div id="" class="container section form-group">
-
-      <%= simple_form_for @contact, :html => {:class => 'form-group' }, :defaults => { :input_html => { :class => 'form-control' } } do |f| %>
-	<%= f.input :name, :required => true %>
-	<%= f.input :email, :required => true %>
-	<%= f.input :message, :as => :text, :required => true %>
-	<div class= "hidden">
-	  <%= f.input :nickname, :hint => 'Leave this field blank!' %>
-	</div>
-	<div>
-	  <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
-	</div>
-    </div>
-      <% end %>
+    <%= image_tag("logo-transparent.png", class: "title-logo") %>
   </div>
 
+  <div>
+    <%= cms_snippet_content('contact-info', @cms_site).html_safe %>
+  </div>
 
 </div>
+
+<div id="" class="container section form-group">
+
+  <%= simple_form_for @contact, :html => {:class => 'form-group' }, :defaults => { :input_html => { :class => 'form-control' } } do |f| %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :message, :as => :text, :required => true %>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+</div>
+  <% end %>
+
+
+
+
 
 
 

@@ -1,20 +1,20 @@
 <div class="logo-box">
-  <div id="title">
-
-    <div data-0="opacity:0.9;"
-	 data-1000="opacity:0;">
-      <%= image_tag("logo-transparent.png", class: "title-logo") %>
-    </div>
-
+  <div data-0="opacity:0.9;"
+       data-1000="opacity:0;"
+       >
+    <%= image_tag("logo-transparent.png", class: "title-logo") %>
     <div class="title-name">
       <strong>PRAIRIE HILL</strong>
     </div> 
-
     <div class="title-sub-name">
       <em>Learning Center</em>
     </div>
 
   </div>
+
+  <!-- <div id="title">-->
+
+
 </div>
 
 
@@ -24,12 +24,9 @@
   <% end %>
 </div>
 
-<div>
-  <div>
-    <%= render 'layouts/user_menu' %>
-  </div>
+<div style="cursor:pointer;">
+  <%= render 'layouts/user_menu' %>
 </div>
-
 
 <% if current_page?(root_path) %>
   <%= render 'page_add_quote' %>
@@ -37,7 +34,7 @@
 
 <script>
 
- $('#user-menu').hover(function(){
+ $('#user-menu').click(function(){
    $(this).children('.menu').toggle('slow');
    $(this).children('.menu-title').toggle('slow');
  

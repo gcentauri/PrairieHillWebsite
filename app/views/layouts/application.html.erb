@@ -28,15 +28,22 @@
       <div id="skrollr-body">
 	<div id="info-column">
 	  <% if !current_page?(contact_path) %>
+	    
+	    <%= yield %>
+	    
+	    <% if current_page?(camp_path) %>
+	      <div style="position:relative;top:800px;">
+		<%= render 'pages/contact' %>
+	      </div>
+	    <% else %>
+	      <%= render 'pages/contact' %>	      
+	    <% end %>
 
-	      <%= yield %>
-
-	    <%= render 'pages/contact' %>	      
 	  <% else %>
 	    <div style="margin-top:200px;"></div>
 	    <%= render 'pages/contact' %>	      
 	  <% end %>
-	<div class="container" style="">
+	<div class="container">
 	  <%= cms_snippet_content('legal', @cms_site).html_safe %>
 	</div>
 
