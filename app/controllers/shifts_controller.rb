@@ -13,10 +13,13 @@ class ShiftsController < ApplicationController
     @shift_titles = @shifts.pluck(:title)
     @uniq_shifts = @shift_titles.uniq
     @vols_needed = @shifts.pluck(:vols_needed)
-    @username = @user.first_name + " " + @user.last_name
-    
+
     unless current_user
       render action: 'new'
+    end
+
+    if current_user
+      @username = @user.first_name + " " + @user.last_name
     end
   end
 
