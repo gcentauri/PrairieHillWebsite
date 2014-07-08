@@ -1,0 +1,39 @@
+<div class="container" >
+  <div style="margin-top:25em;">
+    <h2 class="hi-li"> Activities</h2>
+    <%= link_to 'New Activity', new_activity_path %>
+    <br/>
+
+    <p>
+      Download:
+      <%= link_to "Excel", activities_path(format: "xls") %>
+    </p>
+
+    <table class="table">
+      <tr>
+	<th>Work Area</th>
+	<th>Coordinator</th>
+	<th>Sign?</th>
+	<th>Number of Tickets needed</th>
+	<th>Comments</th>
+	<th></th>
+	<th></th>
+	<th></th>
+      </tr>
+      <% @activities.each do |activity| %>
+	<tr>
+	  <td><%= activity.work_area %></td>
+	  <td><%= activity.coordinator %></td>
+	  <td><%= activity.sign %></td>
+	  <td><%= activity.num_tickets %></td>
+	  <td><%= activity.comments %></td>
+	  <td><%= link_to 'Show', activity %></td>
+	  <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+	  <td><%= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	</tr>
+      <% end %>
+    </table>
+
+  </div>
+
+</div>

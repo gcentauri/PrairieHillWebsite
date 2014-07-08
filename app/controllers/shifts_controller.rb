@@ -4,8 +4,15 @@ class ShiftsController < ApplicationController
 
   def index
     @shifts = Shift.all
+
+    @shiftss = Shift.order(:title)
+    respond_to do |format|
+      format.html
+      format.xls # { send_data @shiftss.to_csv(col_sep: "\t") }
+    end
+
   end
-  
+
   def volunteer
     @activities = Activity.all
     @shifts = Shift.all
@@ -21,6 +28,7 @@ class ShiftsController < ApplicationController
     if current_user
       @username = @user.first_name + " " + @user.last_name
     end
+
   end
 
   def user_shifts

@@ -1135,13 +1135,14 @@ div.list-group-item {
 /* for 1253px or less */
 @media screen and (max-width: 1253px) {
 
+    .title-name {
+	font-size: 4vw;
+    }
+
     .title-sub-name {
 
     }
     
-    .title-name {
-
-    }
 
 }
 

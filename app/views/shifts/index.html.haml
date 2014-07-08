@@ -1,25 +1,28 @@
-.container{ :style => "margin-top:15em;" }
+
+.container{ :style => "margin-top:25em;" }
   %h2{:class => "hi-li"} Shifts:
   = link_to 'New Shift', new_shift_path
   %br
-  
+
+  %p= link_to("Excel", shifts_path(format: "xls"))
+
   %table{:class => "table"}
     %tr
       %th Title
       %th Time
       %th Volunteers Needed
       %th
-      %th
-      %th
-            
-    - @shifts.each do |shift|
-      %tr
-        %td= shift.title
-        %td= shift.time
-        %td= shift.vols_needed
-        %td= link_to 'Show', shift
-        %td= link_to 'Edit', edit_shift_path(shift)
-        %td= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th
+          %th
+
+            - @shifts.each do |shift|
+              %tr
+                %td= shift.title
+                %td= shift.time
+                %td= shift.vols_needed
+                %td= link_to 'Show', shift
+                %td= link_to 'Edit', edit_shift_path(shift)
+                %td= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
 

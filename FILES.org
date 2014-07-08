@@ -16,3 +16,5 @@
 [[./test/test_helper.rb]]
 [[./Procfile]]
 [[./.gitignore][.gitignore]]
+[[./mysite.thor]]
+[[./app/controllers/shifts_controller.rb][shifts controller]]

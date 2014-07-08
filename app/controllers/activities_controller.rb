@@ -3,6 +3,11 @@ class ActivitiesController < InheritedResources::Base
 
   def index
     @activities = Activity.all
+    @activitiess = Activity.order(:work_area)
+    respond_to do |format|
+      format.html
+      format.xls # { send_data @activitiess.to_csv(col_sep: "\t") }
+    end
   end
 
   def show

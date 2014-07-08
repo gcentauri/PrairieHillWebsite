@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+	  xmlns:o="urn:schemas-microsoft-com:office:office"
+	  xmlns:x="urn:schemas-microsoft-com:office:excel"
+	  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+	  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Title</Data></Cell>
+        <Cell><Data ss:Type="String">Time</Data></Cell>
+        <Cell><Data ss:Type="String">Volunteer</Data></Cell>
+      </Row>
+      <% @activities.each do |activity| %>
+	<Row>
+          <Cell><Data ss:Type="String"><%= activity.work_area %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= activity.coordinator %></Data></Cell>	  
+          <Cell><Data ss:Type="String"><%= activity.sign %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= activity.num_tickets %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= activity.comments %></Data></Cell>
+	</Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

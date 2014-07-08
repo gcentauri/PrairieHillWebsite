@@ -1,32 +1,35 @@
 .content
-  %h2{:class => "section-title"} Fair Activities:
+  .div{ :style => "margin-top:25em;" }
+    %h2{:class => "section-title"} Fair Activities:
 
-  .blue-box-light
 
-    %table
-      %tr
-        %th Activity Name
-        %th Coordinator
-        %th Has a Sign?
-        %th Number of Tickets Needed
-        %th Total Volunteers Needed
-        %th Shift IDs
-        %th
-        %th
-        %th
+  
+    .blue-box-light
 
-      - @activities.each do |activity|
+      %table
         %tr
-          %td= activity.work_area
-          %td= activity.coordinator
-          %td= activity.sign
-          %td= activity.num_tickets
-          %td= activity.vol_needed
-          %td= activity.shift_ids
-          %td= link_to 'Show', activity
-          %td= link_to 'Edit', edit_activity_path(activity)
-          %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %th Activity Name
+          %th Coordinator
+          %th Has a Sign?
+          %th Number of Tickets Needed
+          %th Total Volunteers Needed
+          %th Shift IDs
+          %th
+            %th
+              %th
 
-    %br
+                - @activities.each do |activity|
+                  %tr
+                    %td= activity.work_area
+                    %td= activity.coordinator
+                    %td= activity.sign
+                    %td= activity.num_tickets
+                    %td= activity.vol_needed
+                    %td= activity.shift_ids
+                    %td= link_to 'Show', activity
+                    %td= link_to 'Edit', edit_activity_path(activity)
+                    %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-    = link_to 'New Activity', new_activity_path
+                    %br
+
+                    = link_to 'New Activity', new_activity_path
