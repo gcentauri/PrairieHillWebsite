@@ -223,6 +223,7 @@ $btn-primary-color: white;
 
 .menu-list {
     @extend .user-menu;
+    @extend .bottom-shadow;
 
     margin: 20px 30px 0 0;
     ul {
@@ -261,6 +262,7 @@ $btn-primary-color: white;
 	font-family: 'Shadows Into Light Two';
 	padding: 2px 8px 0 0;
 	text-align: right;
+	display: inline-block;
     }
 
     ul li a {
@@ -272,6 +274,24 @@ $btn-primary-color: white;
 
 	}
     }
+}
+
+.leaf-green {
+//    @extend .bottom-shadow;
+
+    width: 200px; height: 200px;
+    background: $phill-grn;
+    opacity: 0.5;
+    border-radius: 0 80% 0 80%;
+
+    position: absolute; top: 10%; left: 0%;
+    z-index: 0;
+}
+
+.leaf-gold {
+    @extend .leaf-green;
+
+    background: $phill-gold;
 }
 
 .head {
@@ -748,7 +768,7 @@ a:hover {
     opacity: 0;
 }
 
-#menu {
+#menu-browser {
     background: $phill-gold;
     opacity: 0.9;
     padding-bottom: 5px;
@@ -773,6 +793,15 @@ a:hover {
         padding: 12px;
     }
 }
+
+#menu-mobile { display: none; 
+    @extend .user-menu;
+
+    bottom: 10px;
+    left: 10px;
+    height: 60px;
+
+	     }
 
 #volunteer-menu {
     @extend #menu;
@@ -1144,6 +1173,15 @@ div.list-group-item {
     }
     
 
+}
+
+/* for 800px or less */
+@media screen and (max-width: 800px) {
+
+    #menu-browser { display:none;
+	  }
+    #menu-mobile { display:inline-block;
+		 }
 }
 
 /* for 700px or less */
