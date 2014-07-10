@@ -221,14 +221,37 @@ $btn-primary-color: white;
     }
 }
 
+.menu-list-mobile {
+    @extend .bottom-shadow;
+    @extend .gold-green;
+
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: $phill-grn;
+    color: $phill-gold;
+    border-radius: 50px 0 50px 0;
+
+    ul li a {
+	color: $phill-gold;
+
+	&:hover {
+	    font-size: 1.8vw;
+	}
+    }
+}
+
 .menu-list {
     @extend .user-menu;
+    @extend .bottom-shadow;
 
     margin: 20px 30px 0 0;
     ul {
 	float: left;
     }
 }
+
+
 
 .user-menu-alt {
     @extend .user-menu;
@@ -239,16 +262,35 @@ $btn-primary-color: white;
     z-index: 9;
 }
 
-.user-menu {
-    font-size: 1.5vw;
-    color: $phill-gold;
-    background: $phill-grn;
-    opacity: 0.8;
+.bottom-left-spaced {
+    bottom: 10px;
+    left: 10px;
 
-    text-align: right;
-    position: fixed;
+}
+
+.top-right-spaced {
     top: 10px;
     right: 10px;
+}
+
+.gold-green {
+    color: $phill-gold;
+    background: $phill-grn;
+}
+
+.green-gold {
+    color: $phill-grn;
+    background: $phill-gold;
+}
+
+.user-menu {
+    @extend .top-right-spaced;
+    @extend .gold-green;
+
+    font-size: 1.5vw;
+    opacity: 0.8;
+    text-align: right;
+    position: fixed;
     border-radius: 50px 0 50px 0;
     padding: 0 15px 5px 15px;
     z-index:9;
@@ -261,6 +303,7 @@ $btn-primary-color: white;
 	font-family: 'Shadows Into Light Two';
 	padding: 2px 8px 0 0;
 	text-align: right;
+	display: inline-block;
     }
 
     ul li a {
@@ -272,6 +315,24 @@ $btn-primary-color: white;
 
 	}
     }
+}
+
+.leaf-green {
+//    @extend .bottom-shadow;
+
+    width: 200px; height: 200px;
+    background: $phill-grn;
+    opacity: 0.5;
+    border-radius: 0 80% 0 80%;
+
+    position: absolute; top: 10%; left: 0%;
+    z-index: 0;
+}
+
+.leaf-gold {
+    @extend .leaf-green;
+
+    background: $phill-gold;
 }
 
 .head {
@@ -748,7 +809,7 @@ a:hover {
     opacity: 0;
 }
 
-#menu {
+#menu-browser {
     background: $phill-gold;
     opacity: 0.9;
     padding-bottom: 5px;
@@ -771,6 +832,41 @@ a:hover {
 
     a {
         padding: 12px;
+    }
+}
+
+.menu-mobile { 
+    @extend .bottom-left-spaced;
+    @extend .gold-green;
+
+    display: none; 
+    font-size: 1.5vw;
+    opacity: 0.8;
+    text-align: right;
+    position: fixed;
+    border-radius: 50px 0 50px 0;
+    padding: 0 15px 5px 15px;
+    z-index:9;
+
+    ul {
+	list-style-type: none;
+    }
+
+    ul li {
+	font-family: 'Shadows Into Light Two';
+	padding: 2px 8px 0 0;
+	text-align: right;
+	display: inline-block;
+    }
+
+    ul li a {
+	color: $phill-gold;
+
+	&:hover {
+	    font-size: 1.8vw;
+	    background: transparent;
+
+	}
     }
 }
 
@@ -1146,6 +1242,15 @@ div.list-group-item {
 
 }
 
+/* for 800px or less */
+@media screen and (max-width: 800px) {
+
+    #menu-browser { display:none;
+	  }
+    .menu-mobile { display:inline-block;
+		 }
+}
+
 /* for 700px or less */
 @media screen and (max-width: 700px) {
 
@@ -1173,8 +1278,8 @@ div.list-group-item {
     }
 
     .title-logo {
-	height: 100%;
-	width: 100%;
+//	height: 100%;
+//	width: 100%;
 	position: fixed;
 	opacity: 0.1;
     }
