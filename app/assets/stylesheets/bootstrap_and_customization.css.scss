@@ -213,7 +213,7 @@ $btn-primary-color: white;
 /* header */
 
 .menu-title {
-    font-weight: bold;
+//    font-weight: bold;
     text-align: left;
     float: left;
     &:hover {
@@ -242,13 +242,33 @@ $btn-primary-color: white;
 }
 
 .menu-list {
-    @extend .user-menu;
+    @extend .menu-type;
     @extend .bottom-shadow;
 
     margin: 20px 30px 0 0;
+
     ul {
 	float: left;
+	background: $phill-grn;
+	position: fixed;
+	top: 50px; right:60px;
+	padding: 15px;
     }
+
+    ul li {
+
+    }
+
+    ul li a {
+	@extend .gold-green;
+	@extend .center;
+
+
+	&:hover {
+	    color: white;
+	}
+    }
+
 }
 
 
@@ -283,9 +303,23 @@ $btn-primary-color: white;
     background: $phill-gold;
 }
 
+.menu-type {
+    position: fixed;
+    top: 35px; right: 51px;
+    background: $phill-grn;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: normal;
+//    border: 1px solid $phill-gold;
+    border-radius: 40px 0 40px 0;
+    padding: 0 24px 3px 16px;
+}
+
 .user-menu {
     @extend .top-right-spaced;
-    @extend .gold-green;
+    color: green;
+    background: $phill-gold;
+    border: 2px solid green;
 
     font-size: 1.5vw;
     opacity: 0.8;
@@ -293,7 +327,7 @@ $btn-primary-color: white;
     position: fixed;
     border-radius: 50px 0 50px 0;
     padding: 0 15px 5px 15px;
-    z-index:9;
+    z-index:19;
 
     ul {
 	list-style-type: none;
@@ -702,16 +736,40 @@ a:hover {
     width: 40%;
 //    border-radius: 15px 15px 15px 15px;
     border-radius: 0 150px 150px 50px;
+    overflow: visible;
+}
+
+.title-logo {
+    height: 170px;
+    float: left;
+    left: 10px; top: 10px;
+    position: absolute;
+    background: white;
+    margin-right: 15px;
+    z-index: 10;
+//    border-radius: 15px 0 0 15px;
+    border-radius: 0 50px 0 50px;
+    border: 2px solid green;
+}
+
+.title-logo-fixed {
+    @extend .title-logo;
+    
+    position: fixed;
+    height: 85px;
 }
 
 .welcome-msg {
+    @extend .bottom-shadow;
+
     font-size: 1.5vw;
     height: 200px;
     width: 80%;
-    background: $phill-grn;
+    background: white;
 //    border-radius: 15px 15px 15px 15px;;
     border-radius: 0 100px 0 100px;
-    color: $phill-gold;
+    border: 10px solid white;
+    color: blackr;
     text-align: justify;
     position: absolute;
     padding: 39px 20px 10px 20px;
@@ -729,32 +787,40 @@ a:hover {
     left:0; top:0;
 }
 
-.title-name {
+.title-name { //display:none;
+//    font-family: 'Shadows Into Light Two';
+    text-align: right;
     color: white;
-    padding: 0 10px 0 15px;
-    width: 100%;
-    height: 95px;
-    font-size: 4.8vw;
     background: $phill-grn;
-    position: relative;
-    left:0; top:0;
-    z-index: 3;
-//    border-radius: 0 15px 0 0;
-    border-radius: 0 100px 0 50px;
+    height: 90px;
+    width: 65%;
+    padding: 7px 25px 0 0;
+    font-size: 3.5vw;
+//    font-weight: bold;
+    position: absolute;
+    top:25%; left:21.2%;
+//    border-radius: 0 150px 0 150px;
+//    border-radius: 150px 0 150px 0;
+//    border: 2px solid green;
 }
 
 .title-sub-name {
-    font-family: 'Shadows Into Light Two';
-    text-align: right;
-    color: black;
     background: $phill-gold;
-    height: 75px;
-    padding: 0 15px 0 0;
-    font-size: 3.5vw;
-    position: relative;
-    top:0; left:0;
-//    border-radius: 0 0 15px 15px;
-    border-radius: 0 0 0 50px;
+    color: $phill-grn;
+    font-size: 2vw;
+    width: 100%;
+//    width: 100%;
+//    left: 49%;top:-4%;
+    right: 0; top: 70px;
+    position: absolute;
+    padding: 0 30px 6px 2px;
+//    border-radius: 0 40px 0 40px;
+    border-top: 2px solid $phill-grn;
+    border-left: 2px solid $phill-grn;
+//    border-right: 2px solid $phill-grn;
+//    outline: 2px solid $phill-grn;
+//    text-align: center;
+    text-align: right;
 }
 
 .name {
@@ -1029,25 +1095,6 @@ a:hover {
 }
 
 
-
-.title-logo {
-    height: 170px;
-    float: left;
-    left: 0px; top: 0px;
-    position: relative;
-    background: white;
-    margin-right: 15px;
-    z-index: 4;
-//    border-radius: 15px 0 0 15px;
-    border-radius: 0 50px 0 50px;
-}
-
-.title-logo-fixed {
-    @extend .title-logo;
-    
-    position: fixed;
-    height: 85px;
-}
 
 #filler {
     width: 100%;

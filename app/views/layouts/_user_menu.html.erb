@@ -1,18 +1,16 @@
 <div>
 
-
   <div class="user-menu"> 
-
-    <% if user_signed_in? %> 
-      <span class="menu-title">User Menu </span>
-    <% else %>
-      <span class="menu-title">Sign In </span>
-    <% end %>
-
-    <span class="glyphicon glyphicon-leaf"></span> 
-
+    <span class="glyphicon glyphicon-leaf" style=""> </span> 
   </div>
 
+  <div class="menu-type">
+    <% if user_signed_in? %> 
+      <span class="menu-title"><em>User Menu</em></span>
+    <% else %>
+      <span class="menu-title"><em>Sign In</em></span>
+    <% end %>
+  </div>
 
   <div class="menu-list" style="display:none;">
 
