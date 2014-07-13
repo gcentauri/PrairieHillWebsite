@@ -1340,6 +1340,13 @@ div.list-group-item {
 
 }
 
+/* for 1200px or less */
+@media screen and (max-width: 1200px) {
+    .title-name {
+	left:40%;
+    }
+}
+
 /* for 800px or less */
 @media screen and (max-width: 800px) {
 
