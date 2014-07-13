@@ -3,7 +3,6 @@
       <% path_name = path_string + '_path' %>      
       <% img_path = 'assets/' + path_string + '.png' %>
 
-      <!-- HEADER -->
       <% if current_page?(root_path) %>
 	<div id="head" style="">
 	  <%= render 'layouts/header' %>
@@ -45,7 +44,7 @@
 	  <%= render 'layouts/header' %>
 	</div>
       <% else %>
-	<div id='head' style='background-image:url(<%= img_path %>);'> 
+	<div id='head' style='background-image:url(<%= img_path %>);'>
 	  <%= render 'layouts/header' %>
 	</div>
       <% end %>
