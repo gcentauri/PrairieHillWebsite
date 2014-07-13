@@ -7,6 +7,7 @@
 [[./app/assets/javascripts/application.js][application.js]]
 [[./config/application.rb][application.rb]]
 [[./app/controllers/application_controller.rb][application controller]]
+[[./app/controllers/pages_controller.rb][pages controller]]
 [[./config/unicorn.rb][unicorn.rb]]
 [[./config/initializers/timeout.rb]]
 [[./config/newrelic.yml][newrelic.yml]]
@@ -18,3 +19,4 @@
 [[./.gitignore][.gitignore]]
 [[./mysite.thor]]
 [[./app/controllers/shifts_controller.rb][shifts controller]]
+[[./app/controllers/contacts_controller.rb][contacts controller]]

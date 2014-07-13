@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:15em;">
+<div class="container" style="position:absolute;top:25%;left:14%;">
   <div class="shift-show">
     <% if @shift.volunteer == nil || @shift.volunteer == "" %>
       Please sign up for this shift! <br/>
@@ -24,6 +24,8 @@
 
   </div>
 
-  <%= render 'layouts/volunteer_menu' %>
+  <div class="shift-menu">
+    <%= render 'layouts/volunteer_menu' %>
+  </div>
 
 </div>

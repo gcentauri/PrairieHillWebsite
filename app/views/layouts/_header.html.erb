@@ -1,6 +1,6 @@
 <div class="logo-box" style="position:absolute;top:10px;left:10px;">
 
-  <%#= image_tag("logo-transparent.png", class: "title-logo") %>
+  <%= image_tag("logo-transparent.png", class: "title-logo") %>
 
   <div class="welcome-msg padded hidden">
 
@@ -9,7 +9,7 @@
 	Welcome to Prairie Hill Learning Center! Feel free to look around and 
       <strong><em><%= link_to 'contact us', contact_path, class: 'green' %></em></strong> if you have any questions!
       <br/>
-      <span class="green-gold padded spaced bottom-shadow" style="float:right;border-radius: 0 40px 0 40px;margin:20px 0 0 40px;"><strong>(402) 438-6668</strong></span>
+      <div class="green-gold padded spaced bottom-shadow" style="float:right;border-radius: 0 40px 0 40px;position:relative;top:10px;left:70px;"><strong>(402) 438-6668</strong></div>
       </p>
     </div>
 
@@ -48,7 +48,7 @@
  });
 
  $('.menu-type').click(function(){
-   $(this).siblings('.menu-list').toggle('slow').css({'z-index':'5'});
+   $(this).siblings('.menu-list').toggle('slow');
    $(this).toggle('slow');
    $('.title-name').toggle('slow');
    $('.title-sub-name').toggle('slow');

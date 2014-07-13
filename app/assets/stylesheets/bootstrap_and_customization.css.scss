@@ -243,35 +243,26 @@ $btn-primary-color: white;
 
 .menu-list {
     @extend .menu-type;
-    @extend .bottom-shadow;
 
-    margin: 20px 30px 0 0;
+    background: $phill-grn;
+    position: fixed;
+    top: 40px; right: 50px;
+    border-radius: 30px 0 30px 0;
+    border: 4px solid green;
 
-    ul {
-	float: left;
-	background: $phill-grn;
-	position: fixed;
-	top: 50px; right:60px;
-	padding: 15px;
+    li {
+	padding: 4px 0 0 10px;
     }
 
-    ul li {
-
-    }
-
-    ul li a {
-	@extend .gold-green;
-	@extend .center;
-
-
+    a {
+	color: $phill-gold;
+	
 	&:hover {
 	    color: white;
+	    background: transparent;
 	}
     }
-
 }
-
-
 
 .user-menu-alt {
     @extend .user-menu;
@@ -305,18 +296,20 @@ $btn-primary-color: white;
 
 .menu-type {
     position: fixed;
-    top: 35px; right: 51px;
+    top: 39px; right: 51px;
     background: $phill-grn;
     color: white;
     font-size: 1.5vw;
     font-weight: normal;
 //    border: 1px solid $phill-gold;
-    border-radius: 40px 0 40px 0;
+    border-radius: 60px 0 60px 0;
     padding: 0 24px 3px 16px;
 }
 
 .user-menu {
     @extend .top-right-spaced;
+    @extend .bottom-shadow;
+
     color: green;
     background: $phill-gold;
     border: 2px solid green;
@@ -451,7 +444,7 @@ $btn-primary-color: white;
 }
 
 .camp-bg {
-    background: image-url('camp-50.jpg');
+    background: image-url('camp-lg.jpg') no-repeat center center fixed;
 }
 
 .donate-bg {
@@ -551,15 +544,32 @@ $btn-primary-color: white;
 
 .content-area {
     height: 80%;
-    margin: 8.5em 0 0 20em;
+    margin: 0 0 30px 300px;
 }
 
-#content-box {
+.content-box {
 /*    @extend .box;*/
     @extend .content-area;
+    @extend .padded;
 
+    background: $phill-blu-light;
+    font-size: 1.5vw;
     width: 65%;
+    text-align: justify;
 
+}
+
+.camp-title {
+    text-decoration: underline;
+    font-size: 3vw;
+}
+
+.camp-subtitle {
+    margin: -25px 0 0 15px;
+    font-size: 2vw;
+    text-align: right;
+    width: 100%;
+    font-style: italic;
 }
 
 #content-space {
@@ -670,7 +680,8 @@ a:hover {
 }
 
 #head {
-    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/001/original/feeding-patches.jpg');
+//    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/001/original/feeding-patches.jpg');
+    background: image-url('feeding-patches.jpg');
     background-size: cover;
     background-position: center 45%;
     width: 100%;
@@ -737,9 +748,14 @@ a:hover {
 //    border-radius: 15px 15px 15px 15px;
     border-radius: 0 150px 150px 50px;
     overflow: visible;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .title-logo {
+    @extend .bottom-shadow;
+
     height: 170px;
     float: left;
     left: 10px; top: 10px;
@@ -752,6 +768,12 @@ a:hover {
     border: 2px solid green;
 }
 
+.contact-logo {
+    @extend .title-logo;
+
+    position: relative;
+}
+
 .title-logo-fixed {
     @extend .title-logo;
     
@@ -760,19 +782,16 @@ a:hover {
 }
 
 .welcome-msg {
-    @extend .bottom-shadow;
-
     font-size: 1.5vw;
-    height: 200px;
+    height: 150px;
     width: 80%;
     background: white;
-//    border-radius: 15px 15px 15px 15px;;
     border-radius: 0 100px 0 100px;
     border: 10px solid white;
-    color: blackr;
+    color: black;
     text-align: justify;
     position: absolute;
-    padding: 39px 20px 10px 20px;
+    padding: 10px 60px 0 60px;
     top: 60px;
     left: 160px;
 }
@@ -809,14 +828,15 @@ a:hover {
     color: $phill-grn;
     font-size: 2vw;
     width: 100%;
+    height: 50px;
 //    width: 100%;
 //    left: 49%;top:-4%;
-    right: 0; top: 70px;
+    right: 0; top: 78px;
     position: absolute;
     padding: 0 30px 6px 2px;
 //    border-radius: 0 40px 0 40px;
-    border-top: 2px solid $phill-grn;
-    border-left: 2px solid $phill-grn;
+//    border-top: 2px solid $phill-grn;
+//    border-left: 2px solid $phill-grn;
 //    border-right: 2px solid $phill-grn;
 //    outline: 2px solid $phill-grn;
 //    text-align: center;
@@ -1047,20 +1067,28 @@ a:hover {
     opacity: 0.8;
 }
 
+.anchor-trans-camp {
+    @extend .anchor-trans;
+    
+    right: 50%;
+    text-align: left;
+}
+
 .anchor-trans {
-    @extend .mission-statement;
+    @extend .menu-type;
 
     background: $phill-gold;
     color:white;
     opacity:0.7;
-    height: 10%;
-//    margin: 5px;
+//    border: 2px solid green;
+    width: 50%;
     position: relative;
-    top: 60%;
+    top: 70%;
+    left: 5%;
 
     a {
 	color: $phill-grn;
-	font-size:3vw;
+	font-size:2vw;
 	
 	&:hover,
 	&:focus {
@@ -1080,7 +1108,7 @@ a:hover {
 }
 
 #info-column {
-    padding-bottom: 3em;
+//    padding-bottom: 3em;
 
 }
 
@@ -1121,6 +1149,21 @@ a:hover {
     font-size: 3vw;
     padding: 0 auto 0 auto;
     position: static;
+}
+
+.shift-menu {
+    background: $phill-gold;
+    position: relative;    
+    a {
+	color: $phill-grn;
+	font-size: 2vw;
+	
+	&:hover {
+	    background: transparent;
+	    color: green;
+	    font-style: italic;
+	}
+    }
 }
 
 .shift-show {

@@ -11,44 +11,30 @@
 
     <div id="wrapper">
 
-      <!-- HEADER -->
-      <% if current_page?(root_path) %>
-	<div id="head">
-	  <%= render 'layouts/header' %>
-	</div>
-      <% else %>
-	<div id="head" style="height:0%;position:absolute;"> 
-	  <%= render 'layouts/header' %>
-	</div>
-      <% end %>
-      <!-- END HEADER -->
-
+      <!--HEADER-->
+      <%= render 'pages/zero_height' %>
 
       <!-- CONTENT -->
       <div id="skrollr-body">
 	<div id="info-column">
-	  <% if !current_page?(contact_path) %>
+	  <% if current_page?(contact_path) %>
 	    
-	    <%= yield %>
-	    
-	    <% if current_page?(camp_path) %>
-	      <div style="position:relative;top:800px;">
-		<%= render 'pages/contact' %>
-	      </div>
-	    <% else %>
-	      <%= render 'pages/contact' %>	      
-	    <% end %>
+	    <div style="margin-top:200px;background-image:url('assets/contact.png');">
+	      <%= yield %>
+	    </div>
 
 	  <% else %>
-	    <div style="margin-top:200px;"></div>
-	    <%= render 'pages/contact' %>	      
+
+	    <%= yield %>
+	    <%= render 'pages/contact' %>	    
+
 	  <% end %>
-	<div class="container">
-	  <%= cms_snippet_content('legal', @cms_site).html_safe %>
-	</div>
+
+	  <div class="container">
+	    <%= cms_snippet_content('legal', @cms_site).html_safe %>
+	  </div>
 
 	</div>
-
       </div>
       <!-- END CONTENT -->
 
