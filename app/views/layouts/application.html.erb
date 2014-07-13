@@ -16,17 +16,17 @@
 
       <!-- CONTENT -->
       <div id="skrollr-body">
-	<div id="info-column" style="margin-top:200px;">
-	  <% if current_page?(contact_path) %>
 
-	    <div>
+	  <% if current_page?(contact_path) %>
+	    <div id="info-column" style="margin-top:200px;">
 	      <%= yield %>
-	    </div>
+
 
 	  <% else %>
+	    <div id="info-column">
+	      <%= yield %>
+	      <%= render 'pages/contact' %>	    
 
-	    <%= yield %>
-	    <%= render 'pages/contact' %>	    
 
 	  <% end %>
 
