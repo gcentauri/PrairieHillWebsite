@@ -43,6 +43,30 @@
 	<div id="head" style="height:0px;">
 	  <%= render 'layouts/header' %>
 	</div>
+	<% elsif current_page?(new_user_session_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(new_user_registration_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(edit_user_registration_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(shifts_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(activities_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(user_shifts_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
       <% else %>
 	<div id='head' style='background-image:url(<%= img_path %>);'>
 	  <%= render 'layouts/header' %>
