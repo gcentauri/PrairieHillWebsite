@@ -778,6 +778,7 @@ a:hover {
     @extend .title-logo;
 
     position: relative;
+    z-index: 1;
 }
 
 .title-logo-fixed {
