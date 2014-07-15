@@ -1345,19 +1345,36 @@ div.list-group-item {
     .title-name {
 	left:30%;
     }
+
+    .menu-mobile { 
+	display:inline-block;
+	font-size: 3vw;
+		 }
 }
 
 /* for 800px or less */
 @media screen and (max-width: 800px) {
 
-    #menu-browser { display:none;
+    #menu-browser { 
+	display:none;
 	  }
-    .menu-mobile { display:inline-block;
+    .menu-mobile { 
+	display:inline-block;
 		 }
+    .menu-list-mobile {
+	font-size: 3vw;
+    }
 }
+
 
 /* for 700px or less */
 @media screen and (max-width: 700px) {
+
+    .menu-mobile { 
+	display:inline-block;
+	font-size: 4vw;
+		 }
+
 
     .logo-box {
 	width: 100%;
@@ -1424,3 +1441,11 @@ div.list-group-item {
 
 }
 
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+    .menu-mobile { 
+	display:inline-block;
+	font-size: 5vw;
+    }
+}
