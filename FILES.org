@@ -45,3 +45,7 @@
 * View
   [[./app/controllers/pages_controller.rb][pages controller]]
   [[./app/views][views]]
+
+* Style
+
+  [[./app/assets/stylesheets][Stylesheets]]
