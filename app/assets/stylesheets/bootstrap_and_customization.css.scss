@@ -1281,7 +1281,8 @@ a:hover {
 
 #activities {
     position: 'relative';
-    overflow: hidden;
+    overflow: show;
+    z-index: 5;
 }
 
 .activities {
