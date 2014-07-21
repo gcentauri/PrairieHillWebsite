@@ -1,0 +1,34 @@
+<div class="sub" style="display:none;">
+  <%# unless @coordinator == nil %>
+  <!-- <span class="coordinator">Coordinators: <%#= @coordinator %></span> -->
+  <%# end %>
+
+  <% @shifts_by_title.each do |shift| %>
+
+    <div class="shift">
+
+      <% if shift.volunteer == nil || shift.volunteer == "" %>
+	<h2 style="text-decoration:underline;">
+	  <%= shift.time %>
+	</h2>
+
+	<div class="field form-group">
+	  <%= form_for shift do |s| %>
+	    <%= s.hidden_field :volunteer, class: "form-control", value: @username %><br/>
+	    <span style="float:right;margin-top:-7%;"><%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow" %></span>
+	  <% end %>
+	</div>
+      <% else %>
+	<h2 style="text-decoration:underline;">
+	  <%= shift.time %>
+	</h2>
+
+	<h3>Volunteer: <br/>
+	  <span class="green" style="margin-bottom:15px;"><%= shift.volunteer %></span></h3>
+	<% if shift.volunteer == @username %>
+	  <span style="float:right;margin-top:-7%;"><%= button_to 'Cancel', shift_path(shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-danger" %></span>
+	<% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

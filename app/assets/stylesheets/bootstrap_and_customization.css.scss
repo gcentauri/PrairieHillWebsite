@@ -1281,7 +1281,8 @@ a:hover {
 
 #activities {
     position: 'relative';
-    overflow: show;
+    overflow-x: show;
+    overflow-y: auto;
     z-index: 5;
 }
 
@@ -1290,7 +1291,7 @@ a:hover {
     position: absolute;
     left: 65%; top: 15%;
     width: 30%;
-    height: 600px;
+    height: 400px;
 //    overflow: hidden;
     padding: 25px;
     margin: 20px;
