@@ -1,6 +1,9 @@
 
-
-<div id="menu-browser">
+<% if current_page?(ccf_path) %>
+  <div id="menu-browser" style="display:none;">
+<% else %>
+    <div id="menu-browser">
+<% end %>
   <ul>
     <li><%= nav_link "HOME", root_path %></li>
     <li><%= nav_link "ABOUT", about_path %></li>
@@ -17,7 +20,11 @@
 </div>
 
 <div>
-  <div class="menu-mobile">
+  <% if current_page?(ccf_path) %>
+    <div class="menu-mobile" style="display:inline-block;">
+  <% else %>
+      <div class="menu-mobile">
+  <% end %>
     <span class="glyphicon glyphicon-leaf"></span> 
     <span class="menu-title">Site</span>
   </div>

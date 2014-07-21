@@ -124,6 +124,7 @@
      $(this).toggleClass('');
    }
    else {
+     $(this).parent().prev().children().children().toggle('slow');
      $(this).next('.sub').toggle('slow');
      $(this).prevAll('.activity').toggleClass('faded');
      $(this).nextAll('.activity').toggle('slow');
