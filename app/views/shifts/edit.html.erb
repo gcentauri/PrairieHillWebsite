@@ -1,16 +1,13 @@
 <div class="container" style="margin-top:15em;">
   <div class="show">
     <%= @shift.title %> <%= @shift.time %>
-    <% unless @shift.vols_needed.integer?  %>
-      <%= (@shift.vols_needed) - @volunteered %> volunteers still needed.<br />
-    <% else %>
       
-    <% end %>
-
     <% @shift.user_ids.each do |user| %>
       <%= User.find(user).name %><br />
     <% end %>
   </div>
+
+  <%= render 'form' %>
 
   <div>
     <p>
