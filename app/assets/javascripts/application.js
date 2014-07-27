@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.turbolinks
-//= require crumbs
 //= require skrollr
 //= require skrollr.ie
 //= require skrollr.menu
