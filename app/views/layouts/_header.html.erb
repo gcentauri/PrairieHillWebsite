@@ -38,22 +38,41 @@
 
 <script>
 
- $('.user-menu').click(function(){
-   $(this).siblings('.menu-list').toggle('slow').css({'z-index':'5'});
-   $(this).siblings('.menu-type').toggle('slow');
+ var msg = function() {
    $('.title-name').toggle('slow');
    $('.title-sub-name').toggle('slow');
    $('.welcome-msg').toggleClass('hidden');
- 
-   return false;
- });
+ };
 
+
+ var toggleMenu = function(){
+   $('.user-menu').click(function(){
+     $(this).siblings('.menu-list').toggle('slow', function() {
+       bodyClickToggle();
+     });
+     $(this).siblings('.menu-type').toggle('slow');
+     //   msg();
+ 
+     return false;
+   });
+ };
+
+ var bodyClickToggle = function(){
+   $(document).click(function(){
+     $('.menu-list').hide('slow');
+     $('.menu-type').show('slow');
+     $('.menu-list-mobile').hide('slow');
+     $('.menu-title').show('slow');
+   });
+   return false;
+ };
+
+ toggleMenu();
+ 
  $('.menu-type').click(function(){
    $(this).siblings('.menu-list').toggle('slow');
    $(this).toggle('slow');
-   $('.title-name').toggle('slow');
-   $('.title-sub-name').toggle('slow');
-   $('.welcome-msg').toggleClass('hidden');
+//   msg();
  
    return false;
  });

@@ -49,7 +49,9 @@
 <script>
 
  $('.menu-mobile').click(function(){
-   $(this).siblings('.menu-list-mobile').toggle('slow').css({'z-index':'5'});
+   $(this).siblings('.menu-list-mobile').toggle('slow', function() {
+     bodyClickToggle();
+   });
    $(this).children('.menu-title').toggle('slow');
    
    return false;
