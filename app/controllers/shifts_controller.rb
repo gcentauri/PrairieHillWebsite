@@ -22,7 +22,7 @@ class ShiftsController < ApplicationController
     @vols_needed = @shifts.pluck(:vols_needed)
 
     unless current_user
-      render action: 'new'
+      render action: 'login'
     end
 
     if current_user
@@ -55,6 +55,9 @@ class ShiftsController < ApplicationController
   end
 
   def edit
+  end
+
+  def login
   end
 
   def create
