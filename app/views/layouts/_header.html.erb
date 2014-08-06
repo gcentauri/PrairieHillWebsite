@@ -1,24 +1,25 @@
 <div class="logo-box" style="position:absolute;top:10px;left:10px;">
 
-  <%= image_tag("logo-transparent.png", class: "title-logo") %>
+  <%#= image_tag("logo-transparent.png", class: "title-logo") %>
+  <%= link_to image_tag("logo-transparent.png", class: "title-logo"), root_path %>
 
   <div class="welcome-msg padded hidden">
     
-      <p style="margin: 0 auto 0 auto;">
-	<span class="glyphicon glyphicon-leaf green"></span>
-	Welcome to Prairie Hill Learning Center! Feel free to look around and 
+    <p style="margin: 0 auto 0 auto;">
+      <span class="glyphicon glyphicon-leaf green"></span>
+      Welcome to Prairie Hill Learning Center! Feel free to look around and 
       <strong><em><%= link_to 'contact us', contact_path, class: 'green' %></em></strong> if you have any questions!
       <br/>
       <div class="green-gold padded spaced bottom-shadow" style="float:right;border-radius: 0 40px 0 40px;position:relative;top:10px;left:70px;"><strong>(402) 438-6668</strong></div>
-      </p>
-    </div>
+    </p>
+  </div>
 
-    <div class="title-name">
-      PRAIRIE HILL
-      <div class="title-sub-name">
-	Learning Center
-      </div>
+  <div class="title-name">
+    PRAIRIE HILL
+    <div class="title-sub-name">
+      Learning Center
     </div>
+  </div>
 
 </div>
 
@@ -52,7 +53,7 @@
      });
      $(this).siblings('.menu-type').toggle('slow');
      //   msg();
- 
+     
      return false;
    });
  };
@@ -72,8 +73,8 @@
  $('.menu-type').click(function(){
    $(this).siblings('.menu-list').toggle('slow');
    $(this).toggle('slow');
-//   msg();
- 
+   //   msg();
+   
    return false;
  });
 

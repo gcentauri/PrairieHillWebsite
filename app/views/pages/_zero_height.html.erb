@@ -43,6 +43,14 @@
 	<div id="head" style="height:0px;">
 	  <%= render 'layouts/header' %>
 	</div>
+	<% elsif current_page?(user_password_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
+	<% elsif current_page?(new_user_password_path) %>
+	<div id="head" style="height:0px;">
+	  <%= render 'layouts/header' %>
+	</div>
 	<% elsif current_page?(new_user_session_path) %>
 	<div id="head" style="height:0px;">
 	  <%= render 'layouts/header' %>
