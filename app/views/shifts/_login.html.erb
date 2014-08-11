@@ -1,0 +1,41 @@
+<div style=''>
+  <div class="">
+    <div>
+      <% if user_signed_in? %>
+	<%= render 'form' %>
+
+	<div>
+	  <p>
+	    <%= link_to 'Shifts', shifts_path %>
+	  </p>
+	</div>
+
+      <% else %>
+	<br/>
+	<br/>
+	<p class="hi-li-alert">
+	  You must be signed in to perform this action.
+
+	  <div class="center" style='background:white;width:50%;border-radius:50px 0 50px 0;'>
+	    <ul style='padding:15px;'>
+	      <li>
+		<em>
+		  <%= link_to "Sign up", new_user_registration_path %>
+		</em>
+		<span class='glyphicon glyphicon-chevron-right'></span>
+<!-- 		share-alt arrow-right glyphicon-leaf glyphicon-certificate -->
+
+		<em style='padding:2px'>
+		  <%= link_to "Sign in", new_user_session_path#, class: 'sign-in-vol' 
+		  %>
+		</em>
+
+	      </li>
+	    </ul>
+	  </div>
+
+	</p>
+      <% end %>
+    </div>
+  </div>
+</div>
