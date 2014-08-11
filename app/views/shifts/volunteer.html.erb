@@ -1,6 +1,9 @@
 <div class='ccf'><%= cms_snippet_content('ccf', @cms_site).html_safe %></div>
 
 <div id="activities" class="activities">
+
+<% if current_user %>
+  
   <% @uniq_shifts.each do |title| %>
     
     <% @shifts_by_title = @shifts.where(title: title) %>
@@ -41,7 +44,7 @@
 	      <div class="field form-group">
 		<%= form_for shift do |s| %>
 		  <%= s.hidden_field :volunteer, class: "form-control", value: @username %><br/>
-		  <span style="float:right;margin-top:-7%;"><%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow" %></span>
+		  <span style="float:right;margin-top:-7%;"><%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow", data: { :confirm => "Are you sure?" } %></span>
 		<% end %>
 	      </div>
 	    <% else %>
@@ -88,6 +91,9 @@
       
     <% end %>
 
+  <% end %>
+  <% else %>
+  <%= render 'login' %>
   <% end %>
 
 </div>

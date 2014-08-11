@@ -652,7 +652,7 @@ ul {
     font-family: 'Shadows Into Light Two';
     position: absolute;
     top: 3em;
-    right: 8em;
+    right: 17em;
     font-style: italic;
     font-weight: bold;
     border: 1px solid $phill-gold;
@@ -774,6 +774,14 @@ a:hover {
 //    border-radius: 15px 0 0 15px;
     border-radius: 0 50px 0 50px;
     border: 2px solid green;
+}
+
+.sign-in-vol {
+    @extend .title-logo;
+
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+
 }
 
 .contact-logo {

@@ -5,7 +5,7 @@
       <div class="field form-group" style="width:50%;">
 	<%= form_for @shift do |s| %>
 	  <%= s.hidden_field :volunteer, class: "form-control", value: @username %>
-	  <span style="margin-left:90%;"><%= s.submit "Sign Up", class: "info-flag bottom-shadow" %></span>
+	  <span style="margin-left:90%;"><%= s.submit "Sign Up", class: "info-flag bottom-shadow", data: { :confirm => "Are you sure?" } %></span>
 	<% end %>
       </div>
       <div class="info-flag-lg bottom-shadow">

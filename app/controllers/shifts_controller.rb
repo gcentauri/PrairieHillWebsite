@@ -21,9 +21,9 @@ class ShiftsController < ApplicationController
     @uniq_shifts = @shift_titles.uniq
     @vols_needed = @shifts.pluck(:vols_needed)
 
-    unless current_user
-      render action: 'login'
-    end
+    #unless current_user
+     # render action: 'login'
+    #end
 
     if current_user
       @username = @user.first_name + " " + @user.last_name
