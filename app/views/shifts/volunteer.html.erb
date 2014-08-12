@@ -2,102 +2,107 @@
 
 <div id="activities" class="activities">
 
-<% if current_user %>
-  
-  <% @uniq_shifts.each do |title| %>
+  <% if current_user %>
     
-    <% @shifts_by_title = @shifts.where(title: title) %>
-    <%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
-    <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
-    <% @title_vols = @empty_shifts.count %>
-    <% @times = @shifts_by_title.pluck(:time) %>
-    <% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
-    <% @coordinator = @activities.where(work_area: title).first.coordinator %>
+    <% @uniq_shifts.each do |title| %>
+      
+      <% @shifts_by_title = @shifts.where(title: title) %>
+      <%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
+      <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+      <% @title_vols = @empty_shifts.count %>
+      <% @times = @shifts_by_title.pluck(:time) %>
+      <% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
+      <% @coordinator = @activities.where(work_area: title).first.coordinator %>
 
-    <% if @title_vols > 0 %>
+      <% if @title_vols > 0 %>
 
-      <div class="activity" style="cursor:pointer;">
-	<div class="activity-vols">
-	  <%= @title_vols %>
-	</div>
-
-	<div class="activity-title"> 
-	  <%= title %>
-	</div>
-      </div>
-
-
-      <div class="sub" style="display:none;">
-	<%# unless @coordinator == nil %>
-	  <!-- <span class="coordinator">Coordinators: <%#= @coordinator %></span> -->
-	<%# end %>
-
-	<% @shifts_by_title.each do |shift| %>
-
-	  <div class="shift">
-
-	    <% if shift.volunteer == nil || shift.volunteer == "" %>
-	      <h2 style="text-decoration:underline;">
-		<%= shift.time %>
-	      </h2>
-
-	      <div class="field form-group">
-		<%= form_for shift do |s| %>
-		  <%= s.hidden_field :volunteer, class: "form-control", value: @username %><br/>
-		  <span style="float:right;margin-top:-7%;"><%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow", data: { :confirm => "Are you sure?" } %></span>
-		<% end %>
-	      </div>
-	    <% else %>
-	      <h2 style="text-decoration:underline;">
-		<%= shift.time %>
-	      </h2>
-
-	      <h3>Volunteer: <br/>
-		<span class="green" style="margin-bottom:15px;"><%= shift.volunteer %></span></h3>
-	      <% if shift.volunteer == @username %>
-		<span style="float:right;margin-top:-7%;"><%= button_to 'Cancel', shift_path(shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-danger" %></span>
-	      <% end %>
-	    <% end %>
+	<div class="activity" style="cursor:pointer;">
+	  <div class="activity-vols">
+	    <%= @title_vols %>
 	  </div>
 
+	  <div class="activity-title"> 
+	    <%= title %>
+	  </div>
+	</div>
 
-	  <%#= form_for shift do |f| %>
-	  <%#= f.text_field :user_ids %>
-	  <%#= f.submit "Sign Up" %>
+
+	<div class="sub" style="display:none;">
+	  <%# unless @coordinator == nil %>
+	  <!-- <span class="coordinator">Coordinators: <%#= @coordinator %></span> -->
 	  <%# end %>
 
-	  <%#= simple_form_for shift do |s| %>
-	  <%# s.input :user_ids, value: shift.add_user_idee(@user.id) %>
-	  <%# s.button :submit %>
-	  <%# end %>
+	  <% @shifts_by_title.each do |shift| %>
 
-	  <%#= link_to "Sign up for this shift", shift_path(shift, user_ids: [4]), method: :patch, confirm: "Sure?" %>
+	    <div class="shift">
 
-	  <%#= form_for shift, method: :patch do |f| %>
-	  <%#= form_for shift do |f| %>
-	  <%# f.hidden_field :user_ids, :value => shift.add_user_idee(@user.id) %>
-	  <%#= f.hidden_field :user_ids, :value =>  (shift.user_ids.push @user.id) %>
-	  <%#= f.hidden_field :user_ids, :value => [4] %>
-	  <%#= f.hidden_field :user_ids, :value => shift.test_static_id %>
+	      <% if shift.volunteer == nil || shift.volunteer == "" %>
+		<h2 style="text-decoration:underline;">
+		  <%= shift.time %>
+		</h2>
 
-	  <%#= f.submit "Sign Up", class: "btn btn-primary" %>
-	  <%# binding.pry %>
-	  <%# end %>
-	  
-	<% end %>
+		<div class="field form-group">
+		  <%= form_for shift do |s| %>
+		    <%= s.hidden_field :volunteer, class: "form-control", value: @username %><br/>
+		    <span style="float:right;margin-top:-7%;"><%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow", data: { :confirm => "Are you sure?" } %></span>
+		  <% end %>
+		</div>
+	      <% else %>
+		<h2 style="text-decoration:underline;">
+		  <%= shift.time %>
+		</h2>
 
-      </div>
+		<h3>Volunteer: <br/>
+		  <span class="green" style="margin-bottom:15px;"><%= shift.volunteer %></span></h3>
+		<% if shift.volunteer == @username %>
+		  <span style="float:right;margin-top:-7%;"><%= button_to 'Cancel', shift_path(shift, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-danger" %></span>
+		<% end %>
+	      <% end %>
+	    </div>
 
-      
+
+	    <%#= form_for shift do |f| %>
+	    <%#= f.text_field :user_ids %>
+	    <%#= f.submit "Sign Up" %>
+	    <%# end %>
+
+	    <%#= simple_form_for shift do |s| %>
+	    <%# s.input :user_ids, value: shift.add_user_idee(@user.id) %>
+	    <%# s.button :submit %>
+	    <%# end %>
+
+	    <%#= link_to "Sign up for this shift", shift_path(shift, user_ids: [4]), method: :patch, confirm: "Sure?" %>
+
+	    <%#= form_for shift, method: :patch do |f| %>
+	    <%#= form_for shift do |f| %>
+	    <%# f.hidden_field :user_ids, :value => shift.add_user_idee(@user.id) %>
+	    <%#= f.hidden_field :user_ids, :value =>  (shift.user_ids.push @user.id) %>
+	    <%#= f.hidden_field :user_ids, :value => [4] %>
+	    <%#= f.hidden_field :user_ids, :value => shift.test_static_id %>
+
+	    <%#= f.submit "Sign Up", class: "btn btn-primary" %>
+	    <%# binding.pry %>
+	    <%# end %>
+	    
+	  <% end %>
+
+	</div>
+
+	
+      <% end %>
+
     <% end %>
-
-  <% end %>
   <% else %>
-  <%= render 'login' %>
+    <%= render 'login' %>
   <% end %>
 
 </div>
 
+<% if current_user.try(:admin?) %>
+  <div id='ccf-info-admin'>
+    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'><%= @shifts.count %></span> Volunteers still needed! 
+  </div>
+<% end %>
 
 <script>
 
@@ -130,10 +135,10 @@
      $(this).toggleClass('');
    }
    else {
-//     $(this).parent().css({"width":"50%","left":"30%","top":"30%"});
-//     $(this).parent().prev().children().children().hide();
+     //     $(this).parent().css({"width":"50%","left":"30%","top":"30%"});
+     //     $(this).parent().prev().children().children().hide();
      $(this).next('.sub').toggle('slow');
-//     $(this).prevAll('.activity').toggleClass('faded');
+     //     $(this).prevAll('.activity').toggleClass('faded');
      $(this).nextAll('.activity').toggle('slow');
    }
 

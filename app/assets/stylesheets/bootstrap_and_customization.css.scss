@@ -1278,8 +1278,21 @@ a:hover {
 .ccf {
     width: 60%;
 //    position: absolute;
-    top: 60%;
+    top: 55%;
     left: 5%;
+}
+
+#ccf-info-admin {
+    @extend .padded;
+
+    position: absolute;
+    bottom: 0;
+//    right: 10px;
+    width: 100%;
+    background: $phill-grn;
+    color: white;
+    font-size: 2vw;
+    text-align: center;
 }
 
 #activities {
