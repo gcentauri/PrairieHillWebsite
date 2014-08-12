@@ -7,6 +7,7 @@
       <tr>
 	<th>Work Area</th>
 	<th>Shift Time</th>
+	<th>Guest Volunteer</th>
 	<th></th>
       </tr>
       <% @user_shifts.each do |s| %>
@@ -16,6 +17,11 @@
 	  </td>
 	  <td>
 	    <%= s.time %>
+	  </td>
+	  <td>
+	    <% if s.guest != nil %>
+	      <%= s.guest %>
+	    <% end %>
 	  </td>
 	  <td>
 	    <%= button_to 'Cancel', shift_path(s, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-primarys" %>

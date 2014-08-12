@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708090316) do
+ActiveRecord::Schema.define(version: 20140812121727) do
 
   create_table "activities", force: true do |t|
     t.string   "work_area"
@@ -160,7 +160,10 @@ ActiveRecord::Schema.define(version: 20140708090316) do
     t.datetime "updated_at"
     t.text     "volunteers",  default: "[]"
     t.string   "volunteer"
+    t.string   "guest"
   end
+
+  add_index "shifts", ["guest"], name: "index_shifts_on_guest"
 
   create_table "shifts_users", force: true do |t|
     t.integer "shift_id"
