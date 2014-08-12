@@ -22,7 +22,13 @@
 	<tr>
 	  <td><%= shift.title %></td>
 	  <td><%= shift.time %></td>
-	  <td><%= shift.volunteer %></td>
+	  <td>
+	    <% if shift.guest != nil %>
+	      <%= shift.guest %>
+	    <% else %>
+	      <%= shift.volunteer %>
+	    <% end %>
+	  </td>
 	  <td><%= link_to 'Show', shift %></td>
 	  <% if current_user.try(:admin?) %>
 	    <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
