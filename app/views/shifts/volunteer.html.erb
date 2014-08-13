@@ -44,7 +44,7 @@
 		<div class="field form-group">
 		  <%= form_for shift do |s| %>
 		    <%= s.hidden_field :volunteer, class: "form-control", value: @username %><br/>
-		    <%= s.text_field :guest, value: "", placeholder: "Enter a guest volunteer"  %><br/><br/>
+		    <%= s.text_field :guest, value: @username, placeholder: "Enter a guest volunteer"  %><br/><br/>
 		    <span style="float:right;margin-top:-7%;">
 		      <%= s.submit "Sign Up", class: "btn btn-primary bottom-shadow", data: { :confirm => "Are you sure?" } %></span>
 		  <% end %>
