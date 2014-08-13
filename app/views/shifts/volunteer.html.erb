@@ -114,11 +114,27 @@
 
 </div>
 
-<% if current_user.try(:admin?) %>
-  <div id='ccf-info-admin'>
-    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'><%= @shifts.where(volunteer: nil).count %></span> Volunteers still needed! 
-  </div>
-<% end %>
+<% @user_shifts_count = @shifts.where(volunteer: @username).count %>
+
+<div id='ccf-info-admin'>
+  <span style='padding-right:5px;'>
+    You have signed up for 
+    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+      <%= @user_shifts_count %>
+      <%= link_to " shifts!", user_shifts_path %>
+    </span>
+  </span>
+  <span style='padding-right:5px;'>
+    <span class="glyphicon glyphicon-leaf" style="padding: 0 5px 0 5px;"></span> 
+    <% if @user_shifts_count > 0 %>
+      Thank you!
+    <% end %>
+  </span>
+  <span>
+    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+      <%= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteers still needed! 
+  </span>
+</div>
 
 <script>
 
