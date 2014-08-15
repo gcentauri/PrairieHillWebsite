@@ -1,8 +1,16 @@
 
-<div class="info-flag-lg center" style="margin-top:230px;">My Shifts</div>
+<!--<div class="info-flag-lg center" ></div>-->
 
-<div class="container">
-  <div style="margin:60px;width:80%;">
+<div class="container" style="margin-top:150px;">
+
+  <div style="margin:60px;width:90%;">
+
+  <div id="volunteer-menu">
+    <ul>
+      <li><%= link_to 'Volunteer for Shifts', ccf_path, class: 'btn btn-primary', style: 'font-size:3vw' %></li>
+    </ul>
+  </div>
+
     <table class="table table-striped">
       <tr>
 	<th>Work Area</th>
@@ -19,7 +27,7 @@
 	    <%= s.time %>
 	  </td>
 	  <td>
-	    <% if s.guest != nil %>
+	    <% if s.guest != nil && s.guest != @username %>
 	      <%= s.guest %>
 	    <% end %>
 	  </td>
@@ -35,10 +43,5 @@
     </table>
   </div>
 
-  <div id="volunteer-menu">
-    <ul>
-      <li><%= link_to 'Volunteer for Shifts', ccf_path %></li>
-    </ul>
-  </div>
 
 </div>
