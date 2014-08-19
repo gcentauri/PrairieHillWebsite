@@ -3,18 +3,15 @@
        style="background-size:cover;height:900px;">
 
     <% if current_page?(news_path) %>
-      <div class="anchor-trans"
+      <div class="anchor-trans hidden"
 	   data-0="top:75%;"
 	   data-500="top:100%;">
     <% else %>
-	<div class="anchor-trans"
+	<div class="anchor-trans hidden"
 	     data-2500="top:10%;"
 	     data-4500="top:70%;">
     <% end %>
-    <a href="/camp" class="important-link">
-      <span class="glyphicon glyphicon-leaf" style="font-size:2vw;color:green;"></span>
-       Sign up for PRAIRIE HILL summer camp!
-    </a>
+    <a href="/camp" class="important-link"><span class="glyphicon glyphicon-leaf" style="font-size:2vw;color:green;"></span>Sign up for PRAIRIE HILL summer camp!</a>
     <%#= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
     
 	</div>
