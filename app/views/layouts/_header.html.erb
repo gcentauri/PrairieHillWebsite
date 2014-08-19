@@ -14,7 +14,11 @@
     </p>
   </div>
 
-  <div class="title-name">
+  <div class="title-name"
+       <% if current_page?(news_path) %>
+       style="display:none;"
+       <% end %>
+       >
     PRAIRIE HILL
     <div class="title-sub-name">
       Learning Center
