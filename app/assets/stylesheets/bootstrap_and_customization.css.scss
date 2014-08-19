@@ -979,6 +979,15 @@ a:hover {
     }
 }
 
+#scroll-icon {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    font-size: 4vw;
+    color: transparent;
+    text-shadow: 1px 1px gold;
+}
+
 .quote {
     color: black;
     background: white;
