@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 
-/config/initializers/comfortable_mexican_sofa.rb
+#/config/initializers/comfortable_mexican_sofa.rb
 
 .env*
 
