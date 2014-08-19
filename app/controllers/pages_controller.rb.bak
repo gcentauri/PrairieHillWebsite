@@ -6,11 +6,6 @@ class PagesController < InheritedResources::Base
   end
 
   def show
-    if current_page?(root_path)
-      @subject = "PHLC Website Contact Form test"
-    else
-      @subject = "other"
-    end
   end
 
   def new
