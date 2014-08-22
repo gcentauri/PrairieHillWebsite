@@ -7,7 +7,7 @@
 	<div id="head" style="">
 	  <%= render 'layouts/header' %>
 	</div>
-	<% elsif current_page?(news_path) %>
+	<% elsif (current_page?(news_path) | current_page?(events_path)) %>
 	<div id="head" style="height:0px;">
 	  <%= render 'layouts/header' %>
 	</div>

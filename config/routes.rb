@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
   get "news" => "pages#news"
+  get "events" => "pages#events"
   get "programs" => "pages#programs"
   get "calendar" => "pages#calendar"
   get "contact" => "pages#contact"
