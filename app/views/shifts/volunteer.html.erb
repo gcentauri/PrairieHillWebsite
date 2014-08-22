@@ -114,7 +114,11 @@
 
 </div>
 
-<% @user_shifts_count = @shifts.where(volunteer: @username).count %>
+<% if (@username != nil) %>
+  <% @user_shifts_count = @shifts.where(volunteer: @username).count %>
+<% else %>
+  <% @user_shifts_count = 0 %>
+<% end %>
 
 <div id='ccf-info-admin'>
   <span style='padding-right:5px;'>
