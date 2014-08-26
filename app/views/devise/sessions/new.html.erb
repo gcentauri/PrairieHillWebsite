@@ -3,8 +3,11 @@
   <div class="center inner">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div><%= f.label "Email" %><br />
-	<%= f.text_field :email %></div>
+      <div><%#= f.label "Email" %>
+	<%= f.label "Username" %><br />
+	<%= f.text_field :login %>
+	<%#= f.text_field :email %></div>
+      
 
       <div><%= f.label :password %><br />
 	<%= f.password_field :password, autocomplete: "off" %></div>
