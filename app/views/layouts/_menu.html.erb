@@ -15,9 +15,12 @@
     <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
     <li><%= nav_link "DONATE", donate_path %></li>
     <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
-    <li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
+    <li id='ccf-link-main'><%= link_to "COUNTRY FAIR", "#", :onclick => 'alert("COMING SOON: Sept 12th!")' %></li>
   </ul>
+  
 </div>
+
+
 
 <div>
   <% if current_page?(ccf_path) %>
@@ -47,6 +50,15 @@
 </div>
 
 <script>
+
+ $(document).ready(function() {
+   $('#ccf-link-main').hover(function() {
+     $('#popup').show();
+   }, function() {
+     $('#popup').hide();
+   });
+ });
+ 
 
  $('.menu-mobile').click(function(){
    $(this).siblings('.menu-list-mobile').toggle('slow', function() {

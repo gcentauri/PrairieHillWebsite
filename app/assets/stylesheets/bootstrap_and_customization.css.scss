@@ -664,6 +664,7 @@ ul {
 
 /* misc */
 
+
 .alert {
     z-index: 5;
 //    margin: 1em 0 1em 1em;
@@ -679,6 +680,10 @@ ul {
     font-style: italic;
     font-weight: bold;
     border: 1px solid $phill-gold;
+}
+
+#popup {
+    @extend .alert;
 }
 
 
