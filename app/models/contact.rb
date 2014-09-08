@@ -13,8 +13,8 @@ class Contact < MailForm::Base
       :subject => "PHLC Message",
       :to => "mandieschad@gmail.com",
       #:to => "anderson.reinkordt@gmail.com",
-      :from => %("#{name}" <#{email}>)
-      :reply_to => %("#{name}" <#{email}>)
+      :from => %("#{name}" <#{email}>),
+      :'reply_to' => %(#{email})
     }
   end
 end
