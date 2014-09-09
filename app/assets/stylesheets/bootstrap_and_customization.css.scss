@@ -1014,6 +1014,11 @@ a:hover {
     text-shadow: 1px 1px gold;
 }
 
+#video {
+    width: 100%;
+    margin: 0 auto 0 50%;
+}
+
 #special-news-box {
     @extend .padded;
     position: absolute;
