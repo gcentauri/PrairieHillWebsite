@@ -16,11 +16,12 @@
     <li><%= nav_link "DONATE", donate_path %></li>
     <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
     <li id='ccf-link-main'><%= link_to "COUNTRY FAIR", "#", :onclick => 'alert("COMING SOON: Sept 12th!")' %></li>
+
   </ul>
-  
+
 </div>
 
-
+<%= link_to image_tag("facebook.png", class: "fb"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
 
 <div>
   <% if current_page?(ccf_path) %>
