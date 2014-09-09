@@ -1644,4 +1644,44 @@ div.list-group-item {
 	display:inline-block;
 	font-size: 5vw;
     }
+    
+    .logo-box {
+	width: 100%;
+	top:0;
+    }
+    .title-name {
+	height: 100px;
+    }
+    .title-logo {
+	height: 100px;
+	top: 0;
+	left: 0;
+	border-radius: 0 25px;
+    }
+    .title-sub-name {
+	position: relative;
+	top: 0;
+	left: 0;
+	font-size: 5vw;
+	text-align: right;
+	margin: 0 auto;
+	width: 70%;
+    }
+    .ccf {
+	display: none;
+	top: 200px;
+	width: 100%;
+	left: 0;
+	h3 {
+	    font-size: 5vw;
+	}
+    }
+    .activities {
+	position: relative;
+	top: 100px;
+	font-size: 5vw;
+    }
+    .contact-logo {
+	display: none;
+    }
 }
