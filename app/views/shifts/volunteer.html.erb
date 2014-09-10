@@ -12,7 +12,7 @@
       <% @title_vols = @empty_shifts.count %>
       <% @times = @shifts_by_title.pluck(:time) %>
       <% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
-      <% @coordinator = @activities.where(work_area: title).first.coordinator %>
+      <%# @coordinator = @activities.where(work_area: title).first.coordinator %>
 
       <% if @title_vols > 0 %>
 
