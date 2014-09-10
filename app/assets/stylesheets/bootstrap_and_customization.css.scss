@@ -1355,9 +1355,15 @@ a:hover {
 	@extend .msg;
 	color: black;
 	background: white;
+	height: 250px;
     }
 }
 
+.descriptions {
+    div {
+	height: 300px;
+    }
+}
 
 #ccf-info-admin {
     @extend .padded;

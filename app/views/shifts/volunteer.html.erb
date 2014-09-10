@@ -102,20 +102,12 @@
  });
 
  var info = $('.ccf').children('#vol').text();
-// var tmpid = $('.activity-title').attr('id');
-// console.log(tmpid);
-// var desc = $('.ccf').next('.descriptions').children(tmpid).text();
-/* var desc = function(id) {
-   $('.ccf').next('.descriptions').children(id).text();
- };*/
 
  $('.activity-title').hover(
    function(){
      var tmpid = $(this).attr('id');
      var desc = $('.ccf').next('.descriptions').children("." + tmpid).text();
-//     var desc = $('.ccf').next('.descriptions').children(".First").text();
      $('.ccf').children('#vol').text(desc);
-//     $('.ccf').children('#vol').text("$('.ccf').next('.descriptions').children('#First Aid Station').text();");
    }, function() {
      $('.ccf').children('#vol').text(info);
    }
