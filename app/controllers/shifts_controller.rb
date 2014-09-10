@@ -21,6 +21,13 @@ class ShiftsController < ApplicationController
     @uniq_shifts = @shift_titles.uniq
     @vols_needed = @shifts.pluck(:vols_needed)
 
+    @setup = @uniq_shifts.find { |e| /Setup/ =~ e }
+    @teardown = @uniq_shifts.find { |e| /Tear/ =~ e }
+
+    @firstLast = [@setup, @teardown]
+    @middle = @uniq_shifts - @firstLast
+    @activityOrder = [@setup].concat(@middle.concat([@teardown]))
+
     #unless current_user
      # render action: 'login'
     #end

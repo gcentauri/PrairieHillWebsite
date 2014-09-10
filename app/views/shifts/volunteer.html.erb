@@ -4,7 +4,8 @@
 
   <% if current_user %>
     
-    <% @uniq_shifts.each do |title| %>
+    <%# @uniq_shifts.each do |title| %>
+    <% @activityOrder.each do |title| %>
       
       <% @shifts_by_title = @shifts.where(title: title) %>
       <%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
