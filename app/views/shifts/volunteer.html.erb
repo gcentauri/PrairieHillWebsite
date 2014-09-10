@@ -1,3 +1,4 @@
+<div id="country-fair">
 <div class='ccf'><%= cms_snippet_content('ccf', @cms_site).html_safe %></div>
 
 <div id="activities" class="activities">
@@ -91,6 +92,7 @@
     <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
       <%= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteers still needed! 
   </span>
+</div>
 </div>
 
 <script>

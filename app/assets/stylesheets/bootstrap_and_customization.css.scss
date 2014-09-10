@@ -1343,7 +1343,7 @@ a:hover {
 .ccf {
     width: 29%;
 //    position: fixed;
-    top: 98px;
+    top: 113px;
     left: 35.8%;
     z-index: 1;
     .msg {
@@ -1406,6 +1406,7 @@ a:hover {
 }
 
 #activities {
+    @extend .bottom-shadow;
     position: 'relative';
     overflow-x: show;
     overflow-y: auto;
@@ -1413,7 +1414,7 @@ a:hover {
     background: white;
     width: 800px;
     height: 500px;
-    top: 70px;
+    top: 85px;
 }
 
 .activities {
