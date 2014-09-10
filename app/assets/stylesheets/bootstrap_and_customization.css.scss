@@ -1341,21 +1341,25 @@ a:hover {
 }
 
 .ccf {
-    width: 31%;
-//    position: absolute;
-    top: 10%;
-    left: 36%;
+    width: 29%;
+//    position: relative;
+    top: 98px;
+    left: 35.8%;
+    z-index: 1;
     .msg {
 	color: white; 
 	background: black; 
 	padding: 15px;
 	font-size: 1.5vw;
+	z-index: 5;
     }
     .msg-white {
 	@extend .msg;
 	color: black;
 	background: white;
 	height: 250px;
+	position: relative;
+	z-index: 4;
     }
 }
 
@@ -1382,17 +1386,21 @@ a:hover {
     position: 'relative';
     overflow-x: show;
     overflow-y: auto;
-    z-index: 5;
+    z-index: 0;
+    background: white;
+    width: 800px;
+    height: 500px;
+    top: 70px;
 }
 
 .activities {
     display: block;
     position: absolute;
-    left: 65%; top: 15%;
+    left: 35%; top: 15%;
     width: 30%;
     height: 400px;
 //    overflow: hidden;
-    padding: 25px;
+    padding: 25px 25px 25px 400px;
     margin: 20px;
 }
 
