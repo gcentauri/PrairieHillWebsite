@@ -1341,11 +1341,23 @@ a:hover {
 }
 
 .ccf {
-    width: 60%;
+    width: 31%;
 //    position: absolute;
-    top: 55%;
-    left: 5%;
+    top: 10%;
+    left: 36%;
+    .msg {
+	color: white; 
+	background: black; 
+	padding: 15px;
+	font-size: 1.5vw;
+    }
+    .msg-white {
+	@extend .msg;
+	color: black;
+	background: white;
+    }
 }
+
 
 #ccf-info-admin {
     @extend .padded;
@@ -1657,23 +1669,29 @@ div.list-group-item {
 	width: 100%;
 	top:0;
     }
-    .title-name {
-	height: 100px;
-    }
     .title-logo {
 	height: 100px;
 	top: 0;
 	left: 0;
 	border-radius: 0 25px;
     }
+    .title-name {
+	height: 100px;
+	font-size: 14vw;
+	left: 10%;
+    }
     .title-sub-name {
 	position: relative;
 	top: 0;
-	left: 0;
-	font-size: 5vw;
+	left: -10%;
+	font-size: 8vw;
+	letter-spacing: -1px;
 	text-align: right;
 	margin: 0 auto;
-	width: 70%;
+	width: 100%;
+	height: 70px;
+	padding: 10px 15px 6px 5px;
+ 	border-radius: 4px;
     }
     .ccf {
 	display: none;
@@ -1691,5 +1709,12 @@ div.list-group-item {
     }
     .contact-logo {
 	display: none;
+    }
+    #quote {
+	display: none;
+    }
+    #video {
+	width: 70%;
+	margin: 0 auto;
     }
 }

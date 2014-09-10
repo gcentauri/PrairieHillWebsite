@@ -24,7 +24,7 @@
 	      <%= @title_vols %>
 	    </div>
 
-	    <div class="activity-title"> 
+	    <div id="<%= title.split.first %>" class="activity-title"> 
 	      <%= title %>
 	    </div>
 
@@ -35,7 +35,7 @@
 		<%= @title_vols %>
 	      </div>
 
-	      <div class="activity-title"> 
+	      <div id="<%= title.split.first %>" class="activity-title"> 
 		<%= title %>
 	      </div>
 	      
@@ -93,23 +93,6 @@
 </div>
 
 <script>
-
- /* $(document).ready(function(e) {
-
- $('.activities').skroller({
- height : 400,
- barWidth : 15,
- barOpacity : 0.7,
- barMinHeight : 60,
- barColor : '#FFEF19',
- style : 'round',
- padding : 10,
- railOff : true,
- indent : 40,
- frameClass : 'skrollerCustomClass'
- });
- 
- });*/
  
  $(document).ready(function ($) {
    "use strict";
@@ -118,15 +101,33 @@
    });
  });
 
+ var info = $('.ccf').children('#vol').text();
+// var tmpid = $('.activity-title').attr('id');
+// console.log(tmpid);
+// var desc = $('.ccf').next('.descriptions').children(tmpid).text();
+/* var desc = function(id) {
+   $('.ccf').next('.descriptions').children(id).text();
+ };*/
+
+ $('.activity-title').hover(
+   function(){
+     var tmpid = $(this).attr('id');
+     var desc = $('.ccf').next('.descriptions').children("." + tmpid).text();
+//     var desc = $('.ccf').next('.descriptions').children(".First").text();
+     $('.ccf').children('#vol').text(desc);
+//     $('.ccf').children('#vol').text("$('.ccf').next('.descriptions').children('#First Aid Station').text();");
+   }, function() {
+     $('.ccf').children('#vol').text(info);
+   }
+ );
+ 
+
  $('.activity').click(function(){
    if ( $(this).hasClass('faded')) {
      $(this).toggleClass('');
    }
    else {
-     //     $(this).parent().css({"width":"50%","left":"30%","top":"30%"});
-     //     $(this).parent().prev().children().children().hide();
      $(this).next('.sub').toggle('slow');
-     //     $(this).prevAll('.activity').toggleClass('faded');
      $(this).nextAll('.activity').toggle('slow');
    }
 
