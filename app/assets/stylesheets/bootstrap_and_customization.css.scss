@@ -1364,6 +1364,31 @@ a:hover {
     }
 }
 
+.video-watch {
+    @extend .bottom-shadow;
+    position: absolute;
+    top: 540px;
+    left: 40px;
+    width: 30%;
+    border-radius: 4px;
+    background: $phill-gold;
+    color: black;
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+.ccf-video {
+    @extend .bottom-shadow;
+    position: absolute;
+    top: 75px;
+    left: 100px;
+    margin: auto auto;
+    z-index: 7;
+    iframe {
+//	display: none;	
+    }
+}
+
 .descriptions {
     div {
 	height: 300px;

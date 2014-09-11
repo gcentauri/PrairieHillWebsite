@@ -64,6 +64,7 @@
  };
 
 
+
  var toggleMenu = function(){
    $('.user-menu').click(function(){
      $(this).siblings('.menu-list').toggle('slow', function() {
@@ -82,6 +83,7 @@
      $('.menu-type').show('slow');
      $('.menu-list-mobile').hide('slow');
      $('.menu-title').show('slow');
+     $('.ccf-video').hide('slow');
    });
    return false;
  };
@@ -96,5 +98,27 @@
    return false;
  });
 
+ $(document).ready(function () {
+   $('.video-watch').click(function() {
+     if( $('.ccf-video').hasClass('hidden') ) {
+       $('.ccf-video').toggleClass('hidden');
+     }
+     else {
+       $('.ccf-video').toggleClass('');
+     }
+   });
+ });
 
+
+ $(document).ready(function () {
+   $(document).click(function(){
+     if( $('.ccf-video').hasClass('hidden') ) {
+       $('.ccf-video').toggleClass('');
+     }
+     else {
+       $('.ccf-video').toggle('slow');
+     }
+   });
+ });
+ 
 </script>
