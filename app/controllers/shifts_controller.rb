@@ -4,6 +4,7 @@ class ShiftsController < ApplicationController
 
   def index
     @shifts = Shift.all
+    @sorted = @shifts.sort_by { |s| s.title }
 
     @shiftss = Shift.order(:title)
     respond_to do |format|
