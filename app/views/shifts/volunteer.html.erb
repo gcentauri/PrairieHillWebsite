@@ -3,7 +3,7 @@
 
 <div class='video-watch'>
   <%#= link_to 'How to Volunteer Video', '#' %>
-  How to Volunteer Video
+  Click Here to Play a Video
 </div>
 
 <div class="ccf-video hidden">
@@ -116,14 +116,22 @@
    });
  });
 
-
  var info = $('.ccf').children('#vol').text();
 
  $('.activity-title').hover(
    function(){
      var tmpid = $(this).attr('id');
-     var desc = $('.ccf').next('.descriptions').children("." + tmpid).text();
-     $('.ccf').children('#vol').text(desc);
+//     var desc = $('.ccf').next('.descriptions').children("." + tmpid).text();
+     var desc = $('.ccf').next('.descriptions').children("." + tmpid).html();
+     var actData = $('.ccf').next('.descriptions').children("." + tmpid).data();
+     
+     if ( actData.parentChild = "true" ) {
+       $('.ccf').children('#vol').html(desc);
+     }
+     else {
+       $('.ccf').children('#vol').text(desc);
+     }
+     
    }, function() {
      $('.ccf').children('#vol').text(info);
    }
