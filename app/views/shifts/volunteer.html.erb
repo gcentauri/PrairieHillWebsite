@@ -48,7 +48,7 @@
 
 	      <% unless (@coordinator == nil || @coordinator == '') %>
 		<div id='coordinator' class='hidden lead'>
-		  <%= @coordinator %>
+		  <%= @coordinator if @coordinator%>
 		</div>
 	      <% end %>
 
