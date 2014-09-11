@@ -29,7 +29,6 @@
 	<% @times = @shifts_by_title.pluck(:time) %>
 	<% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
 	<% @coordinator = @activities.where(work_area: title).first.coordinator %>
-	<%# @coordinator = @activities.where(work_area: title).first.where("coordinator is NOT NULL and cooordinator != ''").coordinator %>
 
 	<% if @title_vols > 0 %>
 
@@ -46,10 +45,12 @@
 		<%= title %>
 	      </div>
 
-	      <% unless (@coordinator == nil || @coordinator == '') %>
-		<div id='coordinator' class='hidden lead'>
-		  <%= @coordinator if @coordinator%>
-		</div>
+	      <% if @coordinator %>
+		<% unless (@coordinator == nil || @coordinator == '') %>
+		  <div id='coordinator' class='hidden lead'>
+		    <%= @coordinator %>
+		  </div>
+		<% end %>
 	      <% end %>
 
 	    <% else %>
@@ -63,10 +64,12 @@
 		  <%= title %>
 		</div>
 
-		<% unless (@coordinator == nil || @coordinator == '') %>
-		  <div id='coordinator' class='hidden lead'>
-		    <%= @coordinator %>
-		  </div>
+		<% if @coordinator %>
+		  <% unless (@coordinator == nil || @coordinator == '') %>
+		    <div id='coordinator' class='hidden lead'>
+		      <%= @coordinator %>
+		    </div>
+		  <% end %>
 		<% end %>
 		
 	      <% end %>
