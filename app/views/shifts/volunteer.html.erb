@@ -1,49 +1,42 @@
 <div id="country-fair">
-<div class='ccf'><%= cms_snippet_content('ccf', @cms_site).html_safe %></div>
+  <div id='fair-info' class='ccf'>
+    <%= cms_snippet_content('ccf', @cms_site).html_safe %>
+  </div>
 
-<div class='video-watch'>
-  <%#= link_to 'How to Volunteer Video', '#' %>
-  Click Here to Play a Video
-</div>
+  <div class='video-watch' style='cursor:pointer'>
+    <%#= link_to 'How to Volunteer Video', '#' %>
+    Click Here to Play a Video
+  </div>
 
-<div class="ccf-video hidden">
-  <iframe width="840" height="473" src="//www.youtube.com/embed/bCoKqEN_x4U" frameborder="0" allowfullscreen></iframe>
-</div>
+  <div class="ccf-video hidden">
+    <iframe width="840" height="473" src="//www.youtube.com/embed/bCoKqEN_x4U" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-<div id="activities" class="activities">
+  <div id="activities" class="activities">
 
-  <% if current_user %>
-    
-    <%# @uniq_shifts.each do |title| %>
-    <% @activityOrder.each do |title| %>
+    <% if current_user %>
       
-      <% @shifts_by_title = @shifts.where(title: title) %>
-      <% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''")  %>
-      <% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| s.time } %>
-      <% @shifts_sorted_vols = @shifts_with_vols.concat(@shifts_no_vol) %>
-      <%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
-      <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
-      <% @title_vols = @empty_shifts.count %>
-      <% @times = @shifts_by_title.pluck(:time) %>
-      <% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
-      <%# @coordinator = @activities.where(work_area: title).first.coordinator %>
+      <%# @uniq_shifts.each do |title| %>
+      <% @activityOrder.each do |title| %>
+	
+	<% @shifts_by_title = @shifts.where(title: title) %>
+	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''")  %>
+	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| s.time } %>
+	<% @shifts_sorted_vols = @shifts_with_vols.concat(@shifts_no_vol) %>
+	<%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
+	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+	<% @title_vols = @empty_shifts.count %>
+	<% @times = @shifts_by_title.pluck(:time) %>
+	<% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
+	<% @coordinator = @activities.where(work_area: title).first.coordinator %>
+	<%# @coordinator = @activities.where(work_area: title).first.where("coordinator is NOT NULL and cooordinator != ''").coordinator %>
 
-      <% if @title_vols > 0 %>
+	<% if @title_vols > 0 %>
 
-	<div class="activity" style="cursor:pointer;">
-	  
-	  <% if current_user.try(:admin?) %>
 
-	    <div class="activity-vols">
-	      <%= @title_vols %>
-	    </div>
-
-	    <div id="<%= title.split.first %>" class="activity-title"> 
-	      <%= title %>
-	    </div>
-
-	  <% else %>
-	    <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>
+	  <div class='activity' style='cursor:pointer;'>
+	    
+	    <% if current_user.try(:admin?) %>
 
 	      <div class="activity-vols">
 		<%= @title_vols %>
@@ -52,59 +45,83 @@
 	      <div id="<%= title.split.first %>" class="activity-title"> 
 		<%= title %>
 	      </div>
-	      
+
+	      <% unless (@coordinator == nil || @coordinator == '') %>
+		<div id='coordinator' class='hidden lead'>
+		  <%= @coordinator %>
+		</div>
+	      <% end %>
+
+	    <% else %>
+	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>
+
+		<div class="activity-vols">
+		  <%= @title_vols %>
+		</div>
+
+		<div id="<%= title.split.first %>" class="activity-title"> 
+		  <%= title %>
+		</div>
+
+		<% unless (@coordinator == nil || @coordinator == '') %>
+		  <div id='coordinator' class='hidden lead'>
+		    <%= @coordinator %>
+		  </div>
+		<% end %>
+		
+	      <% end %>
 	    <% end %>
-	  <% end %>
 
-	</div>
+	  </div>
 
 
-	<div class="sub" style="display:none;">
+	  <div class="sub" style="display:none;">
 
-	  <% if current_user.try(:admin?) %>
-	    <%= render 'shift_filler' %>
-	  <% else %>
-	    <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>	  
+	    <% if current_user.try(:admin?) %>
 	      <%= render 'shift_filler' %>
+	    <% else %>
+	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>	  
+		<%= render 'shift_filler' %>
+	      <% end %>
 	    <% end %>
-	  <% end %>
-	  
-	</div>
+	    
+	  </div>
+
+	<% end %>
+
 
       <% end %>
-
+    <% else %>
+      <%= render 'login' %>
     <% end %>
+
+  </div>
+
+  <% if (@username != nil) %>
+    <% @user_shifts_count = @shifts.where(volunteer: @username).count %>
   <% else %>
-    <%= render 'login' %>
+    <% @user_shifts_count = 0 %>
   <% end %>
 
-</div>
-
-<% if (@username != nil) %>
-  <% @user_shifts_count = @shifts.where(volunteer: @username).count %>
-<% else %>
-  <% @user_shifts_count = 0 %>
-<% end %>
-
-<div id='ccf-info-admin'>
-  <span style='padding-right:5px;'>
-    You have signed up for 
-    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
-      <%= @user_shifts_count %>
-      <%= link_to " shifts!", user_shifts_path %>
+  <div id='ccf-info-admin'>
+    <span style='padding-right:5px;'>
+      You have signed up for 
+      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+	<%= @user_shifts_count %>
+	<%= link_to " shifts!", user_shifts_path %>
+      </span>
     </span>
-  </span>
-  <span style='padding-right:5px;'>
-    <span class="glyphicon glyphicon-leaf" style="padding: 0 5px 0 5px;"></span> 
-    <% if @user_shifts_count > 0 %>
-      Thank you!
-    <% end %>
-  </span>
-  <span>
-    <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
-      <%= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteers still needed! 
-  </span>
-</div>
+    <span style='padding-right:5px;'>
+      <span class="glyphicon glyphicon-leaf" style="padding: 0 5px 0 5px;"></span> 
+      <% if @user_shifts_count > 0 %>
+	Thank you!
+      <% end %>
+    </span>
+    <span>
+      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+	<%= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteers still needed! 
+    </span>
+  </div>
 </div>
 
 <script>
@@ -116,15 +133,36 @@
    });
  });
 
- var info = $('.ccf').children('#vol').text();
+ var toggleHidden = function(element) {
+   if( $(element).hasClass('hidden') ) {
+     $(element).toggleClass('hidden');
+   }
+   else {
+     $(element).toggleClass('');
+   }
+ };
+
+ $('.activity-title').hover(
+   function(){
+     if( $(this).next('.lead').hasClass('hidden') ) {
+       $(this).next('.lead').toggleClass('hidden');
+     }
+     else {
+       $('.lead').toggleClass('');
+     }
+   }, function() {
+     $(this).next('.lead').toggleClass('hidden');
+   }
+ );
+   
+  var info = $('.ccf').children('#vol').text();
 
  $('.activity-title').hover(
    function(){
      var tmpid = $(this).attr('id');
-//     var desc = $('.ccf').next('.descriptions').children("." + tmpid).text();
      var desc = $('.ccf').next('.descriptions').children("." + tmpid).html();
      var actData = $('.ccf').next('.descriptions').children("." + tmpid).data();
-     
+
      if ( actData.parentChild = "true" ) {
        $('.ccf').children('#vol').html(desc);
      }

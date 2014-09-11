@@ -3,6 +3,7 @@ class ActivitiesController < InheritedResources::Base
 
   def index
     @activities = Activity.all
+    @sorted = @activities.sort_by { |a| a.work_area }
     @activitiess = Activity.order(:work_area)
     respond_to do |format|
       format.html

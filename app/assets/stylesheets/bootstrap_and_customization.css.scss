@@ -1245,7 +1245,7 @@ a:hover {
     opacity: 0.9;
     font-size: 1.5vw;
     padding: 0 5px 15px 10px;
-    margin: 5px;
+    margin: 5px 10px 5px 5px;
 }
 
 .shift-show {
@@ -1346,6 +1346,19 @@ a:hover {
     border-radius: 3px;
 //    margin: 5px;
     font-size: 1.5vw;
+}
+
+#coordinator {
+    position: relative;
+    top: -6px;
+    right: -12px;
+    background: $phill-gold;
+    color: $phill-grn;
+    font-size: 1.5vw;
+    float: right;
+    padding: 0 5px 5px 5px;
+    z-index: 6;
+    border-radius: 2px;
 }
 
 .ccf {
