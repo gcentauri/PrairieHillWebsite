@@ -1342,10 +1342,13 @@ a:hover {
 
 .ccf {
     width: 29%;
-//    position: fixed;
-    top: 113px;
+//    position: absolute;
+    top: 93px;
     left: 35.8%;
     z-index: 1;
+    .ccf-poster {
+	position: absolute;
+    }
     .msg {
 	color: white; 
 	background: black; 
@@ -1358,7 +1361,7 @@ a:hover {
 	@extend .msg;
 	color: black;
 	background: white;
-	height: 250px;
+	height: 245px;
 	position: relative;
 	z-index: 4;
     }
@@ -1367,8 +1370,8 @@ a:hover {
 .video-watch {
     @extend .bottom-shadow;
     position: absolute;
-    top: 540px;
-    left: 40px;
+    top: 27px;
+    left: 500px;
     width: 30%;
     border-radius: 4px;
     background: $phill-gold;
@@ -1380,8 +1383,8 @@ a:hover {
 .ccf-video {
     @extend .bottom-shadow;
     position: absolute;
-    top: 75px;
-    left: 100px;
+    top: 90px;
+    left: 400px;
     margin: auto auto;
     z-index: 7;
     iframe {
@@ -1398,7 +1401,7 @@ a:hover {
 #ccf-info-admin {
     @extend .padded;
 
-    position: absolute;
+    position: fixed;
     bottom: 0;
 //    right: 10px;
     width: 100%;
@@ -1407,6 +1410,7 @@ a:hover {
     font-size: 2vw;
     text-align: center;
     z-index: 2;
+//    height: 60px;
 }
 
 .ccf-login {
@@ -1439,7 +1443,7 @@ a:hover {
     background: white;
     width: 800px;
     height: 500px;
-    top: 85px;
+    top: 65px;
 }
 
 .activities {

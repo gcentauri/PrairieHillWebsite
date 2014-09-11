@@ -1,4 +1,5 @@
-<% @shifts_by_title.each do |shift| %>
+<%# @shifts_by_title.each do |shift| %>
+<% @shifts_sorted_vols.each do |shift| %>
   <div class="shift">
     <% if shift.volunteer == nil || shift.volunteer == "" %>
       <h2 style="text-decoration:underline;">
