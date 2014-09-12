@@ -1,5 +1,6 @@
 <div id="country-fair">
   <div id='fair-info' class='ccf'>
+    <div class='info-rect'></div>
     <%= cms_snippet_content('ccf', @cms_site).html_safe %>
   </div>
 
@@ -23,7 +24,6 @@
 	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''")  %>
 	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| s.time } %>
 	<% @shifts_sorted_vols = @shifts_with_vols.concat(@shifts_no_vol) %>
-	<%# @title_vols = @shifts_by_title.pluck(:vols_needed).sum %>
 	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
 	<% @title_vols = @empty_shifts.count %>
 	<% @times = @shifts_by_title.pluck(:time) %>

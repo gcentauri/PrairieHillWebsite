@@ -43,7 +43,7 @@ class ShiftsController < ApplicationController
     @user = current_user
     @shifts = Shift.all
     @username = @user.first_name + " " + @user.last_name
-    @user_shifts = @shifts.where(volunteer: @username)
+    @user_shifts = @shifts.where(volunteer: @username).sort_by { |s| s.title }
   end
 
   def sandbox

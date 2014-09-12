@@ -1386,6 +1386,26 @@ a:hover {
 	position: relative;
 	z-index: 4;
     }
+    .msg-bottom {
+	@extend .bottom-shadow;
+	@extend .msg;
+	border-radius: 4px;
+	position: absolute;
+	right: 450px;
+	width: 100%;
+//	opacity: 0.9;
+	font-size: 1.75vw;
+	top: 270px;
+    }
+    .info-rect {
+	background: white;
+	height: 220px;
+	width: 435px;
+	position: absolute;
+	top: 355px;
+	left: 20px;
+	opacity: 0.9;
+    }
 }
 
 .video-watch {
@@ -1463,7 +1483,7 @@ a:hover {
     z-index: 0a;
     background: white;
     width: 800px;
-    height: 500px;
+    height: 400px;
     top: 65px;
 }
 
@@ -1472,9 +1492,9 @@ a:hover {
     position: absolute;
     left: 35%; top: 15%;
     width: 30%;
-    height: 400px;
+//    height: 300px;
 //    overflow: hidden;
-    padding: 25px 25px 25px 400px;
+    padding: 25px 25px 250px 400px;
     margin: 20px;
 }
 
