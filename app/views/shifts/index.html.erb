@@ -1,13 +1,15 @@
 <div class="container" >
   <div style="margin-top:25em;">
     <h2 class="hi-li"> Shifts</h2>
-    <%= link_to 'New Shift', new_shift_path %>
-    <br/>
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'New Shift', new_shift_path %>
+      <br/>
 
-    <p>
-      Download:
-      <%= link_to "Excel", shifts_path(format: "xls") %>
-    </p>
+      <p>
+	Download:
+	<%= link_to "Excel", shifts_path(format: "xls") %>
+      </p>
+    <% end %>
 
     <table class="table">
       <tr>
@@ -29,8 +31,8 @@
 	      <%= shift.volunteer %>
 	    <% end %>
 	  </td>
-	  <td><%= link_to 'Show', shift %></td>
 	  <% if current_user.try(:admin?) %>
+	    <td><%= link_to 'Show', shift %></td>
 	    <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
 	    <td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
 	  <% end %>
