@@ -7,9 +7,12 @@
   <Worksheet ss:Name="Sheet1">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">Title</Data></Cell>
-        <Cell><Data ss:Type="String">Time</Data></Cell>
-        <Cell><Data ss:Type="String">Volunteer</Data></Cell>
+        <Cell><Data ss:Type="String">Work Area</Data></Cell>
+        <Cell><Data ss:Type="String">Coordinator</Data></Cell>
+        <Cell><Data ss:Type="String">Has a Sign?</Data></Cell>
+        <Cell><Data ss:Type="String">Number of Tickets Needed</Data></Cell>
+        <Cell><Data ss:Type="String">Number of Volunteer Hours Available</Data></Cell>
+        <Cell><Data ss:Type="String">Comments</Data></Cell>
       </Row>
       <% @activities.each do |activity| %>
 	<Row>
@@ -17,6 +20,11 @@
           <Cell><Data ss:Type="String"><%= activity.coordinator %></Data></Cell>	  
           <Cell><Data ss:Type="String"><%= activity.sign %></Data></Cell>
           <Cell><Data ss:Type="String"><%= activity.num_tickets %></Data></Cell>
+	  <% @shifts = Shift.all %>
+	  <% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	  <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+	  <Cell><Data ss:Type="String"><%= @empty_shifts.count %></Data></Cell>
+
           <Cell><Data ss:Type="String"><%= activity.comments %></Data></Cell>
 	</Row>
       <% end %>

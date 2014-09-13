@@ -15,6 +15,7 @@
 	<th>Coordinator</th>
 	<th>Sign?</th>
 	<th>Number of Tickets needed</th>
+	<th>Number of Volunteer Hours needed</th>
 	<th>Comments</th>
 	<th></th>
 	<th></th>
@@ -26,6 +27,9 @@
 	  <td><%= activity.coordinator %></td>
 	  <td><%= activity.sign %></td>
 	  <td><%= activity.num_tickets %></td>
+	  <% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	  <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+	  <td><%= @empty_shifts.count %></td>
 	  <td><%= activity.comments %></td>
 	  <td><%= link_to 'Show', activity %></td>
 	  <% if current_user.try(:admin?) %>

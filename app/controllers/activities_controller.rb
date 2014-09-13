@@ -2,6 +2,7 @@ class ActivitiesController < InheritedResources::Base
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
+    @shifts = Shift.all
     @activities = Activity.all
     @sorted = @activities.sort_by { |a| a.work_area }
     @activitiess = Activity.order(:work_area)
