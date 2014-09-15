@@ -6,31 +6,35 @@
 	  xmlns:html="http://www.w3.org/TR/REC-html40">
 
   <% @activities.each do |a| %>
+    <% @shifts_by_title = @shifts.where(title: a.work_area) %>
+    <% if @shifts_by_title.count > 0 %>
 
-    <Worksheet ss:Name="<%= a.work_area %>">
-      <Table>
-	<Row>
-          <Cell><Data ss:Type="String">Title</Data></Cell>
-          <Cell><Data ss:Type="String">Time</Data></Cell>
-          <Cell><Data ss:Type="String">Volunteer</Data></Cell>
-	</Row>
-	<% @shifts_by_title = @shifts.where(title: a.work_area) %>
-	<% @shifts_by_title.each do |shift| %>
+      <Worksheet ss:Name="<%= a.work_area %>">
+	<Table>
 	  <Row>
-            <Cell><Data ss:Type="String"><%= shift.title %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= shift.time %></Data></Cell>	  
-            <Cell><Data ss:Type="String">
-	      <% if shift.guest != nil %>
-		<%= shift.guest %>
-	      <% else %>
-		<%= shift.volunteer %>
-	      <% end %>
-	    </Data>
-	    </Cell>
+            <Cell><Data ss:Type="String">Title</Data></Cell>
+            <Cell><Data ss:Type="String">Time</Data></Cell>
+            <Cell><Data ss:Type="String">Volunteer</Data></Cell>
 	  </Row>
-	<% end %>
-      </Table>
-    </Worksheet>
+
+	  <% @shifts_by_title.each do |shift| %>
+	    <Row>
+              <Cell><Data ss:Type="String"><%= shift.title %></Data></Cell>
+              <Cell><Data ss:Type="String"><%= shift.time %></Data></Cell>	  
+              <Cell><Data ss:Type="String">
+		<% if shift.guest != nil %>
+		  <%= shift.guest %>
+		<% else %>
+		  <%= shift.volunteer %>
+		<% end %>
+	      </Data>
+	      </Cell>
+	    </Row>
+	  <% end %>
+	</Table>
+      </Worksheet>
+
+    <% end %>
     
   <% end %>
 
