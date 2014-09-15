@@ -9,9 +9,12 @@
       <%= link_to "Excel", activities_path(format: "xls") %>
     </p>
 
+    <% @sorted.each do |activity| %>
+
+
     <table class="table">
+      <h2><%= activity.work_area %></h2>
       <tr>
-	<th>Work Area</th>
 	<th>Coordinator</th>
 	<th>Sign?</th>
 	<th>Number of Tickets needed</th>
@@ -21,9 +24,7 @@
 	<th></th>
 	<th></th>
       </tr>
-      <% @sorted.each do |activity| %>
 	<tr>
-	  <td><%= activity.work_area %></td>
 	  <td><%= activity.coordinator %></td>
 	  <td><%= activity.sign %></td>
 	  <td><%= activity.num_tickets %></td>
