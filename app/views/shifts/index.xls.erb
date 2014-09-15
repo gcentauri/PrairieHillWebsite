@@ -4,27 +4,34 @@
 	  xmlns:x="urn:schemas-microsoft-com:office:excel"
 	  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
 	  xmlns:html="http://www.w3.org/TR/REC-html40">
-  <Worksheet ss:Name="Sheet1">
-    <Table>
-      <Row>
-        <Cell><Data ss:Type="String">Title</Data></Cell>
-        <Cell><Data ss:Type="String">Time</Data></Cell>
-        <Cell><Data ss:Type="String">Volunteer</Data></Cell>
-      </Row>
-      <% @shifts.each do |shift| %>
+
+  <% @activities.each do |a| %>
+
+    <Worksheet ss:Name="<%= a.work_area %>">
+      <Table>
 	<Row>
-          <Cell><Data ss:Type="String"><%= shift.title %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= shift.time %></Data></Cell>	  
-          <Cell><Data ss:Type="String">
-	    <% if shift.guest != nil %>
-	      <%= shift.guest %>
-	    <% else %>
-	      <%= shift.volunteer %>
-	    <% end %>
-	  </Data>
-	  </Cell>
+          <Cell><Data ss:Type="String">Title</Data></Cell>
+          <Cell><Data ss:Type="String">Time</Data></Cell>
+          <Cell><Data ss:Type="String">Volunteer</Data></Cell>
 	</Row>
-      <% end %>
-    </Table>
-  </Worksheet>
+	<% @shifts_by_title = @shifts.where(title: a.work_area) %>
+	<% @shifts_by_title.each do |shift| %>
+	  <Row>
+            <Cell><Data ss:Type="String"><%= shift.title %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= shift.time %></Data></Cell>	  
+            <Cell><Data ss:Type="String">
+	      <% if shift.guest != nil %>
+		<%= shift.guest %>
+	      <% else %>
+		<%= shift.volunteer %>
+	      <% end %>
+	    </Data>
+	    </Cell>
+	  </Row>
+	<% end %>
+      </Table>
+    </Worksheet>
+    
+  <% end %>
+
 </Workbook>

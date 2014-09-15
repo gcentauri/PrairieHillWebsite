@@ -3,6 +3,7 @@ class ShiftsController < ApplicationController
   before_action :volunteer, only: [:show, :edit, :update, :destroy]
 
   def index
+    @activities = Activity.all
     @shifts = Shift.all
     @sorted = @shifts.sort_by { |s| s.title }
 
