@@ -1,63 +1,57 @@
 <!DOCTYPE html>
 
-  <head>
-    <title>Prairie Hill Learning Center</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>Prairie Hill Learning Center</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <div id="wrapper">
+  <div id="wrapper">
 
-      <!--HEADER-->
-      <%= render 'pages/zero_height' %>
+    <!--HEADER-->
+    <%= render 'pages/zero_height' %>
 
-      <!-- CONTENT -->
-      <div id="skrollr-body">
-	<!--<div id=breadcrumbs></div>-->
-	  <% if current_page?(contact_path) %>
-	    <div id="info-column" style="margin-top:200px;">
-	      <%= yield %>
-
-
-	  <% else %>
-	    <div id="info-column">
-	      <%= yield %>
-	      <%= render 'pages/contact' %>	    
+    <!-- CONTENT -->
+    <div id="skrollr-body">
+      <% if current_page?(contact_path) %>
+	<div id="info-column" style="margin-top:200px;">
+	  <%= yield %>
 
 
-	  <% end %>
+      <% else %>
+	  <div id="info-column">
+	    <%= yield %>
+	    <%= render 'pages/contact' %>	    
 
-	  <div class="container">
-	    <%= cms_snippet_content('legal', @cms_site).html_safe %>
+
+      <% end %>
+
+      <div class="container">
+	<%= cms_snippet_content('legal', @cms_site).html_safe %>
+      </div>
+
 	  </div>
-
 	</div>
-      </div>
-      <!-- END CONTENT -->
+	<!-- END CONTENT -->
 
 
 
-      <!-- FOOTER -->
-      <div id="menu" style="cursor:pointer;">
-	<%= render 'layouts/menu' %>
-      </div>
-      <!-- END FOOTER -->
+	<!-- FOOTER -->
+	<div id="menu" style="cursor:pointer;">
+	  <%= render 'layouts/menu' %>
+	</div>
+	<!-- END FOOTER -->
 
- 
+	
 
     </div>
 
     <!-- jSCRIPT -->
     <script>
-
-     function init() {
-       getBreadcrumb(document, document.location, document.title);
-     }
-     window.onload = init; 
 
      (function($){
        skrollr.init({
@@ -81,10 +75,10 @@
 	 'height': winHeight,
        });
      });
-    
+     
     </script>
 
     <!-- END jSCRIPT -->
 
-  </body>
+</body>
 </html>
