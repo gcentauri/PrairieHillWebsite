@@ -11,19 +11,18 @@
 
     <% @sorted.each do |activity| %>
 
-
-    <table class="table">
-      <h2><%= activity.work_area %></h2>
-      <tr>
-	<th>Coordinator</th>
-	<th>Sign?</th>
-	<th>Number of Tickets needed</th>
-	<th>Number of Volunteer Hours needed</th>
-	<th>Comments</th>
-	<th></th>
-	<th></th>
-	<th></th>
-      </tr>
+      <table class="table">
+	<h2><%= activity.work_area %></h2>
+	<tr>
+	  <th>Coordinator</th>
+	  <th>Sign?</th>
+	  <th>Number of Tickets needed</th>
+	  <th>Number of Volunteer Hours needed</th>
+	  <th>Comments</th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	</tr>
 	<tr>
 	  <td><%= activity.coordinator %></td>
 	  <td><%= activity.sign %></td>
@@ -38,8 +37,8 @@
 	    <td><%= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
 	  <% end %>
 	</tr>
-      <% end %>
-    </table>
+    <% end %>
+      </table>
 
   </div>
 
