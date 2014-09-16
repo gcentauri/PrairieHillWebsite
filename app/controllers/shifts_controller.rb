@@ -11,7 +11,6 @@ class ShiftsController < ApplicationController
       format.html
       format.xls # { send_data @shiftss.to_csv(col_sep: "\t") }
     end
-
   end
 
   def volunteer

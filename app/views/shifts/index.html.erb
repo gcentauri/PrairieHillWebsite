@@ -11,50 +11,83 @@
       </p>
     <% end %>
 
-    <%# @activities.each do |a| %>
-    <%# @shifts.each do |shift| %>
     <% @shifts_by_title = @shifts.pluck(:title).uniq %>
-    <%# if @shifts_by_title.count > 0 %>
 
     <% @shifts_by_title.each do |s| %>
       <% @shift_match =  @shifts.where(title: s).order(:title).sort_by { |s| natural_order(s) } %>
       <table class="table table-hover">
 	<h2>
-	  <%= s %> (<%= @shift_match.count %> shifts)
+	  <% if current_user.try(:admin?) %>
+	    <%= s %> (<%= @shift_match.count %> shifts)
+	  <% else %>
+	    <% if (s != 'Pony Rides') & (s != 'Pony Wagon Rides') %>
+	      <%= s %> (<%= @shift_match.count %> shifts)
+	    <% end %>
+	  <% end %>
 	</h2>
 	<tr>
-	  <th>Time</th>
+	  <th></th>
 	  <th>Volunteer</th>
 	  <th></th>
 	  <th></th>
 	  <th></th>
 	</tr>
 
+
 	<% @shift_match.each do |shift| %>
-	  <tr>
+	  <% if current_user.try(:admin?) %>
 
-	    <td>
-	      <span style='font-weight:bold;'>
-		<%= shift.time %>
-	      </span>
-	    </td>
+	    <tr>
+	      <td>
+		<span style='font-weight:bold;'>
+		  <%= shift.time %>
+		</span>
+	      </td>
 
-	    <td>
-	      <% if shift.guest != nil %>
-		<%= shift.guest %>
-	      <% else %>
-		<%= shift.volunteer %>
+	      <td>
+		<% if shift.guest != nil %>
+		  <%= shift.guest %>
+		<% else %>
+		  <%= shift.volunteer %>
+		<% end %>
+	      </td>
+
+	      <% if current_user.try(:admin?) %>
+		<td><%= link_to 'Show', shift %></td>
+		<td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+		<td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
 	      <% end %>
-	    </td>
+	    </tr>
 
-	    <% if current_user.try(:admin?) %>
-	      <td><%= link_to 'Show', shift %></td>
-	      <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
-	      <td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	  <% else %>
+	    <% if (shift.title != 'Pony Rides') & (shift.title != 'Pony Wagon Rides') %>
+	      <tr>
+		<td>
+		  <span style='font-weight:bold;'>
+		    <%= shift.time %>
+		  </span>
+		</td>
+
+		<td>
+		  <% if shift.guest != nil %>
+		    <%= shift.guest %>
+		  <% else %>
+		    <%= shift.volunteer %>
+		  <% end %>
+		</td>
+
+		<% if current_user.try(:admin?) %>
+		  <td><%= link_to 'Show', shift %></td>
+		  <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+		  <td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+		<% end %>
+	      </tr>
 	    <% end %>
-	  </tr>
+	  <% end %>
+
 	<% end %>
       </table>	  
     <% end %>
+
   </div>
 </div>
