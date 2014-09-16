@@ -1,6 +1,6 @@
 <div class="container" >
   <div style="margin-top:25em;">
-    <h2 class="hi-li"> Shifts</h2>
+    <h2 class="hi-li"> Activity Shifts</h2>
     <% if current_user.try(:admin?) %>
       <%= link_to 'New Shift', new_shift_path %>
       <br/>
@@ -60,7 +60,9 @@
 	    </tr>
 
 	  <% else %>
+	  
 	    <% if (shift.title != 'Pony Rides') & (shift.title != 'Pony Wagon Rides') %>
+
 	      <tr>
 		<td>
 		  <span style='font-weight:bold;'>
