@@ -11,43 +11,43 @@
       </p>
     <% end %>
 
-    <% @activities.each do |a| %>
-    <%# @shifts.each do |a| %>
-      <% @shifts_by_title = @shifts.where(title: a.work_area) %>
-      <%# if @shifts_by_title.count > 0 %>
+    <%# @activities.each do |a| %>
+    <%# @shifts.each do |shift| %>
+    <% @shifts_by_title = @shifts.pluck(:title).uniq %>
+    <%# if @shifts_by_title.count > 0 %>
 
-	<table class="table">
-	  <h2><%= a.work_area %> (<%= @shifts_by_title.count %> shifts)</h2>
+    <% @shifts_by_title.each do |s| %>
+      <% @shift_match =  @shifts.where(title: s) %>
+      <table class="table">
+	<h2>
+	  <%= s %> (<%= @shift_match.count %> shifts)
+	</h2>
+	<tr>
+	  <th>Time</th>
+	  <th>Volunteer</th>
+	  <th></th>
+	  <th></th>
+	  <th></th>
+	</tr>
+
+	<% @shift_match.each do |shift| %>
 	  <tr>
-	    <th>Time</th>
-	    <th>Volunteer</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
-
-	  <% @shifts_by_title.each do |shift| %>
-	    <tr>
-	      <td><%= shift.time %></td>
-	      <td>
-		<% if shift.guest != nil %>
-		  <%= shift.guest %>
-		<% else %>
-		  <%= shift.volunteer %>
-		<% end %>
-	      </td>
-	      <% if current_user.try(:admin?) %>
-		<td><%= link_to 'Show', shift %></td>
-		<td><%= link_to 'Edit', edit_shift_path(shift) %></td>
-		<td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	    <td><%= shift.time %></td>
+	    <td>
+	      <% if shift.guest != nil %>
+		<%= shift.guest %>
+	      <% else %>
+		<%= shift.volunteer %>
 	      <% end %>
-	    </tr>
-	  <% end %>
-	</table>	  
-      <%# end %>
-
+	    </td>
+	    <% if current_user.try(:admin?) %>
+	      <td><%= link_to 'Show', shift %></td>
+	      <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+	      <td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+	    <% end %>
+	  </tr>
+	<% end %>
+      </table>	  
     <% end %>
-
   </div>
-
 </div>
