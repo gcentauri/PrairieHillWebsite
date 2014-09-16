@@ -84,7 +84,7 @@ class ShiftsController < ApplicationController
 
     if @shift.update(shift_params)
 #      redirect_to @shift, notice: 'THANK YOU!'
-      redirect_to :back
+      redirect_to :shifts
     else
       render :edit
     end
