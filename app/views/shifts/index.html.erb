@@ -17,7 +17,7 @@
     <%# if @shifts_by_title.count > 0 %>
 
     <% @shifts_by_title.each do |s| %>
-      <% @shift_match =  @shifts.where(title: s).order(:title) %>
+      <% @shift_match =  @shifts.where(title: s).order(:title).sort_by { |s| natural_order(s) } %>
       <table class="table">
 	<h2>
 	  <%= s %> (<%= @shift_match.count %> shifts)
