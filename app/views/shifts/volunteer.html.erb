@@ -21,8 +21,8 @@
       <% @activityOrder.each do |title| %>
 	
 	<% @shifts_by_title = @shifts.where(title: title) %>
-	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''")  %>
-	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| s.time } %>
+	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''").sort_by { |s| natural_order(s) }  %>
+	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| natural_order(s) } %>
 	<%# @shifts_sorted_vols = @shifts_with_vols.concat(@shifts_no_vol) %>
 	<% @shifts_sorted_vols = @shifts_no_vol.concat(@shifts_with_vols) %>
 	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>

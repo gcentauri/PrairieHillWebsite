@@ -6,7 +6,6 @@ class ShiftsController < ApplicationController
     @activities = Activity.all
     @shifts = Shift.all
     @sorted = @shifts.sort_by { |s| s.title }
-
     @shiftss = Shift.order(:title)
     respond_to do |format|
       format.html
