@@ -790,7 +790,6 @@ a:hover {
     background: transparent;
     height: 170px;
     width: 40%;
-//    border-radius: 15px 15px 15px 15px;
     border-radius: 0 150px 150px 50px;
     overflow: visible;
     position: absolute;
@@ -861,13 +860,13 @@ a:hover {
     left:0; top:0;
 }
 
-.title-name { //display:none;
+.title-name {
     text-align: right;
     color: white;
     background: $phill-grn;
-    height: 90px;
+    height: 50%;
     width: 65%;
-    padding: 7px 25px 0 0;
+    padding: 0.5% 25px 0 0;
     font-size: 3.5vw;
     position: absolute;
     top:25%; left:21.2%;
@@ -1364,9 +1363,8 @@ a:hover {
 
 .ccf {
     width: 29%;
-//    position: absolute;
-    top: 93px;
-    left: 35.8%;
+    top: 32%;
+    left: 37%;
     z-index: 1;
     .ccf-poster {
 	position: absolute;
@@ -1377,7 +1375,6 @@ a:hover {
 	padding: 15px;
 	font-size: 1.5vw;
 	z-index: 5;
-//	position: absolute;
     }
     .msg-white {
 	@extend .msg;
@@ -1386,17 +1383,17 @@ a:hover {
 	height: 245px;
 	position: relative;
 	z-index: 4;
+	font-size: 1.5vw;
     }
     .msg-bottom {
 	@extend .bottom-shadow;
 	@extend .msg;
 	border-radius: 4px;
 	position: absolute;
-	right: 450px;
+	top: 40%;
+	right: 115%;
 	width: 100%;
-//	opacity: 0.9;
 	font-size: 1.75vw;
-	top: 270px;
     }
     .info-rect {
 	display: none;
@@ -1413,8 +1410,8 @@ a:hover {
 .video-watch {
     @extend .bottom-shadow;
     position: absolute;
-    top: 27px;
-    left: 500px;
+    top: 5%;
+    left: 40%;
     width: 30%;
     border-radius: 4px;
     background: $phill-gold;
@@ -1426,8 +1423,8 @@ a:hover {
 .ccf-video {
     @extend .bottom-shadow;
     position: absolute;
-    top: 90px;
-    left: 400px;
+    top: 25%;
+    left: 20%;
     margin: auto auto;
     z-index: 7;
     iframe {
@@ -1484,9 +1481,10 @@ a:hover {
     overflow-y: auto;
     z-index: 0a;
     background: white;
-    width: 800px;
-    height: 400px;
-    top: 65px;
+    width: 60%;
+    height: 55%;
+    top: 26%;
+    left: 35%;
 }
 
 .activities {
@@ -1494,9 +1492,7 @@ a:hover {
     position: absolute;
     left: 35%; top: 15%;
     width: 30%;
-//    height: 300px;
-//    overflow: hidden;
-    padding: 25px 25px 250px 400px;
+    padding: 25px 25px 250px 31%;
     margin: 20px;
 }
 
@@ -1602,6 +1598,12 @@ a.list-group-item-sub {
 
 div.list-group-item {
     @extend a.list-group-item
+}
+
+@media screen and (max-width: 1400px) {
+    .video-watch {
+	top: 8%;
+    }
 }
 
 /* for 1253px or less */
