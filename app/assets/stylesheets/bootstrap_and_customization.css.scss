@@ -725,7 +725,7 @@ a:hover {
 
 #head {
 //    background-image: url('http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/001/original/feeding-patches.jpg');
-    background: image-url('feeding-patches.jpg');
+    background: image-url('feeding-patches-50per.jpg');
     background-size: cover;
     background-position: center 45%;
     width: 100%;
@@ -1103,7 +1103,7 @@ a:hover {
 
 .slide-1 {
     height: 1250px;
-    background: image-url('hay-slide.jpg');
+    background: image-url('hay-slide-50per.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% 70%;
@@ -1822,10 +1822,39 @@ div.list-group-item {
 	display: none;
     }
     #quote {
-	display: none;
+//	display: none;
+	.quote-text {
+	    font-size: 5vw;
+	    margin: 0;
+	    padding: 0;
+	}
+	.author {
+	    font-size: 4vw;
+	}
     }
     #video {
 	width: 70%;
 	margin: 0 auto;
+    }
+    .user-menu {
+	font-size: 4vw;
+	top: 190px;
+    }
+    .menu-list {
+	font-size: 5vw;
+	top: 200px;
+    }
+    .menu-list-mobile {
+	z-index: 5;
+	ul li a {
+	
+	    &:hover {
+		font-size: 5vw;
+	    }
+	} 
+    }
+    .menu-type {
+	top: 200px;
+	font-size: 5vw;
     }
 }
