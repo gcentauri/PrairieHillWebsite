@@ -2,14 +2,13 @@
   <div style="margin-top:25em;">
     <h2 class="hi-li"> Activity Shifts</h2>
     <% if current_user.try(:admin?) %>
-      <%= link_to 'New Shift', new_shift_path %>
-      <br/>
-
-      <p>
-	Download:
-	<%= link_to "Excel", shifts_path(format: "xls") %>
-      </p>
+      <h1><%= link_to 'New Shift', new_shift_path %></h1>
+      <h2>
+	<%= link_to "Download Excel Spreadsheets", shifts_path(format: "xls") %>
+      </h>
     <% end %>
+    <br/>
+    <br/>
 
     <% @shifts_by_title = @shifts.pluck(:title).uniq %>
 
