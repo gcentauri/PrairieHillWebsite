@@ -15,34 +15,34 @@
     <% end %>
   </div>
 
-    <ul class="menu-list" style="display:none;">
-      <% if user_signed_in? %>
-	<li>
-	  <em>
-	    <%= link_to destroy_user_session_path, method: :delete do %>
-	      Sign out
-	    <% end %>
-	  </em>
-	</li>
+  <ul class="menu-list" style="display:none;">
+    <% if user_signed_in? %>
+      <li>
+	<em>
+	  <%= link_to destroy_user_session_path, method: :delete do %>
+	    Sign out
+	  <% end %>
+	</em>
+      </li>
 
-	<li>
-	  <em>
-	    <%= link_to "Settings", edit_user_registration_path %>
-	  </em>
-	</li>
+      <li>
+	<em>
+	  <%= link_to "Settings", edit_user_registration_path %>
+	</em>
+      </li>
 
-	
-	<% if current_user.try(:admin?) %>
-
+      
+      <% if current_user.try(:admin?) %>
+	<ul>
 	  <li>
 	    <em>
-	      <%= link_to "Admin", comfy_admin_cms_path %>
+	      <%= link_to "Admin(CMS)", comfy_admin_cms_path %>
 	    </em>
 	  </li>
 
 	  <li>
 	    <em>
-	      <%= link_to "Shifts", shifts_path %>
+	      <%= link_to "Admin(Shifts)", shifts_path %>
 	    </em>
 	  </li>
 
@@ -51,47 +51,48 @@
 	      <%= link_to "Activities", activities_path %>
 	    </em>
 	  </li>
-
-	<% end %>
-
-	<li>
-	  <em>
-	    <%= link_to "Country Fair", ccf_path %>
-	  </em>
-	</li>
-
-	<li>
-	  <em>
-	    <%= link_to "Activity Schedule", shifts_path %>
-	  </em>
-	</li>
-
-	<li>
-	  <em>
-	    <%= link_to "My Shifts", user_shifts_path %>
-	  </em>
-	  <em>
-	    <%= nav_link "Parent Tours", news_path %>
-	  </em>
-
-	</li>
-
-
-      <% else %>
-
-	<li>
-	  <em>
-	    <%= nav_link "Sign in", new_user_session_path %>
-	  </em>
-	  <em>
-	    <%= nav_link "Sign up", new_user_registration_path %>
-	  </em>
-	  <em>
-	    <%= nav_link "Parent Tours", news_path %>
-	  </em>
-	</li>
-
+	  
+	  </ul>
       <% end %>
-    </ul>
+
+      <li>
+	<em>
+	  <%= link_to "Country Fair", ccf_path %>
+	</em>
+      </li>
+
+      <li>
+	<em>
+	  <%= link_to "Activity Schedule", shifts_path %>
+	</em>
+      </li>
+
+      <li>
+	<em>
+	  <%= link_to "My Shifts", user_shifts_path %>
+	</em>
+	<em>
+	  <%= nav_link "Parent Tours", news_path %>
+	</em>
+
+      </li>
+
+
+    <% else %>
+
+      <li>
+	<em>
+	  <%= nav_link "Sign in", new_user_session_path %>
+	</em>
+	<em>
+	  <%= nav_link "Sign up", new_user_registration_path %>
+	</em>
+	<em>
+	  <%= nav_link "Parent Tours", news_path %>
+	</em>
+      </li>
+
+    <% end %>
+  </ul>
 
 </div>

@@ -279,9 +279,11 @@ $btn-primary-color: white;
     background: $phill-grn;
     position: fixed;
     top: 40px; right: 50px;
+    box-sizing: border-box;
     border-radius: 30px 0 30px 0;
-    border: 10px solid $phill-grn;
+    border: 1px solid $phill-grn;
     z-index: 10;
+    opacity: 0.8;
     
 
     li {
@@ -346,7 +348,9 @@ $btn-primary-color: white;
 
     color: green;
     background: $phill-gold;
-    border: 2px solid green;
+
+
+    border: 2px solid $phill-grn;
 
     font-size: 1.5vw;
     opacity: 0.8;
@@ -1103,7 +1107,7 @@ a:hover {
 
 .slide-1 {
     height: 1250px;
-    background: image-url('hay-slide-50per.jpg');
+    background: image-url('hay-slide-75per.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% 70%;
@@ -1813,11 +1817,29 @@ div.list-group-item {
 	    font-size: 5vw;
 	}
     }
-    .activities {
+
+    #country-fair {
 	position: relative;
-	top: 100px;
-	font-size: 5vw;
+	top: 300px;
     }
+    
+    #activities { //480px
+		  width: 90%;
+		  left: 0;
+		  top: 20%;
+    }
+
+    .activities { //480px
+		  position: relative;
+		  top: 0;
+		  width: 50%;
+		  font-size: 6vw;
+		  padding: 0;
+		  .activity {
+		      width: 95%;
+		  }
+    }
+
     .contact-logo {
 	display: none;
     }
