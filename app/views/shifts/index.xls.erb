@@ -15,7 +15,7 @@
             <Cell><Data ss:Type="String">Title</Data></Cell>
             <Cell><Data ss:Type="String">Time</Data></Cell>
             <Cell><Data ss:Type="String">Volunteer</Data></Cell>
-            <Cell><Data ss:Type="String">Guest</Data></Cell>
+
 	  </Row>
 
 	  <% @shifts_by_title.each do |shift| %>
@@ -24,7 +24,7 @@
               <Cell><Data ss:Type="String"><%= shift.time %></Data></Cell>	  
               <Cell><Data ss:Type="String">
 		<%= shift.volunteer %> </Data> </Cell>
-              <Cell><Data ss:Type="String"><%= shift.guest %></Data></Cell>	  
+
 	    </Row>
 	  <% end %>
 	</Table>
