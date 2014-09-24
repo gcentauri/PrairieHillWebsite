@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ShiftsController < ApplicationController
   before_action :set_shift, only: [:show, :edit, :update, :destroy]
   before_action :volunteer, only: [:show, :edit, :update, :destroy]
@@ -9,7 +10,10 @@ class ShiftsController < ApplicationController
     @shiftss = Shift.order(:title)
     respond_to do |format|
       format.html
+      format.csv { send_data @shifts.to_csv }
       format.xls # { send_data @shiftss.to_csv(col_sep: "\t") }
+#      format.xlsx { send_data @shifts.to_xlsx }
+      format.xlsx { send_file @shifts.to_xlsx }
     end
   end
 

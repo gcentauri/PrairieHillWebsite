@@ -4,7 +4,9 @@
     <% if current_user.try(:admin?) %>
       <h1><%= link_to 'New Shift', new_shift_path %></h1>
       <h2>
+	<%= link_to "Download CSV File", shifts_path(format: "csv") %><br/>
 	<%= link_to "Download Excel Spreadsheets", shifts_path(format: "xls") %>
+	<%#= link_to "Download xlsx", url_for(format: "xlsx") %>
       </h2>
       <div id='admin-howto-video'>
 	<iframe width="840" height="473" src="//www.youtube.com/embed/7iULfy1QwlU" frameborder="0" allowfullscreen></iframe>
