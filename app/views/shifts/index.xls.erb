@@ -4,7 +4,7 @@
 	  xmlns:x="urn:schemas-microsoft-com:office:excel"
 	  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
 	  xmlns:html="http://www.w3.org/TR/REC-html40">
-
+  
   <% @activities.each do |a| %>
     <% @shifts_by_title = @shifts.where(title: a.work_area) %>
     <% if @shifts_by_title.count > 0 %>
@@ -12,7 +12,7 @@
       <Worksheet ss:Name="<%= a.work_area %>">
 	<Table>
 	  <Row>
-            <Cell><Data ss:Type="String">Title</Data></Cell>
+            <Cell><Data ss:Type="String"><%= a.work_area %></Data></Cell>
             <Cell><Data ss:Type="String">Time</Data></Cell>
             <Cell><Data ss:Type="String">Volunteer</Data></Cell>
 
