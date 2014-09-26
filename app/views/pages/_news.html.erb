@@ -19,6 +19,9 @@
       </div>
 
       <div id="parent-tour" class="section parent-bg">
+	<h2 class="sub-title hi-li">Prospective Parent Tour Date</h2>
+	<%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
+
 	<h2 class="sub-title hi-li">Children's Country Fair (September 27,2014 11am-3pm)</h2>
 	<div id="video" style="padding:15px;">
 	  <iframe width="560" height="315" src="//www.youtube.com/embed/-ekyFBFfPJk?list=UULqVxX4lNc3PzfbSZlBwVBw" frameborder="0" allowfullscreen></iframe>
@@ -54,8 +57,6 @@
       </div>
 
 
-      <h2 class="sub-title hi-li">Prospective Parent Tour Date</h2>
-      <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
   </div>
 
 </div>
