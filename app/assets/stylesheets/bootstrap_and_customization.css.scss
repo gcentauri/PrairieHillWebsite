@@ -262,6 +262,7 @@ $btn-primary-color: white;
     background: $phill-grn;
     color: $phill-gold;
     border-radius: 50px 0 50px 0;
+    z-index: 5;
 
     ul li a {
 	color: $phill-gold;
@@ -1661,7 +1662,9 @@ div.list-group-item {
 	display:inline-block;
 		 }
     .menu-list-mobile {
-	font-size: 3vw;
+	ul li {
+	    font-size: 3vw;
+	}
     }
 }
 
