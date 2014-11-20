@@ -24,7 +24,6 @@ gem 'inherited_resources'
 gem 'skrollr-rails'
 gem 'rails_admin'
 gem 'picturefill'
-gem 'newrelic_rpm'
 gem 'autoprefixer-rails'
 gem 'chronic'
 gem 'acts_as_xlsx'
@@ -33,6 +32,8 @@ gem 'axlsx_rails'
 gem 'rubyzip'
 gem 'writeexcel'
 gem 'figaro'
+gem 'meta-tags'
+gem 'metamagic'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -41,13 +42,13 @@ group :development, :test do
   gem 'sqlite3'
   gem 'foreman'
   gem 'pry-rails'
-#  gem 'unicorn'
+  gem 'unicorn'
 end
 
 group :production do
 #  gem 'pg', '0.15.1'
   gem 'rails_12factor'
-  gem 'unicorn'
+#  gem 'unicorn'
   gem 'unicorn-rails'
 end
 

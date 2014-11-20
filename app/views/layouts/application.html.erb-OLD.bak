@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrairieHillWebsite</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div id="wrapper">
+
+      <div>
+	<% flash.each do |name, msg| %>
+	  <%= content_tag(:div, msg, class: "alert alert-info") %>
+	<% end %>
+      </div>
+
+      <div id="head"
+	   data-0="height:100%;"
+	   data-2000="height:0%;">
+	<%= render 'layouts/header' %>
+      </div>
+
+      <div id="skrollr-body">
+	<div id="info-column">
+	  <%= yield %>
+	  <%= render 'pages/contact' %>	      
+	</div>
+      </div>
+
+      <div id="menu">
+	<%= render 'layouts/menu' %>
+      </div>
+
+    </div>
+
+    <script>
+     (function($){
+       skrollr.init({
+	 forceHeight: false,
+	 smoothScrolling: false
+       }).refresh();
+     } (jQuery));
+    </script>
+
+  </body>
+</html>

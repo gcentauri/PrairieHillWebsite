@@ -1,0 +1,37 @@
+<div id="quote"
+     data-0="opacity:0.5;"
+     data-300="opacity:0;"
+     >
+  <%= render 'layouts/quote' %>
+</div>
+
+<div id="mission-statement"
+     data-700="opacity:0;"
+     data-900="opacity:0.9;"
+     data-2500="opacity:0;"
+     data-0="background-position: center 100%;"
+     data-900="background-position: center 20%;"
+
+     >
+  <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+</div>
+
+<div id="spacer"></div>
+
+<div class="content"
+     data-0="opacity:0;"
+     data-1000="opacity:1;"
+     >
+
+  <div id="latest-news">
+    <%= render 'news' %>
+  </div>
+
+  <div id="about">
+    <%= render 'about' %>
+  </div>
+
+</div>
+
+
+

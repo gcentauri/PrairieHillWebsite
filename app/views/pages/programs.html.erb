@@ -1,51 +1,39 @@
-<div>
+<% meta title: "PRAIRIE HILL Learning Center Montessori Programs",
+        description: "Programs for children age 18 months to 14 years",
+	keywords: %w(programs young-children elementary primary home environment)
+%>
 
+<div class='col-md-12 buffer-bottom'>
   <section id="YCC">
-
-    <div data-0="opacity:1;"
-	 data-1000="opacity:0;">
-      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
-    </div>
-
+    <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
   </section>
 
   <section id="Primary">
-    
-    <div data-0="opacity:0;"
-	 data-900="opacity:1;"
-	 data-1500="opacity:0;">
-      <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
-    </div>
-    
+    <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
   </section>
 
   <section id="Elementary">
-    
-    <div data-0="opacity:0;"
-	 data-1000="opacity:0;"
-	 data-1800="opacity:1;"
-	 data-2100="opacity:0;">
-      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
-    </div>
-    
+    <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
   </section>
 
-  <div id='financial'
-       class='container'
-       data-0='opacity:0;'
-       data-2100='opacity:0;'
-       data-2200='opacity:1;'
-       >
+  <div id='financial'>
     <h3>
       Click 
       <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/046/original/Financial_Information_September_1__2014.pdf" %> 
       to download a copy of the most current Financial Information and Policies.
     </h3>
 
-
     <EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/046/original/Financial_Information_September_1__2014.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">
     </EMBED>
   </div>
-
-
 </div>
+
+<script>
+  
+ var winHeight = $(window).height();
+
+ $('.full').css({
+   'height': winHeight,
+ });
+
+</script>

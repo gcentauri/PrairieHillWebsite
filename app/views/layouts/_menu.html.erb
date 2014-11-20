@@ -1,10 +1,6 @@
 
-<% if current_page?(ccf_path) || current_page?(user_shifts_path) %>
-  <div id="menu-browser" style="display:none;">
-<% else %>
-    <div id="menu-browser">
-<% end %>
-  <ul style="margin: 0 150px 0 150px;">
+<div id="menu-browser">
+  <ul>
     <li><%= nav_link "HOME", root_path %></li>
     <li><%= nav_link "ABOUT", about_path %></li>
     <li><%= nav_link "NEWS", news_path %></li>
@@ -16,15 +12,13 @@
     <li><%= nav_link "DONATE", donate_path %></li>
     <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
     <!-- <li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => 'alert("COMING SOON: Sept 12th!")' %></li>-->
-    <li><%= link_to "COUNTRY FAIR", ccf_path %></li>
-
+    <!--<li><%#= link_to "COUNTRY FAIR", ccf_path %></li>-->
   </ul>
-
 </div>
 
-<%= link_to image_tag("facebook.png", class: "fb"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
 
-<div>
+
+<div style='display:none;'>
   <% if current_page?(ccf_path) %>
     <!--<div class="menu-mobile" style="display:inline-block;">-->
   <% else %>

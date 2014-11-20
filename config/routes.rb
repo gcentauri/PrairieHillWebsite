@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get "donate" => "pages#donate"
   get "camp" => "pages#summer_camp"
   get "csv" => "pages#csvupload"
+  get "uniq" => "pages#unique"
   get "ccf" => "shifts#volunteer"
-  get "test" => "shifts#sandbox"
   get "user_shifts" => "shifts#user_shifts"
 
   # Make sure this routeset is defined last
