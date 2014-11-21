@@ -35,6 +35,11 @@ html, body {
     background-size: cover;
 }
 
+.justify { 
+    text-align: justify;
+} 
+
+
 #header {
     position: fixed;
     top: 0;
@@ -275,6 +280,70 @@ html, body {
 
 }
 
+#activities-children { 
+
+/*     width: 100%; */
+/*     height: 700px; */
+    
+    ul { 
+ 	list-style-type: none; 
+// 	display: inline; 
+    } 
+
+     ul li { 
+ 	font-size: 2vw;
+ 	background: $phill-gold; 
+ 	padding: 15px; 
+
+ 	border-radius: 2px; 
+ 	text-align: center; 
+
+     } 
+} 
+
+.staff-img { display: none ;
+/*     width: 400px; */
+/*     height: 400px; */
+/*     border-radius: 200px; */
+/*     position: absolute; */
+/*     background-size: 100%; */
+     background-repeat: no-repeat; 
+    
+} 
+
+
+.staff-name {
+    text-align: center;
+
+    .bio {
+	display: none;
+    }
+
+    p {
+	text-align: center;
+    }
+
+}
+
+.staff-info {
+    h1 {
+	background: $phill-grn;
+	color: white;
+	padding: 5px;
+    }
+
+    h2 {
+	background: $phill-gold;
+    }
+
+    .member {
+	width: 50%;
+	border: 2px solid $phill-grn;
+	margin: 5px;
+	padding: 15px;
+    }
+}
+
 /* .green-bg { */
 /*     background: $phill-grn; */
 /* } */
@@ -317,9 +386,6 @@ html, body {
 /*     margin: 5px; */
 /* } */
 
-/* .justify { */
-/*     text-align: justify; */
-/* } */
 
 /* .center { */
 /*     text-align: center; */
@@ -743,15 +809,6 @@ html, body {
 /*     width: 50%; */
 /* } */
 
-/* .staff-img { */
-/*     width: 400px; */
-/*     height: 400px; */
-/*     border-radius: 200px; */
-/*     position: absolute; */
-/*     background-size: 100%; */
-/*     background-repeat: no-repeat; */
-    
-/* } */
 
 /* .staff-name { */
 /*     text-align: center; */
@@ -879,26 +936,6 @@ html, body {
 /*     list-style-type: none; */
 /* } */
 
-/* #activities-children { */
-
-/*     width: 100%; */
-/*     height: 700px; */
-    
-/*     ul { */
-/* 	list-style-type: none; */
-/* 	display: inline; */
-/*     } */
-
-/*     ul li { */
-/* 	font-size: 6vw; */
-/* 	background: $phill-gold; */
-/* 	padding: 15px; */
-
-/* 	border-radius: 4px; */
-/* 	text-align: center; */
-
-/*     } */
-/* } */
 
 
 /* /\* footer *\/ */
