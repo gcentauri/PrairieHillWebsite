@@ -344,6 +344,37 @@ html, body {
     }
 }
 
+.tour-dates {
+    font-size: 1.5vw;
+    font-weight: bold;
+    background: $phill-gold;
+    em {
+	padding: 15px;
+    }
+}
+
+
+
+//MEDIA QUERIES//
+
+
+@media screen and (max-width: 400px) { 
+
+    html, body {
+	background: none;
+
+    }
+
+    .img-full { display: none; }
+
+    #content {
+	top: 0;
+	index: 5;
+    }
+
+}
+
+
 /* .green-bg { */
 /*     background: $phill-grn; */
 /* } */

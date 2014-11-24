@@ -96,6 +96,24 @@
        }).refresh();
      } (jQuery));
 
+/*     var s = skrollr.init({
+       forceHeight: false,
+       smoothScrolling: false
+     });
+
+     skrollr.menu.init(s, {
+       animate: true,
+       easing: 'sqrt',
+       scale: 2,
+       duration: function(currentTop, targetTop) {
+	 return 500;
+       },
+       handleLink: function(link) {
+	 return 400;
+       },
+       complexLinks: false
+     });*/
+
      var winHeight = $(window).height();
      var tabHeight = $('#tab').height();
      var diffHeight = winHeight - tabHeight*2 - 20;
