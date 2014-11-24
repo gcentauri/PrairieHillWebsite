@@ -353,6 +353,16 @@ html, body {
     }
 }
 
+#credits {
+    background: $phill-gold;
+    padding: 10px;
+    border-radius: 2px;
+    text-align: center;
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    display: none;
+}
 
 
 //MEDIA QUERIES//
