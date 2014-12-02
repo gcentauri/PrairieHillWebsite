@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
   <div class='container-fluid'>
     <div id='top'></div>
 
@@ -32,7 +30,7 @@
 	</div>
       </div>
 
-      <div class='col-md-3'>	
+      <div id='buffer-col' class='col-md-3'>	
       </div>
 
       <div class='col-md-8'>
@@ -49,27 +47,27 @@
 	    <% else %>
 		<div id="tab" class='top-buffer'
 	    <% end %>
-		 data-0='width: 10%; top: -70px;'
-		 data-200='width: 100%; top: -20px;'
-		 >
+	    data-0='width: 10%; top: -70px;'
+		   data-200='width: 100%; top: -20px;'
+		   >
 	    <% if current_page?(root_path) %>
-		<a href='#content'
+	      <a href='#content'
 	    <% else %>
 		<a href='#'
 	    <% end %>
-		 data-0='display:block;opacity:1;'
+	    data-0='display:block;opacity:1;'
 		 data-100='display:none;opacity:0;'
 		 >
 
-		<h2>
-		  <% if current_page?(root_path) %>
-		    <span class='glyphicon glyphicon-arrow-up'>
-		  <% else %>
-		      <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'>
-		  <% end %>
+	    <h2>
+	      <% if current_page?(root_path) %>
+		<span class='glyphicon glyphicon-arrow-up'>
+	      <% else %>
+		  <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'>
+	      <% end %>
 		  </span></h2>
-		</a>
-		<a href='#top'
+	      </a>
+	      <a href='#top'
 		 data-0='display:none;opacity:0;'
 		 data-100='display:block;opacity:1;'
 		 >
@@ -77,8 +75,8 @@
 		  <span class='glyphicon glyphicon-arrow-down'></span>
 		</h2>
 	      </a>
-	    </div>
-	    <%= yield %>
+	      </div>
+	      <%= yield %>
 		</div>
 	      </div>
 	  </div>
@@ -90,64 +88,60 @@
 
     <script>
 
-     (function($){
-       skrollr.init({
-	 forceHeight: false,
-	 smoothScrolling: false
-       }).refresh();
-     } (jQuery));
+     $(window).on('resize', function() {
+       if ($(window).width() <= 767) {
+	 $('#content').css('top', '200px');
 
-/*     var s = skrollr.init({
-       forceHeight: false,
-       smoothScrolling: false
+	 console.log('window-size_top-adjust_function');
+	 console.log($('#content').css('top'));
+       }
      });
 
-     skrollr.menu.init(s, {
-       animate: true,
-       easing: 'sqrt',
-       scale: 2,
-       duration: function(currentTop, targetTop) {
-	 return 500;
-       },
-       handleLink: function(link) {
-	 return 400;
-       },
-       complexLinks: false
-     });*/
+     $(function($){
+       if ($(window).width() <= 767) {
+	 $('#content').css('top', '200px');
 
-     var winHeight = $(window).height();
-     var tabHeight = $('#tab').height();
-     var diffHeight = winHeight - tabHeight*2 - 20;
+	 console.log('window-size_top-adjust_function');
+	 console.log($('#content').css('top'));
+       }
+     });
 
      $(document).ready(function () {
+
+       console.log("post-window-size_top-adjust");
+       console.log($('#content').css('top'));
+
        $('#quote').hide().fadeIn(3000);
 
        $('body').hover(function() {
-/*	 $('#credits').show();
+	 /*	 $('#credits').show();
 	 }, function() {
 	 $('#credits').hide();*/
        });
-     });
 
-     $('.top-buffer').click(function () {
-       if($('#arrow-switch').hasClass("dropped")) {
-	 $('#arrow-switch').removeClass("glyphicon-arrow-up dropped").addClass("glyphicon-arrow-down");
-	 $('#content').animate({
-	   top: tabHeight
-	 }, 1000);
-	 $('#credits').hide();
-       }
-       else {
-	 $('#arrow-switch').removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up dropped");
-	 $('#content').animate({
-	   top: diffHeight
-	 }, 1000);
-	 $('#credits').show();
-       }
-     }); 
+       var winHeight = $(window).height();
+       var tabHeight = $('#tab').height();
+       var diffHeight = winHeight - tabHeight*2 - 20;
+
+       $('.top-buffer').click(function () {
+	 if($('#arrow-switch').hasClass("dropped")) {
+	   $('#arrow-switch').removeClass("glyphicon-arrow-up dropped").addClass("glyphicon-arrow-down");
+	   $('#content').animate({
+	     top: tabHeight
+	   }, 1000);
+	   $('#credits').hide();
+	 }
+	 else {
+	   $('#arrow-switch').removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up dropped");
+	   $('#content').animate({
+	     top: diffHeight
+	   }, 1000);
+	   $('#credits').show();
+	 }
+       }); 
 
 
-     $(function() {
+       //     $(function() {
        $('a[href*=#]:not([href=#])').click(function() {
 	 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 	   var target = $(this.hash);
@@ -160,9 +154,34 @@
 	   }
 	 }
        });
+
+       $(function($){
+
+	 console.log($('#content').css('top'));
+
+	 if ($(window).width() > 767) {
+
+	   skrollr.init({
+	     forceHeight: false,
+	     smoothScrolling: false
+	   });//.refresh();
+
+	 }
+
+	 console.log($('#content').css('top'));
+
+	 $(window).on('resize', function() {
+	   if ($(window).width() <= 767) {
+	     skrollr.init().destroy();
+	   }
+     
+	   console.log($('#content').css('top'));
+
+	 } (jQuery));
+       });
+
      });
 
-     
 
     </script>
 

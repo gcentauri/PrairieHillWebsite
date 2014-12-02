@@ -1,5 +1,38 @@
 
-<div id="menu-browser">
+<div id="menu-browser-mobile">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class='container-fluid'>
+      <div class='navbar-header'>
+	<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-ex1-collapse'>
+	  <span class="sr-only">Toggle navigation</span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	</button>
+	<%#= link_to "Home", root_path, class: 'navbar-brand' %>
+      </div>
+
+      <div class='collapse navbar-collapse navbar-ex1-collapse'>
+	<ul class='nav navbar-nav navbar-right'>
+	  <li><%= nav_link "HOME", root_path %></li>
+	  <li><%= nav_link "ABOUT", about_path %></li>
+	  <li><%= nav_link "PROGRAMS", programs_path %></li>
+	  <li><%= nav_link "TOURS", news_path %></li>
+	  <li><%= nav_link "STAFF", staffandboard_path %></li>
+	  <li><%= nav_link "CALENDAR", calendar_path %></li>
+	  <li><%= nav_link "CONTACT", contact_path %></li>
+	  <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
+	  <li><%= nav_link "DONATE", donate_path %></li>
+	  <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
+	  <!-- <li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => 'alert("COMING SOON: Sept 12th!")' %></li>-->
+	  <!--<li><%#= link_to "COUNTRY FAIR", ccf_path %></li>-->
+	</ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div id="menu-browser" class='menu-browser'>
   <ul>
     <li><%= nav_link "HOME", root_path %></li>
     <li><%= nav_link "ABOUT", about_path %></li>
@@ -11,38 +44,37 @@
     <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
     <li><%= nav_link "DONATE", donate_path %></li>
     <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
-    <!-- <li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => 'alert("COMING SOON: Sept 12th!")' %></li>-->
+    <!-- <li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => '<!--alert("COMING SOON: Sept 12th!")' %></li>-->
     <!--<li><%#= link_to "COUNTRY FAIR", ccf_path %></li>-->
   </ul>
 </div>
-
 
 
 <div style='display:none;'>
   <% if current_page?(ccf_path) %>
     <!--<div class="menu-mobile" style="display:inline-block;">-->
   <% else %>
-      <div class="menu-mobile">
+    <div class="menu-mobile">
   <% end %>
-    <span class="glyphicon glyphicon-leaf"></span> 
-    <span class="menu-title">Site</span>
-  </div>
+  <span class="glyphicon glyphicon-leaf"></span> 
+  <span class="menu-title">Site</span>
+    </div>
 
-  <div class="menu-list-mobile" style="display:none;">
-    <ul class="menu-items" style="padding:25px;">
-      <li><%= nav_link "HOME", root_path %></li>
-      <li><%= nav_link "ABOUT", about_path %></li>
-      <li><%= nav_link "NEWS", news_path %></li>
-      <li><%= nav_link "PROGRAMS", programs_path %></li>
-      <li><%= nav_link "CALENDAR", calendar_path %></li>
-      <li><%= nav_link "CONTACT", contact_path %></li>
-      <li><%#= nav_link "STAFF & BOARD", staffandboard_path %></li>
-      <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
-      <li><%= nav_link "DONATE", donate_path %></li>
-      <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
-      <li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
-    </ul>
-  </div>
+    <div class="menu-list-mobile" style="display:none;">
+      <ul class="menu-items" style="padding:25px;">
+	<li><%= nav_link "HOME", root_path %></li>
+	<li><%= nav_link "ABOUT", about_path %></li>
+	<li><%= nav_link "NEWS", news_path %></li>
+	<li><%= nav_link "PROGRAMS", programs_path %></li>
+	<li><%= nav_link "CALENDAR", calendar_path %></li>
+	<li><%= nav_link "CONTACT", contact_path %></li>
+	<li><%#= nav_link "STAFF & BOARD", staffandboard_path %></li>
+	<li><%= nav_link "EMPLOYMENT", jobs_path %></li>
+	<li><%= nav_link "DONATE", donate_path %></li>
+	<!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
+	<li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
+      </ul>
+    </div>
 </div>
 
 <script>
