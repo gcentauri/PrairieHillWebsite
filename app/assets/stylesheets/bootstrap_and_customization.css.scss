@@ -26,8 +26,11 @@ $badge-link-hover-color: $phill-grn;
 $btn-primary-bg: $phill-grn;
 $btn-primary-color: white;
 
+@import "bootstrap-sprockets";
 @import 'bootstrap';
 @import 'compass';
+
+
 
 html, body {
     background: $phill-gold;
@@ -472,19 +475,31 @@ html, body {
 	}
 
 	#menu-browser-mobile {
-	    @extend .menu-browser;
+	    //@extend .menu-browser;
+	    padding: 5px 0 0 0; 
 	    display: block;
 	    position: fixed;
 	    top: 0;
 	    left: 25%;
 	    width: 70%;
 	    border: none;
+
+	    ul {
+		list-style-type: none; 
+	    }
 	    
 	    ul li {
 		font-size: 4vw;
 		display: inline-block;
 		float: right;
-
+		.active {
+		    a {
+			color: black;
+			background: $phill-gold;
+			padding: 0 5px;
+			border-radius: 2px;
+		    }
+		}
 		a {
 		    color: black;
 

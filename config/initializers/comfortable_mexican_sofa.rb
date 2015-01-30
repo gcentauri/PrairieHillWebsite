@@ -91,8 +91,13 @@ end
 
 # Default credentials for ComfortableMexicanSofa::HttpAuth
 # YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::HttpAuth.username = ENV["COMFY_USERNAME"]
-ComfortableMexicanSofa::HttpAuth.password = ENV["COMFY_PASSWORD"]
+# UPDATE to 1.12.7 caused following error:
+# "/config/initializers/comfortable_mexican_sofa.rb:94:in `<top (required)>': uninitialized constant ComfortableMexicanSofa::HttpAuth (NameError)"
+# found out that HttpAuth has been changed to AccessControl::AdminAuthentication
+#ComfortableMexicanSofa::HttpAuth.username = ENV["COMFY_USERNAME"]
+#ComfortableMexicanSofa::HttpAuth.password = ENV["COMFY_PASSWORD"]
+ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = ENV["COMFY_USERNAME"]
+ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY_PASSWORD"]
 
 # You can use bcrypt (gem 'bcrypt-ruby') if you want to:
 #   require 'bcrypt'

@@ -15,7 +15,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'devise'
 gem 'pg'
-gem 'comfortable_mexican_sofa'
+gem 'comfortable_mexican_sofa', '1.12.7'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'aws-sdk', '~> 1.46.0'
 gem 'mail_form'
