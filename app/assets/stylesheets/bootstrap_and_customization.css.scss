@@ -38,10 +38,21 @@ html, body {
     background-size: cover;
 }
 
+p {
+    @extend .justify;
+}
+
 .justify { 
     text-align: justify;
 } 
 
+.hi-li {
+    background: $phill-gold;
+}
+
+.camp-link {
+    text-align: center;
+}
 
 #header {
     position: fixed;
@@ -399,6 +410,10 @@ html, body {
     display: none;
 }
 
+
+.camp-subtitle {
+    
+}
 
 //MEDIA QUERIES//
 
