@@ -347,20 +347,30 @@ p {
      } 
 } 
 
-.staff-img { display: none ;
-/*     width: 400px; */
-/*     height: 400px; */
-/*     border-radius: 200px; */
-/*     position: absolute; */
-/*     background-size: 100%; */
-     background-repeat: no-repeat; 
-    
+.staff-img {
+    clear: both;
+    float: right;
+    width: 400px; 
+    height: 400px; 
+    border-radius: 10px;
+    margin: 15px auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 4;
 } 
 
 
 .staff-name {
     text-align: center;
-
+    width: 50%;
+    
+    .name {
+	background: $phill-grn;
+	color: white;
+	padding: 5px;
+	border-radius: 4px;
+    }
+    
     .bio {
 	display: none;
     }
@@ -383,10 +393,14 @@ p {
     }
 
     .member {
-	width: 50%;
+	width: 100%;
 	border: 2px solid $phill-grn;
-	margin: 5px;
+	border-radius: 5px;
+	//	margin: 5px;
+	margin: 15px auto;
 	padding: 15px;
+	background: $phill-gold;
+	clear: both;
     }
 }
 
