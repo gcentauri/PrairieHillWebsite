@@ -357,6 +357,8 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 4;
+    border-bottom: 1px solid $phill-grn;
+    border-left: 1px solid $phill-grn;
 } 
 
 
@@ -394,7 +396,9 @@ p {
 
     .member {
 	width: 100%;
-	border: 2px solid $phill-grn;
+	border-top: 1px solid $phill-grn;
+//	border-left: 2px solid $phill-grn;
+	border-right: 1px solid $phill-grn;
 	border-radius: 5px;
 	//	margin: 5px;
 	margin: 15px auto;
