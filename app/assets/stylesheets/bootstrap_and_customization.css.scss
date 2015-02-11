@@ -1,8 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two);
 
-$phill-grn: #3f8000;
+
+	    $phill-grn: #3f8000;
+	    $phill-grn-faded: rgba(59,118,2,0.3);
 $phill-gold: #ffef19;
 $phill-gold-shaded: #f2e318;
+$phill-gold-flat: rgba(232,218,25,0.9);
 $phill-blu: #e3f5fa;
 $phill-blu-light: #ebf7fa;
 $phill-orange-beta: #f87c6c;
@@ -229,6 +232,8 @@ p {
 
 #content {
     background: white;
+    //    background: rgba(75,137,178,0.8);
+    //    background: rgba(0,0,0,0.4);
     font-size: 1.5vw;
     position: absolute;
     width: 100%;
@@ -350,16 +355,18 @@ p {
 .staff-img {
     clear: both;
     float: right;
-    width: 400px; 
-    height: 400px; 
+    //    width: 400px; 
+    //    height: 400px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     margin: 15px auto;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     z-index: 4;
-    border-bottom: 1px solid $phill-grn;
-    border-left: 1px solid $phill-grn;
+    border-bottom: 1px solid $phill-grn-faded;
+    border-left: 1px solid $phill-grn-faded;
 } 
 
 
@@ -399,16 +406,20 @@ p {
 
     .member {
 	width: 100%;
-	border-top: 1px solid $phill-grn;
-//	border-left: 2px solid $phill-grn;
-	border-right: 1px solid $phill-grn;
+	//	border-top: 1px solid $phill-grn;
+	border-bottom: 1px solid $phill-grn-faded;
+	border-left: 1px solid $phill-grn-faded;
 	border-radius: 5px;
-	//	margin: 5px;
 	margin: 15px auto;
 	padding: 15px;
-	background: $phill-gold;
+	//	background: $phill-gold;
+	background: rgba(232,218,25,0.9);
 	clear: both;
     }
+}
+
+.staff-bg {
+    background: rgba(0,100,10,0.5) !important;
 }
 
 .tour-dates {

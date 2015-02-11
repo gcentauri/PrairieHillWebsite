@@ -38,6 +38,8 @@
 	  <div id='skrollr-body'>
 	    <% if current_page?(root_path) %>
 	      <div id='content'>
+		<% elsif current_page?(staffandboard_path) %>
+		<div id='content' class='buffer-top-120 staff-bg'>
 	    <% else %>
 		<div id='content' class='buffer-top-120'>
 	    <% end %>
@@ -111,11 +113,25 @@
 //       console.log("post-window-size_top-adjust");
 //       console.log($('#content').css('top'));
 
-       console.log($("div.staff-img:first").scrollTop());
-
-       $(".member").click(function() {
-	 console.log($(this).children(".staff-img"));
-	 $(this).children(".staff-img").hide("slow");
+       $(".staff-img").click(function() {
+	 $(this).animate({
+	   width: "200px",
+	   height: "200px"
+	 });
+       });
+       
+       $(".member").hover(function() {
+	 //	 alert(ptop);
+	 $(this).children(".staff-img").animate({
+	   width: "400px",
+	   height: "400px",
+	   //	 }, 500, function() {
+	 }, 1000);
+//	   $(this).animate({
+//	     width: "200px",
+//	     height: "200px"
+//	   });
+//	 });
        });
        
        $('#quote').hide().fadeIn(3000);
