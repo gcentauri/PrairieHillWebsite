@@ -54,9 +54,3 @@ group :production do
   gem 'unicorn-rails'
 end
 
-#gem 'rails_12factor', group: :production
-
-# gem 'unicorn'
-# gem 'capistrano-rails', group: :development
-# gem 'debugger', group: [:development, :test]
-

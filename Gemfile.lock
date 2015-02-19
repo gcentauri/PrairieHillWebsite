@@ -297,7 +297,7 @@ GEM
     skrollr-rails (0.6.29)
       rails (>= 3.1.0)
     slop (3.6.0)
-    spring (1.2.0)
+    spring (1.3.2)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)

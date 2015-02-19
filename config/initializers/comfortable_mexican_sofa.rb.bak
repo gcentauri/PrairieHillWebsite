@@ -9,17 +9,12 @@ ComfortableMexicanSofa.configure do |config|
 
   # Module responsible for authentication. You can replace it with your own.
   # It simply needs to have #authenticate method. See http_auth.rb for reference.
-  #   config.admin_auth = 'ComfyAdminAuthentication'
-
-  # Module responsible for authorization on admin side. It should have #authorize
-  # method that returns true or false based on params and loaded instance
-  # variables available for a given controller.
-  #   config.admin_authorization = 'ComfyAdminAuthorization'
+  #   config.admin_auth = 'ComfortableMexicanSofa::HttpAuth'
 
   # Module responsible for public authentication. Similar to the above. You also
   # will have access to @cms_site, @cms_layout, @cms_page so you can use them in
   # your logic. Default module doesn't do anything.
-  #   config.public_auth = 'ComfyPublicAuthentication'
+  #   config.public_auth = 'ComfortableMexicanSofa::DummyAuth'
 
   # When arriving at /cms-admin you may chose to redirect to arbirtary path,
   # for example '/cms-admin/users'
@@ -94,28 +89,21 @@ ComfortableMexicanSofa.configure do |config|
 
 end
 
-# Default credentials for ComfortableMexicanSofa::AccessControl::AdminAuthentication
+# Default credentials for ComfortableMexicanSofa::HttpAuth
 # YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = 'username'
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = 'password'
+# UPDATE to 1.12.7 caused following error:
+# "/config/initializers/comfortable_mexican_sofa.rb:94:in `<top (required)>': uninitialized constant ComfortableMexicanSofa::HttpAuth (NameError)"
+# found out that HttpAuth has been changed to AccessControl::AdminAuthentication
+#ComfortableMexicanSofa::HttpAuth.username = ENV["COMFY_USERNAME"]
+#ComfortableMexicanSofa::HttpAuth.password = ENV["COMFY_PASSWORD"]
+ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = ENV["COMFY_USERNAME"]
+ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY_PASSWORD"]
 
-# Uncomment this module and `config.admin_auth` above to use custom admin authentication
-# module ComfyAdminAuthentication
-#   def authenticate
-#     return true
-#   end
-# end
+# You can use bcrypt (gem 'bcrypt-ruby') if you want to:
+#   require 'bcrypt'
+#   ComfortableMexicanSofa::HttpAuth.username = 'username'
+#   ComfortableMexicanSofa::HttpAuth.password = BCrypt::Password.new '... bcrypt hash ...'
+#
+# To create a bcrypt hash:
+#   BCrypt::Password.create('password').to_s
 
-# Uncomment this module and `config.admin_authorization` above to use custom admin authorization
-# module ComfyAdminAuthorization
-#   def authorize
-#     return true
-#   end
-# end
-
-# Uncomment this module and `config.public_auth` above to use custom public authentication
-# module ComfyPublicAuthentication
-#   def authenticate
-#     return true
-#   end
-# end
