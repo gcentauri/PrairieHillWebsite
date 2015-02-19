@@ -33,7 +33,9 @@ window.CMS.wysiwyg = ->
 
   $('textarea[data-rich-text]').redactor
     minHeight: 400
-    buttons: ['formatting', '|', 'bold', 'italic', '|', 'unorderedlist', 'orderedlist', '|', 'image', 'link']
+    buttonSource: true
+    buttons: ['html', 'formatting', '|', 'bold', 'italic', '|', 'unorderedlist', 'orderedlist', '|', 'image', 'link']
     imageUpload: $('.cms-files-modal').data('iframe-src') + '?ajax=1'
     imageGetJson: $('.cms-files-modal').data('iframe-src') + '?ajax=1'
     formattingTags: ['p', 'h1', 'h2', 'h3', 'h4']
+
