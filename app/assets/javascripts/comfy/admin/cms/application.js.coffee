@@ -8,8 +8,6 @@
 #= require codemirror/modes/markdown
 #= require codemirror/modes/xml
 #= require codemirror/addons/edit/closetag
-#= require bootstrap-sprockets
-#= require bootstrap
 #= require comfy/admin/cms/lib/bootstrap-datetimepicker
 #= require comfy/admin/cms/lib/diff
 #= require comfy/admin/cms/lib/redactor
@@ -22,8 +20,8 @@
 #= require comfy/admin/cms/uploader
 #= require comfy/admin/cms/files
 #= require comfy/admin/cms/custom
-
-#= require comfy/admin/cms/lib/redactor
+#= require bootstrap-sprockets
+#= require bootstrap
 
 window.CMS.wysiwyg = ->
   csrf_token = $('meta[name=csrf-token]').attr('content');
