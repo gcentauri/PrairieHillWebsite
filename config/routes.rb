@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get "user_shifts" => "shifts#user_shifts"
 
   # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', :sitemap => false
+  comfy_route :cms, :path => '/', :sitemap => true
 
   
 

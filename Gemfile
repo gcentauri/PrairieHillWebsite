@@ -10,7 +10,6 @@ gem 'jquery-rails', '3.1.1'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
-#gem 'bootstrap-sass', '3.1.1.1'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'devise'
@@ -36,6 +35,8 @@ gem 'figaro'
 gem 'meta-tags'
 gem 'metamagic'
 gem 'safe_yaml', '1.0.4'
+gem 'sitemap_generator'
+gem 'dynamic_sitemaps'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
