@@ -1,0 +1,4 @@
+class AddCommentsToActivity < ActiveRecord::Migration
+  def change
+  end
+end

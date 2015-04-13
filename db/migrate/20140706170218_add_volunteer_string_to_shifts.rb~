@@ -1,0 +1,4 @@
+class AddVolunteerStringToShifts < ActiveRecord::Migration
+  def change
+  end
+end

@@ -1,0 +1,8 @@
+module ComfyAdminAuthorization
+  def authorize
+    if params[:controller] == 'comfy/admin/cms/layouts' && !current_user.is_admin?
+      flash[:error] = "Bug off, only admins can change layouts"
+      redirect_to admin_root_path
+    end
+  end
+end

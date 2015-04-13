@@ -1,0 +1,4 @@
+class UserIdsFix < ActiveRecord::Migration
+  def change
+  end
+end

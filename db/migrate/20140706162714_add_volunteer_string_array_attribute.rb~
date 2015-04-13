@@ -1,0 +1,4 @@
+class AddVolunteerStringArrayAttribute < ActiveRecord::Migration
+  def change
+  end
+end

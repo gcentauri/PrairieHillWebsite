@@ -1,0 +1,13 @@
+<td>
+  <span style='font-weight:bold;'>
+    <%= shift.time %>
+  </span>
+</td>
+
+<td>
+  <% if shift.guest != nil %>
+    <%= shift.guest %>
+  <% else %>
+    <%= shift.volunteer %>
+  <% end %>
+</td>

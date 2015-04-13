@@ -1,0 +1,4 @@
+class RemoveEmailUniqueDevise < ActiveRecord::Migration
+  def change
+  end
+end

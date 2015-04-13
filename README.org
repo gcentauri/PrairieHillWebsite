@@ -7,6 +7,440 @@
 
 * Prairie Hill Learning Center
 
+  - [ ] build an API
+
+    https://codelation.com/blog/rails-restful-api-just-add-water
+
+    - [ ] add to [[./Gemfile]]
+
+      : gem 'jbuilder'
+      : gem 'kaminari'
+      : gem 'responders'
+      
+      #+BEGIN_SRC ruby :tangle "./Gemfile"
+        source 'http://rubygems.org'
+        ruby '2.2.0'
+
+        gem 'rails', '4.2.1'
+        gem 'sass-rails'
+        gem 'compass-rails', '~> 2.0.alpha.0'
+        gem 'uglifier', '2.5.1'
+        gem 'coffee-rails', '4.0.1'
+        gem 'jquery-rails', '3.1.1'
+        gem 'turbolinks'
+        gem 'jquery-turbolinks'
+        gem 'jbuilder'
+        gem 'kaminari'
+        gem 'responders'
+        gem 'bootstrap-sass'
+        gem 'bcrypt'
+        gem 'devise'
+        gem 'pg'
+        gem 'comfortable_mexican_sofa', '1.12.7'
+        gem 'sdoc', '~> 0.4.0',          group: :doc
+        gem 'aws-sdk', '~> 1.46.0'
+        gem 'mail_form'
+        gem 'simple_form'
+        gem 'cells'
+        gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+        gem 'skrollr-rails'
+        gem 'rails_admin'
+        gem 'picturefill'
+        gem 'autoprefixer-rails'
+        gem 'chronic'
+        gem 'acts_as_xlsx'
+        gem 'axlsx'
+        gem 'axlsx_rails'
+        gem 'rubyzip'
+        gem 'writeexcel', '1.0.5'
+        gem 'figaro'
+        gem 'meta-tags'
+        gem 'metamagic'
+        gem 'safe_yaml', '1.0.4'
+        gem 'sitemap_generator'
+        gem 'dynamic_sitemaps'
+
+        # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+        gem 'spring',        group: :development
+
+        group :development, :test do
+          gem 'sqlite3'
+          gem 'foreman'
+          gem 'pry-rails'
+          gem 'unicorn'
+        end
+
+        group :production do
+        #  gem 'pg', '0.15.1'
+          gem 'rails_12factor'
+        #  gem 'unicorn'
+          gem 'unicorn-rails'
+        end
+      #+END_SRC
+
+    - [ ] controllers
+
+      - [ ] create file [[./app/controllers/api/base_controller.rb]]
+
+	: mkdir app/controllers/api
+
+	: module Api
+	:   class BaseController < ApplicationController
+	:     protect_from_forgery with: :null_session
+	:     before_action :set_resource, only: [:destroy, :show, :update]
+	:     respond_to :json
+	: 
+	:     private
+	: 
+	:     # Returns the resource from the created instance variable
+	:     # @return [Object]
+	:     def get_resource
+	:       instance_variable_get("@#{resource_name}")
+	:     end
+	: 
+	:     # Returns the allowed parameters for searching
+	:     # Override this method in each API controller
+	:     # to permit additional parameters to search on
+	:     # @return [Hash]
+	:     def query_params
+	:       {}
+	:     end
+	: 
+	:     # Returns the allowed parameters for pagination
+	:     # @return [Hash]
+	:     def page_params
+	:       params.permit(:page, :page_size)
+	:     end
+	: 
+	:     # The resource class based on the controller
+	:     # @return [Class]
+	:     def resource_class
+	:       @resource_class ||= resource_name.classify.constantize
+	:     end
+	: 
+	:     # The singular name for the resource class based on the controller
+	:     # @return [String]
+	:     def resource_name
+	:       @resource_name ||= self.controller_name.singularize
+	:     end
+	: 
+	:     # Only allow a trusted parameter "white list" through.
+	:     # If a single resource is loaded for #create or #update,
+	:     # then the controller for the resource must implement
+	:     # the method "#{resource_name}_params" to limit permitted
+	:     # parameters for the individual model.
+	:     def resource_params
+	:       @resource_params ||= self.send("#{resource_name}_params")
+	:     end
+	: 
+	:     # Use callbacks to share common setup or constraints between actions.
+	:     def set_resource(resource = nil)
+	:       resource ||= resource_class.find(params[:id])
+	:       instance_variable_set("@#{resource_name}", resource)
+	:     end
+	:   end
+	: end
+
+      - [ ] add the public resource methods to the same controller
+	
+	:     # POST /api/{plural_resource_name}
+	:     def create
+	:       set_resource(resource_class.new(resource_params))
+	: 
+	:       if get_resource.save
+	:         render :show, status: :created
+	:       else
+	:         render json: get_resource.errors, status: :unprocessable_entity
+	:       end
+	:     end
+	: 
+	:     # DELETE /api/{plural_resource_name}/1
+	:     def destroy
+	:       get_resource.destroy
+	:       head :no_content
+	:     end
+	: 
+	:     # GET /api/{plural_resource_name}
+	:     def index
+	:       plural_resource_name = "@#{resource_name.pluralize}"
+	:       resources = resource_class.where(query_params)
+	:                   .page(page_params[:page])
+	:                   .per(page_params[:page_size])
+	: 
+	:       instance_variable_set(plural_resource_name, resources)
+	:       respond_with instance_variable_get(plural_resource_name)
+	:     end
+	: 
+	:     # GET /api/{plural_resource_name}/1
+	:     def show
+	:       respond_with get_resource
+	:     end
+	: 
+	:     # PATCH/PUT /api/{plural_resource_name}/1
+	:     def update
+	:       if get_resource.update(resource_params)
+	:         render :show
+	:       else
+	:         render json: get_resource.errors, status: :unprocessable_entity
+	:       end
+	:     end
+
+	#+begin_src ruby :tangle "./app/controllers/api/base_controller.rb"
+          module Api
+            class BaseController < ApplicationController
+              protect_from_forgery with: :null_session
+              before_action :set_resource, only: [:destroy, :show, :update]
+              respond_to :json
+
+              # POST /api/{plural_resource_name}
+              def create
+                set_resource(resource_class.new(resource_params))
+
+                if get_resource.save
+                  render :show, status: :created
+                else
+                  render json: get_resource.errors, status: :unprocessable_entity
+                end
+              end
+
+              # DELETE /api/{plural_resource_name}/1
+              def destroy
+                get_resource.destroy
+                head :no_content
+              end
+
+              # GET /api/{plural_resource_name}
+              def index
+                plural_resource_name = "@#{resource_name.pluralize}"
+                resources = resource_class.where(query_params)
+                            .page(page_params[:page])
+                            .per(page_params[:page_size])
+
+                instance_variable_set(plural_resource_name, resources)
+                respond_with instance_variable_get(plural_resource_name)
+              end
+
+              # GET /api/{plural_resource_name}/1
+              def show
+                respond_with get_resource
+              end
+
+              # PATCH/PUT /api/{plural_resource_name}/1
+              def update
+                if get_resource.update(resource_params)
+                  render :show
+                else
+                  render json: get_resource.errors, status: :unprocessable_entity
+                end
+              end
+              
+              private
+
+              # Returns the resource from the created instance variable
+              # @return [Object]
+              def get_resource
+                instance_variable_get("@#{resource_name}")
+              end
+
+              # Returns the allowed parameters for searching
+              # Override this method in each API controller
+              # to permit additional parameters to search on
+              # @return [Hash]
+              def query_params
+                {}
+              end
+
+              # Returns the allowed parameters for pagination
+              # @return [Hash]
+              def page_params
+                params.permit(:page, :page_size)
+              end
+
+              # The resource class based on the controller
+              # @return [Class]
+              def resource_class
+                @resource_class ||= resource_name.classify.constantize
+              end
+
+              # The singular name for the resource class based on the controller
+              # @return [String]
+              def resource_name
+                @resource_name ||= self.controller_name.singularize
+              end
+
+              # Only allow a trusted parameter "white list" through.
+              # If a single resource is loaded for #create or #update,
+              # then the controller for the resource must implement
+              # the method "#{resource_name}_params" to limit permitted
+              # parameters for the individual model.
+              def resource_params
+                @resource_params ||= self.send("#{resource_name}_params")
+              end
+
+              # Use callbacks to share common setup or constraints between actions.
+              def set_resource(resource = nil)
+                resource ||= resource_class.find(params[:id])
+                instance_variable_set("@#{resource_name}", resource)
+              end
+            end
+          end
+	#+end_src
+
+      - [ ] connect base controller to model controllers
+
+	Pay attention that these inherit from /Api::BaseController/
+
+	[[./app/controllers/api/logs_controller.rb]]
+
+	#+begin_src ruby :tangle "./app/controllers/api/logs_controller.rb"
+          module Api
+            class LogsController < Api::BaseController
+
+              private
+
+              def log_params
+                params.require(:log).permit(:amt)
+              end
+
+              def query_params
+                params.permit(:period_id, :amt)
+              end
+
+            end
+          end
+	#+end_src
+
+	[[./app/controllers/api/periods_controller.rb]]
+
+	#+begin_src ruby :tangle "./app/controllers/api/periods_controller.rb"
+          module Api
+            class PeriodsController < Api::BaseController
+
+              private
+
+              def period_params
+                params.require(:period).permit(:title)
+              end
+
+              def query_params
+                params.permit(:title)
+              end
+
+            end
+          end
+	#+end_src
+
+    - [ ] routing
+
+      [[./config/routes.rb]]
+
+      :   namespace :api do
+      :     resources :logs, :periods
+      :   end
+
+      #+BEGIN_SRC ruby :tangle "config/routes.rb"
+        Rails.application.routes.draw do
+
+          namespace :api, defaults: {format: 'json'} do
+            #namespace :v1 do
+              resources :logs, :periods
+            #end
+          end
+          
+          resources :periods do
+            resources :logs
+          end
+
+          resources :logs
+          
+          root 'periods#index'
+
+        end
+      #+END_SRC
+
+    - [ ] serializing data
+      
+      - [ ] [[./app/views/api/logs/index.json.jbuilder]]
+
+	: json.logs @logs do |log|
+	:   json.id log.id
+	:   json.amt log.amt
+	: 
+	:   json.period_id log.period ? log.period_id : nil
+	: end
+
+	#+begin_src ruby :tangle "./app/views/api/logs/index.json.jbuilder"
+          json.logs @logs do |log|
+            json.id log.id
+            json.amt log.amt
+
+            json.period_id log.period ? log.period_id : nil
+          end
+	#+end_src
+
+      - [ ] [[./app/views/api/logs/show.json.jbuilder]]
+
+	: json.log do
+	:   json.id  @log.id
+	:   json.amt @log.amt
+	: 
+	:   json.period_id @log.period ? @log.period_id : nil
+	: end
+
+	#+begin_src ruby :tangle "./app/views/api/logs/show.json.jbuilder"
+          json.log do
+            json.id  @log.id
+            json.amt @log.amt
+
+            json.period_id @log.period ? @log.period_id : nil
+          end
+	#+end_src
+
+      - [ ] [[./app/views/api/periods/index.json.jbuilder]]
+
+	: json.periods @periods do |period|
+	:   json.id period.id
+	:   json.title period.title
+	: end
+
+	#+begin_src ruby :tangle "./app/views/api/periods/index.json.jbuilder"
+          json.periods @periods do |period|
+            json.id period.id
+            json.title period.title
+          end
+	#+end_src
+
+      - [ ] [[./app/views/api/periods/show.json.jbuilder]]
+
+	: json.period do
+	:   json.id @period.id
+	:   json.title @period.title
+	: end
+
+	#+begin_src ruby :tangle "./app/views/api/periods/show.json.jbuilder"
+          json.period do
+            json.id    @period.id
+            json.title @period.title
+            json.amt   @period.amt
+          end
+	#+end_src
+
+    - [ ] security and performance concerns
+
+      - [ ] use fragment caching to make API efficient
+
+	- [ ] http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching
+
+	- [ ] https://github.com/rails/jbuilder
+	  offers advantages in caching over libraries like https://github.com/rails-api/active_model_serializers
+	  because you can cache JSON templates the same way you would /erb/ templates
+
+      - [ ] secure your API, gems that we use everyday include CanCan(Can) 
+	and Devise to offer per user permissions on resources
+
+      - [ ] include some more complex functionality like side-loading for 
+	convenience in end-user application development
+
   http://phill-new.herokuapp.com
 
   - [ ] re-route http://www.prairiehill.com => heroku app

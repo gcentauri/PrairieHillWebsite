@@ -1,0 +1,4 @@
+class ModifyAdminAttributeOnUsers < ActiveRecord::Migration
+  def change
+  end
+end

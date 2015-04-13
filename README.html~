@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Prairie Hill Learning Center Website</title>
+<!-- 2014-09-09 Tue 00:30 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="AnderSon" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Prairie Hill Learning Center Website</h1>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Prairie Hill Learning Center</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="http://phill-new.herokuapp.com">http://phill-new.herokuapp.com</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> re-route <a href="http://www.prairiehill.com">http://www.prairiehill.com</a> =&gt; heroku app
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Essential Files</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<a href="./FILES.html">./FILES.html</a>
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">excel export</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<a href="http://railscasts.com/episodes/362-exporting-csv-and-excel">http://railscasts.com/episodes/362-exporting-csv-and-excel</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Description</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+After over 2 years of cumbersome working with the wordpress managed website 
+content for the Prairie Hill website (whether due to the way that wordpress 
+arranges itself or my own ignorance and lack of education in web design, php, 
+etc), this is an attempt to try something new. Having a nice solid foundation 
+in building an application with Rails, I feel like now is the time to build 
+something from the ground up that will hopefully meet my needs for control 
+and understanding for building and modifying the backend functionality 
+(most importantly without having to go through all of hassle of using the 
+actual web content management editors and having so many extraneous steps,
+instead of just using my text editor&#x2026;), as well as the front end need
+for admin staff to update content, which is what is important to them in
+the basic functionality of the site. I take care of the functionality and
+aesthetic; they give it the words.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">NB</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1">What we need to look at for functionality:</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div><ul class="org-ul"><li>mailer contact<br  /><div class="outline-text-5" id="text-2-1-1-1">
+<p>
+<a href="http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/">http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/</a>
+</p>
+
+<p>
+set up successfully in development
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> change heroku configs to prairiehill email authentication for production
+</li>
+</ul>
+</div>
+</li>
+
+
+
+
+
+
+<li>user accounts<br  /><div class="outline-text-5" id="text-2-1-1-2">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> We need USERs with authenticatable accounts
+
+<p>
+These users will have various access to update content and that's really
+all that they need. However,
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Admin/General user
+
+<p>
+<a href="https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role">https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role</a>
+</p>
+
+<p>
+We will have user accounts for general things like summer camp and 
+country fair sign up
+</p>
+
+<p>
+We will also have admin users who also have access to CMS
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> install &amp; configure RailsAdmin
+
+<p>
+<a href="https://github.com/sferik/rails_admin">https://github.com/sferik/rails_admin</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> bundle the gem
+
+<pre class="example">
+gem 'rails_admin'
+bundle install
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> install RailsAdmin
+
+<pre class="example">
+rails g rails_admin:install
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> configure for Devise
+
+<p>
+<a href="https://github.com/sferik/rails_admin/wiki/Devise">https://github.com/sferik/rails_admin/wiki/Devise</a>
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> Using ComfortableMexicanSofa for Content Management
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> already set up to use Paperclip for images
+</li>
+
+<li><code>[&#xa0;]</code> WYSIWYG
+
+<p>
+<a href="./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css">./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> editor window is very short
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> Private content
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> admin vs common user accounts
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> User profiles?
+</li>
+
+<li><code>[&#xa0;]</code> Summer Camp Registration model?
+</li>
+
+<li><code>[&#xa0;]</code> Volunteers/CCF
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> connect devise users with shifts?
+</li>
+
+<li><code>[&#xa0;]</code> Sign up views
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> if user signed in&#x2026;
+</li>
+
+<li><code>[&#xa0;]</code> time to learn some jQuery!
+</li>
+
+<li><code>[&#xa0;]</code> FIRST: Shows Activity titles and a number of volunteers total needed
+</li>
+
+<li><code>[&#xa0;]</code> SECOND: Clicking on one of the FIRST shows a view of specific times
+and number of volunteers still needed for each, just after a description
+of the activity itself
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> checkboxes for selected desired shifts?
+</li>
+
+<li><code>[&#xa0;]</code> ability to remove volunteer from shifts
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> BLOG/NEWSfeed for news updates?
+</li>
+
+<li><code>[&#xa0;]</code> PAGEs for general website content
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">ModelViewControl</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Model</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Pages
+</p>
+
+<p>
+<a href="./app/controllers/pages_controller.rb">./app/controllers/pages_controller.rb</a>
+<a href="./app/models/page.rb">./app/models/page.rb</a>
+</p>
+</div>
+
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1">Page</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li><code>[X]</code> Create Static Pages
+
+<p>
+<a href="http://www.railstutorial.org/book/static_pages">http://www.railstutorial.org/book/static_pages</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> Generate a Pages controller
+
+<p>
+<a href="./app/controllers/static_pages_controller.rb">./app/controllers/static_pages_controller.rb</a>
+<a href="./config/routes.rb">./config/routes.rb</a>
+</p>
+
+<pre class="example">
+rails g controller StaticPages home
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2">Rails Generation</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div><ul class="org-ul"><li>Scaffolding<br  /><div class="outline-text-5" id="text-3-1-2-1">
+<ul class="org-ul">
+<li><code>[X]</code> Disable scaffold stylesheet creation 
+
+<p>
+<a href="./config/application.rb">./config/application.rb</a>
+</p>
+
+<pre class="example">
+config.generators do |g|
+  g.stylesheets false
+end
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Generate a scaffold
+
+<p>
+EXAMPLE
+</p>
+<pre class="example">
+rails g scaffold Page index
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> migrate the database
+
+<pre class="example">
+rake db:migrate
+</pre>
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">View</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">Skrollr</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+<a href="https://github.com/reed/skrollr-rails">https://github.com/reed/skrollr-rails</a>
+</p>
+
+<p>
+???"@import 'skrollr';" in <a href="./app/assets/stylesheets/bootstrap_and_customization.css.scss">./app/assets/stylesheets/bootstrap_and_customization.css.scss</a>?
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> add skrollr script
+
+<ul class="org-ul">
+<li><code>[X]</code> make sure skrollr-rails is in the Gemfile
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem 'skrollr-rails'
+</pre>
+</li>
+
+<li><code>[X]</code> add the following script just before &lt;/body&gt; tag
+
+<p>
+<a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
+</p>
+
+<pre class="example">
+&lt;script&gt;
+ (function($){
+   skrollr.init({
+     forceHeight: false,
+     smoothScrolling: false
+   }).refresh();
+ } (jQuery));
+&lt;/script&gt;
+</pre>
+</li>
+
+<li><code>[X]</code> Place #skrollr-body div tag around &lt;%= yield %&gt; tag
+
+<pre class="example">
+&lt;div id="skrollr-body"&gt;
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li><code>[X]</code> require skrollr in application.js
+
+<p>
+<a href="./app/assets/javascripts/application.js">./app/assets/javascripts/application.js</a>
+</p>
+
+<pre class="example">
+//= require skrollr
+</pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> For IE compatibility
+
+<pre class="example">
+//= require skrollr
+//= require skrollr.ie
+</pre>
+</li>
+
+<li><code>[X]</code> This plugin makes hashlinks scroll nicely to their target position.
+
+<pre class="example">
+//= require skrollr
+//= require skrollr.menu
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">Bootstrap-sass</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li><code>[X]</code> Create custom bootstrap stylesheet
+
+<p>
+<a href="./app/assets/stylesheets/bootstrap_and_customization.css.scss">./app/assets/stylesheets/bootstrap_and_customization.css.scss</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> create file
+
+<pre class="example">
+echo "@import 'bootsrap';" &gt; app/assets/stylesheets/bootstrap_and_customization.css.scss
+</pre>
+</li>
+</ul>
+<p>
+<b>NOTE</b> Place new variables before "@import 'bootstrap'"
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> Fonts
+
+<p>
+<i>EXAMPLE:</i>
+</p>
+<pre class="example">
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
+</pre>
+</li>
+
+<li><code>[X]</code> Variables
+
+<pre class="example">
+$phill-grn: #3f8000;
+</pre>
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> Require Bootstrap's Javascript, after jquery<sub>ujs</sub> 
+
+<p>
+<a href="./app/assets/javascripts/application.js">./app/assets/javascripts/application.js</a>
+</p>
+
+<pre class="example">
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require turbolinks
+//= require_tree .
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">Assets</h4>
+<div class="outline-text-4" id="text-3-2-3">
+</div><ul class="org-ul"><li>Stylesheets<br  /><div class="outline-text-5" id="text-3-2-3-1">
+<p>
+<a href="./app/assets/stylesheets/bootstrap_and_customization.css.scss">./app/assets/stylesheets/bootstrap_and_customization.css.scss</a>
+</p>
+</div>
+</li>
+
+<li>Javascripts<br  /><div class="outline-text-5" id="text-3-2-3-2">
+<ul class="org-ul">
+<li><code>[X]</code> Replace turbolinks with jquery-turbolinks
+
+<p>
+<a href="./app/assets/javascripts/application.js">./app/assets/javascripts/application.js</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> Check for jquery-turbolinks in Gemfile
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem 'jquery-turbolinks'
+bundle
+</pre>
+</li>
+
+<li><code>[X]</code> remove turbolinks line
+
+<pre class="example">
+//= require turbolinks
+</pre>
+</li>
+
+<li><code>[X]</code> add jquery.turbolinks under bootstrap
+
+<pre class="example">
+//= require bootstrap
+//= require jquery.turbolinks
+</pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> Restart the server
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+<li>Images<br  /><div class="outline-text-5" id="text-3-2-3-3">
+<ul class="org-ul">
+<li><code>[X]</code> css background images 
+
+<p>
+<a href="./app/assets/stylesheets/bootstrap_and_customization.css.scss">./app/assets/stylesheets/bootstrap_and_customization.css.scss</a>
+</p>
+
+<pre class="example">
+background: image-url('image.jpg')
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> run the following command to precompile assets
+
+<pre class="example">
+RAILS_ENV=production bundle exec rake assets:precompile
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> set video as background?
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+
+
+
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4">Views</h4>
+<div class="outline-text-4" id="text-3-2-4">
+</div><ul class="org-ul"><li>Application<br  /><div class="outline-text-5" id="text-3-2-4-1">
+<p>
+<a href="./app/views/">./app/views/</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> add viewport
+
+<p>
+<a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
+</p>
+
+<pre class="example">
+&lt;meta name="viewport" content="width=device-width, intial-scale=1.0"&gt;
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Optional page refresh interval
+
+<pre class="example">
+&lt;meta http-equiv="REFRESH" content="60" /&gt;
+</pre>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Pages<br  /><div class="outline-text-5" id="text-3-2-4-2">
+<p>
+<a href="./app/views/pages/">./app/views/pages/</a>
+<a href="./app/views/pages/pages.html">./app/views/pages/pages.html</a>
+</p>
+</div>
+</li></ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">Control</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-sec-3-3-1" class="outline-4">
+<h4 id="sec-3-3-1">AngularJS (Honeybadger tutorial)</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+This example from honeybadger may be my key to fixing the issue I am having with
+the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
+app. Once I understand what is going on and how to impliment Angular, maybe it 
+will be a better solution than all of that erb crap I was trying to use&#x2026;
+</p>
+
+<p>
+<a href="https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails">https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails</a>
+</p>
+</div>
+
+<ul class="org-ul"><li>Initial setup<br  /><div class="outline-text-7" id="text-3-3-1-0-0-1">
+<ul class="org-ul">
+<li><code>[X]</code> create the project
+
+<pre class="example">
+rails new rest --database=postgresql --skip-test-unit
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> create the PostgreSQL database user:
+
+<pre class="example">
+createuser -P -s -e rest
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Add RSpec to your Gemfile &amp; Install RSpec
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem "rspec-rails", "~&gt; 2.14.0"
+</pre>
+
+<pre class="example">
+bundle install
+</pre>
+
+<pre class="example">
+rails g rspec:install
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Create the database:
+
+<pre class="example">
+rake db:create
+</pre>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Creating the Restaurant model<br  /><div class="outline-text-7" id="text-3-3-1-0-0-2">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Create the Restaurant resource
+
+<pre class="example">
+rails g scaffold restaurant name:string
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Make sure restaurant names are unique
+
+<p>
+<a href="./db/migrate/">./db/migrate/</a>
+</p>
+
+<pre class="example">
+class CreateRestaurants &lt; ActiveRecord::Migration
+  def change
+    create_table :restaurants do |t|
+      t.string :name
+
+      t.timestamps
+    end
+
+    add_index :restaurants, :name, unique: true
+  end
+end
+</pre>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Run the migration
+
+<pre class="example">
+rake db:migrate
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> Add some specs&#x2026;
+
+<p>
+Need to start learning TDD, but I'm lazy right now
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Bringing AngularJS into the mix<br  /><div class="outline-text-7" id="text-3-3-1-0-0-3">
+<ul class="org-ul">
+<li><code>[X]</code> Create the controller
+
+<pre class="example">
+rails g controller static_pages index
+</pre>
+</li>
+
+<li><code>[X]</code> Update routes
+
+<p>
+<a href="./config/routes.rb">./config/routes.rb</a>
+</p>
+
+<pre class="example">
+root 'static_pages#index'
+</pre>
+</li>
+
+<li><code>[X]</code> Download Angular
+
+<pre class="example">
+wget http://code.angularjs.org/1.1.5/angular.js \
+http://code.angularjs.org/1.1.5/angular-mocks.js
+</pre>
+
+<pre class="example">
+mv angular* app/assets/javascripts
+</pre>
+</li>
+
+<li><code>[-]</code> Add it to the asset pipeline
+
+<p>
+<a href="./app/assets/javascripts/application.js">./app/assets/javascripts/application.js</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Remove turbolinks line
+
+<p>
+Keeping it in for now as a test
+</p>
+</li>
+
+<li><code>[&#xa0;]</code> Add the following two lines
+
+<pre class="example">
+//= require angular
+//= require main
+</pre>
+</li>
+
+<li><code>[X]</code> Set up the layout
+
+<p>
+<a href="./app/views/layouts/application.html.erb">./app/views/layouts/application.html.erb</a>
+</p>
+
+<p>
+naming the app via angular "phill" for simplicity
+keeping turbolinks code in for now until I see a real reason to 
+take it out
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> tested taking out turbolinks markup
+</li>
+</ul>
+<pre class="example">
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app="phill"&gt;
+&lt;head&gt;
+  &lt;title&gt;Rest&lt;/title&gt;
+  &lt;%= stylesheet_link_tag    'application', media: 'all' %&gt;
+  &lt;%= javascript_include_tag 'application' %&gt;
+  &lt;%= csrf_meta_tags %&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div ng-view&gt;
+  &lt;%= yield %&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</li>
+
+<li><code>[X]</code> Creating an Angular controller
+
+<pre class="example">
+mkdir -p app/assets/javascripts/angular/controllers
+</pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> Create the controller
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee">./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee</a>
+</p>
+
+<pre class="example">
+@phill.controller 'HomeCtrl', ['$scope', ($scope) -&gt;
+
+]
+</pre>
+</li>
+
+<li><code>[X]</code> Add an Angular route
+
+<p>
+<a href="./app/assets/javascripts/main.js.coffee">./app/assets/javascripts/main.js.coffee</a>
+</p>
+
+<pre class="example">
+# This line is related to our Angular app, not to our
+# HomeCtrl specifically. This is basically how we tell
+# Angular about the existence of our application.
+@phill = angular.module('phill', [])
+</pre>
+
+<pre class="example">
+# This routing directive tells Angular about the default
+# route for our application. The term "otherwise" here
+# might seem somewhat awkward, but it will make more
+# sense as we add more routes to our application.
+@phill.config(['$routeProvider', ($routeProvider) -&gt;
+  $routeProvider.
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    }) 
+])
+</pre>
+</li>
+
+<li><code>[X]</code> Add an Angular template
+
+<pre class="example">
+mkdir public/templates
+</pre>
+
+<p>
+<a href="./public/templates/home.html">./public/templates/home.html</a>
+</p>
+
+<pre class="example">
+This is the home page
+</pre>
+
+<ul class="org-ul">
+<li><code>[X]</code> An example of data binding
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee">./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee</a>
+</p>
+
+<pre class="example">
+@phill.controller 'HomeCtrl', ['$scope', ($scope) -&gt;
+  $scope.foo = 'bar'        
+]
+</pre>
+
+<p>
+<a href="./public/templates/home.html">./public/templates/home.html</a>
+</p>
+
+<pre class="example">
+Value of "foo": {{foo}}
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Doing it for real this time<br  /><div class="outline-text-7" id="text-3-3-1-0-0-4">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Seed the database
+
+<p>
+<a href="./db/seeds.rb">./db/seeds.rb</a>
+</p>
+
+<pre class="example">
+Restaurant.create([
+  { name: "The French Laundry" },
+  { name: "Chez Panisse" },
+  { name: "Bouchon" },
+  { name: "Noma" },
+  { name: "Taco Bell" },
+])
+</pre>
+
+<pre class="example">
+rake db:seed
+</pre>
+</li>
+
+<li><code>[X]</code> Creating a shift index page
+
+<pre class="example">
+mkdir public/templates/shifts
+</pre>
+
+<p>
+<a href="./public/templates/shifts/index.html">./public/templates/shifts/index.html</a>
+</p>
+
+<pre class="example">
+&lt;a href="/#"&gt;index&lt;/a&gt;
+&lt;ul ng-repeat="restaurant in restaurants"&gt;
+  &lt;li&gt;
+    &lt;a ng-click="viewRestaurant(restaurant.id)"&gt;
+      {{ restaurant.name }}
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<p>
+OR rather
+</p>
+
+<pre class="example">
+&lt;a href="/#"&gt;Shifts&lt;/a&gt;
+&lt;ul ng-repeat="shift in shifts"&gt;
+  &lt;li&gt;
+    &lt;a ng-click="viewShift(shift.id)"&gt;
+      {{ shift.title }}
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+</li>
+
+<li><code>[X]</code> Create the controller
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee">./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee</a>
+</p>
+
+<pre class="example">
+@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) -&gt;
+  $scope.restaurants = []
+  $http.get('./restaurants.json').success((data) -&gt;
+    $scope.restaurants = data
+  )
+]
+</pre>
+
+<p>
+OR rather
+</p>
+
+<pre class="example">
+@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) -&gt;
+  $scope.shifts = []
+  $http.get('./shifts.json').success((data) -&gt;
+    $scope.shifts = data
+  )
+]
+</pre>
+</li>
+
+<li><code>[X]</code> Adjust routing configuration
+
+<p>
+<a href="./app/assets/javascripts/main.js.coffee">./app/assets/javascripts/main.js.coffee</a>
+</p>
+
+<pre class="example">
+@phill = angular.module('phill', [])
+
+@phill.config(['$routeProvider', ($routeProvider) -&gt;
+  $routeProvider.
+    when('/shifts', {
+      templateUrl: '../templates/shifts/index.html',
+      controller: 'ShiftIndexCtrl'
+    }).
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    })
+])
+</pre>
+</li>
+</ul>
+</div>
+</li>
+
+
+<li>Adding our first test<br  /><div class="outline-text-7" id="text-3-3-1-0-0-5">
+<p>
+fill in later
+</p>
+</div>
+</li>
+
+
+<li>Building out the shifts page<br  /><div class="outline-text-7" id="text-3-3-1-0-0-6">
+<p>
+When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
+</p>
+
+<p>
+<a href="./app/views/shifts/index.json.jbuilder">./app/views/shifts/index.json.jbuilder</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> Add :id parameter for json.extract!
+
+<pre class="example">
+json.array!(@restaurants) do |restaurant|
+  json.extract! restaurant, :id, :name
+  json.url restaurant_url(restaurant, format: :json)
+end
+</pre>
+
+<p>
+OR rather
+</p>
+
+<pre class="example">
+json.array!(@shifts) do |shift|
+  json.extract! shift, :id, :title, :vols_needed, :user_ids
+  json.url shift_url(shift, format: :json)
+end
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> define pushShift()
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee">./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee</a>
+</p>
+</li>
+
+<li><code>[X]</code> define viewShift()
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee">./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee</a>
+</p>
+
+<pre class="example">
+@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) -&gt;
+  $scope.restaurants = []
+  $http.get('./restaurants.json').success((data) -&gt;
+    $scope.restaurants = data
+  )
+
+  $scope.viewRestaurant = (id) -&gt;
+    $location.url "/restaurants/#{id}"
+]
+</pre>
+
+<p>
+OR rather
+</p>
+
+<pre class="example">
+@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) -&gt;
+  $scope.shifts = []
+  $http.get('./shifts.json').success((data) -&gt;
+    $scope.shifts = data
+  )
+
+  $scope.viewShift = (id) -&gt;
+    $location.url "/shifts/#{id}"        
+]
+</pre>
+</li>
+
+<li><code>[X]</code> Create show template, route and controller
+
+<p>
+<a href="./public/templates/shifts/show.html">./public/templates/shifts/show.html</a>
+</p>
+
+<pre class="example">
+&lt;h1&gt;{{shift.title}}&lt;/h1&gt;
+</pre>
+
+<p>
+<a href="./app/assets/javascripts/main.js.coffee">./app/assets/javascripts/main.js.coffee</a>
+</p>
+
+<pre class="example">
+@rest = angular.module('rest', [])
+
+@rest.config(['$routeProvider', ($routeProvider) -&gt;
+  $routeProvider.
+    when('/restaurants', {
+      templateUrl: '../templates/restaurants/index.html',
+      controller: 'RestaurantIndexCtrl'
+    }).
+    when('/restaurants/:id', {
+      templateUrl: '../templates/restaurants/show.html',
+      controller: 'RestaurantShowCtrl'
+    }).
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    })
+])
+</pre>
+
+<p>
+<a href="./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee">./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee</a>
+</p>
+
+<pre class="example">
+@rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) -&gt;
+  $http.get("./restaurants/#{$routeParams.id}.json").success((data) -&gt;
+    $scope.restaurant = data
+  )
+]
+</pre>
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+
+
+
+
+
+<div id="outline-container-sec-3-3-2" class="outline-4">
+<h4 id="sec-3-3-2">Routes</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+<a href="./app/views/">Views Directory</a>
+</p>
+
+<p>
+<a href="./config/routes.rb">./config/routes.rb</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[X]</code> create root path
+
+<pre class="example">
+root 'static_pages#home'
+</pre>
+</li>
+
+<li><code>[&#xa0;]</code> create paths for desired routes
+
+<pre class="example">
+get "about" =&gt; "pages#about"
+get "news" =&gt; "pages#news"
+get "programs" =&gt; "pages#programs"
+get "calendar" =&gt; "pages#calendar"
+get "contact" =&gt; "contacts#new"
+get "staffandboard" =&gt; "pages#staff"
+get "jobs" =&gt; "pages#jobs"
+get "donate" =&gt; "pages#donate"
+get "camp" =&gt; "pages#summer_camp"
+get "csv" =&gt; "pages#csvupload"
+get "ccf" =&gt; "shifts#volunteer"
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-3-3-3" class="outline-4">
+<h4 id="sec-3-3-3">Controllers</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+<a href="./app/controllers/application_controller.rb">./app/controllers/application_controller.rb</a>
+</p>
+
+<p>
+<a href="./app/controllers/pages_controller.rb">./app/controllers/pages_controller.rb</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Application skeleton BASICS</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Useful commands</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1">Rake</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<pre class="example">
+rake routes
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2">Rails</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<pre class="example">
+rails console
+</pre>
+
+<pre class="example">
+rails s
+rails s -e production
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-3" class="outline-4">
+<h4 id="sec-4-1-3">Heroku</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<pre class="example">
+heroku rename $NEW_NAME
+heroku open
+heroku logs --tail
+heroku run rails console
+</pre>
+
+<pre class="example">
+heroku config:set &lt;ENV_NAME&gt;=&lt;variable&gt;
+heroku config:unset
+heroku config:get
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-1-4" class="outline-4">
+<h4 id="sec-4-1-4">Git</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Essential Files</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+<a href="./Gemfile">Gemfile</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">Create the default skeletal application</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><code>[X]</code> create a new application
+
+<pre class="example">
+rails new PrairieHillWebsite
+</pre>
+</li>
+
+<li><code>[X]</code> update README
+
+<pre class="example">
+rm README.rdoc
+touch README.org
+</pre>
+</li>
+
+<li><code>[X]</code> rename application.css to application.css.scss
+
+<p>
+<a href="./app/assets/stylesheets/application.css.scss">./app/assets/stylesheets/application.css.scss</a>
+</p>
+
+<pre class="example">
+cd app/assets/stylesheets
+mv application.css application.css.scss
+</pre>
+</li>
+
+<li><code>[X]</code> Test the skeletal application
+
+<ul class="org-ul">
+<li><code>[X]</code> Start the Rails server
+
+<pre class="example">
+rails s
+</pre>
+</li>
+
+<li><code>[X]</code> open your browser to localhost, port 3000
+
+<pre class="example">
+localhost:3000
+</pre>
+</li>
+</ul>
+</li>
+
+<li><code>[X]</code> update the Gemfile
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+cat ~/RAILS-dev/DEFAULT-Gemfile &gt; Gemfile
+</pre>
+</li>
+
+<li><code>[X]</code> update the bundle
+
+<pre class="example">
+bundle update
+bundle install --without production
+</pre>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1">Set up Git and Heroku</h4>
+<div class="outline-text-4" id="text-4-3-1">
+</div><ul class="org-ul"><li>Git<br  /><div class="outline-text-5" id="text-4-3-1-1">
+<ul class="org-ul">
+<li><code>[X]</code> initialize git repo
+
+<pre class="example">
+git init
+</pre>
+</li>
+
+<li><code>[X]</code> update .gitignore
+
+<p>
+<a href="./.gitignore">./.gitignore</a>
+</p>
+
+<pre class="example">
+echo ".env" &gt;&gt; .gitignore
+echo "Procfile" &gt;&gt; .gitignore
+</pre>
+</li>
+
+<li><code>[X]</code> initial stage and commit of all files
+
+<pre class="example">
+git add .
+git commit -am "initial commit"
+</pre>
+</li>
+
+<li><code>[X]</code> add the origin
+
+<pre class="example">
+git remote add origin https://github.com/son1112/PrairieHillWebsite.git
+</pre>
+</li>
+
+<li><code>[X]</code> initial push
+
+<pre class="example">
+git push -u origin master
+</pre>
+</li>
+</ul>
+</div>
+</li>
+
+<li>Heroku<br  /><div class="outline-text-5" id="text-4-3-1-2">
+<ul class="org-ul">
+<li><code>[X]</code> Create and push a new heroku app
+
+<pre class="example">
+heroku create
+git push heroku master
+</pre>
+</li>
+
+<li><code>[X]</code> Rename the heroku app
+
+<pre class="example">
+heroku rename phill-new
+</pre>
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

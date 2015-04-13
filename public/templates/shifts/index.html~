@@ -1,0 +1,8 @@
+<a href="/#">index</a>
+<ul ng-repeat="restaurant in restaurants">
+  <li>
+    <a ng-click="viewRestaurant(restaurant.id)">
+      {{ shift.title }}
+    </a>
+  </li>
+</ul>

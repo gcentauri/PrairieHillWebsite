@@ -1,0 +1,4 @@
+class AddAdminBooleanToUsers < ActiveRecord::Migration
+  def change
+  end
+end
