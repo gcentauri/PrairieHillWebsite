@@ -1,5 +1,76 @@
 # Prairie Hill Learning Center
 
+-   [ ] rebuild ccf volunteer app
+    
+    <./config/routes.rb>
+    
+        Rails.application.routes.draw do
+        
+          namespace :api, defaults: {format: 'json'} do
+            #namespace :v1 do
+            resources :activities, :pages, :shifts, :volunteers, :users
+            #end
+          end
+        
+          resources :activities
+          resources :shifts 
+          resources :volunteers
+        
+          match '/contacts', to: 'contacts#new', via: 'get'
+          resources "contacts", only: [:new, :create]
+        
+          comfy_route :cms_admin, :path => '/admin'
+        
+          devise_for :users
+          resources :pages
+        
+          root "pages#home"
+        
+          get "about" => "pages#about"
+          get "news" => "pages#news"
+          get "events" => "pages#events"
+          get "programs" => "pages#programs"
+          get "calendar" => "pages#calendar"
+          get "contact" => "pages#contact"
+          get "staffandboard" => "pages#staff"
+          get "jobs" => "pages#jobs"
+          get "donate" => "pages#donate"
+          get "camp" => "pages#summer_camp"
+          get "csv" => "pages#csvupload"
+          get "uniq" => "pages#unique"
+          get "ccf" => "shifts#volunteer"
+          get "user_shifts" => "shifts#user_shifts"
+        
+          # Make sure this routeset is defined last
+          comfy_route :cms, :path => '/', :sitemap => true
+        end
+    -   [ ] backup volunteer data
+        -   [ ] check api access to user data
+            -   [ ] update api to authenticate requests
+                
+                <http://railscasts.com/episodes/352-securing-an-api?view=asciicast>
+                
+                -   [ ] Basic
+                    
+                        http_basic_authenticate_with name: "admin", password: "secret"
+            
+            -   [ ] ruby?
+                
+                <https://gist.github.com/kyletcarlson/7911188>
+                <http://www.rubyinside.com/nethttp-cheat-sheet-2940.html>
+                
+                    require "net/http"
+                    require "uri"
+                    
+                    uri = URI.pasre("http://www.prairiehill.com/api/users")
+        
+        -   [ ] user info
+        -   [ ] last years activity/shift data
+    -   [ ] add *volunteer:boolean* attribute to User model
+    -   [ ] re-organize resource relationships
+        -   [ ] User/Volunteer
+        -   [ ]
+
 -   [ ] build an API
     
     <https://codelation.com/blog/rails-restful-api-just-add-water>
@@ -278,37 +349,93 @@
             
             Pay attention that these inherit from *Api::BaseController*
             
-            <./app/controllers/api/logs_controller.rb>
+            <./app/controllers/api/users_controller.rb>
             
                 module Api
-                  class LogsController < Api::BaseController
+                  class UsersController < Api::BaseController
+                    #http_basic_authenticate_with name: "admin", password: "secret"
+                    http_basic_authenticate_with name: "admin", password: ENV["API_PASS"]
                 
                     private
                 
-                    def log_params
-                      params.require(:log).permit(:amt)
+                    def activity_params
+                      params.require(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
                     end
                 
                     def query_params
-                      params.permit(:period_id, :amt)
+                      params.permit(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
                     end
                 
                   end
                 end
             
-            <./app/controllers/api/periods_controller.rb>
+            <./app/controllers/api/activities_controller.rb>
             
                 module Api
-                  class PeriodsController < Api::BaseController
+                  class ActivitiesController < Api::BaseController
                 
                     private
                 
-                    def period_params
-                      params.require(:period).permit(:title)
+                    def activity_params
+                      params.require(:activity).permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
                     end
                 
                     def query_params
-                      params.permit(:title)
+                      params.permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
+                    end
+                
+                  end
+                end
+            
+            <./app/controllers/api/pages_controller.rb>
+            
+                module Api
+                  class PagesController < Api::BaseController
+                
+                    private
+                
+                    def page_params
+                      params.require(:page).permit(:title, :description)
+                    end
+                
+                    def query_params
+                      params.permit(:title, :description)
+                    end
+                
+                  end
+                end
+            
+            <./app/controllers/api/shifts_controller.rb>
+            
+                module Api
+                  class ShiftsController < Api::BaseController
+                
+                    private
+                
+                    def shift_params
+                      params.require(:shift).permit(:title, :time, :vols_needed, :volunteers, :volunteer, :guest)
+                    end
+                
+                    def query_params
+                      params.permit(:title,  :time, :vols_needed, :volunteers, :volunteer, :guest)
+                    end
+                
+                  end
+                end
+            
+            <./app/controllers/api/volunteers_controller.rb>
+            
+                module Api
+                  class VolunteersController < Api::BaseController
+                
+                    private
+                
+                    def volunteer_params
+                      params.require(:volunteer).permit(:name, :email, :phone)
+                    end
+                
+                    def query_params
+                      params.permit(:name, :email, :phone)
                     end
                 
                   end
@@ -321,81 +448,131 @@
             namespace :api do
               resources :logs, :periods
             end
-        
-            Rails.application.routes.draw do
-            
-              namespace :api, defaults: {format: 'json'} do
-                #namespace :v1 do
-                  resources :logs, :periods
-                #end
-              end
-            
-              resources :periods do
-                resources :logs
-              end
-            
-              resources :logs
-            
-              root 'periods#index'
-            
-            end
     
     -   [ ] serializing data
-        -   [ ] <./app/views/api/logs/index.json.jbuilder>
+        
+            mkdir app/views/api /shifts etc
+        -   [ ] <./app/views/api/users/index.json.jbuilder>
             
-                json.logs @logs do |log|
-                  json.id log.id
-                  json.amt log.amt
+                json.users @users do |user|
+                  json.id user.id
+                  json.email user.email
+                  json.username user.username
+                  json.name user.name
+                  json.admin user.admin
+                  json.first_name user.first_name
+                  json.last_name user.last_name
+                  json.phone user.phone
                 
-                  json.period_id log.period ? log.period_id : nil
-                end
-            
-                json.logs @logs do |log|
-                  json.id log.id
-                  json.amt log.amt
-                
-                  json.period_id log.period ? log.period_id : nil
+                  #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/logs/show.json.jbuilder>
+        -   [ ] <./app/views/api/users/show.json.jbuilder>
             
-                json.log do
-                  json.id  @log.id
-                  json.amt @log.amt
+                json.user do
+                  json.id  @user.id
+                  json.username @user.username
+                  json.name @user.name
+                  json.admin @user.admin
+                  json.first_name @user.first_name
+                  json.last_name @user.last_name  
+                  json.phone @user.phone
                 
-                  json.period_id @log.period ? @log.period_id : nil
-                end
-            
-                json.log do
-                  json.id  @log.id
-                  json.amt @log.amt
-                
-                  json.period_id @log.period ? @log.period_id : nil
+                  #json.period_id @log.period ? @log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/periods/index.json.jbuilder>
+        -   [ ] <./app/views/api/activities/index.json.jbuilder>
             
-                json.periods @periods do |period|
-                  json.id period.id
-                  json.title period.title
-                end
-            
-                json.periods @periods do |period|
-                  json.id period.id
-                  json.title period.title
+                json.activities @activities do |act|
+                  json.id act.id
+                  json.work_area act.work_area
+                  json.coordinator act.coordinator
+                  json.sign act.sign
+                  json.comments act.comments
+                
+                  #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/periods/show.json.jbuilder>
+        -   [ ] <./app/views/api/activities/show.json.jbuilder>
             
-                json.period do
-                  json.id @period.id
-                  json.title @period.title
+                json.activity do
+                  json.id  @activity.id
+                  json.work_area @activity.work_area
+                  json.coordinator @activity.coordinator
+                  json.sign @activity.sign
+                  json.comments @activity.comments
+                
+                  #json.period_id @log.period ? @log.period_id : nil
                 end
+        
+        -   [ ] <./app/views/api/pages/index.json.jbuilder>
             
-                json.period do
-                  json.id    @period.id
-                  json.title @period.title
-                  json.amt   @period.amt
+                json.pages @pages do |page|
+                  json.id page.id
+                  json.title page.title
+                  json.description page.description
+                
+                  #json.period_id log.period ? log.period_id : nil
+                end
+        
+        -   [ ] <./app/views/api/pages/show.json.jbuilder>
+            
+                json.page do
+                  json.id  @page.id
+                  json.title @page.title
+                  json.description @page.description
+                
+                  #json.period_id @log.period ? @log.period_id : nil
+                end
+        
+        -   [ ] <./app/views/api/shifts/index.json.jbuilder>
+            
+                json.shifts @shifts do |shift|
+                  json.id shift.id
+                  json.title shift.title
+                  json.time shift.time
+                  json.vols_needed shift.vols_needed
+                  json.volunteers shift.volunteers
+                  json.volunteer shift.volunteer
+                  json.guest shift.guest
+                
+                  #json.period_id log.period ? log.period_id : nil
+                end
+        
+        -   [ ] <./app/views/api/shifts/show.json.jbuilder>
+            
+                json.shift do
+                  json.id  @shift.id
+                  json.title @shift.title
+                  json.time @shift.time
+                  json.vols_needed @shift.vols_needed
+                  json.volunteers @shift.volunteers
+                  json.volunteer @shift.volunteer
+                  json.guest @shift.guest
+                
+                  #json.period_id @log.period ? @log.period_id : nil
+                end
+        
+        -   [ ] <./app/views/api/volunteers/index.json.jbuilder>
+            
+                json.volunteers @volunteers do |vol|
+                  json.id vol.id
+                  json.name vol.name
+                  json.email vol.email
+                  json.phone vol.phone
+                
+                  #json.period_id log.period ? log.period_id : nil
+                end
+        
+        -   [ ] <./app/views/api/volunteers/show.json.jbuilder>
+            
+                json.volunteer do
+                  json.id  @volunteer.id
+                  json.name @volunteer.name
+                  json.email @volunteer.email
+                  json.phone @volunteer.phone
+                
+                  #json.period_id @log.period ? @log.period_id : nil
                 end
     
     -   [ ] security and performance concerns
@@ -411,10 +588,9 @@
         
         -   [ ] include some more complex functionality like side-loading for 
             convenience in end-user application development
-
-<http://phill-new.herokuapp.com>
-
--   [ ] re-route <http://www.prairiehill.com> => heroku app
+-   [ ] rebuild views in angular?
+-   [ ] build mobile app for sign-up
+-   [X] re-route <http://www.prairiehill.com> => heroku app
 
 ## Essential Files
 

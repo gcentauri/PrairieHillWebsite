@@ -1,7 +1,8 @@
+
 source 'http://rubygems.org'
 ruby '2.2.0'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem 'sass-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
@@ -9,7 +10,9 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.1'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
+gem 'kaminari'
+gem 'responders'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'devise'
@@ -54,4 +57,3 @@ group :production do
 #  gem 'unicorn'
   gem 'unicorn-rails'
 end
-
