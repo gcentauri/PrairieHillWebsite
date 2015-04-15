@@ -555,7 +555,6 @@
                   json.title @shift.title
                   json.time @shift.time
                   json.vols_needed @shift.vols_needed
-                  json.volunteers @shift.volunteers
                   json.volunteer @shift.volunteer
                   json.guest @shift.guest
                 
