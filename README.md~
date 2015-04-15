@@ -1,5 +1,6 @@
 # Prairie Hill Learning Center
 
+-   [ ] fix change/forgot password issue
 -   [ ] rebuild ccf volunteer app
     
     <./config/routes.rb>
@@ -70,7 +71,6 @@
     -   [ ] re-organize resource relationships
         -   [ ] User/Volunteer
         -   [ ]
-
 -   [ ] build an API
     
     <https://codelation.com/blog/rails-restful-api-just-add-water>

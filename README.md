@@ -1,6 +1,7 @@
 # Prairie Hill Learning Center
 
--   [ ] rebuild ccf volunteer app
+-   [ ] fix change/forgot password issue
+-   [-] rebuild ccf volunteer app
     
     <./config/routes.rb>
     
@@ -44,17 +45,17 @@
           # Make sure this routeset is defined last
           comfy_route :cms, :path => '/', :sitemap => true
         end
-    -   [ ] backup volunteer data
-        -   [ ] check api access to user data
-            -   [ ] update api to authenticate requests
+    -   [-] backup volunteer data
+        -   [X] check api access to user data
+            -   [X] update api to authenticate requests
                 
                 <http://railscasts.com/episodes/352-securing-an-api?view=asciicast>
                 
-                -   [ ] Basic
+                -   [X] Basic
                     
                         http_basic_authenticate_with name: "admin", password: "secret"
             
-            -   [ ] ruby?
+            -   [X] ruby?
                 
                 <https://gist.github.com/kyletcarlson/7911188>
                 <http://www.rubyinside.com/nethttp-cheat-sheet-2940.html>
@@ -63,13 +64,22 @@
                     require "uri"
                     
                     uri = URI.pasre("http://www.prairiehill.com/api/users")
-        
-        -   [ ] user info
+        -   [X] user info
         -   [ ] last years activity/shift data
     -   [ ] add *volunteer:boolean* attribute to User model
     -   [ ] re-organize resource relationships
-        -   [ ] User/Volunteer
-        -   [ ]
+        -   [ ] Devise User/Volunteer
+            -   [ ] volunteer? boolean
+                -   [ ] is signed up for shift?
+                -   [ ] has guest?
+                -   [ ] has many shifts
+                -   [ ] has many activities through shifts
+        -   [ ] Activity
+            -   [ ] has many shifts
+            -   [ ] belongs to users
+        -   [ ] Shifts
+            -   [ ] belongs to activity
+            -   [ ] belongs to users
 
 -   [ ] build an API
     
@@ -532,7 +542,6 @@
                   json.title shift.title
                   json.time shift.time
                   json.vols_needed shift.vols_needed
-                  json.volunteers shift.volunteers
                   json.volunteer shift.volunteer
                   json.guest shift.guest
                 
