@@ -6,8 +6,6 @@
 
 * Prairie Hill Learning Center
 
-** Description
-
   After over 2 years of cumbersome working with the wordpress managed website 
   content for the Prairie Hill website (whether due to the way that wordpress 
   arranges itself or my own ignorance and lack of education in web design, php, 
@@ -21,6 +19,8 @@
   for admin staff to update content, which is what is important to them in
   the basic functionality of the site. I take care of the functionality and
   aesthetic; they give it the words.
+
+** TODO
 
   - [ ] fix change/forgot password issue
   - [-] rebuild ccf volunteer app
@@ -267,12 +267,11 @@
 	- [ ] belongs to activity
 	- [ ] belongs to users
 	  - [ ] has guest?
-
-  - [ ] build an API
+  - [-] build an API
 
     https://codelation.com/blog/rails-restful-api-just-add-water
 
-    - [ ] add to [[./Gemfile]]
+    - [X] add to [[./Gemfile]]
 
       : gem 'jbuilder'
       : gem 'kaminari'
@@ -339,9 +338,9 @@
         end
       #+END_SRC
 
-    - [ ] controllers
+    - [X] controllers
 
-      - [ ] create file [[./app/controllers/api/base_controller.rb]]
+      - [X] create file [[./app/controllers/api/base_controller.rb]]
 
 	: mkdir app/controllers/api
 
@@ -402,7 +401,7 @@
 	:   end
 	: end
 
-      - [ ] add the public resource methods to the same controller
+      - [X] add the public resource methods to the same controller
 	
 	:     # POST /api/{plural_resource_name}
 	:     def create
@@ -547,7 +546,7 @@
           end
 	#+end_src
 
-      - [ ] connect base controller to model controllers
+      - [X] connect base controller to model controllers
 
 	Pay attention that these inherit from /Api::BaseController/
 
@@ -654,7 +653,7 @@
           end
 	#+end_src
 
-    - [ ] routing
+    - [X] routing
 
       [[./config/routes.rb]]
 
@@ -662,11 +661,11 @@
       :     resources :logs, :periods
       :   end
 
-    - [ ] serializing data
+    - [X] serializing data
 
       : mkdir app/views/api /shifts etc
 
-      - [ ] [[./app/views/api/users/index.json.jbuilder]]
+      - [X] [[./app/views/api/users/index.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/users/index.json.jbuilder"
           json.users @users do |user|
@@ -683,7 +682,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/users/show.json.jbuilder]]
+      - [X] [[./app/views/api/users/show.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/users/show.json.jbuilder"
           json.user do
@@ -699,7 +698,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/activities/index.json.jbuilder]]
+      - [X] [[./app/views/api/activities/index.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/activities/index.json.jbuilder"
           json.activities @activities do |act|
@@ -713,7 +712,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/activities/show.json.jbuilder]]
+      - [X] [[./app/views/api/activities/show.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/activities/show.json.jbuilder"
           json.activity do
@@ -727,7 +726,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/pages/index.json.jbuilder]]
+      - [X] [[./app/views/api/pages/index.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/pages/index.json.jbuilder"
           json.pages @pages do |page|
@@ -739,7 +738,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/pages/show.json.jbuilder]]
+      - [X] [[./app/views/api/pages/show.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/pages/show.json.jbuilder"
           json.page do
@@ -751,7 +750,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/shifts/index.json.jbuilder]]
+      - [X] [[./app/views/api/shifts/index.json.jbuilder]]
 	
 	#+begin_src ruby :tangle "./app/views/api/shifts/index.json.jbuilder"
           json.shifts @shifts do |shift|
@@ -766,7 +765,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/shifts/show.json.jbuilder]]
+      - [X] [[./app/views/api/shifts/show.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/shifts/show.json.jbuilder"
           json.shift do
@@ -781,7 +780,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/volunteers/index.json.jbuilder]]
+      - [X] [[./app/views/api/volunteers/index.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/volunteers/index.json.jbuilder"
           json.volunteers @volunteers do |vol|
@@ -794,7 +793,7 @@
           end
 	#+end_src
 
-      - [ ] [[./app/views/api/volunteers/show.json.jbuilder]]
+      - [X] [[./app/views/api/volunteers/show.json.jbuilder]]
 
 	#+begin_src ruby :tangle "./app/views/api/volunteers/show.json.jbuilder"
           json.volunteer do
@@ -833,315 +832,302 @@
     - [ ] phonegap
   - [X] re-route http://www.prairiehill.com => heroku app
 
-** Essential Files
-
-   [[./FILES.org]]
-
 *** excel export
 
     http://railscasts.com/episodes/362-exporting-csv-and-excel
 
+** What we need to look at for functionality:
+   
+*** mailer contact
 
-** NB
+    http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
 
-*** What we need to look at for functionality:
+   set up successfully in development
+   
+   - [ ] change heroku configs to prairiehill email authentication for production
 
-**** mailer contact
+*** user accounts
 
-     http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
+ - [ ] We need USERs with authenticatable accounts
+   
+   These users will have various access to update content and that's really
+   all that they need. However,
 
-    set up successfully in development
-    
-    - [ ] change heroku configs to prairiehill email authentication for production
+   - [ ] Admin/General user
 
+     https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
 
+     We will have user accounts for general things like summer camp and 
+     country fair sign up
 
+     We will also have admin users who also have access to CMS
 
+     - [ ] install & configure RailsAdmin
 
+	   https://github.com/sferik/rails_admin
 
-**** user accounts
+       - [ ] bundle the gem
+       
+	   : gem 'rails_admin'
+	   : bundle install
 
-  - [ ] We need USERs with authenticatable accounts
-    
-    These users will have various access to update content and that's really
-    all that they need. However,
+       - [ ] install RailsAdmin
 
-    - [ ] Admin/General user
+	     : rails g rails_admin:install
 
-      https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
+       - [ ] configure for Devise
 
-      We will have user accounts for general things like summer camp and 
-      country fair sign up
+	 https://github.com/sferik/rails_admin/wiki/Devise
 
-      We will also have admin users who also have access to CMS
+   - [ ] Using ComfortableMexicanSofa for Content Management
 
-      - [ ] install & configure RailsAdmin
+     - [ ] already set up to use Paperclip for images
 
-            https://github.com/sferik/rails_admin
+     - [ ] WYSIWYG
 
-	- [ ] bundle the gem
-	
-	    : gem 'rails_admin'
-	    : bundle install
+       [[./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css]]
 
-	- [ ] install RailsAdmin
+	 - [X] editor window is very short
 
-	      : rails g rails_admin:install
+   - [ ] Private content
 
-	- [ ] configure for Devise
+     - [ ] admin vs common user accounts
 
-	  https://github.com/sferik/rails_admin/wiki/Devise
+   - [ ] User profiles?
 
-    - [ ] Using ComfortableMexicanSofa for Content Management
+   - [ ] Summer Camp Registration model?
 
-      - [ ] already set up to use Paperclip for images
+   - [ ] Volunteers/CCF
+     
+     - [ ] connect devise users with shifts?
 
-      - [ ] WYSIWYG
+     - [ ] Sign up views
 
-	[[./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css]]
+       - [ ] if user signed in...
 
-	  - [X] editor window is very short
+       - [ ] time to learn some jQuery!
 
-    - [ ] Private content
+       - [ ] FIRST: Shows Activity titles and a number of volunteers total needed
+	 
+       - [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
+	 and number of volunteers still needed for each, just after a description
+	 of the activity itself
 
-      - [ ] admin vs common user accounts
+	 - [ ] checkboxes for selected desired shifts?
+	   
+	 - [ ] ability to remove volunteer from shifts
 
-    - [ ] User profiles?
+       - [ ] BLOG/NEWSfeed for news updates?
 
-    - [ ] Summer Camp Registration model?
+       - [ ] PAGEs for general website content
 
-    - [ ] Volunteers/CCF
-      
-      - [ ] connect devise users with shifts?
+** ModelViewControl
 
-      - [ ] Sign up views
+*** Model
 
-	- [ ] if user signed in...
+    Pages
 
-	- [ ] time to learn some jQuery!
+    [[./app/controllers/pages_controller.rb]]
+    [[./app/models/page.rb]]
 
-	- [ ] FIRST: Shows Activity titles and a number of volunteers total needed
-	  
-	- [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
-	  and number of volunteers still needed for each, just after a description
-	  of the activity itself
+**** Page
 
-	  - [ ] checkboxes for selected desired shifts?
-	    
-	  - [ ] ability to remove volunteer from shifts
+     - [X] Create Static Pages
 
-	- [ ] BLOG/NEWSfeed for news updates?
+       http://www.railstutorial.org/book/static_pages
 
-	- [ ] PAGEs for general website content
+       - [X] Generate a Pages controller
 
+	 [[./app/controllers/static_pages_controller.rb]]
+	 [[./config/routes.rb]]
 
-* ModelViewControl
+	 : rails g controller StaticPages home
 
-** Model
 
-   Pages
+**** Rails Generation
 
-   [[./app/controllers/pages_controller.rb]]
-   [[./app/models/page.rb]]
+***** Scaffolding
 
-*** Page
+      - [X] Disable scaffold stylesheet creation 
 
-    - [X] Create Static Pages
+       	[[./config/application.rb]]
 
-      http://www.railstutorial.org/book/static_pages
+       	 : config.generators do |g|
+       	 :   g.stylesheets false
+       	 : end
 
-      - [X] Generate a Pages controller
+      - [ ] Generate a scaffold
 
-	[[./app/controllers/static_pages_controller.rb]]
-	[[./config/routes.rb]]
+       	EXAMPLE
+       	: rails g scaffold Page index
 
-	: rails g controller StaticPages home
+      - [ ] migrate the database
 
+       	: rake db:migrate
 
-*** Rails Generation
 
-**** Scaffolding
+*** View
 
-     - [X] Disable scaffold stylesheet creation 
+**** Skrollr   
 
-       [[./config/application.rb]]
+     https://github.com/reed/skrollr-rails
 
-       	: config.generators do |g|
-       	:   g.stylesheets false
-       	: end
+     ???"@import 'skrollr';" in [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]?
 
-     - [ ] Generate a scaffold
+     - [X] add skrollr script
 
-       EXAMPLE
-       : rails g scaffold Page index
+       - [X] make sure skrollr-rails is in the Gemfile
 
-     - [ ] migrate the database
+         [[./Gemfile]]
 
-       : rake db:migrate
+	 : gem 'skrollr-rails'
 
+       - [X] add the following script just before </body> tag
 
-** View
+	 [[./app/views/layouts/application.html.erb]]
 
-*** Skrollr   
+	 : <script>
+         :  (function($){
+	 :    skrollr.init({
+	 :      forceHeight: false,
+	 :      smoothScrolling: false
+	 :    }).refresh();
+         :  } (jQuery));
+	 : </script>
 
-    https://github.com/reed/skrollr-rails
+       - [X] Place #skrollr-body div tag around <%= yield %> tag
 
-    ???"@import 'skrollr';" in [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]?
+	 : <div id="skrollr-body">
 
-    - [X] add skrollr script
 
-      - [X] make sure skrollr-rails is in the Gemfile
-
-        [[./Gemfile]]
-
-	: gem 'skrollr-rails'
-
-      - [X] add the following script just before </body> tag
-
-	[[./app/views/layouts/application.html.erb]]
-
-	: <script>
-        :  (function($){
-	:    skrollr.init({
-	:      forceHeight: false,
-	:      smoothScrolling: false
-	:    }).refresh();
-        :  } (jQuery));
-	: </script>
-
-      - [X] Place #skrollr-body div tag around <%= yield %> tag
-
-	: <div id="skrollr-body">
-
-
-    - [X] require skrollr in application.js
-
-      [[./app/assets/javascripts/application.js]]
-
-      : //= require skrollr
-
-      - [X] For IE compatibility
-
-	: //= require skrollr
-	: //= require skrollr.ie
-
-      - [X] This plugin makes hashlinks scroll nicely to their target position.
-
-	: //= require skrollr
-	: //= require skrollr.menu
-      
-
-*** Bootstrap-sass
-    
-    - [X] Create custom bootstrap stylesheet
-
-      [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
-      
-      - [X] create file
-
-            : echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
-
-      *NOTE* Place new variables before "@import 'bootstrap'"
-
-      - [X] Fonts
-
-  	    /EXAMPLE:/
-	    : @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
-
-      - [X] Variables
-
-	    : $phill-grn: #3f8000;
-
-    - [X] Require Bootstrap's Javascript, after jquery_ujs 
-
-      [[./app/assets/javascripts/application.js]]
-
-      : //= require jquery
-      : //= require jquery_ujs
-      : //= require bootstrap
-      : //= require turbolinks
-      : //= require_tree .
-
-
-*** Assets
-
-**** Stylesheets
-
-     [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
-
-**** Javascripts
-
-     - [X] Replace turbolinks with jquery-turbolinks
+     - [X] require skrollr in application.js
 
        [[./app/assets/javascripts/application.js]]
 
-       - [X] Check for jquery-turbolinks in Gemfile
+       : //= require skrollr
 
-	 [[./Gemfile]]
+       - [X] For IE compatibility
 
-	 : gem 'jquery-turbolinks'
-	 : bundle
+	 : //= require skrollr
+	 : //= require skrollr.ie
 
-       - [X] remove turbolinks line
+       - [X] This plugin makes hashlinks scroll nicely to their target position.
 
-	 : //= require turbolinks
+	 : //= require skrollr
+	 : //= require skrollr.menu
+       
 
-       - [X] add jquery.turbolinks under bootstrap
-
-	 : //= require bootstrap
-	 : //= require jquery.turbolinks
-
-	 - [X] Restart the server
-
-**** Images   
-
-     - [X] css background images 
+**** Bootstrap-sass
+     
+     - [X] Create custom bootstrap stylesheet
 
        [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
-
-       : background: image-url('image.jpg')
        
-     - [ ] run the following command to precompile assets
+       - [X] create file
 
-	  : RAILS_ENV=production bundle exec rake assets:precompile
+             : echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
 
-     - [ ] set video as background?
+       *NOTE* Place new variables before "@import 'bootstrap'"
 
+       - [X] Fonts
+
+  	     /EXAMPLE:/
+	     : @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
+
+       - [X] Variables
+
+	     : $phill-grn: #3f8000;
+
+     - [X] Require Bootstrap's Javascript, after jquery_ujs 
+
+       [[./app/assets/javascripts/application.js]]
+
+       : //= require jquery
+       : //= require jquery_ujs
+       : //= require bootstrap
+       : //= require turbolinks
+       : //= require_tree .
+
+
+**** Assets
+
+***** Stylesheets
+
+      [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
+***** Javascripts
+
+      - [X] Replace turbolinks with jquery-turbolinks
+
+       	[[./app/assets/javascripts/application.js]]
+
+       	- [X] Check for jquery-turbolinks in Gemfile
+
+	  [[./Gemfile]]
+
+	  : gem 'jquery-turbolinks'
+	  : bundle
+
+       	- [X] remove turbolinks line
+
+	  : //= require turbolinks
+
+       	- [X] add jquery.turbolinks under bootstrap
+
+	  : //= require bootstrap
+	  : //= require jquery.turbolinks
+
+	  - [X] Restart the server
+
+***** Images   
+
+      - [X] css background images 
+
+       	[[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
+       	: background: image-url('image.jpg')
+       	
+      - [ ] run the following command to precompile assets
+
+	   : RAILS_ENV=production bundle exec rake assets:precompile
+
+      - [ ] set video as background?
+
+       	
+
+**** Views
+
+***** Application
+
+     [[./app/views/]]
+
+     - [X] add viewport
+
+       [[./app/views/layouts/application.html.erb]]
+
+       : <meta name="viewport" content="width=device-width, intial-scale=1.0">
+
+     - [ ] Optional page refresh interval
+
+         : <meta http-equiv="REFRESH" content="60" />
+
+
+***** Pages
+
+      [[./app/views/pages/]]
+      [[./app/views/pages/pages.org]]
+
+
+*** Control
+
+**** AngularJS (Honeybadger tutorial)
        
+       This example from honeybadger may be my key to fixing the issue I am having with
+       the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
+       app. Once I understand what is going on and how to impliment Angular, maybe it 
+       will be a better solution than all of that erb crap I was trying to use...
 
-*** Views
-
-**** Application
-
-    [[./app/views/]]
-
-    - [X] add viewport
-
-      [[./app/views/layouts/application.html.erb]]
-
-      : <meta name="viewport" content="width=device-width, intial-scale=1.0">
-
-    - [ ] Optional page refresh interval
-
-        : <meta http-equiv="REFRESH" content="60" />
-
-
-**** Pages
-
-     [[./app/views/pages/]]
-     [[./app/views/pages/pages.org]]
-
-
-** Control
-
-*** AngularJS (Honeybadger tutorial)
-      
-      This example from honeybadger may be my key to fixing the issue I am having with
-      the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
-      app. Once I understand what is going on and how to impliment Angular, maybe it 
-      will be a better solution than all of that erb crap I was trying to use...
-
-      https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails
+       https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails
 
 ****** Initial setup
 
@@ -1486,150 +1472,36 @@
 
 
 
-*** Routes
+**** Routes
 
-    [[./app/views/][Views Directory]]
+     [[./app/views/][Views Directory]]
 
-    [[./config/routes.rb]]
+     [[./config/routes.rb]]
 
-    - [X] create root path
+     - [X] create root path
 
-      : root 'static_pages#home'
+       : root 'static_pages#home'
 
-    - [ ] create paths for desired routes
+     - [ ] create paths for desired routes
 
-      : get "about" => "pages#about"
-      : get "news" => "pages#news"
-      : get "programs" => "pages#programs"
-      : get "calendar" => "pages#calendar"
-      : get "contact" => "contacts#new"
-      : get "staffandboard" => "pages#staff"
-      : get "jobs" => "pages#jobs"
-      : get "donate" => "pages#donate"
-      : get "camp" => "pages#summer_camp"
-      : get "csv" => "pages#csvupload"
-      : get "ccf" => "shifts#volunteer"
-
-
-
-*** Controllers   
-
-    [[./app/controllers/application_controller.rb]]
-
-    [[./app/controllers/pages_controller.rb]]
+       : get "about" => "pages#about"
+       : get "news" => "pages#news"
+       : get "programs" => "pages#programs"
+       : get "calendar" => "pages#calendar"
+       : get "contact" => "contacts#new"
+       : get "staffandboard" => "pages#staff"
+       : get "jobs" => "pages#jobs"
+       : get "donate" => "pages#donate"
+       : get "camp" => "pages#summer_camp"
+       : get "csv" => "pages#csvupload"
+       : get "ccf" => "shifts#volunteer"
 
 
-* Application skeleton BASICS
 
+**** Controllers   
 
-** Useful commands
+     [[./app/controllers/application_controller.rb]]
 
-*** Rake
-
-    : rake routes
-
-
-*** Rails
-
-    : rails console
-
-    : rails s
-    : rails s -e production
-
-*** Heroku
-
-    	       : heroku rename $NEW_NAME
- 	       : heroku open
-	       : heroku logs --tail
- 	       : heroku run rails console
-	       
-	       : heroku config:set <ENV_NAME>=<variable>
-	       : heroku config:unset
-	       : heroku config:get
-
-
-*** Git    
-
-** Essential Files
-
-   [[./Gemfile][Gemfile]]
-
-** Create the default skeletal application
-
-  - [X] create a new application
-
-    : rails new PrairieHillWebsite
- 
-  - [X] update README
-
-    : rm README.rdoc
-    : touch README.org
-
-  - [X] rename application.css to application.css.scss
-
-    [[./app/assets/stylesheets/application.css.scss]]
-
-    : cd app/assets/stylesheets
-    : mv application.css application.css.scss
-
-  - [X] Test the skeletal application
-
-    - [X] Start the Rails server
-
-      : rails s
-    
-    - [X] open your browser to localhost, port 3000
-
-      : localhost:3000
-
-  - [X] update the Gemfile
-
-    [[./Gemfile]]
-
-    : cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
-
-  - [X] update the bundle
-
-    : bundle update
-    : bundle install --without production
-
-*** Set up Git and Heroku
-
-**** Git
-
-   - [X] initialize git repo
-
-     : git init
-
-   - [X] update .gitignore
-
-     [[./.gitignore]]
-
-     : echo ".env" >> .gitignore
-     : echo "Procfile" >> .gitignore
-
-   - [X] initial stage and commit of all files
-
-     : git add .
-     : git commit -am "initial commit"
-
-   - [X] add the origin
-
-     : git remote add origin https://github.com/son1112/PrairieHillWebsite.git
-
-   - [X] initial push
-
-     : git push -u origin master
-
-**** Heroku
-
-     - [X] Create and push a new heroku app
-
-       : heroku create
-       : git push heroku master
-       
-     - [X] Rename the heroku app
-
-       : heroku rename phill-new
+     [[./app/controllers/pages_controller.rb]]
 
 

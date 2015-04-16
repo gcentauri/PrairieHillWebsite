@@ -1,7 +1,5 @@
 # Prairie Hill Learning Center
 
-## Description
-
 After over 2 years of cumbersome working with the wordpress managed website 
 content for the Prairie Hill website (whether due to the way that wordpress 
 arranges itself or my own ignorance and lack of education in web design, php, 
@@ -15,6 +13,9 @@ instead of just using my text editor&#x2026;), as well as the front end need
 for admin staff to update content, which is what is important to them in
 the basic functionality of the site. I take care of the functionality and
 aesthetic; they give it the words.
+
+## TODO 
+
 -   [ ] fix change/forgot password issue
 -   [-] rebuild ccf volunteer app
     
@@ -247,12 +248,11 @@ aesthetic; they give it the words.
             -   [ ] belongs to activity
             -   [ ] belongs to users
                 -   [ ] has guest?
-
--   [ ] build an API
+-   [-] build an API
     
     <https://codelation.com/blog/rails-restful-api-just-add-water>
     
-    -   [ ] add to <./Gemfile>
+    -   [X] add to <./Gemfile>
         
             gem 'jbuilder'
             gem 'kaminari'
@@ -317,8 +317,8 @@ aesthetic; they give it the words.
               gem 'unicorn-rails'
             end
     
-    -   [ ] controllers
-        -   [ ] create file <./app/controllers/api/base_controller.rb>
+    -   [X] controllers
+        -   [X] create file <./app/controllers/api/base_controller.rb>
             
                 mkdir app/controllers/api
             
@@ -379,7 +379,7 @@ aesthetic; they give it the words.
                   end
                 end
         
-        -   [ ] add the public resource methods to the same controller
+        -   [X] add the public resource methods to the same controller
             
                 # POST /api/{plural_resource_name}
                 def create
@@ -522,7 +522,7 @@ aesthetic; they give it the words.
                   end
                 end
         
-        -   [ ] connect base controller to model controllers
+        -   [X] connect base controller to model controllers
             
             Pay attention that these inherit from *Api::BaseController*
             
@@ -618,7 +618,7 @@ aesthetic; they give it the words.
                   end
                 end
     
-    -   [ ] routing
+    -   [X] routing
         
         <./config/routes.rb>
         
@@ -626,10 +626,10 @@ aesthetic; they give it the words.
               resources :logs, :periods
             end
     
-    -   [ ] serializing data
+    -   [X] serializing data
         
             mkdir app/views/api /shifts etc
-        -   [ ] <./app/views/api/users/index.json.jbuilder>
+        -   [X] <./app/views/api/users/index.json.jbuilder>
             
                 json.users @users do |user|
                   json.id user.id
@@ -644,7 +644,7 @@ aesthetic; they give it the words.
                   #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/users/show.json.jbuilder>
+        -   [X] <./app/views/api/users/show.json.jbuilder>
             
                 json.user do
                   json.id  @user.id
@@ -658,7 +658,7 @@ aesthetic; they give it the words.
                   #json.period_id @log.period ? @log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/activities/index.json.jbuilder>
+        -   [X] <./app/views/api/activities/index.json.jbuilder>
             
                 json.activities @activities do |act|
                   json.id act.id
@@ -670,7 +670,7 @@ aesthetic; they give it the words.
                   #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/activities/show.json.jbuilder>
+        -   [X] <./app/views/api/activities/show.json.jbuilder>
             
                 json.activity do
                   json.id  @activity.id
@@ -682,7 +682,7 @@ aesthetic; they give it the words.
                   #json.period_id @log.period ? @log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/pages/index.json.jbuilder>
+        -   [X] <./app/views/api/pages/index.json.jbuilder>
             
                 json.pages @pages do |page|
                   json.id page.id
@@ -692,7 +692,7 @@ aesthetic; they give it the words.
                   #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/pages/show.json.jbuilder>
+        -   [X] <./app/views/api/pages/show.json.jbuilder>
             
                 json.page do
                   json.id  @page.id
@@ -702,7 +702,7 @@ aesthetic; they give it the words.
                   #json.period_id @log.period ? @log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/shifts/index.json.jbuilder>
+        -   [X] <./app/views/api/shifts/index.json.jbuilder>
             
                 json.shifts @shifts do |shift|
                   json.id shift.id
@@ -715,7 +715,7 @@ aesthetic; they give it the words.
                   #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/shifts/show.json.jbuilder>
+        -   [X] <./app/views/api/shifts/show.json.jbuilder>
             
                 json.shift do
                   json.id  @shift.id
@@ -728,7 +728,7 @@ aesthetic; they give it the words.
                   #json.period_id @log.period ? @log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/volunteers/index.json.jbuilder>
+        -   [X] <./app/views/api/volunteers/index.json.jbuilder>
             
                 json.volunteers @volunteers do |vol|
                   json.id vol.id
@@ -739,7 +739,7 @@ aesthetic; they give it the words.
                   #json.period_id log.period ? log.period_id : nil
                 end
         
-        -   [ ] <./app/views/api/volunteers/show.json.jbuilder>
+        -   [X] <./app/views/api/volunteers/show.json.jbuilder>
             
                 json.volunteer do
                   json.id  @volunteer.id
@@ -774,758 +774,643 @@ aesthetic; they give it the words.
     -   [ ] phonegap
 -   [X] re-route <http://www.prairiehill.com> => heroku app
 
-## Essential Files
-
-<./FILES.md>
-
 ### excel export
 
 <http://railscasts.com/episodes/362-exporting-csv-and-excel>
 
-## NB
+## What we need to look at for functionality:
 
-### What we need to look at for functionality:
+### mailer contact
 
--   mailer contact
+<http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/>
 
-    <http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/>
+set up successfully in development
+
+-   [ ] change heroku configs to prairiehill email authentication for production
+
+### user accounts
+
+-   [ ] We need USERs with authenticatable accounts
     
-    set up successfully in development
+    These users will have various access to update content and that's really
+    all that they need. However,
     
-    -   [ ] change heroku configs to prairiehill email authentication for production
+    -   [ ] Admin/General user
+        
+        <https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role>
+        
+        We will have user accounts for general things like summer camp and 
+        country fair sign up
+        
+        We will also have admin users who also have access to CMS
+        
+        -   [ ] install & configure RailsAdmin
+            
+            <https://github.com/sferik/rails_admin>
+            
+            -   [ ] bundle the gem
+                
+                    gem 'rails_admin'
+                    bundle install
+            
+            -   [ ] install RailsAdmin
+                
+                    rails g rails_admin:install
+            
+            -   [ ] configure for Devise
+                
+                <https://github.com/sferik/rails_admin/wiki/Devise>
+    
+    -   [ ] Using ComfortableMexicanSofa for Content Management
+        -   [ ] already set up to use Paperclip for images
+        
+        -   [ ] WYSIWYG
+            
+            <./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css>
+            
+            -   [X] editor window is very short
+    
+    -   [ ] Private content
+        -   [ ] admin vs common user accounts
+    
+    -   [ ] User profiles?
+    
+    -   [ ] Summer Camp Registration model?
+    
+    -   [ ] Volunteers/CCF
+        -   [ ] connect devise users with shifts?
+        
+        -   [ ] Sign up views
+            -   [ ] if user signed in&#x2026;
+            
+            -   [ ] time to learn some jQuery!
+            
+            -   [ ] FIRST: Shows Activity titles and a number of volunteers total needed
+            
+            -   [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
+                and number of volunteers still needed for each, just after a description
+                of the activity itself
+                -   [ ] checkboxes for selected desired shifts?
+                
+                -   [ ] ability to remove volunteer from shifts
+            
+            -   [ ] BLOG/NEWSfeed for news updates?
+            
+            -   [ ] PAGEs for general website content
 
--   user accounts
+## ModelViewControl
 
-    -   [ ] We need USERs with authenticatable accounts
-        
-        These users will have various access to update content and that's really
-        all that they need. However,
-        
-        -   [ ] Admin/General user
-            
-            <https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role>
-            
-            We will have user accounts for general things like summer camp and 
-            country fair sign up
-            
-            We will also have admin users who also have access to CMS
-            
-            -   [ ] install & configure RailsAdmin
-                
-                <https://github.com/sferik/rails_admin>
-                
-                -   [ ] bundle the gem
-                    
-                        gem 'rails_admin'
-                        bundle install
-                
-                -   [ ] install RailsAdmin
-                    
-                        rails g rails_admin:install
-                
-                -   [ ] configure for Devise
-                    
-                    <https://github.com/sferik/rails_admin/wiki/Devise>
-        
-        -   [ ] Using ComfortableMexicanSofa for Content Management
-            -   [ ] already set up to use Paperclip for images
-            
-            -   [ ] WYSIWYG
-                
-                <./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css>
-                
-                -   [X] editor window is very short
-        
-        -   [ ] Private content
-            -   [ ] admin vs common user accounts
-        
-        -   [ ] User profiles?
-        
-        -   [ ] Summer Camp Registration model?
-        
-        -   [ ] Volunteers/CCF
-            -   [ ] connect devise users with shifts?
-            
-            -   [ ] Sign up views
-                -   [ ] if user signed in&#x2026;
-                
-                -   [ ] time to learn some jQuery!
-                
-                -   [ ] FIRST: Shows Activity titles and a number of volunteers total needed
-                
-                -   [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
-                    and number of volunteers still needed for each, just after a description
-                    of the activity itself
-                    -   [ ] checkboxes for selected desired shifts?
-                    
-                    -   [ ] ability to remove volunteer from shifts
-                
-                -   [ ] BLOG/NEWSfeed for news updates?
-                
-                -   [ ] PAGEs for general website content
-
-# ModelViewControl
-
-## Model
+### Model
 
 Pages
 
 <./app/controllers/pages_controller.rb>
 <./app/models/page.rb>
 
-### Page
+-   Page
 
--   [X] Create Static Pages
+    -   [X] Create Static Pages
+        
+        <http://www.railstutorial.org/book/static_pages>
+        
+        -   [X] Generate a Pages controller
+            
+            <./app/controllers/static_pages_controller.rb>
+            <./config/routes.rb>
+            
+                rails g controller StaticPages home
+
+-   Rails Generation
+
+    -   Scaffolding
     
-    <http://www.railstutorial.org/book/static_pages>
+        -   [X] Disable scaffold stylesheet creation 
+            
+            <./config/application.rb>
+            
+                config.generators do |g|
+                  g.stylesheets false
+                end
+        
+        -   [ ] Generate a scaffold
+            
+            EXAMPLE
+            
+                rails g scaffold Page index
+        
+        -   [ ] migrate the database
+            
+                rake db:migrate
+
+### View
+
+-   Skrollr
+
+    <https://github.com/reed/skrollr-rails>
     
-    -   [X] Generate a Pages controller
-        
-        <./app/controllers/static_pages_controller.rb>
-        <./config/routes.rb>
-        
-            rails g controller StaticPages home
-
-### Rails Generation
-
--   Scaffolding
-
-    -   [X] Disable scaffold stylesheet creation 
-        
-        <./config/application.rb>
-        
-            config.generators do |g|
-              g.stylesheets false
-            end
+    ???"@import 'skrollr';" in <./app/assets/stylesheets/bootstrap_and_customization.css.scss>?
     
-    -   [ ] Generate a scaffold
-        
-        EXAMPLE
-        
-            rails g scaffold Page index
-    
-    -   [ ] migrate the database
-        
-            rake db:migrate
-
-## View
-
-### Skrollr
-
-<https://github.com/reed/skrollr-rails>
-
-???"@import 'skrollr';" in <./app/assets/stylesheets/bootstrap_and_customization.css.scss>?
-
--   [X] add skrollr script
-    -   [X] make sure skrollr-rails is in the Gemfile
-        
-        <./Gemfile>
-        
-            gem 'skrollr-rails'
-    
-    -   [X] add the following script just before </body> tag
-        
-        <./app/views/layouts/application.html.erb>
-        
-            <script>
-             (function($){
-               skrollr.init({
-                 forceHeight: false,
-                 smoothScrolling: false
-               }).refresh();
-             } (jQuery));
-            </script>
-    
-    -   [X] Place #skrollr-body div tag around <%= yield %> tag
-        
-            <div id="skrollr-body">
--   [X] require skrollr in application.js
-    
-    <./app/assets/javascripts/application.js>
-    
-        //= require skrollr
-    -   [X] For IE compatibility
-        
-            //= require skrollr
-            //= require skrollr.ie
-    
-    -   [X] This plugin makes hashlinks scroll nicely to their target position.
-        
-            //= require skrollr
-            //= require skrollr.menu
-
-### Bootstrap-sass
-
--   [X] Create custom bootstrap stylesheet
-    
-    <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
-    
-    -   [X] create file
-        
-            echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
-    
-    **NOTE** Place new variables before "@import 'bootstrap'"
-    
-    -   [X] Fonts
-        
-        *EXAMPLE:*
-        
-            @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
-    
-    -   [X] Variables
-        
-            $phill-grn: #3f8000;
-
--   [X] Require Bootstrap's Javascript, after jquery<sub>ujs</sub> 
-    
-    <./app/assets/javascripts/application.js>
-    
-        //= require jquery
-        //= require jquery_ujs
-        //= require bootstrap
-        //= require turbolinks
-        //= require_tree .
-
-### Assets
-
--   Stylesheets
-
-    <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
-
--   Javascripts
-
-    -   [X] Replace turbolinks with jquery-turbolinks
-        
-        <./app/assets/javascripts/application.js>
-        
-        -   [X] Check for jquery-turbolinks in Gemfile
+    -   [X] add skrollr script
+        -   [X] make sure skrollr-rails is in the Gemfile
             
             <./Gemfile>
             
-                gem 'jquery-turbolinks'
-                bundle
+                gem 'skrollr-rails'
         
-        -   [X] remove turbolinks line
-            
-                //= require turbolinks
-        
-        -   [X] add jquery.turbolinks under bootstrap
-            
-                //= require bootstrap
-                //= require jquery.turbolinks
-            -   [X] Restart the server
-
--   Images
-
-    -   [X] css background images 
-        
-        <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
-        
-            background: image-url('image.jpg')
-    
-    -   [ ] run the following command to precompile assets
-        
-            RAILS_ENV=production bundle exec rake assets:precompile
-    
-    -   [ ] set video as background?
-
-### Views
-
--   Application
-
-    <./app/views/>
-    -   [X] add viewport
-        
-        <./app/views/layouts/application.html.erb>
-        
-            <meta name="viewport" content="width=device-width, intial-scale=1.0">
-    
-    -   [ ] Optional page refresh interval
-        
-            <meta http-equiv="REFRESH" content="60" />
-
--   Pages
-
-    <./app/views/pages/>
-    <./app/views/pages/pages.md>
-
-## Control
-
-### AngularJS (Honeybadger tutorial)
-
-This example from honeybadger may be my key to fixing the issue I am having with
-the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
-app. Once I understand what is going on and how to impliment Angular, maybe it 
-will be a better solution than all of that erb crap I was trying to use&#x2026;
-
-<https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails>
-
--   Initial setup
-
-    -   [X] create the project
-        
-            rails new rest --database=postgresql --skip-test-unit
-    
-    -   [ ] create the PostgreSQL database user:
-        
-            createuser -P -s -e rest
-    
-    -   [ ] Add RSpec to your Gemfile & Install RSpec
-        
-        <./Gemfile>
-        
-            gem "rspec-rails", "~> 2.14.0"
-        
-            bundle install
-        
-            rails g rspec:install
-    
-    -   [ ] Create the database:
-        
-            rake db:create
-
--   Creating the Restaurant model
-
-    -   [ ] Create the Restaurant resource
-        
-            rails g scaffold restaurant name:string
-    
-    -   [ ] Make sure restaurant names are unique
-        
-        <./db/migrate/>
-        
-            class CreateRestaurants < ActiveRecord::Migration
-              def change
-                create_table :restaurants do |t|
-                  t.string :name
-            
-                  t.timestamps
-                end
-            
-                add_index :restaurants, :name, unique: true
-              end
-            end
-        -   [ ] Run the migration
-            
-                rake db:migrate
-        
-        -   [ ] Add some specs&#x2026;
-            
-            Need to start learning TDD, but I'm lazy right now
-
--   Bringing AngularJS into the mix
-
-    -   [X] Create the controller
-        
-            rails g controller static_pages index
-    
-    -   [X] Update routes
-        
-        <./config/routes.rb>
-        
-            root 'static_pages#index'
-    
-    -   [X] Download Angular
-        
-            wget http://code.angularjs.org/1.1.5/angular.js \
-            http://code.angularjs.org/1.1.5/angular-mocks.js
-        
-            mv angular* app/assets/javascripts
-    
-    -   [-] Add it to the asset pipeline
-        
-        <./app/assets/javascripts/application.js>
-        
-        -   [ ] Remove turbolinks line
-            
-            Keeping it in for now as a test
-        
-        -   [ ] Add the following two lines
-            
-                //= require angular
-                //= require main
-        
-        -   [X] Set up the layout
+        -   [X] add the following script just before </body> tag
             
             <./app/views/layouts/application.html.erb>
             
-            naming the app via angular "phill" for simplicity
-            keeping turbolinks code in for now until I see a real reason to 
-            take it out
-            
-            -   [X] tested taking out turbolinks markup
-            
-                <!DOCTYPE html>
-                <html ng-app="phill">
-                <head>
-                  <title>Rest</title>
-                  <%= stylesheet_link_tag    'application', media: 'all' %>
-                  <%= javascript_include_tag 'application' %>
-                  <%= csrf_meta_tags %>
-                </head>
-                <body>
-                
-                <div ng-view>
-                  <%= yield %>
-                </div>
-                
-                </body>
-                </html>
+                <script>
+                 (function($){
+                   skrollr.init({
+                     forceHeight: false,
+                     smoothScrolling: false
+                   }).refresh();
+                 } (jQuery));
+                </script>
         
-        -   [X] Creating an Angular controller
+        -   [X] Place #skrollr-body div tag around <%= yield %> tag
             
-                mkdir -p app/assets/javascripts/angular/controllers
-            -   [X] Create the controller
+                <div id="skrollr-body">
+    -   [X] require skrollr in application.js
+        
+        <./app/assets/javascripts/application.js>
+        
+            //= require skrollr
+        -   [X] For IE compatibility
+            
+                //= require skrollr
+                //= require skrollr.ie
+        
+        -   [X] This plugin makes hashlinks scroll nicely to their target position.
+            
+                //= require skrollr
+                //= require skrollr.menu
+
+-   Bootstrap-sass
+
+    -   [X] Create custom bootstrap stylesheet
+        
+        <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
+        
+        -   [X] create file
+            
+                echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
+        
+        **NOTE** Place new variables before "@import 'bootstrap'"
+        
+        -   [X] Fonts
+            
+            *EXAMPLE:*
+            
+                @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
+        
+        -   [X] Variables
+            
+                $phill-grn: #3f8000;
+    
+    -   [X] Require Bootstrap's Javascript, after jquery<sub>ujs</sub> 
+        
+        <./app/assets/javascripts/application.js>
+        
+            //= require jquery
+            //= require jquery_ujs
+            //= require bootstrap
+            //= require turbolinks
+            //= require_tree .
+
+-   Assets
+
+    -   Stylesheets
+    
+        <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
+    
+    -   Javascripts
+    
+        -   [X] Replace turbolinks with jquery-turbolinks
+            
+            <./app/assets/javascripts/application.js>
+            
+            -   [X] Check for jquery-turbolinks in Gemfile
                 
-                <./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee>
+                <./Gemfile>
                 
-                    @phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+                    gem 'jquery-turbolinks'
+                    bundle
+            
+            -   [X] remove turbolinks line
+                
+                    //= require turbolinks
+            
+            -   [X] add jquery.turbolinks under bootstrap
+                
+                    //= require bootstrap
+                    //= require jquery.turbolinks
+                -   [X] Restart the server
+    
+    -   Images
+    
+        -   [X] css background images 
+            
+            <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
+            
+                background: image-url('image.jpg')
+        
+        -   [ ] run the following command to precompile assets
+            
+                RAILS_ENV=production bundle exec rake assets:precompile
+        
+        -   [ ] set video as background?
+
+-   Views
+
+    -   Application
+    
+        <./app/views/>
+        -   [X] add viewport
+            
+            <./app/views/layouts/application.html.erb>
+            
+                <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        
+        -   [ ] Optional page refresh interval
+            
+                <meta http-equiv="REFRESH" content="60" />
+    
+    -   Pages
+    
+        <./app/views/pages/>
+        <./app/views/pages/pages.md>
+
+### Control
+
+-   AngularJS (Honeybadger tutorial)
+
+    This example from honeybadger may be my key to fixing the issue I am having with
+    the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
+    app. Once I understand what is going on and how to impliment Angular, maybe it 
+    will be a better solution than all of that erb crap I was trying to use&#x2026;
+    
+    <https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails>
+    
+    -   Initial setup
+    
+        -   [X] create the project
+            
+                rails new rest --database=postgresql --skip-test-unit
+        
+        -   [ ] create the PostgreSQL database user:
+            
+                createuser -P -s -e rest
+        
+        -   [ ] Add RSpec to your Gemfile & Install RSpec
+            
+            <./Gemfile>
+            
+                gem "rspec-rails", "~> 2.14.0"
+            
+                bundle install
+            
+                rails g rspec:install
+        
+        -   [ ] Create the database:
+            
+                rake db:create
+    
+    -   Creating the Restaurant model
+    
+        -   [ ] Create the Restaurant resource
+            
+                rails g scaffold restaurant name:string
+        
+        -   [ ] Make sure restaurant names are unique
+            
+            <./db/migrate/>
+            
+                class CreateRestaurants < ActiveRecord::Migration
+                  def change
+                    create_table :restaurants do |t|
+                      t.string :name
+                
+                      t.timestamps
+                    end
+                
+                    add_index :restaurants, :name, unique: true
+                  end
+                end
+            -   [ ] Run the migration
+                
+                    rake db:migrate
+            
+            -   [ ] Add some specs&#x2026;
+                
+                Need to start learning TDD, but I'm lazy right now
+    
+    -   Bringing AngularJS into the mix
+    
+        -   [X] Create the controller
+            
+                rails g controller static_pages index
+        
+        -   [X] Update routes
+            
+            <./config/routes.rb>
+            
+                root 'static_pages#index'
+        
+        -   [X] Download Angular
+            
+                wget http://code.angularjs.org/1.1.5/angular.js \
+                http://code.angularjs.org/1.1.5/angular-mocks.js
+            
+                mv angular* app/assets/javascripts
+        
+        -   [-] Add it to the asset pipeline
+            
+            <./app/assets/javascripts/application.js>
+            
+            -   [ ] Remove turbolinks line
+                
+                Keeping it in for now as a test
+            
+            -   [ ] Add the following two lines
+                
+                    //= require angular
+                    //= require main
+            
+            -   [X] Set up the layout
+                
+                <./app/views/layouts/application.html.erb>
+                
+                naming the app via angular "phill" for simplicity
+                keeping turbolinks code in for now until I see a real reason to 
+                take it out
+                
+                -   [X] tested taking out turbolinks markup
+                
+                    <!DOCTYPE html>
+                    <html ng-app="phill">
+                    <head>
+                      <title>Rest</title>
+                      <%= stylesheet_link_tag    'application', media: 'all' %>
+                      <%= javascript_include_tag 'application' %>
+                      <%= csrf_meta_tags %>
+                    </head>
+                    <body>
                     
-                    ]
+                    <div ng-view>
+                      <%= yield %>
+                    </div>
+                    
+                    </body>
+                    </html>
             
-            -   [X] Add an Angular route
+            -   [X] Creating an Angular controller
                 
-                <./app/assets/javascripts/main.js.coffee>
-                
-                    # This line is related to our Angular app, not to our
-                    # HomeCtrl specifically. This is basically how we tell
-                    # Angular about the existence of our application.
-                    @phill = angular.module('phill', [])
-                
-                    # This routing directive tells Angular about the default
-                    # route for our application. The term "otherwise" here
-                    # might seem somewhat awkward, but it will make more
-                    # sense as we add more routes to our application.
-                    @phill.config(['$routeProvider', ($routeProvider) ->
-                      $routeProvider.
-                        otherwise({
-                          templateUrl: '../templates/home.html',
-                          controller: 'HomeCtrl'
-                        }) 
-                    ])
-            
-            -   [X] Add an Angular template
-                
-                    mkdir public/templates
-                
-                <./public/templates/home.html>
-                
-                    This is the home page
-                -   [X] An example of data binding
+                    mkdir -p app/assets/javascripts/angular/controllers
+                -   [X] Create the controller
                     
                     <./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee>
                     
                         @phill.controller 'HomeCtrl', ['$scope', ($scope) ->
-                          $scope.foo = 'bar'        
+                        
                         ]
+                
+                -   [X] Add an Angular route
+                    
+                    <./app/assets/javascripts/main.js.coffee>
+                    
+                        # This line is related to our Angular app, not to our
+                        # HomeCtrl specifically. This is basically how we tell
+                        # Angular about the existence of our application.
+                        @phill = angular.module('phill', [])
+                    
+                        # This routing directive tells Angular about the default
+                        # route for our application. The term "otherwise" here
+                        # might seem somewhat awkward, but it will make more
+                        # sense as we add more routes to our application.
+                        @phill.config(['$routeProvider', ($routeProvider) ->
+                          $routeProvider.
+                            otherwise({
+                              templateUrl: '../templates/home.html',
+                              controller: 'HomeCtrl'
+                            }) 
+                        ])
+                
+                -   [X] Add an Angular template
+                    
+                        mkdir public/templates
                     
                     <./public/templates/home.html>
                     
-                        Value of "foo": {{foo}}
-
--   Doing it for real this time
-
-    -   [ ] Seed the database
-        
-        <./db/seeds.rb>
-        
-            Restaurant.create([
-              { name: "The French Laundry" },
-              { name: "Chez Panisse" },
-              { name: "Bouchon" },
-              { name: "Noma" },
-              { name: "Taco Bell" },
-            ])
-        
-            rake db:seed
+                        This is the home page
+                    -   [X] An example of data binding
+                        
+                        <./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee>
+                        
+                            @phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+                              $scope.foo = 'bar'        
+                            ]
+                        
+                        <./public/templates/home.html>
+                        
+                            Value of "foo": {{foo}}
     
-    -   [X] Creating a shift index page
-        
-            mkdir public/templates/shifts
-        
-        <./public/templates/shifts/index.html>
-        
-            <a href="/#">index</a>
-            <ul ng-repeat="restaurant in restaurants">
-              <li>
-                <a ng-click="viewRestaurant(restaurant.id)">
-                  {{ restaurant.name }}
-                </a>
-              </li>
-            </ul>
-        
-        OR rather
-        
-            <a href="/#">Shifts</a>
-            <ul ng-repeat="shift in shifts">
-              <li>
-                <a ng-click="viewShift(shift.id)">
-                  {{ shift.title }}
-                </a>
-              </li>
-            </ul>
+    -   Doing it for real this time
     
-    -   [X] Create the controller
-        
-        <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
-        
-            @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-              $scope.restaurants = []
-              $http.get('./restaurants.json').success((data) ->
-                $scope.restaurants = data
-              )
-            ]
-        
-        OR rather
-        
-            @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-              $scope.shifts = []
-              $http.get('./shifts.json').success((data) ->
-                $scope.shifts = data
-              )
-            ]
-    
-    -   [X] Adjust routing configuration
-        
-        <./app/assets/javascripts/main.js.coffee>
-        
-            @phill = angular.module('phill', [])
+        -   [ ] Seed the database
             
-            @phill.config(['$routeProvider', ($routeProvider) ->
-              $routeProvider.
-                when('/shifts', {
-                  templateUrl: '../templates/shifts/index.html',
-                  controller: 'ShiftIndexCtrl'
-                }).
-                otherwise({
-                  templateUrl: '../templates/home.html',
-                  controller: 'HomeCtrl'
-                })
-            ])
-
--   Adding our first test
-
-    fill in later
-
--   Building out the shifts page
-
-    When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
-    
-    <./app/views/shifts/index.json.jbuilder>
-    
-    -   [X] Add :id parameter for json.extract!
-        
-            json.array!(@restaurants) do |restaurant|
-              json.extract! restaurant, :id, :name
-              json.url restaurant_url(restaurant, format: :json)
-            end
-        
-        OR rather
-        
-            json.array!(@shifts) do |shift|
-              json.extract! shift, :id, :title, :vols_needed, :user_ids
-              json.url shift_url(shift, format: :json)
-            end
-    
-    -   [ ] define pushShift()
-        
-        <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
-    
-    -   [X] define viewShift()
-        
-        <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
-        
-            @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-              $scope.restaurants = []
-              $http.get('./restaurants.json').success((data) ->
-                $scope.restaurants = data
-              )
+            <./db/seeds.rb>
             
-              $scope.viewRestaurant = (id) ->
-                $location.url "/restaurants/#{id}"
-            ]
-        
-        OR rather
-        
-            @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-              $scope.shifts = []
-              $http.get('./shifts.json').success((data) ->
-                $scope.shifts = data
-              )
+                Restaurant.create([
+                  { name: "The French Laundry" },
+                  { name: "Chez Panisse" },
+                  { name: "Bouchon" },
+                  { name: "Noma" },
+                  { name: "Taco Bell" },
+                ])
             
-              $scope.viewShift = (id) ->
-                $location.url "/shifts/#{id}"        
-            ]
-    
-    -   [X] Create show template, route and controller
+                rake db:seed
         
-        <./public/templates/shifts/show.html>
-        
-            <h1>{{shift.title}}</h1>
-        
-        <./app/assets/javascripts/main.js.coffee>
-        
-            @rest = angular.module('rest', [])
+        -   [X] Creating a shift index page
             
-            @rest.config(['$routeProvider', ($routeProvider) ->
-              $routeProvider.
-                when('/restaurants', {
-                  templateUrl: '../templates/restaurants/index.html',
-                  controller: 'RestaurantIndexCtrl'
-                }).
-                when('/restaurants/:id', {
-                  templateUrl: '../templates/restaurants/show.html',
-                  controller: 'RestaurantShowCtrl'
-                }).
-                otherwise({
-                  templateUrl: '../templates/home.html',
-                  controller: 'HomeCtrl'
-                })
-            ])
+                mkdir public/templates/shifts
+            
+            <./public/templates/shifts/index.html>
+            
+                <a href="/#">index</a>
+                <ul ng-repeat="restaurant in restaurants">
+                  <li>
+                    <a ng-click="viewRestaurant(restaurant.id)">
+                      {{ restaurant.name }}
+                    </a>
+                  </li>
+                </ul>
+            
+            OR rather
+            
+                <a href="/#">Shifts</a>
+                <ul ng-repeat="shift in shifts">
+                  <li>
+                    <a ng-click="viewShift(shift.id)">
+                      {{ shift.title }}
+                    </a>
+                  </li>
+                </ul>
         
-        <./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee>
+        -   [X] Create the controller
+            
+            <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
+            
+                @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+                  $scope.restaurants = []
+                  $http.get('./restaurants.json').success((data) ->
+                    $scope.restaurants = data
+                  )
+                ]
+            
+            OR rather
+            
+                @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+                  $scope.shifts = []
+                  $http.get('./shifts.json').success((data) ->
+                    $scope.shifts = data
+                  )
+                ]
         
-            @rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) ->
-              $http.get("./restaurants/#{$routeParams.id}.json").success((data) ->
-                $scope.restaurant = data
-              )
-            ]
-
-### Routes
-
-[Views Directory](./app/views/)
-
-<./config/routes.rb>
-
--   [X] create root path
+        -   [X] Adjust routing configuration
+            
+            <./app/assets/javascripts/main.js.coffee>
+            
+                @phill = angular.module('phill', [])
+                
+                @phill.config(['$routeProvider', ($routeProvider) ->
+                  $routeProvider.
+                    when('/shifts', {
+                      templateUrl: '../templates/shifts/index.html',
+                      controller: 'ShiftIndexCtrl'
+                    }).
+                    otherwise({
+                      templateUrl: '../templates/home.html',
+                      controller: 'HomeCtrl'
+                    })
+                ])
     
-        root 'static_pages#home'
-
--   [ ] create paths for desired routes
+    -   Adding our first test
     
-        get "about" => "pages#about"
-        get "news" => "pages#news"
-        get "programs" => "pages#programs"
-        get "calendar" => "pages#calendar"
-        get "contact" => "contacts#new"
-        get "staffandboard" => "pages#staff"
-        get "jobs" => "pages#jobs"
-        get "donate" => "pages#donate"
-        get "camp" => "pages#summer_camp"
-        get "csv" => "pages#csvupload"
-        get "ccf" => "shifts#volunteer"
-
-### Controllers
-
-<./app/controllers/application_controller.rb>
-
-<./app/controllers/pages_controller.rb>
-
-# Application skeleton BASICS
-
-## Useful commands
-
-### Rake
-
-    rake routes
-
-### Rails
-
-    rails console
-
-    rails s
-    rails s -e production
-
-### Heroku
-
-    heroku rename $NEW_NAME
-    heroku open
-    heroku logs --tail
-    heroku run rails console
-
-    heroku config:set <ENV_NAME>=<variable>
-    heroku config:unset
-    heroku config:get
-
-### Git
-
-## Essential Files
-
-[Gemfile](./Gemfile)
-
-## Create the default skeletal application
-
--   [X] create a new application
+        fill in later
     
-        rails new PrairieHillWebsite
-
--   [X] update README
+    -   Building out the shifts page
     
-        rm README.rdoc
-        touch README.org
-
--   [X] rename application.css to application.css.scss
-    
-    <./app/assets/stylesheets/application.css.scss>
-    
-        cd app/assets/stylesheets
-        mv application.css application.css.scss
-
--   [X] Test the skeletal application
-    -   [X] Start the Rails server
+        When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
         
-            rails s
-    
-    -   [X] open your browser to localhost, port 3000
+        <./app/views/shifts/index.json.jbuilder>
         
-            localhost:3000
+        -   [X] Add :id parameter for json.extract!
+            
+                json.array!(@restaurants) do |restaurant|
+                  json.extract! restaurant, :id, :name
+                  json.url restaurant_url(restaurant, format: :json)
+                end
+            
+            OR rather
+            
+                json.array!(@shifts) do |shift|
+                  json.extract! shift, :id, :title, :vols_needed, :user_ids
+                  json.url shift_url(shift, format: :json)
+                end
+        
+        -   [ ] define pushShift()
+            
+            <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
+        
+        -   [X] define viewShift()
+            
+            <./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee>
+            
+                @rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+                  $scope.restaurants = []
+                  $http.get('./restaurants.json').success((data) ->
+                    $scope.restaurants = data
+                  )
+                
+                  $scope.viewRestaurant = (id) ->
+                    $location.url "/restaurants/#{id}"
+                ]
+            
+            OR rather
+            
+                @phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+                  $scope.shifts = []
+                  $http.get('./shifts.json').success((data) ->
+                    $scope.shifts = data
+                  )
+                
+                  $scope.viewShift = (id) ->
+                    $location.url "/shifts/#{id}"        
+                ]
+        
+        -   [X] Create show template, route and controller
+            
+            <./public/templates/shifts/show.html>
+            
+                <h1>{{shift.title}}</h1>
+            
+            <./app/assets/javascripts/main.js.coffee>
+            
+                @rest = angular.module('rest', [])
+                
+                @rest.config(['$routeProvider', ($routeProvider) ->
+                  $routeProvider.
+                    when('/restaurants', {
+                      templateUrl: '../templates/restaurants/index.html',
+                      controller: 'RestaurantIndexCtrl'
+                    }).
+                    when('/restaurants/:id', {
+                      templateUrl: '../templates/restaurants/show.html',
+                      controller: 'RestaurantShowCtrl'
+                    }).
+                    otherwise({
+                      templateUrl: '../templates/home.html',
+                      controller: 'HomeCtrl'
+                    })
+                ])
+            
+            <./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee>
+            
+                @rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) ->
+                  $http.get("./restaurants/#{$routeParams.id}.json").success((data) ->
+                    $scope.restaurant = data
+                  )
+                ]
 
--   [X] update the Gemfile
-    
-    <./Gemfile>
-    
-        cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+-   Routes
 
--   [X] update the bundle
+    [Views Directory](./app/views/)
     
-        bundle update
-        bundle install --without production
+    <./config/routes.rb>
+    
+    -   [X] create root path
+        
+            root 'static_pages#home'
+    
+    -   [ ] create paths for desired routes
+        
+            get "about" => "pages#about"
+            get "news" => "pages#news"
+            get "programs" => "pages#programs"
+            get "calendar" => "pages#calendar"
+            get "contact" => "contacts#new"
+            get "staffandboard" => "pages#staff"
+            get "jobs" => "pages#jobs"
+            get "donate" => "pages#donate"
+            get "camp" => "pages#summer_camp"
+            get "csv" => "pages#csvupload"
+            get "ccf" => "shifts#volunteer"
 
-### Set up Git and Heroku
+-   Controllers
 
--   Git
-
-    -   [X] initialize git repo
-        
-            git init
+    <./app/controllers/application_controller.rb>
     
-    -   [X] update .gitignore
-        
-        <./.gitignore>
-        
-            echo ".env" >> .gitignore
-            echo "Procfile" >> .gitignore
-    
-    -   [X] initial stage and commit of all files
-        
-            git add .
-            git commit -am "initial commit"
-    
-    -   [X] add the origin
-        
-            git remote add origin https://github.com/son1112/PrairieHillWebsite.git
-    
-    -   [X] initial push
-        
-            git push -u origin master
-
--   Heroku
-
-    -   [X] Create and push a new heroku app
-        
-            heroku create
-            git push heroku master
-    
-    -   [X] Rename the heroku app
-        
-            heroku rename phill-new
+    <./app/controllers/pages_controller.rb>

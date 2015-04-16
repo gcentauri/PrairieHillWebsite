@@ -1,4 +1,4 @@
-% Created 2015-04-16 Thu 12:07
+% Created 2015-04-16 Thu 11:57
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -30,25 +30,6 @@
 
 \section*{Prairie Hill Learning Center}
 \label{sec-1}
-
-\subsection*{Description}
-\label{sec-1-1}
-
-After over 2 years of cumbersome working with the wordpress managed website 
-content for the Prairie Hill website (whether due to the way that wordpress 
-arranges itself or my own ignorance and lack of education in web design, php, 
-etc), this is an attempt to try something new. Having a nice solid foundation 
-in building an application with Rails, I feel like now is the time to build 
-something from the ground up that will hopefully meet my needs for control 
-and understanding for building and modifying the backend functionality 
-(most importantly without having to go through all of hassle of using the 
-actual web content management editors and having so many extraneous steps,
-instead of just using my text editor\ldots{}), as well as the front end need
-for admin staff to update content, which is what is important to them in
-the basic functionality of the site. I take care of the functionality and
-aesthetic; they give it the words.
-\subsection*{{\bfseries\sffamily TODO} }
-\label{sec-1-2}
 
 \begin{itemize}
 \item $\square$ fix change/forgot password issue
@@ -319,12 +300,13 @@ end
 \end{itemize}
 \end{itemize}
 \end{itemize}
-\item $\boxminus$ build an API
+
+\item $\square$ build an API
 
 \url{https://codelation.com/blog/rails-restful-api-just-add-water}
 
 \begin{itemize}
-\item $\boxtimes$ add to \url{./Gemfile}
+\item $\square$ add to \url{./Gemfile}
 
 \begin{verbatim}
 gem 'jbuilder'
@@ -393,10 +375,10 @@ group :production do
 end
 \end{verbatim}
 
-\item $\boxtimes$ controllers
+\item $\square$ controllers
 
 \begin{itemize}
-\item $\boxtimes$ create file \url{./app/controllers/api/base_controller.rb}
+\item $\square$ create file \url{./app/controllers/api/base_controller.rb}
 
 \begin{verbatim}
 mkdir app/controllers/api
@@ -461,7 +443,7 @@ module Api
 end
 \end{verbatim}
 
-\item $\boxtimes$ add the public resource methods to the same controller
+\item $\square$ add the public resource methods to the same controller
 
 \begin{verbatim}
 # POST /api/{plural_resource_name}
@@ -608,7 +590,7 @@ module Api
 end
 \end{verbatim}
 
-\item $\boxtimes$ connect base controller to model controllers
+\item $\square$ connect base controller to model controllers
 
 Pay attention that these inherit from \emph{Api::BaseController}
 
@@ -715,7 +697,7 @@ end
 \end{verbatim}
 \end{itemize}
 
-\item $\boxtimes$ routing
+\item $\square$ routing
 
 \url{./config/routes.rb}
 
@@ -725,14 +707,14 @@ namespace :api do
 end
 \end{verbatim}
 
-\item $\boxtimes$ serializing data
+\item $\square$ serializing data
 
 \begin{verbatim}
 mkdir app/views/api /shifts etc
 \end{verbatim}
 
 \begin{itemize}
-\item $\boxtimes$ \url{./app/views/api/users/index.json.jbuilder}
+\item $\square$ \url{./app/views/api/users/index.json.jbuilder}
 
 \begin{verbatim}
 json.users @users do |user|
@@ -749,7 +731,7 @@ json.users @users do |user|
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/users/show.json.jbuilder}
+\item $\square$ \url{./app/views/api/users/show.json.jbuilder}
 
 \begin{verbatim}
 json.user do
@@ -765,7 +747,7 @@ json.user do
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/activities/index.json.jbuilder}
+\item $\square$ \url{./app/views/api/activities/index.json.jbuilder}
 
 \begin{verbatim}
 json.activities @activities do |act|
@@ -779,7 +761,7 @@ json.activities @activities do |act|
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/activities/show.json.jbuilder}
+\item $\square$ \url{./app/views/api/activities/show.json.jbuilder}
 
 \begin{verbatim}
 json.activity do
@@ -793,7 +775,7 @@ json.activity do
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/pages/index.json.jbuilder}
+\item $\square$ \url{./app/views/api/pages/index.json.jbuilder}
 
 \begin{verbatim}
 json.pages @pages do |page|
@@ -805,7 +787,7 @@ json.pages @pages do |page|
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/pages/show.json.jbuilder}
+\item $\square$ \url{./app/views/api/pages/show.json.jbuilder}
 
 \begin{verbatim}
 json.page do
@@ -817,7 +799,7 @@ json.page do
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/shifts/index.json.jbuilder}
+\item $\square$ \url{./app/views/api/shifts/index.json.jbuilder}
 
 \begin{verbatim}
 json.shifts @shifts do |shift|
@@ -832,7 +814,7 @@ json.shifts @shifts do |shift|
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/shifts/show.json.jbuilder}
+\item $\square$ \url{./app/views/api/shifts/show.json.jbuilder}
 
 \begin{verbatim}
 json.shift do
@@ -847,7 +829,7 @@ json.shift do
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/volunteers/index.json.jbuilder}
+\item $\square$ \url{./app/views/api/volunteers/index.json.jbuilder}
 
 \begin{verbatim}
 json.volunteers @volunteers do |vol|
@@ -860,7 +842,7 @@ json.volunteers @volunteers do |vol|
 end
 \end{verbatim}
 
-\item $\boxtimes$ \url{./app/views/api/volunteers/show.json.jbuilder}
+\item $\square$ \url{./app/views/api/volunteers/show.json.jbuilder}
 
 \begin{verbatim}
 json.volunteer do
@@ -910,19 +892,42 @@ convenience in end-user application development
 \item $\boxtimes$ re-route \url{http://www.prairiehill.com} => heroku app
 \end{itemize}
 
+\subsection*{Essential Files}
+\label{sec-1-1}
+
+\url{./FILES.org}
+
 \subsubsection*{excel export}
-\label{sec-1-2-1}
+\label{sec-1-1-1}
 
 \url{http://railscasts.com/episodes/362-exporting-csv-and-excel}
+
+\section*{Description}
+\label{sec-2}
+
+After over 2 years of cumbersome working with the wordpress managed website 
+content for the Prairie Hill website (whether due to the way that wordpress 
+arranges itself or my own ignorance and lack of education in web design, php, 
+etc), this is an attempt to try something new. Having a nice solid foundation 
+in building an application with Rails, I feel like now is the time to build 
+something from the ground up that will hopefully meet my needs for control 
+and understanding for building and modifying the backend functionality 
+(most importantly without having to go through all of hassle of using the 
+actual web content management editors and having so many extraneous steps,
+instead of just using my text editor\ldots{}), as well as the front end need
+for admin staff to update content, which is what is important to them in
+the basic functionality of the site. I take care of the functionality and
+aesthetic; they give it the words.
+
 \subsection*{NB}
-\label{sec-1-3}
+\label{sec-2-1}
 
 \subsubsection*{What we need to look at for functionality:}
-\label{sec-1-3-1}
+\label{sec-2-1-1}
 
 \begin{itemize}
 \item mailer contact
-\label{sec-1-3-1-1}
+\label{sec-2-1-1-1}
 
 \url{http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/}
 
@@ -931,8 +936,13 @@ set up successfully in development
 \begin{itemize}
 \item $\square$ change heroku configs to prairiehill email authentication for production
 \end{itemize}
+
+
+
+
+
 \item user accounts
-\label{sec-1-3-1-2}
+\label{sec-2-1-1-2}
 
 \begin{itemize}
 \item $\square$ We need USERs with authenticatable accounts
@@ -1031,11 +1041,12 @@ of the activity itself
 \end{itemize}
 \end{itemize}
 \end{itemize}
+
 \section*{ModelViewControl}
-\label{sec-2}
+\label{sec-3}
 
 \subsection*{Model}
-\label{sec-2-1}
+\label{sec-3-1}
 
 Pages
 
@@ -1043,7 +1054,7 @@ Pages
 \url{./app/models/page.rb}
 
 \subsubsection*{Page}
-\label{sec-2-1-1}
+\label{sec-3-1-1}
 
 \begin{itemize}
 \item $\boxtimes$ Create Static Pages
@@ -1063,11 +1074,11 @@ rails g controller StaticPages home
 \end{itemize}
 
 \subsubsection*{Rails Generation}
-\label{sec-2-1-2}
+\label{sec-3-1-2}
 
 \begin{itemize}
 \item Scaffolding
-\label{sec-2-1-2-1}
+\label{sec-3-1-2-1}
 
 \begin{itemize}
 \item $\boxtimes$ Disable scaffold stylesheet creation 
@@ -1096,10 +1107,10 @@ rake db:migrate
 \end{itemize}
 
 \subsection*{View}
-\label{sec-2-2}
+\label{sec-3-2}
 
 \subsubsection*{Skrollr}
-\label{sec-2-2-1}
+\label{sec-3-2-1}
 
 \url{https://github.com/reed/skrollr-rails}
 
@@ -1168,7 +1179,7 @@ gem 'skrollr-rails'
 \end{itemize}
 
 \subsubsection*{Bootstrap-sass}
-\label{sec-2-2-2}
+\label{sec-3-2-2}
 
 \begin{itemize}
 \item $\boxtimes$ Create custom bootstrap stylesheet
@@ -1213,15 +1224,15 @@ $phill-grn: #3f8000;
 \end{itemize}
 
 \subsubsection*{Assets}
-\label{sec-2-2-3}
+\label{sec-3-2-3}
 
 \begin{itemize}
 \item Stylesheets
-\label{sec-2-2-3-1}
+\label{sec-3-2-3-1}
 
 \url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
 \item Javascripts
-\label{sec-2-2-3-2}
+\label{sec-3-2-3-2}
 
 \begin{itemize}
 \item $\boxtimes$ Replace turbolinks with jquery-turbolinks
@@ -1257,7 +1268,7 @@ bundle
 \end{itemize}
 \end{itemize}
 \item Images
-\label{sec-2-2-3-3}
+\label{sec-3-2-3-3}
 
 \begin{itemize}
 \item $\boxtimes$ css background images 
@@ -1280,11 +1291,11 @@ RAILS_ENV=production bundle exec rake assets:precompile
 
 
 \subsubsection*{Views}
-\label{sec-2-2-4}
+\label{sec-3-2-4}
 
 \begin{itemize}
 \item Application
-\label{sec-2-2-4-1}
+\label{sec-3-2-4-1}
 
 \url{./app/views/}
 
@@ -1305,17 +1316,17 @@ RAILS_ENV=production bundle exec rake assets:precompile
 \end{itemize}
 
 \item Pages
-\label{sec-2-2-4-2}
+\label{sec-3-2-4-2}
 
 \url{./app/views/pages/}
 \url{./app/views/pages/pages.org}
 \end{itemize}
 
 \subsection*{Control}
-\label{sec-2-3}
+\label{sec-3-3}
 
 \subsubsection*{AngularJS (Honeybadger tutorial)}
-\label{sec-2-3-1}
+\label{sec-3-3-1}
 
 This example from honeybadger may be my key to fixing the issue I am having with
 the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
@@ -1326,7 +1337,7 @@ will be a better solution than all of that erb crap I was trying to use\ldots{}
 
 \begin{itemize}
 \item Initial setup
-\label{sec-2-3-1-0-0-1}
+\label{sec-3-3-1-0-0-1}
 
 \begin{itemize}
 \item $\boxtimes$ create the project
@@ -1365,7 +1376,7 @@ rake db:create
 \end{itemize}
 
 \item Creating the Restaurant model
-\label{sec-2-3-1-0-0-2}
+\label{sec-3-3-1-0-0-2}
 
 \begin{itemize}
 \item $\square$ Create the Restaurant resource
@@ -1406,7 +1417,7 @@ Need to start learning TDD, but I'm lazy right now
 \end{itemize}
 
 \item Bringing AngularJS into the mix
-\label{sec-2-3-1-0-0-3}
+\label{sec-3-3-1-0-0-3}
 
 \begin{itemize}
 \item $\boxtimes$ Create the controller
@@ -1556,7 +1567,7 @@ Value of "foo": {{foo}}
 \end{itemize}
 
 \item Doing it for real this time
-\label{sec-2-3-1-0-0-4}
+\label{sec-3-3-1-0-0-4}
 
 \begin{itemize}
 \item $\square$ Seed the database
@@ -1655,12 +1666,12 @@ OR rather
 \end{itemize}
 
 \item Adding our first test
-\label{sec-2-3-1-0-0-5}
+\label{sec-3-3-1-0-0-5}
 
 fill in later
 
 \item Building out the shifts page
-\label{sec-2-3-1-0-0-6}
+\label{sec-3-3-1-0-0-6}
 
 When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
 
@@ -1765,7 +1776,7 @@ OR rather
 
 
 \subsubsection*{Routes}
-\label{sec-2-3-2}
+\label{sec-3-3-2}
 
 \href{./app/views/}{Views Directory}
 
@@ -1797,10 +1808,176 @@ get "ccf" => "shifts#volunteer"
 
 
 \subsubsection*{Controllers}
-\label{sec-2-3-3}
+\label{sec-3-3-3}
 
 \url{./app/controllers/application_controller.rb}
 
 \url{./app/controllers/pages_controller.rb}
+
+\section*{Application skeleton BASICS}
+\label{sec-4}
+
+
+\subsection*{Useful commands}
+\label{sec-4-1}
+
+\subsubsection*{Rake}
+\label{sec-4-1-1}
+
+\begin{verbatim}
+rake routes
+\end{verbatim}
+
+\subsubsection*{Rails}
+\label{sec-4-1-2}
+
+\begin{verbatim}
+rails console
+\end{verbatim}
+
+\begin{verbatim}
+rails s
+rails s -e production
+\end{verbatim}
+\subsubsection*{Heroku}
+\label{sec-4-1-3}
+
+\begin{verbatim}
+heroku rename $NEW_NAME
+heroku open
+heroku logs --tail
+heroku run rails console
+\end{verbatim}
+
+\begin{verbatim}
+heroku config:set <ENV_NAME>=<variable>
+heroku config:unset
+heroku config:get
+\end{verbatim}
+
+\subsubsection*{Git}
+\label{sec-4-1-4}
+\subsection*{Essential Files}
+\label{sec-4-2}
+
+\href{./Gemfile}{Gemfile}
+\subsection*{Create the default skeletal application}
+\label{sec-4-3}
+
+\begin{itemize}
+\item $\boxtimes$ create a new application
+
+\begin{verbatim}
+rails new PrairieHillWebsite
+\end{verbatim}
+
+\item $\boxtimes$ update README
+
+\begin{verbatim}
+rm README.rdoc
+touch README.org
+\end{verbatim}
+
+\item $\boxtimes$ rename application.css to application.css.scss
+
+\url{./app/assets/stylesheets/application.css.scss}
+
+\begin{verbatim}
+cd app/assets/stylesheets
+mv application.css application.css.scss
+\end{verbatim}
+
+\item $\boxtimes$ Test the skeletal application
+
+\begin{itemize}
+\item $\boxtimes$ Start the Rails server
+
+\begin{verbatim}
+rails s
+\end{verbatim}
+
+\item $\boxtimes$ open your browser to localhost, port 3000
+
+\begin{verbatim}
+localhost:3000
+\end{verbatim}
+\end{itemize}
+
+\item $\boxtimes$ update the Gemfile
+
+\url{./Gemfile}
+
+\begin{verbatim}
+cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+\end{verbatim}
+
+\item $\boxtimes$ update the bundle
+
+\begin{verbatim}
+bundle update
+bundle install --without production
+\end{verbatim}
+\end{itemize}
+
+\subsubsection*{Set up Git and Heroku}
+\label{sec-4-3-1}
+
+\begin{itemize}
+\item Git
+\label{sec-4-3-1-1}
+
+\begin{itemize}
+\item $\boxtimes$ initialize git repo
+
+\begin{verbatim}
+git init
+\end{verbatim}
+
+\item $\boxtimes$ update .gitignore
+
+\url{./.gitignore}
+
+\begin{verbatim}
+echo ".env" >> .gitignore
+echo "Procfile" >> .gitignore
+\end{verbatim}
+
+\item $\boxtimes$ initial stage and commit of all files
+
+\begin{verbatim}
+git add .
+git commit -am "initial commit"
+\end{verbatim}
+
+\item $\boxtimes$ add the origin
+
+\begin{verbatim}
+git remote add origin https://github.com/son1112/PrairieHillWebsite.git
+\end{verbatim}
+
+\item $\boxtimes$ initial push
+
+\begin{verbatim}
+git push -u origin master
+\end{verbatim}
+\end{itemize}
+\item Heroku
+\label{sec-4-3-1-2}
+
+\begin{itemize}
+\item $\boxtimes$ Create and push a new heroku app
+
+\begin{verbatim}
+heroku create
+git push heroku master
+\end{verbatim}
+
+\item $\boxtimes$ Rename the heroku app
+
+\begin{verbatim}
+heroku rename phill-new
+\end{verbatim}
+\end{itemize}
+\end{itemize}
 % Emacs 24.4.1 (Org mode 8.2.6)
 \end{document}
