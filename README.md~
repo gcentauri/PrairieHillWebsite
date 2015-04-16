@@ -45,7 +45,7 @@
           # Make sure this routeset is defined last
           comfy_route :cms, :path => '/', :sitemap => true
         end
-    -   [-] backup volunteer data
+    -   [X] backup volunteer data
         -   [X] check api access to user data
             -   [X] update api to authenticate requests
                 
@@ -54,7 +54,6 @@
                 -   [X] Basic
                     
                         http_basic_authenticate_with name: "admin", password: "secret"
-            
             -   [X] ruby?
                 
                 <https://gist.github.com/kyletcarlson/7911188>
@@ -65,21 +64,174 @@
                     
                     uri = URI.pasre("http://www.prairiehill.com/api/users")
         -   [X] user info
-        -   [ ] last years activity/shift data
-    -   [ ] add *volunteer:boolean* attribute to User model
-    -   [ ] re-organize resource relationships
-        -   [ ] Devise User/Volunteer
-            -   [ ] volunteer? boolean
-                -   [ ] is signed up for shift?
-                -   [ ] has guest?
-                -   [ ] has many shifts
-                -   [ ] has many activities through shifts
-        -   [ ] Activity
-            -   [ ] has many shifts
+        -   [X] last years activity/shift data
+    -   [-] re-organize resource relationships
+        -   [ ] destroy volunteer resource?
+        -   [-] Devise User/Volunteer
+            
+            <./db/migrate>
+            <./app/models/user.rb>
+            
+                class User < ActiveRecord::Base
+                  # Include default devise modules. Others available are:
+                  # :confirmable, :lockable, :timeoutable and :omniauthable
+                  devise :database_authenticatable, :registerable,
+                         :recoverable, :rememberable, :trackable, :validatable
+                
+                  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+                
+                  has_many :shifts
+                  has_many :activities through: :shifts
+                
+                  # Virtual attribute for authenticating by either username or email
+                  # This is in addition to a real persisted field like 'username'
+                  attr_accessor :login
+                
+                
+                  def self.find_first_by_auth_conditions(warden_conditions)
+                    conditions = warden_conditions.dup
+                    if login = conditions.delete(:login)
+                      # when allowing distinct User records with, e.g., "username" and "UserName"...
+                      # where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+                      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
+                    else
+                      where(conditions).first
+                    end
+                  end
+                
+                  #### This is the correct method you override with the code above
+                  #### def self.find_for_database_authentication(warden_conditions)
+                  #### end
+                end
+            -   attributes
+                -   id
+                -   email
+                -   username
+                -   name
+                -   admin
+                -   first<sub>name</sub>
+                -   last<sub>name</sub>
+                -   phone
+            -   [ ] has guest?
+            -   [X] has many shifts
+            -   [X] has many activities through shifts
+        -   [-] Activity
+            
+            <./app/models/activity.rb>
+            
+                class Activity < ActiveRecord::Base
+                
+                  has_many :shifts
+                
+                  def self.to_csv(options = {})
+                    CSV.generate(options) do |csv|
+                      csv << column_names
+                      all.each do |activity|
+                        csv << activity.attributes.values_at(*column_names)
+                      end
+                    end
+                  end
+                end
+            -   [X] has many shifts
             -   [ ] belongs to users
         -   [ ] Shifts
+            
+            <./app/models/shift.rb>
+            
+                class Shift < ActiveRecord::Base
+                  has_and_belongs_to_many :users, :dependent => :destroy
+                  accepts_nested_attributes_for :users
+                
+                
+                  def self.to_xlsx(options = {})
+                
+                    workbook = WriteExcel.new('shifts.xlsx')
+                #    workbook = WriteExcel.new(STDOUT)
+                
+                    @shiftTitles = all.pluck(:title).uniq
+                    @shiftTitles.each do |title|
+                
+                      worksheet = workbook.add_worksheet
+                
+                      # format = workbook.add_format
+                      # format.set_bold
+                      # format.set_color('red')
+                      # format.set_align('right')
+                
+                      worksheet.write(0, 0, title) 
+                
+                      @shifts_by_title = all.where(title: title)      
+                      @shifts_by_title.each do |shift|
+                        worksheet.write(1, 1, 'hotdog' )#shift.title)
+                      end
+                    end
+                
+                    workbook.close
+                
+                  end
+                
+                
+                  def self.to_csv(options = {})
+                    CSV.generate(options) do |csv|
+                      csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+                      @shiftTitles = all.pluck(:title).uniq
+                      @shiftTitles.each do |title|
+                        csv << [title]
+                        @shifts_by_title = all.where(title: title)
+                        @shifts_by_title.each do |shift|
+                          csv << ["", shift.time, shift.volunteer, shift.guest]
+                        end
+                      end
+                    end
+                  end
+                
+                  # def self.to_csv(options = {})
+                  #   CSV.generate(options) do |csv|
+                  #     csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+                  #     @shiftTitles = all.pluck(:title).uniq
+                
+                  #     @shiftTitles.each do |title|
+                  #       csv << [title]
+                
+                  #       @shifts_by_title = all.where(title: title)
+                  #       @shifts_by_title.each do |shift|
+                
+                  #         csv << ["", shift.time, shift.volunteer, shift.guest]
+                  #       end
+                  #     end
+                
+                  #   end
+                  # end
+                
+                  # def self.to_csv(options = {})
+                  #   CSV.generate(options) do |csv|
+                  #     csv << column_names
+                  #     all.each do |shift|
+                  #       csv << shift.attributes.values_at(*column_names)
+                  #     end
+                  #   end
+                  # end
+                
+                  def add_user_idee(id)
+                
+                    user_ids_will_change!
+                    update_attribute(:user_ids, self.user_ids << id)
+                
+                    self.save
+                
+                  end
+                
+                  def cancel_shift
+                
+                    shift.volunteer = nil
+                    shift.save
+                
+                  end
+                end
+            -   [ ] has guest?
             -   [ ] belongs to activity
             -   [ ] belongs to users
+                -   [ ] has guest?
 
 -   [ ] build an API
     
@@ -597,7 +749,14 @@
         -   [ ] include some more complex functionality like side-loading for 
             convenience in end-user application development
 -   [ ] rebuild views in angular?
--   [ ] build mobile app for sign-up
+-   [-] build mobile app for sign-up
+    -   [-] ruboto
+        <http://public.dhe.ibm.com/software/dw/demos/jrubyandandroid/index.htm>
+        -   [X] expose public api
+        -   [ ] connect application via http requests
+            <https://developer.android.com/training/volley/index.html>
+        -   [ ] build mobile views
+    -   [ ] phonegap
 -   [X] re-route <http://www.prairiehill.com> => heroku app
 
 ## Essential Files

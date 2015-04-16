@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
 
   has_many :shifts
+  has_many :activities through: :shifts
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -27,6 +29,4 @@ class User < ActiveRecord::Base
   #### This is the correct method you override with the code above
   #### def self.find_for_database_authentication(warden_conditions)
   #### end
-
-
 end

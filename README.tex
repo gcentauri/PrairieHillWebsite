@@ -1,0 +1,1983 @@
+% Created 2015-04-16 Thu 11:57
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{AnderSon}
+\date{\today}
+\title{Prairie Hill Learning Center Website}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.4.1 (Org mode 8.2.6)}}
+\begin{document}
+
+\maketitle
+
+
+\section*{Prairie Hill Learning Center}
+\label{sec-1}
+
+\begin{itemize}
+\item $\square$ fix change/forgot password issue
+\item $\boxminus$ rebuild ccf volunteer app
+
+\url{./config/routes.rb}
+
+\begin{verbatim}
+Rails.application.routes.draw do
+
+  namespace :api, defaults: {format: 'json'} do
+    #namespace :v1 do
+    resources :activities, :pages, :shifts, :volunteers, :users
+    #end
+  end
+
+  resources :activities
+  resources :shifts 
+  resources :volunteers
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
+  comfy_route :cms_admin, :path => '/admin'
+
+  devise_for :users
+  resources :pages
+
+  root "pages#home"
+
+  get "about" => "pages#about"
+  get "news" => "pages#news"
+  get "events" => "pages#events"
+  get "programs" => "pages#programs"
+  get "calendar" => "pages#calendar"
+  get "contact" => "pages#contact"
+  get "staffandboard" => "pages#staff"
+  get "jobs" => "pages#jobs"
+  get "donate" => "pages#donate"
+  get "camp" => "pages#summer_camp"
+  get "csv" => "pages#csvupload"
+  get "uniq" => "pages#unique"
+  get "ccf" => "shifts#volunteer"
+  get "user_shifts" => "shifts#user_shifts"
+
+  # Make sure this routeset is defined last
+  comfy_route :cms, :path => '/', :sitemap => true
+end
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ backup volunteer data
+\begin{itemize}
+\item $\boxtimes$ check api access to user data
+\begin{itemize}
+\item $\boxtimes$ update api to authenticate requests
+
+\url{http://railscasts.com/episodes/352-securing-an-api?view=asciicast}
+
+\begin{itemize}
+\item $\boxtimes$ Basic
+
+\begin{verbatim}
+http_basic_authenticate_with name: "admin", password: "secret"
+\end{verbatim}
+\end{itemize}
+\item $\boxtimes$ ruby?
+
+\url{https://gist.github.com/kyletcarlson/7911188}
+\url{http://www.rubyinside.com/nethttp-cheat-sheet-2940.html}
+
+\begin{verbatim}
+require "net/http"
+require "uri"
+
+uri = URI.pasre("http://www.prairiehill.com/api/users")
+\end{verbatim}
+\end{itemize}
+\item $\boxtimes$ user info
+\item $\boxtimes$ last years activity/shift data
+\end{itemize}
+\item $\boxminus$ re-organize resource relationships
+\begin{itemize}
+\item $\square$ destroy volunteer resource?
+\item $\boxminus$ Devise User/Volunteer
+
+\url{./db/migrate}
+\url{./app/models/user.rb}
+
+\begin{verbatim}
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+	 :recoverable, :rememberable, :trackable, :validatable
+
+  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+
+  has_many :shifts
+  has_many :activities through: :shifts
+
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
+  attr_accessor :login
+
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      # when allowing distinct User records with, e.g., "username" and "UserName"...
+      # where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
+    else
+      where(conditions).first
+    end
+  end
+
+  #### This is the correct method you override with the code above
+  #### def self.find_for_database_authentication(warden_conditions)
+  #### end
+end
+\end{verbatim}
+
+\begin{itemize}
+\item attributes
+\begin{itemize}
+\item id
+\item email
+\item username
+\item name
+\item admin
+\item first$_{\text{name}}$
+\item last$_{\text{name}}$
+\item phone
+\end{itemize}
+\item $\square$ has guest?
+\item $\boxtimes$ has many shifts
+\item $\boxtimes$ has many activities through shifts
+\end{itemize}
+\item $\boxminus$ Activity
+
+\url{./app/models/activity.rb}
+
+\begin{verbatim}
+class Activity < ActiveRecord::Base
+
+  has_many :shifts
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |activity|
+	csv << activity.attributes.values_at(*column_names)
+      end
+    end
+  end
+end
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ has many shifts
+\item $\square$ belongs to users
+\end{itemize}
+\item $\square$ Shifts
+
+\url{./app/models/shift.rb}
+
+\begin{verbatim}
+class Shift < ActiveRecord::Base
+  has_and_belongs_to_many :users, :dependent => :destroy
+  accepts_nested_attributes_for :users
+
+
+  def self.to_xlsx(options = {})
+
+    workbook = WriteExcel.new('shifts.xlsx')
+#    workbook = WriteExcel.new(STDOUT)
+
+    @shiftTitles = all.pluck(:title).uniq
+    @shiftTitles.each do |title|
+
+      worksheet = workbook.add_worksheet
+
+      # format = workbook.add_format
+      # format.set_bold
+      # format.set_color('red')
+      # format.set_align('right')
+
+      worksheet.write(0, 0, title) 
+
+      @shifts_by_title = all.where(title: title)      
+      @shifts_by_title.each do |shift|
+	worksheet.write(1, 1, 'hotdog' )#shift.title)
+      end
+    end
+
+    workbook.close
+
+  end
+
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+      @shiftTitles = all.pluck(:title).uniq
+      @shiftTitles.each do |title|
+	csv << [title]
+	@shifts_by_title = all.where(title: title)
+	@shifts_by_title.each do |shift|
+	  csv << ["", shift.time, shift.volunteer, shift.guest]
+	end
+      end
+    end
+  end
+
+  # def self.to_csv(options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+  #     @shiftTitles = all.pluck(:title).uniq
+
+  #     @shiftTitles.each do |title|
+  #       csv << [title]
+
+  #       @shifts_by_title = all.where(title: title)
+  #       @shifts_by_title.each do |shift|
+
+  #         csv << ["", shift.time, shift.volunteer, shift.guest]
+  #       end
+  #     end
+
+  #   end
+  # end
+
+  # def self.to_csv(options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << column_names
+  #     all.each do |shift|
+  #       csv << shift.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
+
+  def add_user_idee(id)
+
+    user_ids_will_change!
+    update_attribute(:user_ids, self.user_ids << id)
+
+    self.save
+
+  end
+
+  def cancel_shift
+
+    shift.volunteer = nil
+    shift.save
+
+  end
+end
+\end{verbatim}
+
+\begin{itemize}
+\item $\square$ has guest?
+\item $\square$ belongs to activity
+\item $\square$ belongs to users
+\begin{itemize}
+\item $\square$ has guest?
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\item $\square$ build an API
+
+\url{https://codelation.com/blog/rails-restful-api-just-add-water}
+
+\begin{itemize}
+\item $\square$ add to \url{./Gemfile}
+
+\begin{verbatim}
+gem 'jbuilder'
+gem 'kaminari'
+gem 'responders'
+\end{verbatim}
+
+\begin{verbatim}
+source 'http://rubygems.org'
+ruby '2.2.0'
+
+gem 'rails', '4.2.1'
+gem 'sass-rails'
+gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'uglifier', '2.5.1'
+gem 'coffee-rails', '4.0.1'
+gem 'jquery-rails', '3.1.1'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'jbuilder'
+gem 'kaminari'
+gem 'responders'
+gem 'bootstrap-sass'
+gem 'bcrypt'
+gem 'devise'
+gem 'pg'
+gem 'comfortable_mexican_sofa', '1.12.7'
+gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'aws-sdk', '~> 1.46.0'
+gem 'mail_form'
+gem 'simple_form'
+gem 'cells'
+gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+gem 'skrollr-rails'
+gem 'rails_admin'
+gem 'picturefill'
+gem 'autoprefixer-rails'
+gem 'chronic'
+gem 'acts_as_xlsx'
+gem 'axlsx'
+gem 'axlsx_rails'
+gem 'rubyzip'
+gem 'writeexcel', '1.0.5'
+gem 'figaro'
+gem 'meta-tags'
+gem 'metamagic'
+gem 'safe_yaml', '1.0.4'
+gem 'sitemap_generator'
+gem 'dynamic_sitemaps'
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'foreman'
+  gem 'pry-rails'
+  gem 'unicorn'
+end
+
+group :production do
+#  gem 'pg', '0.15.1'
+  gem 'rails_12factor'
+#  gem 'unicorn'
+  gem 'unicorn-rails'
+end
+\end{verbatim}
+
+\item $\square$ controllers
+
+\begin{itemize}
+\item $\square$ create file \url{./app/controllers/api/base_controller.rb}
+
+\begin{verbatim}
+mkdir app/controllers/api
+\end{verbatim}
+
+\begin{verbatim}
+module Api
+  class BaseController < ApplicationController
+    protect_from_forgery with: :null_session
+    before_action :set_resource, only: [:destroy, :show, :update]
+    respond_to :json
+
+    private
+
+    # Returns the resource from the created instance variable
+    # @return [Object]
+    def get_resource
+      instance_variable_get("@#{resource_name}")
+    end
+
+    # Returns the allowed parameters for searching
+    # Override this method in each API controller
+    # to permit additional parameters to search on
+    # @return [Hash]
+    def query_params
+      {}
+    end
+
+    # Returns the allowed parameters for pagination
+    # @return [Hash]
+    def page_params
+      params.permit(:page, :page_size)
+    end
+
+    # The resource class based on the controller
+    # @return [Class]
+    def resource_class
+      @resource_class ||= resource_name.classify.constantize
+    end
+
+    # The singular name for the resource class based on the controller
+    # @return [String]
+    def resource_name
+      @resource_name ||= self.controller_name.singularize
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    # If a single resource is loaded for #create or #update,
+    # then the controller for the resource must implement
+    # the method "#{resource_name}_params" to limit permitted
+    # parameters for the individual model.
+    def resource_params
+      @resource_params ||= self.send("#{resource_name}_params")
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_resource(resource = nil)
+      resource ||= resource_class.find(params[:id])
+      instance_variable_set("@#{resource_name}", resource)
+    end
+  end
+end
+\end{verbatim}
+
+\item $\square$ add the public resource methods to the same controller
+
+\begin{verbatim}
+# POST /api/{plural_resource_name}
+def create
+  set_resource(resource_class.new(resource_params))
+
+  if get_resource.save
+    render :show, status: :created
+  else
+    render json: get_resource.errors, status: :unprocessable_entity
+  end
+end
+
+# DELETE /api/{plural_resource_name}/1
+def destroy
+  get_resource.destroy
+  head :no_content
+end
+
+# GET /api/{plural_resource_name}
+def index
+  plural_resource_name = "@#{resource_name.pluralize}"
+  resources = resource_class.where(query_params)
+              .page(page_params[:page])
+              .per(page_params[:page_size])
+
+  instance_variable_set(plural_resource_name, resources)
+  respond_with instance_variable_get(plural_resource_name)
+end
+
+# GET /api/{plural_resource_name}/1
+def show
+  respond_with get_resource
+end
+
+# PATCH/PUT /api/{plural_resource_name}/1
+def update
+  if get_resource.update(resource_params)
+    render :show
+  else
+    render json: get_resource.errors, status: :unprocessable_entity
+  end
+end
+\end{verbatim}
+
+\begin{verbatim}
+module Api
+  class BaseController < ApplicationController
+    protect_from_forgery with: :null_session
+    before_action :set_resource, only: [:destroy, :show, :update]
+    respond_to :json
+
+    # POST /api/{plural_resource_name}
+    def create
+      set_resource(resource_class.new(resource_params))
+
+      if get_resource.save
+	render :show, status: :created
+      else
+	render json: get_resource.errors, status: :unprocessable_entity
+      end
+    end
+
+    # DELETE /api/{plural_resource_name}/1
+    def destroy
+      get_resource.destroy
+      head :no_content
+    end
+
+    # GET /api/{plural_resource_name}
+    def index
+      plural_resource_name = "@#{resource_name.pluralize}"
+      resources = resource_class.where(query_params)
+		  .page(page_params[:page])
+		  .per(page_params[:page_size])
+
+      instance_variable_set(plural_resource_name, resources)
+      respond_with instance_variable_get(plural_resource_name)
+    end
+
+    # GET /api/{plural_resource_name}/1
+    def show
+      respond_with get_resource
+    end
+
+    # PATCH/PUT /api/{plural_resource_name}/1
+    def update
+      if get_resource.update(resource_params)
+	render :show
+      else
+	render json: get_resource.errors, status: :unprocessable_entity
+      end
+    end
+
+    private
+
+    # Returns the resource from the created instance variable
+    # @return [Object]
+    def get_resource
+      instance_variable_get("@#{resource_name}")
+    end
+
+    # Returns the allowed parameters for searching
+    # Override this method in each API controller
+    # to permit additional parameters to search on
+    # @return [Hash]
+    def query_params
+      {}
+    end
+
+    # Returns the allowed parameters for pagination
+    # @return [Hash]
+    def page_params
+      params.permit(:page, :page_size)
+    end
+
+    # The resource class based on the controller
+    # @return [Class]
+    def resource_class
+      @resource_class ||= resource_name.classify.constantize
+    end
+
+    # The singular name for the resource class based on the controller
+    # @return [String]
+    def resource_name
+      @resource_name ||= self.controller_name.singularize
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    # If a single resource is loaded for #create or #update,
+    # then the controller for the resource must implement
+    # the method "#{resource_name}_params" to limit permitted
+    # parameters for the individual model.
+    def resource_params
+      @resource_params ||= self.send("#{resource_name}_params")
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_resource(resource = nil)
+      resource ||= resource_class.find(params[:id])
+      instance_variable_set("@#{resource_name}", resource)
+    end
+  end
+end
+\end{verbatim}
+
+\item $\square$ connect base controller to model controllers
+
+Pay attention that these inherit from \emph{Api::BaseController}
+
+\url{./app/controllers/api/users_controller.rb}
+
+\begin{verbatim}
+module Api
+  class UsersController < Api::BaseController
+    #http_basic_authenticate_with name: "admin", password: "secret"
+    http_basic_authenticate_with name: "admin", password: ENV["API_PASS"]
+
+    private
+
+    def activity_params
+      params.require(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
+    end
+
+    def query_params
+      params.permit(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
+    end
+
+  end
+end
+\end{verbatim}
+
+\url{./app/controllers/api/activities_controller.rb}
+
+\begin{verbatim}
+module Api
+  class ActivitiesController < Api::BaseController
+
+    private
+
+    def activity_params
+      params.require(:activity).permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
+    end
+
+    def query_params
+      params.permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
+    end
+
+  end
+end
+\end{verbatim}
+
+\url{./app/controllers/api/pages_controller.rb}
+
+\begin{verbatim}
+module Api
+  class PagesController < Api::BaseController
+
+    private
+
+    def page_params
+      params.require(:page).permit(:title, :description)
+    end
+
+    def query_params
+      params.permit(:title, :description)
+    end
+
+  end
+end
+\end{verbatim}
+
+\url{./app/controllers/api/shifts_controller.rb}
+
+\begin{verbatim}
+module Api
+  class ShiftsController < Api::BaseController
+
+    private
+
+    def shift_params
+      params.require(:shift).permit(:title, :time, :vols_needed, :volunteers, :volunteer, :guest)
+    end
+
+    def query_params
+      params.permit(:title,  :time, :vols_needed, :volunteers, :volunteer, :guest)
+    end
+
+  end
+end
+\end{verbatim}
+
+\url{./app/controllers/api/volunteers_controller.rb}
+
+\begin{verbatim}
+module Api
+  class VolunteersController < Api::BaseController
+
+    private
+
+    def volunteer_params
+      params.require(:volunteer).permit(:name, :email, :phone)
+    end
+
+    def query_params
+      params.permit(:name, :email, :phone)
+    end
+
+  end
+end
+\end{verbatim}
+\end{itemize}
+
+\item $\square$ routing
+
+\url{./config/routes.rb}
+
+\begin{verbatim}
+namespace :api do
+  resources :logs, :periods
+end
+\end{verbatim}
+
+\item $\square$ serializing data
+
+\begin{verbatim}
+mkdir app/views/api /shifts etc
+\end{verbatim}
+
+\begin{itemize}
+\item $\square$ \url{./app/views/api/users/index.json.jbuilder}
+
+\begin{verbatim}
+json.users @users do |user|
+  json.id user.id
+  json.email user.email
+  json.username user.username
+  json.name user.name
+  json.admin user.admin
+  json.first_name user.first_name
+  json.last_name user.last_name
+  json.phone user.phone
+
+  #json.period_id log.period ? log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/users/show.json.jbuilder}
+
+\begin{verbatim}
+json.user do
+  json.id  @user.id
+  json.username @user.username
+  json.name @user.name
+  json.admin @user.admin
+  json.first_name @user.first_name
+  json.last_name @user.last_name  
+  json.phone @user.phone
+
+  #json.period_id @log.period ? @log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/activities/index.json.jbuilder}
+
+\begin{verbatim}
+json.activities @activities do |act|
+  json.id act.id
+  json.work_area act.work_area
+  json.coordinator act.coordinator
+  json.sign act.sign
+  json.comments act.comments
+
+  #json.period_id log.period ? log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/activities/show.json.jbuilder}
+
+\begin{verbatim}
+json.activity do
+  json.id  @activity.id
+  json.work_area @activity.work_area
+  json.coordinator @activity.coordinator
+  json.sign @activity.sign
+  json.comments @activity.comments
+
+  #json.period_id @log.period ? @log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/pages/index.json.jbuilder}
+
+\begin{verbatim}
+json.pages @pages do |page|
+  json.id page.id
+  json.title page.title
+  json.description page.description
+
+  #json.period_id log.period ? log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/pages/show.json.jbuilder}
+
+\begin{verbatim}
+json.page do
+  json.id  @page.id
+  json.title @page.title
+  json.description @page.description
+
+  #json.period_id @log.period ? @log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/shifts/index.json.jbuilder}
+
+\begin{verbatim}
+json.shifts @shifts do |shift|
+  json.id shift.id
+  json.title shift.title
+  json.time shift.time
+  json.vols_needed shift.vols_needed
+  json.volunteer shift.volunteer
+  json.guest shift.guest
+
+  #json.period_id log.period ? log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/shifts/show.json.jbuilder}
+
+\begin{verbatim}
+json.shift do
+  json.id  @shift.id
+  json.title @shift.title
+  json.time @shift.time
+  json.vols_needed @shift.vols_needed
+  json.volunteer @shift.volunteer
+  json.guest @shift.guest
+
+  #json.period_id @log.period ? @log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/volunteers/index.json.jbuilder}
+
+\begin{verbatim}
+json.volunteers @volunteers do |vol|
+  json.id vol.id
+  json.name vol.name
+  json.email vol.email
+  json.phone vol.phone
+
+  #json.period_id log.period ? log.period_id : nil
+end
+\end{verbatim}
+
+\item $\square$ \url{./app/views/api/volunteers/show.json.jbuilder}
+
+\begin{verbatim}
+json.volunteer do
+  json.id  @volunteer.id
+  json.name @volunteer.name
+  json.email @volunteer.email
+  json.phone @volunteer.phone
+
+  #json.period_id @log.period ? @log.period_id : nil
+end
+\end{verbatim}
+\end{itemize}
+
+\item $\square$ security and performance concerns
+
+\begin{itemize}
+\item $\square$ use fragment caching to make API efficient
+
+\begin{itemize}
+\item $\square$ \url{http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching}
+
+\item $\square$ \url{https://github.com/rails/jbuilder}
+          offers advantages in caching over libraries like \url{https://github.com/rails-api/active_model_serializers}
+          because you can cache JSON templates the same way you would \emph{erb} templates
+\end{itemize}
+
+\item $\square$ secure your API, gems that we use everyday include CanCan(Can) 
+and Devise to offer per user permissions on resources
+
+\item $\square$ include some more complex functionality like side-loading for 
+convenience in end-user application development
+\end{itemize}
+\end{itemize}
+\item $\square$ rebuild views in angular?
+\item $\boxminus$ build mobile app for sign-up
+\begin{itemize}
+\item $\boxminus$ ruboto
+\url{http://public.dhe.ibm.com/software/dw/demos/jrubyandandroid/index.htm}
+\begin{itemize}
+\item $\boxtimes$ expose public api
+\item $\square$ connect application via http requests
+\url{https://developer.android.com/training/volley/index.html}
+\item $\square$ build mobile views
+\end{itemize}
+\item $\square$ phonegap
+\end{itemize}
+\item $\boxtimes$ re-route \url{http://www.prairiehill.com} => heroku app
+\end{itemize}
+
+\subsection*{Essential Files}
+\label{sec-1-1}
+
+\url{./FILES.org}
+
+\subsubsection*{excel export}
+\label{sec-1-1-1}
+
+\url{http://railscasts.com/episodes/362-exporting-csv-and-excel}
+
+\section*{Description}
+\label{sec-2}
+
+After over 2 years of cumbersome working with the wordpress managed website 
+content for the Prairie Hill website (whether due to the way that wordpress 
+arranges itself or my own ignorance and lack of education in web design, php, 
+etc), this is an attempt to try something new. Having a nice solid foundation 
+in building an application with Rails, I feel like now is the time to build 
+something from the ground up that will hopefully meet my needs for control 
+and understanding for building and modifying the backend functionality 
+(most importantly without having to go through all of hassle of using the 
+actual web content management editors and having so many extraneous steps,
+instead of just using my text editor\ldots{}), as well as the front end need
+for admin staff to update content, which is what is important to them in
+the basic functionality of the site. I take care of the functionality and
+aesthetic; they give it the words.
+
+\subsection*{NB}
+\label{sec-2-1}
+
+\subsubsection*{What we need to look at for functionality:}
+\label{sec-2-1-1}
+
+\begin{itemize}
+\item mailer contact
+\label{sec-2-1-1-1}
+
+\url{http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/}
+
+set up successfully in development
+
+\begin{itemize}
+\item $\square$ change heroku configs to prairiehill email authentication for production
+\end{itemize}
+
+
+
+
+
+\item user accounts
+\label{sec-2-1-1-2}
+
+\begin{itemize}
+\item $\square$ We need USERs with authenticatable accounts
+
+These users will have various access to update content and that's really
+all that they need. However,
+
+\begin{itemize}
+\item $\square$ Admin/General user
+
+\url{https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role}
+
+We will have user accounts for general things like summer camp and 
+country fair sign up
+
+We will also have admin users who also have access to CMS
+
+\begin{itemize}
+\item $\square$ install \& configure RailsAdmin
+
+\url{https://github.com/sferik/rails_admin}
+
+\begin{itemize}
+\item $\square$ bundle the gem
+
+\begin{verbatim}
+gem 'rails_admin'
+bundle install
+\end{verbatim}
+
+\item $\square$ install RailsAdmin
+
+\begin{verbatim}
+rails g rails_admin:install
+\end{verbatim}
+
+\item $\square$ configure for Devise
+
+\url{https://github.com/sferik/rails_admin/wiki/Devise}
+\end{itemize}
+\end{itemize}
+
+\item $\square$ Using ComfortableMexicanSofa for Content Management
+
+\begin{itemize}
+\item $\square$ already set up to use Paperclip for images
+
+\item $\square$ WYSIWYG
+
+\url{./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css}
+
+\begin{itemize}
+\item $\boxtimes$ editor window is very short
+\end{itemize}
+\end{itemize}
+
+\item $\square$ Private content
+
+\begin{itemize}
+\item $\square$ admin vs common user accounts
+\end{itemize}
+
+\item $\square$ User profiles?
+
+\item $\square$ Summer Camp Registration model?
+
+\item $\square$ Volunteers/CCF
+
+\begin{itemize}
+\item $\square$ connect devise users with shifts?
+
+\item $\square$ Sign up views
+
+\begin{itemize}
+\item $\square$ if user signed in\ldots{}
+
+\item $\square$ time to learn some jQuery!
+
+\item $\square$ FIRST: Shows Activity titles and a number of volunteers total needed
+
+\item $\square$ SECOND: Clicking on one of the FIRST shows a view of specific times
+and number of volunteers still needed for each, just after a description
+of the activity itself
+
+\begin{itemize}
+\item $\square$ checkboxes for selected desired shifts?
+
+\item $\square$ ability to remove volunteer from shifts
+\end{itemize}
+
+\item $\square$ BLOG/NEWSfeed for news updates?
+
+\item $\square$ PAGEs for general website content
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\section*{ModelViewControl}
+\label{sec-3}
+
+\subsection*{Model}
+\label{sec-3-1}
+
+Pages
+
+\url{./app/controllers/pages_controller.rb}
+\url{./app/models/page.rb}
+
+\subsubsection*{Page}
+\label{sec-3-1-1}
+
+\begin{itemize}
+\item $\boxtimes$ Create Static Pages
+
+\url{http://www.railstutorial.org/book/static_pages}
+
+\begin{itemize}
+\item $\boxtimes$ Generate a Pages controller
+
+\url{./app/controllers/static_pages_controller.rb}
+\url{./config/routes.rb}
+
+\begin{verbatim}
+rails g controller StaticPages home
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{Rails Generation}
+\label{sec-3-1-2}
+
+\begin{itemize}
+\item Scaffolding
+\label{sec-3-1-2-1}
+
+\begin{itemize}
+\item $\boxtimes$ Disable scaffold stylesheet creation 
+
+\url{./config/application.rb}
+
+\begin{verbatim}
+config.generators do |g|
+  g.stylesheets false
+end
+\end{verbatim}
+
+\item $\square$ Generate a scaffold
+
+EXAMPLE
+\begin{verbatim}
+rails g scaffold Page index
+\end{verbatim}
+
+\item $\square$ migrate the database
+
+\begin{verbatim}
+rake db:migrate
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+
+\subsection*{View}
+\label{sec-3-2}
+
+\subsubsection*{Skrollr}
+\label{sec-3-2-1}
+
+\url{https://github.com/reed/skrollr-rails}
+
+???"@import 'skrollr';" in \url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}?
+
+\begin{itemize}
+\item $\boxtimes$ add skrollr script
+
+\begin{itemize}
+\item $\boxtimes$ make sure skrollr-rails is in the Gemfile
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem 'skrollr-rails'
+\end{verbatim}
+
+\item $\boxtimes$ add the following script just before </body> tag
+
+\url{./app/views/layouts/application.html.erb}
+
+\begin{verbatim}
+<script>
+ (function($){
+   skrollr.init({
+     forceHeight: false,
+     smoothScrolling: false
+   }).refresh();
+ } (jQuery));
+</script>
+\end{verbatim}
+
+\item $\boxtimes$ Place \#skrollr-body div tag around <\%= yield \%> tag
+
+\begin{verbatim}
+<div id="skrollr-body">
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+
+
+\begin{itemize}
+\item $\boxtimes$ require skrollr in application.js
+
+\url{./app/assets/javascripts/application.js}
+
+\begin{verbatim}
+//= require skrollr
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ For IE compatibility
+
+\begin{verbatim}
+//= require skrollr
+//= require skrollr.ie
+\end{verbatim}
+
+\item $\boxtimes$ This plugin makes hashlinks scroll nicely to their target position.
+
+\begin{verbatim}
+//= require skrollr
+//= require skrollr.menu
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{Bootstrap-sass}
+\label{sec-3-2-2}
+
+\begin{itemize}
+\item $\boxtimes$ Create custom bootstrap stylesheet
+
+\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
+
+\begin{itemize}
+\item $\boxtimes$ create file
+
+\begin{verbatim}
+echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
+\end{verbatim}
+\end{itemize}
+\textbf{NOTE} Place new variables before "@import 'bootstrap'"
+
+\begin{itemize}
+\item $\boxtimes$ Fonts
+
+\emph{EXAMPLE:}
+\begin{verbatim}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
+\end{verbatim}
+
+\item $\boxtimes$ Variables
+
+\begin{verbatim}
+$phill-grn: #3f8000;
+\end{verbatim}
+\end{itemize}
+
+\item $\boxtimes$ Require Bootstrap's Javascript, after jquery$_{\text{ujs}}$ 
+
+\url{./app/assets/javascripts/application.js}
+
+\begin{verbatim}
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require turbolinks
+//= require_tree .
+\end{verbatim}
+\end{itemize}
+
+\subsubsection*{Assets}
+\label{sec-3-2-3}
+
+\begin{itemize}
+\item Stylesheets
+\label{sec-3-2-3-1}
+
+\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
+\item Javascripts
+\label{sec-3-2-3-2}
+
+\begin{itemize}
+\item $\boxtimes$ Replace turbolinks with jquery-turbolinks
+
+\url{./app/assets/javascripts/application.js}
+
+\begin{itemize}
+\item $\boxtimes$ Check for jquery-turbolinks in Gemfile
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem 'jquery-turbolinks'
+bundle
+\end{verbatim}
+
+\item $\boxtimes$ remove turbolinks line
+
+\begin{verbatim}
+//= require turbolinks
+\end{verbatim}
+
+\item $\boxtimes$ add jquery.turbolinks under bootstrap
+
+\begin{verbatim}
+//= require bootstrap
+//= require jquery.turbolinks
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ Restart the server
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item Images
+\label{sec-3-2-3-3}
+
+\begin{itemize}
+\item $\boxtimes$ css background images 
+
+\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
+
+\begin{verbatim}
+background: image-url('image.jpg')
+\end{verbatim}
+
+\item $\square$ run the following command to precompile assets
+
+\begin{verbatim}
+RAILS_ENV=production bundle exec rake assets:precompile
+\end{verbatim}
+
+\item $\square$ set video as background?
+\end{itemize}
+\end{itemize}
+
+
+\subsubsection*{Views}
+\label{sec-3-2-4}
+
+\begin{itemize}
+\item Application
+\label{sec-3-2-4-1}
+
+\url{./app/views/}
+
+\begin{itemize}
+\item $\boxtimes$ add viewport
+
+\url{./app/views/layouts/application.html.erb}
+
+\begin{verbatim}
+<meta name="viewport" content="width=device-width, intial-scale=1.0">
+\end{verbatim}
+
+\item $\square$ Optional page refresh interval
+
+\begin{verbatim}
+<meta http-equiv="REFRESH" content="60" />
+\end{verbatim}
+\end{itemize}
+
+\item Pages
+\label{sec-3-2-4-2}
+
+\url{./app/views/pages/}
+\url{./app/views/pages/pages.org}
+\end{itemize}
+
+\subsection*{Control}
+\label{sec-3-3}
+
+\subsubsection*{AngularJS (Honeybadger tutorial)}
+\label{sec-3-3-1}
+
+This example from honeybadger may be my key to fixing the issue I am having with
+the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
+app. Once I understand what is going on and how to impliment Angular, maybe it 
+will be a better solution than all of that erb crap I was trying to use\ldots{}
+
+\url{https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails}
+
+\begin{itemize}
+\item Initial setup
+\label{sec-3-3-1-0-0-1}
+
+\begin{itemize}
+\item $\boxtimes$ create the project
+
+\begin{verbatim}
+rails new rest --database=postgresql --skip-test-unit
+\end{verbatim}
+
+\item $\square$ create the PostgreSQL database user:
+
+\begin{verbatim}
+createuser -P -s -e rest
+\end{verbatim}
+
+\item $\square$ Add RSpec to your Gemfile \& Install RSpec
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem "rspec-rails", "~> 2.14.0"
+\end{verbatim}
+
+\begin{verbatim}
+bundle install
+\end{verbatim}
+
+\begin{verbatim}
+rails g rspec:install
+\end{verbatim}
+
+\item $\square$ Create the database:
+
+\begin{verbatim}
+rake db:create
+\end{verbatim}
+\end{itemize}
+
+\item Creating the Restaurant model
+\label{sec-3-3-1-0-0-2}
+
+\begin{itemize}
+\item $\square$ Create the Restaurant resource
+
+\begin{verbatim}
+rails g scaffold restaurant name:string
+\end{verbatim}
+
+\item $\square$ Make sure restaurant names are unique
+
+\url{./db/migrate/}
+
+\begin{verbatim}
+class CreateRestaurants < ActiveRecord::Migration
+  def change
+    create_table :restaurants do |t|
+      t.string :name
+
+      t.timestamps
+    end
+
+    add_index :restaurants, :name, unique: true
+  end
+end
+\end{verbatim}
+
+\begin{itemize}
+\item $\square$ Run the migration
+
+\begin{verbatim}
+rake db:migrate
+\end{verbatim}
+
+\item $\square$ Add some specs\ldots{}
+
+Need to start learning TDD, but I'm lazy right now
+\end{itemize}
+\end{itemize}
+
+\item Bringing AngularJS into the mix
+\label{sec-3-3-1-0-0-3}
+
+\begin{itemize}
+\item $\boxtimes$ Create the controller
+
+\begin{verbatim}
+rails g controller static_pages index
+\end{verbatim}
+
+\item $\boxtimes$ Update routes
+
+\url{./config/routes.rb}
+
+\begin{verbatim}
+root 'static_pages#index'
+\end{verbatim}
+
+\item $\boxtimes$ Download Angular
+
+\begin{verbatim}
+wget http://code.angularjs.org/1.1.5/angular.js \
+http://code.angularjs.org/1.1.5/angular-mocks.js
+\end{verbatim}
+
+\begin{verbatim}
+mv angular* app/assets/javascripts
+\end{verbatim}
+
+\item $\boxminus$ Add it to the asset pipeline
+
+\url{./app/assets/javascripts/application.js}
+
+\begin{itemize}
+\item $\square$ Remove turbolinks line
+
+Keeping it in for now as a test
+
+\item $\square$ Add the following two lines
+
+\begin{verbatim}
+//= require angular
+//= require main
+\end{verbatim}
+
+\item $\boxtimes$ Set up the layout
+
+\url{./app/views/layouts/application.html.erb}
+
+naming the app via angular "phill" for simplicity
+keeping turbolinks code in for now until I see a real reason to 
+take it out
+
+\begin{itemize}
+\item $\boxtimes$ tested taking out turbolinks markup
+\end{itemize}
+\begin{verbatim}
+<!DOCTYPE html>
+<html ng-app="phill">
+<head>
+  <title>Rest</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div ng-view>
+  <%= yield %>
+</div>
+
+</body>
+</html>
+\end{verbatim}
+
+\item $\boxtimes$ Creating an Angular controller
+
+\begin{verbatim}
+mkdir -p app/assets/javascripts/angular/controllers
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ Create the controller
+
+\url{./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee}
+
+\begin{verbatim}
+@phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+
+]
+\end{verbatim}
+
+\item $\boxtimes$ Add an Angular route
+
+\url{./app/assets/javascripts/main.js.coffee}
+
+\begin{verbatim}
+# This line is related to our Angular app, not to our
+# HomeCtrl specifically. This is basically how we tell
+# Angular about the existence of our application.
+@phill = angular.module('phill', [])
+\end{verbatim}
+
+\begin{verbatim}
+# This routing directive tells Angular about the default
+# route for our application. The term "otherwise" here
+# might seem somewhat awkward, but it will make more
+# sense as we add more routes to our application.
+@phill.config(['$routeProvider', ($routeProvider) ->
+  $routeProvider.
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    }) 
+])
+\end{verbatim}
+
+\item $\boxtimes$ Add an Angular template
+
+\begin{verbatim}
+mkdir public/templates
+\end{verbatim}
+
+\url{./public/templates/home.html}
+
+\begin{verbatim}
+This is the home page
+\end{verbatim}
+
+\begin{itemize}
+\item $\boxtimes$ An example of data binding
+
+\url{./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee}
+
+\begin{verbatim}
+@phill.controller 'HomeCtrl', ['$scope', ($scope) ->
+  $scope.foo = 'bar'        
+]
+\end{verbatim}
+
+\url{./public/templates/home.html}
+
+\begin{verbatim}
+Value of "foo": {{foo}}
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\item Doing it for real this time
+\label{sec-3-3-1-0-0-4}
+
+\begin{itemize}
+\item $\square$ Seed the database
+
+\url{./db/seeds.rb}
+
+\begin{verbatim}
+Restaurant.create([
+  { name: "The French Laundry" },
+  { name: "Chez Panisse" },
+  { name: "Bouchon" },
+  { name: "Noma" },
+  { name: "Taco Bell" },
+])
+\end{verbatim}
+
+\begin{verbatim}
+rake db:seed
+\end{verbatim}
+
+\item $\boxtimes$ Creating a shift index page
+
+\begin{verbatim}
+mkdir public/templates/shifts
+\end{verbatim}
+
+\url{./public/templates/shifts/index.html}
+
+\begin{verbatim}
+<a href="/#">index</a>
+<ul ng-repeat="restaurant in restaurants">
+  <li>
+    <a ng-click="viewRestaurant(restaurant.id)">
+      {{ restaurant.name }}
+    </a>
+  </li>
+</ul>
+\end{verbatim}
+
+OR rather
+
+\begin{verbatim}
+<a href="/#">Shifts</a>
+<ul ng-repeat="shift in shifts">
+  <li>
+    <a ng-click="viewShift(shift.id)">
+      {{ shift.title }}
+    </a>
+  </li>
+</ul>
+\end{verbatim}
+
+\item $\boxtimes$ Create the controller
+
+\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
+
+\begin{verbatim}
+@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+  $scope.restaurants = []
+  $http.get('./restaurants.json').success((data) ->
+    $scope.restaurants = data
+  )
+]
+\end{verbatim}
+
+OR rather
+
+\begin{verbatim}
+@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+  $scope.shifts = []
+  $http.get('./shifts.json').success((data) ->
+    $scope.shifts = data
+  )
+]
+\end{verbatim}
+
+\item $\boxtimes$ Adjust routing configuration
+
+\url{./app/assets/javascripts/main.js.coffee}
+
+\begin{verbatim}
+@phill = angular.module('phill', [])
+
+@phill.config(['$routeProvider', ($routeProvider) ->
+  $routeProvider.
+    when('/shifts', {
+      templateUrl: '../templates/shifts/index.html',
+      controller: 'ShiftIndexCtrl'
+    }).
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    })
+])
+\end{verbatim}
+\end{itemize}
+
+\item Adding our first test
+\label{sec-3-3-1-0-0-5}
+
+fill in later
+
+\item Building out the shifts page
+\label{sec-3-3-1-0-0-6}
+
+When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
+
+\url{./app/views/shifts/index.json.jbuilder}
+
+\begin{itemize}
+\item $\boxtimes$ Add :id parameter for json.extract!
+
+\begin{verbatim}
+json.array!(@restaurants) do |restaurant|
+  json.extract! restaurant, :id, :name
+  json.url restaurant_url(restaurant, format: :json)
+end
+\end{verbatim}
+
+OR rather
+
+\begin{verbatim}
+json.array!(@shifts) do |shift|
+  json.extract! shift, :id, :title, :vols_needed, :user_ids
+  json.url shift_url(shift, format: :json)
+end
+\end{verbatim}
+
+\item $\square$ define pushShift()
+
+\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
+
+\item $\boxtimes$ define viewShift()
+
+\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
+
+\begin{verbatim}
+@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+  $scope.restaurants = []
+  $http.get('./restaurants.json').success((data) ->
+    $scope.restaurants = data
+  )
+
+  $scope.viewRestaurant = (id) ->
+    $location.url "/restaurants/#{id}"
+]
+\end{verbatim}
+
+OR rather
+
+\begin{verbatim}
+@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+  $scope.shifts = []
+  $http.get('./shifts.json').success((data) ->
+    $scope.shifts = data
+  )
+
+  $scope.viewShift = (id) ->
+    $location.url "/shifts/#{id}"        
+]
+\end{verbatim}
+
+\item $\boxtimes$ Create show template, route and controller
+
+\url{./public/templates/shifts/show.html}
+
+\begin{verbatim}
+<h1>{{shift.title}}</h1>
+\end{verbatim}
+
+\url{./app/assets/javascripts/main.js.coffee}
+
+\begin{verbatim}
+@rest = angular.module('rest', [])
+
+@rest.config(['$routeProvider', ($routeProvider) ->
+  $routeProvider.
+    when('/restaurants', {
+      templateUrl: '../templates/restaurants/index.html',
+      controller: 'RestaurantIndexCtrl'
+    }).
+    when('/restaurants/:id', {
+      templateUrl: '../templates/restaurants/show.html',
+      controller: 'RestaurantShowCtrl'
+    }).
+    otherwise({
+      templateUrl: '../templates/home.html',
+      controller: 'HomeCtrl'
+    })
+])
+\end{verbatim}
+
+\url{./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee}
+
+\begin{verbatim}
+@rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) ->
+  $http.get("./restaurants/#{$routeParams.id}.json").success((data) ->
+    $scope.restaurant = data
+  )
+]
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+
+
+
+
+\subsubsection*{Routes}
+\label{sec-3-3-2}
+
+\href{./app/views/}{Views Directory}
+
+\url{./config/routes.rb}
+
+\begin{itemize}
+\item $\boxtimes$ create root path
+
+\begin{verbatim}
+root 'static_pages#home'
+\end{verbatim}
+
+\item $\square$ create paths for desired routes
+
+\begin{verbatim}
+get "about" => "pages#about"
+get "news" => "pages#news"
+get "programs" => "pages#programs"
+get "calendar" => "pages#calendar"
+get "contact" => "contacts#new"
+get "staffandboard" => "pages#staff"
+get "jobs" => "pages#jobs"
+get "donate" => "pages#donate"
+get "camp" => "pages#summer_camp"
+get "csv" => "pages#csvupload"
+get "ccf" => "shifts#volunteer"
+\end{verbatim}
+\end{itemize}
+
+
+\subsubsection*{Controllers}
+\label{sec-3-3-3}
+
+\url{./app/controllers/application_controller.rb}
+
+\url{./app/controllers/pages_controller.rb}
+
+\section*{Application skeleton BASICS}
+\label{sec-4}
+
+
+\subsection*{Useful commands}
+\label{sec-4-1}
+
+\subsubsection*{Rake}
+\label{sec-4-1-1}
+
+\begin{verbatim}
+rake routes
+\end{verbatim}
+
+\subsubsection*{Rails}
+\label{sec-4-1-2}
+
+\begin{verbatim}
+rails console
+\end{verbatim}
+
+\begin{verbatim}
+rails s
+rails s -e production
+\end{verbatim}
+\subsubsection*{Heroku}
+\label{sec-4-1-3}
+
+\begin{verbatim}
+heroku rename $NEW_NAME
+heroku open
+heroku logs --tail
+heroku run rails console
+\end{verbatim}
+
+\begin{verbatim}
+heroku config:set <ENV_NAME>=<variable>
+heroku config:unset
+heroku config:get
+\end{verbatim}
+
+\subsubsection*{Git}
+\label{sec-4-1-4}
+\subsection*{Essential Files}
+\label{sec-4-2}
+
+\href{./Gemfile}{Gemfile}
+\subsection*{Create the default skeletal application}
+\label{sec-4-3}
+
+\begin{itemize}
+\item $\boxtimes$ create a new application
+
+\begin{verbatim}
+rails new PrairieHillWebsite
+\end{verbatim}
+
+\item $\boxtimes$ update README
+
+\begin{verbatim}
+rm README.rdoc
+touch README.org
+\end{verbatim}
+
+\item $\boxtimes$ rename application.css to application.css.scss
+
+\url{./app/assets/stylesheets/application.css.scss}
+
+\begin{verbatim}
+cd app/assets/stylesheets
+mv application.css application.css.scss
+\end{verbatim}
+
+\item $\boxtimes$ Test the skeletal application
+
+\begin{itemize}
+\item $\boxtimes$ Start the Rails server
+
+\begin{verbatim}
+rails s
+\end{verbatim}
+
+\item $\boxtimes$ open your browser to localhost, port 3000
+
+\begin{verbatim}
+localhost:3000
+\end{verbatim}
+\end{itemize}
+
+\item $\boxtimes$ update the Gemfile
+
+\url{./Gemfile}
+
+\begin{verbatim}
+cat ~/RAILS-dev/DEFAULT-Gemfile > Gemfile
+\end{verbatim}
+
+\item $\boxtimes$ update the bundle
+
+\begin{verbatim}
+bundle update
+bundle install --without production
+\end{verbatim}
+\end{itemize}
+
+\subsubsection*{Set up Git and Heroku}
+\label{sec-4-3-1}
+
+\begin{itemize}
+\item Git
+\label{sec-4-3-1-1}
+
+\begin{itemize}
+\item $\boxtimes$ initialize git repo
+
+\begin{verbatim}
+git init
+\end{verbatim}
+
+\item $\boxtimes$ update .gitignore
+
+\url{./.gitignore}
+
+\begin{verbatim}
+echo ".env" >> .gitignore
+echo "Procfile" >> .gitignore
+\end{verbatim}
+
+\item $\boxtimes$ initial stage and commit of all files
+
+\begin{verbatim}
+git add .
+git commit -am "initial commit"
+\end{verbatim}
+
+\item $\boxtimes$ add the origin
+
+\begin{verbatim}
+git remote add origin https://github.com/son1112/PrairieHillWebsite.git
+\end{verbatim}
+
+\item $\boxtimes$ initial push
+
+\begin{verbatim}
+git push -u origin master
+\end{verbatim}
+\end{itemize}
+\item Heroku
+\label{sec-4-3-1-2}
+
+\begin{itemize}
+\item $\boxtimes$ Create and push a new heroku app
+
+\begin{verbatim}
+heroku create
+git push heroku master
+\end{verbatim}
+
+\item $\boxtimes$ Rename the heroku app
+
+\begin{verbatim}
+heroku rename phill-new
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+% Emacs 24.4.1 (Org mode 8.2.6)
+\end{document}
