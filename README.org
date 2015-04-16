@@ -6,6 +6,22 @@
 
 * Prairie Hill Learning Center
 
+** Description
+
+  After over 2 years of cumbersome working with the wordpress managed website 
+  content for the Prairie Hill website (whether due to the way that wordpress 
+  arranges itself or my own ignorance and lack of education in web design, php, 
+  etc), this is an attempt to try something new. Having a nice solid foundation 
+  in building an application with Rails, I feel like now is the time to build 
+  something from the ground up that will hopefully meet my needs for control 
+  and understanding for building and modifying the backend functionality 
+  (most importantly without having to go through all of hassle of using the 
+  actual web content management editors and having so many extraneous steps,
+  instead of just using my text editor...), as well as the front end need
+  for admin staff to update content, which is what is important to them in
+  the basic functionality of the site. I take care of the functionality and
+  aesthetic; they give it the words.
+
   - [ ] fix change/forgot password issue
   - [-] rebuild ccf volunteer app
 
@@ -825,22 +841,6 @@
 
     http://railscasts.com/episodes/362-exporting-csv-and-excel
 
-
-* Description
-
-  After over 2 years of cumbersome working with the wordpress managed website 
-  content for the Prairie Hill website (whether due to the way that wordpress 
-  arranges itself or my own ignorance and lack of education in web design, php, 
-  etc), this is an attempt to try something new. Having a nice solid foundation 
-  in building an application with Rails, I feel like now is the time to build 
-  something from the ground up that will hopefully meet my needs for control 
-  and understanding for building and modifying the backend functionality 
-  (most importantly without having to go through all of hassle of using the 
-  actual web content management editors and having so many extraneous steps,
-  instead of just using my text editor...), as well as the front end need
-  for admin staff to update content, which is what is important to them in
-  the basic functionality of the site. I take care of the functionality and
-  aesthetic; they give it the words.
 
 ** NB
 
