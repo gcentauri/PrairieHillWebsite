@@ -5,10 +5,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+  validates :username,
+            presence: true,
+            length: {maximum: 255},
+            uniqueness: { case_sensitive: false },
+            format: { with: /\A[a-zA-Z0-9]*\z/,
+                      message: "may only contain letters and numbers." }
 
   has_many :shifts
-  has_many :activities through: :shifts
+  #has_many :activities through: :shifts
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

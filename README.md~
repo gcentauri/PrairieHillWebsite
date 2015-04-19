@@ -24,9 +24,11 @@ aesthetic; they give it the words.
         Rails.application.routes.draw do
         
           namespace :api, defaults: {format: 'json'} do
-            #namespace :v1 do
-            resources :activities, :pages, :shifts, :volunteers, :users
-            #end
+            resources :activities,
+                      :pages,
+                      :shifts,
+                      :volunteers,
+                      :users
           end
         
           resources :activities
@@ -64,27 +66,26 @@ aesthetic; they give it the words.
     -   [X] backup volunteer data
         -   [X] check api access to user data
             -   [X] update api to authenticate requests
-                
-                <http://railscasts.com/episodes/352-securing-an-api?view=asciicast>
-                
+                [RailsCasts Episode 352 - Securing an API](http://railscasts.com/episodes/352-securing-an-api?view%3Dasciicast)
                 -   [X] Basic
                     
-                        http_basic_authenticate_with name: "admin", password: "secret"
+                        http_basic_authenticate_with name: "admin", 
+                                                     password: "secret"
+            
             -   [X] ruby?
-                
-                <https://gist.github.com/kyletcarlson/7911188>
-                <http://www.rubyinside.com/nethttp-cheat-sheet-2940.html>
+                [Kyle T Carlson](https://gist.github.com/kyletcarlson/7911188)
+                [NET HTTP Cheat Sheet](http://www.rubyinside.com/nethttp-cheat-sheet-2940.html)
                 
                     require "net/http"
                     require "uri"
                     
-                    uri = URI.pasre("http://www.prairiehill.com/api/users")
+                    uri = URI.parse("http://www.prairiehill.com/api/users")
+        
         -   [X] user info
         -   [X] last years activity/shift data
     -   [-] re-organize resource relationships
         -   [ ] destroy volunteer resource?
         -   [-] Devise User/Volunteer
-            
             <./db/migrate>
             <./app/models/user.rb>
             
@@ -94,10 +95,15 @@ aesthetic; they give it the words.
                   devise :database_authenticatable, :registerable,
                          :recoverable, :rememberable, :trackable, :validatable
                 
-                  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+                  validates :username,
+                            presence: true,
+                            length: {maximum: 255},
+                            uniqueness: { case_sensitive: false },
+                            format: { with: /\A[a-zA-Z0-9]*\z/,
+                                      message: "may only contain letters and numbers." }
                 
                   has_many :shifts
-                  has_many :activities through: :shifts
+                  #has_many :activities through: :shifts
                 
                   # Virtual attribute for authenticating by either username or email
                   # This is in addition to a real persisted field like 'username'
@@ -132,7 +138,6 @@ aesthetic; they give it the words.
             -   [X] has many shifts
             -   [X] has many activities through shifts
         -   [-] Activity
-            
             <./app/models/activity.rb>
             
                 class Activity < ActiveRecord::Base
@@ -151,7 +156,6 @@ aesthetic; they give it the words.
             -   [X] has many shifts
             -   [ ] belongs to users
         -   [ ] Shifts
-            
             <./app/models/shift.rb>
             
                 class Shift < ActiveRecord::Base
@@ -249,9 +253,7 @@ aesthetic; they give it the words.
             -   [ ] belongs to users
                 -   [ ] has guest?
 -   [-] build an API
-    
     <https://codelation.com/blog/rails-restful-api-just-add-water>
-    
     -   [X] add to <./Gemfile>
         
             gem 'jbuilder'
@@ -316,7 +318,6 @@ aesthetic; they give it the words.
             #  gem 'unicorn'
               gem 'unicorn-rails'
             end
-    
     -   [X] controllers
         -   [X] create file <./app/controllers/api/base_controller.rb>
             
@@ -425,7 +426,7 @@ aesthetic; they give it the words.
             
                 module Api
                   class BaseController < ApplicationController
-                    protect_from_forgery with: :null_session
+                    #protect_from_forgery with: :null_session
                     before_action :set_resource, only: [:destroy, :show, :update]
                     respond_to :json
                 
@@ -1412,5 +1413,39 @@ Pages
 -   Controllers
 
     <./app/controllers/application_controller.rb>
+    
+        class ApplicationController < ActionController::Base
+          # Prevent CSRF attacks by raising an exception.
+          # For APIs, you may want to use :null_session instead.
+          # protect_from_forgery with: :exception
+          protect_from_forgery
+          skip_before_action :verify_authenticity_token, if: :json_request?
+        
+          before_filter :configure_permitted_parameters, if: :devise_controller?
+          before_filter :set_contacts
+        
+          def set_contacts
+            @contact = Contact.new
+          end
+        
+          def after_sign_in_path_for(resource)
+            ccf_path
+          end
+        
+          def after_sign_out_path_for(resource)
+            ccf_path
+          end
+        
+          protected
+          def configure_permitted_parameters
+            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me) }
+            devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin) }
+          end
+        
+          def json_request?
+            request.format.json?
+          end
+        end
     
     <./app/controllers/pages_controller.rb>
