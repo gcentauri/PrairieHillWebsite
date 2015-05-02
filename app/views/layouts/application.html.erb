@@ -9,7 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-
   
   <div class='container-fluid'>
     <div id='top'></div>
@@ -20,19 +19,19 @@
 	   data-1000='opacity:0;'
 	   >
 	<!--<div id='quote'>-->
-	  <%#= render 'layouts/quote' %>
+	<%#= render 'layouts/quote' %>
 	<!--</div>-->
       </div>
-    <% end %>
 
-    <div class='row'>
-      <div id='quote'
-	   data-0='right:60px;width:70%;font-size:2vw;'
-	   data-500='right:1500px;width:20%;font-size:1vw;'
-	   >
-	<%= render 'layouts/quote' %>
+      <div class='row'>
+	<div id='quote'
+	     data-0='right:60px;width:70%;font-size:2vw;'
+	     data-500='right:1500px;width:20%;font-size:1vw;'
+	     >
+	  <%= render 'layouts/quote' %>
+	</div>
       </div>
-    </div>
+    <% end %>
     
     <div class='row'> 
       <div class='col-md-4'>
@@ -42,8 +41,8 @@
       </div>
 
 
-	<div id='buffer-col' class='col-md-3'>	
-	</div>
+      <div id='buffer-col' class='col-md-3'>	
+      </div>
 
 
       <div class='col-md-8'>
@@ -54,7 +53,7 @@
 		<% elsif current_page?(staffandboard_path) %>
 		<div id='content' class='buffer-top-120 staff-bg'>
 	    <% else %>
-		<div id='content' class='buffer-top-120'>
+		  <div id='content' class='buffer-top-120'>
 	    <% end %>
 
 	    <% if current_page?(root_path) %>
@@ -92,115 +91,115 @@
 	      </a>
 	      </div>
 	      <%= yield %>
+		  </div>
 		</div>
 	      </div>
-	  </div>
 
+	  </div>
 	</div>
       </div>
-    </div>
 
-    <script>
+      <script>
 
-     $(window).on('resize', function() {
-       if ($(window).width() <= 767) {
-	 $('#content').css('top', '200px');
+       $(window).on('resize', function() {
+	 if ($(window).width() <= 767) {
+	   $('#content').css('top', '200px');
 
-	 //console.log('window-size_top-adjust_function');
-	 //console.log($('#content').css('top'));
-       }
-     });
-
-     $(function($){
-       if ($(window).width() <= 767) {
-	 $('#content').css('top', '200px');
-       }
-     });
-
-     $(document).ready(function () {
-       $(".staff-img").click(function() {
-	 $(this).animate({
-	   width: "200px",
-	   height: "200px"
-	 });
-       });
-       
-       $(".member").hover(function() {
-	 //	 alert(ptop);
-	 $(this).children(".staff-img").animate({
-	   width: "400px",
-	   height: "400px",
-	   //	 }, 500, function() {
-	 }, 1000);
-//	   $(this).animate({
-//	     width: "200px",
-//	     height: "200px"
-//	   });
-//	 });
-       });
-       
-       $('#quote').hide().fadeIn(3000);
-
-       $('body').hover(function() {
-	 /*	 $('#credits').show();
-	 }, function() {
-	 $('#credits').hide();*/
-       });
-
-       var winHeight = $(window).height();
-       var tabHeight = $('#tab').height();
-       var diffHeight = winHeight - tabHeight*2 - 20;
-
-       $('.top-buffer').click(function () {
-	 if($('#arrow-switch').hasClass("dropped")) {
-	   $('#arrow-switch').removeClass("glyphicon-arrow-up dropped").addClass("glyphicon-arrow-down");
-	   $('#content').animate({
-	     top: tabHeight
-	   }, 1000);
-	   $('#credits').hide();
-	 }
-	 else {
-	   $('#arrow-switch').removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up dropped");
-	   $('#content').animate({
-	     top: diffHeight
-	   }, 1000);
-	   $('#credits').show();
-	 }
-       }); 
-
-       $('a[href*=#]:not([href=#])').click(function() {
-	 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-	   var target = $(this.hash);
-	   target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	   if (target.length) {
-	     $('html,body').animate({
-	       scrollTop: target.offset().top
-	     }, 1000);
-	     return false;
-	   }
+	   //console.log('window-size_top-adjust_function');
+	   //console.log($('#content').css('top'));
 	 }
        });
 
        $(function($){
-	 if ($(window).width() > 767) {
-	   skrollr.init({
-	     forceHeight: false,
-	     smoothScrolling: false
-	   });//.refresh();
-
+	 if ($(window).width() <= 767) {
+	   $('#content').css('top', '200px');
 	 }
-
-	 $(window).on('resize', function() {
-	   if ($(window).width() <= 767) {
-	     skrollr.init().destroy();
-	   }
-
-	 } (jQuery));
        });
 
-     });
+       $(document).ready(function () {
+	 $(".staff-img").click(function() {
+	   $(this).animate({
+	     width: "200px",
+	     height: "200px"
+	   });
+	 });
+	 
+	 $(".member").hover(function() {
+	   //	 alert(ptop);
+	   $(this).children(".staff-img").animate({
+	     width: "400px",
+	     height: "400px",
+	     //	 }, 500, function() {
+	   }, 1000);
+	   //	   $(this).animate({
+	   //	     width: "200px",
+	   //	     height: "200px"
+	   //	   });
+	   //	 });
+	 });
+	 
+	 $('#quote').hide().fadeIn(3000);
 
-     
-    </script>
+	 $('body').hover(function() {
+	   /*	 $('#credits').show();
+	   }, function() {
+	   $('#credits').hide();*/
+	 });
+
+	 var winHeight = $(window).height();
+	 var tabHeight = $('#tab').height();
+	 var diffHeight = winHeight - tabHeight*2 - 20;
+
+	 $('.top-buffer').click(function () {
+	   if($('#arrow-switch').hasClass("dropped")) {
+	     $('#arrow-switch').removeClass("glyphicon-arrow-up dropped").addClass("glyphicon-arrow-down");
+	     $('#content').animate({
+	       top: tabHeight
+	     }, 1000);
+	     $('#credits').hide();
+	   }
+	   else {
+	     $('#arrow-switch').removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up dropped");
+	     $('#content').animate({
+	       top: diffHeight
+	     }, 1000);
+	     $('#credits').show();
+	   }
+	 }); 
+
+	 $('a[href*=#]:not([href=#])').click(function() {
+	   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	     var target = $(this.hash);
+	     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	     if (target.length) {
+	       $('html,body').animate({
+		 scrollTop: target.offset().top
+	       }, 1000);
+	       return false;
+	     }
+	   }
+	 });
+
+	 $(function($){
+	   if ($(window).width() > 767) {
+	     skrollr.init({
+	       forceHeight: false,
+	       smoothScrolling: false
+	     });//.refresh();
+
+	   }
+
+	   $(window).on('resize', function() {
+	     if ($(window).width() <= 767) {
+	       skrollr.init().destroy();
+	     }
+
+	   } (jQuery));
+	 });
+
+       });
+
+       
+      </script>
 </body>
 </html>
