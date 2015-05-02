@@ -1,4 +1,4 @@
-<div class="container" style="position:absolute;top:25%;left:14%;">
+<div class="container" style="">
   <div class="shift-show">
     <% if @shift.volunteer == nil || @shift.volunteer == "" %>
       Please sign up for this shift! <br/>
@@ -10,7 +10,8 @@
       </div>
       <div class="info-flag-lg bottom-shadow">
 	<%= @shift.title %><br />
-	<%= @shift.time %><br />
+	<%= @shift.start_time %><br />
+	<%= @shift.end_time %><br />
       </div>
     <% else %>
       Thank you!<br/> <br/> 

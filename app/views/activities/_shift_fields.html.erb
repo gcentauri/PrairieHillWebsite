@@ -1,0 +1,76 @@
+
+<fieldset class='nested-fields'>
+
+  <div class='col-sm-4'>
+    <div class='form-group' style='background:gold'>
+      <div class='field'>
+	<%= f.label "Start Time" %>
+	<div class='input-group date' id='datetimepicker-<%= rand(100) %>'>
+	  <%= f.text_field :start_time, class: 'form-control' %>
+	  <span class='input-group-addon'>
+	    <span class='glyphicon glyphicon-calendar'></span>
+	  </span>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class='col-sm-4'>
+    <div class='form-group' style='background:green'>
+      <div class='field'>
+	<%= f.label "End Time" %>
+	<div class='input-group date' id='datetimepicker-<%= rand(100) %>'>
+	<%= f.text_field :end_time, class: 'form-control foo' %>
+	  <span class='input-group-addon'>
+	    <span class='glyphicon glyphicon-calendar'></span>
+	  </span>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class='col-sm-4'>
+    <div class='form-group'>
+      <div class='field'>
+	<% if f.object.persisted? %>
+	  <%= f.check_box :_destroy %>
+	  <%= f.label :_destroy, "Remove Shift", class: 'tr-sm' %>
+	<% end %>
+      </div>
+    </div>
+  </div>
+  
+  <%#= f.hidden_field :_destroy %>
+  <% unless f.object.persisted? %>
+    <%= link_to_remove_association f do %>
+      <i class="glyphicon glyphicon-remove-sign"></i>
+    <% end %>
+  <% end %>
+</fieldset>
+
+
+<script type="text/javascript">
+ // $(document).ready(
+ $(function() {
+   console.log($('[id^=datetimepicker]'));
+   $('[id^=datetimepicker]').datetimepicker("destroy");
+   //   $('[id^=datetimepicker]').datetimepicker({
+      $('div[id^=datetimepicker]').datetimepicker({
+     inline: true,
+     //dateFormat: 'dd-yy-mm',
+     //timeFormat: "HH:mm",
+     showMinute: false,
+     //minDateTime: new Date(2015, 10 - 1, 3),
+     changeMonth: false,
+     changeYear: false,
+     yearRange: "-1:1",
+     closeOnWithoutClick: true,
+     weeks: true,
+     autoclose: true
+   });
+   $('[id^=datetimepicker]').datetimepicker(
+     'option', 'minDate', new Date(2015, 10 -1, 3)
+   );
+ });
+ // );
+</script>

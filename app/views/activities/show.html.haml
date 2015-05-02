@@ -1,29 +1,35 @@
-.content
-  %h2{:class => "section-title"} Activity Created:
+%span.underlinedText><
+  %h2{:class => "section-title hi-li",} Activity Saved!
+%span><
 
-  .blue-box-light
+.jumbotron
+  %p#notice.inner= notice
 
-    %p#notice.inner= notice
+  %p
+    %b Work area:
+    = @activity.work_area
+  %p
+    %b Coordinator:
+    = @activity.coordinator
+  %p
+    %b Shifts:
+    - @activity.shifts.each do |shift|
+      -# = shift_time_parse(shift.start_time, "min")
+      %p
+        -# = "#{shift.start_time.to_formatted_s(:short)} "
+        = "(#{print_shift_time(shift.start_time, 'date-short')}) #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}"
+  %p
+    %b Notes:
+    = @activity.comments
+  %p
+    %b Sign:
+    = @activity.sign
+  %p
+    %b Num tickets:
+    = @activity.num_tickets
+  %p
+    %b Vol needed:
+    = @activity.vol_needed
 
-    %p
-      %b Work area:
-      = @activity.work_area
-    %p
-      %b Coordinator:
-      = @activity.coordinator
-    %p
-      %b Sign:
-      = @activity.sign
-    %p
-      %b Num tickets:
-      = @activity.num_tickets
-    %p
-      %b Vol needed:
-      = @activity.vol_needed
-    %p
-      %b Shift ids:
-      = @activity.shift_ids
-
-    = link_to 'Edit', edit_activity_path(@activity)
-    \|
-    = link_to 'Back', activities_path
+  = link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary'
+  = link_to 'Activities', activities_path, class: 'btn btn-primary'

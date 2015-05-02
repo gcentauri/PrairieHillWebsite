@@ -2,27 +2,38 @@
 
 <head>
   <%= metamagic title: "PRAIRIE HILL Learning Center", description: "Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment", keywords: %w(Montessori education children Nebraska) %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 
+  
   <div class='container-fluid'>
     <div id='top'></div>
 
     <% if current_page?(root_path) %>
-      <div class='img-full'>
-	<div id='quote'
-	     data-0='opacity:0.9;'
-	     data-100='opacity:0;'
-	     >
-	  <%= render 'layouts/quote' %>
-	</div>
+      <div id='bg-image' class='img-full instagram search'
+	   data-0='opacity:1;'
+	   data-1000='opacity:0;'
+	   >
+	<!--<div id='quote'>-->
+	  <%#= render 'layouts/quote' %>
+	<!--</div>-->
       </div>
     <% end %>
 
+    <div class='row'>
+      <div id='quote'
+	   data-0='right:60px;width:70%;font-size:2vw;'
+	   data-500='right:1500px;width:20%;font-size:1vw;'
+	   >
+	<%= render 'layouts/quote' %>
+      </div>
+    </div>
+    
     <div class='row'> 
       <div class='col-md-4'>
 	<div id='header'>
@@ -87,32 +98,24 @@
       </div>
     </div>
 
-
     <script>
 
      $(window).on('resize', function() {
        if ($(window).width() <= 767) {
 	 $('#content').css('top', '200px');
 
-	 console.log('window-size_top-adjust_function');
-	 console.log($('#content').css('top'));
+	 //console.log('window-size_top-adjust_function');
+	 //console.log($('#content').css('top'));
        }
      });
 
      $(function($){
        if ($(window).width() <= 767) {
 	 $('#content').css('top', '200px');
-
-//	 console.log('window-size_top-adjust_function');
-//	 console.log($('#content').css('top'));
        }
      });
 
      $(document).ready(function () {
-
-//       console.log("post-window-size_top-adjust");
-//       console.log($('#content').css('top'));
-
        $(".staff-img").click(function() {
 	 $(this).animate({
 	   width: "200px",
@@ -163,8 +166,6 @@
 	 }
        }); 
 
-
-       //     $(function() {
        $('a[href*=#]:not([href=#])').click(function() {
 	 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 	   var target = $(this.hash);
@@ -179,11 +180,7 @@
        });
 
        $(function($){
-
-//	 console.log($('#content').css('top'));
-
 	 if ($(window).width() > 767) {
-
 	   skrollr.init({
 	     forceHeight: false,
 	     smoothScrolling: false
@@ -191,14 +188,10 @@
 
 	 }
 
-//	 console.log($('#content').css('top'));
-
 	 $(window).on('resize', function() {
 	   if ($(window).width() <= 767) {
 	     skrollr.init().destroy();
 	   }
-     
-//	   console.log($('#content').css('top'));
 
 	 } (jQuery));
        });
@@ -207,10 +200,5 @@
 
      
     </script>
-
-
-
-    <!-- END jSCRIPT -->
-
 </body>
 </html>

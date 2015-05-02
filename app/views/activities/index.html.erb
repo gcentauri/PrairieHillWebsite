@@ -1,45 +1,85 @@
-<div class="container" >
-  <div style="margin-top:25em;">
-    <h2 class="hi-li"> Activities</h2>
-    <%= link_to 'New Activity', new_activity_path %>
-    <br/>
+<%= render 'pages/ccf_menu' %>
 
-    <p>
-      Download:
-      <%= link_to "Excel", activities_path(format: "xls") %>
-    </p>
+<h2 class="hi-li"> Activities</h2>
 
-    <% @sorted.each do |activity| %>
+<div class="">
+  <!--Download:-->
+  <%#= link_to "Excel", activities_path(format: "xls") %>
+  <div id='calendar' class='hidden'></div>
+  <div class='col-sm-12'>
+  <div id='' class='transitions-enabled infinite-scroll clearfix'>
 
-      <table class="table">
-	<h2><%= activity.work_area %></h2>
-	<tr>
-	  <th>Coordinator</th>
-	  <th>Sign?</th>
-	  <th>Number of Tickets needed</th>
-	  <th>Number of Volunteer Hours needed</th>
-	  <th>Comments</th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	</tr>
-	<tr>
-	  <td><%= activity.coordinator %></td>
-	  <td><%= activity.sign %></td>
-	  <td><%= activity.num_tickets %></td>
-	  <% @shifts_by_title = @shifts.where(title: activity.work_area) %>
-	  <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
-	  <td><%= @empty_shifts.count %></td>
-	  <td><%= activity.comments %></td>
-	  <td><%= link_to 'Show', activity %></td>
-	  <% if current_user.try(:admin?) %>
-	    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-	    <td><%= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-	  <% end %>
-	</tr>
-    <% end %>
-      </table>
+      <% @sorted.each do |activity| %>
 
+	<!--<h2 class='hi-li'><%#= link_to "#{activity.work_area}", activity %></h2>-->
+
+	<div class='col-sm-6' style='clear:none;'>
+	  <h2 class='hi-li activity-title'>
+	    <%= link_to "#{activity.work_area}", "#", class: 'shifts-trigger' %>
+	  </h2>
+
+	  <div class='shifts-toggle'>
+	    <table class="table table-hover table-striped">
+	      <tr class="">
+		<!--<th>Coordinator</th>-->
+		<!--<th>Sign?</th>-->
+		<!--<th>Number of Tickets needed</th>-->
+		<!--<th>Number of Volunteer Hours needed</th>-->
+		<!--<th><h2>Shifts</h2></th>-->
+		<!--<th>Comments</th>-->
+		<th></th>
+		<th></th>
+	      </tr>
+	      <tr class="tr-md">
+		<!--<td><%#= activity.coordinator %></td>-->
+		<!--<td><%#= activity.sign %></td>-->
+		<!--<td><%#= activity.num_tickets %></td>-->
+		<% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+		<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+		<!--<td><%#= @empty_shifts.count %></td>-->
+		<td>
+		  <% activity.shifts.each do |shift| %>
+		    <p>
+		      <% if shift.user_id.nil? && user_signed_in? %>
+			<%= form_for shift do |f| %>
+			  <%= f.hidden_field :user_id, value: current_user.id %>
+			  <%= f.submit "#{nice_print(shift)}", class: 'btn btn-primary', data: { :confirm => "Are you sure?" } %>
+			<% end %>
+		      <% else %>
+			<%= "#{nice_print_short(shift)} : #{full_user_name(shift.user_id)}" if shift.user_id %>
+			<% if user_signed_in? %>
+			  <%= form_for shift do |f| %>
+			    <%= f.hidden_field :user_id, value: nil %>
+			    <%= f.submit "Cancel", class: 'btn btn-danger', data: { :confirm => "Are you sure?" } %>
+			  <% end %>
+			<% end %>
+		      <% end %>
+		    </p>
+		  <% end %>
+		</td>
+		<td></td>
+		<!--<td><%#= activity.comments %></td>-->
+	      </tr>
+	      <tr>
+		<% if current_user.try(:admin?) %>
+		  <td>
+		    <%= link_to edit_activity_path(activity) do %>
+		      <i class="glyphicon glyphicon-pencil"></i>
+		    <% end %>
+		  </td>
+		  <td>
+		    <%= link_to activity, class: "", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+		      <i class="glyphicon glyphicon-remove-sign"></i>
+		    <% end %>
+		  </td>
+		<% end %>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+      <% end %>
+    </div>
   </div>
-
 </div>
+
+

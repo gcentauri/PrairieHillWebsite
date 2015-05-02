@@ -1,99 +1,108 @@
-<div class="container" >
-  <div style="margin-top:25em;">
-    <h2 class="hi-li"> Activity Shifts</h2>
-    <% if current_user.try(:admin?) %>
-      <h1><%= link_to 'New Shift', new_shift_path %></h1>
-      <h2>
-	<%= link_to "Download CSV File", shifts_path(format: "csv") %><br/>
-	<%= link_to "Download Excel Spreadsheets", shifts_path(format: "xls") %>
-	<%#= link_to "Download xlsx", url_for(format: "xlsx") %>
-      </h2>
-      <div id='admin-howto-video'>
-	<iframe width="840" height="473" src="//www.youtube.com/embed/7iULfy1QwlU" frameborder="0" allowfullscreen></iframe>
-      </div>
-    <% end %>
+<p id="notice"><%= notice %></p>
+
+<h2 class="hi-li"> Activity Shifts</h2>
+
+<div class="jumbotron">
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'New Shift', new_shift_path, class: 'btn btn-primary' %>
+  <% end %>
+
+  <% @shifts.each do |shift| %>
+    <div>
+      <%= shift.title %>
+      <% if current_user.try(:admin?) %>
+	<td><%= link_to 'Show', shift %></td>
+	<td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+	<td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+      <% end %>
+    </div>
     <br/>
-    <br/>
-
-    <% @shifts_by_title = @shifts.pluck(:title).uniq %>
-
-    <% @shifts_by_title.each do |s| %>
-      <% @shift_match =  @shifts.where(title: s).order(:title).sort_by { |s| natural_order(s) } %>
-      <table class="table table-hover">
-	<h2>
-	  <% if current_user.try(:admin?) %>
-	    <%= s %> (<%= @shift_match.count %> shifts)
-	  <% else %>
-	    <% if (s != 'Pony Rides') & (s != 'Pony Wagon Rides') %>
-	      <%= s %> (<%= @shift_match.count %> shifts)
-	    <% end %>
-	  <% end %>
-	</h2>
-	<tr>
-	  <th></th>
-	  <th>Volunteer</th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	</tr>
-
-
-	<% @shift_match.each do |shift| %>
-	  <% if current_user.try(:admin?) %>
-
-	    <tr>
-	      <td>
-		<span style='font-weight:bold;'>
-		  <%= shift.time %>
-		</span>
-	      </td>
-
-	      <td>
-		<% if shift.guest != nil %>
-		  <%= shift.guest %>
-		<% else %>
-		  <%= shift.volunteer %>
-		<% end %>
-	      </td>
-
-	      <% if current_user.try(:admin?) %>
-		<td><%= link_to 'Show', shift %></td>
-		<td><%= link_to 'Edit', edit_shift_path(shift) %></td>
-		<td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-	      <% end %>
-	    </tr>
-
-	  <% else %>
-	  
-	    <% if (shift.title != 'Pony Rides') & (shift.title != 'Pony Wagon Rides') %>
-
-	      <tr>
-		<td>
-		  <span style='font-weight:bold;'>
-		    <%= shift.time %>
-		  </span>
-		</td>
-
-		<td>
-		  <% if shift.guest != nil %>
-		    <%= shift.guest %>
-		  <% else %>
-		    <%= shift.volunteer %>
-		  <% end %>
-		</td>
-
-		<% if current_user.try(:admin?) %>
-		  <td><%= link_to 'Show', shift %></td>
-		  <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
-		  <td><%= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-		<% end %>
-	      </tr>
-	    <% end %>
-	  <% end %>
-
-	<% end %>
-      </table>	  
-    <% end %>
-
-  </div>
+    <hr/>
+  <% end %>
 </div>
+
+<h1 class="hi-li"> OLD </h1>
+<div class="jumbotron">
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'New Shift', new_shift_path, class: 'btn btn-primary' %>
+    <%#= link_to "Download CSV File", shifts_path(format: "csv") %><br/>
+    <%#= link_to "Download Excel Spreadsheets", shifts_path(format: "xls") %>
+    <%#= link_to "Download xlsx", url_for(format: "xlsx") %>
+    <!--<div id='admin-howto-video'>-->
+    <!--<iframe width="840" height="473" src="//www.youtube.com/embed/7iULfy1QwlU" frameborder="0" allowfullscreen></iframe>-->
+    <!--</div>-->
+  <% end %>
+
+  <%# @shifts_by_title = @shifts.pluck(:title).uniq %>
+
+  <%# @shifts_by_title.each do |s| %>
+  <%# @shift_match =  @shifts.where(title: s).order(:title).sort_by { |s| natural_order(s) } %>
+  <table class="table table-hover">
+    <h2>
+      <%# if current_user.try(:admin?) %>
+      <%#= s %> (<%#= @shift_match.count %> shifts)
+      <%# else %>
+      <%# if (s != 'Pony Rides') & (s != 'Pony Wagon Rides') %>
+      <%#= s %> (<%#= @shift_match.count %> shifts)
+      <%# end %>
+      <%# end %>
+    </h2>
+    <tr>
+      <th></th>
+      <th>Volunteer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+
+    <%# @shift_match.each do |shift| %>
+    <%# if current_user.try(:admin?) %>
+
+    <tr>
+      <td>
+	<span style='font-weight:bold;'>
+	  <%#= shift.time %>
+	</span>
+      </td>
+
+      <td>
+	<%# if shift.guest != nil %>
+	<%#= shift.guest %>
+	<%# else %>
+	<%#= shift.volunteer %>
+	<%# end %>
+      </td>
+
+      <%# if current_user.try(:admin?) %>
+      <td><%#= link_to 'Show', shift %></td>
+      <td><%#= link_to 'Edit', edit_shift_path(shift) %></td>
+      <td><%#= link_to 'Destroy', shift, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+      <%# end %>
+    </tr>
+
+    <%# else %>
+    
+    <%# if (shift.title != 'Pony Rides') & (shift.title != 'Pony Wagon Rides') %>
+
+    <tr>
+      <td>
+	<span style='font-weight:bold;'>
+	  <%#= shift.time %>
+	</span>
+      </td>
+
+      <td>
+	<%# if shift.guest != nil %>
+	<%#= shift.guest %>
+	<%# else %>
+	<%#= shift.volunteer %>
+	<%# end %>
+      </td>
+
+    </tr>
+  </table>	  
+</div>
+
+
+

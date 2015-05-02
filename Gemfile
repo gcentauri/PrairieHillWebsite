@@ -8,8 +8,7 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.1'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
 gem 'jbuilder'
 gem 'kaminari'
 gem 'responders'
@@ -40,6 +39,18 @@ gem 'metamagic'
 gem 'safe_yaml', '1.0.4'
 gem 'sitemap_generator'
 gem 'dynamic_sitemaps'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'jquery-datetimepicker-rails'
+gem 'cocoon'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'masonry-rails'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-google-oauth2'
+gem 'json'
+gem 'instagramjs-rails'
+gem 'bxslider-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -52,8 +63,6 @@ group :development, :test do
 end
 
 group :production do
-#  gem 'pg', '0.15.1'
   gem 'rails_12factor'
-#  gem 'unicorn'
   gem 'unicorn-rails'
 end

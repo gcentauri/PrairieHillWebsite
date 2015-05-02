@@ -1,15 +1,14 @@
-<div class="container" style="margin-top: -600px;">
   <div class="show">
-    <%= @activity.work_area %>
+    <h1 class='hi-li' style='text-align: center'>
+      <%= @activity.work_area %></h1>
   </div>
 
   <%= render 'form' %>
 
   <div>
     <p>
-      <%= link_to 'Edit', edit_activity_path(@activity) %>
       <%= link_to 'Activities', activities_path %>
       <%= link_to 'New', new_activity_path %>
     </p>
   </div>
-</div>
+

@@ -1,0 +1,71 @@
+ function createPhotoElement(photo) {
+   var innerHtml = $('<img>')
+        .addClass('instagram-image')
+	//.attr('src', photo.images.thumbnail.url);
+	.attr('src', photo.images.standard_resolution.url);
+
+   console.log(photo);
+   
+   innerHtml = $('<a>')
+        .attr('target', '_blank')
+        .attr('href', photo.link)
+        .append(innerHtml);
+
+   return $('<div>')
+        .addClass('instagram-placeholder')
+        .attr('id', photo.id)
+        .append(innerHtml);
+ }
+
+ function didLoadInstagram(event, response) {
+   var that = this;
+
+   $.each(response.data, function(i, photo) {
+     $(that).append(createPhotoElement(photo));
+   });
+ }
+
+ $(document).ready(function() {
+   var clientId = '3a3bbceef486471c930c405faed585f1';
+
+   $('.instagram.phill').on('didLoadInstagram', didLoadInstagram);
+   $('.instagram.phill').instagram({
+     hash: 'prairiehill',
+     count: 5,
+     clientId: clientId
+   });
+
+   $('.instagram.nature').on('didLoadInstagram', didLoadInstagram);
+   $('.instagram.nature').instagram({
+     hash: 'natureistheclassroom',
+     count: 5,
+     clientId: clientId
+   });
+   
+   $('.instagram.montessori').on('didLoadInstagram', didLoadInstagram);
+   $('.instagram.montessori').instagram({
+     hash: 'montessori',
+     count: 5,
+     clientId: clientId
+   });
+   
+   $('.instagram.location').on('didLoadInstagram', didLoadInstagram);
+   $('.instagram.location').instagram({
+     location: {
+       id: 514276
+     },
+     count: 5,
+     clientId: clientId
+   });
+
+   $('.instagram.search').on('didLoadInstagram', didLoadInstagram);
+   $('.instagram.search').instagram({
+     search: {
+       lat: 40.636595,
+       lng: -96.707764
+     },
+     count: 1,
+     clientId: clientId
+   });
+ });
+

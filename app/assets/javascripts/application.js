@@ -12,11 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery.turbolinks
 //= require bootstrap
 //= require bootstrap-sprockets
-//= require jquery.turbolinks
+//= require cocoon
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/gcal
+//= require jquery.datetimepicker
+//= require jquery.instagram
+//= require masonry/jquery.masonry
+//= require masonry/box-maker
+//= require masonry/jquery.loremimages.min
 //= require skrollr
 //= require skrollr.ie
 //= require skrollr.menu
 //= require_self
+//= require bxslider
 //= require_tree .
+

@@ -3,7 +3,7 @@ module ShiftsHelper
   def natural_order(shift)
 
       day = shift.time.split.first
-      time = shift.time.split.second.split('-')
+      time = shift.time.split.second.split('-') 
       start = time.first
       stop = time.second
       septDate = if day == "Saturday"
@@ -15,5 +15,5 @@ module ShiftsHelper
 
     truetime
   end
-  
+
 end

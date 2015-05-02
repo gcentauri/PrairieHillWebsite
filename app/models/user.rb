@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
             format: { with: /\A[a-zA-Z0-9]*\z/,
                       message: "may only contain letters and numbers." }
 
-  has_many :shifts
+  #has_many :shifts, dependent: :destroy
   #has_many :activities through: :shifts
 
   # Virtual attribute for authenticating by either username or email

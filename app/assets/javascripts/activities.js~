@@ -1,0 +1,28 @@
+$(document).ready( function() {
+    $('#calendar').fullCalendar({
+        events: '/activities.json',
+	eventColor: '#3f8000',
+        header: {
+            center: 'agendaThreeDay,agendaDay'
+        },
+        defaultView: 'agendaThreeDay',
+        aspectRatio: 1.5,
+        defaultDate: moment('2015-10-02'),
+        views: {
+            agendaDay: {
+                buttonText: 'Day'
+            },
+            agendaFourDay: {
+                type: 'agenda',
+                duration: { days: 4 },
+                buttonText: '4 day'
+            },
+            agendaThreeDay: {
+                type: 'agenda',
+                duration: { days: 3 },
+                buttonText: 'Main'
+            }
+        }
+        
+    });
+});

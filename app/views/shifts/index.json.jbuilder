@@ -1,4 +1,6 @@
 json.array!(@shifts) do |shift|
-  json.extract! shift, :id, :title, :vols_needed, :user_ids
-  json.url shift_url(shift, format: :json)
+  json.extract! shift, :id, :title, :vols_needed
+  json.start shift.start_time
+  json.end shift.end_time
+  json.url shift_url(shift, format: :html)
 end

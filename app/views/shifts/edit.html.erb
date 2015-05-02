@@ -1,21 +1,19 @@
-<div class="container" style="margin-top: -400px;">
-  <div class="show">
-    <%= @shift.title %> <%= @shift.time %>
-      
-    <% @shift.user_ids.each do |user| %>
-      <%= User.find(user).name %><br />
-    <% end %>
-  </div>
+<div class="show">
+  <%= @shift.title %> <%= @shift.time %>
+  
+  <% @shift.user_ids.each do |user| %>
+    <%= User.find(user).name %><br />
+  <% end %>
+</div>
 
-  <%= render 'form' %>
+<%= render 'form' %>
 
-  <div>
-    <p>
-      <%= link_to 'Edit', edit_shift_path(@shift) %>
-      <%= link_to 'Shifts', shifts_path %>
-      <%= link_to 'New', new_shift_path %>
-    </p>
-  </div>
+<div>
+  <p>
+    <%= link_to 'Edit', edit_shift_path(@shift) %>
+    <%= link_to 'Shifts', shifts_path %>
+    <%= link_to 'New', new_shift_path %>
+  </p>
 </div>
 
 

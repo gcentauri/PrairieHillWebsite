@@ -1,48 +1,42 @@
-<div id="" style="height:200px; background:image-url('hattie-ccf.jpg');"></div>
+<h1 class="hi-li">
+  <strong>
+    Create a New Activity Shift
+  </strong>
+</h1>
+
 
 <div>
-  <h1 class="hi-li">
-    <strong>
-      Create a New Activity Shift
-    </strong>
-  </h1>
+  <% if user_signed_in? %>
+    <%= render 'form' %>
 
-  <div class="container">
     <div>
-      <% if user_signed_in? %>
-	<%= render 'form' %>
-
-	<div>
-	  <p>
-	    <%= link_to 'Shifts', shifts_path %>
-	  </p>
-	</div>
-
-      <% else %>
-	<br/>
-	<br/>
-	<p class="hi-li-alert">
-	  You must be signed in to perform this action.
-
-	  <div class="center">
-	    <ul>
-	      <li>
-		<em>
-		  <%= nav_link "Sign in", new_user_session_path %>
-		</em>
-		<em>
-		  <%= nav_link "Sign up", new_user_registration_path %>
-		</em>
-	      </li>
-	    </ul>
-	  </div>
-
-	</p>
-      <% end %>
+      <p>
+	<%= link_to 'Shifts', shifts_path %>
+      </p>
     </div>
 
-    
+  <% else %>
+    <br/>
+    <br/>
+    <p class="hi-li-alert">
+      You must be signed in to perform this action.
 
-  </div>
+      <div class="center">
+	<ul>
+	  <li>
+	    <em>
+	      <%= nav_link "Sign in", new_user_session_path %>
+	    </em>
+	    <em>
+	      <%= nav_link "Sign up", new_user_registration_path %>
+	    </em>
+	  </li>
+	</ul>
+      </div>
+
+    </p>
+  <% end %>
 </div>
+
+
 
