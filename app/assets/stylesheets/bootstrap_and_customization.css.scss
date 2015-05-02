@@ -529,6 +529,14 @@ p {
     embed {
 	width: 100%;
     }
+
+    #bg-image {
+	a {
+	    .instagram-image{
+		width: 75%;
+	    }
+	}
+    }
     
     #quote {
 	z-index: 4;
@@ -567,13 +575,15 @@ p {
     }
 
     #buffer-col {
-	display: none;
+	//display: none;
+	height: 235px;
     }
 
+    
+    
     #content {
 	position: absolute;
 	top: 170px;
-
     }
 
     #header {
