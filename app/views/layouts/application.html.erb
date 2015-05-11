@@ -14,7 +14,7 @@
     <div id='top'></div>
 
     <% if current_page?(root_path) %>
-      <div id='bg-image' class='img-full instagram search'
+      <div id='bg-image' class='img-full instagram search hidden'
 	   data-0='opacity:1;'
 	   data-1000='opacity:0;'
 	   >
@@ -22,7 +22,9 @@
 	<%#= render 'layouts/quote' %>
 	<!--</div>-->
       </div>
+    <% end %>
 
+    <% if current_page?(root_path) %>
       <div class='row'>
 	<div id='quote'
 	     data-0='right:60px;width:70%;font-size:2vw;'
