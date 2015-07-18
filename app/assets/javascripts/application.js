@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require turbolinks
 //= require jquery.turbolinks
-//= require bootstrap
 //= require bootstrap-sprockets
 //= require cocoon
 //= require moment
@@ -29,6 +29,5 @@
 //= require skrollr.ie
 //= require skrollr.menu
 //= require_self
-//= require bxslider
 //= require_tree .
 

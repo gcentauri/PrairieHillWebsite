@@ -16,7 +16,7 @@ function createPhotoElement(photo) {
 
     return $('<a>')
         .attr('target', '_blank')
-        .attr('href', photo.link)
+	//.attr('href', photo.link)
         .append(innerHtml);
 }
 
@@ -31,10 +31,10 @@ function didLoadInstagram(event, response) {
 $(document).ready(function() {
     var clientId = '3a3bbceef486471c930c405faed585f1';
 
-    $('.instagram.phill').on('didLoadInstagram', didLoadInstagram);
-    $('.instagram.phill').instagram({
+    $('.instagram.hash').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.hash').instagram({
 	hash: 'prairiehill',
-	count: 5,
+	count: 6,
 	clientId: clientId
     });
 
@@ -66,8 +66,8 @@ $(document).ready(function() {
     console.log(path);
     console.log($(window).width());
 
-    $('.instagram.search').on('didLoadInstagram', didLoadInstagram);
-    $('.instagram.search').instagram({
+    $('.instagram.latlong').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.latlong').instagram({
 	search: {
 	    lat: 40.636595,
 	    lng: -96.707764

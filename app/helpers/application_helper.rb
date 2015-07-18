@@ -4,11 +4,11 @@ module ApplicationHelper
     unless shift_time.nil?
       case opt
       when 'date'
-        shift_time.strftime("%a %b %d %Y")
+        shift_time.strftime("%A %D %Y")
       when 'date-short'
-        shift_time.strftime("%a %b %d")
+        shift_time.strftime("%A %D")
       when 'date-day'
-        shift_time.strftime("%a")
+        shift_time.strftime("%A")
       when 'time'
         shift_time.strftime("%I:%M %p")
       end
@@ -16,11 +16,11 @@ module ApplicationHelper
   end
 
   def nice_print(shift)
-    "(#{print_shift_time(shift.start_time, 'date-day')}): #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}"
+    "#{print_shift_time(shift.start_time, 'date-day')} ( #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')} )"
   end
 
   def nice_print_short(shift)
-    "(#{print_shift_time(shift.start_time, 'date-short')}): #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}"
+    "#{print_shift_time(shift.start_time, 'date-short')} ( #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')} )"
   end
 
   def nav_link(link_text, link_path)

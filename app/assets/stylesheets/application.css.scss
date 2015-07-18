@@ -21,10 +21,10 @@
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
  *= require_self
- *= require bxslider
  *= require_tree .
  */
 
-
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
 
 

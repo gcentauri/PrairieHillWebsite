@@ -40,7 +40,8 @@ $(document).ready( function() {
     
     $('.shifts-trigger').click(function(event) {
 	//var table = $(this).parent().siblings('div.shifts-toggle');
-	var table = $(this).parent().next();
+	//var table = $(this).parent().next();
+	var table = $(this).next();
 	table.toggle("slow");
     });
 

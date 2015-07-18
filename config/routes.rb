@@ -18,7 +18,15 @@ Rails.application.routes.draw do
   
   comfy_route :cms_admin, :path => '/admin'
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { registrations: "registrations", passwords: 'users/passwords' }
+  #devise_for :users,
+  #:skip => [:registrations, :sessions]
+
+  # as user do
+  #   get '/signup' => 'users/registrations#new', as: :new_user_registration
+  #   post '/signup' => 'users/registrations#create', as: :user_registration
+  # end
+  
   resources :pages
 
   root "pages#home"

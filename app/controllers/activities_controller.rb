@@ -4,9 +4,10 @@ class ActivitiesController < InheritedResources::Base
 
   def index
     @shifts = Shift.all
-    @activities = Activity.all
+    @activities = Activity.all.paginate(page: params[:page], per_page: 10)
     @sorted = @activities.sort_by { |a| a.work_area }
-    @activitiess = Activity.order(:work_area)
+    
+    #@activitiess = Activity.order(:work_area)
     #respond_to do |format|
     #  format.xls # { send_data @activitiess.to_csv(col_sep: "\t") }
     #end
@@ -41,7 +42,7 @@ class ActivitiesController < InheritedResources::Base
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
         #format.html { render :edit, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @activity }
       else

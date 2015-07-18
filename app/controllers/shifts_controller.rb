@@ -41,12 +41,6 @@ class ShiftsController < ApplicationController
 
   # end
 
-  # def user_shifts
-  #   @user = current_user
-  #   @shifts = Shift.all
-  #   @username = @user.first_name + " " + @user.last_name
-  #   @user_shifts = @shifts.where(volunteer: @username).sort_by { |s| s.title }
-  # end
 
   # def sandbox
   #   @shifts = Shift.all
@@ -88,13 +82,13 @@ class ShiftsController < ApplicationController
 
   def update
     @user = current_user
-
+    
     shift = Shift.find params[:id]
 
     respond_to do |format|
       if @shift.update(shift_params)
         #      redirect_to @shift, notice: 'THANK YOU!'
-        format.html { redirect_to @shift, notice: 'Period was successfully updated.' }
+        format.html { redirect_to activities_path , notice: 'Period was successfully updated.' }
         format.json { render :show, status: :ok, location: @shift }
       else
         format.html { render :edit }

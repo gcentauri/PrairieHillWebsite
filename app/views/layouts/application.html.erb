@@ -2,19 +2,19 @@
 
 <head>
   <%= metamagic title: "PRAIRIE HILL Learning Center", description: "Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment", keywords: %w(Montessori education children Nebraska) %>
-  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag( 'http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two') %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-  
+
   <div class='container-fluid'>
     <div id='top'></div>
 
     <% if current_page?(root_path) %>
-      <div id='bg-image' class='img-full instagram search hidden'
+      <div id='bg-image' class='img-full instagram hash hidden'
 	   data-0='opacity:1;'
 	   data-1000='opacity:0;'
 	   >
@@ -42,16 +42,20 @@
 	</div>
       </div>
 
-
       <div id='buffer-col' class='col-md-3'>	
       </div>
-
 
       <div class='col-md-8'>
 	<div class='row'>
 	  <div id='skrollr-body'>
 	    <% if current_page?(root_path) %>
 	      <div id='content'>
+		<% elsif current_page?(ccf_path) %>
+		<div id='content'>
+		<% elsif current_page?(activities_path) %>
+		<div id='content'>
+		<% elsif current_page?(user_shifts_path) %>
+		<div id='content'>
 		<% elsif current_page?(staffandboard_path) %>
 		<div id='content' class='buffer-top-120 staff-bg'>
 	    <% else %>
@@ -78,10 +82,12 @@
 	    <h2>
 	      <% if current_page?(root_path) %>
 		<span class='glyphicon glyphicon-arrow-up'>
+		  <% elsif current_page?(ccf_path) %>
+		  <span></span>
 	      <% else %>
-		  <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'>
+		  <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'></span>
 	      <% end %>
-		  </span></h2>
+		  </h2>
 	      </a>
 	      <a href='#top'
 		 data-0='display:none;opacity:0;'
@@ -103,105 +109,7 @@
 
       <script>
 
-       $(window).on('resize', function() {
-	 if ($(window).width() <= 767) {
-	   $('#content').css('top', '200px');
-
-	   //console.log('window-size_top-adjust_function');
-	   //console.log($('#content').css('top'));
-	 }
-       });
-
-       $(function($){
-	 if ($(window).width() <= 767) {
-	   $('#content').css('top', '200px');
-	 }
-       });
-
-       $(document).ready(function () {
-	 $(".staff-img").click(function() {
-	   $(this).animate({
-	     width: "200px",
-	     height: "200px"
-	   });
-	 });
-	 
-	 $(".member").hover(function() {
-	   //	 alert(ptop);
-	   $(this).children(".staff-img").animate({
-	     width: "400px",
-	     height: "400px",
-	     //	 }, 500, function() {
-	   }, 1000);
-	   //	   $(this).animate({
-	   //	     width: "200px",
-	   //	     height: "200px"
-	   //	   });
-	   //	 });
-	 });
-	 
-	 $('#quote').hide().fadeIn(3000);
-
-	 $('body').hover(function() {
-	   /*	 $('#credits').show();
-	   }, function() {
-	   $('#credits').hide();*/
-	 });
-
-	 var winHeight = $(window).height();
-	 var tabHeight = $('#tab').height();
-	 var diffHeight = winHeight - tabHeight*2 - 20;
-
-	 $('.top-buffer').click(function () {
-	   if($('#arrow-switch').hasClass("dropped")) {
-	     $('#arrow-switch').removeClass("glyphicon-arrow-up dropped").addClass("glyphicon-arrow-down");
-	     $('#content').animate({
-	       top: tabHeight
-	     }, 1000);
-	     $('#credits').hide();
-	   }
-	   else {
-	     $('#arrow-switch').removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up dropped");
-	     $('#content').animate({
-	       top: diffHeight
-	     }, 1000);
-	     $('#credits').show();
-	   }
-	 }); 
-
-	 $('a[href*=#]:not([href=#])').click(function() {
-	   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-	     var target = $(this.hash);
-	     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	     if (target.length) {
-	       $('html,body').animate({
-		 scrollTop: target.offset().top
-	       }, 1000);
-	       return false;
-	     }
-	   }
-	 });
-
-	 $(function($){
-	   if ($(window).width() > 767) {
-	     skrollr.init({
-	       forceHeight: false,
-	       smoothScrolling: false
-	     });//.refresh();
-
-	   }
-
-	   $(window).on('resize', function() {
-	     if ($(window).width() <= 767) {
-	       skrollr.init().destroy();
-	     }
-
-	   } (jQuery));
-	 });
-
-       });
-
-       
       </script>
+
 </body>
 </html>
