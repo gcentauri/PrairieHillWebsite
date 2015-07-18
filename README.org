@@ -1201,6 +1201,15 @@
       :   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       : </head>
 
+      [[./config/routes.rb]]
+
+      [[./app/views/]]
+      [[./app/views/pages/ccf.html.erb]]
+      [[./app/views/pages/_ccf_menu.html.erb]]
+      [[./app/assets/javascripts]]
+
+      [[./app/assets/stylesheets/foundation_and_overrides.scss]]
+
 **** Assets
 
 ***** Stylesheets

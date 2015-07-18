@@ -49,4 +49,8 @@ $(document).ready( function() {
 	itemSelector: '.box',
 	isFitWidth: true
     });
+
+    //$('.hover-modal-reveal').mouseover(function() {
+    //$('#vol-info').foundation('reveal', 'open');
+    //});
 });

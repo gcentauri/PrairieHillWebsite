@@ -1,34 +1,46 @@
-<div class='col-md-12'>
-  <div class='row buffer-bottom'>
-    <h1 class='hi-li padded-sides'>The Children's Country Fair</h1><h2 class='padded-sides'>October 3, 2015 11am-3pm</h2>
-    <%= render 'ccf_menu' %>
+<div class='large-12 columns'>
 
-    <img class='ccf-image-main center' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' />
+  <div class='row'>
+    <div class='large-6 columns'>
+      <h1 class='hi-li padded-sides'>The Children's Country Fair</h1>
+    </div>
+    <div class='large-4 columns'>
+      <h2 class='' style='float:right;'>October 3, 2015 11am-3pm</h2>
+    </div>
+  </div>
 
-    <div class=''>
-      <p>
-	Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!
-      </p>
-      <p>
-	<a class='btn btn-primary' href='/activities'>Volunteer Here!</a> Click on any of the activities you see to the right to view available shifts, then click the "Sign Up" button. View your scheduled shifts <a href="/user_shifts">here</a>.
-      </p>
-      <p>
-	Help place tables, chairs, canopies, signs, materials, trash and composting bins.
-      </p>
-      <p>
-	Organize items, label and price as needed, collect money and tickets for items purchased, prepare root beet floats.
-      </p>
-      <p>
-	Assemble orders, prepare sandwiches, etc. , collect money and tickets for meals.
-      </p>
-      <p>
-	Bring a creative spirit and have fun!  Supplies and sample design inspirations are provided.
-      </p>
-      <p>
-	This activity will make you laugh and get you wet.
-      </p>
-      <p>
-	<em><span data-redactor-tag="span" class="brighten">Ideal for parent and child team</span></em>
+  <div class='row'>
+    <div class='small-10 medium-10 large-10 large-centered columns'>
+      <%= render 'ccf_menu' %>
+      <img class='bottom-shadow' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' />
+
+      <div class='row'>
+	<div id='ccf-join-msg' class='panel'>
+	  <div class='large-10 columns'>
+	    <h3>Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</h3>
+	  </div>
+	  <br/>
+	  <div class='large-2 columns'>
+	    <a class='btn btn-primary btn-lg right' href='/activities'>Volunteer Here!</a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <ul class='orbit-info-slider hidden' data-orbit>
+    <li>
+      <img class='' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' alt='slide 1' />
+      <div class='orbit-caption'>
+	<h2>Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</h2>
+      </div>
+      <a class='btn btn-primary' href='/activities'>Volunteer Here!</a>
+    </li>
+  </ul>
+
+  <div class='hidden'>
+    <em><span data-redactor-tag="span" class="brighten">Ideal for parent and child team</span></em>
       </p>
       <p>
 	This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.
@@ -102,6 +114,6 @@
 
 
       <%#= cms_snippet_content('ccf', @cms_site).html_safe %>
-    </div>
+  </div>
 
-  </div></div>
+</div>
