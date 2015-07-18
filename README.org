@@ -1175,6 +1175,31 @@
        : //= require turbolinks
        : //= require_tree .
 
+***** Foundation & Rails
+
+      I'm going to try something "crazy" here and throw Zurb Foundation on top
+      of what he have here with Bootstrap, as I've really been enjoying 
+      Foundation as frotend framework. Thank you, git, for allowing me to branch
+      off!
+
+      First, I'm going to try just plopping it on top. This may not be a good 
+      idea, but I'm in the mood for danger...
+
+      https://github.com/zurb/foundation-rails
+
+      [[./Gemfile]]
+
+      : gem 'foundation-rails'
+      : bundle
+
+      : rails g foundation:install
+
+      [[./app/views/layouts/application.html.erb]]
+
+      : <head>
+      :   <%= javascript_include_tag 'vendor/modernizr' %>
+      :   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      : </head>
 
 **** Assets
 

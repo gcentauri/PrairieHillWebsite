@@ -53,6 +53,7 @@ gem 'instagramjs-rails'
 gem 'will_paginate', '~> 3.0.6'
 #gem 'sidekiq'
 gem 'dalli'
+gem 'foundation-rails'
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
