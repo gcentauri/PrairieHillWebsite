@@ -1,0 +1,80 @@
+
+<!--LEFT-->
+<div class='small-6 columns' style='padding:0;'>
+
+  <!--CASE-->
+  <% case request.fullpath %>
+  <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new' %>
+  <!--CASE-->
+
+  <!--CCF TITLE-->
+  <div class='small-12 columns' style='padding:0;'>
+    <div class='hi-li bottom-shadow padded-sides'
+	 style='padding-top:17px;
+	 padding-bottom:16px;
+	 font-size:2vw;'>
+      <i class='fi-home green'></i>
+      <span style='text-align:right;'>
+	The Children's
+	<span class='green'>
+	  COUNTRY FAIR 
+	</span>!
+      </span>
+    </div>
+  </div>
+  <!---->
+
+  <% else %>
+
+  <!--PRAIRIE HILL-->
+  <div class='small-12 columns' style='padding:0;'>
+    <div class='hi-li bottom-shadow padded-sides'
+	 style='padding-top:7px;
+	 padding-bottom:7px;
+	 font-size:3vw;'>
+      PRAIRIE HILL
+    </div>
+  </div>
+  <!---->
+
+  <% end %>
+</div>
+<!--LEFT-->
+
+<!--RIGHT-->
+<div class='small-6 columns' style='padding:0;'>
+
+  <% case request.fullpath %>
+  <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new' %>
+
+  <!--CCF DATE-->
+  <div class='small-12 columns' style='padding:0;'>
+    <div class='hi-li-grn bottom-shadow padded-sides'
+	  style='padding-top:17px;
+	 padding-bottom:16px;
+	 font-size:2vw;
+	 text-align:right;'>
+	  October 3, 2015
+      <span style='font-size:1.5vw;'>
+	<em>11am-3pm</em>
+      </span>
+    </div>
+  </div>
+  <!---->
+
+  <% else %>
+
+  <!--LEARNING CENTER-->
+  <div class='small-12 columns' style='padding:0;'>
+    <div class='hi-li-grn bottom-shadow padded-sides'
+	 style='padding-top:7px;
+	 padding-bottom:7px;
+	 font-size:3vw;
+	 text-align:right;'>
+      LEARNING CENTER
+    </div>
+  </div>
+  <% end %>
+  
+</div>
+<!--RIGHT-->

@@ -1,0 +1,131 @@
+<% @sorted.each do |activity| %>
+
+  <!--LOGIC-->
+  <!--for all whose eyes witness this mess, this was one of my first major Rails projects. please forgive!-->
+  <% act_count = get_activity_open_shifts(activity).count %>
+  <% @teardown_shifts = activity.shifts.where(category: "Tear Down").all %>
+  <% teardown_count = (@teardown_shifts.select { |s| s.user_id == nil }).count %>
+  
+  <div class='small-6 columns' style='clear:none;'>
+
+    <!--ACTIVITY TITLE-->
+    <%= link_to "#", class: 'shifts-trigger' do %>
+      <h3 class='hi-li-btn padded bottom-shadow'>
+	<% if teardown_count > 0 %>
+	  <span class='label alert bottom-shadow'>
+	    <%= teardown_count %>
+	  </span>
+	<% end %>
+
+	<span class='padded'><%= activity.work_area %></span>
+
+	<div class='right'><span class='caret'></span></div>
+
+      </h3>
+    <% end %>
+
+    <!--SHIFTS-->
+    <div class='shifts-toggle'>
+      <div class='small-12 columns panel'>
+
+	<!--LOGIC-->
+	<!--needs to be moved to helper-->
+	<% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+
+	<!--MAIN-->
+
+	<% @teardown_shifts.each do |shift| %>
+	  <% if shift.user_id.nil? && user_signed_in? %>
+	    
+	    <%= form_for shift do |f| %>
+
+	      <%= f.hidden_field :user_id, value: current_user.id %>
+
+	      <br/>
+	      <div class='row'>
+		<div class='small-12 columns'>
+		  <h3>
+		    <span class=''>
+		      <%= nice_print_short(shift) %> 
+		    </span>
+		  </h3>
+		</div>
+	      </div>
+
+	      <div class='row'>
+		<div class='small-12 columns'>
+		  <%= f.submit 'Sign Yourself Up!', class: 'button expand success right', data: { :confirm => "Are you sure?" } %>
+		</div>
+	      </div>
+
+	      <hr/>
+	      
+	      <div class='row'>
+		<div class='small-6 columns'>
+		  <%= f.submit 'Add a friend!', class: 'button expand success right', data: { :confirm => "Are you sure?" } %>
+		</div>
+		<div class='small-6 columns'>
+		  <%= f.text_field :guest, placeholder: 'Volunteer your friend!' %>
+		</div>
+	      </div>
+	    <% end %>
+
+	  <% else %>
+	    <br/>
+	    <div class='row'>
+	      <div class='small-2 columns'>
+		<span class='green glyphicon glyphicon-ok bold' style='font-size:3vw;'></span>
+	      </div>
+	      <div class='small-10 columns'>
+		<span class='label bottom-shadow padded'><%= "#{nice_print_short(shift)} " %></span>
+	      </div>
+	    </div>
+
+	    <br/>
+	    
+	    <div class='row'>
+	      <h2 class='button success right'>
+		<% if shift.guest %>
+		  <%= shift.guest %>
+		<% else %>
+		  <%= "#{full_user_name(shift.user_id)}" if shift.user_id %>
+		<% end %>
+	      </h2>
+	    
+	      <% if user_signed_in? && current_user.id == shift.user_id %>
+
+		<%= form_for shift do |f| %>
+		  <%= f.hidden_field :user_id, value: nil %>
+		  <%= f.submit "Cancel", class: 'button warning right', data: { :confirm => "Cancel your shift?" } %>
+		<% end %>
+
+	      <% end %>
+
+	    </div>
+	    <hr/>
+	      
+	  <% end %>
+
+
+	<% end %>
+
+	<div class='row'>
+	  <div class='small-12 columns right'>
+	    <% if current_user.try(:admin?) %>
+	      <%= link_to edit_activity_path(activity) do %>
+		<i class="glyphicon glyphicon-pencil"></i>
+	      <% end %>
+
+	      <%= link_to activity, class: "", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+		<i class="glyphicon glyphicon-remove-sign"></i>
+	      <% end %>
+
+	    <% end %>
+	  </div>
+	</div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

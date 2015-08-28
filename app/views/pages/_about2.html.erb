@@ -1,24 +1,36 @@
-<div class='col-md-12'>
-  <h2>PRAIRIE HILL LEARNING CENTER</h2>
-  <h3>
-    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-  </h3>
-  <p>
-    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-  </p>
+<div class='small-12 small-centered columns'>
+
+  <div class='row'>
+
+    <div class='small-5 columns' style='clear:none;'>
+      <div class='row'>
+	<div class='small-12 small-centered columns'>
+	  <%= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
+	</div>
+      </div>
+    </div>
+
+    <div class='small-7 columns'>
+
+      <div class='row'>
+
+	<div class='small-12 small-centered columns'>
+	  <span class='par'>
+	    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+	  </span>
+	</div>
+
+	<div class='small-12 small-centerd columns'>
+	  <div class='justify hi-li padded'>
+	    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+	  </div>
+	</div>
+	
+      </div>
+
+    </div>
+
+  </div>
+  
 </div>
 
-<script>
-
- $("#activities-list > li:gt(0)").hide();
-
- setInterval(function() { 
-   $('#activities-list > li:first')
-    .fadeOut(500)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('#activities-list');
- },  9000);
-
-</script>

@@ -1,105 +1,252 @@
 
+<!--MAIN COLUMN 12-->
+<div class='small-12 small-centered columns'>
 
-<h2 class="hi-li padded"> Activities <span class='badge right'><%= get_open_shifts.count %></h2>
-<%= render 'pages/ccf_menu' %>
-<br/>
-<br/>
-<div class='jumbotron'>Click on an activity title below to view and choose from available shifts. Click on a shift time to sign up for that shift.</div>
+  <!--INFO ROW-->
+  <div id='ccf-info' class='row panel bottom-shadow'>
 
-<div class="">
-  <!--Download:-->
-  <%#= link_to "Excel", activities_path(format: "xls") %>
-  <div id='calendar' class='hidden'></div>
-  <div class='col-sm-12'>
-    <div id='' class='transitions-enabled infinite-scroll clearfix'>
+    <div class='row'>
 
-      <% @sorted.each do |activity| %>
+      <div class='small-12 large-6 columns'>
 
-	<% act_count = get_activity_open_shifts(activity).count %>
-	<div class='col-sm-6' style='clear:none;'>
+	<!--PAR COLUMN 6-->
+	<div class='small-12 columns'>
 
-	  <%= link_to "#", class: 'shifts-trigger' do %>
-	    <h3 class='hi-li-btn padded green-borders'>
-	      <%= activity.work_area %>
-	      <span class='caret'></span>
-	      <% if act_count > 0 %>
-		<span class='badge right'><%= act_count %></span>
-	      <% end %>
-	    </h3>
-	  <% end %>
-
-
-	  <div class='shifts-toggle'>
-	    <table class="table table-hover table-striped table-bordered">
-
-		<% @shifts_by_title = @shifts.where(title: activity.work_area) %>
-		<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
-	
-	      <% activity.shifts.each do |shift| %>
-		<tr class="tr-md">
-		  <td>
-		    <p>
-		      <% if shift.user_id.nil? && user_signed_in? %>
-
-			<%= form_for shift do |f| %>
-
-			  <%= f.hidden_field :user_id, value: current_user.id %>
-
-			  <%#= button_tag(type: 'submit', class: 'btn btn-primary right', data: { :confirm => "Sign up for this shift?" } ) do %>
-			    <span class='hidden underline padded bold'>
-			    <%#= nice_print_short(shift) %>
-			    </span>
-			    <span class='hidden glyphicon glyphicon-thumbs-up'></span>
-			  <%# end %>
-			    <span class='underline bold'>
-			      <%= nice_print_short(shift) %>
-			    </span>
-			    <%= f.submit 'Sign Up', class: 'btn btn-primary right', data: { :confirm => "Are you sure?" } %>
-			<% end %>
-
-		      <% else %>
-			<p class='underline padded bold'>
-			  <%= "#{nice_print_short(shift)} " %><span class='green glyphicon glyphicon-ok bold right' style='font-size:3vw;'></span>
-			</p>
-			<h2 class='hi-li' style='text-align:right;'><%= "#{full_user_name(shift.user_id)}" if shift.user_id %></h2>
-			<br/>
-			<% if user_signed_in? && current_user.id == shift.user_id %>
-
-			    <%= form_for shift do |f| %>
-			      <%= f.hidden_field :user_id, value: nil %>
-			      <%= f.submit "Cancel", class: 'btn btn-danger right', data: { :confirm => "Cancel your shift?" } %>
-			    <% end %>
-
-			<% end %>
-
-		      <% end %>
-
-		    </p>
-		  </td>
-		</tr>
-	      <% end %>
-
-	      <tr>
-		<% if current_user.try(:admin?) %>
-		  <td>
-		    <%= link_to edit_activity_path(activity) do %>
-		      <i class="glyphicon glyphicon-pencil"></i>
-		    <% end %>
-		  </td>
-		  <td>
-		    <%= link_to activity, class: "", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
-		      <i class="glyphicon glyphicon-remove-sign"></i>
-		    <% end %>
-		  </td>
-		<% end %>
-	      </tr>
-	    </table>
+	  <!--GREETING ROW-->
+	  <div class='row'>
+	    <div class='small-12 large-12 small-centered large-centered columns content bottom-shadow'>
+	      <div class='row'>
+		<div class='small-12 columns hi-li-grn padded'>
+		  <h1 style='color:white;'>Welcome!</h1>
+		</div>
+	      </div>
+	      <div class='row'>
+		<div class='justify content' style='padding:25px;'>
+		  <strong>Click on an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself! We ask that you <strong>choose at least <em>one shift from both</em> <span class='label success'>Preparation</span> and <span class='label success'> Stations </span></strong>. Please also consider signing up to help with <span class='label success'>Tear Down</span>. 
+		</div>
+	      </div>
+	    </div>
 	  </div>
 	</div>
-      <% end %>
-      <%= will_paginate @activities %>
+      </div>
+
+      <div class='small-12 large-6 columns'>
+	<!--AVAILABLE SHIFTS COLUMN 6-->
+	<div id='shifts-marker' class='small-12 columns bottom-shadow' style=''>
+
+	  <!--DASHBOARD ROW-->
+	  <div class='row'>
+	    <div class='small-12 columns hi-li'>
+	      <ul class='button-group even-2'>
+
+		<li>
+		  <div class='small-12 columns'>
+		    <div class='small-3 columns'>
+		      <span class='bottom-shadow padded' style='background:green;color:white;'>
+			<%= get_closed_shifts.count %>
+		      </span>
+		    </div>
+		    <div class='small-9 columns'>
+		      <h4>Filled Shifts</h4>
+		    </div>
+		  </div>
+		</li>
+
+		<li>
+		  <div class='small-12 columns'>
+		    <div class='small-3 columns'>
+		      <strong>
+			<span class='bottom-shadow padded' style='background:red;color:white;'>
+			  <%= get_open_shifts.count %>
+			</span>
+		      </strong>
+		    </div>
+		    <div class='small-9 columns'>
+		      <h4><strong>Available Shifts</strong></h4>
+		    </div>
+		  </div>
+		</li>
+		
+
+		<div class='small-12 columns hidden'>
+		  <h2>
+		    Available Shifts
+		  </h2>
+		</div>
+
+	      </ul>
+	    </div>
+	  </div>
+	  <!--^^-->
+
+	  <!--INFO ROW-->
+	  <div class='row'>
+	    <div class='small-12 columns'>
+	      <div class='jusfity' style='padding:25px;font-size:1.5vw;'>
+		<strong>Switch between shift categories</strong> to view and choose from each category by selecting from the tabs below.
+	      </div>
+	    </div>
+	  </div>
+	  <!--^^-->
+
+	  <!--CATEGORY SELECTION--><!--DRYup-->
+	  <div class='row'>
+	    <div class='small-12 columns'>
+	      <ul id='category-selection' class='button-group even-3' style=''>
+		<li>
+		  <a id='prep-link' href='#' class='success shifts-link button large bottom-shadow'>Preparation
+		    <span class='label alert badge-fix hidden'>
+		      <%= get_open_prep_shifts.count %>
+		    </span>
+		  </a>
+		</li>
+		<li>
+		  <a id='station-link' href='#' class='shifts-link button large bottom-shadow'>
+		    Stations
+		    <span class='label alert badge-fix hidden'>
+		      <%= get_open_station_shifts.count %>
+		    </span>
+		  </a>
+		</li>
+		<li>
+		  <a id='teardown-link' href='#' class='shifts-link button large bottom-shadow'>
+		    Tear Down
+		    <span class='label alert badge-fix hidden'>
+		      <%= get_open_teardown_shifts.count %>
+		    </span>
+		  </a>
+		</li>
+	      </ul>
+	    </div>
+	  </div>
+
+	  <!--CATEGORY TITLES-->
+	  <div class='row'>
+	    <div class='small-6 columns hidden'>
+	      <div id='prep-title' class='small-5 columns button success expand'>Preparation</div>
+	      <div id='station-title' class='small-5 columns button success expand'>Stations</div>
+	      <div id='teardown-title' class='small-5 columns button success expand'>Tear Down</div>
+	      <div id='all-title' class='small-5 columns button success expand'>All Activities</div>
+	    </div>
+
+	    <div class='small-12 columns'>
+
+	      <div id='all-link' class='small-5 columns button expand'>
+		View All
+		<span class='label alert badge-fix hidden'>
+		  <%= get_open_shifts.count %>
+		</span>
+	      </div>
+	      
+	    </div>
+
+	  </div>
+	  <!--^^-->
+
+
+	  <!--^^^-->
+    	</div>
+      </div>
     </div>
   </div>
+  <!--^^^-->
+  
+  <!--ROW-->
+  <div class='row'>
+    
+    <div class='small-9 large-8 columns hidden'>
+      <!--CATEGORY SELECTION--><!--DRYup-->
+      <div class='small-9 columns'>
+	<ul class='button-group even-3' style=''>
+	  <li>
+	    <a id='prep-link' href='#' class='button large bottom-shadow'>Preparati
+	      <span class='label alert badge-fix'>
+		<%= get_open_prep_shifts.count %>
+	      </span>
+	    </a>
+	  </li>
+	  <li>
+	    <a id='station-link' href='#' class='button large bottom-shadow'>
+	      Stations
+	      <span class='label alert badge-fix'>
+		<%= get_open_station_shifts.count %>
+	      </span>
+	    </a>
+	  </li>
+	  <li>
+	    <a id='teardown-link' href='#' class='button large bottom-shadow'>
+	      Tear Down
+	      <span class='label alert badge-fix'>
+		<%= get_open_teardown_shifts.count %>
+	      </span>
+	    </a>
+	  </li>
+	</ul>
+      </div>
+    </div>
+    <!--^^^-->
+
+    <!--CATEGORY TITLES-->
+    <div class='small-3 large-4 columns hidden'>
+      <div id='prep-title' class='small-5 columns button success expand'>Preparation</div>
+      <div id='station-title' class='small-5 columns button success expand'>Stations</div>
+      <div id='teardown-title' class='small-5 columns button success expand'>Tear Down</div>
+      <div id='all-title' class='small-5 columns button success expand'>All Activities</div>
+    </div>
+    <!--^^-->
+
+    <div id='view-switcher' class='hidden'>
+      <a href='#'><i id='plain-switch' class='fi-home'></i> Switch to plain view.</a>
+      <a href='#'><i id='slick-switch' class='fi-home'></i> Switch to slick view.</a>
+    </div>
+    
+  </div>
+
+  <!--ACTIVITIES-->
+  <div class='row'>
+    <div class="">
+      <!--Download:-->
+      <%#= link_to "Excel", activities_path(format: "xls") %>
+      <!--<div id='calendar' class='hidden'></div>-->
+      <div class='small-12 columns'>
+	<div id='' class='transitions-enabled infinite-scroll clearfix'>
+
+	  <div name='prep' id='prep'>
+	    <% @type = "Preparation" %>
+	    <%= render 'activity_shift_simple_layout' %>	    
+	    <%#= render 'activity_shift_layout' %>
+	    <hr/>
+	  </div>
+	  
+	  <div name='station' id='station'>
+	    <% @type = "Station" %>
+	    <%= render 'activity_shift_simple_layout' %>
+	    <%#= render 'activity_shift_layout' %>
+	    <hr/>
+	  </div>	  
+
+	  <div name='teardown' id='teardown'>
+	    <% @type = "Tear Down" %>
+	    <%= render 'activity_shift_simple_layout' %>
+	    <%#= render 'activity_shift_layout' %>
+	    <hr/>
+	  </div>
+	  
+	  <div name='all' id='all'>
+	    <% @type = "All" %>
+	    <%= render 'activity_shift_simple_layout' %>
+	    <%#= render 'activity_shift_layout' %>	    
+	    <hr/>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <a id='all-link' href='#' class='button large bottom-shadow expand'>Show All Activities</a>
+  </div>
 </div>
-
-
+<style>
+ // .label {
+   //   border-radius: 0 10px 3px 13px;
+   // }
+</style>

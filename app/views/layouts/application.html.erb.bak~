@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+  <%= metamagic title: "PRAIRIE HILL Learning Center", description: "Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment", keywords: %w(Montessori education children Nebraska) %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag( 'http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two') %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'vendor/modernizr' %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <div class='container-fluid'>
+    <div id='top'></div>
+
+    <% if current_page?(root_path) %>
+      <div id='bg-image' class='img-full instagram hash hidden'
+	   data-0='opacity:1;'
+	   data-1000='opacity:0;'
+	   >
+	<!--<div id='quote'>-->
+	<%#= render 'layouts/quote' %>
+	<!--</div>-->
+      </div>
+    <% end %>
+
+    <% if current_page?(root_path) %>
+      <div class='row'>
+	<div id='quote'
+	     data-0='right:60px;width:70%;font-size:2vw;'
+	     data-500='right:1500px;width:20%;font-size:1vw;'
+	     >
+	  <%= render 'layouts/quote' %>
+	</div>
+      </div>
+    <% end %>
+    
+    <div class='row'> 
+      <div class='col-md-4'>
+	<div id='header'>
+	  <%= render 'layouts/header' %> 
+	</div>
+      </div>
+
+      <div id='buffer-col' class='col-md-3'>	
+      </div>
+
+      <div class='col-md-8'>
+	<div class='row'>
+	  <div id='skrollr-body'>
+	    <% if current_page?(root_path) %>
+	      <div id='content'>
+		<% elsif current_page?(ccf_path) %>
+		<div id='content'>
+		<% elsif current_page?(activities_path) %>
+		<div id='content'>
+		<% elsif current_page?(user_shifts_path) %>
+		<div id='content'>
+		<% elsif current_page?(staffandboard_path) %>
+		<div id='content' class='buffer-top-120 staff-bg'>
+	    <% else %>
+		  <div id='content' class='buffer-top-120'>
+	    <% end %>
+
+	    <% if current_page?(root_path) %>
+	      <div id="tab"
+	    <% else %>
+		<div id="tab" class='top-buffer'
+	    <% end %>
+	    data-0='width: 10%; top: -70px;'
+		   data-200='width: 100%; top: -20px;'
+		   >
+	    <% if current_page?(root_path) %>
+	      <a href='#content'
+	    <% else %>
+		<a href='#'
+	    <% end %>
+	    data-0='display:block;opacity:1;'
+		 data-100='display:none;opacity:0;'
+		 >
+
+	    <h2>
+	      <% if current_page?(root_path) %>
+		<span class='glyphicon glyphicon-arrow-up'>
+		  <% elsif current_page?(ccf_path) %>
+		  <span></span>
+	      <% else %>
+		  <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'></span>
+	      <% end %>
+		  </h2>
+	      </a>
+	      <a href='#top'
+		 data-0='display:none;opacity:0;'
+		 data-100='display:block;opacity:1;'
+		 >
+		<h2>
+		  <span class='glyphicon glyphicon-arrow-down'></span>
+		</h2>
+	      </a>
+	      </div>
+	      <%= yield %>
+		  </div>
+		</div>
+	      </div>
+
+	  </div>
+	</div>
+      </div>
+
+      <script>
+
+      </script>
+
+</body>
+</html>

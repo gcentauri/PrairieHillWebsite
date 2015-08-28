@@ -1,0 +1,79 @@
+$phill-grn: #3f8000;
+$phill-gold: #ffef19;
+
+.par {
+    //padding: 5px;
+    width: 90%;
+    p {
+	font-size: 1.5vw;
+	line-height: 130%;
+	padding: 15px 0;
+    }
+}
+
+.orbit-container .orbit-prev span,
+.orbit-container .orbit-next span {
+
+    color: $phill-gold;
+    border: none;
+    font-size: 60px;
+    text-indent: 0;
+    margin-top: -32px;
+}
+
+.orbit-container .orbit-prev {
+    background-color: transparent;
+    left: 15px;
+}
+
+.orbit-container .orbit-prev span:before {
+    content: "\2039";
+}
+
+.orbit-container .orbit-next {
+    background-color: transparent;
+    right: 15px;
+}
+
+.orbit-container .orbit-next span:before {
+    content: "\203A";
+}
+
+.orbit-container .orbit-slides-container > * .orbit-caption {
+    background: $phill-grn;
+}
+
+.orbit-container {
+    .orbit-slide-number {
+	//display: none;
+	color: transparent;
+    }
+}
+
+.orbit-container .orbit-timer .orbit-progress {
+    //background-color: $phill-gold;
+}
+
+.orbit-caption {
+    p {
+	font-size: 1.5vw;
+	color: $phill-gold;
+    }
+    a {
+	color: white;
+    }
+}
+
+.orbit-bullets {
+    display: none;
+}
+
+.fb {
+    background: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 5px 5px 0;
+    height: 5%;
+    border-radius: 5px;
+}

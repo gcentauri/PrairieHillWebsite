@@ -1,0 +1,26 @@
+<div class='row'>
+		<div class='small-12 columns'>
+		  <h3>
+		    <span class=''>
+		      <%= nice_print_short(shift) %> 
+		    </span>
+		  </h3>
+		</div>
+	      </div>
+
+	      <div class='row'>
+		<div class='small-12 columns'>
+		  <%= f.submit 'Sign Yourself Up!', class: 'button expand success right', data: { :confirm => "Are you sure?" } %>
+		</div>
+	      </div>
+
+	      <hr/>
+	      
+	      <div class='row'>
+		<div class='small-6 columns'>
+		  <%= f.submit 'Add a friend!', class: 'button expand success right', data: { :confirm => "Are you sure?" } %>
+		</div>
+		<div class='small-6 columns'>
+		  <%= f.text_field :guest, placeholder: 'Volunteer your friend!' %>
+		</div>
+	      </div>

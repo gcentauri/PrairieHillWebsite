@@ -1,0 +1,324 @@
+<!--for all whose eyes witness this mess, this was one of my first major Rails projects. please forgive!-->
+
+<div id='view-switcher' class='hidden'>
+  <a href='#'><i id='plain-switch' class='fi-home'></i> Switch to plain view.</a>
+  <a href='#'><i id='slick-switch' class='fi-home'></i> Switch to slick view.</a>
+</div>
+
+
+<% @sorted.each do |activity| %>
+
+  <% @type_count = get_type_shift_count(activity, @type) %>
+
+
+  <div id='slick-view' class='small-6 columns' style='clear:none;'>
+    
+    <!--ACTIVITY TITLE-->
+    <%= link_to "#", class: 'shifts-trigger' do %>
+      <h3 class='hi-li-btn padded bottom-shadow'>
+	<% if @type_count > 0 %>
+	  <span class='label alert bottom-shadow'>
+	    <%= @type_count %>
+	  </span>
+	<% end %>
+	<span class='padded'><%= activity.work_area %></span>
+	<div class='right'><span class='caret'></span></div>
+      </h3>
+    <% end %>
+
+    <!--SHIFTS-->
+    <div class='shifts-toggle'>
+      <div id='shifts-filtered' class='small-12 columns panel'>
+
+	<!--LOGIC-->
+	<!--needs to be moved to helper-->
+	<% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+
+	<!--MAIN-->
+	<!--SHIFTS-->
+
+	<div class='row'>
+
+	  <!--ADMIN-->
+	  <div class='row'>
+	    <div class='small-2 right columns content'>
+
+	      <% if current_user.try(:admin?) %>
+		<%= link_to edit_activity_path(activity) do %>
+		  <i class="fi-wrench"></i>
+		<% end %>
+	      <% end %>
+
+	    </div>
+	  </div>
+	  <!--^^-->
+
+	  <!--DYNAMIC-->	  
+	  <% @type_shifts.each do |shift| %>
+
+
+	    <div id='shift-filtered' class='bottom-shadow'>
+
+	      <!--OPEN-->
+	      <% if shift.user_id.nil? && user_signed_in? %>
+		
+		<%= form_for shift do |f| %>
+
+		  <%= f.hidden_field :user_id, value: current_user.id %>
+
+		  <div class='row'>
+		    <div class='small-12 small-centered columns'>
+		      <h3>
+			<span class='expand padded green'>
+			  <em>
+			    <div id='shift-time' class='panel bottom-shadow' style='text-align:center;'>
+			      <span class='bottom-shadow padded expand' style='background-color:rgba(255,255,255,0.9);border-radius:1px 2px 0px 3px;'>
+				<%= "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+			      </span>
+			      <%#= concept("daytime/cell", shift: @shift).(:show) %>
+			    </div>
+			  </em>
+			</span>
+		      </h3>
+
+		    </div>
+		  </div>
+
+		  <div class='row'>
+		    <div class='small-11 small-centered columns'>
+		      <%= f.submit 'Sign Yourself Up!', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+		    </div>
+		  </div>
+
+		  <div id='guest-signup-trigger' class='hidden'>
+		    <div class='row'>
+		      <div class='small-11 columns small-centered'>
+			<span class='button expand success right bottom-shadow'>Sign up for a friend!</span>
+			<%#= f.submit 'Sign up for a friend!', class: 'button expand success right bottom-shadow', '#' %>
+		      </div>
+		    </div>
+		  </div>
+
+		  <div id='guest-signup-toggle' class='content'>
+		    <div class='row'>
+		      <div class='small-10 columns small-centered'>
+			<%= f.label "Add your friend's name" %>
+			<%= f.text_field :guest, placeholder: 'Name of your Friend' %>
+		      </div>
+		    </div>
+
+		    <div class='row'>
+		      <div class='small-6 columns small-centered'>
+			<%= f.submit 'Add Friend', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+		      </div>
+		    </div>
+		  </div>
+
+		<% end %>
+
+	      <% else %>
+
+		<!--CLOSED-->
+		<div class='row'>
+		  <div class='small-12 columns'>
+		    <h3>
+		      <div id='shift-time' class='panel bottom-shadow' style='text-align:center;'>
+			<span class='bottom-shadow padded expand' style='background-color:rgba(255,255,255,0.9);border-radius:1px 2px 0px 3px;'>
+			  <%= "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+			</span>
+		      </div>
+		    </h3>
+		  </div>
+		</div>
+
+		<div class='row' data-equalizer>
+		  <!--VOLUNTEER-->
+		  <div class='small-11 small-centered columns'>
+		    <div class='small-12 columns' data-equalizer-watch>
+		      <h2 class='button success expand'>
+			<% if shift.guest %>
+			  <%= shift.guest %>
+			<% else %>
+			  <%= "#{full_user_name(shift.user_id)}" if shift.user_id %>
+			<% end %>
+		      </h2>
+		    </div>
+		    <!--HEART-->
+		    <div class='small-2 columns hidden' data-equalizer-watch>
+		      <h2>
+			<i class='fi-heart' style='color:red;'></i>
+		      </h2>
+		    </div>
+		    <!--CANCEL-->
+		    <div class='small-4 columns' data-equalizer-watch>
+		      <% if user_signed_in? && current_user.id == shift.user_id %>
+
+			<%= form_for shift do |f| %>
+			  <%= f.hidden_field :user_id, value: nil %>
+			  <%= f.submit "Cancel", class: 'button warning right', data: { :confirm => "Cancel your shift?" } %>
+			<% end %>
+		      <% end %>
+		    </div>
+		  </div>
+		</div>
+	      <% end %>
+
+
+	      
+	    </div>
+	  <% end %>
+
+
+	  
+	</div>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+  <div id='slick-view' class='small-6 columns hidden' style='clear:none;'>
+
+    <!--ACTIVITY TITLE-->
+    <%= link_to "#", class: 'shifts-trigger' do %>
+      <h3 class='hi-li-btn padded bottom-shadow'>
+	<% if @type_count > 0 %>
+	  <span class='label alert bottom-shadow'>
+	    <%= @type_count %>
+	  </span>
+	<% end %>
+	<span class='padded'><%= activity.work_area %></span>
+	<div class='right'><span class='caret'></span></div>
+      </h3>
+    <% end %>
+
+    <!--SHIFTS-->
+    <div class='shifts-toggle'>
+      <div id='shifts-filtered' class='small-12 columns panel'>
+
+	<!--LOGIC-->
+	<!--needs to be moved to helper-->
+	<% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+
+	<!--MAIN-->
+	<!--SHIFTS-->
+
+	<div>
+	  <% @type_shifts.each do |shift| %>
+
+	    <div id='shift-filtered' class='bottom-shadow'>
+	      <% if shift.user_id.nil? && user_signed_in? %>
+		
+		<%= form_for shift do |f| %>
+
+		  <%= f.hidden_field :user_id, value: current_user.id %>
+
+		  <div class='row'>
+		    <div class='small-12 small-centered columns'>
+		      <h3>
+			<span class='expand padded green'>
+			  <em>
+			    <div id='shift-time' class='panel bottom-shadow' style='text-align:center;'>
+			      <span class='bottom-shadow padded expand' style='background-color:rgba(255,255,255,0.9);border-radius:1px 2px 0px 3px;'>
+				<%= "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+			      </span>
+			      <%#= concept("daytime/cell", shift: @shift).(:show) %>
+			    </div>
+			  </em>
+			</span>
+		      </h3>
+
+		    </div>
+		  </div>
+
+		  <div class='row'>
+		    <div class='small-11 small-centered columns'>
+		      <%= f.submit 'Sign Yourself Up!', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+		    </div>
+		  </div>
+
+		  <div class='row' data-equalizer>
+		    <div class='small-11 small-centered columns' data-equalizer-watch>
+		      <%= f.submit 'Add a friend!', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+		    </div>
+		  </div>
+		  <div class='row'>
+		    <div class='small-11 small-centered columns' data-equalizer-watch>
+		      <%= f.text_field :guest, placeholder: 'Volunteer your friend!' %>
+		    </div>
+		  </div>
+		<% end %>
+
+	      <% else %>
+		<div class='row'>
+		  <div class='small-12 columns'>
+		    <h3>
+		      <div id='shift-time' class='panel bottom-shadow' style='text-align:center;'>
+			<span class='bottom-shadow padded expand' style='background-color:rgba(255,255,255,0.9);border-radius:1px 2px 0px 3px;'>
+			  <%= "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+			</span>
+		      </div>
+		    </h3>
+		  </div>
+		</div>
+
+		<div class='row' data-equalizer>
+		  <!--VOLUNTEER-->
+		  <div class='small-12 small-centered columns'>
+		    <div class='small-6 columns' data-equalizer-watch>
+		      <h2 class='button success right'>
+			<% if shift.guest %>
+			  <%= shift.guest %>
+			<% else %>
+			  <%= "#{full_user_name(shift.user_id)}" if shift.user_id %>
+			<% end %>
+		      </h2>
+		    </div>
+		    <!--HEART-->
+		    <div class='small-2 columns' data-equalizer-watch>
+		      <h2>
+			<i class='fi-heart' style='color:red;'></i>
+		      </h2>
+		    </div>
+		    <!--CANCEL-->
+		    <div class='small-4 columns' data-equalizer-watch>
+		      <% if user_signed_in? && current_user.id == shift.user_id %>
+
+			<%= form_for shift do |f| %>
+			  <%= f.hidden_field :user_id, value: nil %>
+			  <%= f.submit "Cancel", class: 'button warning right', data: { :confirm => "Cancel your shift?" } %>
+			<% end %>
+		      <% end %>
+		    </div>
+		  </div>
+		</div>
+	      <% end %>
+
+	    </div>
+	  <% end %>
+	</div>
+
+	<div class='row'>
+	  <div class='small-12 columns right'>
+	    <% if current_user.try(:admin?) %>
+	      <%= link_to edit_activity_path(activity) do %>
+		<i class="glyphicon glyphicon-pencil"></i>
+	      <% end %>
+
+	      <%= link_to activity, class: "", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+		<i class="glyphicon glyphicon-remove-sign"></i>
+	      <% end %>
+
+	    <% end %>
+	  </div>
+	</div>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>
+

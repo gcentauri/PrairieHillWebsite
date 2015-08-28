@@ -1,11 +1,14 @@
 module ShiftsHelper
   
   def user_shifts(user)
-    user.shifts
-     # @user = current_user
-     # @shifts = Shift.all
-     # @username = @user.first_name + " " + @user.last_name
-     # @user_shifts = @shifts.where(volunteer: @username).sort_by { |s| s.title }
+    @user = current_user
+
+    @user.shifts.sort
+
+    # @user = current_user
+    # @shifts = Shift.all
+    # @username = @user.first_name + " " + @user.last_name
+    # @user_shifts = @shifts.where(volunteer: @username).sort_by { |s| s.title }
   end
 
   def get_activity_title(shift)

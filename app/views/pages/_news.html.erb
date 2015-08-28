@@ -3,75 +3,33 @@ description: 'Latest News at PRAIRIE HILL Learning Center',
 keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community parent tours dates) %>
 
 
-<div class='col-md-12'> 
-  <div class='col-md-6'>
-    <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
-  </div>
+<div class='small-12 small-centered columns'>
 
-  <div class='col-md-6 buffer-bottom'>
-    <%= image_tag("ella_reads.jpg", class: "img-fit") %>
-  </div>
-
-  <div class='col-md-6 buffer-bottom' style='clear:both;display: none;'>  
-    <div class="large-img news-bg"
-	 style="background-size:cover;height:0px;">
-      <% if current_page?(news_path) %>
-	<div class="anchor-trans hidden"
-	     data-0="top:75%;"
-	     data-500="top:100%;">
-      <% else %>
-	  <div class="anchor-trans hidden"
-	       data-2500="top:10%;"
-	       data-4500="top:70%;">
-      <% end %>
-      <a href="/camp" class="important-link"><span class="glyphicon glyphicon-leaf" style="font-size:2vw;color:green;"></span>Sign up for PRAIRIE HILL summer camp!</a>
-      <%#= link_to "Sign up for PRAIRIE HILL summer camp!", camp_path, class: "important-link" %>
-      
-	  </div>
-
-	</div>
-
-	<h2>Prospective Parent Tour Date</h2>
-	<%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
-
-	<div class="hidden">
-	  <h2 class="sub-title hi-li">Children's Country Fair (September 27,2014 11am-3pm)</h2>
-	  <div id="video" style="padding:15px;">
-	    <iframe width="560" height="315" src="//www.youtube.com/embed/-ekyFBFfPJk?list=UULqVxX4lNc3PzfbSZlBwVBw" frameborder="0" allowfullscreen></iframe>
-	  </div>
-	  <h2 style="padding:15px;background:white;">Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more! You can <a href="http://phill-new.herokuapp.com/ccf">volunteer here!</a></h2>
-
-	  <div style="background: white; padding: 15px;">
-	    <div style="padding: 15px;">
-	      <h2><span class="bright hi-li" style="width:100%;padding:0 15px;margin-left:0;">Little Run on the Prairie</span></h2>
-	      <h3>Benefit run for Jennifer Bratcher and family (Bodhi Imports)</h3>
-	      <h3>Saturday, September 27th</h3>
-	      <h4>1 MILE RUN in the PRAIRIE HILL Pasture</h4>
-	      <h4><em>Non-competitive fun run -- everyone is a winner :)</em></h4>
-	      <h4>Cost-$10</h4>
-	      <h4>ADDITIONAL <em>DONATIONS</em> WELCOME</h4>
-	      <h4>10:30 AM- start</h4>
-	      <h4>Packet Pick up 9:30 AM</h4>
-	      <h4>Prairie Hill Learning Center</h4>
-	      <h4>11705 South 12 th Street</h4>
-	      <h4>Roca Hwy 77 South</h4>
-	      <h4>past Sprague Road, on the right hand side of the road</h4>
-	      <h4>LOOK FOR THE Children's Country Fair SIGNS! (Fair 11am-3pm)</h4>
-	      <h4>T-Shirts for YOUTH</h4>
-	      <h4>THIS IS A ZERO WASTE EVENT SO BRING YOUR WATER BOTTLES AND WE WILL FILL THEM UP</h4>
-	      <h4>GELATO after the run</h4>
-	      <h4>THANKS to Erin Burianek!! MANY THANKS to our Title Sponsor</h4>
-	      <img src='http://prairiehill.com/wp-content/uploads/2014/09/saslogo.png' style='width:50%;'>
-	      <h4><a href="http://www.bit.ly/littlerunontheprairie">Online registration @ GetMeRegistered.com</a></h4>
-	      <h4>Walk on registration available without T-shirt.</h4>
-	      <h4>Run for JENNIFER</h4>
-	      <h4>Contact info: Rosina Paolini 402-423-1260</h4>
-	    </div>
-	  </div>
-	</div>
-
+  <div class='small-6 columns'>
+    <div class='row'>
+      <div class='small-12 columns'>
+	<h3 class='hi-li-grn padded'>
+	  Prospective Parent Tour Dates
+	</h3>
+      </div>
     </div>
 
+    <div class='row'>
+      <div class='small-11 small-centered columns justify'>
+	Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+      </div>
+    </div>
+    
+    <div class='row'>
+      <div class='small-12 columns'>
+	<h4 class='hi-li padded'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
+      </div>
+    </div>
   </div>
-  
+
+  <div class='small-6 columns' data-equalizer-watch>
+    <%= image_tag("ella_reads.jpg") %>
+  </div>
+
 </div>
+

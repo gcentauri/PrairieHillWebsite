@@ -12,7 +12,7 @@ gem 'jquery-ui-rails'
 gem 'jbuilder'
 gem 'kaminari'
 gem 'responders'
-gem 'bootstrap-sass', '~> 3.3.4'
+#gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bcrypt'
 gem 'devise'
 gem 'pg'
@@ -21,7 +21,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'aws-sdk', '~> 1.46.0'
 gem 'mail_form'
 gem 'simple_form'
-gem 'cells'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem 'skrollr-rails'
 gem 'rails_admin'
@@ -54,7 +53,10 @@ gem 'will_paginate', '~> 3.0.6'
 #gem 'sidekiq'
 gem 'dalli'
 gem 'foundation-rails'
-
+gem 'foundation-icons-sass-rails'
+gem 'cells', "~> 4.0.0"
+gem 'cells-erb'
+gem 'jquery-slick-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development

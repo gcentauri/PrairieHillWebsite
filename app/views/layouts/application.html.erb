@@ -11,106 +11,76 @@
 </head>
 <body>
 
-  <div class='container-fluid'>
-    <div id='top'></div>
+  <!--PAGE 12-->
+  <div class='row'>
+    <div class='small-12 small-centered columns'>
 
-    <% if current_page?(root_path) %>
-      <div id='bg-image' class='img-full instagram hash hidden'
-	   data-0='opacity:1;'
-	   data-1000='opacity:0;'
-	   >
-	<!--<div id='quote'>-->
-	<%#= render 'layouts/quote' %>
-	<!--</div>-->
+      <!--NAV 2-->
+      <div id='header' class='large-2 columns'>
+	<%= render 'layouts/foundation_side' %>
       </div>
-    <% end %>
+      
+      <!--MAIN 8-->
+      <div class='small-10 small-centered large-9 columns content bottom-shadow'
+	   style='padding:0;
+	   margin:0;
+	   position:fixed;
+	   top:20px;
+	   right:50px;
+	   z-index:2;
+	   border-radius:2px;
+	   height:72px;'>
 
-    <% if current_page?(root_path) %>
-      <div class='row'>
-	<div id='quote'
-	     data-0='right:60px;width:70%;font-size:2vw;'
-	     data-500='right:1500px;width:20%;font-size:1vw;'
-	     >
-	  <%= render 'layouts/quote' %>
+	<!---TITLE--->
+	<div class='small-12 columns' style='padding:0;opacity:0.9;'>
+	  <%= render 'layouts/title' %>
 	</div>
-      </div>
-    <% end %>
-    
-    <div class='row'> 
-      <div class='col-md-4'>
-	<div id='header'>
-	  <%= render 'layouts/header' %> 
-	</div>
-      </div>
 
-      <div id='buffer-col' class='col-md-3'>	
-      </div>
-
-      <div class='col-md-8'>
-	<div class='row'>
-	  <div id='skrollr-body'>
-	    <% if current_page?(root_path) %>
-	      <div id='content'>
-		<% elsif current_page?(ccf_path) %>
-		<div id='content'>
-		<% elsif current_page?(activities_path) %>
-		<div id='content'>
-		<% elsif current_page?(user_shifts_path) %>
-		<div id='content'>
-		<% elsif current_page?(staffandboard_path) %>
-		<div id='content' class='buffer-top-120 staff-bg'>
-	    <% else %>
-		  <div id='content' class='buffer-top-120'>
-	    <% end %>
-
-	    <% if current_page?(root_path) %>
-	      <div id="tab"
-	    <% else %>
-		<div id="tab" class='top-buffer'
-	    <% end %>
-	    data-0='width: 10%; top: -70px;'
-		   data-200='width: 100%; top: -20px;'
-		   >
-	    <% if current_page?(root_path) %>
-	      <a href='#content'
-	    <% else %>
-		<a href='#'
-	    <% end %>
-	    data-0='display:block;opacity:1;'
-		 data-100='display:none;opacity:0;'
-		 >
-
-	    <h2>
-	      <% if current_page?(root_path) %>
-		<span class='glyphicon glyphicon-arrow-up'>
-		  <% elsif current_page?(ccf_path) %>
-		  <span></span>
-	      <% else %>
-		  <span id='arrow-switch' class='glyphicon glyphicon-arrow-down'></span>
-	      <% end %>
-		  </h2>
-	      </a>
-	      <a href='#top'
-		 data-0='display:none;opacity:0;'
-		 data-100='display:block;opacity:1;'
-		 >
-		<h2>
-		  <span class='glyphicon glyphicon-arrow-down'></span>
-		</h2>
-	      </a>
-	      </div>
+	<!--CONTENT-->
+	<div class='small-12 columns'>
+	  <div class='row'>
+	    <div id='primary-element' class='small-10 large-9 columns content bottom-shadow' style='opacity:1;position:fixed;margin:0 auto;top:120px;right:50px;height:75%;border-radius:2px;'>
 	      <%= yield %>
-		  </div>
-		</div>
-	      </div>
-
+	    </div>
 	  </div>
 	</div>
+	<!--^^-->
+	
+	<!--FOOTER-->
+	<div class='small-9 columns footer'>
+	  <div class='row'>
+	    <div id='slide-control' class='small-8 columns'>
+	      <div id='slide-area'></div>
+	    </div>
+
+	    <div class='small-1 columns' style='position:absolute;bottom:25%;right:15%;'>
+	      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<span style="font-family:trebuchet ms,arial,helvetica;" rel="font-family:trebuchet ms,arial,helvetica;">
+		  <input name="cmd" value="_xclick" type="hidden">
+		  <input name="business" value="prairiehillschool@yahoo.com" type="hidden">
+		  <input name="no_note" value="1" type="hidden">
+		  <input name="currency_code" value="USD" type="hidden">
+		  <input name="tax" value="0" type="hidden">
+		  <input alt="Make payments with PayPal - it's fast, free and secure!" name="submit" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" type="image">
+		</span>
+	      </form>
+	    </div>
+	    
+	    <div class='small-1 columns'>
+	      <div class='social'>
+		<%= link_to image_tag("facebook.png", class: "fb bottom-shadow"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!--endFOOTER-->
+	
       </div>
 
-      <script>
-
-      </script>
+      <!--endMAIN-->
+    </div>
+  </div>
+  <!--endPAGE-->  
 
 </body>
 </html>

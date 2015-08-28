@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
-    $(function($){
+
+    $(function($) {
 	if ($(window).width() > 767) {
 	    skrollr.init({
 		forceHeight: false,
@@ -16,21 +17,15 @@ $(document).ready(function () {
 	} (jQuery));
     });
 
-    $(window).on('resize', function() {
-	if ($(window).width() <= 767) {
-	    $('#content').css('top', '200px');
-
-	    //console.log('window-size_top-adjust_function');
-	    //console.log($('#content').css('top'));
-	}
+    $(window).resize(function(){
+	//var newwidth = $(window).width();
+	//var newheight = $(window).height() - 200;
+	var newheight = $(window).height()*0.75;
+	$('#primary-element').height(newheight);
+	//$('#ccf-join-msg').css('height' : newheight);
+	//$('#ccf-main-img').height(newheight*0.90);
     });
-
-    $(function($){
-	if ($(window).width() <= 767) {
-	    $('#content').css('top', '200px');
-	}
-    });
-
+    
     $(".staff-img").click(function() {
 	$(this).animate({
 	    width: "200px",
@@ -94,4 +89,5 @@ $(document).ready(function () {
 	}
     });
 
+    $("#slideshow > div:gt(0)").hide();
 });

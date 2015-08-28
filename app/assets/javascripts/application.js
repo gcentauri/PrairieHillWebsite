@@ -29,6 +29,7 @@
 //= require skrollr
 //= require skrollr.ie
 //= require skrollr.menu
+//= require jquery.slick
 //= require_self
 //= require_tree .
 

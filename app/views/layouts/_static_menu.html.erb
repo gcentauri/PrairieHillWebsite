@@ -1,0 +1,25 @@
+
+  <% case request.fullpath %>
+  <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
+  <%= render 'layouts/ccf_side' %>
+<% else %>
+<ul class='side-nav'>
+  <li><%= nav_link "HOME", root_path %></li>
+  <li><%= nav_link "ABOUT", about_path %></li>
+  <li><%= nav_link "PROGRAMS", programs_path %></li>
+  <li>
+    <%= link_to ccf_path, class: 'attention green' do %>
+      <span class='hidden' style='padding:5px;margin:10px;'><i class='fi-home icon'></i></span> COUNTRY FAIR! 
+    <% end %>
+  </li>
+  <li><%= nav_link "TOURS", news_path %></li>
+  <li><%= nav_link "STAFF", staffandboard_path %></li>
+  <li><%= nav_link "CALENDAR", calendar_path %></li>
+  <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
+  <li><%= nav_link "DONATE", donate_path %></li>
+  <li><%= nav_link "CONTACT", contact_path %></li>
+  <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
+  <!--<li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => '<!--alert("COMING SOON: Sept 12th!")' %></li>-->
+  <!--<li><%#= link_to "COUNTRY FAIR", ccf_path %></li>-->
+  <% end %>
+</ul>

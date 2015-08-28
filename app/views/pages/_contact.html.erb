@@ -1,26 +1,32 @@
-<div class='col-md-12 buffer-bottom'>
-  <div class='col-md-6'>
-    <%= image_tag("logo-transparent.png", class: "contact-logo") %>
-  </div>
+<div class='small-12 columns'>
+  <div class='row'>
+    <div class='small-5 columns'>
+      <%= image_tag("logo-transparent.png", class: "contact-logo") %>
+    </div>
 
-  <div id='contact-info' class='col-md-6'>
-    <%= cms_snippet_content('contact-info', @cms_site).html_safe %>
-  </div>
-
-  <div class="col-md-6 section form-group buffer-top">
-
-    <%= simple_form_for @contact, :html => {:class => 'form-group' }, :defaults => { :input_html => { :class => 'form-control' } } do |f| %>
-      <%= f.input :name, :required => true %>
-      <%= f.input :email, :required => true %>
-      <%= f.input :message, :as => :text, :required => true %>
-      <div class= "hidden">
-	<%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    <div class='small-7 columns'>
+      <div class='row'>
+	<div class='small-12 columns'>
+	  <div id='contact-info' class='par'>
+	    <%= cms_snippet_content('contact-info', @cms_site).html_safe %>
+	  </div>
+	</div>
       </div>
-      <div>
-	<%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
-      </div>
-	
-    <% end %>
-  </div>
 
+      <div class='row'>
+	<%= simple_form_for @contact, :html => {:class => 'form-group' }, :defaults => { :input_html => { :class => 'form-control' } } do |f| %>
+	  <%= f.input :name, :required => true %>
+	  <%= f.input :email, :required => true %>
+	  <%= f.input :message, :as => :text, :required => true %>
+	  <div class= "hidden">
+	    <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+	  </div>
+	  <div>
+	    <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+	  </div>
+	<% end %>
+      </div>
+    </div>
+  </div>
 </div>
+

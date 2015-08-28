@@ -1,53 +1,186 @@
 <% meta title: 'PRAIRIE HILL Learning Center',
-        description: 'Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment',
-        keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
+description: 'Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment',
+  keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
 
-<div class='col-md-12'>
-  <div class='row buffer-bottom'>
-    <div class='col-md-6'>
-      <p>
-	<%= render 'about2' %>
-      </p>
+
+<!--SLICK SLIDER-->
+<div class='home-slider'>
+
+  <!--KELLAN/Mission/Philosophy-->
+  <div class='home-slide'>
+    <div class='small-12 small-centered columns'>
+
+      <div class='row'>
+
+	<div class='small-5 columns' style='clear:none;'>
+	  <div class='row'>
+	    <div class='small-12 small-centered columns'>
+	      <%= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
+	    </div>
+	  </div>
+	</div>
+
+	<div class='small-7 columns'>
+
+	  <div class='row'>
+
+	    <div class='small-12 small-centered columns'>
+	      <span class='par'>
+		<%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+	      </span>
+	    </div>
+
+	    <div class='small-12 small-centerd columns'>
+	      <div class='justify hi-li padded'>
+		<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+	      </div>
+	    </div>
+	    
+	  </div>
+
+	</div>
+
+      </div>
+      
     </div>
-    <div class='col-md-6'>
-      <%= image_tag("kellan-bellpepper.jpg", class: "img-fit") %>
+
+  </div>
+  <!--^^-->
+
+  <!--COUNTRY FAIR-->
+  <div class='home-slide'>
+
+    <div class='small-12 small-centered columns'>  
+
+      <div class='small-4 left columns'>
+
+	<div class='row'>
+	  <h3 class='hi-li-grn bottom-shadow' style='text-align:center;border-radius:2px;'><%= link_to "Come to the Children's Country Fair!", ccf_path, style: 'color:white;padding:5px;' %></h3>
+	</div>
+	
+	<div class='row'>
+	  <div class='small-11 columns'>
+	    <p style='word-wrap:normal;font-size:1.5vw;padding:15px 0;'><strong>Please join us October 3rd</strong> for a family and child-centered event that includes artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
+	  </div>
+	</div>
+
+	<div class='row'>
+	  <%= link_to 'Volunteer!', activities_path, class: 'button expand radius bottom-shadow' %>
+	</div>
+      </div>
+      
+      <div class='small-8 right columns'>
+	<%= image_tag("hattie-ccf.jpg") %>
+      </div>
+      
     </div>
   </div>
+  <!--^^-->
+  
+  <!--PH-UNIQ-->
+  <div class='home-slide'>
 
-  <div class='row buffer-bottom'>
-    <div class='col-md-6'>
-      <%= image_tag("carrying_saddle.jpg", class: "img-fit") %>
-    </div>
-    <div class='col-md-6'>
-      <h2><%= link_to "What makes PRAIRIE HILL unique?", uniq_path %></h2> <%= link_to "<span class='glyphicon glyphicon-info-sign'></span>".html_safe, uniq_path, class: "right icon" %>
-      <p>
-	<%= cms_snippet_content('ph-unique', @cms_site).html_safe %>
-      </p>
+    <div class='small-12 small-centered columns'>
+
+      <div class='row'>
+	<div class='small-9 right columns hi-li bottom-shadow' style='border-radius:2px;position:relative;z-index:1;'>
+	  <h2>
+	    <%= link_to "<i class='fi-info'></i>".html_safe, uniq_path, class: "icon" %>
+	    <%= link_to "What makes PRAIRIE HILL unique?", uniq_path %>
+	  </h2>
+	</div>
+      </div>
+
+      <div class='row'>
+	<div class='small-12 columns'>
+	  <div class='uniq-slider' style='position:relative;z-index:1;'>
+	    <%= render 'pages/uniq_list' %>
+	  </div>
+	</div>
+      </div>
+
+      <!--<div class='row'>-->
+      <!--<div class='small-8 small-centered columns'>-->
+      <div class='row'>
+	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
+	  <%= image_tag("carrying_saddle.jpg") %>
+	</div>
+      </div>
+      <!--</div>-->
+      <!--</div>-->
+
+      <%#= cms_snippet_content('ph-unique', @cms_site).html_safe %>
+      
     </div>
   </div>
+  <!--^^-->
 
-  <div class='row'>
-    <%= render 'news' %>
-  </div>
+  <!--TOUR-->
+  <div class='home-slide'>
 
-  <div class='col-md-6'>
+    <div class='small-12 small-centered columns'>
+
+      <div class='small-6 columns'>
+	<div class='row'>
+	  <div class='small-12 columns'>
+	    <h3 class='hi-li-grn padded'>
+	      Prospective Parent Tour Dates
+	    </h3>
+	  </div>
+	</div>
+
+	<div class='row'>
+	  <div class='small-11 small-centered columns justify'>
+	    Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+	  </div>
+	</div>
+	
+	<div class='row'>
+	  <div class='small-12 columns'>
+	    <h4 class='hi-li padded'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
+	  </div>
+	</div>
+      </div>
+
+      <div class='small-6 columns' data-equalizer-watch>
+	<%= image_tag("ella_reads.jpg") %>
+      </div>
+
+    </div>
 
   </div>
 </div>
+<!--^^-->
 
 
 <script>
+ $(document).ready(function(){
+   $('.home-slider').slick({
+     autoplay: true,
+     autoplaySpeed: 7000,
+     arrows: true,
+     initialSlide: 0,
+     //appendArrows: $('#slide-control'),
+     appendArrows: $('#slide-area'),
+     prevArrow: "<button id='slick-prev-button' type='button' class='button  round bottom-shadow slick-prev'><</button><span id='slide-control-title' class='fancy padded' style='background-color:rgba(255,255,255,0.3);border-radius:5px;'>Slide Controls</span>",
+     nextArrow: "<button id='slick-next-button' type='button' class='button  round bottom-shadow slick-next'>></button>",
+     draggable: false,
+     fade: true,
+     respondTo: 'min'
+     //speed: 2000
+     //vertical: true
+   });
 
- $("#slideshow > div:gt(0)").hide();
-
- setInterval(function() { 
-   $('#slideshow > div:first')
-    .fadeOut(1)
-    .next()
-    .fadeIn(2000)
-    .end()
-    .appendTo('#slideshow');
- },  9000);
+   $('.uniq-slider').slick({
+     autoplay: true,
+     autoplaySpeed: 3000,
+     arrows: false,
+     centerMode: true,
+     draggable: false,
+     fade: true,
+     respondTo: 'min'
+   });
+ });
 
  var winHeight = $(window).height();
 

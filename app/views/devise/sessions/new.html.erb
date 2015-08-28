@@ -1,42 +1,43 @@
-<div class='row marge'>
+<div class='row'>
   <h2 class="hi-li padded">Sign in</h2>
-  <div class='col-md-2'></div>
-  <div class='col-md-8'>
-
-
-    <div class='center inner'>
-      
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-	<div class='form-group'>
-	  <div class='input-group'>
-	    <span class='input-group-addon'>
-	      <%= f.label "Username or Email" %>
-	      </span>
-	      <%= f.text_field :login, class: 'form-control' %>
-	  </div>
-	</div>
-
-	<div>
-	<div class='form-group'>
-	  <div class='input-group'>
-	    <span class='input-group-addon'>
-	      <%= f.label :password %>
-	    </span>
-	    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-	  </div>
-	</div>
-
-	<% if devise_mapping.rememberable? -%>
-	  <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-	<% end -%>
-
-	<div>
-	  <%= f.submit "Sign in", class: 'btn btn-primary' %>
-	</div>
-      <% end %>
-
-    </div>
-
-  </div>
 </div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class='row'>
+    <div class='small-8 small-centered columns'>
+
+      <div class='row'>
+	<div class='small-6 columns'>
+	  <%= f.label "Username or Email", class: 'form-set' %>
+	  <%= f.text_field :login, class: 'form-control', class: 'form-set' %>
+	</div>
+	<div class='small-6 columns'>
+	  <%= f.label :password, class: 'form-set' %>
+	  <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: '*******' %>
+	</div>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+
+    <div class='small-8 small-centered columns'>
+      <div class='small-5 columns'>
+	<% if devise_mapping.rememberable? -%>
+	  <%= f.label :remember_me, class: 'font-set' %>
+	  <%= f.check_box :remember_me %>
+	<% end -%>
+      </div>
+      <div class='small-3 columns'>
+	<ul class='small-block-grid-2'>
+	  <li><%= f.submit "Sign in", class: 'btn btn-primary' %></li>
+	  <li><%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %></li>
+	</ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+

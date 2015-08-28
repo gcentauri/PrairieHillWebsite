@@ -1,0 +1,15 @@
+<!--BUFFER VARIATIONS-->
+<% if current_page?(root_path) %>
+  <div id='content'>
+    <% elsif current_page?(ccf_path) %>
+    <div id='content'>
+      <% elsif current_page?(activities_path) %>
+      <div id='content'>
+	<% elsif current_page?(user_shifts_path) %>
+	<div id='content'>
+	  <% elsif current_page?(staffandboard_path) %>
+	  <div id='content' class='buffer-top-120 staff-bg'>
+<% else %>
+	    <div id='content' class='buffer-top-120'>
+<% end %>
+<!--BUFFER VARIATIONS-->

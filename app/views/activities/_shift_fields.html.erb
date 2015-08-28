@@ -1,7 +1,8 @@
 
 <fieldset class='nested-fields'>
 
-  <div class='col-sm-4'>
+  <!--START TIME-->
+  <div class='small-4 columns'>
     <div class='form-group' style='background:gold'>
       <div class='field'>
 	<%= f.label "Start Time" %>
@@ -15,6 +16,7 @@
     </div>
   </div>
 
+  <!--END TIME-->
   <div class='col-sm-4'>
     <div class='form-group' style='background:green'>
       <div class='field'>
@@ -29,6 +31,19 @@
     </div>
   </div>
 
+  <!--CATEGORY-->
+  <div class='small-4 columns'>
+    <%= f.label "Category" %>
+    <%#= f.text_field :category, class: 'form-control foo' %>
+    <%= f.select(:category) do %>
+      <% [['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']].each do |c| %>
+	<%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+    
+  </div>
+  
+  <!--REMOVE OPTION-->
   <div class='col-sm-4'>
     <div class='form-group'>
       <div class='field'>
@@ -39,7 +54,8 @@
       </div>
     </div>
   </div>
-  
+
+  <!--REMOVE-->
   <%#= f.hidden_field :_destroy %>
   <% unless f.object.persisted? %>
     <%= link_to_remove_association f do %>

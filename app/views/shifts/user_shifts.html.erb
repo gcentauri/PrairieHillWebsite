@@ -1,40 +1,69 @@
-<div class="" style="">
-  <div style="">
-  <div id="volunteer-menu">
-    <%= link_to 'Volunteer for more shifts!', activities_path, class: 'btn btn-primary marge', style: 'font-size:3vw' %>
+<div class='small-11 small-centered columns'>
+
+  <div class='row'>
+    <div id="" class='small-12 columns hi-li bottom-shadow'>
+      <h2>My Shifts (<%= user_shifts(@user).count  %>)</h2>
+
+    </div>
   </div>
 
-    <table class="table table-striped">
-      <tr>
-	<th>Work Area</th>
-	<th>Shift Time</th>
-	<th>Guest Volunteer</th>
-	<th></th>
-      </tr>
-      <% user_shifts(current_user).each do |s| %>
-	<tr>
-	  <td>
-	    <%= get_activity_title(s) %>
-	  </td>
-	  <td>
-	    <%= s.time %>
-	  </td>
-	  <td>
-	    <% if s.guest != nil && s.guest != @username %>
-	      <%= s.guest %>
-	    <% end %>
-	  </td>
-	  <td>
-	    <% if s.guest != nil %>
-	      <%= button_to 'Cancel', shift_path(s, :shift => {:guest => nil, :volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-danger" %>
-	    <% else %>
-	      <%= button_to 'Cancel', shift_path(s, :shift => {:volunteer => nil } ), :method => :put, data: { :confirm => "Are you sure?" }, class: "btn btn-danger" %>
-	    <% end %>
-	  </td>
-	</tr>
-      <% end %>
-    </table>
+  <!--TABLE-->
+  <div class='row'>
+    <div class='small-12 columns'>
+      
+      <table class="small-12 columns">
+	<thead>
+	  <tr>
+	    <th>Work Area</th>
+	    <th>Shift Time</th>
+	    <th>Guest Volunteer</th>
+	    <th></th>
+	  </tr>
+	</thead>
+
+	<!--USER SHIFTS-->
+	
+	<% user_shifts(current_user).each do |s| %>
+	  <tr>
+	    <td>
+	      <%= get_activity_title(s) %>
+	    </td>
+	    <td>
+	      <%= "#{print_shift_time(s.start_time, 'day')} #{print_shift_time(s.start_time, 'time')} - #{print_shift_time(s.end_time, 'time')}" %>
+	      <%#= s.time %>
+	    </td>
+	    <td>
+	      <% if s.guest != nil && s.guest != @username %>
+		<%= s.guest %>
+	      <% end %>
+	    </td>
+
+	    <td>
+
+		<%= form_for s do |f| %>
+		  <%= f.hidden_field :guest, value: nil %>
+		  <%= f.hidden_field :user_id, value: nil %>
+		  <%= f.submit 'Cancel', class: 'btn btn-danger', data: {:confirm => 'Cancel your shift?' } %>
+		<% end %>
+		
+	      
+	    </td>
+
+	  </tr>
+	<% end %>
+      </table>
+    </div>
   </div>
-
-
+  <!--endTABLE-->
+  <div class='row'>
+    <div class='small-6 columns'>
+      
+    </div>
+    <div class='small-6 columns'>
+      <%= link_to 'Volunteer!', activities_path, class: 'button expand bottom-shadow right' %>
+    </div>
+  </div>
 </div>
+
+
+

@@ -1,0 +1,40 @@
+$soft-blue: rgba(236,244,255,0.9);
+$xsoft-blue: rgba(236,244,255,0.3);
+
+@import 'bootstrap_and_customization';
+
+.tr-sm {
+    font-size: 0.5em;
+}
+
+.tr-md {
+    font-size: 0.7em;
+}
+
+.activity-title {
+    text-align: center;
+}
+
+select#category {
+    font-size: 1vw;
+    padding-top: 0;
+}
+
+#shifts-filtered {
+    background: $xsoft-blue;
+    //background: red;
+    padding: 5px;
+    border: 1px solid $soft-blue;
+}
+
+#shift-filtered {
+    //background: image-url('contact_fade-50.png') fixed;
+    //background-color: $xsoft-blue;
+    background: image-url('contact_fade.png') fixed;
+    background-size: cover;
+
+    padding: 15px;
+    border: 1px solid $soft-blue;
+    margin-bottom: 10px;
+}
+

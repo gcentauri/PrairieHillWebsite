@@ -1487,8 +1487,42 @@ $include-html-global-classes: $include-html-classes;
 
 @import 'foundation';
 
+$phill-grn: #3f8000;
+$phill-gold: #ffef19;
+
 .column.large-centered {
     margin-left: auto;
     margin-right: auto;
     float: none !important;
 }
+
+/* .column.small-centered { */
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+/*     float: none !important; */
+/* } */
+
+.small-centered {
+    display: block;
+    margin: 15px auto;
+}
+
+.content {
+    background: white;
+    font-size: 1.5vw;
+    border-radius: 5px;
+    opacity: 0.9;
+    margin: 5px;
+}
+.gold {
+	border: 2px solid $phill-gold;
+}
+
+.grn {
+    border: 2px solid $phill-grn;
+}
+
+.pod {
+    //width: 1000px;
+}
+

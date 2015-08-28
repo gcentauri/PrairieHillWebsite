@@ -8,10 +8,12 @@ Rails.application.routes.draw do
               :volunteers,
               :users
   end
-  
-  resources :activities
-  resources :shifts 
-  resources :volunteers
+
+  authenticate :user do
+    resources :activities
+    resources :shifts 
+    resources :volunteers
+  end
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
@@ -19,14 +21,7 @@ Rails.application.routes.draw do
   comfy_route :cms_admin, :path => '/admin'
 
   devise_for :users, :controllers => { registrations: "registrations", passwords: 'users/passwords' }
-  #devise_for :users,
-  #:skip => [:registrations, :sessions]
 
-  # as user do
-  #   get '/signup' => 'users/registrations#new', as: :new_user_registration
-  #   post '/signup' => 'users/registrations#create', as: :user_registration
-  # end
-  
   resources :pages
 
   root "pages#home"
@@ -44,8 +39,11 @@ Rails.application.routes.draw do
   get "csv", to: "pages#csvupload"
   get "uniq", to: "pages#unique"
   get "ccf", to: "pages#ccf"
+  get 'ccf/info', to: "pages#ccf_info"
+  get 'ccf/volunteer', to: 'activities#index'
+  get 'ccf/activities', to: 'activities#index'
+  get 'ccf/user_shifts', to: 'shifts#user_shifts'
   get "user_shifts", to: "shifts#user_shifts"
-  get "gram", to: "pages#jquery_instagram"
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true

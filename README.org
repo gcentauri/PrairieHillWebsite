@@ -4,20 +4,25 @@
 #+OPTIONS: toc:nil num:nil
 
 * Prairie Hill Learning Center
-  After over 2 years of cumbersome working with the wordpress managed website 
-  content for the Prairie Hill website (whether due to the way that wordpress 
-  arranges itself or my own ignorance and lack of education in web design, php, 
-  etc), this is an attempt to try something new. Having a nice solid foundation 
-  in building an application with Rails, I feel like now is the time to build 
-  something from the ground up that will hopefully meet my needs for control 
-  and understanding for building and modifying the backend functionality 
-  (most importantly without having to go through all of hassle of using the 
-  actual web content management editors and having so many extraneous steps,
-  instead of just using my text editor...), as well as the front end need
-  for admin staff to update content, which is what is important to them in
-  the basic functionality of the site. I take care of the functionality and
-  aesthetic; they give it the words.
 ** TODO
+
+   - [-] August 2015
+
+     - [-] take summer camp down
+       - [X] remove from menu
+       - [ ] restrict access to page
+     - [ ] ccf app
+       - [ ] function
+	 - [ ] volunteer others
+	 - [ ] advance my shifts page
+	 - [ ] show schedule/calendar to see where friends are volunteering
+	 - [ ] spreadsheet export
+       - [ ] informational page
+	 what is the country fair?
+	 simple info page, what's at the fair? (find scott's video from previous years)
+	 slide show - madeline pics (look on fb, 5-10 pics)
+       - [ ] fun run info, registration link
+       - [ ] move ccf menu link to after programs, make it stand out
    
    - [ ] fix change/forgot password issue
    - [-] rebuild ccf volunteer app
@@ -74,8 +79,6 @@
 	 
 	 https://www.twilio.com/blog/2014/09/gmail-api-oauth-rails.html
          https://github.com/intridea/omniauth
-
-	 
        
      - [ ] make use of fullcalendar for interaction?
        see [[~/RAILS-dev/son/budget/README.org][Budget]] for working example and detailed instructions
@@ -779,7 +782,6 @@
              end
            end
 	 #+end_src
-
      - [X] routing
 
        [[./config/routes.rb]]
@@ -787,7 +789,6 @@
        :   namespace :api do
        :     resources :logs, :periods
        :   end
-
      - [X] serializing data
 
        : mkdir app/views/api /shifts etc
@@ -932,7 +933,6 @@
              #json.period_id @log.period ? @log.period_id : nil
            end
 	 #+end_src
-
      - [ ] security and performance concerns
 
        - [ ] use fragment caching to make API efficient

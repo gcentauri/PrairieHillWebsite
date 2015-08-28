@@ -1,9 +1,9 @@
-<div class='jumbotron'>
+<div class='bottom-shadow'>
   <%= form_for(@activity) do |f| %>
+    <!--ALERT/NOTICE-->
     <% if @activity.errors.any? %>
       <div id="error_explanation">
 	<h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
 	<ul>
 	  <% @activity.errors.full_messages.each do |msg| %>
 	    <li><%= msg %></li>
@@ -12,14 +12,17 @@
       </div>
     <% end %>
 
+    <!--SAVE-->
     <div class='row'>
-      <%= f.submit "Save", class: "btn btn-primary" %>
+      <div class='small-12 columns'>
+	<%= f.submit "Save", class: "button round bottom-shadow right large" %>
+      </div>
     </div>
 
     <hr/>
     
     <div class='row'>
-      <div class='col-sm-6'>
+      <div class='small-6 columns'>
 	<div class='form-group'>
 	  <div class='field'>
 	    <%= f.label 'Activity Name' %>
@@ -81,8 +84,11 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <%= f.submit "Save", class: "btn btn-primary" %>
+    <!--SAVE-->
+    <div class="row">
+      <div class='small-12 columns'>
+	<%= f.submit "Save", class: "button round bottom-shadow right large" %>
+      </div>
     </div>
   <% end %>
 </div>

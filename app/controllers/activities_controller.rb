@@ -4,7 +4,7 @@ class ActivitiesController < InheritedResources::Base
 
   def index
     @shifts = Shift.all
-    @activities = Activity.all.paginate(page: params[:page], per_page: 10)
+    @activities = Activity.all
     @sorted = @activities.sort_by { |a| a.work_area }
     
     #@activitiess = Activity.order(:work_area)
@@ -68,6 +68,6 @@ class ActivitiesController < InheritedResources::Base
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def activity_params
-    params.require(:activity).permit(:work_area, :coordinator, :comments, :sign, :num_tickets, :vol_needed, :shift_ids, shifts_attributes: [:id, :start_time, :end_time, :vols_needed, :_destroy])
+    params.require(:activity).permit(:work_area, :coordinator, :comments, :sign, :num_tickets, :vol_needed, :shift_ids, shifts_attributes: [:id, :start_time, :end_time, :vols_needed, :category, :_destroy])
   end
 end

@@ -1,0 +1,54 @@
+<!--OPEN SHIFT-->      
+<% if shift.user_id.nil? && user_signed_in? %>
+
+  <!--FORM-->
+  <%= form_for shift do |f| %>
+
+    <!--USER ID-->
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <!--^^-->
+    
+    <!--SIGN UP BUTTON-->
+    <%= f.submit 'Sign Yourself Up!', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+    <!--^^-->
+    
+    <!--SIGN UP FOR A FRIEND-->
+    <%= f.label "Add your friend's name" %>
+    <%= f.text_field :guest, placeholder: 'Name of your Friend' %>
+    <%= f.submit 'Add Friend', class: 'button expand success right bottom-shadow', data: { :confirm => "Are you sure?" } %>
+    <!--^^-->
+    
+  <% end %>
+  <!--^^-->
+
+  <!--CLOSED SHIFT-->
+<% else %>
+
+  <!--VOLUNTEER NAME-->
+  <% if shift.guest %>
+    <%= shift.guest %>
+  <% else %>
+    <%= "#{full_user_name(shift.user_id)}" if shift.user_id %>
+  <% end %>
+  <!--^^-->
+
+  <!--HEART-->
+  <div class='small-2 columns hidden' data-equalizer-watch>
+    <h2>
+      <i class='fi-heart' style='color:red;'></i>
+    </h2>
+  </div>
+  <!--^^-->
+
+  <!--CANCEL OPTION-->
+  <% if user_signed_in? && current_user.id == shift.user_id %>
+    <%= form_for shift do |f| %>
+      <%= f.hidden_field :user_id, value: nil %>
+      <%= f.hidden_field :guest, value: nil %>
+      <%= f.submit "Cancel", class: 'button warning right', data: { :confirm => "Cancel your shift?" } %>
+    <% end %>
+  <% end %>
+  <!--^^-->
+
+<% end %>
+<!--^^-->

@@ -1,0 +1,22 @@
+$soft-blue: rgba(236,244,255,0.8);
+
+#shift-time {
+    background: rgba(200,200,100,0.8);
+}
+
+#shifts-marker {
+    opacity: 0.9;
+    background-color: white;
+    &:hover {
+	//background: image-url('hattie-ccf.jpg') fixed;
+	//background-size: cover;
+    }
+}
+
+#shifts {
+    background-color: $soft-blue;
+}
+
+#shift-single {
+    
+}

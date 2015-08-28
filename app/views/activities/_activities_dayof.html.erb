@@ -1,0 +1,100 @@
+<div class='small-12 large-12 columns'>
+  <!--Download:-->
+  <%#= link_to "Excel", activities_path(format: "xls") %>
+  <!--<div id='calendar' class='hidden'></div>-->
+
+  <div id='' class='transitions-enabled infinite-scroll clearfix'>
+
+    <% @sorted.each do |activity| %>
+
+      <% act_count = get_activity_open_shifts(activity).count %>
+
+      <div class='col-sm-6' style='clear:none;'>
+
+	<% @station_shifts = activity.shifts.where(category: 'Station') %>
+
+	<% if @station_shifts.count > 0 %>
+
+	<%= link_to "#", class: 'shifts-trigger' do %>
+	  <h3 class='hi-li-btn padded green-borders'>
+	    <%= activity.work_area %>
+	    <span class='caret'></span>
+	    <% if act_count > 0 %>
+	      <span class='badge right'><%= act_count %></span>
+	    <% end %>
+	  </h3>
+	<% end %>
+
+	<div class='shifts-toggle'>
+	  <table class="table table-hover table-striped table-bordered">
+
+
+	    <% @shifts_by_title = @shifts.where(title: activity.work_area) %>
+	    <% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+	    
+	    <% @prep_shifts.each do |shift| %>
+	      <tr class="tr-md">
+		<td>
+		  <p>
+		    <% if shift.user_id.nil? && user_signed_in? %>
+
+		      <%= form_for shift do |f| %>
+
+			<%= f.hidden_field :user_id, value: current_user.id %>
+
+			<%#= button_tag(type: 'submit', class: 'btn btn-primary right', data: { :confirm => "Sign up for this shift?" } ) do %>
+			<span class='hidden underline padded bold'>
+			  <%#= nice_print_short(shift) %>
+			</span>
+			<span class='hidden glyphicon glyphicon-thumbs-up'></span>
+			<%# end %>
+			<span class='underline bold'>
+			  <%= nice_print_short(shift) %>
+			</span>
+			<%= f.submit 'Sign Up', class: 'btn btn-primary right', data: { :confirm => "Are you sure?" } %>
+		      <% end %>
+
+		    <% else %>
+		      <p class='underline padded bold'>
+			<%= "#{nice_print_short(shift)} " %><span class='green glyphicon glyphicon-ok bold right' style='font-size:3vw;'></span>
+		      </p>
+		      <h2 class='hi-li' style='text-align:right;'><%= "#{full_user_name(shift.user_id)}" if shift.user_id %></h2>
+		      <br/>
+		      <% if user_signed_in? && current_user.id == shift.user_id %>
+
+			<%= form_for shift do |f| %>
+			  <%= f.hidden_field :user_id, value: nil %>
+			  <%= f.submit "Cancel", class: 'btn btn-danger right', data: { :confirm => "Cancel your shift?" } %>
+			<% end %>
+
+		      <% end %>
+
+		    <% end %>
+
+		  </p>
+		</td>
+	      </tr>
+	    <% end %>
+
+	    <tr>
+	      <% if current_user.try(:admin?) %>
+		<td>
+		  <%= link_to edit_activity_path(activity) do %>
+		    <i class="glyphicon glyphicon-pencil"></i>
+		  <% end %>
+		</td>
+		<td>
+		  <%= link_to activity, class: "", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+		    <i class="glyphicon glyphicon-remove-sign"></i>
+		  <% end %>
+		</td>
+	      <% end %>
+	    </tr>
+	  </table>
+	</div>
+	<% end %>
+      </div>
+    <% end %>
+    <%= will_paginate @activities %>
+  </div>
+</div>

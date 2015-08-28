@@ -1,0 +1,12 @@
+    <!--INSTAGRAM-->
+    <% if current_page?(root_path) %>
+      <div id='bg-image' class='img-full instagram hash hidden'
+	   data-0='opacity:1;'
+	   data-1000='opacity:0;'
+	   >
+	<!--<div id='quote'>-->
+	<%#= render 'layouts/quote' %>
+	<!--</div>-->
+      </div>
+    <% end %>
+    <!--INSTAGRAM-->

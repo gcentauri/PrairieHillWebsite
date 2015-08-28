@@ -1,0 +1,22 @@
+<ul class='side-nav'>
+  <li><%= nav_link "HOME", root_path %></li>
+  <li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to ccf_volunteer_path, class: 'attention' do %>
+	<span class='hidden'><i class='fi-home'></i></span> <em>VOLUNTEER</em>!
+      <% end %>
+    </li>
+    <li><%= nav_link "MY SHIFTS", user_shifts_path %></li>
+    <li><%= link_to "MY ACCOUNT", edit_user_registration_path  %> </li>
+
+    <% if current_user.try(:admin?) %>
+      <li><%= nav_link "ACTIVITIES", ccf_activities_path, class: 'attention'  %></li>
+      <li><%= nav_link "NEW ACTIVITY", new_activity_path, class: 'attention'  %></li>
+    <% end %>
+    <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete  %></li>
+  <% else %>
+    <li><%= link_to "SIGN IN", new_user_session_path  %></li>
+    <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+  <% end %>
+</ul>
