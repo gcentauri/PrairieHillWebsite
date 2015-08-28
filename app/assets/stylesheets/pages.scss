@@ -110,3 +110,10 @@ $phill-gold: #ffef19;
 #slide-control-title {
     margin: 5px;
 }
+
+@media screen and (max-width:40em) {
+
+	.title-a {
+	    font-size: 4vw;
+	}
+}
