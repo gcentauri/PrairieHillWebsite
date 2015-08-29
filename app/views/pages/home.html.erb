@@ -4,84 +4,54 @@ description: 'Montessori education for children with an emphasis on meeting the 
 
 
 <!--SLICK SLIDER-->
-<div class='home-slider'>
+<div class='home-slider bottom-shadow'>
 
   <!--KELLAN/Mission/Philosophy-->
   <div class='home-slide'>
-    <div class='small-12 small-centered columns'>
-
-      <div class='row'>
-
-	<div class='small-5 columns' style='clear:none;'>
-	  <div class='row'>
-	    <div class='small-12 small-centered columns'>
-	      <%= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
-	    </div>
-	  </div>
-	</div>
-
-	<div class='small-7 columns'>
-
-	  <div class='row'>
-
-	    <div class='small-12 small-centered columns'>
-	      <span class='par'>
-		<%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-	      </span>
-	    </div>
-
-	    <div class='small-12 small-centerd columns'>
-	      <div class='justify hi-li padded'>
-		<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-	      </div>
-	    </div>
-	    
-	  </div>
-
-	</div>
-
-      </div>
-      
-    </div>
-
+    <%= render 'pages/about2' %>
   </div>
   <!--^^-->
 
   <!--COUNTRY FAIR-->
   <div class='home-slide'>
-
+    
     <div class='small-12 small-centered columns'>  
 
-      <div class='small-4 left columns'>
-
-	<div class='row'>
-	  <h3 class='hi-li-grn bottom-shadow' style='text-align:center;border-radius:2px;'><%= link_to "Come to the Children's Country Fair!", ccf_path, style: 'color:white;padding:5px;' %></h3>
+      <!--title-->
+      <div class='row'>
+	<div class='small-9 columns hi-li bottom-shadow' style='border-radius:2px;position:relative;z-index:1;'>
+	  <h3 class='fancy' style='text-align:center;border-radius:2px;'><%= link_to "Come to the Children's Country Fair!", ccf_path, style: 'padding:5px;' %></h3>
 	</div>
-	
-	<div class='row'>
-	  <div class='small-11 columns'>
-	    <p style='word-wrap:normal;font-size:1.5vw;padding:15px 0;'><strong>Please join us October 3rd</strong> for a family and child-centered event that includes artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
-	  </div>
-	</div>
-
-	<div class='row'>
-	  <%= link_to 'Volunteer!', activities_path, class: 'button expand radius bottom-shadow' %>
+	<div class='small-3 columns' style='border-radius:2px;position:relative;z-index:1;'>
+	  <%= link_to 'Volunteer!', activities_path, class: 'button fancy expand radius bottom-shadow' %>
 	</div>
       </div>
-      
-      <div class='small-8 right columns'>
-	<%= image_tag("hattie-ccf.jpg") %>
+
+      <!--content-->
+      <div class='row' style='position:absolute;top:350px;left:15px;'>
+	<div class='small-10 columns'>
+	  <p class='padded bottom-shadow' style='color:rgba(50,50,50,1);background:rgba(255,255,255,0.8);word-wrap:normal;font-size:1.5vw;position:relative;z-index:1;'><strong>Please join us October 3rd</strong> for a family and child-centered event that includes artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
+	</div>
       </div>
-      
     </div>
+
+    <!--image-->
+    <div class='row'>
+      <div class='small-12 columns' style='position:absolute;top:10px;left:5px;z-index:0;'>
+	<a href='/ccf'><%= image_tag("hattie-ccf.jpg") %></a>
+	<%#= render 'pages/ccf_slide' %>
+      </div>
+    </div>
+    
   </div>
   <!--^^-->
-  
+
   <!--PH-UNIQ-->
   <div class='home-slide'>
 
     <div class='small-12 small-centered columns'>
 
+      <!--title-->
       <div class='row'>
 	<div class='small-9 right columns hi-li bottom-shadow' style='border-radius:2px;position:relative;z-index:1;'>
 	  <h2>
@@ -91,25 +61,21 @@ description: 'Montessori education for children with an emphasis on meeting the 
 	</div>
       </div>
 
+      <!--content-->
       <div class='row'>
 	<div class='small-12 columns'>
-	  <div class='uniq-slider' style='position:relative;z-index:1;'>
+	  <div class='uniq-slider bottom-shadow' style='position:relative;z-index:1;'>
 	    <%= render 'pages/uniq_list' %>
 	  </div>
 	</div>
       </div>
 
-      <!--<div class='row'>-->
-      <!--<div class='small-8 small-centered columns'>-->
+      <!--image-->
       <div class='row'>
 	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
 	  <%= image_tag("carrying_saddle.jpg") %>
 	</div>
       </div>
-      <!--</div>-->
-      <!--</div>-->
-
-      <%#= cms_snippet_content('ph-unique', @cms_site).html_safe %>
       
     </div>
   </div>
@@ -117,69 +83,19 @@ description: 'Montessori education for children with an emphasis on meeting the 
 
   <!--TOUR-->
   <div class='home-slide'>
-
-    <div class='small-12 small-centered columns'>
-
-      <div class='small-6 columns'>
-	<div class='row'>
-	  <div class='small-12 columns'>
-	    <h3 class='hi-li-grn padded'>
-	      Prospective Parent Tour Dates
-	    </h3>
-	  </div>
-	</div>
-
-	<div class='row'>
-	  <div class='small-11 small-centered columns justify'>
-	    Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
-	  </div>
-	</div>
-	
-	<div class='row'>
-	  <div class='small-12 columns'>
-	    <h4 class='hi-li padded'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
-	  </div>
-	</div>
-      </div>
-
-      <div class='small-6 columns' data-equalizer-watch>
-	<%= image_tag("ella_reads.jpg") %>
-      </div>
-
-    </div>
-
+    <%= render 'pages/tour' %>
   </div>
+  
+  <div class='home-slide'>
+    <%= render 'pages/tour_scenic' %>
+  </div>
+  
 </div>
 <!--^^-->
 
-
 <script>
  $(document).ready(function(){
-   $('.home-slider').slick({
-     autoplay: true,
-     autoplaySpeed: 7000,
-     arrows: true,
-     initialSlide: 0,
-     //appendArrows: $('#slide-control'),
-     appendArrows: $('#slide-area'),
-     prevArrow: "<button id='slick-prev-button' type='button' class='button  round bottom-shadow slick-prev'><</button><span id='slide-control-title' class='fancy padded' style='background-color:rgba(255,255,255,0.3);border-radius:5px;'>Slide Controls</span>",
-     nextArrow: "<button id='slick-next-button' type='button' class='button  round bottom-shadow slick-next'>></button>",
-     draggable: false,
-     fade: true,
-     respondTo: 'min'
-     //speed: 2000
-     //vertical: true
-   });
 
-   $('.uniq-slider').slick({
-     autoplay: true,
-     autoplaySpeed: 3000,
-     arrows: false,
-     centerMode: true,
-     draggable: false,
-     fade: true,
-     respondTo: 'min'
-   });
  });
 
  var winHeight = $(window).height();

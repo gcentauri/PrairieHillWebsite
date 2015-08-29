@@ -3,14 +3,14 @@
 <div class='small-12 small-centered columns'>
 
   <!--INFO ROW-->
-  <div id='ccf-info' class='row panel bottom-shadow'>
+  <div id='ccf-info' class='row panel bottom-shadow'  style="background-image: url('/assets/leaves2.jpg');">
 
     <div class='row'>
 
       <div class='small-12 large-6 columns'>
 
 	<!--PAR COLUMN 6-->
-	<div class='small-12 columns'>
+	<div class='small-12 columns' >
 
 	  <!--GREETING ROW-->
 	  <div class='row'>
@@ -22,7 +22,10 @@
 	      </div>
 	      <div class='row'>
 		<div class='justify content' style='padding:25px;'>
-		  <strong>Click on an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself! We ask that you <strong>choose at least <em>one shift from both</em> <span class='label success'>Preparation</span> and <span class='label success'> Stations </span></strong>. Please also consider signing up to help with <span class='label success'>Tear Down</span>. 
+		  <strong>Click on an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself!
+		  <br/>
+		  <br/>
+		  We ask that you <strong>choose at least <em>one shift from both</em> <span class='label success'>Preparation</span> and <span class='label success'> Stations </span></strong>. Please also consider signing up to help with <span class='label success'>Tear Down</span>. 
 		</div>
 	      </div>
 	    </div>
@@ -30,7 +33,7 @@
 	</div>
       </div>
 
-      <div class='small-12 large-6 columns'>
+      <div class='small-12 large-6 columns' style='position:relative;top:5px;'>
 	<!--AVAILABLE SHIFTS COLUMN 6-->
 	<div id='shifts-marker' class='small-12 columns bottom-shadow' style=''>
 
@@ -83,7 +86,7 @@
 	  <div class='row'>
 	    <div class='small-12 columns'>
 	      <div class='jusfity' style='padding:25px;font-size:1.5vw;'>
-		<strong>Switch between shift categories</strong> to view and choose from each category by selecting from the tabs below.
+		<strong>Switch between shift categories</strong> to view and choose from each category by selecting from the tabs below. Choose a category to get started. Scroll down to see available shifts!
 	      </div>
 	    </div>
 	  </div>
@@ -92,31 +95,9 @@
 	  <!--CATEGORY SELECTION--><!--DRYup-->
 	  <div class='row'>
 	    <div class='small-12 columns'>
-	      <ul id='category-selection' class='button-group even-3' style=''>
-		<li>
-		  <a id='prep-link' href='#' class='success shifts-link button large bottom-shadow'>Preparation
-		    <span class='label alert badge-fix hidden'>
-		      <%= get_open_prep_shifts.count %>
-		    </span>
-		  </a>
-		</li>
-		<li>
-		  <a id='station-link' href='#' class='shifts-link button large bottom-shadow'>
-		    Stations
-		    <span class='label alert badge-fix hidden'>
-		      <%= get_open_station_shifts.count %>
-		    </span>
-		  </a>
-		</li>
-		<li>
-		  <a id='teardown-link' href='#' class='shifts-link button large bottom-shadow'>
-		    Tear Down
-		    <span class='label alert badge-fix hidden'>
-		      <%= get_open_teardown_shifts.count %>
-		    </span>
-		  </a>
-		</li>
-	      </ul>
+
+	      <%= render 'activities/category_tabs' %>
+	      
 	    </div>
 	  </div>
 
@@ -131,7 +112,7 @@
 
 	    <div class='small-12 columns'>
 
-	      <div id='all-link' class='small-5 columns button expand'>
+	      <div id='all-link' class='small-5 columns button expand bottom-shadow'>
 		View All
 		<span class='label alert badge-fix hidden'>
 		  <%= get_open_shifts.count %>
@@ -204,17 +185,22 @@
 
   <!--ACTIVITIES-->
   <div class='row'>
-    <div class="">
+    <div style="background-image: url('/assets/leaves1.jpg');">
       <!--Download:-->
       <%#= link_to "Excel", activities_path(format: "xls") %>
       <!--<div id='calendar' class='hidden'></div>-->
-      <div class='small-12 columns'>
+      <div class='small-11 small-centered columns'>
 	<div id='' class='transitions-enabled infinite-scroll clearfix'>
 
 	  <div name='prep' id='prep'>
 	    <% @type = "Preparation" %>
-	    <%= render 'activity_shift_simple_layout' %>	    
-	    <%#= render 'activity_shift_layout' %>
+	    <%= render 'activity_shift_simple_layout' %>
+
+	    <div id="prepModal" class='reveal-modal' data-reveal aria-labelledby='modalTitle' aria-hidden='true' role='dialog'>
+	      <%= render 'activity_shift_simple_layout' %>
+	      <%#= render 'basic_info' %>
+	    </div>
+
 	    <hr/>
 	  </div>
 	  
@@ -242,7 +228,8 @@
       </div>
     </div>
 
-    <a id='all-link' href='#' class='button large bottom-shadow expand'>Show All Activities</a>
+    <%= render 'activities/user_tabs' %>
+    <a id='all-link' href='#' class='button large bottom-shadow expand hidden'>Show All Activities</a>
   </div>
 </div>
 <style>

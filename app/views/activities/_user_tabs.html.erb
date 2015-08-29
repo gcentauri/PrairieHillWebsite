@@ -1,0 +1,14 @@
+<ul id='category-selection' class='button-group even-2' style=''>
+  <li>
+    <%= link_to "MY SHIFTS", user_shifts_path, class: 'success shifts-link button large bottom-shadow' %>
+    <span class='label alert badge-fix hidden'>
+      <%= get_open_prep_shifts.count %>
+    </span>
+  </li>
+  <li>
+    <%= link_to 'ACTIVITIES', activities_path, class: 'button success large expand bottom-shadow' %>
+    <span class='label alert badge-fix hidden'>
+      <%= get_open_teardown_shifts.count %>
+    </span>
+  </li>
+</ul>

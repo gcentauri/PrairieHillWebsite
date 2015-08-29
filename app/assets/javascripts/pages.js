@@ -1,6 +1,105 @@
 
 $(document).ready(function () {
 
+    //slick sliders
+    var title_icon = "<span id='slide-control-title' class='fancy padded' style='background-color:rgba(100,200,255,0.6);border-radius:50px;color:white;'><i class='fi-photo'></i></span>"
+    var prev_icon = "<i class='fi-rewind'></i>"
+    var next_icon = "<i class='fi-fast-forward'></i>"
+    var btn_classes = "label success bottom-shadow slick-btn"
+
+    var prev_btn = "<button id='slick-prev-button' type='button' class='"
+	+ btn_classes
+	+ "slick-prev'>"
+	+ prev_icon
+	+ "</button>"
+	+ "<a href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal'>"
+	+ title_icon
+	+ "</a>"
+    var next_btn = "<button id='slick-next-button' type='button' class='" + btn_classes +  " slick-next'>" + next_icon + "</button>"
+    
+    $('.staff-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 6000,
+	arrows: true,
+	initialSlide: 0,
+	centerMode: true,
+	centerPadding: '100px',
+	appendArrows: $('#slide-area'),
+	prevArrow: prev_btn,
+	nextArrow: next_btn,
+	draggable: false,
+	respondTo: 'min',
+	vertical: true
+    });
+
+    $('.footer-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 7000,
+	arrows: false,
+	initialSlide: 0,
+	appendArrows: $('#slide-area'),
+	draggable: false,
+	fade: true,
+	//respondTo: 'min'
+    });
+
+    
+    $('.programs-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 7000,
+	arrows: true,
+	initialSlide: 0,
+	appendArrows: $('#slide-area'),
+	prevArrow: prev_btn,
+	nextArrow: next_btn,
+	draggable: false,
+	fade: true,
+	respondTo: 'min'
+	//speed: 2000
+	//vertical: true
+    });
+
+    $('.home-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 7000,
+	arrows: true,
+	initialSlide: 0,
+	appendArrows: $('#slide-area'),
+	prevArrow: prev_btn,
+	nextArrow: next_btn,
+	draggable: false,
+	fade: true,
+	respondTo: 'min'
+	//speed: 2000
+	//vertical: true
+    });
+
+    $('.uniq-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 3000,
+	arrows: false,
+	centerMode: true,
+	draggable: false,
+	fade: true,
+	respondTo: 'min'
+    });
+
+    $('.news-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 7000,
+	arrows: true,
+	initialSlide: 0,
+	appendArrows: $('#slide-area'),
+	prevArrow: prev_btn,
+	nextArrow: next_btn,
+	draggable: false,
+	fade: true,
+	respondTo: 'min'
+	//speed: 2000
+	//vertical: true
+    });
+    //
+    
     $(function($) {
 	if ($(window).width() > 767) {
 	    skrollr.init({
@@ -16,7 +115,7 @@ $(document).ready(function () {
 	    }
 	} (jQuery));
     });
-
+    
     $(window).resize(function(){
 	//var newwidth = $(window).width();
 	//var newheight = $(window).height() - 200;

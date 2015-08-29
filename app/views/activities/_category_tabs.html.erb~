@@ -1,0 +1,25 @@
+<ul id='category-selection' class='button-group even-3' style=''>
+  <li>
+    <a id='prep-link' href='#' data-reveal-id='' class='success shifts-link button large bottom-shadow'>Preparation
+      <span class='label alert badge-fix hidden'>
+	<%= get_open_prep_shifts.count %>
+      </span>
+    </a>
+  </li>
+  <li>
+    <a id='station-link' href='#' class='shifts-link button large bottom-shadow'>
+      Stations
+      <span class='label alert badge-fix hidden'>
+	<%= get_open_station_shifts.count %>
+      </span>
+    </a>
+  </li>
+  <li>
+    <a id='teardown-link' href='#' class='shifts-link button large bottom-shadow'>
+      Tear Down
+      <span class='label alert badge-fix hidden'>
+	<%= get_open_teardown_shifts.count %>
+      </span>
+    </a>
+  </li>
+</ul>

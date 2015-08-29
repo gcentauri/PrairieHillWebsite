@@ -7,6 +7,7 @@ $(document).ready(function() {
 	    li.siblings("li").children("a").removeClass('success');
 	    $('#all-link').removeClass('success');
 	});
+    });
 
 	$('#all-link').on('click', function() {
 	    $(this).addClass('success');
@@ -15,6 +16,44 @@ $(document).ready(function() {
 		$(this).removeClass('success');
 	    });
 	    //$('ul#category-selection').children("li").removeClass('success');
+	});
+
+
+    $(function($) {
+	var toggle = $('.activity-toggle');
+	var target = $('.activity-target');
+
+	//target.hide();
+	//toggle.css( "width" , "30%" );
+
+	//remove target class
+	//targets.each(function() {
+	//$('.target').removeClass("target");
+	//});
+	
+	toggle.on('click', function() {
+	    var target  = $(this).next(".activity-target");
+	    var targets = $(this).siblings(".target");
+
+	    
+	    $(this).animate( {
+	     	//width: '100%'
+	    });
+	    
+	    //$(this).addClass('wide');
+	    $('.target').removeClass("target");
+	    target.addClass("target");
+	    $('.target').toggle("slow");
+	});
+    });
+
+    $(function($) {
+	$('.friend-field').hide();
+
+	$('.add-friend-btn').on('click', function() {
+	    $(this).hide();
+	    console.log($(this).siblings('div'));
+	    $(this).siblings('div').show();
 	});
     });
     
@@ -71,7 +110,7 @@ $(document).ready(function() {
 	show_single(string);
     };
 
-    focus("prep");
+    focus("none");
 
     // switch between simple(table) & complex(js) views
 

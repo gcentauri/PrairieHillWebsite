@@ -8,7 +8,7 @@
       <% end %>
     </li>
     <li><%= nav_link "MY SHIFTS", user_shifts_path %></li>
-    <li><%= link_to "MY ACCOUNT", edit_user_registration_path  %> </li>
+    <li><%= link_to "MY ACCOUNT", edit_user_registration_path  %></li>
 
     <% if current_user.try(:admin?) %>
       <li><%= nav_link "ACTIVITIES", ccf_activities_path, class: 'attention'  %></li>

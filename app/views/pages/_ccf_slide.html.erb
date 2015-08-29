@@ -1,0 +1,87 @@
+<div id='slide-show' class='row' style='position:relative;top:-30px;overflow:hidden;'>
+  <div class='small-12 small-centered columns'>
+
+    <div class='ccf-slider'>
+
+      <!--artisan-->
+      <div class='ccf-slide'>
+	<% @name = "artisan crafts" %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--pony-->
+      <div class='ccf-slide'>
+	<% @name = "pony riding" %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--bubbles-->
+      <div class='ccf-slide'>
+	<% @name = "bubbles and water play" %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+      <div class='ccf-slide'>
+	<% @name = 'bubbles and water play 1' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--button-->
+      <div class='ccf-slide'>
+	<% @name = 'button making' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--food-->
+      <div class='ccf-slide'>
+	<% @name = 'food and drink concessions' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--dressup-->
+      <div class='ccf-slide'>
+	<% @name = 'dress up' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--dunk tank-->
+      <div class='ccf-slide'>
+	<% @name = 'dunk tank' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--face painting-->
+      <div class='ccf-slide'>
+	<% @name = 'face painting' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+      <div class='ccf-slide'>
+	<% @name = 'face painting 1' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+      <!--treasure hunt-->
+      <div class='ccf-slide'>
+	<% @name = 'treasure hunt' %>
+	<%= render 'ccf_slide_layout' %>
+      </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<script>
+ $(document).ready(function(){
+   $('.ccf-slider').slick({
+     autoplay: true,
+     autoplaySpeed: 7000,
+     arrows: true,
+     initialSlide: 1,
+     appendArrows: $('#slide-area'),
+     prevArrow: "<button id='slick-prev-button' type='button' class='label success bottom-shadow slick-prev'><i class='fi-rewind'></i></button><span id='slide-control-title' class='fancy padded' style='background-color:rgba(100,200,255,0.6);border-radius:5px;color:white;'><i class='fi-photo'></i></span>",
+     nextArrow: "<button id='slick-next-button' type='button' class='label success bottom-shadow slick-next'><i class='fi-fast-forward'></i></button>",
+     draggable: false,
+     respondTo: 'min'
+   });
+ });
+</script>

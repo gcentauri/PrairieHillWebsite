@@ -16,12 +16,10 @@
     <div class='small-12 small-centered columns'>
 
       <!--NAV 2-->
-      <div id='header' class='large-2 columns'>
+      <div id='header' class='large-2 columns' style='position:fixed;z-index:3;'>
 	<%= render 'layouts/large_header' %>
       </div>
 
-      
-      
       <!--MAIN 8-->
       <div class='small-10 small-centered large-9 columns content bottom-shadow'
 	   style='padding:0;
@@ -40,16 +38,15 @@
 	<!--^^-->
 
 	<!--SMALL HEADER-->
-	<div class=
 	<div id='small-header'>
-	  <%= render 'layouts/small_header' %>
+	  <%#= render 'layouts/small_header' %>
 	</div>
 	<!--^^-->
 	
 	<!--CONTENT-->
 	<div class='small-12 columns'>
 	  <div class='row'>
-	    <div id='primary-element' class='small-10 large-9 columns content bottom-shadow' style='opacity:1;position:fixed;margin:0 auto;top:120px;right:50px;height:75%;border-radius:2px;'>
+	    <div id='primary-element' class='small-10 large-9 columns content bottom-shadow' style='opacity:1;position:fixed;margin:0 auto;top:110px;right:50px;height:75%;border-radius:2px;'>
 	      <%= yield %>
 	    </div>
 	  </div>
@@ -57,30 +54,9 @@
 	<!--^^-->
 	
 	<!--FOOTER-->
-	<div class='small-9 columns footer'>
+	<div class='small-12 columns footer'>
 	  <div class='row'>
-	    <div id='slide-control' class='small-8 columns'>
-	      <div id='slide-area'></div>
-	    </div>
-
-	    <div class='small-1 columns' style='position:absolute;bottom:25%;right:15%;'>
-	      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-		<span style="font-family:trebuchet ms,arial,helvetica;" rel="font-family:trebuchet ms,arial,helvetica;">
-		  <input name="cmd" value="_xclick" type="hidden">
-		  <input name="business" value="prairiehillschool@yahoo.com" type="hidden">
-		  <input name="no_note" value="1" type="hidden">
-		  <input name="currency_code" value="USD" type="hidden">
-		  <input name="tax" value="0" type="hidden">
-		  <input alt="Make payments with PayPal - it's fast, free and secure!" name="submit" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" type="image">
-		</span>
-	      </form>
-	    </div>
-	    
-	    <div class='small-1 columns'>
-	      <div class='social'>
-		<%= link_to image_tag("facebook.png", class: "fb bottom-shadow"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
-	      </div>
-	    </div>
+	    <%= render '/layouts/footer' %>
 	  </div>
 	</div>
 	<!--endFOOTER-->

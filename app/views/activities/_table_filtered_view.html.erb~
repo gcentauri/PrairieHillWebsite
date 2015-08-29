@@ -1,0 +1,150 @@
+<div class='row'>
+  <!--ACTIVITIES-->
+    <% @sorted.each do |activity| %>
+      
+      <!--LOGIC-->
+      <% @type_count = get_type_shift_count(activity, @type) %>
+      <!--^^-->
+
+      <% if @type_count > 0 %>
+	<!--ACTIVITY TITLE-->
+
+	<div class='activity-toggle row bottom-shadow content' style='border-bottom:1px solid green;'>
+
+	  <div class='small-2 columns label alert'>
+	    <%= @type_count %>
+	  </div>
+	  <div class='small-8 columns'>
+	    <h1><%= activity.work_area %></h1>
+	  </div>
+	  <div class='small-2 columns'>
+	    <% if current_user.try(:admin?) %>
+	      <%= link_to edit_activity_path(activity) do %>
+		<i class="fi-wrench" style='color:red;'></i>
+	      <% end %>
+	    <% end %>
+	  </div>
+
+	</div>
+	<!--^^-->
+	
+	<!--SHIFTS-->      
+	<div class='activity-target row'>
+	  <div id='shifts' class='small-10 small-centered columns'>
+	    
+	    <% @type_shifts.each do |shift| %>
+	      <!--LOGIC-->
+	      <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+	      <!--^^-->
+
+	      <hr/>
+	      <%= form_for shift do |f| %>	    
+		<!--SHIFT ROW-->
+		<div id='shift-single' class='row'>
+
+		  <div class='row'>
+
+		    <!--BLOCK 1-->
+		    <div class='small-9 columns'>
+
+		      <div class='small-6 columns'>
+			<!--SHIFT TIME-->
+			<h4 class='padded-sides content bottom-shadow'><%= @shift_time %></h4>
+			<!--^^-->
+		      </div>
+
+		      <% if shift.user_id != nil %>
+			<div class='small-6 columns'>
+			  <!--CLOSED SHIFT-->
+
+			  <!--NAME-->
+			  <span class='hi-li padded-sides'>
+			  <% if shift.guest != "" %>
+			    <%= shift.guest %>
+			  <% else %>
+			    <%= "#{full_user_name(shift.user_id)}" %>
+			  <% end %>
+			  </span>
+			  <!--^^-->
+			</div>
+		      <% else %>
+			<div class='small-6 columns'>
+			  <!--ADD FRIEND'S NAME-->
+			  <a href='#' class='add-friend-btn button expand bottom-shadow'>Add Friend</a>
+			  <div class='row friend-field'>
+			    <div class='small-6 columns'>
+			      Friend's Name:
+			    </div>
+			    <div class='small-6 columns'>
+			      <%= f.text_field :guest, placeholder: "Your Friend's Name" %>
+			    </div>
+			  </div>
+			</div>
+		      <% end %>
+		      
+
+		    </div>
+
+		    <!--BLOCK 2-->
+		    <div class='small-3 columns right'>
+		      <!--SIGN UP/CANCEL-->
+
+		      <% if shift.user_id != nil %>
+
+			<div class='small-12 columns right'>
+			  <!--CANCEL OPTION-->
+			  <% if current_user.id == shift.user_id %>
+			    <%= form_for shift do |f| %>
+			      <%= f.hidden_field :user_id, value: nil %>
+			      <%= f.hidden_field :guest, value: nil %>
+			      <%= f.submit "Cancel", class: '', data: { :confirm => "Cancel your shift?" } %>
+			    <% end %>
+			  <% end %>
+			  <!--^^-->
+			</div>
+
+		      <% else %>
+			<!--OPEN SHIFT-->
+			<% if user_signed_in? %>
+
+			  <div class='small-12 columns'>
+			    <!--FORM-->
+			    <%#= form_for shift do |f| %>
+
+			    <!--USER ID-->
+			    <%= f.hidden_field :user_id, value: current_user.id %>
+			    <!--^^-->
+
+			    <div class='row hidden'>
+			      <%= f.submit 'Sign Yourself Up!', class: '', data: { :confirm => "Are you sure?" } %>
+			      <!--^^-->
+			    </div>
+
+			    <!--SUBMIT-->
+			    <%= f.submit 'Sign Up!', class: 'button success expand bottom-shadow', data: { :confirm => "Are you sure?" } %>
+			    <!--^^-->
+
+			    <%# end %>
+			    <!--^^-->
+			  </div>
+
+			<% end %>
+			<!--^^-->
+		      <% end %>
+		      <!--^^-->
+		    </div>
+		  </div>
+		</div>
+	      <% end %>
+	    <% end %>
+	    <!--^^-->
+
+	    <br/>
+	    
+	    
+	  </div>
+	</div>
+      <% end %>
+    <% end %>
+    <!--^^-->
+  </div>

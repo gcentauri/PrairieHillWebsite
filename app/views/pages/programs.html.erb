@@ -9,18 +9,21 @@ description: "Programs for children age 18 months to 14 years",
   <div class='programs-slide'>
     <div class='small-12 small-centered columns'>
 
+      <!--title-->
       <div class='row'>
 	<div class='small-12 columns' style='position:relative;z-index:1;'>
 	  <h2 class='hi-li padded'>Young Children's Community</h2>
 	</div>
       </div>
 
-      <div class='row' style=''>
+      <!--content-->
+      <div class='row'>
 	<div class='small-5 columns padded' style='position:absolute;left:5%;top:100%;z-index:1;background:rgba(255,255,255,0.7);border-radius:3px;'>
 	  <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
 	</div>
       </div>
 
+      <!--image-->
       <div class='row'>
 	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
 	  <%= image_tag("feeding-patches.png") %>
@@ -35,21 +38,29 @@ description: "Programs for children age 18 months to 14 years",
   <div class='programs-slide'>
     <div class='small-12 small-centered columns'>
 
+      <!--title-->
       <div class='row'>
 	<div class='small-12 columns' style='position:relative;z-index:1;'>
 	  <h2 class='hi-li padded'>Primary Community</h2>
 	</div>
       </div>
 
-      <div class='row' style=''>
-	<div class='small-11 small-centered columns' style='position:relative;z-index:1;'>
-	  <div class='small-6 columns'>
-	    <%= image_tag("primary-program-2-15.png") %>
-	  </div>
-	
-	  <div class='small-6 right columns padded justify'>
-	    <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
-	  </div>
+      <!--content-->
+      <div class='row'>
+	<div class='small-5 columns padded' style='position:absolute;left:5%;z-index:1;background:rgba(255,255,255,0.7);border-radius:3px;'>
+	  <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
+	</div>
+
+	<div class='small-6 columns' style='position:relative;z-index:1;right:35px;'>
+	  <%= image_tag("primary-program-2-15.png") %>
+	</div>
+      </div>
+
+      <!--image-->
+      <div class='row'>
+	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
+	  <%= image_tag("leaves2.jpg") %>
+	  
 	</div>
       </div>
       
@@ -89,13 +100,13 @@ description: "Programs for children age 18 months to 14 years",
 
       <div class='row'>
 	<div class='small-12 small-centered columns'>
-	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/046/original/Financial_Information_September_1__2014.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
+	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
 	</div>
       </div>
 
       <div class='row'>
 	<div class='small-11 columns'>
-	  <EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/046/original/Financial_Information_September_1__2014.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">
+	  <EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">
 	  </EMBED>
 	</div>
       </div>
@@ -107,22 +118,8 @@ description: "Programs for children age 18 months to 14 years",
 </div>
 
 <script>
-
  $(document).ready(function(){
-   $('.programs-slider').slick({
-     autoplay: true,
-     autoplaySpeed: 7000,
-     arrows: true,
-     initialSlide: 0,
-     appendArrows: $('#slide-area'),
-     prevArrow: "<button id='slick-prev-button' type='button' class='button  round bottom-shadow slick-prev'><</button><span id='slide-control-title' class='fancy padded' style='background-color:rgba(255,255,255,0.3);border-radius:5px;'>Slide Controls</span>",
-     nextArrow: "<button id='slick-next-button' type='button' class='button  round bottom-shadow slick-next'>></button>",
-     draggable: false,
-     fade: true,
-     respondTo: 'min'
-     //speed: 2000
-     //vertical: true
-   });
+   
  });
  
  var winHeight = $(window).height();

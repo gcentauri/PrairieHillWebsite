@@ -1,6 +1,8 @@
 $phill-grn: #3f8000;
 $phill-gold: #ffef19;
 
+//@import 'foundation_and_overrides';
+
 .par {
     //padding: 5px;
     width: 90%;
@@ -75,8 +77,9 @@ $phill-gold: #ffef19;
     //bottom: 0;
     //right: 0;
     margin: 0 5px 5px 0;
-    width: 75%;
-    height: 75%;
+    widht: 100%;
+    //width: 75%;
+    //height: 75%;
     border-radius: 5px;
 }
 
@@ -105,15 +108,23 @@ $phill-gold: #ffef19;
 .footer {
     position: fixed;
     bottom: 0;
+    right: 50px;
 }
 
 #slide-control-title {
     margin: 5px;
+    border: 0.5px solid rgba(255,255,255,0.5);
 }
 
+.slick-btn {
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+//media q
 @media screen and (max-width:40em) {
 
 	.title-a {
 	    font-size: 4vw;
 	}
 }
+

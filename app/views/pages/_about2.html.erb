@@ -2,7 +2,8 @@
 
   <div class='row'>
 
-    <div class='small-5 columns' style='clear:none;'>
+    <!--image-->
+    <div class='small-5 left columns' style='clear:none;border-radius:2px;position:relative;z-index:1;left:15px;'>
       <div class='row'>
 	<div class='small-12 small-centered columns'>
 	  <%= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
@@ -10,17 +11,22 @@
       </div>
     </div>
 
-    <div class='small-7 columns'>
+    
 
-      <div class='row'>
 
-	<div class='small-12 small-centered columns'>
+    <div class='small-7 columns' style='clear:none;border-radius:2px;position:relative;z-index:1;top:15px;right:30px;'>
+
+      <div class='row content'>
+
+	<!--content-->
+	<div class='small-12 small-centered columns' style='clear:none;'>
 	  <span class='par'>
 	    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
 	  </span>
 	</div>
 
-	<div class='small-12 small-centerd columns'>
+	<!--title-->
+	<div class='small-12 small-centerd columns' style='clear:none;position:relative;bottom:15px;'>
 	  <div class='justify hi-li padded'>
 	    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
 	  </div>
@@ -30,6 +36,12 @@
 
     </div>
 
+  </div>
+
+  <div class='row'>
+    <div class='small-12 columns' style='position:absolute;top:0;z-index:0;opacity:0.5;'>
+      <%= image_tag("landscape_field.jpg") %>
+    </div>
   </div>
   
 </div>

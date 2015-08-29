@@ -1,0 +1,22 @@
+<% @firstname = reduce_name(@name)[1].first %>
+<% @mult_num = reduce_name(@name)[2] %>
+<% mult = @mult_num.first %>
+
+<div class='' style='position:absolute;top:50%;z-index:2;'>
+  <div class='small-12 columns'>
+    <h3 class='hi-li padded bottom-shadow'><%= reduce_name(@name)[1].join(" ").upcase %>!</h3>
+    <a href='/ccf' class='button expand large success padded-sides' style='color:white;width:100%;'>At the Country Fair, Oct 3!</a>
+  </div>
+</div>
+
+
+<% if @mult_num.count > 0 %>
+  <% jpg = "#{@firstname}#{mult}.jpg" %>
+<% else %>
+  <% jpg = "#{@firstname}.jpg" %>
+<% end %>
+
+<div style='position:relative;z-index:1;'>
+  <%#= reduce_name(@name) %>
+  <%= image_tag(jpg) %>
+</div>

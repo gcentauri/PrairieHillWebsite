@@ -1,4 +1,4 @@
-<div id='ccf-content' class='small-12 small-centered columns'>
+<div id='ccf-content' class='bottom-shadow small-12 small-centered columns'>
   
   <!--CONTENT-->
   <div class='small-12 small-centered columns'>
@@ -6,15 +6,20 @@
     <div class='row'>
       <!--IMG-->
       <div class='small-8 columns'>
-	<img id='ccf-main-img' class='bottom-shadow' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' />
+	<div style='position:relative;top:50px;'>
+	  <%= render 'pages/ccf_slide' %>
+	</div>
+	
+	<img id='ccf-main-img' class='bottom-shadow hidden' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' />
       </div>
+      <!--^^-->
 
       <!--INFO-->
-      <div class='small-4 columns justify'>
+      <div class='small-4 columns justify' style='position:relative;top:20px;'>
 
 	<div class='row'>
 	  <div class='small-12 columns'>
-	    <p style='word-wrap:normal;font-size:1.5vw;padding:15px 0;'>Please join us for a family and child-centered event that includes artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
+	    <p style='word-wrap:normal;font-size:1.5vw;padding:15px 0;'>Please join us for a family and child-centered event that includes pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
 	  </div>
 	</div>
 
@@ -26,7 +31,7 @@
 
 
 	<div class='small-12 small-centered columns'>
-	  <a class='button expand radius bottom-shadow' href='/activities'>Volunteer Here!</a>
+	  <a class='button large fancy expand radius bottom-shadow' href='/activities'>Volunteer Here!</a>
 	</div>
 
 
@@ -125,4 +130,5 @@
 	    <%#= cms_snippet_content('ccf', @cms_site).html_safe %>
 </div>
 
-
+<script>
+</script>

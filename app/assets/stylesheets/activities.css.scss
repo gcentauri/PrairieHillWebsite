@@ -38,3 +38,8 @@ select#category {
     margin-bottom: 10px;
 }
 
+.activity-toggle {
+    &:hover {
+	background: $soft-blue;
+    }
+}

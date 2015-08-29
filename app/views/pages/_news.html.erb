@@ -3,33 +3,14 @@ description: 'Latest News at PRAIRIE HILL Learning Center',
 keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community parent tours dates) %>
 
 
-<div class='small-12 small-centered columns'>
+<div class='news-slider bottom-shadow'>
 
-  <div class='small-6 columns'>
-    <div class='row'>
-      <div class='small-12 columns'>
-	<h3 class='hi-li-grn padded'>
-	  Prospective Parent Tour Dates
-	</h3>
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='small-11 small-centered columns justify'>
-	Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
-      </div>
-    </div>
-    
-    <div class='row'>
-      <div class='small-12 columns'>
-	<h4 class='hi-li padded'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
-      </div>
-    </div>
-  </div>
-
-  <div class='small-6 columns' data-equalizer-watch>
-    <%= image_tag("ella_reads.jpg") %>
-  </div>
-
+  <%= render 'news_slider' %>
+  
 </div>
 
+<script>
+ $(document).ready(function(){
+   
+ });
+</script>

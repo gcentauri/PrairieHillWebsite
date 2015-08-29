@@ -207,24 +207,29 @@ p {
 
 	.attention {
 	    @extend .bottom-shadow;
-	    @extend .padded;
+	    @extend .padded-sides;
+	    @extend .fancy;
 	    //color: $phill-grn;
 	    //background-color: rgba(255,239,25,0.9);
 	    color: white;
 	    background-color: rgba(8,134,173,0.9);
+	    //background: image-url('leaves2.jpg');
 	    font-weight: bold;
 	    font-style: italic;
-	    font-size: 1.5vw;
-	    line-height:50%;
+	    font-size: 1.2vw;
+	    line-height:55%;
 	    border-radius: 2px;
 
-	    width: 150%;
-	    text-align: right;
+	    width: 170%;
+	    text-align: center;
 	    margin: 0;
 	    z-index: 10;
 
+	    padding-top: 10px;
+	    padding-bottom: 5px;
+	    
 	    .icon {
-		font-size: 3vw;
+		font-size: 2vw;
 	    }
 	    
 	    &:hover {
@@ -291,11 +296,12 @@ p {
     
     .fb {
 	background: white;
-	position: absolute;
-	bottom: 0;
-	right: 0;
+//	position: absolute;
+//	bottom: 0;
+//	right: 0;
 	margin: 0 5px 5px 0;
-	height: 5%;
+	width: 4%;
+	heigth: 5%;
 	border-radius: 5px;
     }
 }

@@ -1,8 +1,56 @@
-<div id="footer">
-  <strong>(402) 438-6668</strong>
+<div class='small-10 columns right'>
+
+  <div class='row'>
+
+    <!--CONTROL 2-->
+    <div class='footer-slide small-2 columns'>
+
+      <!--legal info-->
+      <div class='small-1 columns' style='position:relative;z-index:4;'>
+	<h2><a href='#' data-reveal-id='legalModal' style='color:white;'><span class='bottom-shadow' style='position:relative;'><i class='fi-info' style='border:2px solid rgba(221,133,36,0);'></i></span></a></h2>
+	<div id='legalModal' class='reveal-modal' data-reveal aria-labelledby='modalLegal' aria-hidden='true' role='dialog'>
+	  <%= render 'pages/legal' %>
+	</div>
+      </div>
+
+      <!--slides control-->
+      <div id='slide-area' class='small-12 small-centered columns' style='position:relative;left:25px;'></div>
+      
+    </div>
+    <!--^^-->
+
+    <!--PHONE 3-->
+    <div class='footer-slide small-3 columns hidden'>
+      <div class='hi-li padded-sides' style='position:absolute;top:20px;border-radius:3px;'>
+	<strong>(402) 438-6668</strong>
+      </div>
+    </div>
+
+    <!--QUOTE 4-->
+    <div class='footer-slide small-5 columns' style='position:absolute;bottom:5px;left:36%;z-index:3;'>
+      <%= render 'pages/page_add_quote' %>
+    </div>
+
+    <!--SMALL ICONS 3-->
+    <div class='small-3 columns'>
+
+      <!--PAYPAL-->
+      <div class='small-8 columns left' style='position:absolute;top:50%;left:60px;'>
+	<%= render 'layouts/paypal_btn' %>
+      </div>
+
+      <!--FB-->
+      <div class='small-4 columns right'>
+	<div class='social'>
+	  <%= link_to image_tag("facebook.png", class: "fb bottom-shadow"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
+	</div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<% if current_page?(root_path) %>
-  <%= render 'page_add_quote' %>
-<% end %>
-
+<script>
+ $(document).ready(function(){
+ });
+</script>
