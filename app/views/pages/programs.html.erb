@@ -3,7 +3,7 @@ description: "Programs for children age 18 months to 14 years",
   keywords: %w(programs young-children elementary primary home environment)
 %>
 
-<div class='programs-slider'>
+<div class='programs-slider bottom-shadow'>
 
   <!--YCC-->
   <div class='programs-slide'>
@@ -100,13 +100,14 @@ description: "Programs for children age 18 months to 14 years",
 
       <div class='row'>
 	<div class='small-12 small-centered columns'>
-	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
+	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
 	</div>
       </div>
 
       <div class='row'>
 	<div class='small-11 columns'>
-	  <EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">
+	  <%= cms_snippet_content('financial', @cms_site).html_safe %>
+	  <!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
 	  </EMBED>
 	</div>
       </div>

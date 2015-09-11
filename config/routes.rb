@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'ccf/activities', to: 'activities#index'
   get 'ccf/user_shifts', to: 'shifts#user_shifts'
   get "user_shifts", to: "shifts#user_shifts"
+  get 'export', to: 'activities#export', as: :activities_export
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true

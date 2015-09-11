@@ -20,18 +20,17 @@
   </div>
 
   <div class='row'>
-
-    <div class='small-8 small-centered columns'>
+    <div class='small-7 small-centered columns'>
       <div class='small-5 columns'>
 	<% if devise_mapping.rememberable? -%>
 	  <%= f.label :remember_me, class: 'font-set' %>
 	  <%= f.check_box :remember_me %>
 	<% end -%>
       </div>
-      <div class='small-3 columns'>
-	<ul class='small-block-grid-2'>
-	  <li><%= f.submit "Sign in", class: 'btn btn-primary' %></li>
-	  <li><%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %></li>
+      <div class='small-5 columns'>
+	<ul class='button-group even-2'>
+	  <li><%= f.submit "Sign in", class: 'button' %></li>
+	  <li><%= link_to "Sign up", new_user_registration_path, class: 'button' %></li>
 	</ul>
       </div>
     </div>

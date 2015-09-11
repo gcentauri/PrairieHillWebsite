@@ -9,43 +9,42 @@ $(document).ready(function() {
 	});
     });
 
-	$('#all-link').on('click', function() {
-	    $(this).addClass('success');
-	    var prev_links = $('ul#category-selection').children("li").children("a");
-	    prev_links.each(function() {
-		$(this).removeClass('success');
-	    });
-	    //$('ul#category-selection').children("li").removeClass('success');
+    $('#all-link').on('click', function() {
+	$(this).addClass('success');
+	var prev_links = $('ul#category-selection').children("li").children("a");
+	prev_links.each(function() {
+	    $(this).removeClass('success');
 	});
-
-
-    $(function($) {
-	var toggle = $('.activity-toggle');
-	var target = $('.activity-target');
-
-	//target.hide();
-	//toggle.css( "width" , "30%" );
-
-	//remove target class
-	//targets.each(function() {
-	//$('.target').removeClass("target");
-	//});
-	
-	toggle.on('click', function() {
-	    var target  = $(this).next(".activity-target");
-	    var targets = $(this).siblings(".target");
-
-	    
-	    $(this).animate( {
-	     	//width: '100%'
-	    });
-	    
-	    //$(this).addClass('wide');
-	    $('.target').removeClass("target");
-	    target.addClass("target");
-	    $('.target').toggle("slow");
-	});
+	//$('ul#category-selection').children("li").removeClass('success');
     });
+
+    // $(function($) {
+    // 	var toggle = $('.activity-toggle');
+    // 	var target = $('.activity-target');
+
+    // 	//target.hide();
+    // 	//toggle.css( "width" , "30%" );
+
+    // 	//remove target class
+    // 	//targets.each(function() {
+    // 	//$('.target').removeClass("target");
+    // 	//});
+	
+    // 	toggle.on('click', function() {
+    // 	    var target  = $(this).next(".activity-target");
+    // 	    var targets = $(this).siblings(".target");
+
+	    
+    // 	    $(this).animate( {
+    // 	     	//width: '100%'
+    // 	    });
+	    
+    // 	    //$(this).addClass('wide');
+    // 	    $('.target').removeClass("target");
+    // 	    target.addClass("target");
+    // 	    $('.target').toggle("slow");
+    // 	});
+    // });
 
     $(function($) {
 	$('.friend-field').hide();
@@ -89,9 +88,20 @@ $(document).ready(function() {
     function hide_single(string) {
 	toggle_category("hide", string);
     };
+
+    function hide_all() {
+	hide_single("all");
+	hide_single("prep");
+	hide_single("station");
+	hide_single("teardown");    
+    };
+
+    hide_all();
+    
     function show_single(string) {
 	toggle_category("show", string);
     }
+
     function get_categories(category) {
 	var categories_list = ["prep", "station", "teardown", "all"];
 	var categories =
@@ -100,39 +110,13 @@ $(document).ready(function() {
 	    };
 	var category_index = categories_list.indexOf(category); // "prep" 0
     };
+    
     function focus (string) {
 	//hide all
-	hide_single("all");
-	hide_single("prep");
-	hide_single("station");
-	hide_single("teardown");
+	hide_all();
 	//show chosen
 	show_single(string);
     };
-
-    focus("none");
-
-    // switch between simple(table) & complex(js) views
-
-    
-    
-
-/////////////////////////////////////////////////////////
-    
-    // function toggle_categories(fun, ..categories) {
-    //     console.log(categories);
-    //     $.each(categories, function (cat) {
-    // 	toggle_category(fun, cat);
-    //     });
-    // };
-
-    // // FUNCTION
-    // function toggle_all_off() {
-    //     //toggle_categories("hide", ["prep", "station", "teardown", "all"]);
-    //     toggle_category("hide", "stations");
-    //     //toggle_category("hide", "station");
-    // };
-    // //
 
 
     

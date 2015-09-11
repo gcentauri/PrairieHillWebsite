@@ -1,3 +1,12 @@
 <div class='row'>
-  <h1 class='button success expand bottom-shadow'><%= @type %></h1>
+  <div class='small-12 columns left'>
+    <h1 class='button expand bottom-shadow'><%= @type %></h1>
+  </div>
+  <div class='small-1 columns right hidden'>
+    <% if current_user.try(:admin?) %>
+      <%= link_to new_activity_path do %>
+	<i class="fi-plus" style='color:red;'></i>
+      <% end %>
+    <% end %>
+  </div>
 </div>

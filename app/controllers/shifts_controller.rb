@@ -16,6 +16,7 @@ class ShiftsController < ApplicationController
     #end
   end
 
+  
   def new
     @shift = Shift.new
   end

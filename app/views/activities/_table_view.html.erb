@@ -17,7 +17,14 @@
 	  <div class='small-8 columns'>
 	    <h1><%= activity.work_area %></h1>
 	  </div>
-	  <div class='small-2 columns'>
+	  <div class='small-1 columns'>
+	    <a href='#' data-reveal-id="activityModal"><i class='fi-info' style='color:green;'></i></a>
+
+	    <div id='activityModal' class='reveal-modal' data-reveal aria-labelledby="modalTitle" aria-hidden='true' role='dialog'>
+	      About <%= activity.work_area %>
+	    </div>
+	  </div>
+	  <div class='small-1 columns'>
 	    <% if current_user.try(:admin?) %>
 	      <%= link_to edit_activity_path(activity) do %>
 		<i class="fi-wrench" style='color:red;'></i>
@@ -49,7 +56,7 @@
 
 		      <div class='small-6 columns'>
 			<!--SHIFT TIME-->
-			<h4 class='padded-sides content bottom-shadow'><%= @shift_time %></h4>
+			<h4 class='button success expand bottom-shadow'><strong><%= @shift_time %></strong></h4>
 			<!--^^-->
 		      </div>
 
@@ -58,7 +65,7 @@
 			  <!--CLOSED SHIFT-->
 
 			  <!--NAME-->
-			  <span class='hi-li padded-sides'>
+			  <span class='button info expand bottom-shadow'>
 			  <% if shift.guest != "" %>
 			    <%= shift.guest %>
 			  <% else %>
@@ -72,10 +79,8 @@
 			  <!--ADD FRIEND'S NAME-->
 			  <a href='#' class='add-friend-btn button expand bottom-shadow'>Add Friend</a>
 			  <div class='row friend-field'>
-			    <div class='small-6 columns'>
-			      Friend's Name:
-			    </div>
-			    <div class='small-6 columns'>
+			    <%= f.label "Friend's Name", class: 'button expand left' %>
+			    <div class='small-12 columns'>
 			      <%= f.text_field :guest, placeholder: "Your Friend's Name" %>
 			    </div>
 			  </div>
@@ -97,7 +102,7 @@
 			    <%= form_for shift do |f| %>
 			      <%= f.hidden_field :user_id, value: nil %>
 			      <%= f.hidden_field :guest, value: nil %>
-			      <%= f.submit "Cancel", class: 'button warning expand', data: { :confirm => "Cancel your shift?" } %>
+			      <%= f.submit "Cancel", class: 'button warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
 			    <% end %>
 			  <% end %>
 			  <!--^^-->
@@ -114,11 +119,6 @@
 			    <!--USER ID-->
 			    <%= f.hidden_field :user_id, value: current_user.id %>
 			    <!--^^-->
-
-			    <div class='row hidden'>
-			      <%= f.submit 'Sign Yourself Up!', class: '', data: { :confirm => "Are you sure?" } %>
-			      <!--^^-->
-			    </div>
 
 			    <!--SUBMIT-->
 			    <%= f.submit 'Sign Up!', class: 'button success expand bottom-shadow', data: { :confirm => "Are you sure?" } %>

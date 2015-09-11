@@ -113,18 +113,39 @@ $phill-gold: #ffef19;
 
 #slide-control-title {
     margin: 5px;
-    border: 0.5px solid rgba(255,255,255,0.5);
+    //border: 0.5px solid rgba(255,255,255,0.5);
 }
 
 .slick-btn {
     border: 1px solid rgba(255,255,255,0.5);
 }
 
-//media q
-@media screen and (max-width:40em) {
+#small-browser {
+    display: none;
+}
 
-	.title-a {
-	    font-size: 4vw;
-	}
+.photo-icon {
+    background-color:rgba(100,200,255,0.6);
+    border-radius:50px;
+    color:white;
+}
+
+//media q
+@media only screen and (max-width:60em) {
+    #small-browser {
+	display: inline;
+	font-size: 4vw;
+	margin: 15px;
+    }
+    #normal-browser {
+	display: none;
+    }
+
+}
+
+@media only screen and (max-width:640px) {
+    #header {
+	display: none;
+    }
 }
 

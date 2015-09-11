@@ -5,12 +5,21 @@ class Activity < ActiveRecord::Base
 
   accepts_nested_attributes_for :shifts, reject_if: :all_blank, allow_destroy: true
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |activity|
-        csv << activity.attributes.values_at(*column_names)
-      end
-    end
-  end
+  # def self.to_csv(activity_attributes = column_names, shift_attributes = activity.shifts.column_names, options = {})
+
+  #   CSV.generate(options) do |csv|
+  #     csv.add_row activity_attributes + shift_attributes
+
+  #     all.each do |activity|
+
+  #       values = activity.attributes.slice(*activity_attributes).values
+
+  #       if activity.shifts
+  #         values += activity.shifts.attributes.slice(*shift_attributes).values
+  #       end
+        
+  #       csv.add_row values
+  #     end
+  #   end
+  # end
 end

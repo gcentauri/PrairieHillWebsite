@@ -131,6 +131,10 @@
     </div>
   </div>
   <!--^^^-->
+
+  <div class='row'>
+    <%#= link_to "Export Data", activities_export_path(format: "csv") %>
+  </div>
   
   <!--ROW-->
   <div class='row'>
@@ -185,7 +189,8 @@
 
   <!--ACTIVITIES-->
   <div class='row'>
-    <div style="background-image: url('/assets/leaves1.jpg');">
+    <!--<div style="background-image: url('/assets/leaves1.jpg');">-->
+    <div>
       <!--Download:-->
       <%#= link_to "Excel", activities_path(format: "xls") %>
       <!--<div id='calendar' class='hidden'></div>-->

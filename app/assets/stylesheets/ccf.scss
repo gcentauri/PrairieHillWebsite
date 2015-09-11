@@ -37,3 +37,8 @@ $soft-blue: rgba(236,244,255,0.9);
     padding-bottom: 9px;
     border-radius: 2px;
 }
+
+.fun-run-slide {
+    @extend .hi-li;
+    height: 100%;
+}

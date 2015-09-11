@@ -2,11 +2,24 @@
 $(document).ready(function () {
 
     //slick sliders
-    var title_icon = "<span id='slide-control-title' class='fancy padded' style='background-color:rgba(100,200,255,0.6);border-radius:50px;color:white;'><i class='fi-photo'></i></span>"
+    var title_icon = "<span id='slide-control-title' class='fancy padded-sides photo-icon bottom-shadow'><i class='fi-photo'></i></span>"
     var prev_icon = "<i class='fi-rewind'></i>"
     var next_icon = "<i class='fi-fast-forward'></i>"
     var btn_classes = "label success bottom-shadow slick-btn"
 
+    var prev_btn_no_title = "<div class='small-1 columns'><button id='slick-prev-button' type='button' class='"
+	+ btn_classes
+	+ "slick-prev'>"
+	+ prev_icon
+	+ "</button></div>"
+	+ "<div class='small-10 columns' style='text-align:center;'><strong>One Mile Children's Run in the pasture</strong></div>"
+
+    var next_btn_no_title = "<div class='small-1 columns'><button id='slick-next-button' type='button' class='"
+	+ btn_classes
+	+ " slick-next'>"
+	+ next_icon
+	+ "</button></div>"
+    
     var prev_btn = "<button id='slick-prev-button' type='button' class='"
 	+ btn_classes
 	+ "slick-prev'>"
@@ -16,6 +29,20 @@ $(document).ready(function () {
 	+ title_icon
 	+ "</a>"
     var next_btn = "<button id='slick-next-button' type='button' class='" + btn_classes +  " slick-next'>" + next_icon + "</button>"
+
+    $('.ccf-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 7000,
+	arrows: true,
+	initialSlide: 1,
+	appendArrows: $('#slide-area'),
+	prevArrow: prev_btn,
+	nextArrow: next_btn,
+	draggable: false,
+	//vertical: true,
+	//fade: true,
+	respondTo: 'min'
+    });
     
     $('.staff-slider').slick({
 	autoplay: true,
@@ -30,6 +57,23 @@ $(document).ready(function () {
 	draggable: false,
 	respondTo: 'min',
 	vertical: true
+    });
+
+    $('.funrun-slider').slick({
+	autoplay: true,
+	autoplaySpeed: 6000,
+	arrows: true,
+	initialSlide: 0,
+	appendArrows: $('#fun-run-control'),
+	//appendArrows: $('.fun-run-slide'),
+	prevArrow: prev_btn_no_title,
+	nextArrow: next_btn_no_title,
+	//centerMode: true,
+	//centerPadding: '100px',
+	draggable: false,
+	respondTo: 'min',
+	//vertical: true,
+	adaptiveHeight: true
     });
 
     $('.footer-slider').slick({
