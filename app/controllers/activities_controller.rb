@@ -30,7 +30,7 @@ class ActivitiesController < InheritedResources::Base
   end
 
   def edit
-    @activity.shifts.build
+    #@activity.shifts.build
   end
 
   def create

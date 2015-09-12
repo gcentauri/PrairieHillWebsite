@@ -24,33 +24,6 @@ $(document).ready(function() {
 	$(this).next(".activity-target").toggle();
     });
     
-    // $(function($) {
-    // 	var toggle = $('.activity-toggle');
-    // 	var target = $('.activity-target');
-
-    // 	//target.hide();
-    // 	//toggle.css( "width" , "30%" );
-
-    // 	//remove target class
-    // 	//targets.each(function() {
-    // 	//$('.target').removeClass("target");
-    // 	//});
-	
-    // 	toggle.on('click', function() {
-    // 	    var target  = $(this).next(".activity-target");
-    // 	    var targets = $(this).siblings(".target");
-
-	    
-    // 	    $(this).animate( {
-    // 	     	//width: '100%'
-    // 	    });
-	    
-    // 	    //$(this).addClass('wide');
-    // 	    $('.target').removeClass("target");
-    // 	    target.addClass("target");
-    // 	    $('.target').toggle("slow");
-    // 	});
-    // });
 
     $(function($) {
 	$('.friend-field').hide();

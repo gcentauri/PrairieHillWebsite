@@ -15,8 +15,8 @@ $xsoft-blue: rgba(236,244,255,0.3);
     text-align: center;
 }
 
-select#category {
-    font-size: 1vw;
+select, textarea {
+    font-size: 14px !important;
     padding-top: 0;
 }
 

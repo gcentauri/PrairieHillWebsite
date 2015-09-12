@@ -35,11 +35,12 @@
   <div class='small-4 columns'>
     <%= f.label "Category" %>
     <%#= f.text_field :category, class: 'form-control foo' %>
-    <%= f.select(:category) do %>
-      <% [['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']].each do |c| %>
-	<%= content_tag(:option, c.first, value: c.last) %>
-      <% end %>
-    <% end %>
+    <%#= f.select(:category) do %>
+    <%= f.select :category, options_for_select([['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']], :selected => f.object.category) %>
+      <%# [['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']].each do |c| %>
+	<%#= content_tag(:option, c.first, value: c.last) %>
+      <%# end %>
+    <%# end %>
     
   </div>
   
