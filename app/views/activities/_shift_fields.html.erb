@@ -6,8 +6,9 @@
     <div class='form-group' style='background:gold'>
       <div class='field'>
 	<%= f.label "Start Time" %>
-	<div class='input-group date' id='datetimepicker-<%= rand(100) %>'>
-	  <%= f.text_field :start_time, class: 'form-control' %>
+	<%= f.select :start_time, options_for_select(get_times[0]) %>
+	<div class='input-group date hidden' id='datetimepicker-<%= rand(100) %>'>
+	  <%#= f.text_field :start_time, class: 'form-control' %>
 	  <span class='input-group-addon'>
 	    <span class='glyphicon glyphicon-calendar'></span>
 	  </span>
@@ -21,8 +22,9 @@
     <div class='form-group' style='background:green'>
       <div class='field'>
 	<%= f.label "End Time" %>
-	<div class='input-group date' id='datetimepicker-<%= rand(100) %>'>
-	<%= f.text_field :end_time, class: 'form-control foo' %>
+	<%= f.select :end_time, options_for_select(get_times[1]) %>
+	<div class='input-group date hidden' id='datetimepicker-<%= rand(100) %>'>
+	<%#= f.text_field :end_time, class: 'form-control foo' %>
 	  <span class='input-group-addon'>
 	    <span class='glyphicon glyphicon-calendar'></span>
 	  </span>
