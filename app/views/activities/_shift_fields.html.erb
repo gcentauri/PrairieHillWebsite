@@ -6,7 +6,10 @@
     <div class='form-group' style='background:gold'>
       <div class='field'>
 	<%= f.label "Start Time" %>
-	<%= f.select :start_time, options_for_select(get_times[0]) %>
+	<% start_title = get_time_title[f.object.start_time.to_s] %>
+	<% get_times %>
+	<%= f.select :start_time, options_for_select(@times, f.object.start_time ) %>
+	
 	<div class='input-group date hidden' id='datetimepicker-<%= rand(100) %>'>
 	  <%#= f.text_field :start_time, class: 'form-control' %>
 	  <span class='input-group-addon'>
@@ -22,7 +25,8 @@
     <div class='form-group' style='background:green'>
       <div class='field'>
 	<%= f.label "End Time" %>
-	<%= f.select :end_time, options_for_select(get_times[1]) %>
+	<%= f.select :end_time, options_for_select(@times, f.object.end_time ) %>
+
 	<div class='input-group date hidden' id='datetimepicker-<%= rand(100) %>'>
 	<%#= f.text_field :end_time, class: 'form-control foo' %>
 	  <span class='input-group-addon'>
@@ -36,8 +40,7 @@
   <!--CATEGORY-->
   <div class='small-4 columns'>
     <%= f.label "Category" %>
-    <%#= f.text_field :category, class: 'form-control foo' %>
-    <%#= f.select(:category) do %>
+    <%= f.object.category %>
     <%= f.select :category, options_for_select([['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']], :selected => f.object.category) %>
       <%# [['Preparation', 'Preparation'], ['Station', 'Station'], ['Tear Down', 'Tear Down']].each do |c| %>
 	<%#= content_tag(:option, c.first, value: c.last) %>

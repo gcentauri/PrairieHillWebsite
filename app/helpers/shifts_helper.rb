@@ -1,30 +1,33 @@
 module ShiftsHelper
 
   def get_times
-    
-  @start_times = [
-    ['Friday 4pm', 'Fri, 02 Oct 2015 16:00:00 UTC +00:00'],
-    ['Saturday 9am', 'Sat, 03 Oct 2015 09:00:00 UTC +00:00'],
-    ['Sat 11am', 'Sat, 03 Oct 2015 11:00:00 UTC +00:00'],
-    ['Sat 12pm', 'Sat, 03 Oct 2015 12:00:00 UTC +00:00'],
-    ['Sat 1pm', 'Sat, 03 Oct 2015 13:00:00 UTC +00:00'],
-    ['Sat 2pm', 'Sat, 03 Oct 2015 14:00:00 UTC +00:00'],
-    ['Sat 3pm', 'Sat, 03 Oct 2015 15:00:00 UTC +00:00']
-  ]
 
-  @end_times = [
-    ['Friday 6pm', 'Fri, 02 Oct 2015 18:00:00 UTC +00:00'],
-    ['Sat 11am', 'Sat, 03 Oct 2015 11:00:00 UTC +00:00'],
-    ['Sat 12pm', 'Sat, 03 Oct 2015 12:00:00 UTC +00:00'],
-    ['Sat 1pm', 'Sat, 03 Oct 2015 13:00:00 UTC +00:00'],
-    ['Sat 2pm', 'Sat, 03 Oct 2015 14:00:00 UTC +00:00'],
-    ['Sat 3pm', 'Sat, 03 Oct 2015 15:00:00 UTC +00:00'],
-    ['Sat 5pm', 'Sat, 03 Oct 2015 17:00:00 UTC +00:00']
-  ]
+    @times = {
+      'Fri 4pm'  => '2015-10-02 16:00:00 UTC',
+      'Fri 6pm'  => '2015-10-02 18:00:00 UTC',
+      'Sat 9am'  => '2015-10-03 09:00:00 UTC',
+      'Sat 11am' => '2015-10-03 11:00:00 UTC',
+      'Sat 12pm' => '2015-10-03 12:00:00 UTC',
+      'Sat 1pm'  => '2015-10-03 13:00:00 UTC',
+      'Sat 2pm'  => '2015-10-03 14:00:00 UTC',
+      'Sat 3pm'  => '2015-10-03 15:00:00 UTC',
+      'Sat 5pm'  => '2015-10-03 17:00:00 UTC'
+    }
 
-  return [@start_times, @end_times]
   end
-    
+
+  def get_time_title
+
+    @titles = {}
+
+    get_times.each do |t|
+      @titles[t[1]] = t[0]
+    end
+
+    return @titles
+    #return string.class
+  end
+  
   def user_shifts(user)
     @user = current_user
 
