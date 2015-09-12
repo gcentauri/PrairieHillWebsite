@@ -54,8 +54,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'dalli'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
-gem 'cells', "~> 4.0.0"
-gem 'cells-erb'
+# gem 'cells', "~> 4.0.0"
+# gem 'cells-erb'
 gem 'jquery-slick-rails'
 gem 'koala', '~> 2.2'
 
