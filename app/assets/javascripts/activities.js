@@ -18,6 +18,12 @@ $(document).ready(function() {
 	//$('ul#category-selection').children("li").removeClass('success');
     });
 
+    $('.activity-target').hide();
+    
+    $('.activity-toggle').on('click', function() {
+	$(this).next(".activity-target").toggle();
+    });
+    
     // $(function($) {
     // 	var toggle = $('.activity-toggle');
     // 	var target = $('.activity-target');
