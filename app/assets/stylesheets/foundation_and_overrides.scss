@@ -1485,10 +1485,13 @@ $include-html-global-classes: $include-html-classes;
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
 
+
 @import 'foundation';
 
 $phill-grn: #3f8000;
 $phill-gold: #ffef19;
+
+
 
 .column.large-centered {
     margin-left: auto;
@@ -1529,3 +1532,4 @@ $phill-gold: #ffef19;
 .reveal-modal {
     position: relative;
 }
+

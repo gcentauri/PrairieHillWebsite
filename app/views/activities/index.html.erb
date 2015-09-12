@@ -16,8 +16,8 @@
 	  <div class='row'>
 	    <div class='small-12 large-12 small-centered large-centered columns content bottom-shadow'>
 	      <div class='row'>
-		<div class='small-12 columns hi-li-grn padded'>
-		  <h1 style='color:white;'>Welcome!</h1>
+		<div class='small-12 columns hi-li padded bottom-shadow'>
+		  <h1 style=''><i class='fi-heart' style='color:red;'></i> Welcome!</h1>
 		</div>
 	      </div>
 	      <div class='row'>
@@ -25,7 +25,7 @@
 		  <strong>Click on an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself!
 		  <br/>
 		  <br/>
-		  We ask that you <strong>choose at least <em>one shift from both</em> <span class='label success'>Preparation</span> and <span class='label success'> Stations </span></strong>. Please also consider signing up to help with <span class='label success'>Tear Down</span>. 
+		  Please <em>choose at least one shift from both <strong>Preparation</strong> and <strong>Stations</strong></em>. Please also consider signing up to help with <strong>Tear Down</strong>. 
 		</div>
 	      </div>
 	    </div>
@@ -39,18 +39,18 @@
 
 	  <!--DASHBOARD ROW-->
 	  <div class='row'>
-	    <div class='small-12 columns hi-li'>
+	    <div class='small-12 columns hi-li-grn'>
 	      <ul class='button-group even-2'>
 
 		<li>
 		  <div class='small-12 columns'>
 		    <div class='small-3 columns'>
-		      <span class='bottom-shadow padded' style='background:green;color:white;'>
+		      <span class='bottom-shadow padded hi-li' style=''>
 			<%= get_closed_shifts.count %>
 		      </span>
 		    </div>
 		    <div class='small-9 columns'>
-		      <h4>Filled Shifts</h4>
+		      <h4 style='color:white;padding:5px;'><strong>Filled Shifts</strong></h4>
 		    </div>
 		  </div>
 		</li>
@@ -65,7 +65,7 @@
 		      </strong>
 		    </div>
 		    <div class='small-9 columns'>
-		      <h4><strong>Available Shifts</strong></h4>
+		      <h4 style='color:white;padding:5px;'><strong>Available Shifts</strong></h4>
 		    </div>
 		  </div>
 		</li>
@@ -112,8 +112,8 @@
 
 	    <div class='small-12 columns'>
 
-	      <div id='all-link' class='small-5 columns button expand bottom-shadow'>
-		View All
+	      <div id='all-link' class='small-5 columns button alert expand bottom-shadow'>
+		<span style='color:white;font-size:2vw;'><i class='fi-list-bullet'></i></span>
 		<span class='label alert badge-fix hidden'>
 		  <%= get_open_shifts.count %>
 		</span>
