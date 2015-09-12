@@ -25,7 +25,8 @@
       <div class='small-6 columns'>
 	<div class='form-group'>
 	  <div class='field'>
-	    <%= f.label 'Activity Name' %>
+	    <%#= f.label 'Activity Name' %>
+	    <h2>Activity Name</h2>
 	    <%= f.text_field :work_area, class: "form-control", placeholder: 'Food & Concessions' %>
 	  </div>
 	</div>
@@ -33,7 +34,8 @@
       <div class='col-sm-6'>
 	<div class="form-group">
 	  <div class='field'>
-	    <%= f.label :coordinator %>
+	    <%#= f.label :coordinator %>
+	    <h2>Coordinator</h2>
 	    <%= f.text_field :coordinator, class: "form-control" %>
 	  </div>
 	</div>
@@ -44,15 +46,54 @@
     
     <div class="row">
       <div class='col-md-10'>
-	<%= f.label "Shifts" %>
+	<%#= f.label "Shifts" %>
+	<h2>Shifts</h2>
+
+	<hr/>
+
+	<h3>Preparation</h3>
+	
 	<%= f.fields_for :shifts do |shift| %>
-	  <%= render 'shift_fields', f: shift %>
+	  <% if shift.object.category == 'Preparation' %>
+	    <%= render 'shift_fields', f: shift %>
+	  <% end %>
 	<% end %>
 	<div class='links'>
 	  <%= link_to_add_association f, :shifts do %>
-	    <i class='glyphicon glyphicon-plus-sign'></i>
+	    <i class='fi-plus'></i>
 	  <% end %>
 	</div>
+
+	<hr/>
+
+	<h3>Stations</h3>
+	
+	<%= f.fields_for :shifts do |shift| %>
+	  <% if shift.object.category == 'Station' %>
+	    <%= render 'shift_fields', f: shift %>
+	  <% end %>
+	<% end %>
+	<div class='links'>
+	  <%= link_to_add_association f, :shifts do %>
+	    <i class='fi-plus'></i>
+	  <% end %>
+	</div>
+
+		<hr/>
+
+	<h3>Tear Down</h3>
+	
+	<%= f.fields_for :shifts do |shift| %>
+	  <% if shift.object.category == 'Tear Down' %>
+	    <%= render 'shift_fields', f: shift %>
+	  <% end %>
+	<% end %>
+	<div class='links'>
+	  <%= link_to_add_association f, :shifts do %>
+	    <i class='fi-plus'></i>
+	  <% end %>
+	</div>
+
       </div>
     </div>
 
@@ -60,17 +101,20 @@
     
     <div class="row">
       <div class="col-sm-6">
-	<%= f.label 'Notes' %>
+	<%#= f.label 'Notes' %>
+	<h2>Notes</h2>
 	<%= f.text_area :comments, class: "form-control", :cols => "30", :rows => "10" %>
       </div>
 
       <div class="col-sm-3">
-	<%= f.label 'Tickets/Activity' %>
+	<%#= f.label 'Tickets/Activity' %>
+	<h2>Tickets for Activity</h2>
 	<%= f.number_field :num_tickets, class: "form-control" %>
       </div>
 
       <div class="col-sm-3">
-	<%= f.label 'Volunteers needed for Activity' %>
+	<%#= f.label 'Volunteers needed for Activity' %>
+	<h2>Volunteers needed for Activity</h2>
 	<%= f.number_field :vol_needed, class: "form-control" %>
       </div>
     </div>
@@ -79,7 +123,8 @@
       <div class='form-group'>
 	<div class='field'>
 	  <%= f.check_box :sign %>
-	  <%= f.label 'Has a Sign?' %>
+	  <%#= f.label 'Has a Sign?' %>
+	  <h3>Has a Sign?</h3>
 	</div>
       </div>
     </div>
