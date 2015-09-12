@@ -6,7 +6,7 @@
     <% @type_count = get_type_shift_count(activity, @type) %>
     <!--^^-->
 
-    <%# if @type_count > 0 %>      
+    <% if @type_count > 0 %>      
     <!--ACTIVITY TITLE-->
     <div class='activity-toggle row bottom-shadow content' style='border-bottom:1px solid green;'>
 
@@ -27,17 +27,18 @@
     </div>
     <!--^^-->
 
-
     <!--SHIFTS-->      
     <div class='activity-target row'>
       <div id='shifts' class='small-10 small-centered columns'>
-	
+
+	<% if @type_count > 0 %>
 	<% @type_shifts.each do |shift| %>
 	  <!--LOGIC-->
 	  <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
 	  <!--^^-->
 
 	  <hr/>
+
 	  <%= form_for shift do |f| %>	    
 	    <!--SHIFT ROW-->
 	    <div id='shift-single' class='row'>
@@ -138,6 +139,8 @@
 	      </div>
 	    </div>
 	  <% end %>
+	
+	<% end %>
 	<% end %>
 	<!--^^-->
 
@@ -146,7 +149,7 @@
 	
       </div>
     </div>
-    <%# end %>
+    <% end %>
   <% end %>
   <!--^^-->
 </div>
