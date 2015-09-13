@@ -8,13 +8,13 @@
 
     <% if @type_count > 0 %>      
     <!--ACTIVITY TITLE-->
-    <div class='activity-toggle row bottom-shadow content' style='border-bottom:1px solid black;'>
+    <div class='activity-toggle row bottom-shadow content' style='border-bottom:1px solid rgba(0,0,0,0.4);'>
 
-      <div class='small-2 columns label alert'>
-	<%= @type_count %>
+      <div class='small-2 columns hi-li bottom-shadow button' style='color:black;font-size:1em;'>
+	<%= activity.work_area %>
       </div>
       <div class='small-8 columns'>
-	<h1><%= activity.work_area %></h1>
+	<h1><%= @type_count %> shifts available!</h1>
       </div>
       <div class='activity-edit-toggle small-2 columns'>
 	<% if current_user.try(:admin?) %>
@@ -99,7 +99,7 @@
 			<%= form_for shift do |f| %>
 			  <%= f.hidden_field :user_id, value: nil %>
 			  <%= f.hidden_field :guest, value: nil %>
-			  <%= f.submit "cancel", class: 'button warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
+			  <h3><%= f.submit "Cancel", class: 'button warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %></h3>
 			<% end %>
 		      <% end %>
 		      <!--^^-->

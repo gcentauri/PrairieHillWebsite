@@ -11,7 +11,7 @@
     <li><%= link_to "MY ACCOUNT", edit_user_registration_path  %></li>
 
     <% if current_user.try(:admin?) %>
-      <li><%= nav_link "ACTIVITIES", ccf_activities_path, class: 'attention'  %></li>
+      <li><%#= nav_link "ACTIVITIES", ccf_activities_path, class: 'attention'  %></li>
       <li><%= nav_link "NEW ACTIVITY", new_activity_path, class: 'attention'  %></li>
     <% end %>
     <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete  %></li>

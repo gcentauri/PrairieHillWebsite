@@ -39,46 +39,49 @@
 
 	  <!--DASHBOARD ROW-->
 	  <div class='row'>
-	    <div class='small-12 columns hi-li-grn'>
+
+	    <div class='small-12 columns hi-li-grn' style='padding:17px 0 6px 0;border:1px solid rgba(0,125,0,0.4);'>
 	      <ul class='button-group even-2'>
 
 		<li>
 		  <div class='small-12 columns'>
+
 		    <div class='small-3 columns'>
+		      <strong>
 		      <span class='bottom-shadow padded hi-li' style=''>
 			<%= get_closed_shifts.count %>
 		      </span>
+		      </strong>
 		    </div>
+
 		    <div class='small-9 columns'>
-		      <h4 style='color:white;padding:5px;'><strong>Filled Shifts</strong></h4>
+		      <span style='color:white;font-size:1.2em;'><strong>Filled Shifts</strong></span>
 		    </div>
+
 		  </div>
 		</li>
 
 		<li>
 		  <div class='small-12 columns'>
+
 		    <div class='small-3 columns'>
 		      <strong>
-			<span class='bottom-shadow padded' style='background:red;color:white;'>
+			<span class='hi-li bottom-shadow padded' style=''>
 			  <%= get_open_shifts.count %>
 			</span>
 		      </strong>
 		    </div>
+
 		    <div class='small-9 columns'>
-		      <h4 style='color:white;padding:5px;'><strong>Available Shifts</strong></h4>
+		      <span style='color:white;font-size:1.2em;'><strong>Available Shifts</strong></span>
 		    </div>
+
 		  </div>
 		</li>
 		
-
-		<div class='small-12 columns hidden'>
-		  <h2>
-		    Available Shifts
-		  </h2>
-		</div>
-
 	      </ul>
 	    </div>
+
 	  </div>
 	  <!--^^-->
 
@@ -110,17 +113,18 @@
 	      <div id='all-title' class='small-5 columns button success expand'>All Activities</div>
 	    </div>
 
-	    <div class='small-12 columns'>
+	    <% if current_user.try(:admin?) %>
+	      <div class='small-12 columns'>
 
-	      <div id='all-link' class='small-5 columns button alert expand bottom-shadow'>
-		<span style='color:white;font-size:2vw;'><i class='fi-list-bullet'></i></span>
-		<span class='label alert badge-fix hidden'>
-		  <%= get_open_shifts.count %>
-		</span>
-	      </div>
+		<div id='all-link' class='small-5 columns button alert expand bottom-shadow'>
+		  <span style='color:white;font-size:2vw;'><i class='fi-list-bullet'></i></span>
+		  <span class='label alert badge-fix hidden'>
+		    <%= get_open_shifts.count %>
+		  </span>
+		</div>
 	      
-	    </div>
-
+	      </div>
+	    <% end %>
 	  </div>
 	  <!--^^-->
 
