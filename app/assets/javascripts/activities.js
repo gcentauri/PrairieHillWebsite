@@ -173,8 +173,30 @@ $(document).ready(function() {
 	$(this).next().toggle(1000);
     });
 
-    $('.title-button').on('click', function() {
+    //title-button on click
+
+    //$('.arrow-down').hide();
+    
+    $('.title-button').on('click', function(event) {
 	$(this).toggleClass('success');
+
+	var arrow_left = $(this).children().children('.arrow-left');
+	var arrow_down = $(this).children().children('.arrow-down');
+	var arrow = $(this).children().children('.arrow');
+	var shift_arrows = $(this).parent('.arrow-guide')
+	    .parent('.activity-toggle')
+	    .next('.activity-target')
+	    .children('#shifts')
+	    .children('form')
+	    .children('#shift-single')
+	    .children('.arrow-guide')
+	    .children('.arrow');
+	//there's got to be a better way! ^^^
+
+	arrow.toggleClass('active', 500);
+	shift_arrows.each(function() {
+	    $(this).toggleClass('active');
+	});
     });
     
     $('#masonry-container').masonry({
@@ -182,9 +204,6 @@ $(document).ready(function() {
 	isFitWidth: true
     });
 
-    //$('.hover-modal-reveal').mouseover(function() {
-    //$('#vol-info').foundation('reveal', 'open');
-    //});
 });
 
 //use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/ 

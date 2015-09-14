@@ -43,3 +43,11 @@ select, textarea {
 	background: $soft-blue;
     }
 }
+
+.arrow {
+    opacity: 0;
+}
+
+.arrow.active {
+    opacity: 1;
+}

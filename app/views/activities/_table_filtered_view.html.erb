@@ -11,69 +11,91 @@
 	<!--ACTIVITY TITLE-->
 	<div class='row activity-toggle bottom-shadow content' style='border-bottom:1px solid rgba(0,0,0,0.3);'>
 
-	  <div class='small-10 columns'>
-	  <!--attention BUTTON-->
-	  <div class='title-button small-5 columns hi-li-grn bottom-shadow button'>
-	    <div class='row'>
+	  <div class='arrow-guide small-10 columns'>
+	    <!--title-button-->
+	    <div class='title-button small-5 columns hi-li-grn bottom-shadow button'>
+	      <div class='shift-content row'>
 
-	      <i class='fi-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
+		<i class='fi-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
 
-	      <span style='color:rgba(255,255,255,1);font-size:2em;text-shadow:2px 2px 2px rgba(0,0,0,0.5);text-align:right;'>
-		<%= activity.work_area %>
-	      </span>
+		<!--arrow-down-->
+		<i class='arrow-down arrow fi-arrow-down'
+		   style='color:gold;
+		   text-shadow:1px 1px 3px rgba(255,255,255,0);
+		   text-align:left;
+		   font-size:2em;
+		   padding-right:10px;'
+		   ></i>
 
-	      <i class='fi-arrow-left' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:2em;padding-left:10px;'></i>
-	      
+		<span style='color:rgba(255,255,255,1);font-size:2em;text-shadow:2px 2px 2px rgba(0,0,0,0.5);text-align:right;'>
+		  <%= activity.work_area %>
+		</span>
+
+		<!--arrow-left-->
+		<!--<div class='arrow-left'>-->
+		<i class='arrow active arrow-left fi-arrow-left'
+		   style='color:gold;
+		   text-shadow:1px 1px 3px rgba(255,255,255,0);
+		   text-align:left;
+		   font-size:2em;
+		   padding-left:10px;'
+		   ></i>
+		<!--</div>-->
+	      </div>
 	    </div>
-	  </div>
-	  <!---->
+	    <!---->
 
-	  <!--informative title-->
-	  <div class='small-5 columns'
-	       style='text-shadow:1px 1px 1px rgba(0,0,0,0.4);'>
+	    <!--informative title-->
+	    <div class='small-5 columns'
+		 style='text-shadow:1px 1px 1px rgba(0,0,0,0.4);'>
 
-	    <i class='fi-torsos-male-female'
-	       style='color:rgba(0,255,255,0.3);
-	       text-align:left;
-	       font-size:3.2em;
-	       padding-right:6px;'
-	       >
-	    </i>
+	      <i class='fi-torsos-male-female'
+		 style='color:rgba(0,255,255,0.3);
+		 text-align:left;
+		 font-size:3.2em;
+		 padding-right:6px;'
+		 >
+	      </i>
 
-	    <span style='margin-bottom:25px;'>
-	    <span style='font-size:1em;'>
+	      <span style='margin-bottom:25px;'>
+		<span style='font-size:1em;'>
 
-	      <span class='hi-li top-shadow'
-		    style='text-align:center;
-		    padding:0 2px 4px 12px;
-		    margin-right:3px;
-		    font-family:Pacifico;
-		    font-size:2em;
-		    border-radius:5px;
-		    border-top:1px solid rgba(0,0,0,0.4);'>
-		<%= @type_count %>
+		  <span class='hi-li top-shadow'
+			style='text-align:center;
+			padding:0 1px 0 10px;
+			margin-right:3px;
+			font-family:Pacifico;
+			font-size:2em;
+			border-radius:3px 3px 0 0;
+			border-bottom:1px solid rgba(0,0,0,0.2);
+			position:relative;
+			top:-1px;'>
+
+		    <%= @type_count %>
+		  </span>
+		  
+		  shifts available!
+		</span>
 	      </span>
-	      
-		shifts available!
-	    </span>
-	    </span>
-	  </div>
-	  <!---->
-	  <!--admin-->
-	  <div class='activity-edit-toggle small-2 columns'>
-	    <% if current_user.try(:admin?) %>
-	      <%= link_to edit_activity_path(activity) do %>
-		<i class="fi-wrench" style='color:red;'></i>
+	    </div>
+	    <!---->
+	    <!--admin-->
+	    <div class='activity-edit-toggle small-2 columns'>
+	      <% if current_user.try(:admin?) %>
+		<%= link_to edit_activity_path(activity) do %>
+		  <i class="fi-wrench" style='color:red;'></i>
+		<% end %>
 	      <% end %>
-	    <% end %>
-	  </div>
-	  <!---->
+	    </div>
+	    <!---->
 	  </div>
 	</div>
 	<!--^^-->
 
 	<!--SHIFTS-->      
 	<div class='activity-target row'>
+	  <!--arrows-->
+
 	  <div id='shifts' class='small-10 right columns bottom-shadow' style='border-bottom:1px solid rgba(0,0,0,0.3);margin-bottom:25px;'>
 
 	    <% if @type_count > 0 %>
@@ -87,10 +109,20 @@
 		  <!--SHIFT ROW-->
 		  <div id='shift-single' class='row' style='border-bottom:1px solid rgba(0,0,0,0.4);'>
 
-		    <div class='row'>
+		    <div class='row arrow-guide'>
+
+		      <div class='arrow shift-arrow small-1 left columns'>
+			<i class='fi-arrow-right'
+			   style='color:gold;
+			   font-size:3em;
+			   position:relative;
+			   left:-10px;
+			   text-shadow:1px 1px 1px rgba(0,0,0,0.4);'
+			   ></i>
+		      </div>
 
 		      <!--BLOCK 1-->
-		      <div class='small-9 columns'>
+		      <div class='small-8 columns'>
 
 			<!--SHIFT TIME-->
 			<div class='small-6 columns'>
