@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('.activity-target').hide();
     
     $('.activity-toggle').on('click', function() {
-	$(this).next(".activity-target").toggle();
+	$(this).next(".activity-target").slideToggle();
     });
     
 
