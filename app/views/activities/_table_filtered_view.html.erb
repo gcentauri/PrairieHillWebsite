@@ -1,154 +1,200 @@
 <div class='row'>
-  <!--ACTIVITIES-->
-  <% @sorted.each do |activity| %>
-    
-    <!--LOGIC-->
-    <% @type_count = get_type_shift_count(activity, @type) %>
-    <!--^^-->
-
-    <% if @type_count > 0 %>      
-    <!--ACTIVITY TITLE-->
-    <div class='activity-toggle row bottom-shadow content' style='border-bottom:1px solid rgba(0,0,0,0.4);'>
-
-      <div class='small-4 columns hi-li-grn bottom-shadow button' style='color:rgba(255,255,255,0.8);font-size:1.5em;text-shadow:2px 2px 2px rgba(0,0,0,0.5);'>
-	<%= activity.work_area %>
-      </div>
-      <div class='small-6 columns'>
-	<h2><%= @type_count %> shifts available!</h2>
-      </div>
-      <div class='activity-edit-toggle small-2 columns'>
-	<% if current_user.try(:admin?) %>
-	  <%= link_to edit_activity_path(activity) do %>
-	    <i class="fi-wrench" style='color:red;'></i>
-	  <% end %>
-	<% end %>
-      </div>
+  <div class='small-11 small-centered columns'>
+    <!--ACTIVITIES-->
+    <% @sorted.each do |activity| %>
       
-    </div>
-    <!--^^-->
+      <!--LOGIC-->
+      <% @type_count = get_type_shift_count(activity, @type) %>
+      <!--^^-->
 
-    <!--SHIFTS-->      
-    <div class='activity-target row'>
-      <div id='shifts' class='small-10 small-centered columns'>
+      <% if @type_count > 0 %>      
+	<!--ACTIVITY TITLE-->
+	<div class='row activity-toggle bottom-shadow content' style='border-bottom:1px solid rgba(0,0,0,0.3);'>
 
-	<% if @type_count > 0 %>
-	<% @type_shifts.each do |shift| %>
-	  <!--LOGIC-->
-	  <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
-	  <!--^^-->
+	  <div class='small-10 columns'>
+	  <!--attention BUTTON-->
+	  <div class='title-button small-5 columns hi-li-grn bottom-shadow button'>
+	    <div class='row'>
 
-	  <hr/>
-	  <%= form_for shift do |f| %>	    
-	    <!--SHIFT ROW-->
-	    <div id='shift-single' class='row'>
+	      <i class='fi-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
 
-	      <div class='row'>
+	      <span style='color:rgba(255,255,255,1);font-size:2em;text-shadow:2px 2px 2px rgba(0,0,0,0.5);text-align:right;'>
+		<%= activity.work_area %>
+	      </span>
 
-		<!--BLOCK 1-->
-		<div class='small-9 columns'>
-
-		  <!--SHIFT TIME-->
-		  <div class='small-6 columns'>
-		    <h4 class='content padded bottom-shadow'><strong><%= @shift_time %></strong></h4>
-		  </div>
-		  <!--^^-->
-
-		  <% if user_signed_in? %>
-		  <!--SHIFT NAME-->
-		  <% if shift.user_id != nil %>
-
-		    <div class='small-6 columns'>
-		      <!--CLOSED SHIFT-->
-		      <!--NAME-->
-		      <span class='button info expand bottom-shadow'>
-			<% if shift.guest != "" %>
-			  <%= shift.guest %>
-			<% else %>
-			  <%= "#{full_user_name(shift.user_id)}" %>
-			<% end %>
-		      </span>
-		      <!--^^-->
-		    </div>
-
-		  <% else %>
-
-		    <div class='small-6 columns'>
-		      <!--ADD FRIEND'S NAME-->
-		      <a href='#' class='add-friend-btn button expand bottom-shadow'>Add Friend</a>
-		      <div class='row friend-field'>
-			<%= f.label "Friend's Name", class: 'button expand left' %>
-			<div class='small-12 columns'>
-			  <%= f.text_field :guest, placeholder: "Your Friend's Name" %>
-			</div>
-		      </div>
-		    </div>
-
-		  <% end %>
-		  <!---->
-		  <% else %>
-		  <div class='button expand'>Sign Up!</div>
-		  <% end %>
-
-		</div>
-
-		<!--BLOCK 2-->
-		<div class='small-3 columns right'>
-		  <!--SIGN UP/CANCEL-->
-
-		  <% if shift.user_id != nil %>
-
-		    <div class='small-12 columns right'>
-		      <!--CANCEL OPTION-->
-		      <% if current_user.id == shift.user_id %>
-			<%= form_for shift do |f| %>
-			  <%= f.hidden_field :user_id, value: nil %>
-			  <%= f.hidden_field :guest, value: nil %>
-			  <h3><%= f.submit "Cancel", class: 'button warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %></h3>
-			<% end %>
-		      <% end %>
-		      <!--^^-->
-		    </div>
-
-		  <% else %>
-		    <!--OPEN SHIFT-->
-		    <% if user_signed_in? %>
-
-		      <div class='small-12 columns'>
-			<!--FORM-->
-			<%#= form_for shift do |f| %>
-
-			<!--USER ID-->
-			<%= f.hidden_field :user_id, value: current_user.id %>
-			<!--^^-->
-
-			<!--SUBMIT-->
-			<%= f.submit 'Sign Up!', class: 'button success expand bottom-shadow', data: { :confirm => "Are you sure?" } %>
-			<!--^^-->
-
-			<%# end %>
-			<!--^^-->
-		      </div>
-		    <% else %>
-
-		    <% end %>
-		    <!--^^-->
-		  <% end %>
-		  <!--^^-->
-		</div>
-	      </div>
+	      <i class='fi-arrow-left' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:2em;padding-left:10px;'></i>
+	      
 	    </div>
-	  <% end %>
-	
-	<% end %>
-	<% end %>
+	  </div>
+	  <!---->
+
+	  <!--informative title-->
+	  <div class='small-5 columns'
+	       style='text-shadow:1px 1px 1px rgba(0,0,0,0.4);'>
+
+	    <i class='fi-torsos-male-female'
+	       style='color:rgba(0,255,255,0.3);
+	       text-align:left;
+	       font-size:3.2em;
+	       padding-right:6px;'
+	       >
+	    </i>
+
+	    <span style='margin-bottom:25px;'>
+	    <span style='font-size:1em;'>
+
+	      <span class='hi-li top-shadow'
+		    style='text-align:center;
+		    padding:0 2px 4px 12px;
+		    margin-right:3px;
+		    font-family:Pacifico;
+		    font-size:2em;
+		    border-radius:5px;
+		    border-top:1px solid rgba(0,0,0,0.4);'>
+		<%= @type_count %>
+	      </span>
+	      
+		shifts available!
+	    </span>
+	    </span>
+	  </div>
+	  <!---->
+	  <!--admin-->
+	  <div class='activity-edit-toggle small-2 columns'>
+	    <% if current_user.try(:admin?) %>
+	      <%= link_to edit_activity_path(activity) do %>
+		<i class="fi-wrench" style='color:red;'></i>
+	      <% end %>
+	    <% end %>
+	  </div>
+	  <!---->
+	  </div>
+	</div>
 	<!--^^-->
 
-	<br/>
-	
-	
-      </div>
-    </div>
+	<!--SHIFTS-->      
+	<div class='activity-target row'>
+	  <div id='shifts' class='small-10 right columns bottom-shadow' style='border-bottom:1px solid rgba(0,0,0,0.3);margin-bottom:25px;'>
+
+	    <% if @type_count > 0 %>
+	      <% @type_shifts.each do |shift| %>
+		<!--LOGIC-->
+		<% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+		<!--^^-->
+
+		<hr/>
+		<%= form_for shift do |f| %>	    
+		  <!--SHIFT ROW-->
+		  <div id='shift-single' class='row' style='border-bottom:1px solid rgba(0,0,0,0.4);'>
+
+		    <div class='row'>
+
+		      <!--BLOCK 1-->
+		      <div class='small-9 columns'>
+
+			<!--SHIFT TIME-->
+			<div class='small-6 columns'>
+			  <h4 class='content padded bottom-shadow'><strong><%= @shift_time %></strong></h4>
+			</div>
+			<!--^^-->
+
+			<% if user_signed_in? %>
+			  <!--SHIFT NAME-->
+			  <% if shift.user_id != nil %>
+
+			    <div class='small-6 columns'>
+			      <!--CLOSED SHIFT-->
+			      <!--NAME-->
+			      <span class='button info expand bottom-shadow'>
+				<% if shift.guest != "" %>
+				  <%= shift.guest %>
+				<% else %>
+				  <%= "#{full_user_name(shift.user_id)}" %>
+				<% end %>
+			      </span>
+			      <!--^^-->
+			    </div>
+
+			  <% else %>
+
+			    <div class='small-6 columns'>
+			      <!--ADD FRIEND'S NAME-->
+			      <a href='#' class='add-friend-btn button expand bottom-shadow'>Add Friend</a>
+			      <div class='row friend-field'>
+				<%= f.label "Friend's Name", class: 'button expand left' %>
+				<div class='small-12 columns'>
+				  <%= f.text_field :guest, placeholder: "Your Friend's Name" %>
+				</div>
+			      </div>
+			    </div>
+
+			  <% end %>
+			  <!---->
+			<% else %>
+			  <div class='button expand'>Sign Up!</div>
+			<% end %>
+
+		      </div>
+
+		      <!--BLOCK 2-->
+		      <div class='small-3 columns right'>
+			<!--SIGN UP/CANCEL-->
+
+			<% if shift.user_id != nil %>
+
+			  <div class='small-12 columns right'>
+			    <!--CANCEL OPTION-->
+			    <% if current_user.id == shift.user_id %>
+			      <%= form_for shift do |f| %>
+				<%= f.hidden_field :user_id, value: nil %>
+				<%= f.hidden_field :guest, value: nil %>
+				<h3><%= f.submit "Cancel", class: 'button warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %></h3>
+			      <% end %>
+			    <% end %>
+			    <!--^^-->
+			  </div>
+
+			<% else %>
+			  <!--OPEN SHIFT-->
+			  <% if user_signed_in? %>
+
+			    <div class='small-12 columns'>
+			      <!--FORM-->
+			      <%#= form_for shift do |f| %>
+
+			      <!--USER ID-->
+			      <%= f.hidden_field :user_id, value: current_user.id %>
+			      <!--^^-->
+
+			      <!--SUBMIT-->
+			      <%= f.submit 'Sign Up!', class: 'button success expand bottom-shadow', data: { :confirm => "Are you sure?" } %>
+			      <!--^^-->
+
+			      <%# end %>
+			      <!--^^-->
+			    </div>
+			  <% else %>
+
+			  <% end %>
+			  <!--^^-->
+			<% end %>
+			<!--^^-->
+		      </div>
+		    </div>
+		  </div>
+		<% end %>
+		
+	      <% end %>
+	    <% end %>
+	    <!--^^-->
+
+	    <br/>
+	    
+	    
+	  </div>
+	</div>
+      <% end %>
     <% end %>
-  <% end %>
-  <!--^^-->
+    <!--^^-->
+  </div>
 </div>

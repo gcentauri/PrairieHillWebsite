@@ -75,7 +75,7 @@ $(document).ready(function() {
 	hide_single("teardown");    
     };
 
-    hide_all();
+    //hide_all();
     
     function show_single(string) {
 	toggle_category("show", string);
@@ -97,7 +97,7 @@ $(document).ready(function() {
 	show_single(string);
     };
 
-
+    focus("prep");
     
     //buttons
     
@@ -173,6 +173,10 @@ $(document).ready(function() {
 	$(this).next().toggle(1000);
     });
 
+    $('.title-button').on('click', function() {
+	$(this).toggleClass('success');
+    });
+    
     $('#masonry-container').masonry({
 	itemSelector: '.box',
 	isFitWidth: true

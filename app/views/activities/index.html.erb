@@ -22,7 +22,7 @@
 	      </div>
 	      <div class='row'>
 		<div class='justify content' style='padding:25px;'>
-		  <strong>Click on an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself!
+		  <strong>Choose a category on the right then, choose an activity title below</strong> to view and choose from available shifts. Sign up for a friend or for yourself!
 		  <br/>
 		  <br/>
 		  Please <em>choose at least one shift from both <strong>Preparation</strong> and <strong>Stations</strong></em>. Please also consider signing up to help with <strong>Tear Down</strong>. 
@@ -198,7 +198,7 @@
       <!--Download:-->
       <%#= link_to "Excel", activities_path(format: "xls") %>
       <!--<div id='calendar' class='hidden'></div>-->
-      <div class='small-11 small-centered columns'>
+      <div class='small-12 small-centered columns'>
 	<div id='' class='transitions-enabled infinite-scroll clearfix'>
 
 	  <div name='prep' id='prep'>
@@ -206,7 +206,7 @@
 	    <%= render 'activity_shift_simple_layout' %>
 
 	    <div id="prepModal" class='reveal-modal' data-reveal aria-labelledby='modalTitle' aria-hidden='true' role='dialog'>
-	      <%= render 'activity_shift_simple_layout' %>
+	      <%#= render 'activity_shift_simple_layout' %>
 	      <%#= render 'basic_info' %>
 	    </div>
 

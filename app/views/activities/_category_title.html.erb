@@ -3,12 +3,12 @@
     <span class='button expand bottom-shadow' style='font-size:2vw;'><i class='fi-list-bullet'></i> <%= @type %></span>
   </div>
 </div>
-<div class='row'>
-  <div class='small-1 columns right'>
-    <% if current_user.try(:admin?) %>
+<% if current_user.try(:admin?) %>
+  <div class='row'>
+    <div class='small-1 columns right'>
       <%= link_to new_activity_path do %>
 	<i class="fi-plus" style='color:red;'></i>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
