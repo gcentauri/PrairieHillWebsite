@@ -1,5 +1,5 @@
 $(document).ready(function() {
 
-    $('.ccf-slide').wrapInner("<a href='/ccf/volunteer'></a>");
+    $('.ccf-slide').wrapInner("<a href='/activities'></a>");
     
 });

@@ -9,18 +9,13 @@ Rails.application.routes.draw do
               :users
   end
 
-  authenticate :user do
-    resources :activities
-    resources :shifts 
-    resources :volunteers
-  end
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
   
   comfy_route :cms_admin, :path => '/admin'
 
-  devise_for :users, :controllers => { registrations: "registrations", passwords: 'users/passwords' }
+  devise_for :users, :controllers => { registrations: "registrations", passwords: 'users/passwords', sessions: "sessions" }
 
   resources :pages
 
@@ -46,6 +41,12 @@ Rails.application.routes.draw do
   get "user_shifts", to: "shifts#user_shifts"
   get 'export', to: 'activities#export', as: :activities_export
 
+  authenticate :user do
+    resources :activities
+    resources :shifts 
+    resources :volunteers
+  end
+  
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true
 end
