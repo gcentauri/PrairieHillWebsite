@@ -19,10 +19,60 @@ $mid-blue: rgba(236,244,255,1);
     //background-color: $mid-blue;
     //background-color: #94c863;
     //background-color: #63b28c;
-    background-color: rgba(99, 178, 140, 0.5);
+    //background-color: rgba(99, 178, 140, 0.5);
     //background-color: rgba(30%,51%,10%,0.2);
+    background-color: white;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.3);
 }
 
 #shift-single {
     
+}
+.shift-color-1,
+.shift-color-2,
+.shift-color-3,
+.shift-color-4  {
+    //font-family: Lobster;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.4);
+}
+.shift-color-1 {
+    background-color: green;
+}
+.shift-color-2 {
+    //background-color: rgba(0,255,0,1);
+    background-color: yellow;
+}
+.shift-color-3 {
+    background-color: blue;
+}
+.shift-color-4 {
+    background-color: rgba(255,0,0,1);
+}
+
+//Prep
+.FRI4-6 {
+    @extend .shift-color-1;
+}
+.SAT9-11 {
+    @extend .shift-color-2;
+}
+
+//Shifts
+.SAT11-12 {
+    @extend .shift-color-1;
+}
+.SAT12-1 {
+    @extend .shift-color-2;
+}
+.SAT1-2 {
+    @extend .shift-color-3;
+}
+.SAT2-3 {
+    @extend .shift-color-4;
+}
+
+//TearDown
+.SAT3-5 {
+    @extend .shift-color-1;
 }

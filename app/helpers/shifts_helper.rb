@@ -59,4 +59,14 @@ module ShiftsHelper
     truetime
   end
 
+  def time_title_spacer(shift_time_short)
+    time = shift_time_short
+    pre = time.split('')[0..2].join
+    count = time.length
+    start = pre.length
+    suf = time.split('')[start..count].join
+
+    return "#{pre} #{suf}"
+  end
+  
 end
