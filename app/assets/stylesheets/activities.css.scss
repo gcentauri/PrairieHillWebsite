@@ -21,17 +21,17 @@ select, textarea {
 }
 
 #shifts-filtered {
-    background: $xsoft-blue;
+    background: $soft-blue;
     //background: red;
     padding: 5px;
-    border: 1px solid $soft-blue;
+    border: 1px solid $xsoft-blue;
 }
 
 #shift-filtered {
     //background: image-url('contact_fade-50.png') fixed;
     //background-color: $xsoft-blue;
-    background: image-url('contact_fade-50.png') fixed;
-    background-size: cover;
+    //background: image-url('contact_fade-50.png') fixed;
+    //background-size: cover;
 
     padding: 15px;
     border: 1px solid $soft-blue;
