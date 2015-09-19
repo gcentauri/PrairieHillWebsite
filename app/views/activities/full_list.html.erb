@@ -1,0 +1,52 @@
+<div class='small-12 columns'>
+
+  <% @sorted.each do |activity| %>
+    <div class='row'>
+      <h1><%= activity.work_area %></h1>
+    </div>
+
+    <hr/>
+
+    <div class='row'>
+      <table>
+
+	<thead>
+	  <tr>
+	    <th width="100%">Time</th>
+	    <th>Volunteer</th>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  <% activity.shifts.each do |shift| %>
+
+	    <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
+	    <% @shift_time_short = @shift_time.split(" ").join("").gsub(":00","").gsub("AM","").gsub("PM","") %>
+
+	    <tr>
+
+	      <td>
+		<h3><%= @shift_time_short  %></h3>
+	      </td>
+
+	      <td>
+		<h2>
+		<% if shift.guest != nil %>
+		  <%= shift.guest %>
+		<% else %>
+		  <% unless shift.user_id == nil %>
+		    <%= full_user_name(shift.user_id) %>
+		  <% end %>
+		<% end %>
+		</h2>
+	      </td>
+
+	    </tr>
+	  <% end %>
+	</tbody>
+	
+      </table>
+    </div>  
+  <% end %>
+
+</div>

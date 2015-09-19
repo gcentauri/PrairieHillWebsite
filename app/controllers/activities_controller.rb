@@ -9,7 +9,7 @@ class ActivitiesController < InheritedResources::Base
   #     format.csv { send_data @data.to_csv }
   #   end
   # end
-  
+
   def index
     @shifts = Shift.all
     @activities = Activity.all
@@ -19,6 +19,12 @@ class ActivitiesController < InheritedResources::Base
     #respond_to do |format|
     #  format.xls # { send_data @activitiess.to_csv(col_sep: "\t") }
     #end
+  end
+
+  def full_list
+    @shifts = Shift.all
+    @activities = Activity.all
+    @sorted = @activities.sort_by { |a| a.work_area }
   end
 
   def show

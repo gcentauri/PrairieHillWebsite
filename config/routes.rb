@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'ccf/info', to: "pages#ccf_info"
   get 'ccf/volunteer', to: 'activities#index'
   get 'ccf/activities', to: 'activities#index'
+  get 'all_shifts', to: 'activities#full_list'
   get 'ccf/user_shifts', to: 'shifts#user_shifts'
   get "user_shifts", to: "shifts#user_shifts"
   get 'export', to: 'activities#export', as: :activities_export
