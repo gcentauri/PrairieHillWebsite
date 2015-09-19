@@ -1,13 +1,27 @@
 <div class='small-12 columns'>
 
+  <div class='row'>
+    <div class='small-3 columns right'>
+      <button id='open' href='#' class='button large bottom-shadow'></button>
+    </div>
+  </div>
+
+  <div class='small-11 small-centered columns'>  
   <% @sorted.each do |activity| %>
     <div class='row'>
-      <h1><%= activity.work_area %></h1>
+      <div class='small-5 small-centered left banner'>
+	<h1 class='button large center-text hi-li-faded bottom-shadow' style='border-radius:3px;font-size:1.5em;'>
+	  <span style='text-shadow:1px 1px 3px rgba(255,255,255,0);'>
+	    <%= activity.work_area %>
+	  </span>
+	</h1>
+      </div>
     </div>
 
     <hr/>
 
     <div class='row'>
+
       <table>
 
 	<thead>
@@ -23,30 +37,50 @@
 	    <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
 	    <% @shift_time_short = @shift_time.split(" ").join("").gsub(":00","").gsub("AM","").gsub("PM","") %>
 
-	    <tr>
+	    
+	    <% if shift.user_id == nil || shift.user_id == "" %>
+	      <tr class='open'>
+				  
+		<td width="50%">
+		  <button class='large expand alert'>
+		    <a href='/activities' style='color:white;'>OPEN: </a>
+		  </button>
+		</td>
 
-	      <td>
-		<h3><%= @shift_time_short  %></h3>
-	      </td>
+		<td class='shift-time' width="50%;">
+		  <h1 class='hi-li padded-sides'><%= @shift_time_short  %></h1>
+		</td>
+		
+	      </tr>
 
-	      <td>
-		<h2>
-		<% if shift.guest != nil %>
-		  <%= shift.guest %>
-		<% else %>
-		  <% unless shift.user_id == nil %>
-		    <%= full_user_name(shift.user_id) %>
-		  <% end %>
-		<% end %>
-		</h2>
-	      </td>
+	    <% else %>
+	      <tr class='closed-shift'>
+		<td class='shift-time'>
+		  <h3><%= @shift_time_short  %></h3>
+		</td>
 
-	    </tr>
+		<td class='shift-volunteer-name'>
+
+		  <h3>
+		    <% if shift.guest != nil && shift.guest != "" %>
+		      <%= shift.guest %>
+		    <% else %>
+		      <% if shift.user_id != nil %>
+			<%= full_user_name(shift.user_id) %>
+		      <% end %>
+		    <% end %>
+		  </h3>
+		  
+		</td>
+
+	      </tr>
+	    <% end %>
 	  <% end %>
 	</tbody>
 	
       </table>
+
     </div>  
   <% end %>
-
+</div>
 </div>

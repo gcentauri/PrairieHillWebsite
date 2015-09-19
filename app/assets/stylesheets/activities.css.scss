@@ -51,3 +51,8 @@ select, textarea {
 .arrow.active {
     opacity: 1;
 }
+
+button#open {
+    position: fixed;
+    z-index: 2;
+}

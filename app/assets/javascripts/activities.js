@@ -194,6 +194,7 @@ $(document).ready(function() {
 	//there's got to be a better way! ^^^
 
 	arrow.toggleClass('active', 500);
+
 	shift_arrows.each(function() {
 	    $(this).toggleClass('active');
 	});
@@ -202,6 +203,19 @@ $(document).ready(function() {
     $('#masonry-container').masonry({
 	itemSelector: '.box',
 	isFitWidth: true
+    });
+
+    $('tr.open').hide();
+    $('button#open').text("Show Open");
+
+    $('button#open').bind('click', function(){
+	$(this).toggleClass('success');
+	$(this).toggleClass('open');
+
+	//$(this).text("Hide Open", "Show Open");
+	($(this).text() === "Show Open") ? $(this).text("Hide Open") : $(this).text("Show Open");
+	$('tr.open').toggleClass('show');
+	$('tr.shift-time').css('background-color','red');
     });
 
 });
