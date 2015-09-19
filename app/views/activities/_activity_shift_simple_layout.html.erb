@@ -2,7 +2,8 @@
 
   <% if @type == "All" %>
     <%= render 'activities/category_title' %>
-    <%= render 'activities/table_view' %>
+    <%#= render 'activities/table_view' %>
+    <%= render 'activities/full_list' %>
   <% else %>
     <%= render 'activities/category_title' %>
     <%= render 'activities/table_filtered_view' %>

@@ -113,18 +113,18 @@
 	      <div id='all-title' class='small-5 columns button success expand'>All Activities</div>
 	    </div>
 
-	    <% if current_user.try(:admin?) %>
+	    <%# if current_user.try(:admin?) %>
 	      <div class='small-12 columns'>
 
-		<div id='all-link' class='small-5 columns button alert expand bottom-shadow'>
-		  <span style='color:white;font-size:2vw;'><i class='fi-list-bullet'></i></span>
+		<div id='all-link' class='small-5 columns button expand bottom-shadow'>
+		  <span style='color:white;font-size:1.5em;'><i class='fi-list-bullet'></i>Open/Closed</span>
 		  <span class='label alert badge-fix hidden'>
 		    <%= get_open_shifts.count %>
 		  </span>
 		</div>
 	      
 	      </div>
-	    <% end %>
+	    <%# end %>
 	  </div>
 	  <!--^^-->
 
