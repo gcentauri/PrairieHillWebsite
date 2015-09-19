@@ -9,12 +9,15 @@
   <div class='small-11 small-centered columns'>  
   <% @sorted.each do |activity| %>
     <div class='row'>
-      <div class='small-5 small-centered left banner'>
-	<h1 class='button large center-text hi-li-faded bottom-shadow' style='border-radius:3px;font-size:1.5em;'>
+      <div class='small-5 left banner activity-banner columns '>
+	<div class='small-12 right columns'>
+	<h1 class='button hi-li-faded large center-text green bottom-shadow'
+	    style='border-radius:3px;font-size:1.3em;'>
 	  <span style='text-shadow:1px 1px 3px rgba(255,255,255,0);'>
 	    <%= activity.work_area %>
 	  </span>
 	</h1>
+	</div>
       </div>
     </div>
 
@@ -26,7 +29,7 @@
 
 	<thead>
 	  <tr>
-	    <th width="100%">Time</th>
+	    <th width="100%"></th>
 	    <th>Volunteer</th>
 	  </tr>
 	</thead>
@@ -37,26 +40,31 @@
 	    <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
 	    <% @shift_time_short = @shift_time.split(" ").join("").gsub(":00","").gsub("AM","").gsub("PM","") %>
 
-	    
+
 	    <% if shift.user_id == nil || shift.user_id == "" %>
+
+	      <!--OPEN-->
 	      <tr class='open'>
 				  
 		<td width="50%">
-		  <button class='large expand alert'>
-		    <a href='/activities' style='color:white;'>OPEN: </a>
+		  <button class='button large expand hi-li'>
+		    <strong><%= link_to 'Open', activities_path %></strong>
+		    <!--<a href='/activities' style='color:white;'>OPEN: </a>-->
 		  </button>
 		</td>
 
 		<td class='shift-time' width="50%;">
-		  <h1 class='hi-li padded-sides'><%= @shift_time_short  %></h1>
+		  <h1 class=''><i class='fi-arrow-right gold-text text-shadow'></i> <%= @shift_time_short  %></h1>
 		</td>
 		
 	      </tr>
 
 	    <% else %>
+
+	      <!--CLOSED-->
 	      <tr class='closed-shift'>
 		<td class='shift-time'>
-		  <h3><%= @shift_time_short  %></h3>
+		  <h3 class='hi-li-grn-faded padded-sides'><%= @shift_time_short  %></h3>
 		</td>
 
 		<td class='shift-volunteer-name'>
