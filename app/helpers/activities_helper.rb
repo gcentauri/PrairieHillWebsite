@@ -46,10 +46,10 @@ module ActivitiesHelper
   def get_type_shift_count(activity, type)
     case type
     when "All"
-      @type_shifts = activity.shifts.sort
+      @type_shifts = activity.shifts.order(:start_time)
       @type_count = @type_shifts.count
     else
-      @type_shifts = activity.shifts.where(category: type).all.sort
+      @type_shifts = activity.shifts.where(category: type).all.order(:start_time)
       @type_count = (@type_shifts.select { |s| s.user_id == nil }).count
     end
   end
