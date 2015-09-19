@@ -9,6 +9,11 @@
 	  <div class='row'>
 	    <h2 class="section-title hi-li padded bottom-shadow">Edit Your Account</h2>
 	  </div>
+	  <div class='row'>
+	    <div class='small-12 columns'>
+	      <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: 'right'  %>
+	    </div>
+	  </div>
 	</div>
 	<!---->
       </div>
@@ -16,6 +21,7 @@
       <div class='row'>
 	<!--RIGHT COLUMN-->
 	<div class='small-11 small-centered columns'>
+	  <!--FORM-->
 	  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
 	    <!--ERROR MESSAGES-->
@@ -26,12 +32,31 @@
 	    </div>
 	    <!---->
 
+	    <!--NAME-->
+	    <div class='row'>
+	      <div class='small-6 columns'>
+		<%= f.label :first_name, class: 'label bottom-shadow' %>
+		<%= f.password_field :first_name, placeholder: "#{current_user.first_name}",  autocomplete: "off", class: 'form-control' %>
+	      </div>
+
+	      <div class='small-6 columns'>
+		<%= f.label :last_name, class: 'label bottom-shadow' %>
+		<%= f.password_field :last_name, placeholder: "#{current_user.last_name}", autocomplete: "off", class: 'form-control' %>
+	      </div>
+	    </div>
+	    
 	    <!--EMAIL-->
 	    <div class='row'>
-	      <div class='small-12 columns'>
-		<%= f.label :email, class: 'label bottom-shadow' %>
-		<%= f.email_field :email %>
-	      </div>
+		<div class='small-6 columns'>
+		  <%= f.label :username, class: 'label bottom-shadow' %>
+		  <%= f.password_field :username, placeholder: "#{current_user.username}", autocomplete: "off", class: 'form-control' %>
+		</div>
+
+		<div class='small-6 columns'>
+		  <%= f.label :email, class: 'label bottom-shadow' %>
+		  <%= f.email_field :email, placeholder: "#{current_user.email}", autocomplete: "off", class: 'form-control' %>
+		</div>
+
 	    </div>
 	    <!---->
 
@@ -51,7 +76,7 @@
 	      </div>
 
 
-	    <!--PASSWORD CONFIRMATION-->
+	      <!--PASSWORD CONFIRMATION-->
 
 	      <div class='small-6 columns'>
 		<%= f.label :password_confirmation, class: 'label bottom-shadow' %>
@@ -61,14 +86,14 @@
 
 	    <div class='row'>
 	      <div class='small-12 columns'>
-		<%= f.label :current_password, class: 'label bottom-shadow' %>
-		<%= f.password_field :current_password, placeholder: 'we need your current password to confirm changes', autocomplete: "off", class: 'form-control' %>
+		<%= f.label "Please enter current password to confirm changes", class: 'label warning bottom-shadow' %>
+		<%= f.password_field :current_password, placeholder: 'Please enter your current password to confirm changes', autocomplete: "off", class: 'form-control' %>
 	      </div>
 	    </div>
 
 	    <div class='row'>
 	      <div class='small-12 columns'>
-		<%= f.submit "Update", class: 'button success large right' %>
+		<%= f.submit "Update", class: 'button success large right bottom-shadow radius' %>
 	      </div>
 	    </div>
 	  <% end %>
