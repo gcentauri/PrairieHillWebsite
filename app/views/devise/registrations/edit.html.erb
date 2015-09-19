@@ -36,12 +36,12 @@
 	    <div class='row'>
 	      <div class='small-6 columns'>
 		<%= f.label :first_name, class: 'label bottom-shadow' %>
-		<%= f.password_field :first_name, placeholder: "#{current_user.first_name}",  autocomplete: "off", class: 'form-control' %>
+		<%= f.text_field :first_name, placeholder: "#{current_user.first_name}", class: 'form-control' %>
 	      </div>
 
 	      <div class='small-6 columns'>
 		<%= f.label :last_name, class: 'label bottom-shadow' %>
-		<%= f.password_field :last_name, placeholder: "#{current_user.last_name}", autocomplete: "off", class: 'form-control' %>
+		<%= f.text_field :last_name, placeholder: "#{current_user.last_name}", autocomplete: "off", class: 'form-control' %>
 	      </div>
 	    </div>
 	    
@@ -49,7 +49,7 @@
 	    <div class='row'>
 		<div class='small-6 columns'>
 		  <%= f.label :username, class: 'label bottom-shadow' %>
-		  <%= f.password_field :username, placeholder: "#{current_user.username}", autocomplete: "off", class: 'form-control' %>
+		  <%= f.text_field :username, placeholder: "#{current_user.username}", autocomplete: "off", class: 'form-control' %>
 		</div>
 
 		<div class='small-6 columns'>
