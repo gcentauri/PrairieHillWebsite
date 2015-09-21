@@ -108,14 +108,21 @@ $(document).ready(function() {
     });
     $('#teardown-link').on( 'click', function() {
 	focus("teardown");
+	$('#primary-element').scrollTo('#activities-main');	
     });
     $('#station-link').on( 'click', function() {
 	focus("station");
+	$('#primary-element').scrollTo('#activities-main');
     });
     $('#all-link').on( 'click', function() {
 	focus("all");
+	$('#primary-element').scrollTo('#activities-main');
     });
 
+    $('.category-title').on('click', function() {
+	$('#primary-element').scrollTo(0);
+    });
+    
     /// activity shift layout
 
     $('#guest-signup-trigger').on( 'click', function() {
