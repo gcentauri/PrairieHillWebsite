@@ -23,6 +23,7 @@
 //= require fullcalendar/gcal
 //= require jquery.datetimepicker
 //= require jquery.instagram
+//= require jquery.scrollTo
 //= require masonry/jquery.masonry
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min

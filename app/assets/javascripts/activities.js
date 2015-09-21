@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    
     $(function($) {
 	$('.shifts-link').on('click', function() {
 	    var li = $(this).parent();
@@ -103,6 +104,7 @@ $(document).ready(function() {
     
     $('#prep-link').on( 'click', function() {
 	focus("prep");
+	$('#primary-element').scrollTo('#activities-main');
     });
     $('#teardown-link').on( 'click', function() {
 	focus("teardown");
@@ -125,7 +127,6 @@ $(document).ready(function() {
     var ss_link //substring '-link' 
     
     ///^^^ buttons sandbox
-
     
     
     $('#calendar').fullCalendar({
@@ -218,6 +219,176 @@ $(document).ready(function() {
 	$('tr.shift-time').css('background-color','red');
     });
 
+
+    //ACTIVITIES SCROLL ANIMATION
+    //primary
+    var primary = $('div#primary-element');
+    var primary_width = primary.width();
+    var primary_height = primary.height();
+    var primary_top = primary.css('top');
+    //window
+    var doc_width = $(window).width();
+    var doc_height = $(window).height();
+    //dash
+    var dashboard = $('div#dashboard-element');
+    var dashWidth = dashboard.width();
+    var dashHeight = dashboard.height();
+    var dashLeft = dashboard.css('left');
+    //ccf info
+    var info_height = $('div#ccf-info').height();
+    var ccf_info = $('div#ccf-info');
+    var ccf_height = ccf_info.height();
+    var ccf_width = ccf_info.width();
+    var ccf_top = ccf_info.css('top');
+    var ccf_bg = ccf_info.css('background-color');
+    var ccf_pos = ccf_info.css('position');
+    var shifts_numbers_height = $('div#shifts-numbers').height();
+    var category_tabs_height = $('div#category-tabs').height();
+    var cur_dash_height = shifts_numbers_height + category_tabs_height
+
+    //primary.scrollTo('#ccf-info');
+
+    console.log(primary.scrollTop());
+
+    $('#retract-button').hide();
+    
+    $(function() {
+	//primary.scroll(function() {
+
+	$('#expand-button').on('click',function() {
+	    $(this).hide();
+	    $('#retract-button').show();
+
+	    $('div#header').fadeOut("slow");
+	    $('div#ph-title').fadeOut("slow");
+	    //$('div#footer-main').fadeOut("slow");
+	    $('#footer-buttons').fadeOut();
+
+	    $('div#welcome-element').hide();
+	    $('div#category-info').fadeOut();
+	    $('div#tabs-open-close').fadeOut();
+
+	    dashboard.hide();
+	    dashboard.animate(
+		{
+		    width: (doc_width - 160),
+		    left: 0
+		}
+	    );
+
+	    primary.animate(
+		{
+		    top: cur_dash_height + 40,
+		    width: (doc_width - 150),
+		    //height: (doc_height - 250)
+		    height: '70%'
+		}, 1000
+	    );
+	    
+	    $('div.category-title').animate(
+		{
+		    'margin-top' : '15px'
+		}
+	    );
+
+	    //ccf-info
+	    ccf_info.css('position', 'fixed');
+	    ccf_info.css('background', 'transparent');
+	    ccf_info.toggleClass('bottom-shadow');
+	    ccf_info.animate(
+		{
+		    top: 0,
+		    width: (doc_width - 160)
+		}
+	    );
+
+	    dashboard.fadeIn("slow");
+	    //}
+	    //}
+	});
+	//else if ($(this).scrollTop() < 20) {
+	//else if (this_top < 80) {
+	//else {
+	
+	// 	$(this).animate(
+	// 	    {
+	// 		top: primary_top,
+	// 		width: primary_width + 37,
+	// 		height: primary_height
+	// 	    }, 1000
+	// 	);
+
+	// 	$('div#header').fadeIn("slow");
+	// 	$('div#ph-title').fadeIn("slow");
+	// 	$('div#footer-main').fadeIn("slow");
+	// 	$('div#welcome-element').fadeIn(206);
+	// 	$('div#category-info').fadeIn(501);
+	// 	$('div#tabs-open-close').fadeIn(203);
+
+	// 	dashboard.animate(
+	// 	    {
+	// 		width: dashWidth,
+	// 		left: dashLeft //?
+	// 	    }, 345
+	// 	);
+
+	// 	//ccf-info
+	// 	ccf_info.css('position', ccf_pos);
+	// 	ccf_info.css('background', ccf_bg);
+	
+	// 	//ccf_info.toggleClass('bottom-shadow');
+	// 	ccf_info.animate(
+	// 	    {
+	// 		top: ccf_top,
+	// 		width: ccf_width + 37
+	// 	    }
+	// 	);
+	//     }
+	// });
+    });
+
+    $('#retract-button').on('click',function() {
+	$(this).hide();
+	$('#expand-button').show();
+
+	primary.animate(
+	    {
+		top: primary_top,
+		width: primary_width + 37,
+		height: primary_height
+	    }, 1000
+	);
+
+	$('div#header').fadeIn("slow");
+	$('div#ph-title').fadeIn("slow");
+	//$('div#footer-main').fadeIn("slow");
+	$('#footer-buttons').fadeIn();
+
+	$('div#category-info').fadeIn();
+	$('div#welcome-element').fadeIn(1500);
+	$('div#tabs-open-close').fadeIn();
+
+	dashboard.hide();
+	dashboard.animate(
+	    {
+		width: dashWidth,
+		left: dashLeft //?
+	    }, 345
+	);
+
+	//ccf-info
+	ccf_info.css('position', ccf_pos);
+	ccf_info.css('background', ccf_bg);
+	ccf_info.toggleClass('bottom-shadow');
+	ccf_info.animate(
+	    {
+		top: ccf_top,
+		width: ccf_width + 37
+	    }
+	);
+
+	dashboard.fadeIn("slow");
+    });
 });
 
 //use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/ 

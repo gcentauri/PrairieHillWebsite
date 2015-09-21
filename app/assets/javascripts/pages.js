@@ -2,10 +2,11 @@
 $(document).ready(function () {
 
     //slick sliders
-    var title_icon = "<span id='slide-control-title' class='fancy padded-sides photo-icon bottom-shadow'><i class='fi-photo'></i></span>"
+    var title_icon = "<span id='slide-control-title' style='font-size:1.2em;'><i class='fi-photo'></i></span>"
+    //var title_icon = "<button id='slide-control-title' style='font-size:2em;' class='button'><i class='fi-photo button'></i></button>"
     var prev_icon = "<i class='fi-rewind'></i>"
     var next_icon = "<i class='fi-fast-forward'></i>"
-    var btn_classes = "label success bottom-shadow slick-btn"
+    var btn_classes = "button bottom-shadow slick-btn"
 
     var prev_btn_no_title = "<div class='small-1 columns'><button id='slick-prev-button' type='button' class='"
 	+ btn_classes
@@ -22,10 +23,12 @@ $(document).ready(function () {
     
     var prev_btn = "<button id='slick-prev-button' type='button' class='"
 	+ btn_classes
-	+ "slick-prev'>"
+	+ " slick-prev'"
+	+ " style='margin:0;'"
+	+ ">"
 	+ prev_icon
 	+ "</button>"
-	+ "<a href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal'>"
+	+ "<a class='button success' href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal' style='margin:0;'>"
 	+ title_icon
 	+ "</a>"
     var next_btn = "<button id='slick-next-button' type='button' class='" + btn_classes +  " slick-next'>" + next_icon + "</button>"

@@ -3,11 +3,11 @@
 <div class='small-12 small-centered columns'>
 
   <!--INFO ROW-->
-  <div id='ccf-info' class='row panel bottom-shadow'  style="background-attachment:fixed;background-position:center;background-size:cover;"><!--background-image: url('/assets/leaves2.jpg');">-->
+  <div id='ccf-info' class='row panel bottom-shadow'  style="z-index:30;"><!--background-image: url('/assets/leaves2.jpg');">-->
 
     <div class='row'>
 
-      <div class='small-12 large-6 columns'>
+      <div id='welcome-element' class='small-12 large-6 columns'>
 
 	<!--PAR COLUMN 6-->
 	<div class='small-12 columns' >
@@ -33,12 +33,12 @@
 	</div>
       </div>
 
-      <div class='small-12 large-6 columns' style='position:relative;top:5px;'>
+      <div id='dashboard-element' class='small-12 large-6 columns' style='position:relative;top:5px;'>
 	<!--AVAILABLE SHIFTS COLUMN 6-->
 	<div id='shifts-marker' class='small-12 columns bottom-shadow' style=''>
 
 	  <!--DASHBOARD ROW-->
-	  <div class='row'>
+	  <div id='shifts-numbers' class='row'>
 
 	    <div class='small-12 columns hi-li-grn' style='padding:17px 0 6px 0;border:1px solid rgba(0,125,0,0.4);'>
 	      <ul class='button-group even-2'>
@@ -48,9 +48,9 @@
 
 		    <div class='small-3 columns'>
 		      <strong>
-		      <span class='bottom-shadow padded hi-li' style=''>
-			<%= get_closed_shifts.count %>
-		      </span>
+			<span class='bottom-shadow padded hi-li' style=''>
+			  <%= get_closed_shifts.count %>
+			</span>
 		      </strong>
 		    </div>
 
@@ -86,7 +86,7 @@
 	  <!--^^-->
 
 	  <!--INFO ROW-->
-	  <div class='row'>
+	  <div id='category-info' class='row'>
 	    <div class='small-12 columns'>
 	      <div class='jusfity' style='padding:25px;font-size:1.5vw;'>
 		<strong>Switch between shift categories</strong> to view and choose from each category by selecting from the tabs below. Choose a category to get started. Scroll down to see available shifts!
@@ -96,7 +96,7 @@
 	  <!--^^-->
 
 	  <!--CATEGORY SELECTION--><!--DRYup-->
-	  <div class='row'>
+	  <div id='category-tabs' class='row'>
 	    <div class='small-12 columns'>
 
 	      <%= render 'activities/category_tabs' %>
@@ -105,7 +105,21 @@
 	  </div>
 
 	  <!--CATEGORY TITLES-->
+
+
 	  <div class='row'>
+	    <%# if current_user.try(:admin?) %>
+	    <div id='tabs-open-close' class='small-12 columns'>
+
+	      <div id='all-link' class='small-5 columns button expand bottom-shadow'>
+		<span style='color:white;font-size:1.5em;'><i class='fi-list-bullet'></i>Open/Closed</span>
+		<span class='label alert badge-fix hidden'>
+		  <%= get_open_shifts.count %>
+		</span>
+	      </div>
+	    </div>
+	    <%# end %>
+
 	    <div class='small-6 columns hidden'>
 	      <div id='prep-title' class='small-5 columns button success expand'>Preparation</div>
 	      <div id='station-title' class='small-5 columns button success expand'>Stations</div>
@@ -113,18 +127,7 @@
 	      <div id='all-title' class='small-5 columns button success expand'>All Activities</div>
 	    </div>
 
-	    <%# if current_user.try(:admin?) %>
-	      <div class='small-12 columns'>
-
-		<div id='all-link' class='small-5 columns button expand bottom-shadow'>
-		  <span style='color:white;font-size:1.5em;'><i class='fi-list-bullet'></i>Open/Closed</span>
-		  <span class='label alert badge-fix hidden'>
-		    <%= get_open_shifts.count %>
-		  </span>
-		</div>
-	      
-	      </div>
-	    <%# end %>
+	  
 	  </div>
 	  <!--^^-->
 
@@ -192,15 +195,14 @@
   </div>
 
   <!--ACTIVITIES-->
-  <div class='row'>
-    <!--<div style="background-image: url('/assets/leaves1.jpg');">-->
+  <div id='activities-main' class='row'>
     <div>
       <!--Download:-->
       <%#= link_to "Excel", activities_path(format: "xls") %>
       <!--<div id='calendar' class='hidden'></div>-->
       <div class='small-12 small-centered columns'>
-	<div id='' class='transitions-enabled infinite-scroll clearfix'>
-
+	<div id='cat-title' class='transitions-enabled infinite-scroll clearfix'>
+	  
 	  <div name='prep' id='prep'>
 	    <% @type = "Preparation" %>
 	    <%= render 'activities/activity_shift_simple_layout' %>
@@ -241,8 +243,3 @@
     <a id='all-link' href='#' class='button large bottom-shadow expand hidden'>Show All Activities</a>
   </div>
 </div>
-<style>
- // .label {
-   //   border-radius: 0 10px 3px 13px;
-   // }
-</style>

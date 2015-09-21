@@ -27,7 +27,7 @@
       </div>
 
       <!--MAIN 8-->
-      <div class='small-10 small-centered large-9 columns content bottom-shadow'
+      <div class='small-10 small-centered large-9 columns'
 	   style='padding:0;
 	   margin:0;
 	   position:fixed;
@@ -38,37 +38,42 @@
 	   height:72px;'>
 
 	<!---TITLE--->
-	<div class='small-12 columns' style='padding:0;opacity:0.9;'>
+	<div id='ph-title' class='small-12 columns' style='padding:0;opacity:0.9;'>
 	  <%= render 'layouts/title' %>
-	</div>
-	<!--^^-->
-
-	<!--SMALL HEADER-->
-	<div id='small-header'>
-	  <%#= render 'layouts/small_header' %>
 	</div>
 	<!--^^-->
 	
 	<!--CONTENT-->
 	<div class='small-12 columns'>
 	  <div class='row'>
-	    <div id='primary-element' class='small-10 large-9 columns content bottom-shadow' style='opacity:1;position:fixed;margin:0 auto;top:110px;right:50px;height:75%;border-radius:2px;'>
+
+	    <div id='primary-element'
+		 class='small-10 large-9 columns content bottom-shadow'
+		 style='opacity:1;
+		 position:fixed;
+		 margin:0 auto;
+		 top:110px;
+		 right:50px;
+		 height:75%;
+		 border-radius:2px;'>
+
 	      <%= yield %>
 	    </div>
 	  </div>
+
+	  <%#= render 'layouts/expand_retract_buttons' %>
+	  
 	</div>
 	<!--^^-->
-	
+
 	<!--FOOTER-->
-	<div class='small-12 columns footer'>
+	<div id='footer-main' class='small-12 columns footer'>
 	  <div class='row'>
 	    <%= render '/layouts/footer' %>
 	  </div>
 	</div>
 	<!--endFOOTER-->
-	
       </div>
-
       <!--endMAIN-->
     </div>
   </div>
