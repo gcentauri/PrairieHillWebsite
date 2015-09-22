@@ -48,7 +48,7 @@ html, body {
 }
 
 .fancy {
-    font-family: 'Shadows Into Light Two';
+    font-family: Pacifico, 'Roboto', 'Shadows Into Light Two';
 }
 
 .badge-fix {
@@ -162,6 +162,10 @@ p {
     text-shadow:1px 1px 3px rgba(255,255,255,0);
 }
 
+.text-shadow-2 {
+    text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+
 .camp-link {
     text-align: center;
 }
@@ -231,19 +235,17 @@ p {
 	    @extend .bottom-shadow;
 	    @extend .padded-sides;
 	    @extend .fancy;
-	    //color: $phill-grn;
-	    //background-color: rgba(255,239,25,0.9);
+	    @extend .text-shadow-2;
 	    color: white;
 	    background-color: rgba(8,134,173,0.9);
-	    //background: image-url('leaves2.jpg');
 	    font-weight: bold;
 	    font-style: italic;
-	    font-size: 1.2vw;
+	    font-size: 1.3rem;
 	    //line-height:55%;
 	    border-radius: 2px;
 
-	    //width: 170%;
-	    text-align: center;
+	    width: 170%;
+	    text-align: left;
 	    margin: 0;
 	    z-index: 10;
 

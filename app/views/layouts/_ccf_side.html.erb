@@ -1,10 +1,14 @@
 <ul class='side-nav'>
   <li><%= nav_link "HOME", root_path %></li>
-  <li><%= nav_link "COUNTRY FAIR", ccf_path %></li>
+  <li>
+    <%= link_to ccf_path, class: 'attention' do %>
+      <i class='fa fa-child fa-2x'></i> <span style='color:gold;'>Country Fair</span> <span style="font-size:1.7rem;font-family:'News Cycle';">Oct 3!</span>
+    <% end %>
+  </li>
   <% if user_signed_in? %>
     <li>
       <%= link_to ccf_volunteer_path, class: 'attention' do %>
-	<span class='hidden'><i class='fa fa-home fa-2x'></i></span> <em>VOLUNTEER</em>!
+	<i class='fa fa-users fa-2x'></i> <em>Volunteer</em>!
       <% end %>
     </li>
     <li><%= nav_link "MY SHIFTS", user_shifts_path %></li>

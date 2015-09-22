@@ -23,7 +23,9 @@ description: 'Montessori education for children with an emphasis on meeting the 
 	  <h3 class='fancy' style='text-align:center;border-radius:2px;'><%= link_to "Come to the Children's Country Fair!", ccf_path, style: 'padding:5px;' %></h3>
 	</div>
 	<div class='small-3 columns' style='border-radius:2px;position:relative;z-index:1;'>
-	  <%= link_to 'Volunteer!', activities_path, class: 'button fancy expand radius bottom-shadow' %>
+	  <%= link_to activities_path, class: 'button fancy expand radius bottom-shadow' do %>
+	    <i class='fa fa-child fa-2x'></i> <span style='font-size:1.5rem;'>Volunteer!</span>
+	  <% end %>
 	</div>
       </div>
 

@@ -2,11 +2,10 @@
 $(document).ready(function () {
 
     //slick sliders
-    var title_icon = "<span id='slide-control-title' style='font-size:1.2em;'><i class='fa fa-photo'></i></span>"
-    //var title_icon = "<button id='slide-control-title' style='font-size:2em;' class='button'><i class='fi-photo button'></i></button>"
+    var title_icon = "<span id='slide-control-title'><i class='fa fa-photo fa-2x'></i></span>"
     var prev_icon = "<i class='fa fa-angle-double-left'></i>"
     var next_icon = "<i class='fa fa-angle-double-right'></i>"
-    var btn_classes = "button bottom-shadow slick-btn"
+    var btn_classes = "button radius bottom-shadow slick-btn"
 
     var prev_btn_no_title = "<div class='small-1 columns'><button id='slick-prev-button' type='button' class='"
 	+ btn_classes
@@ -24,7 +23,7 @@ $(document).ready(function () {
     var prev_btn = "<button id='slick-prev-button' type='button' class='"
 	+ btn_classes
 	+ " slick-prev'"
-	+ " style='margin:0;'"
+	+ " style='margin-right:5px;'"
 	+ ">"
 	+ prev_icon
 	+ "</button>"
@@ -236,4 +235,10 @@ $(document).ready(function () {
     });
 
     $("#slideshow > div:gt(0)").hide();
+
+    $('#load-spinner').hide();
+    
+    $('#activities-load').on('click', function() {
+	$('#load-spinner').show();
+    });
 });
