@@ -387,7 +387,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_xlsx
   autoprefixer-rails
-  aws-sdk (~> 1.46.0)
+  aws-sdk
   axlsx
   axlsx_rails
   bcrypt
@@ -424,6 +424,7 @@ DEPENDENCIES
   momentjs-rails
   omniauth (~> 1.2.2)
   omniauth-google-oauth2
+  paperclip
   pg
   picturefill
   pry-rails
