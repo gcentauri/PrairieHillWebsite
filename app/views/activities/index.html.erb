@@ -17,7 +17,7 @@
 	    <div class='small-12 large-12 small-centered large-centered columns content bottom-shadow'>
 	      <div class='row'>
 		<div class='small-12 columns hi-li padded bottom-shadow'>
-		  <h1 style='font-family:Pacifico;'><i class='fi-heart' style='color:red;'></i> Welcome!</h1>
+		  <h1 style='font-family:Pacifico;'><i class='fa fa-heart fa-2x' style='color:red;'></i> Welcome!</h1>
 		</div>
 	      </div>
 	      <div class='row'>
@@ -108,17 +108,17 @@
 
 
 	  <div class='row'>
-	    <%# if current_user.try(:admin?) %>
+	    <% if current_user.try(:admin?) %>
 	    <div id='tabs-open-close' class='small-12 columns'>
 
 	      <div id='all-link' class='small-5 columns button expand bottom-shadow'>
-		<span style='color:white;font-size:1.5em;'><i class='fi-list-bullet'></i>Open/Closed</span>
+		<span style='color:white;font-size:1.5em;'><i class='fa fa-list-ul'></i> Open/Closed</span>
 		<span class='label alert badge-fix hidden'>
 		  <%= get_open_shifts.count %>
 		</span>
 	      </div>
 	    </div>
-	    <%# end %>
+	    <% end %>
 
 	    <div class='small-6 columns hidden'>
 	      <div id='prep-title' class='small-5 columns button success expand'>Preparation</div>
@@ -188,8 +188,8 @@
     <!--^^-->
 
     <div id='view-switcher' class='hidden'>
-      <a href='#'><i id='plain-switch' class='fi-home'></i> Switch to plain view.</a>
-      <a href='#'><i id='slick-switch' class='fi-home'></i> Switch to slick view.</a>
+      <a href='#'><i id='plain-switch' class='fa fa-home'></i> Switch to plain view.</a>
+      <a href='#'><i id='slick-switch' class='fa fa-home'></i> Switch to slick view.</a>
     </div>
     
   </div>

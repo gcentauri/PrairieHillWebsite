@@ -16,10 +16,10 @@
 	    <div class='title-button small-5 columns hi-li-grn-faded bottom-shadow button'>
 	      <div class='shift-content row'>
 
-		<i class='fi-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
+		<i class='fa fa-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
 
 		<!--arrow-down-->
-		<i class='arrow-down arrow fi-arrow-down'
+		<i class='arrow-down arrow fa fa-arrow-down'
 		   style='color:gold;
 		   text-shadow:1px 1px 3px rgba(255,255,255,0);
 		   text-align:left;
@@ -33,7 +33,7 @@
 
 		<!--arrow-left-->
 		<!--<div class='arrow-left'>-->
-		<i class='arrow active arrow-left fi-arrow-left'
+		<i class='arrow active arrow-left fa fa-arrow-left'
 		   style='color:gold;
 		   text-shadow:1px 1px 3px rgba(255,255,255,0);
 		   text-align:left;
@@ -49,7 +49,7 @@
 	    <div class='small-5 columns'
 		 style='text-shadow:1px 1px 1px rgba(0,0,0,0.4);'>
 
-	      <i class='fi-torsos-male-female'
+	      <i class='fa fa-users fa-2x'
 		 style='color:rgba(0,255,255,0.3);
 		 text-align:left;
 		 font-size:3.2em;
@@ -83,7 +83,7 @@
 	    <div class='activity-edit-toggle small-2 columns'>
 	      <% if current_user.try(:admin?) %>
 		<%= link_to edit_activity_path(activity) do %>
-		  <i class="fi-wrench" style='color:red;'></i>
+		  <i class="fa fa-wrench" style='color:red;'></i>
 		<% end %>
 	      <% end %>
 	    </div>
@@ -114,7 +114,7 @@
 		    <div class='row arrow-guide'>
 
 		      <div class='arrow shift-arrow small-1 left columns'>
-			<i class='fi-arrow-right'
+			<i class='fa fa-arrow-right'
 			   style='color:gold;
 			   font-size:3em;
 			   position:relative;
