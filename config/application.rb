@@ -20,6 +20,8 @@ module PrairieHillWebsite
       g.stylesheets false
     end
 
+    config.font_assets.origin = '*'
+    
     #config.cache_store = :dalli_store
     
     # Settings in config/environments/* take precedence over those specified here.

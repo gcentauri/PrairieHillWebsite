@@ -56,6 +56,7 @@ gem 'foundation-icons-sass-rails'
 gem 'jquery-slick-rails'
 gem 'koala', '~> 2.2'
 gem 'jquery-scrollto-rails'
+gem 'font_assets'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
