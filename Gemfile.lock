@@ -403,6 +403,7 @@ DEPENDENCIES
   devise
   dynamic_sitemaps
   figaro
+  font-awesome-rails
   font_assets
   foreman
   foundation-icons-sass-rails

@@ -20,6 +20,7 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require 'font-awesome'
  *= require_self
  //= require foundation_and_overrides
 
@@ -31,6 +32,7 @@
 
 @import 'foundation-icons';
 @import 'slick';
+@import 'font-awesome';
 
 
 
