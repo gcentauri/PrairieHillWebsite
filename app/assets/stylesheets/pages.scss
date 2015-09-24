@@ -146,6 +146,17 @@ $phill-gold: #ffef19;
     font-family: Pacifico, Lobster;
 }
 
+.masonry {
+    column-count: 2;
+    column-gap: 1em;
+}
+
+.masonry-item {
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
 //media q
 @media only screen and (max-width:60em) {
     #small-browser {

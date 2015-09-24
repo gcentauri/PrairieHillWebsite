@@ -45,16 +45,16 @@
 
 	      <!--OPEN-->
 	      <tr class='open'>
-				  
-		<td width="50%">
-		  <button class='button large expand hi-li'>
-		    <strong><%= link_to 'Open', activities_path %></strong>
-		    <!--<a href='/activities' style='color:white;'>OPEN: </a>-->
-		  </button>
+
+		<td class='shift-time'>
+		  <h3 class='hi-li-grn-faded padded-sides'><%= @shift_time_short  %></h1>
 		</td>
 
-		<td class='shift-time' width="50%;">
-		  <h1 class=''><i class='fa fa-arrow-right gold-text text-shadow'></i> <%= @shift_time_short  %></h1>
+		<td>
+		  <button class='button large expand hi-li padded radius bottom-shadow'>
+		    <strong><%= link_to 'Open', activities_path, class: 'padded' %></strong>
+		    <!--<a href='/activities' style='color:white;'>OPEN: </a>-->
+		  </button>
 		</td>
 		
 	      </tr>
@@ -63,12 +63,12 @@
 
 	      <!--CLOSED-->
 	      <tr class='closed-shift'>
+
 		<td class='shift-time'>
 		  <h3 class='hi-li-grn-faded padded-sides'><%= @shift_time_short  %></h3>
 		</td>
 
 		<td class='shift-volunteer-name'>
-
 		  <h3>
 		    <% if shift.guest != nil && shift.guest != "" %>
 		      <%= shift.guest %>

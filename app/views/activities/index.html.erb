@@ -146,36 +146,36 @@
   <!--ROW-->
   <div class='row'>
     
-    <div class='small-9 large-8 columns hidden'>
-      <!--CATEGORY SELECTION--><!--DRYup-->
-      <div class='small-9 columns'>
-	<ul class='button-group even-3' style=''>
-	  <li>
-	    <a id='prep-link' href='#' class='button large bottom-shadow'>Preparati
-	      <span class='label alert badge-fix'>
-		<%= get_open_prep_shifts.count %>
-	      </span>
-	    </a>
-	  </li>
-	  <li>
-	    <a id='station-link' href='#' class='button large bottom-shadow'>
-	      Stations
-	      <span class='label alert badge-fix'>
-		<%= get_open_station_shifts.count %>
-	      </span>
-	    </a>
-	  </li>
-	  <li>
-	    <a id='teardown-link' href='#' class='button large bottom-shadow'>
-	      Tear Down
-	      <span class='label alert badge-fix'>
-		<%= get_open_teardown_shifts.count %>
-	      </span>
-	    </a>
-	  </li>
-	</ul>
-      </div>
-    </div>
+    <!-- <div class='small-9 large-8 columns hidden'>-->
+    <!--   <!--CATEGORY SELECTION--><!--DRYup-->
+    <!--   <div class='small-9 columns'>-->
+    <!-- 	<ul class='button-group even-3' style=''>-->
+    <!-- 	  <li>-->
+    <!-- 	    <a id='prep-link' href='#' class='button large bottom-shadow'>Preparati-->
+    <!-- 	      <span class='label alert badge-fix'>-->
+    <!-- 		<%#= get_open_prep_shifts.count %>-->
+    <!-- 	      </span>-->
+    <!-- 	    </a>-->
+    <!-- 	  </li>-->
+    <!-- 	  <li>-->
+    <!-- 	    <a id='station-link' href='#' class='button large bottom-shadow'>-->
+    <!-- 	      Stations-->
+    <!-- 	      <span class='label alert badge-fix'>-->
+    <!-- 		<%#= get_open_station_shifts.count %>-->
+    <!-- 	      </span>-->
+    <!-- 	    </a>-->
+    <!-- 	  </li>-->
+    <!-- 	  <li>-->
+    <!-- 	    <a id='teardown-link' href='#' class='button large bottom-shadow'>-->
+    <!-- 	      Tear Down-->
+    <!-- 	      <span class='label alert badge-fix'>-->
+    <!-- 		<%#= get_open_teardown_shifts.count %>-->
+    <!-- 	      </span>-->
+    <!-- 	    </a>-->
+    <!-- 	  </li>-->
+    <!-- 	</ul>-->
+    <!--   </div>-->
+    <!-- </div>-->
     <!--^^^-->
 
     <!--CATEGORY TITLES-->
@@ -239,7 +239,7 @@
       </div>
     </div>
 
-    <%= render 'activities/user_tabs' %>
+    <%#= render 'activities/user_tabs' %>
     <a id='all-link' href='#' class='button large bottom-shadow expand hidden'>Show All Activities</a>
   </div>
 </div>

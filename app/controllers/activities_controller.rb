@@ -33,10 +33,12 @@ class ActivitiesController < InheritedResources::Base
   def new
     @activity = Activity.new
     @activity.shifts.build
+    authorize! :manage, @activity
   end
 
   def edit
     #@activity.shifts.build
+    authorize! :manage, @activity
   end
 
   def create

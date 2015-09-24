@@ -1,145 +1,276 @@
-<div class='row shifts-list'>
-  <div class='small-11 small-centered columns'>
-    <!--ACTIVITIES-->
-    <% @sorted.each do |activity| %>
-      
-      <!--LOGIC-->
-      <% @type_count = get_type_shift_count(activity, @type) %>
-      <!--^^-->
+<!--ACTIVITY/SHIFTS MAIN-->
+<!--<div class='row shifts-list' style='columns: 100px 3;'>-->
+<div id='activity-main-box'
+     class='masonry small-12 columns'
+     style='
+     //height: 500px;
+     '
+     >
 
-      <% if @type_count > 0 %>      
-	<!--ACTIVITY TITLE-->
-	<div class='row activity-toggle bottom-shadow content' style='border-bottom:1px solid rgba(0,0,0,0.3);'>
+  <% @activity_count = @sorted.count %>
+  <span id='activity-count' class='<%= @activity_count %>'></span>
+  <span id='type' class='<%= @type.gsub(" ","").downcase %>'></span>
 
-	  <div class='arrow-guide small-10 columns'>
-	    <!--title-button-->
-	    <div class='title-button small-5 columns hi-li-grn-faded bottom-shadow button'>
-	      <div class='shift-content row'>
+  <!--<div class='small-5 columns' style='display:block;'>-->
+  <!--ACTIVITIES-->
+  <% @sorted.each do |activity| %>
+    
+    <!--LOGIC-->
+    <% @type_count = get_type_shift_count(activity, @type) %>
+    <!--^^-->
+    
+    <% if @type_count > 0 %>      
+      <!--ACTIVITY BOX-->
+      <div class='masonry-item <%= @type.gsub(" ","").downcase %> small-6 columns left activity-box'
+	   style='
+	   
+	   '
+	   >
 
-		<i class='fa fa-arrow-right hidden' style='color:gold;text-shadow:1px 1px 3px rgba(255,255,255,0);text-align:left;font-size:1.7em;padding-right:6px;'></i>
+	<% work_area_simple = activity.work_area.gsub(" ","-") %>
+	
+	<!--ACTIVITY TITLE row-->
+	<div class='row activity-toggle bottom-shadow button hi-li-grn-faded expand'
+	     data-reveal-id='<%= work_area_simple %>-shiftModal'
+	     style='
+	     //border:1px solid rgba(0,0,0,0.3);
+	     height:100px;
+	     position:relative;
+	     margin: 0 2px;
+	     
+	     '
+	     >
+	  <!--ACTIVITY TITLE box-->
+	  <!-- <div class='arrow-guide small-12 small-centered columns'-->
+	  <!--      style='-->
+	  
+	  <!--      '-->
+	  <!--      >-->
+	  <!--ACTIVITY TITLE title-->
+	  <div class='title-button small-9 columns left text-shadow-2 hi-li'
+	       style='
+	       //border:1px solid rgba(255,255,255,0.2);
+	       //background-color: rgba(255,255,255,0.5);
+	       //color:rgba(255,255,255,1);
+	       color:rgba(0,0,0,0.5);
+	       font-size:1.5rem;
+	       '
+	       >
 
-		<!--arrow-down-->
-		<i class='arrow-down arrow fa fa-arrow-down'
-		   style='color:gold;
-		   text-shadow:1px 1px 3px rgba(255,255,255,0);
-		   text-align:left;
-		   font-size:2em;
-		   padding-right:10px;'
-		   ></i>
+	    <%= activity.work_area %>
 
-		<span style='color:rgba(255,255,255,1);font-size:2em;text-shadow:2px 2px 2px rgba(0,0,0,0.5);text-align:right;'>
-		  <%= activity.work_area %>
-		</span>
-
-		<!--arrow-left-->
-		<!--<div class='arrow-left'>-->
-		<i class='arrow active arrow-left fa fa-arrow-left'
-		   style='color:gold;
-		   text-shadow:1px 1px 3px rgba(255,255,255,0);
-		   text-align:left;
-		   font-size:2em;
-		   padding-left:10px;'
-		   ></i>
-		<!--</div>-->
+	    <%# if current_user.try(:admin?) %>
+	    <% if can? :manage, activity %>
+	      <div class='activity-edit-toggle small-1 columns'>
+		<%= link_to edit_activity_path(activity) do %>
+		  <i class="fa fa-wrench"
+		     style='
+		     
+		     '
+		     ></i>
+		<% end %>
 	      </div>
-	    </div>
-	    <!---->
+	    <% else %>
+	      <div class='activity-edit-toggle small-1 columns'>
+		<i class="fa fa-heart"></i>
+	      </div>
+	    <% end %>
+	    
+	    <!-- <div class='shift-content row'-->
+	    <!-- 	   style='-->
+	    
+	    <!-- 	   '-->
+	    <!-- 	   >-->
 
-	    <!--informative title-->
-	    <div class='small-5 columns'
-		 style='text-shadow:1px 1px 1px rgba(0,0,0,0.4);'>
+	    <!-- 	<!--ARROWS-->
+	    <!-- 	<!---->
+	    <!-- 	<i class='fa fa-arrow-right hidden'-->
+	    <!-- 	   style='color:gold;-->
+	    <!-- 	   text-shadow:1px 1px 3px rgba(255,255,255,0);-->
+	    <!-- 	   text-align:left;-->
+	    <!-- 	   font-size:1.7em;-->
+	    <!-- 	   padding-right:6px;'></i>-->
 
-	      <i class='fa fa-users fa-2x'
-		 style='color:rgba(0,255,255,0.3);
-		 text-align:left;
-		 font-size:3.2em;
-		 padding-right:6px;'
-		 >
-	      </i>
+	    <!-- 	<!--arrow-down-->
+	    <!-- 	<i class='arrow-down arrow fa fa-arrow-down hidden'-->
+	    <!-- 	   style='color:gold;-->
+	    <!-- 	   text-shadow:1px 1px 3px rgba(255,255,255,0);-->
+	    <!-- 	   text-align:left;-->
+	    <!-- 	   font-size:2em;-->
+	    <!-- 	   padding-right:10px;'-->
+	    <!-- 	   ></i>-->
+	    <!-- 	<!---->
+	    <!-- 	<!---->
 
-	      <span style='margin-bottom:25px;'>
-		<span style='font-size:1em;'>
+	    <!-- 	<span style='-->
+	    <!-- 	      color:rgba(255,255,255,1);-->
+	    <!-- 	      font-size:1rem;-->
+	    <!-- 	      text-shadow:2px 2px 2px rgba(0,0,0,0.5);-->
+	    <!-- 	      text-align:right;-->
+	    <!-- 	      '-->
+	    <!-- 	      >-->
+	    <!-- 	  <%#= activity.work_area %>-->
+	    <!-- 	</span>-->
 
-		  <span class='hi-li top-shadow'
-			style='text-align:center;
-			padding:0 1px 0 10px;
-			margin-right:3px;
-			font-family:Pacifico;
-			font-size:2em;
-			border-radius:3px 3px 0 0;
-			border-bottom:1px solid rgba(0,0,0,0.2);
-			position:relative;
-			top:-1px;'>
+	    <!-- 	<!--ARROW-left-->
+	    <!-- 	<!--<div class='arrow-left'>-->
+	    <!-- 	<i class='arrow active arrow-left fa fa-arrow-left hidden'-->
+	    <!-- 	   style='color:gold;-->
+	    <!-- 	   text-shadow:1px 1px 3px rgba(255,255,255,0);-->
+	    <!-- 	   text-align:left;-->
+	    <!-- 	   font-size:2em;-->
+	    <!-- 	   padding-left:10px;'-->
+	    <!-- 	   ></i>-->
+	    <!-- 	<!--</div>-->
+	    <!-- </div>-->
+	  </div>
+	  <!---->
 
-		    <%= @type_count %>
-		  </span>
-		  
-		  shifts available!
-		</span>
-	      </span>
-	    </div>
+	  <!--SHIFT COUNT-->
+	  <div class='small-3 columns right text-shadow-2'
+	       style='
+	       color:white;
+	       font-size:3.2em;
+	       '
+	       >
+
+	    <%= @type_count %>
+
+	    <!--MODAL? TOOLTIP?-->
+	    <span class='hidden'>shifts available!</span>
+	    <!--MODAL? TOOLTIP?-->
+	    
+	    <!-- <i class='fa fa-users fa-2x hidden'-->
+	    <!-- 	 style='color:rgba(0,255,255,0.3);-->
+	    <!-- 	 text-align:left;-->
+	    <!-- 	 font-size:3.2em;-->
+	    <!-- 	 padding-right:6px;'-->
+	    <!-- 	 >-->
+	    <!-- </i>-->
+
+	    <!-- <span style='margin-bottom:25px;'>-->
+	    <!-- 	<span style='font-size:1em;'>-->
+
+	    <!-- 	  <span class=''-->
+	    <!-- 		style='-->
+	    <!-- 		//text-align:center;-->
+	    <!-- 		//padding:0 1px 0 10px;-->
+	    <!-- 		//margin-right:3px;-->
+	    <!-- 		//font-family:Pacifico;-->
+	    <!-- 		//font-size:2em;-->
+	    <!-- 		border-radius:3px 3px 0 0;-->
+	    <!-- 		//position:relative;-->
+	    <!-- 		//top:-1px;-->
+	    <!-- 		'-->
+	    <!-- 		>-->
+	    <!-- 	    <%= @type_count %>-->
+	    
+	    <!-- 	  </span> shifts available!-->
+	    <!-- 	</span>-->
+	    <!-- </span>-->
+	    <!--</div>-->
 	    <!---->
 	    <!--admin-->
-	    <div class='activity-edit-toggle small-2 columns'>
-	      <% if current_user.try(:admin?) %>
-		<%= link_to edit_activity_path(activity) do %>
-		  <i class="fa fa-wrench" style='color:red;'></i>
-		<% end %>
-	      <% end %>
-	    </div>
+	    
 	    <!---->
 	  </div>
 	</div>
+
 	<!--^^-->
 
 	<!--SHIFTS-->      
-	<div class='activity-target row'>
+	<div id='<%= work_area_simple %>-shiftModal'
+	     class='activity-target reveal-modal small-12 small-centered columns bottom-shadow'
+	     data-reveal
+	     aria-labelledby='<%= work_area_simple %>-modalTitle'
+	     aria-hidden='true'
+	     role='dialog'
+	     style='
+	     top: 0;
+	     left: 5%;
+	     '>
 	  <!--arrows-->
 
-	  <div id='shifts' class='small-11 right columns bottom-shadow' style='border-bottom:1px solid rgba(0,0,0,0.3);margin-bottom:25px;'>
+	  <h2 class='hi-li' id='<%= work_area_simple %>-modalTitle'><%= activity.work_area %></h2>
+	  
+	  <!--SHIFT BOX-->
+	  <div id='shifts' class='small-11 small-centered columns'
+	       style='
+	       //border-bottom:1px solid rgba(0,0,0,0.3);
+	       
+	       margin-bottom:25px;
+	       margin-top:0;
+	       '
+	       >
 
 	    <% if @type_count > 0 %>
 	      <% @type_shifts.each do |shift| %>
 		<!--LOGIC-->
 		<% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
 		<% @shift_time_short = @shift_time.split(" ").join("").gsub(":00","").gsub("AM","").gsub("PM","") %>
-
 		<!--^^-->
 
-		<hr/>
 		<%= form_for shift do |f| %>	    
 		  <!--SHIFT ROW-->
-		  <div id='shift-single' class='row bottom-shadow <%= @shift_time_short %>' style='border-bottom:1px solid rgba(0,0,0,0.4);'>
+		  <div id='shift-single'
+		       class='row bottom-shadow <%= @shift_time_short %>'
+		       style='
+		       //border-bottom:1px solid rgba(0,0,0,0.4);
+		       
+		       '
+		       >
 
 		    <div class='row arrow-guide'>
 
-		      <div class='arrow shift-arrow small-1 left columns'>
-			<i class='fa fa-arrow-right'
-			   style='color:gold;
-			   font-size:3em;
-			   position:relative;
-			   left:-10px;
-			   text-shadow:1px 1px 1px rgba(0,0,0,0.4);'
-			   ></i>
-		      </div>
+		      <!-- <div class='arrow shift-arrow small-1 left columns hidden'>-->
+		      <!-- 	<i class='fa fa-arrow-right'-->
+		      <!-- 	   style='color:gold;-->
+		      <!-- 	   font-size:3em;-->
+		      <!-- 	   position:relative;-->
+		      <!-- 	   left:-10px;-->
+		      <!-- 	   text-shadow:1px 1px 1px rgba(0,0,0,0.4);'-->
+		      <!-- 	   ></i>-->
+		      <!-- </div>-->
 
-		      <!--BLOCK 1-->
-		      <div class='small-8 columns'>
+		      <!--TIME/NAME-->
+		      <div class='small-8 columns'
+			   style='
+			   
+			   '
+			   >
 
 			<!--SHIFT TIME-->
-			<div class='small-6 columns'>
-			  <h1 class='padded' style='color:white;'><strong><%= time_title_spacer(@shift_time_short) %></strong></h1>
+			<div class='small-4 columns'
+			     style='
+			     
+			     '
+			     >
+			  <!-- <h1 class='padded'-->
+			  <!--     style='-->
+			  <!--     //color:white;-->
+			  <!--     '-->
+			  <!--     >-->
+
+			  <%= time_title_spacer(@shift_time_short) %>
+
+			  <!--</h1>-->
 			</div>
 			<!--^^-->
-
+			
+			<!--SHIFT NAME-->
 			<% if user_signed_in? %>
-			  <!--SHIFT NAME-->
+			
 			  <% if shift.user_id != nil %>
 
-			    <div class='small-6 columns'>
+			    <!--SHIFT NAME-->
+			    <div class='small-8 columns'>
 			      <!--CLOSED SHIFT-->
 			      <!--NAME-->
-			      <span class='button info expand bottom-shadow'>
+			      <span class='button info expand bottom-shadow text-shadow'
+				    style='
+				    font-size:1rem;
+				    '
+				    >
 				<% if shift.guest != "" %>
 				  <%= shift.guest %>
 				<% else %>
@@ -151,13 +282,21 @@
 
 			  <% else %>
 
-			    <div class='small-6 columns'>
+			    <div class='small-8 columns'>
 			      <!--ADD FRIEND'S NAME-->
-			      <a href='#' class='add-friend-btn button large expand bottom-shadow'>Add Friend</a>
+			      <a href='#'
+				 class='
+				 add-friend-btn
+				 button large expand
+				 bottom-shadow
+				 '
+				 >
+				Add Friend
+			      </a>
 			      <div class='row friend-field'>
-				<%= f.label "Friend's Name", class: 'button large expand left' %>
+				<%= f.label "Friend's Name", class: 'button expand' %>
 				<div class='small-12 columns'>
-				  <%= f.text_field :guest, placeholder: "Your Friend's Name" %>
+				  <%= f.text_field :guest, placeholder: "Your Friend's Name", class: 'form-control' %>
 				</div>
 			      </div>
 			    </div>
@@ -165,13 +304,15 @@
 			  <% end %>
 			  <!---->
 			<% else %>
+			  <!--REGISTRATION LEAD-->
 			  <div class='button large expand'>Sign Up!</div>
+			  <!--REGISTRATION LEAD-->
 			<% end %>
 
 		      </div>
 
 		      <!--BLOCK 2-->
-		      <div class='small-3 columns right'>
+		      <div class='small-4 columns right'>
 			<!--SIGN UP/CANCEL-->
 
 			<% if shift.user_id != nil %>
@@ -182,7 +323,12 @@
 			      <%= form_for shift do |f| %>
 				<%= f.hidden_field :user_id, value: nil %>
 				<%= f.hidden_field :guest, value: nil %>
-				<span><%= f.submit "Cancel", class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %></span>
+				<%= f.submit "Cancel", class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
+				<%#= f.submit value: "#{raw <i class='fa fa-remove'></i>}", class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
+				<%#= button_tag(name: 'commit', type: 'submit', class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" }) do %>
+				  <!--<i class='fa fa-remove'></i>-->
+				<%# end %>
+				
 			      <% end %>
 			    <% end %>
 			    <!--^^-->
@@ -201,7 +347,7 @@
 			      <!--^^-->
 
 			      <!--SUBMIT-->
-			      <%= f.submit 'Sign Up!', class: 'button large success expand bottom-shadow', data: { :confirm => "Are you sure?" } %>
+			      <%= f.submit 'Sign Up!', class: 'button large success expand bottom-shadow', data: { :confirm => "Sign up for this shift?" } %>
 			      <!--^^-->
 
 			      <%# end %>
@@ -221,14 +367,14 @@
 	      <% end %>
 	    <% end %>
 	    <!--^^-->
-
-	    <br/>
-	    
-	    
 	  </div>
+	  <!--<br/>-->
+	  
+	  
 	</div>
-      <% end %>
+      </div>
     <% end %>
-    <!--^^-->
-  </div>
+  <% end %>
+  <!--^^-->
+  <!--</div>-->
 </div>

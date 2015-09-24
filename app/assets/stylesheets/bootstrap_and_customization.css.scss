@@ -697,3 +697,9 @@ p {
 .button, {
     font-family: Pacifico, Lobster;
 }
+
+.button.hi-li-grn-faded {
+    &:hover {
+	background: $phill-gold;
+    }
+}

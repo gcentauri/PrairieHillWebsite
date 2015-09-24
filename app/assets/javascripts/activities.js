@@ -1,12 +1,18 @@
 $(document).ready(function() {
-
     
     $(function($) {
 	$('.shifts-link').on('click', function() {
 	    var li = $(this).parent();
+	    //console.log(li);
+
 	    $(this).addClass('success');
+	    //console.log($(this));
+
 	    li.siblings("li").children("a").removeClass('success');
+	    //console.log(li.siblings("li").children("a"));
+	    
 	    $('#all-link').removeClass('success');
+	    //console.log('#all-link');
 	});
     });
 
@@ -22,7 +28,11 @@ $(document).ready(function() {
     $('.activity-target').hide();
     
     $('.activity-toggle').on('click', function() {
-	$(this).next(".activity-target").slideToggle();
+	var target = $(this).next('.activity-target');
+	var height_diff = (0 - target.height());
+	//target.slideToggle("slow");
+	
+	//$(this).parents('.activity-box').next('.activity-box').css('top', height_diff);
     });
     
 
@@ -31,7 +41,6 @@ $(document).ready(function() {
 
 	$('.add-friend-btn').on('click', function() {
 	    $(this).hide();
-	    console.log($(this).siblings('div'));
 	    $(this).siblings('div').show();
 	});
     });
@@ -52,6 +61,8 @@ $(document).ready(function() {
 	{
 	    function hide_contents() {//GET a towel
 	    	$(title).hide();
+		$(title).removeClass('selected');
+		console.log($(title));
 		$(content).hide();
 	    };
 	    hide_contents();
@@ -60,7 +71,19 @@ $(document).ready(function() {
 	{
 	    function show_contents() {//GET a towel
 		$(title).show();
+		$(title).addClass('selected');
 		$(content).show();
+
+		var other_categories = $(content).siblings();
+		var current_category = $(content).children().children('#activity-main-box');
+		current_category.toggleClass('show-type');
+
+		//console.log(other_categories);
+		other_categories.each( function( index, element ) {
+		    if ($(this).hasClass('show-type')) {
+			$(this).toggleClass('show-type');
+		    }
+		});
 	    };
 	    show_contents();
 	}
@@ -90,18 +113,37 @@ $(document).ready(function() {
 	    };
 	var category_index = categories_list.indexOf(category); // "prep" 0
     };
-    
+
+    //masonry
+    function fix_height(){
+	var current_cat = $('.show-type').children('#type').attr("class");
+
+	var item_h = $('.masonry-item').height();
+	var item_m = $('.masonry-tiem').css('margin');
+	//console.log(item_m);
+	var type_count = $('.show-type').children('.masonry-item' + '.' + current_cat).size();
+
+	var height_fix = ((item_h * type_count) / 1.5);
+	
+	//console.log(height_fix);
+	$('.masonry').css('height', height_fix);
+    };
+    ////
+
     function focus (string) {
 	//hide all
 	hide_all();
 	//show chosen
 	show_single(string);
+	//fix_height();
     };
 
-    focus("prep");
+    hide_all();
+    //focus("prep");
     
     //buttons
-    
+    //CATEGORY SWITCHER!!!
+    //DRY it up
     $('#prep-link').on( 'click', function() {
 	focus("prep");
 	$('#primary-element').scrollTo('#activities-main');
@@ -122,19 +164,13 @@ $(document).ready(function() {
     $('.category-title').on('click', function() {
 	$('#primary-element').scrollTo(0);
     });
+    ///
+
     
     /// activity shift layout
-
     $('#guest-signup-trigger').on( 'click', function() {
      	$$('#guest-signup-toggle').toggle("slow");
     });
-    
-    /// buttons sandbox
-
-    var ss_link //substring '-link' 
-    
-    ///^^^ buttons sandbox
-    
     
     $('#calendar').fullCalendar({
 	eventSources: [
@@ -169,49 +205,53 @@ $(document).ready(function() {
         }
     });
 
+
+    //?
     $('div.shifts-toggle').hide();
+    // $('.shifts-trigger').on('click', function(event) {
+    // 	//var shifts = $(this).next();
+
+    // 	$(this).next().toggle(1000);
+    // });
+    //?
+
     
     $('a[href="#"]').click( function(e) {
 	e.preventDefault();
     });
     
-    $('.shifts-trigger').on('click', function(event) {
-	//var shifts = $(this).next();
-
-	$(this).next().toggle(1000);
-    });
 
     //title-button on click
 
     //$('.arrow-down').hide();
     
-    $('.title-button').on('click', function(event) {
-	$(this).toggleClass('success');
+    // $('.title-button').on('click', function(event) {
+    // 	$(this).toggleClass('success');
 
-	var arrow_left = $(this).children().children('.arrow-left');
-	var arrow_down = $(this).children().children('.arrow-down');
-	var arrow = $(this).children().children('.arrow');
-	var shift_arrows = $(this).parent('.arrow-guide')
-	    .parent('.activity-toggle')
-	    .next('.activity-target')
-	    .children('#shifts')
-	    .children('form')
-	    .children('#shift-single')
-	    .children('.arrow-guide')
-	    .children('.arrow');
-	//there's got to be a better way! ^^^
+    // 	var arrow_left = $(this).children().children('.arrow-left');
+    // 	var arrow_down = $(this).children().children('.arrow-down');
+    // 	var arrow = $(this).children().children('.arrow');
+    // 	var shift_arrows = $(this).parent('.arrow-guide')
+    // 	    .parent('.activity-toggle')
+    // 	    .next('.activity-target')
+    // 	    .children('#shifts')
+    // 	    .children('form')
+    // 	    .children('#shift-single')
+    // 	    .children('.arrow-guide')
+    // 	    .children('.arrow');
+    // 	//there's got to be a better way! ^^^
 
-	arrow.toggleClass('active', 500);
+    // 	arrow.toggleClass('active', 500);
 
-	shift_arrows.each(function() {
-	    $(this).toggleClass('active');
-	});
-    });
+    // 	shift_arrows.each(function() {
+    // 	    $(this).toggleClass('active');
+    // 	});
+    // });
     
-    $('#masonry-container').masonry({
-	itemSelector: '.box',
-	isFitWidth: true
-    });
+    // $('#masonry-container').masonry({
+    // 	itemSelector: '.box',
+    // 	isFitWidth: true
+    // });
 
     $('tr.open').hide();
     $('button#open').text("Show Open");
@@ -255,7 +295,7 @@ $(document).ready(function() {
 
     //primary.scrollTo('#ccf-info');
 
-    console.log(primary.scrollTop());
+    //console.log(primary.scrollTop());
 
     $('#retract-button').hide();
     
@@ -264,6 +304,8 @@ $(document).ready(function() {
 
 	$('#expand-button').on('click',function() {
 	    $(this).hide();
+	    //console.log($('.selected'));
+	    //focus("prep");
 	    $('#retract-button').show();
 
 	    $('div#header').fadeOut("slow");
@@ -396,6 +438,7 @@ $(document).ready(function() {
 
 	dashboard.fadeIn("slow");
     });
+
 });
 
 //use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/ 
