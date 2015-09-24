@@ -31,7 +31,7 @@
 	
 	<!--ACTIVITY TITLE row-->
 	<div class='row activity-toggle bottom-shadow button hi-li-grn-faded expand'
-	     data-reveal-id='<%= work_area_simple %>-shiftModal'
+	     data-reveal-id='<%= work_area_simple %><%= @type.gsub(" ","").downcase %>-shiftModal'
 	     style='
 	     //border:1px solid rgba(0,0,0,0.3);
 	     height:100px;
@@ -179,7 +179,7 @@
 	<!--^^-->
 
 	<!--SHIFTS-->      
-	<div id='<%= work_area_simple %>-shiftModal'
+	<div id='<%= work_area_simple %><%= @type.gsub(" ","").downcase %>-shiftModal'
 	     class='activity-target reveal-modal small-12 small-centered columns bottom-shadow'
 	     data-reveal
 	     aria-labelledby='<%= work_area_simple %>-modalTitle'
