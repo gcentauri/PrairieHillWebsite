@@ -6,6 +6,8 @@
     </div>
   </div>
 
+  <%= link_to 'Download CSV list', activities_path(format: :csv) %>
+  
   <div class='small-11 small-centered columns'>  
   <% @sorted.each do |activity| %>
     <div class='row'>

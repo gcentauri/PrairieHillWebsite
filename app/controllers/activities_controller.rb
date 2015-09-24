@@ -2,23 +2,19 @@ class ActivitiesController < InheritedResources::Base
 
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
-  # def export
-  #   @data = Activity.order(:created_at)
-  #   respond_to do |format|
-  #     format.html { redirect_to root_url }
-  #     format.csv { send_data @data.to_csv }
-  #   end
-  # end
-
   def index
     @shifts = Shift.all
     @activities = Activity.all
     @sorted = @activities.sort_by { |a| a.work_area }
-    
-    #@activitiess = Activity.order(:work_area)
-    #respond_to do |format|
-    #  format.xls # { send_data @activitiess.to_csv(col_sep: "\t") }
-    #end
+    @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"shift-list.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def full_list

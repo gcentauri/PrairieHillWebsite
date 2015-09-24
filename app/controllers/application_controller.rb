@@ -1,5 +1,5 @@
 require "application_responder"
-
+require 'csv'
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
