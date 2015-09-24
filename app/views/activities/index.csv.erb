@@ -1,7 +1,7 @@
 <% headers = ['Work Area', 'Category', 'Time', 'Guest Volunteer', 'Volunteer'] %>
 <%= CSV.generate_line headers %>
 <% @shifts.order(:activity_id).order(:category).each do |shift| %>
-  <% shift_work_area = @activities.find_by_id(shift.activity_id).work_area %>
+  <% shift_work_area = @activities.find_by_id(shift.activity_id).work_area.gsub(","," ") %>
   <% unless shift.user_id == nil %>
     <% volunteer = @users.find_by_id(shift.user_id) %>
     <% vol_name = "#{volunteer.first_name} #{volunteer.last_name}" %>
