@@ -241,4 +241,8 @@ $(document).ready(function () {
     $('#activities-load').on('click', function() {
 	$('#load-spinner').show();
     });
+
+    $('#financial-info-button').on('click', function() {
+	$('#primary-element').scrollTo('#financial-info');
+    });
 });

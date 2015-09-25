@@ -3,16 +3,24 @@ description: "Programs for children age 18 months to 14 years",
   keywords: %w(programs young-children elementary primary home environment)
 %>
 
-<div class='programs-slider bottom-shadow'>
 
+
+<div class='programs-slider bottom-shadow'
+     >
   <!--YCC-->
-  <div class='programs-slide'>
+  <div class='programs-slide'
+       style='
+       position:relative;
+       z-index:0;
+       '
+       >
     <div class='small-12 small-centered columns'>
 
       <!--title-->
       <div class='row'>
 	<div class='small-12 columns' style='position:relative;z-index:1;'>
 	  <h2 class='hi-li padded'>Young Children's Community</h2>
+	  <%= render 'financial_info_button' %>
 	</div>
       </div>
 
@@ -93,30 +101,33 @@ description: "Programs for children age 18 months to 14 years",
     </div>
   </div>
   <!--^^-->
-
-  <!--FINANCIAL-->
-  <div class='programs-slide'>
-    <div class='small-12 small-centered columns'>
-
-      <div class='row'>
-	<div class='small-12 small-centered columns'>
-	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
-	</div>
-      </div>
-
-      <div class='row'>
-	<div class='small-11 columns'>
-	  <%= cms_snippet_content('financial', @cms_site).html_safe %>
-	  <!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
-	  </EMBED>
-	</div>
-      </div>
-
-    </div>
-  </div>
-  <!--^^-->
-
 </div>
+
+<!--FINANCIAL-->
+<div id='financial-info' class=''>
+  <div class='small-12 small-centered columns'>
+
+    <div class='row'>
+      <div class='small-12 small-centered columns'>
+	<h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='small-11 columns'>
+	<!--[if !IE]>-->
+	<%= cms_snippet_content('financial', @cms_site).html_safe %>
+	<!--<![endif]-->
+	<!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
+	  </EMBED>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--^^-->
+
+
 
 <script>
  $(document).ready(function(){
