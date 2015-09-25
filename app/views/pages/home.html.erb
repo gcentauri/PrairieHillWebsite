@@ -114,5 +114,46 @@ description: 'Montessori education for children with an emphasis on meeting the 
 
 </script>
 
+<!--small-browser-->
+<% content_for :small do %>
 
+
+  <div class='small-12 columns left'>
+
+    <%= render 'layouts/title' %>
+    
+    <!--ABOUT-->
+    <%#= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
+    <%#= cms_snippet_content('philosophy', @cms_site).html_safe %>
+    <%#= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    <!--ABOUT-->
+
+  </div>
+
+  <%= render 'layouts/static_menu' %>
+
+  <!--future navigation-->
+  <div class='hidden'>
+    <div style='
+	 margin-top: 25px;
+	 '
+	 >
+      <div class='
+	   small-3 columns
+	   button expand radius bottom-shadow'>Home.</div>
+      <div class='
+	   small-3 columns
+	   button expand radius bottom-shadow'>About.</div>
+    </div>
+    <div class='row'>
+      <div class='button success radius bottom-shadow'>Programs</div>
+      <div class='button success radius bottom-shadow'>Country Fair</div>
+      <div class='button hi-li-grn-faded radius bottom-shadow'>Tours</div>
+      <span class='hidden'>staff calendar employment donate contact legal info facebook fb-photos ig?</span>
+    </div>
+  </div>
+  <!--future navigation-->
+
+<% end %>
+<!--small-browser-->
 

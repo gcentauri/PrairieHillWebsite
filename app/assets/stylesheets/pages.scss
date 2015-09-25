@@ -85,6 +85,15 @@ $phill-gold: #ffef19;
     border-radius: 5px;
 }
 
+#title-a-ph {
+    font-size:3vw;
+}
+
+#title-a-lc {
+    font-size:3vw;
+}
+
+
 #layout_title_main {
     border: 0px solid rgba(255,250,200,1);
     border-radius: 2px;
@@ -161,8 +170,20 @@ $phill-gold: #ffef19;
 @media only screen and (max-width:60em) {
     #small-browser {
 	display: inline;
-	font-size: 4vw;
-	margin: 15px;
+	#mobile-preview-button {
+	    //width: 100%;
+	    font-size: 9vw;
+	    margin: 15px;
+	}
+	#title-a-ph {
+	    font-size:9vw;
+	}
+	#title-a-lc {
+	    font-size:7vw;
+	}
+	.button {
+	    font-size:5vw;
+	}
     }
     #normal-browser {
 	display: none;

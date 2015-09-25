@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
-
+    //$('#mobile-preview-view').hide();
+    
     //slick sliders
     var title_icon = "<span id='slide-control-title'><i class='fa fa-photo fa-2x'></i></span>"
     var prev_icon = "<i class='fa fa-angle-double-left'></i>"
@@ -244,5 +245,23 @@ $(document).ready(function () {
 
     $('#financial-info-button').on('click', function() {
 	$('#primary-element').scrollTo('#financial-info');
+    });
+
+    $('#mobile-preview-button').on('click', function() {
+	//$('#mobile-preview-view').toggleClass('hidden');
+	$('#mobile-preview-view').animate(
+	    {
+		opacity : 1
+	    }
+	);
+	//$('#mobile-preview-view').fadeIn();
+	$(this).hide();
+	$('#mobile-logo-placeholder').animate(
+	    {
+		width : '10%',
+		top : '10%',
+		left : '90%'
+	    }, 2200
+	);
     });
 });

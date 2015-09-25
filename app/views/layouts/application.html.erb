@@ -12,12 +12,54 @@
 </head>
 <body>
 
+  <div id='small-browser' class='small-11 left columns'>
+    <div id='mobile-preview-button'
+	 class='
+	 small-4 small-centered columns
+	 button expand radius
+	 hi-li bottom-shadow
+	 '
+	 style='
+	 position:absolute;
+	 z-index:20;
+	 '
+	 >
+      Coming Soon!
+    </div>
+    <div id='mobile-logo-placeholder'
+	 class='
+	 small-4 columns
+	 '
+	 style='
+	 position:absolute;
+	 top:150px;	   
+	 left:8%;
+
+	 width:90%;
+	 //height:70%;
+	 z-index:2;
+	 '
+	 >
+      <%= image_tag "logo-transparent.png", style: "background-color:white;border: 2px solid white;", class: 'bottom-shadow' %>
+    </div>
+    <div id='mobile-preview-view'
+	 class='
+	 //hidden
+	 small-12 small-centered columns
+	 '
+	 style='
+	 position:relative;
+	 left:4%;
+	 opacity:0;
+	 '
+	 >
+      <%= yield :small %>
+    </div>
+  </div>
+  
   <!--PAGE 12-->
   <div class='row'>
 
-    <div id='small-browser' class='small-12 medium-12 columns'>
-      <span class='button expand'>Mobile Coming Soon!</span>
-    </div>
 
     <div id='normal-browser' class='small-12 small-centered columns'>
 
