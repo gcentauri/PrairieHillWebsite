@@ -956,6 +956,28 @@
        - [ ] connect application via http requests
 	 https://developer.android.com/training/volley/index.html
        - [ ] build mobile views
+
+	 [[./app/views/layouts/application.html.erb]]
+
+	 - [ ] TITLE
+
+	   : <%= render 'layouts/title' %>
+
+	 - [ ] NAV
+
+	   : <%= render 'layouts/mobile_static_menu' %>
+
+	   [[./app/views/layouts/_mobile_static_menu.html.erb]]
+	   [[./app/assets/stylesheets/pages.scss]]
+
+	 - [ ] CONTENT
+
+	   : <%= yield :small %>
+
+	   [[./app/views/pages/home.html.erb]]
+
+	   : <% content_for :small do %> 
+
      - [ ] phonegap
    - [X] re-route http://www.prairiehill.com => heroku app
 

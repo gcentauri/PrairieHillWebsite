@@ -36,13 +36,15 @@ $btn-primary-color: white;
 @import 'bootstrap';
 
 
-
-html, body {
-    background: $phill-gold;
-    //background: image-url('staffandboard.png') fixed;
-    //background: image-url('crabapples.png') fixed;
+body {
     background: image-url('crabapples_a95.png') fixed;
     background-size: cover;
+}
+html, body {
+    //background: $phill-gold;
+    //background: white;
+    //background: image-url('staffandboard.png') fixed;
+    //background: image-url('crabapples.png') fixed;
     font-family: 'News Cycle', 'Kaushan Script', 'Roboto';
     font-size: 1vw;
 }

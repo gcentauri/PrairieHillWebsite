@@ -95,6 +95,74 @@ description: 'Montessori education for children with an emphasis on meeting the 
 </div>
 <!--^^-->
 
+<!--SMALL-BROWSER-->
+<% content_for :small do %>
+
+  <!--IMAGE-->
+  <div class='small-12 small-centered columns'
+       style='
+       background: white;
+       padding: 5px;
+       border-radius: 3px;
+       '
+       >
+    <%= image_tag("kellan-bellpepper.jpg", style: 'width: 100%;') %>
+  </div>
+  <!--IMAGE-->
+  
+  <!--MISSION STATEMENT-->
+  <div id='missionstatementModal'
+       class='
+       reveal-modal
+       '
+       data-reveal
+       aria-labelledby='missionstatementTitle'
+       aria-hidden='true'
+       role='dialog'
+       style='
+       border-radius: 5px;
+       '>
+    <h1 id='missionstatementTitle'>Mission Statement</h1>
+    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    <a class='close-reveal-modal' aria-labelledby="Close">&#215;</a>
+  </div>
+
+  <div class='justify'
+       >
+    <h1 class='hi-li padded-sides'>Mission Statement</h1>
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    </div>
+  </div>
+  <!--MISSION STATEMENT-->
+  <br/>
+  <!--about/philosophy-->
+  <div class='justify'
+       >
+    <h1 class='hi-li padded-sides'>Philosophy</h1>
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+    </div>
+  </div>
+  <!--about/philosophy-->
+
+<% end %>
+<!--small-browser-->
+
+
+<!--JS-->
 <script>
  $(document).ready(function(){
 
@@ -114,46 +182,4 @@ description: 'Montessori education for children with an emphasis on meeting the 
 
 </script>
 
-<!--small-browser-->
-<% content_for :small do %>
-
-
-  <div class='small-12 columns left'>
-
-    <%= render 'layouts/title' %>
-    
-    <!--ABOUT-->
-    <%#= image_tag("kellan-bellpepper.jpg", style: 'width: 85%;') %>
-    <%#= cms_snippet_content('philosophy', @cms_site).html_safe %>
-    <%#= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-    <!--ABOUT-->
-
-  </div>
-
-  <%= render 'layouts/static_menu' %>
-
-  <!--future navigation-->
-  <div class='hidden'>
-    <div style='
-	 margin-top: 25px;
-	 '
-	 >
-      <div class='
-	   small-3 columns
-	   button expand radius bottom-shadow'>Home.</div>
-      <div class='
-	   small-3 columns
-	   button expand radius bottom-shadow'>About.</div>
-    </div>
-    <div class='row'>
-      <div class='button success radius bottom-shadow'>Programs</div>
-      <div class='button success radius bottom-shadow'>Country Fair</div>
-      <div class='button hi-li-grn-faded radius bottom-shadow'>Tours</div>
-      <span class='hidden'>staff calendar employment donate contact legal info facebook fb-photos ig?</span>
-    </div>
-  </div>
-  <!--future navigation-->
-
-<% end %>
-<!--small-browser-->
 

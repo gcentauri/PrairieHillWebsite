@@ -1,0 +1,60 @@
+
+<div id='mobile-static-menu' class='icon-bar five-up' role='navigation'>
+
+  <%= link_to root_path, class: 'item hidden' do %>
+    <i class='fa fa-home'></i>
+  <% end %>
+
+  <%= link_to root_path, class: 'item' do %>
+    <i class='fa fa-home'></i>
+  <% end %>
+
+  <%= link_to about_path, class: 'item' do %>
+    <i class='fa fa-info-circle'></i>
+  <% end %>
+
+  <%= link_to root_path, class: 'item' do %>
+    <i class='fa fa-home'></i>
+  <% end %>
+
+  <%= link_to root_path, class: 'item' do %>
+    <i class='fa fa-home'></i>
+  <% end %>
+
+  <%= link_to root_path, class: 'item' do %>
+    <i class='fa fa-home'></i>
+  <% end %>
+
+</div>
+
+<!--case menu conditions for large view-->
+<span class='hidden'>
+<% case request.fullpath %>
+<% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
+
+<%= render 'layouts/ccf_side' %>
+
+<% else %>
+
+<ul class=''>
+  <li><%= link_to "HOME", root_path, class: 'button expand' %></li>
+  <li><%= link_to "ABOUT", about_path, class: 'button expand' %></li>
+  <li><%= link_to "PROGRAMS", programs_path, class: 'button expand' %></li>
+  <li>
+    <%= link_to ccf_path, class: 'button expand' do %>
+      <i class='fa fa-child fa-2x'></i> <span style='color:gold;'>Country Fair</span> <span style="font-size:1.7rem;font-family:'News Cycle';">Oct 3!</span>
+    <% end %>
+  </li>
+  <li><%= link_to "TOURS", news_path, class: 'button expand' %></li>
+  <li><%= link_to "STAFF", staffandboard_path, class: 'button expand' %></li>
+  <li><%= link_to "CALENDAR", calendar_path, class: 'button expand' %></li>
+  <li><%= link_to "EMPLOYMENT", jobs_path, class: 'button expand' %></li>
+  <li><%= link_to "DONATE", donate_path, class: 'button expand' %></li>
+  <li><%= link_to "CONTACT", contact_path, class: 'button expand' %></li>
+  <!--<li><%#= link_to "SUMMER CAMP", camp_path %></li>-->
+  <!--<li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => '<!--alert("COMING SOON: Sept 12th!")' %></li>-->
+  <!--<li><%#= link_to "COUNTRY FAIR", ccf_path %></li>-->
+  <% end %>
+</ul>
+</span>
+<!--case menu conditions for large view-->

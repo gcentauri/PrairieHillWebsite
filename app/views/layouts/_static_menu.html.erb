@@ -1,7 +1,6 @@
-
-  <% case request.fullpath %>
-  <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
-  <%= render 'layouts/ccf_side' %>
+<% case request.fullpath %>
+<% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
+<%= render 'layouts/ccf_side' %>
 <% else %>
 <ul class='side-nav'>
   <li><%= nav_link "HOME", root_path %></li>
