@@ -8,6 +8,9 @@
 	<h4>Start Time</h4>
 	<% get_times %>
 	<%= f.select :start_time, options_for_select(@times, f.object.start_time ) %>
+	<% if f.object.user_id != nil %>
+	  <h1 style='color:red;'>TAKEN!</h1>
+	<% end %>
 	
       </div>
     </div>
@@ -21,6 +24,10 @@
 	<h4>End Time</h4>
 	<%= f.select :end_time, options_for_select(@times, f.object.end_time ) %>
 
+	<% if f.object.user_id != nil %>
+	  <h1 style='color:red;'>TAKEN!</h1>
+	<% end %>
+	
 	<div class='input-group date hidden' id='datetimepicker-<%= rand(100) %>'>
 	  <%#= f.text_field :end_time, class: 'form-control foo' %>
 	  <span class='input-group-addon'>
@@ -50,6 +57,7 @@
     </div>
   </div>
 
+  
   <!--REMOVE-->
   <%#= f.hidden_field :_destroy %>
   <% unless f.object.persisted? %>
