@@ -28,6 +28,18 @@
 	   >
 
 	<% work_area_simple = activity.work_area.gsub(" ","-").gsub(",","-") %>
+
+	<% if can? :manage, activity %>
+	  <div class='activity-edit-toggle small-1 columns'
+	       style='position:relative;index:20;'>
+	    <%= link_to edit_activity_path(activity) do %>
+	      <i class="fa fa-wrench"
+		 style='
+		 '
+		 ></i>
+	    <% end %>
+	  </div>
+	<% end %>
 	
 	<!--ACTIVITY TITLE row-->
 	<div class='row activity-toggle bottom-shadow button hi-li-grn-faded expand'
@@ -47,6 +59,8 @@
 	  <!--      '-->
 	  <!--      >-->
 	  <!--ACTIVITY TITLE title-->
+	  
+
 	  <div class='title-button small-9 columns left text-shadow-2 hi-li'
 	       style='
 	       //border:1px solid rgba(255,255,255,0.2);
@@ -60,21 +74,10 @@
 	    <%= activity.work_area %>
 
 	    <%# if current_user.try(:admin?) %>
-	    <% if can? :manage, activity %>
-	      <div class='activity-edit-toggle small-1 columns'>
-		<%= link_to edit_activity_path(activity) do %>
-		  <i class="fa fa-wrench"
-		     style='
-		     
-		     '
-		     ></i>
-		<% end %>
-	      </div>
-	    <% else %>
-	      <div class='activity-edit-toggle small-1 columns'>
-		<i class="fa fa-heart"></i>
-	      </div>
-	    <% end %>
+	    <div class='activity-edit-toggle small-1 columns'>
+	      <i class="fa fa-heart"></i>
+	    </div>
+
 	    
 	    <!-- <div class='shift-content row'-->
 	    <!-- 	   style='-->
@@ -259,7 +262,7 @@
 			
 			<!--SHIFT NAME-->
 			<% if user_signed_in? %>
-			
+			  
 			  <% if shift.user_id != nil %>
 
 			    <!--SHIFT NAME-->
@@ -326,7 +329,7 @@
 				<%= f.submit "Cancel", class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
 				<%#= f.submit value: "#{raw <i class='fa fa-remove'></i>}", class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" } %>
 				<%#= button_tag(name: 'commit', type: 'submit', class: 'button large warning expand bottom-shadow', data: { :confirm => "Cancel your shift?" }) do %>
-				  <!--<i class='fa fa-remove'></i>-->
+				<!--<i class='fa fa-remove'></i>-->
 				<%# end %>
 				
 			      <% end %>
