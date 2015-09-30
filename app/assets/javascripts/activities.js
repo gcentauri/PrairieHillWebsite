@@ -440,24 +440,24 @@ $(document).ready(function() {
     });
 
     $(function() {
-	primary.scroll(function() {
-	    if (primary.scrollTop() > 40) {
-		$('#heart-anim').animate(
-		    {
-			'font-size':'80vw',
-			'opacity':'0',
-			'transform':'translate(1000px,500px)'
-		    }, 512, 'easeInCirc'
-		);
-		$('#heart-anim').css(
-		    {
-			'position' : 'fixed',
-			'top' : '10%',
-			'left' : '25%'
-		    }
-		);
-	    }
-	});
+	// primary.scroll(function() {
+	//     if (primary.scrollTop() > 40) {
+	// 	$('#heart-anim').animate(
+	// 	    {
+	// 		'font-size':'80vw',
+	// 		'opacity':'0',
+	// 		'transform':'translate(1000px,500px)'
+	// 	    }, 512, 'easeInCirc'
+	// 	);
+	// 	$('#heart-anim').css(
+	// 	    {
+	// 		'position' : 'fixed',
+	// 		'top' : '10%',
+	// 		'left' : '25%'
+	// 	    }
+	// 	);
+	//     }
+	// });
     });
     
 });
