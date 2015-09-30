@@ -1,7 +1,11 @@
 <% headers = ['Work Area', 'Category', 'Time', 'Guest Volunteer', 'Volunteer'] %>
+
 <%= CSV.generate_line headers %>
+
 <% @shifts.order(:activity_id).order(:category).each do |shift| %>
+
   <% shift_work_area = @activities.find_by_id(shift.activity_id).work_area.gsub(","," ") %>
+
   <% unless shift.user_id == nil %>
     <% volunteer = @users.find_by_id(shift.user_id) %>
     <% vol_name = "#{volunteer.first_name} #{volunteer.last_name}" %>
@@ -9,8 +13,8 @@
 
   <% @shift_time = "#{print_shift_time(shift.start_time, 'day')} #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')}" %>
   <% @shift_time_short = @shift_time.split(" ").join("").gsub(":00","").gsub("AM","").gsub("PM","") %>
-  
-  <%#= CSV.generate_line([shift_work_area, shift.category, @shift_time_short, (if shift.guest != nil && shift.guest != "" shift.guest end), vol_name]) %>
+
   <%= CSV.generate_line([shift_work_area, shift.category, @shift_time_short, (shift.guest if shift.guest != nil && shift.guest != ""), vol_name]) %>
 
+  <%#= CSV.generate_line([shift_work_area, shift.category, @shift_time_short, (if shift.guest != nil && shift.guest != "" shift.guest end), vol_name]) %>
 <% end %>

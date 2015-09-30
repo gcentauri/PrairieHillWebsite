@@ -439,6 +439,27 @@ $(document).ready(function() {
 	dashboard.fadeIn("slow");
     });
 
+    $(function() {
+	primary.scroll(function() {
+	    if (primary.scrollTop() > 40) {
+		$('#heart-anim').animate(
+		    {
+			'font-size':'80vw',
+			'opacity':'0',
+			'transform':'translate(1000px,500px)'
+		    }, 512, 'easeInCirc'
+		);
+		$('#heart-anim').css(
+		    {
+			'position' : 'fixed',
+			'top' : '10%',
+			'left' : '25%'
+		    }
+		);
+	    }
+	});
+    });
+    
 });
 
 //use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/ 
