@@ -3,8 +3,10 @@
 #+EMAIL: son@lincolnix.net
 #+OPTIONS: toc:nil num:nil
 
-* Prairie Hill Learning Center
-** TODO
+* Prairie Hill Learning Center 
+
+** OLD :noexport:
+*** TODO
 
    - [-] August 2015
 
@@ -985,7 +987,7 @@
 
     http://railscasts.com/episodes/362-exporting-csv-and-excel
 
-** What we need to look at for functionality:
+*** What we need to look at for functionality:
    
 *** mailer contact
 
@@ -1070,7 +1072,7 @@
 
        - [ ] PAGEs for general website content
 
-** ModelViewControl
+*** ModelViewControl
 
 *** Model
 
@@ -1655,72 +1657,72 @@
 
 
 
-**** Routes
+***** Routes
 
-     [[./app/views/][Views Directory]]
+      [[./app/views/][Views Directory]]
 
-     [[./config/routes.rb]]
+      [[./config/routes.rb]]
 
-     - [X] create root path
+      - [X] create root path
 
-       : root 'static_pages#home'
+       	: root 'static_pages#home'
 
-     - [ ] create paths for desired routes
+      - [ ] create paths for desired routes
 
-       : get "about" => "pages#about"
-       : get "news" => "pages#news"
-       : get "programs" => "pages#programs"
-       : get "calendar" => "pages#calendar"
-       : get "contact" => "contacts#new"
-       : get "staffandboard" => "pages#staff"
-       : get "jobs" => "pages#jobs"
-       : get "donate" => "pages#donate"
-       : get "camp" => "pages#summer_camp"
-       : get "csv" => "pages#csvupload"
-       : get "ccf" => "shifts#volunteer"
+       	: get "about" => "pages#about"
+       	: get "news" => "pages#news"
+       	: get "programs" => "pages#programs"
+       	: get "calendar" => "pages#calendar"
+       	: get "contact" => "contacts#new"
+       	: get "staffandboard" => "pages#staff"
+       	: get "jobs" => "pages#jobs"
+       	: get "donate" => "pages#donate"
+       	: get "camp" => "pages#summer_camp"
+       	: get "csv" => "pages#csvupload"
+       	: get "ccf" => "shifts#volunteer"
 
 
 
-**** Controllers   
+***** Controllers   
 
-     [[./app/controllers/application_controller.rb]]
+      [[./app/controllers/application_controller.rb]]
 
-     #+begin_src ruby :tangle "./app/controllers/application_controller.rb"
-       class ApplicationController < ActionController::Base
-         # Prevent CSRF attacks by raising an exception.
-         # For APIs, you may want to use :null_session instead.
-         # protect_from_forgery with: :exception
-         protect_from_forgery
-         skip_before_action :verify_authenticity_token, if: :json_request?
+      #+begin_src ruby :tangle "./app/controllers/application_controller.rb"
+       	class ApplicationController < ActionController::Base
+          # Prevent CSRF attacks by raising an exception.
+          # For APIs, you may want to use :null_session instead.
+          # protect_from_forgery with: :exception
+          protect_from_forgery
+          skip_before_action :verify_authenticity_token, if: :json_request?
 
-         before_filter :configure_permitted_parameters, if: :devise_controller?
-         before_filter :set_contacts
+          before_filter :configure_permitted_parameters, if: :devise_controller?
+          before_filter :set_contacts
 
-         def set_contacts
-           @contact = Contact.new
-         end
+          def set_contacts
+            @contact = Contact.new
+          end
 
-         def after_sign_in_path_for(resource)
-           ccf_path
-         end
+          def after_sign_in_path_for(resource)
+            ccf_path
+          end
 
-         def after_sign_out_path_for(resource)
-           ccf_path
-         end
+          def after_sign_out_path_for(resource)
+            ccf_path
+          end
 
-         protected
-         def configure_permitted_parameters
-           devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me) }
-           devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
-           devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin) }
-         end
+          protected
+          def configure_permitted_parameters
+            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me) }
+            devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin) }
+          end
 
-         def json_request?
-           request.format.json?
-         end
-       end
-     #+end_src
+          def json_request?
+            request.format.json?
+          end
+       	end
+      #+end_src
 
-     [[./app/controllers/pages_controller.rb]]
+      [[./app/controllers/pages_controller.rb]]
 
 
