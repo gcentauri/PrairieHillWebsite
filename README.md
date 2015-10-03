@@ -1,20 +1,23 @@
 # Prairie Hill Learning Center
 
-After over 2 years of cumbersome working with the wordpress managed website 
-content for the Prairie Hill website (whether due to the way that wordpress 
-arranges itself or my own ignorance and lack of education in web design, php, 
-etc), this is an attempt to try something new. Having a nice solid foundation 
-in building an application with Rails, I feel like now is the time to build 
-something from the ground up that will hopefully meet my needs for control 
-and understanding for building and modifying the backend functionality 
-(most importantly without having to go through all of hassle of using the 
-actual web content management editors and having so many extraneous steps,
-instead of just using my text editor&#x2026;), as well as the front end need
-for admin staff to update content, which is what is important to them in
-the basic functionality of the site. I take care of the functionality and
-aesthetic; they give it the words.
-
 ## TODO 
+
+-   [-] August 2015
+    -   [-] take summer camp down
+        -   [X] remove from menu
+        -   [ ] restrict access to page
+    -   [ ] ccf app
+        -   [ ] function
+            -   [ ] volunteer others
+            -   [ ] advance my shifts page
+            -   [ ] show schedule/calendar to see where friends are volunteering
+            -   [ ] spreadsheet export
+        -   [ ] informational page
+            what is the country fair?
+            simple info page, what's at the fair? (find scott's video from previous years)
+            slide show - madeline pics (look on fb, 5-10 pics)
+        -   [ ] fun run info, registration link
+        -   [ ] move ccf menu link to after programs, make it stand out
 
 -   [ ] fix change/forgot password issue
 -   [-] rebuild ccf volunteer app
@@ -63,6 +66,121 @@ aesthetic; they give it the words.
           # Make sure this routeset is defined last
           comfy_route :cms, :path => '/', :sitemap => true
         end
+    -   [ ] connect with drive api to the spreadsheet?
+        -   [ ] omniauth
+            
+            <https://www.twilio.com/blog/2014/09/gmail-api-oauth-rails.html>
+            <https://github.com/intridea/omniauth>
+    
+    -   [ ] make use of fullcalendar for interaction?
+        see [Budget](file:///home/son/RAILS-dev/son/budget/README.org) for working example and detailed instructions
+        -   calendar integration?
+            -   [ ] sample integration
+                
+                <./config/routes.rb>
+                
+                [FullCalendar Rails](http://blog.crowdint.com/2014/02/18/fancy-calendars-for-your-web-application-with-fullcalendar.html)
+                
+                <http://fullcalendar.io/docs/event_data/Event_Object/#color-options>
+                
+                -   [ ] Activities
+                    -   [ ] Configuration
+                        
+                        <./Gemfile>
+                        
+                            gem 'fullcalendar-rails'
+                            gem 'momentjs-rails'
+                        
+                            bundle install
+                        
+                        <./app/assets/stylesheets/application.css.scss>
+                        
+                            *= require fullcalendar
+                        
+                        <./app/assets/javascripts/application.js>
+                        
+                        These are order-sensitive
+                        
+                            //= require moment
+                            //= require fullcalendar
+                        
+                        <./app/views/activities/index.html.erb>
+                        
+                            <div id='calendar'></div>
+                        
+                        <./app/views/activities/new.html.erb>
+                        
+                        <./app/views/activities/edit.html.erb>
+                        
+                        <./app/views/activities/_form.html.erb>
+                        
+                        <./app/assets/javascripts/activities.js>
+                        
+                        <./app/views/activities/index.json.jbuilder>
+                        
+                        [<file:///home/son/RAILS-dev/son/phill/PrairieHillWebsite/db/migrate/20150424144648_add_start_end_times_to_activities.rb>](db/migrate/20150424144648_add_start_end_times_to_activities.rb)
+                        
+                            rails g migration AddStartEndTimesToActivities start_time:datetime end_time:datetime
+                            rake db:migrate
+                        
+                        <./app/controllers/activities_controller.rb>
+                
+                -   [ ] datepicker
+                    
+                    <https://github.com/Nerian/bootstrap-datepicker-rails>
+                    <https://jqueryui.com/datepicker/#min-max>
+                    
+                    <./Gemfile>
+                    
+                        gem 'bootstrap-datepicker-rails'
+                    
+                        bundle install
+                    
+                    <./app/assets/stylesheets/application.css.scss>
+                    
+                        *= require bootstrap-datepicker3
+                    
+                    <./app/assets/javascripts/application.js>
+                    
+                        //= require bootstrap-datepicker
+                
+                -   [ ] datetimepicker
+                    
+                    Datepicker allows for a slick date selection, but what about times?
+                    There are a few different gem solutions that make use of timepicker 
+                    and datepicker js libraries.
+                    
+                    <https://github.com/Envek/jquery-datetimepicker-rails>
+                    
+                    [gem 'jquery-datetimepicker-rails'](./Gemfile)
+                    
+                    <./app/assets/stylesheets/application.css.scss>
+                    
+                        *= require jquery.datetimepicker
+                    
+                    <./app/assets/javascripts/application.js>
+                    
+                        //= require jquery.datetimepicker
+                    
+                    to autoinitialize
+                    
+                        //= require jquery.datetimepicker/init
+                    
+                    <./app/assets/javascripts/shifts.js>
+                    
+                        $('.datetimepicker').datetimepicker();
+                    
+                    <./app/views/shifts/_form.html.erb>
+                    
+                        <%= f.text_field :start_time, class: 'datetimepicker' %>
+                    -   [ ] for user shift selection (TRANSFER TO [PHILL NOTES](file:///home/son/RAILS-dev/phill/PrairieHillWebsite))
+                        -   [ ] timepicker
+                            
+                                $('#timepicker').datetimepicker({
+                                    datepicker: false,
+                                    format: 'H:i'
+                                });
+    
     -   [X] backup volunteer data
         -   [X] check api access to user data
             -   [X] update api to authenticate requests
@@ -155,7 +273,9 @@ aesthetic; they give it the words.
                 end
             -   [X] has many shifts
             -   [ ] belongs to users
+        
         -   [ ] Shifts
+            
             <./app/models/shift.rb>
             
                 class Shift < ActiveRecord::Base
@@ -252,6 +372,7 @@ aesthetic; they give it the words.
             -   [ ] belongs to activity
             -   [ ] belongs to users
                 -   [ ] has guest?
+
 -   [-] build an API
     <https://codelation.com/blog/rails-restful-api-just-add-water>
     -   [X] add to <./Gemfile>
@@ -622,7 +743,6 @@ aesthetic; they give it the words.
                 
                   end
                 end
-    
     -   [X] routing
         
         <./config/routes.rb>
@@ -630,7 +750,6 @@ aesthetic; they give it the words.
             namespace :api do
               resources :logs, :periods
             end
-    
     -   [X] serializing data
         
             mkdir app/views/api /shifts etc
@@ -754,14 +873,13 @@ aesthetic; they give it the words.
                 
                   #json.period_id @log.period ? @log.period_id : nil
                 end
-    
     -   [ ] security and performance concerns
         -   [ ] use fragment caching to make API efficient
             -   [ ] <http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching>
             
             -   [ ] <https://github.com/rails/jbuilder>
-                          offers advantages in caching over libraries like <https://github.com/rails-api/active_model_serializers>
-                          because you can cache JSON templates the same way you would *erb* templates
+                           offers advantages in caching over libraries like <https://github.com/rails-api/active_model_serializers>
+                           because you can cache JSON templates the same way you would *erb* templates
         
         -   [ ] secure your API, gems that we use everyday include CanCan(Can) 
             and Devise to offer per user permissions on resources
@@ -776,6 +894,28 @@ aesthetic; they give it the words.
         -   [ ] connect application via http requests
             <https://developer.android.com/training/volley/index.html>
         -   [ ] build mobile views
+            
+            <./app/views/layouts/application.html.erb>
+            
+            -   [ ] TITLE
+                
+                    <%= render 'layouts/title' %>
+            
+            -   [ ] NAV
+                
+                    <%= render 'layouts/mobile_static_menu' %>
+                
+                <./app/views/layouts/_mobile_static_menu.html.erb>
+                <./app/assets/stylesheets/pages.scss>
+            
+            -   [ ] CONTENT
+                
+                    <%= yield :small %>
+                
+                <./app/views/pages/home.html.erb>
+                
+                    <% content_for :small do %>
+    
     -   [ ] phonegap
 -   [X] re-route <http://www.prairiehill.com> => heroku app
 
@@ -984,6 +1124,41 @@ Pages
             //= require bootstrap
             //= require turbolinks
             //= require_tree .
+    
+    -   Foundation & Rails
+    
+        I'm going to try something "crazy" here and throw Zurb Foundation on top
+        of what he have here with Bootstrap, as I've really been enjoying 
+        Foundation as frotend framework. Thank you, git, for allowing me to branch
+        off!
+        
+        First, I'm going to try just plopping it on top. This may not be a good 
+        idea, but I'm in the mood for danger&#x2026;
+        
+        <https://github.com/zurb/foundation-rails>
+        
+        <./Gemfile>
+        
+            gem 'foundation-rails'
+            bundle
+        
+            rails g foundation:install
+        
+        <./app/views/layouts/application.html.erb>
+        
+            <head>
+              <%= javascript_include_tag 'vendor/modernizr' %>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            </head>
+        
+        <./config/routes.rb>
+        
+        <./app/views/>
+        <./app/views/pages/ccf.html.erb>
+        <./app/views/pages/_ccf_menu.html.erb>
+        <./app/assets/javascripts>
+        
+        <./app/assets/stylesheets/foundation_and_overrides.scss>
 
 -   Assets
 

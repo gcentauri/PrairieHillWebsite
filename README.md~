@@ -455,7 +455,9 @@ aesthetic; they give it the words.
                                   .per(page_params[:page_size])
                 
                       instance_variable_set(plural_resource_name, resources)
-                      respond_with instance_variable_get(plural_resource_name)
+                      #respond_with instance_variable_get(plural_resource_name)
+                      data = instance_variable_get(plural_resource_name)
+                      render :json => data, :callback => params[:callback]
                     end
                 
                     # GET /api/{plural_resource_name}/1
