@@ -16,9 +16,25 @@
   <div id='small-browser' class='small-12 columns'>
 
     <div id='mobile-preview-button' class='small-12 small-centered columns button expand radius hi-li bottom-shadow' style='position:fixed;z-index:20;'>
+      <% case request.fullpath %>
+      <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
+
+      View Shifts
+
+      <% when '/users/sign_in' %>
+
+      Sign In
+
+      <% else %>
+
       Coming Soon!
+
+      <% end %>
     </div>
 
+    <% case request.fullpath %>
+    <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts', '/users/sign_in' %>
+    <% else %>
     <div id='redirect-message'
 	 class='small-12 columns'
 	 style='
@@ -35,6 +51,7 @@
 	Please view from a desktop browser
       </h1>
     </div>
+    <% end %>
     
     <!--LOGO-->
     <div id='mobile-logo-placeholder'

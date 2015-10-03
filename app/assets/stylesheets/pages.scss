@@ -143,6 +143,17 @@ $phill-gold: #ffef19;
 
 #small-browser {
     display: none;
+
+    .mobile-text {
+	font-size: 7vw;
+	color: white;
+    }
+
+    .mobile-input {
+	width: 100%;
+	height: 50px;
+	font-size: 5vw;
+    }
 }
 
 .photo-icon {

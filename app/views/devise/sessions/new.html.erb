@@ -37,6 +37,42 @@
   </div>
 <% end %>
 
+<% content_for :small do %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+    <div style='position:fixed;top:4%;'>
+      <div class='small-12 small-centered columns'>
+	<div class='small-6 left columns'>
+	  <%= f.label "Username or Email", class: 'mobile-text label bottom-shadow' %>
+	</div>
+	<div class='small-6 right columns'>
+	  <%= f.text_field :login, class: 'mobile-input' %>
+	</div>
+      </div>
+
+      <div class='small-12 small-centered columns'>
+	<%= f.label :password, class: 'mobile-text label bottom-shadow' %>
+	<%= f.password_field :password, autocomplete: "off", placeholder: '*******', class: 'mobile-input' %>
+      </div>
+
+      <div class='small-12 small-centered columns'>
+	<% if devise_mapping.rememberable? -%>
+	  <%= f.label :remember_me, class: 'mobile-text label bottom-shadow' %>
+	  <%= f.check_box :remember_me %>
+	<% end -%>
+      </div>
+
+      <div class='small-12 small-centered columns'>
+	<div class='small-6 columns left'>
+	  <%= f.submit "Sign in", class: 'button success bottom-shadow' %>
+	</div>
+	<div class='small-6 columns right'>
+	  <%= link_to "Sign up", new_user_registration_path, class: 'button success bottom-shadow' %>
+	</div>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>
 
 

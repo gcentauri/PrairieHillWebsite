@@ -106,7 +106,16 @@ description: 'Montessori education for children with an emphasis on meeting the 
        border-radius: 3px;
        '
        >
-    <%= image_tag("kellan-bellpepper.jpg", style: 'width: 100%;') %>
+    <a href='#' data-reveal-id='quoteModal'>
+      <%= image_tag("kellan-bellpepper.jpg", style: 'width: 100%;') %>
+    </a>
+
+    <div id='quoteModal' class='reveal-modal' data-reveal aria-labelledby='quoteModalTitle' aria-hidden='true' role='dialog'>
+      <h2 id='quoteModalTitle'>Education</h2>
+      <h1>
+	<%y= render 'layouts/quote' %>
+      </h1>
+    </div>
   </div>
   <!--IMAGE-->
   
