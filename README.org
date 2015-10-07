@@ -14,7 +14,11 @@
        - [X] hide links to ccf
 
 	 [[./app/views/layouts/_static_menu.html.erb]]
-	 
+
+       - [ ] remove from slides
+
+	 [[./app/views/pages/home.html.erb]]
+
        - [ ] backup database
        - [ ] prevent modification?
      - [ ] create special event section
@@ -27,6 +31,7 @@
 
        - [ ] wait for updates from Mandie
      - [ ] design for mobile
+     - [ ] upgrade heroku dyno
 
 ** OLD :noexport:
 *** TODO
