@@ -15,7 +15,7 @@
 
 	 [[./app/views/layouts/_static_menu.html.erb]]
 
-       - [ ] remove from slides
+       - [X] remove from slides
 
 	 [[./app/views/pages/home.html.erb]]
 
