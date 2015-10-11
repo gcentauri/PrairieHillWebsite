@@ -5,7 +5,118 @@
 
 * Prairie Hill Learning Center 
 
+  Rails application for [[http://www.prairiehill.com][prairiehill.com]]
+
 ** TODO 
+
+   - [ ] Sun Oct 11 11:53:19 CDT 2015
+
+     - [ ] gather user feedback
+       - [ ] survey
+	 - [ ] delivery methods
+	   - [ ] email
+	   - [ ] rails engine
+	     - [ ] https://github.com/runtimerevolution/survey
+	 - [ ] elements
+
+	   - [ ] 5 tips for writing a great survey
+
+	     http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey
+
+	     Be Thankful!
+
+	     - [ ] Define Your Objectives. 
+
+	       Figure out the decision or decisions you're trying to make to 
+               focus your survey.   
+
+	       - [ ] Objectives
+
+		 - collect user feedback in order to understand
+
+		   - what worked? what didn't work?
+		   - how did the site feel?
+		   - browser and system type?
+
+		 - improve the application based on this feedback
+
+	     - [ ] Work Backwards. 
+
+	       Once you've set your objectives, determine the data you need to 
+	       gather in your survey to make your decision.
+
+	       - [ ] data needed
+		 
+		 - comments, textual feedback
+
+		   What's good, what could be better, and how?
+
+		   - general
+		     - look & feel
+		     - functionality
+		       - what worked?
+		       - what did not work?
+
+	     - [ ] Check for Bias. 
+
+	       Make sure you're not asking leading questions. 
+
+	     - [ ] Do a Test Drive. 
+	       
+	       Send your survey to friends and colleagues for a test run. 
+	       They'll help make sure your questions and response options are 
+	       understandable and all your survey logic works.
+
+	     - [ ] Collect Results and Analyze Data. 
+
+	       This is where it gets really fun. The data rolling in from your 
+	       survey should help you decide what product to launch next, how 
+	       to raise more money at your next fundraiser, what to do to keep 
+	       customers coming back, what to serve at your next party and much 
+	       more.
+     - [ ] create special [[Events][event]] section
+       - [ ] section for LUX art event
+       - [ ] details in email from Mandie
+	 
+	 [[Chris Rudasill benefit]]
+	 [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
+
+	 /Art Auction to Benefit PRAIRIE HILL/
+
+	 Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+	 several pieces of his original artwork to be sold in a silent 
+	 auction. 100% of the profits will go directly to the further 
+	 funding of art materials and enrichment opportunities at PRAIRIE  
+	 HILL. 
+
+	 Don’t miss this great opportunity to see and purchase original artwork 
+	 at accessible prices (some starting bids will be as low as $10) while 
+	 supporting education through year-round and summer camp programming at 
+	 PRAIRIE HILL Learning Center.
+
+	 - Silent auction during First Friday 
+	   - 11/6/15 (November 6)
+	     - 5–8 p.m. 
+	 - Lux Center for the Arts 
+	   - 2601 N 48th St, Lincoln, NE 68504
+
+	 For more information and images of Chris’s artwork, visit: 
+	 [[http://chrisrudasill.weebly.com][chrisrudasill.weebly.com]]   
+
+	 For more info about PRAIRIE HILL, visit:   
+	 [[http://prairiehill.com][prairiehill.com]]
+
+	 [[./app/assets/images/rudasill_1.jpeg]]
+
+	 [[./app/assets/images/rudasill_2.jpeg]]
+
+     - [ ] upgrade heroku dyno
+     - [ ] design for mobile
+     - [ ] update staff page
+       - [ ] waiting for updates from Mandie
+     - [ ] hide ccf section until 2016
+       - [ ] backup database
+
 
    - [-] Wed Oct  7 10:35:18 CDT 2015
 
@@ -32,6 +143,17 @@
        - [ ] wait for updates from Mandie
      - [ ] design for mobile
      - [ ] upgrade heroku dyno
+
+
+** Configuration
+
+   [[./Gemfile]]
+
+** Events
+
+   : rails g scaffold Event 
+
+*** Chris Rudasill benefit
 
 ** OLD :noexport:
 *** TODO
