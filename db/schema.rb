@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721124557) do
+ActiveRecord::Schema.define(version: 20151011235839) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -146,6 +146,20 @@ ActiveRecord::Schema.define(version: 20150721124557) do
 
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "location"
+    t.text     "location_address"
+    t.datetime "date_and_time"
+    t.string   "parent"
+    t.text     "description"
+    t.text     "links"
+    t.string   "event_image_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,16 @@
+= simple_form_for(@event) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :subtitle
+    = f.input :location
+    = f.input :location_address
+    = f.input :date_and_time
+    = f.input :parent
+    = f.input :description
+    = f.input :links
+    = f.file_format :photo, :event_image
+
+  .form-actions
+    = f.button :submit

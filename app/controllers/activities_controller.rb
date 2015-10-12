@@ -70,6 +70,7 @@ class ActivitiesController < InheritedResources::Base
       format.html { redirect_to pages_url, notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize! :manage, @activity
   end
 
   private

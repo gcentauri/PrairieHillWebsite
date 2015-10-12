@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
 
+  resources :events
   namespace :api, defaults: {format: 'json'} do
     resources :activities,
               :pages,

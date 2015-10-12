@@ -37,8 +37,14 @@ $btn-primary-color: white;
 
 
 body {
-    background: image-url('crabapples_a95.png') fixed;
-    background-size: cover;
+    //background: image-url('crabapples_a95.png') fixed;
+    //background-size: cover;
+    
+    background: image-url('rudasill_1.jpeg') fixed;
+    background-position: left top;
+    background-size: 17%;
+    background-repeat: no-repeat;
+
 }
 html, body {
     //background: $phill-gold;

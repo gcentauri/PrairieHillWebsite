@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @event.title %>
+</p>
+<p>
+  <%= @event.subtitle %>
+</p>
+<p>
+  <%= @event.location %>
+</p>
+<p>
+  <%= @event.location_address %>
+</p>
+<p>
+  <%= @event.date_and_time %>
+</p>
+<p>
+  <%= @event.parent %>
+</p>
+<p>
+  <%= @event.description %>
+</p>
+<p>
+  <%= @event.links %>
+</p>
+doop
+<p>
+  <%= image_tag attachment_url(@event, :event_image) %>
+</p>

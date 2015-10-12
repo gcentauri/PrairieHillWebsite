@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Subtitle:
+  = @event.subtitle
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Location address:
+  = @event.location_address
+%p
+  %b Date and time:
+  = @event.date_and_time
+%p
+  %b Parent:
+  = @event.parent
+%p
+  %b Description:
+  = @event.description
+%p
+  %b Links:
+  = @event.links
+%p
+  %b Event image:
+  = image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") 
+
+- if can? :manage, Event   
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+= link_to 'Back', events_path
