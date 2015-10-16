@@ -1,0 +1,27 @@
+
+<div class='small-12 columns'>
+
+  <%= event.title %>
+  <%= event.subtitle %>
+  <%= event.location %>
+  <%= event.location_address %>
+  <%= event.date_and_time %>
+  <%= event.parent %>
+  <%= event.description %>
+  <%= event.links%>
+  <%= event.event_image_id%>
+  <%= link_to 'Show', event%>
+  <%= link_to 'Edit', edit_event_path(event)%>
+  <%= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }%>
+
+  <% if can? :manage, Event %>
+    <%= link_to 'New Event', new_event_path, class: 'button success' %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
+  <% end %>
+  
+</div>

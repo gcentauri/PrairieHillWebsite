@@ -1,0 +1,8 @@
+$(document).ready(function() {
+    $('#feature-image').on('hover', function() {
+	console.log($(this));
+	$(this).animate({
+	    width: '120%'
+	});
+    });
+});

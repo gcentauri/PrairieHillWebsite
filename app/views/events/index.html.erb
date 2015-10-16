@@ -1,0 +1,54 @@
+
+<div class='small-12 columns'>
+
+  <% @events.each do |event| %>
+
+    <div class='card'>
+      <div class='row'>
+	<a class='button expand'
+	   href=<%= event_path(event) %>
+	  >
+
+	  <div class='small-4 columns left'>
+	    <%= image_tag event.event_image.url(:small), class: 'feature-image' %>
+	    <%#= image_tag event.event_image.url(:thumbcrop), class: 'feature-image' %>
+	  </div>
+
+	  <div class='small-8 columns'>
+	    <h1 style='
+		text-align:right;
+		'
+		><%= event.title %>
+	    </h1>
+	  </div>
+
+	</a>
+      </div>
+
+    </div>
+
+    <div class='hidden'>
+	<div class='row'><%= event.subtitle %></div>
+	<div class='row'><%= event.location %></div>
+	<div class='row'><%= event.location_address %></div>
+	<div class='row'><%= event.date_and_time %></div>
+	<div class='row'><%= event.parent %></div>
+	<div class='row'><%= event.description %></div>
+	<div class='row'><%= event.links %></div>
+      </div>
+    
+    <hr/>
+  <% end %>
+
+
+  <% if can? :manage, Event %>
+    <%= link_to 'New Event', new_event_path, class: 'button success' %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
+  <% end %>
+  
+</div>
