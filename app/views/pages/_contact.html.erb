@@ -1,4 +1,5 @@
-<div class='small-12 columns bottom-shadow' style='position:relative;top:10px;'>
+<div class='small-12 columns bottom-shadow card'
+     style='position:relative;top:10px;'>
   <div class='row'>
     <div class='small-5 columns'>
       <%= image_tag("logo-transparent.png", class: "contact-logo") %>
@@ -14,6 +15,7 @@
       </div>
 
       <div class='row'>
+	<div class='small-12 columns'>
 	<%= simple_form_for @contact, :html => {:class => 'form-group' }, :defaults => { :input_html => { :class => 'form-control' } } do |f| %>
 	  <%= f.input :name, :required => true %>
 	  <%= f.input :email, :required => true %>
@@ -25,6 +27,7 @@
 	    <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
 	  </div>
 	<% end %>
+	</div>
       </div>
     </div>
   </div>

@@ -1,30 +1,112 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @event.title %>
-</p>
-<p>
-  <%= @event.subtitle %>
-</p>
-<p>
-  <%= @event.location %>
-</p>
-<p>
-  <%= @event.location_address %>
-</p>
-<p>
-  <%= @event.date_and_time %>
-</p>
-<p>
-  <%= @event.parent %>
-</p>
-<p>
-  <%= @event.description %>
-</p>
-<p>
-  <%= @event.links %>
-</p>
-doop
-<p>
-  <%= image_tag attachment_url(@event, :event_image) %>
-</p>
+<div class='small-12 small-centered columns card'>
+
+  <div class='row'
+       style='
+       //background-color:rgba(200,200,200,0.1);
+       border:1px solid rgba(255,255,255,0.1);
+       border-radius:25px;
+       '
+	>
+
+    <div class='small-5 columns'
+	 style='
+	 //box-shadow: inset 0 0 10px rbga(0,0,0,0.9);
+	 //border-radius: 50%;
+	 margin: 15px;
+	 '
+	 >
+      <div id='feature-image'
+	   class='small-12 small-centered columns'
+	   style='
+	   position:relative;
+	   left:30px;
+
+	   '
+	   >
+	
+	<!--LINK TO IMAGE-->
+	<%= image_tag @event.event_image.url(:xlarge), class: 'bottom-shadow feature-image', style: '' %>
+	<!--LINK TO IMAGE-->
+	
+      </div>
+    </div>
+
+    <div id='event-info' class='small-6 columns left'
+	 style='
+	 //box-shadow: inset 0 0 10px rbga(0,0,0,0.9);
+	 //border-radius: 50%;
+	 margin: 15px;
+	 position:relative;
+	 top:50px;
+	 '
+	 >
+      
+      <div class='card'
+	   style='
+	   background-color:rgba(200,200,200,0.1);
+	   '
+	   >
+	<h1 class='label success'>
+	  <%= @event.title %>
+	</h1>
+
+	<h4 style='text-align:right;'
+	    class='label'>
+	  <%= @event.subtitle %>
+	</h4>
+	<br/>
+	<% unless @event.date_and_time.blank? %>
+	  <em class='label'>
+	    <%= @event.date_and_time.strftime("%B")  %>
+	    <%= @event.date_and_time.strftime("%e") %>th, 2015
+	  </em>
+
+	  <em class='label success'>
+	    <%= @event.date_and_time.strftime("%l") %>-8pm
+	  </em>
+
+	  <p>(<%= @event.parent %>)</p>
+	<% end %>
+
+	<h3>
+	  <%= @event.location %>
+	</h3>
+	<h4>
+	  <%= @event.location_address %>
+	</h4>
+	<hr/>
+	
+	<p>
+	  <%= raw @event.description %>
+	</p>
+	<hr/>
+	
+	<p class='snitch'>
+	  <%= raw @event.links %>
+	</p>
+	<br/>
+	
+      </div>
+
+      <div class='row'>
+	<div class='small-12 small-centered columns'>
+	  <% if can? :manage, Event %>
+	    <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
+	    <%= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button'%>
+	    <%= link_to 'Events', events_path, class: 'button' %>
+	    <% if user_signed_in? %>
+	      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %>
+	    <% else %>
+	      <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
+	    <% end %>  
+	  <% end %>
+	</div>
+      </div>
+
+    </div>
+    </div>
+</div>
+
+

@@ -3,10 +3,10 @@ $(document).ready(function () {
     //$('#mobile-preview-view').hide();
     
     //slick sliders
-    var title_icon = "<span id='slide-control-title'><i class='fa fa-photo fa-2x'></i></span>"
+    var title_icon = "<span id='slide-control-title'><i class='fa fa-photo fa-1x'></i></span>"
     var prev_icon = "<i class='fa fa-angle-double-left'></i>"
     var next_icon = "<i class='fa fa-angle-double-right'></i>"
-    var btn_classes = "button radius bottom-shadow slick-btn"
+    var btn_classes = "radius bottom-shadow slick-btn"
 
     var prev_btn_no_title = "<div class='small-1 columns'><button id='slick-prev-button' type='button' class='"
 	+ btn_classes
@@ -28,7 +28,7 @@ $(document).ready(function () {
 	+ ">"
 	+ prev_icon
 	+ "</button>"
-	+ "<a class='button success' href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal' style='margin:0;'>"
+	+ "<a class='success' href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal' style='margin:0;'>"
 	+ title_icon
 	+ "</a>"
     var next_btn = "<button id='slick-next-button' type='button' class='" + btn_classes +  " slick-next'>" + next_icon + "</button>"
@@ -265,4 +265,18 @@ $(document).ready(function () {
 	    }, 2200, 'easeInOutQuad'
 	);
     });
+
+    // $("#primary-element").niceScroll({
+    // 	horizrailenabled: false,
+    // 	railalign: 'right',
+    // 	background: 'blue'
+    // });
+
+    // $("#primary-element").getNiceScroll().resize();
+
+    //$("#primary-element").jScrollPane(
+    //{
+    //showArrows: true
+    //}
+    //);
 });

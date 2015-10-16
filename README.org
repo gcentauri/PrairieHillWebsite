@@ -173,6 +173,17 @@
 
    - [ ] image file upload(s)
 
+     PaperClip
+
+     https://github.com/thoughtbot/paperclip/issues/2021
+
+     [[./Gemfile]]
+
+     : gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+
+     ::::::::::::::::::::::::::::::::::::
+     Refile Below, not quite successful yet
+
      https://github.com/refile/refile
 
      - [ ] to S3
@@ -229,7 +240,7 @@
 	 : Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
 	 : Refile.store = Refile::S3.new(prefix: 'store', **aws)
 	 
-
+	 
 *** Chris Rudasill benefit ([[Events][event]])
 
     [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
@@ -264,7 +275,7 @@
 
 	 [[./app/assets/images/rudasill_2.jpeg]]
 
-
+	 
 ** Styles
 
    [[./app/assets/stylesheets]]

@@ -322,17 +322,19 @@ $(document).ready(function() {
 		{
 		    width: (doc_width - 160),
 		    left: 0
-		}
+		}, 2000, 'easeOutCirc'
 	    );
 
 	    primary.animate(
 		{
 		    top: cur_dash_height + 40,
 		    width: (doc_width - 150),
-		    //height: (doc_height - 250)
-		    height: '70%'
-		}, 1000
+		    //height: (doc_height - 250) CCF KEEP and modify behavior, dep. path/route
+		    height: '80%' 
+		}, 1000, 'easeOutCubic'
 	    );
+
+	    primary.css('border-radius','50px');
 	    
 	    $('div.category-title').animate(
 		{
@@ -396,15 +398,17 @@ $(document).ready(function() {
 	// });
     });
 
+    
     $('#retract-button').on('click',function() {
 	$(this).hide();
 	$('#expand-button').show();
 
+	primary.css('border-radius','0');
 	primary.animate(
 	    {
 		top: primary_top,
-		width: primary_width + 37,
-		height: primary_height
+		width: primary_width + 35,
+		height: primary_height + 5
 	    }, 1000
 	);
 

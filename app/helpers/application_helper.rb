@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def public_event
+    public = Event.where(public: true).last
+
+    return public
+  end
+  
   def print_shift_time(shift_time, opt)
     unless shift_time.nil?
       case opt

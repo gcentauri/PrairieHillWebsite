@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011235839) do
+ActiveRecord::Schema.define(version: 20151013044507) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -157,8 +157,15 @@ ActiveRecord::Schema.define(version: 20151011235839) do
     t.text     "description"
     t.text     "links"
     t.string   "event_image_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "event_image_file_name"
+    t.string   "event_image_content_type"
+    t.integer  "event_image_file_size"
+    t.datetime "event_image_updated_at"
+    t.string   "category"
+    t.boolean  "public"
+    t.string   "invite_category"
   end
 
   create_table "pages", force: :cascade do |t|

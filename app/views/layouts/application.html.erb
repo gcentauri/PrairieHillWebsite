@@ -105,7 +105,7 @@
     </div>
     <!--YIELD-->
   </div>
-  <!--MOBILE-->
+  <!--end MOBILE-->
   
   <!--PAGE 12-->
   <div class='row'>
@@ -113,40 +113,43 @@
     <div id='normal-browser' class='small-12 small-centered columns'>
 
       <!--NAV 2-->
-      <div id='header' class='medium-2 large-2 columns' style='position:fixed;z-index:3;'>
+      <div id='header' class='small-3 columns'
+	   style='position:fixed;z-index:3;'>
 	<%= render 'layouts/large_header' %>
       </div>
 
       <!--MAIN 8-->
-      <div class='small-10 small-centered large-9 columns'
-	   style='padding:0;
+      <div class='small-9 small-centered columns'
+	   style='
+	   padding:0;
 	   margin:0;
 	   position:fixed;
 	   top:20px;
-	   right:50px;
+	   right:100px;
 	   z-index:2;
 	   border-radius:2px;
-	   height:72px;'>
+	   '
+	   >
 
 	<!---TITLE--->
-	<div id='ph-title' class='small-12 columns' style='padding:0;opacity:0.9;'>
+	<div id='ph-title' class='small-12 columns'
+	     style='
+	     padding:0;
+	     opacity:0.9;
+	     '
+	     >
 	  <%= render 'layouts/title' %>
 	</div>
 	<!--^^-->
 	
 	<!--CONTENT-->
-	<div class='small-12 columns'>
+	<div id='nicescroll-test' class='small-12 columns'>
 	  <div class='row'>
 
 	    <div id='primary-element'
-		 class='small-10 large-9 columns content bottom-shadow'
-		 style='opacity:1;
-		 position:fixed;
-		 margin:0 auto;
-		 top:110px;
-		 right:50px;
-		 height:75%;
-		 border-radius:2px;'>
+		 class='small-9 columns content'
+		 style='
+		 '>
 
 	      <%= yield %>
 	    </div>
@@ -158,7 +161,8 @@
 	<!--^^-->
 
 	<!--FOOTER-->
-	<div id='footer-main' class='small-12 columns footer'>
+	<div id='footer-main' class='small-9 small-centered columns footer'
+	     >
 	  <div class='row'>
 	    <%= render '/layouts/footer' %>
 	  </div>
@@ -170,5 +174,6 @@
   </div>
   <!--endPAGE-->  
 
+  
 </body>
 </html>
