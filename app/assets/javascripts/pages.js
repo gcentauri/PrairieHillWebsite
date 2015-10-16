@@ -28,7 +28,7 @@ $(document).ready(function () {
 	+ ">"
 	+ prev_icon
 	+ "</a>"
-	+ "<a class='success' href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal' style='margin:0;'>"
+	+ "<a class='success' href='https://www.facebook.com/PrairieHillLearningCenter/photos_stream?ref=page_internal' style='margin:0;' target='_blank'>"
 	+ title_icon
 	+ "</a>"
     var next_btn = "<a id='slick-next-button' type='button' class='" + btn_classes +  " slick-next'>" + next_icon + "</a>"
