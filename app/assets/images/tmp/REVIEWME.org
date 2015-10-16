@@ -1,8 +1,0 @@
-write ruby or bash script for making a review directory
-
-image1.jpeg
-image2.jpeg
-image3.png
-README.org
-REVIEWME.org
-rudasill
