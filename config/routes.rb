@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     resources :activities
     resources :shifts 
     resources :volunteers
+    resources :events
   end
   
   # Make sure this routeset is defined last
