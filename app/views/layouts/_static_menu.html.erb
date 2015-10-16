@@ -18,11 +18,6 @@
   <li><%= nav_link "DONATE", donate_path %></li>
   <li><%= nav_link "CONTACT", contact_path %></li>
   <%# if public_event%>
-  <li class=''>
-    <%= link_to "/events/#{public_event.id}", class: 'attention' do %>
-      <i class='fa fa-users fa-1x'></i> <span style='color:gold;'>Upcoming Event!</span> <span style="font-size:1.7rem;font-family:'News Cycle';"></span>
-    <% end %>
-  </li>
 
   <!--<li><%#= nav_link "SUMMER CAMP", camp_path %></li>-->
   <!--<li id='ccf-link-main'><%#= link_to "COUNTRY FAIR", "#", :onclick => '<!--alert("COMING SOON: Sept 12th!")' %></li>-->
