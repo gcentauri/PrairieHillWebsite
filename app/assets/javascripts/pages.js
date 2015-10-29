@@ -261,14 +261,14 @@ $(document).ready(function () {
 
     $('#mobile-preview-button').on('click', function() {
 	//$('#mobile-preview-view').toggleClass('hidden');
-	$('#mobile-preview-view').animate(
-	    {
-		opacity : 1
-	    }
-	);
+	//$('#mobile-preview-view').animate(
+	//{
+	//opacity : 1
+	//}
+	//);
 	//$('#mobile-preview-view').fadeIn();
-	$(this).hide();
-	$('#redirect-message').hide();
+	//$(this).hide();
+	//$('#redirect-message').hide();
 	$('#mobile-logo-placeholder').animate(
 	    {
 		width : '11%',

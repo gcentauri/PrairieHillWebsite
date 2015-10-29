@@ -15,7 +15,7 @@
   <!--MOBILE-->
   <div id='small-browser' class='small-12 columns'>
 
-    <div id='mobile-preview-button' class='small-12 small-centered columns button expand radius hi-li bottom-shadow' style='position:fixed;z-index:20;'>
+    <div id='mobile-preview-button' class='hidden small-12 small-centered columns button expand radius hi-li bottom-shadow' style='position:fixed;z-index:20;'>
       <% case request.fullpath %>
       <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
 
@@ -27,7 +27,7 @@
 
       <% else %>
 
-      Coming Soon!
+      Welcome!
 
       <% end %>
     </div>
@@ -36,7 +36,7 @@
     <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts', '/users/sign_in' %>
     <% else %>
     <div id='redirect-message'
-	 class='small-12 columns'
+	 class='hidden small-12 columns'
 	 style='
 	 position:fixed;
 	 top:20%;
@@ -48,7 +48,7 @@
 	  bottom-shadow'
 	  style='text-align:center;
 	  border-top: 10px solid rgba(255,255,255,0.1);'>
-	Please view from a desktop browser
+	
       </h1>
     </div>
     <% end %>
@@ -59,9 +59,9 @@
 	 small-12 small-centered columns
 	 '
 	 style='
-	 top:150px;	   
-	 left:4%;
-	 width:90%;
+	 top:1%;	   
+	 left:80%;
+	 width:11%;
 	 '
 	 >
       <%= image_tag "logo-transparent.png", style: "background-color:white;border: 2px solid white;", class: 'bottom-shadow' %>
@@ -77,7 +77,7 @@
 	 style='
 	 position:relative;
 	 left:4%;
-	 opacity:0;
+	 opacity:1;
 	 '
 	 >
 
@@ -99,6 +99,9 @@
       <!--MOBILE CONTENT-->
       <div id='mobile-content' class='small-11 small-centered columns'>
 	<%= yield :small %>
+	<!--links-->
+	<h2 class='hi-li padded-sides'>Links</h2>
+	<%= render 'layouts/menu_mobile_extra' %>
       </div>
       <!---->
 

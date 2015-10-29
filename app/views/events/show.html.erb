@@ -8,7 +8,7 @@
        border:1px solid rgba(255,255,255,0.1);
        border-radius:25px;
        '
-	>
+       >
 
     <div class='small-5 columns'
 	 style='
@@ -106,7 +106,54 @@
       </div>
 
     </div>
-    </div>
+  </div>
 </div>
 
+<% content_for :small do %>
+  <h1 class='hi-li padded-sides'><%= @event.title %></h1>
+  <div class='small-12 small-centered columns'>
+    <%= image_tag @event.event_image.url(:xlarge), class: 'feature-image', style: '' %>
+  </div>
 
+  <h2><%= @event.subtitle %></h2>
+
+  <h2>
+  <% unless @event.date_and_time.blank? %>
+    <em class='label'>
+      <%= @event.date_and_time.strftime("%B")  %>
+      <%= @event.date_and_time.strftime("%e") %>th, 2015
+    </em>
+
+    <em class='label success'>
+      <%= @event.date_and_time.strftime("%l") %>-8pm
+    </em>
+
+    <p>(<%= @event.parent %>)</p>
+  <% end %>
+  </h2>
+
+  <div class='small-12 small-centered columns padded'
+       style='
+       background:white;
+       font-size:4vw;
+       border-radius: 5px;
+       '
+       >
+    <h2><%= @event.location %></h2>
+    <h2><%= @event.location_address %></h2>
+    <h2><%= raw @event.description %></h2>
+    <h2><%= raw @event.links %></h2>
+  </div>
+
+  <% if can? :manage, Event %>
+    <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
+    <%= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button'%>
+    <%= link_to 'Events', events_path, class: 'button' %>
+    <% if user_signed_in? %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'button' %>
+    <% end %>  
+  <% end %>
+  
+<% end %>

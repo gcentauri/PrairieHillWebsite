@@ -1,0 +1,12 @@
+  <div id='menu-mobile-extra'>
+    <ul>
+      <li><%= link_to "Children's Programs", programs_path %></li>
+      <li><%= link_to 'Parent Tours', news_path %></li>
+      <li><%= link_to 'Meet the Staff and Board', staffandboard_path %></li>
+      <li><%= link_to 'School Calendar', calendar_path %></li>
+      <li><%= link_to 'Work at Prairie Hill', jobs_path %></li>
+      <li><%= link_to 'Donate', donate_path %></li>
+      <li><%= link_to 'Contact Us', contact_path %></li>
+      <li><%= link_to 'Special Event', "/events/#{public_event.id}" %></li>
+    </ul>
+  </div>

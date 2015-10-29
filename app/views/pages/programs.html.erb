@@ -151,6 +151,99 @@ description: "Programs for children age 18 months to 14 years",
 </div>
 <!--^^-->
 
+<!--SMALL-->
+<% content_for :small do %>
+  <div class='small-12 small-centered columns'>
+
+    <!--YCC-->
+    <h2 class='hi-li padded'>Young Children's Community</h2>
+
+    <div class='small-12 small-centered columns'
+	 style='
+	 background: white;
+	 padding: 5px;
+	 border-radius: 3px;
+	 '
+	 >
+      <%= image_tag("feeding-patches.png") %>
+    </div>
+
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
+    </div>
+    <!--YCC-->
+
+    <!--PRIMARY-->
+    <h2 class='hi-li padded'>Primary Community</h2>
+
+    <div class='small-12 small-centered columns'
+	 style='
+	 background: white;
+	 padding: 5px;
+	 border-radius: 3px;
+	 '
+	 >
+      <%= image_tag("primary-program-2-15.png") %>
+    </div>
+
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
+    </div>
+    <!--PRIMARY-->
+
+    <!--ELEMENTARY-->
+    <h2 class='hi-li padded'>Elementary Community</h2>
+
+    <div class='small-12 small-centered columns'
+	 style='
+	 background: white;
+	 padding: 5px;
+	 border-radius: 3px;
+	 '
+	 >
+      <%= image_tag("jason_adolescents.jpg") %>
+    </div>
+
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+    </div>
+    <!--ELEMENTARY-->
+    
+    <!--FINANCIAL-->
+    <h2 class='hi-li padded-sides'>Financial Information</h2>
+    <div class='small-12 small-centered columns padded'
+	 style='
+	 background:white;
+	 font-size:4vw;
+	 border-radius: 5px;
+	 '
+	 >
+      Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.
+    </div>
+    <!--FINANCIAL-->    
+
+    <%= cms_snippet_content('financial', @cms_site).html_safe %>
+    <!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
+  </div>
+<% end %>
 
 
 <script>

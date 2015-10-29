@@ -1,28 +1,24 @@
 
 <div id='mobile-static-menu' class='icon-bar five-up' role='navigation'>
 
-  <%= link_to root_path, class: 'item hidden' do %>
-    <i class='fa fa-home'></i>
-  <% end %>
-
   <%= link_to root_path, class: 'item' do %>
     <i class='fa fa-home'></i>
   <% end %>
 
-  <%= link_to about_path, class: 'item' do %>
+  <%= link_to programs_path, class: 'item' do %>
     <i class='fa fa-info-circle'></i>
   <% end %>
 
-  <%= link_to root_path, class: 'item' do %>
-    <i class='fa fa-home'></i>
+  <%= link_to news_path, class: 'item' do %>
+    <i class='fa fa-users'></i>
   <% end %>
 
-  <%= link_to root_path, class: 'item' do %>
-    <i class='fa fa-home'></i>
+  <%= link_to "/events/#{public_event.id}", class: 'item' do %>
+    <i class='fa fa-calendar-o'></i>
   <% end %>
 
-  <%= link_to root_path, class: 'item' do %>
-    <i class='fa fa-home'></i>
+  <%= link_to contact_path, class: 'item' do %>
+    <i class='fa fa-pencil'></i>
   <% end %>
 
 </div>
