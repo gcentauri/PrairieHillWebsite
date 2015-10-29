@@ -1,7 +1,10 @@
+@import 'bootstrap_and_customization';
+
 $phill-grn: #3f8000;
 $phill-gold: #ffef19;
 
 //@import 'foundation_and_overrides';
+//ORGANIZE!!!
 
 
 
@@ -184,6 +187,15 @@ $phill-gold: #ffef19;
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
+}
+
+#financial-info-button {
+    //@extend .vcenter;
+    top: 75%;
+    
+    position:absolute;
+    z-index:10;
+    right:0;
 }
 
 //media q

@@ -54,6 +54,11 @@ html, body {
     font-size: 1vw;
 }
 
+.vcenter {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .fancy {
     font-family: Pacifico, 'Roboto', 'Shadows Into Light Two';
 }

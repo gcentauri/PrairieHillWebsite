@@ -93,7 +93,7 @@ $(document).ready(function () {
     
     $('.programs-slider').slick({
 	autoplay: true,
-	autoplaySpeed: 7000,
+	autoplaySpeed: 14000,
 	arrows: true,
 	initialSlide: 0,
 	appendArrows: $('#slide-area'),
@@ -101,7 +101,8 @@ $(document).ready(function () {
 	nextArrow: next_btn,
 	draggable: false,
 	fade: true,
-	respondTo: 'min'
+	respondTo: 'min',
+	easing: 'easeInElastic'
 	//speed: 2000
 	//vertical: true
     });
@@ -243,8 +244,19 @@ $(document).ready(function () {
 	$('#load-spinner').show();
     });
 
+    var filtered = false;
+    
     $('#financial-info-button').on('click', function() {
-	$('#primary-element').scrollTo('#financial-info');
+	//$('#primary-element').scrollTo('#financial-info');
+	if (filtered === false) {
+	    $('.programs-slider').slick('slickFilter','#financial-info');
+	    $(this).html("<i class='fa fa-arrow-left fa-2x' style='color:gold;'></i> Programs");
+	    filtered = true;
+	} else {
+	    $('.programs-slider').slick('slickUnfilter');
+	    $(this).html("Financial Information <i class='fa fa-arrow-right fa-2x' style='color:gold;'></i>");
+	    filtered = false;
+	}
     });
 
     $('#mobile-preview-button').on('click', function() {
