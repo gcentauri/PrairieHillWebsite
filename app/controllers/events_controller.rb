@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(params[:event])
     respond_with(@event)
     authorize! :manage, @event
   end
