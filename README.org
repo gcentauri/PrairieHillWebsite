@@ -76,6 +76,17 @@
 	       more.
      - [ ] create special [[Events][event]] section
        - [ ] section for LUX art event
+	 - Event MVC
+	   [[./app/models/event.rb]]
+	   [[./app/helpers/events_helper.rb]]
+	   [[./app/helpers/application_helper.rb]]
+	   [[./app/views/events]]
+	   [[./app/views/layouts/]]
+	   [[./app/controllers/events_controller.rb]]
+
+	   - add condition to account for past events
+	     - display past events for information purposes
+	       - past events view
        - [ ] details in email from Mandie
 	 
 	 [[Chris Rudasill benefit]]

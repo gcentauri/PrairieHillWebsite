@@ -1,9 +1,21 @@
 module ApplicationHelper
 
-  def public_event
-    public = Event.where(public: true).last
+  def featured_event
+    events = Event.all
+    public_events = events.select { |e| e.public }
+    featured = public_events.select { |e| e.featured }
+    past = featured.select { |e| e.date_and_time < Time.now }
+    upcoming = featured.select { |e| e.date_and_time > Time.now }
 
-    return public
+    #if current datetime is newer than public datetime
+    #where does this logic really belong?
+    #add featured to model
+    unless upcoming.empty?
+      return upcoming.first.id
+    else
+      return ''
+    end
+
   end
   
   def print_shift_time(shift_time, opt)

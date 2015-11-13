@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013044507) do
+ActiveRecord::Schema.define(version: 20151113202928) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20151013044507) do
     t.string   "category"
     t.boolean  "public"
     t.string   "invite_category"
+    t.boolean  "featured"
   end
 
   create_table "pages", force: :cascade do |t|
