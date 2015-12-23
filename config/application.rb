@@ -21,6 +21,10 @@ module PrairieHillWebsite
     end
 
     config.font_assets.origin = '*'
+
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => ''
+    }
     
     #config.cache_store = :dalli_store
     
