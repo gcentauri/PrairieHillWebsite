@@ -9,6 +9,13 @@
 
 ** TODO 
 
+   - [ ] Sat Feb 13 18:47:52 CST 2016
+
+     - [ ] hide camp page
+     - [ ] update camp page
+     - [ ] create tabs and front page news
+       - [ ] ready for links to google forms etc
+
    - [ ] Sun Oct 11 11:53:19 CDT 2015
 
      - [ ] gather user feedback
