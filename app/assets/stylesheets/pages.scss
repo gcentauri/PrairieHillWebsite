@@ -6,8 +6,6 @@ $phill-gold: #ffef19;
 //@import 'foundation_and_overrides';
 //ORGANIZE!!!
 
-
-
 .par {
     //padding: 5px;
     width: 90%;
@@ -196,6 +194,14 @@ $phill-gold: #ffef19;
     position:absolute;
     z-index:10;
     right:0;
+}
+
+#camp-info-bg {
+    /*background: image-url('garden_seeds.jpg') fixed no-repeat;
+    background-size: contain;
+    background-position: top center;
+    width: 100%;
+    height: 460px;*/
 }
 
 //media q

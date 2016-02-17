@@ -1,4 +1,4 @@
-% Created 2015-04-18 Sat 15:03
+% Created 2016-02-15 Mon 11:56
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -22,1774 +22,585 @@
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
-  pdfcreator={Emacs 24.4.1 (Org mode 8.2.6)}}
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
 \begin{document}
 
 \maketitle
 
 \section*{Prairie Hill Learning Center}
 \label{sec-1}
-After over 2 years of cumbersome working with the wordpress managed website 
-content for the Prairie Hill website (whether due to the way that wordpress 
-arranges itself or my own ignorance and lack of education in web design, php, 
-etc), this is an attempt to try something new. Having a nice solid foundation 
-in building an application with Rails, I feel like now is the time to build 
-something from the ground up that will hopefully meet my needs for control 
-and understanding for building and modifying the backend functionality 
-(most importantly without having to go through all of hassle of using the 
-actual web content management editors and having so many extraneous steps,
-instead of just using my text editor\ldots{}), as well as the front end need
-for admin staff to update content, which is what is important to them in
-the basic functionality of the site. I take care of the functionality and
-aesthetic; they give it the words.
+
+Rails application for \href{http://www.prairiehill.com}{prairiehill.com}
+
 \subsection*{{\bfseries\sffamily TODO} }
 \label{sec-1-1}
+
 \begin{itemize}
-\item $\square$ fix change/forgot password issue
-\item $\boxminus$ rebuild ccf volunteer app
+\item $\boxminus$ Sat Feb 13 18:47:52 CST 2016
+
+\begin{itemize}
+\item $\boxtimes$ hide camp page
+\item $\square$ update camp page
+
+\url{https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform}
 
 \url{./config/routes.rb}
 
+\url{./app/views/pages/summer_camp.html.erb}
+\end{itemize}
+\end{itemize}
+
+
 \begin{verbatim}
-Rails.application.routes.draw do
+<h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
+<p class="content-box">
+  PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
+</p>
+<p class="content-box">
+  <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
+</p>
+<hr>
+<p class="hi-li">
+  <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
+</p>
+<h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
+<h3 class="camp-title">June 1-12</h3>
+<p class="camp-subtitle">
+  One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
+</p>
+<h2 class="camp-title">What's the Story?</h2>
+<h3 class="camp-title">June 15 - 26<br>
+</h3>
+<p class="camp-subtitle">
+  This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
+</p>
+<h2 class="camp-title">Suzuki Violin Camp</h2>
+<h3 class="camp-title">July 6-10</h3>
+<p class="camp-subtitle">
+  Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
+</p>
+<h2 class="camp-title">Simple Machines and Complex Creations</h2>
+<h3 class="camp-title">July 13-24</h3>
+<p class="camp-subtitle">
+  "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
+  <br>
+</p>
+<h2 class="camp-title">Animal Encounters</h2>
+<h3 class="camp-title">July 27-31</h3>
+<p class="camp-subtitle">
+  This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
+</p>
+<h2 class="camp-title">Mini-camps for children ages 3-6</h2>
+<p class="camp-subtitle">
+  Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
+</p>
+<p class="hi-li camp-link">
+  <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
+</p>
+<h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+	<th>
+	</th>
+	<th>
+	</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+	<td>
+	  <strong>9:00 a.m.</strong>
+	</td>
+	<td>
+	  Drop-off: greeting and getting ready for the day
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 9:15 a.m.</strong>
+	</td>
+	<td>
+	  Circle Time: flag raising, songs, movement games
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 9:30 a.m.</strong>
+	</td>
+	<td>
+	  Garden Time/Nature Walk
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 10:15 a.m.</strong>
+	</td>
+	<td>
+	  Pony Rides
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 11:15 a.m.</strong>
+	</td>
+	<td>
+	  Lunch Preparation/Story Time
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 11:30 a.m.</strong>
+	</td>
+	<td>
+	  Picnic Lunch
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  <strong> 12:15 p.m.</strong>
+	</td>
+	<td>
+	  Prepare for Pickup (12:30 p.m.)
+	</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
+</div>
+\end{verbatim}
 
-  namespace :api, defaults: {format: 'json'} do
-    resources :activities,
-	      :pages,
-	      :shifts,
-	      :volunteers,
-	      :users
-  end
+\begin{verbatim}
+<div class='col-md-11'>
+  <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+</div>
+\end{verbatim}
 
-  resources :activities
-  resources :shifts 
-  resources :volunteers
+\begin{verbatim}
+<div class="small-12 small-centered columns card" style='overflow:hidden;'>
 
-  match '/contacts', to: 'contacts#new', via: 'get'
-  resources "contacts", only: [:new, :create]
+  <div class='row'>
+    <div class='small-11 small-centered columns'>
+      Summer Camp 2016 Coming Soon!
+    </div>
 
-  comfy_route :cms_admin, :path => '/admin'
+    <div class='col-md-11'>
+      <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+    </div>
 
-  devise_for :users
-  resources :pages
-
-  root "pages#home"
-
-  get "about" => "pages#about"
-  get "news" => "pages#news"
-  get "events" => "pages#events"
-  get "programs" => "pages#programs"
-  get "calendar" => "pages#calendar"
-  get "contact" => "pages#contact"
-  get "staffandboard" => "pages#staff"
-  get "jobs" => "pages#jobs"
-  get "donate" => "pages#donate"
-  get "camp" => "pages#summer_camp"
-  get "csv" => "pages#csvupload"
-  get "uniq" => "pages#unique"
-  get "ccf" => "shifts#volunteer"
-  get "user_shifts" => "shifts#user_shifts"
-
-  # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', :sitemap => true
-end
+  </div>
+</div>
 \end{verbatim}
 
 \begin{itemize}
-\item $\boxtimes$ backup volunteer data
-\begin{itemize}
-\item $\boxtimes$ check api access to user data
-\begin{itemize}
-\item $\boxtimes$ update api to authenticate requests
-\href{http://railscasts.com/episodes/352-securing-an-api?view%3Dasciicast}{RailsCasts Episode 352 - Securing an API}
-\begin{itemize}
-\item $\boxtimes$ Basic
+\item $\square$ color ideas
 
-\begin{verbatim}
-http_basic_authenticate_with name: "admin", 
-                             password: "secret"
-\end{verbatim}
+\url{https://ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg}
+
+b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+
+\item $\square$ create tabs and front page news
+\begin{itemize}
+\item $\square$ ready for links to google forms etc
 \end{itemize}
 
-\item $\boxtimes$ ruby?
-\url{https://gist.github.com/kyletcarlson/7911188}
-\url{http://www.rubyinside.com/nethttp-cheat-sheet-2940.html}
-
-\begin{verbatim}
-require "net/http"
-require "uri"
-
-uri = URI.pasre("http://www.prairiehill.com/api/users")
-\end{verbatim}
-\end{itemize}
-
-\item $\boxtimes$ user info
-\item $\boxtimes$ last years activity/shift data
-\end{itemize}
-\item $\boxminus$ re-organize resource relationships
-\begin{itemize}
-\item $\square$ destroy volunteer resource?
-\item $\boxminus$ Devise User/Volunteer
-\url{./db/migrate}
-\url{./app/models/user.rb}
-\begin{verbatim}
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-	 :recoverable, :rememberable, :trackable, :validatable
-
-  validates :username,
-	    presence: true,
-	    length: {maximum: 255},
-	    uniqueness: { case_sensitive: false },
-	    format: { with: /\A[a-zA-Z0-9]*\z/,
-		      message: "may only contain letters and numbers." }
-
-  has_many :shifts
-  has_many :activities through: :shifts
-
-  # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'username'
-  attr_accessor :login
-
-
-  def self.find_first_by_auth_conditions(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      # when allowing distinct User records with, e.g., "username" and "UserName"...
-      # where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
-    else
-      where(conditions).first
-    end
-  end
-
-  #### This is the correct method you override with the code above
-  #### def self.find_for_database_authentication(warden_conditions)
-  #### end
-end
-\end{verbatim}
-\begin{itemize}
-\item attributes
-\begin{itemize}
-\item id
-\item email
-\item username
-\item name
-\item admin
-\item first$_{\text{name}}$
-\item last$_{\text{name}}$
-\item phone
-\end{itemize}
-\item $\square$ has guest?
-\item $\boxtimes$ has many shifts
-\item $\boxtimes$ has many activities through shifts
-\end{itemize}
-\item $\boxminus$ Activity
-\url{./app/models/activity.rb}
-\begin{verbatim}
-class Activity < ActiveRecord::Base
-
-  has_many :shifts
-
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |activity|
-	csv << activity.attributes.values_at(*column_names)
-      end
-    end
-  end
-end
-\end{verbatim}
-\begin{itemize}
-\item $\boxtimes$ has many shifts
-\item $\square$ belongs to users
-\end{itemize}
-\item $\square$ Shifts
-\url{./app/models/shift.rb}
-\begin{verbatim}
-class Shift < ActiveRecord::Base
-  has_and_belongs_to_many :users, :dependent => :destroy
-  accepts_nested_attributes_for :users
-
-
-  def self.to_xlsx(options = {})
-
-    workbook = WriteExcel.new('shifts.xlsx')
-#    workbook = WriteExcel.new(STDOUT)
-
-    @shiftTitles = all.pluck(:title).uniq
-    @shiftTitles.each do |title|
-
-      worksheet = workbook.add_worksheet
-
-      # format = workbook.add_format
-      # format.set_bold
-      # format.set_color('red')
-      # format.set_align('right')
-
-      worksheet.write(0, 0, title) 
-
-      @shifts_by_title = all.where(title: title)      
-      @shifts_by_title.each do |shift|
-	worksheet.write(1, 1, 'hotdog' )#shift.title)
-      end
-    end
-
-    workbook.close
-
-  end
-
-
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << ["", "Time", "Volunteer", "Guest Volunteer"]
-      @shiftTitles = all.pluck(:title).uniq
-      @shiftTitles.each do |title|
-	csv << [title]
-	@shifts_by_title = all.where(title: title)
-	@shifts_by_title.each do |shift|
-	  csv << ["", shift.time, shift.volunteer, shift.guest]
-	end
-      end
-    end
-  end
-
-  # def self.to_csv(options = {})
-  #   CSV.generate(options) do |csv|
-  #     csv << ["", "Time", "Volunteer", "Guest Volunteer"]
-  #     @shiftTitles = all.pluck(:title).uniq
-
-  #     @shiftTitles.each do |title|
-  #       csv << [title]
-
-  #       @shifts_by_title = all.where(title: title)
-  #       @shifts_by_title.each do |shift|
-
-  #         csv << ["", shift.time, shift.volunteer, shift.guest]
-  #       end
-  #     end
-
-  #   end
-  # end
-
-  # def self.to_csv(options = {})
-  #   CSV.generate(options) do |csv|
-  #     csv << column_names
-  #     all.each do |shift|
-  #       csv << shift.attributes.values_at(*column_names)
-  #     end
-  #   end
-  # end
-
-  def add_user_idee(id)
-
-    user_ids_will_change!
-    update_attribute(:user_ids, self.user_ids << id)
-
-    self.save
-
-  end
-
-  def cancel_shift
-
-    shift.volunteer = nil
-    shift.save
-
-  end
-end
-\end{verbatim}
-\begin{itemize}
-\item $\square$ has guest?
-\item $\square$ belongs to activity
-\item $\square$ belongs to users
-\begin{itemize}
-\item $\square$ has guest?
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\item $\boxminus$ build an API
-\url{https://codelation.com/blog/rails-restful-api-just-add-water}
-\begin{itemize}
-\item $\boxtimes$ add to \url{./Gemfile}
-
-\begin{verbatim}
-gem 'jbuilder'
-gem 'kaminari'
-gem 'responders'
-\end{verbatim}
-
-\begin{verbatim}
-source 'http://rubygems.org'
-ruby '2.2.0'
-
-gem 'rails', '4.2.1'
-gem 'sass-rails'
-gem 'compass-rails', '~> 2.0.alpha.0'
-gem 'uglifier', '2.5.1'
-gem 'coffee-rails', '4.0.1'
-gem 'jquery-rails', '3.1.1'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
-gem 'jbuilder'
-gem 'kaminari'
-gem 'responders'
-gem 'bootstrap-sass'
-gem 'bcrypt'
-gem 'devise'
-gem 'pg'
-gem 'comfortable_mexican_sofa', '1.12.7'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'aws-sdk', '~> 1.46.0'
-gem 'mail_form'
-gem 'simple_form'
-gem 'cells'
-gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
-gem 'skrollr-rails'
-gem 'rails_admin'
-gem 'picturefill'
-gem 'autoprefixer-rails'
-gem 'chronic'
-gem 'acts_as_xlsx'
-gem 'axlsx'
-gem 'axlsx_rails'
-gem 'rubyzip'
-gem 'writeexcel', '1.0.5'
-gem 'figaro'
-gem 'meta-tags'
-gem 'metamagic'
-gem 'safe_yaml', '1.0.4'
-gem 'sitemap_generator'
-gem 'dynamic_sitemaps'
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
-group :development, :test do
-  gem 'sqlite3'
-  gem 'foreman'
-  gem 'pry-rails'
-  gem 'unicorn'
-end
-
-group :production do
-#  gem 'pg', '0.15.1'
-  gem 'rails_12factor'
-#  gem 'unicorn'
-  gem 'unicorn-rails'
-end
-\end{verbatim}
-\item $\boxtimes$ controllers
-\begin{itemize}
-\item $\boxtimes$ create file \url{./app/controllers/api/base_controller.rb}
-
-\begin{verbatim}
-mkdir app/controllers/api
-\end{verbatim}
-
-\begin{verbatim}
-module Api
-  class BaseController < ApplicationController
-    protect_from_forgery with: :null_session
-    before_action :set_resource, only: [:destroy, :show, :update]
-    respond_to :json
-
-    private
-
-    # Returns the resource from the created instance variable
-    # @return [Object]
-    def get_resource
-      instance_variable_get("@#{resource_name}")
-    end
-
-    # Returns the allowed parameters for searching
-    # Override this method in each API controller
-    # to permit additional parameters to search on
-    # @return [Hash]
-    def query_params
-      {}
-    end
-
-    # Returns the allowed parameters for pagination
-    # @return [Hash]
-    def page_params
-      params.permit(:page, :page_size)
-    end
-
-    # The resource class based on the controller
-    # @return [Class]
-    def resource_class
-      @resource_class ||= resource_name.classify.constantize
-    end
-
-    # The singular name for the resource class based on the controller
-    # @return [String]
-    def resource_name
-      @resource_name ||= self.controller_name.singularize
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    # If a single resource is loaded for #create or #update,
-    # then the controller for the resource must implement
-    # the method "#{resource_name}_params" to limit permitted
-    # parameters for the individual model.
-    def resource_params
-      @resource_params ||= self.send("#{resource_name}_params")
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resource(resource = nil)
-      resource ||= resource_class.find(params[:id])
-      instance_variable_set("@#{resource_name}", resource)
-    end
-  end
-end
-\end{verbatim}
-
-\item $\boxtimes$ add the public resource methods to the same controller
-
-\begin{verbatim}
-# POST /api/{plural_resource_name}
-def create
-  set_resource(resource_class.new(resource_params))
-
-  if get_resource.save
-    render :show, status: :created
-  else
-    render json: get_resource.errors, status: :unprocessable_entity
-  end
-end
-
-# DELETE /api/{plural_resource_name}/1
-def destroy
-  get_resource.destroy
-  head :no_content
-end
-
-# GET /api/{plural_resource_name}
-def index
-  plural_resource_name = "@#{resource_name.pluralize}"
-  resources = resource_class.where(query_params)
-              .page(page_params[:page])
-              .per(page_params[:page_size])
-
-  instance_variable_set(plural_resource_name, resources)
-  respond_with instance_variable_get(plural_resource_name)
-end
-
-# GET /api/{plural_resource_name}/1
-def show
-  respond_with get_resource
-end
-
-# PATCH/PUT /api/{plural_resource_name}/1
-def update
-  if get_resource.update(resource_params)
-    render :show
-  else
-    render json: get_resource.errors, status: :unprocessable_entity
-  end
-end
-\end{verbatim}
-
-\begin{verbatim}
-module Api
-  class BaseController < ApplicationController
-    protect_from_forgery with: :null_session
-    before_action :set_resource, only: [:destroy, :show, :update]
-    respond_to :json
-
-    # POST /api/{plural_resource_name}
-    def create
-      set_resource(resource_class.new(resource_params))
-
-      if get_resource.save
-	render :show, status: :created
-      else
-	render json: get_resource.errors, status: :unprocessable_entity
-      end
-    end
-
-    # DELETE /api/{plural_resource_name}/1
-    def destroy
-      get_resource.destroy
-      head :no_content
-    end
-
-    # GET /api/{plural_resource_name}
-    def index
-      plural_resource_name = "@#{resource_name.pluralize}"
-      resources = resource_class.where(query_params)
-		  .page(page_params[:page])
-		  .per(page_params[:page_size])
-
-      instance_variable_set(plural_resource_name, resources)
-      respond_with instance_variable_get(plural_resource_name)
-    end
-
-    # GET /api/{plural_resource_name}/1
-    def show
-      respond_with get_resource
-    end
-
-    # PATCH/PUT /api/{plural_resource_name}/1
-    def update
-      if get_resource.update(resource_params)
-	render :show
-      else
-	render json: get_resource.errors, status: :unprocessable_entity
-      end
-    end
-
-    private
-
-    # Returns the resource from the created instance variable
-    # @return [Object]
-    def get_resource
-      instance_variable_get("@#{resource_name}")
-    end
-
-    # Returns the allowed parameters for searching
-    # Override this method in each API controller
-    # to permit additional parameters to search on
-    # @return [Hash]
-    def query_params
-      {}
-    end
-
-    # Returns the allowed parameters for pagination
-    # @return [Hash]
-    def page_params
-      params.permit(:page, :page_size)
-    end
-
-    # The resource class based on the controller
-    # @return [Class]
-    def resource_class
-      @resource_class ||= resource_name.classify.constantize
-    end
-
-    # The singular name for the resource class based on the controller
-    # @return [String]
-    def resource_name
-      @resource_name ||= self.controller_name.singularize
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    # If a single resource is loaded for #create or #update,
-    # then the controller for the resource must implement
-    # the method "#{resource_name}_params" to limit permitted
-    # parameters for the individual model.
-    def resource_params
-      @resource_params ||= self.send("#{resource_name}_params")
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resource(resource = nil)
-      resource ||= resource_class.find(params[:id])
-      instance_variable_set("@#{resource_name}", resource)
-    end
-  end
-end
-\end{verbatim}
-
-\item $\boxtimes$ connect base controller to model controllers
-
-Pay attention that these inherit from \emph{Api::BaseController}
-
-\url{./app/controllers/api/users_controller.rb}
-
-\begin{verbatim}
-module Api
-  class UsersController < Api::BaseController
-    #http_basic_authenticate_with name: "admin", password: "secret"
-    http_basic_authenticate_with name: "admin", password: ENV["API_PASS"]
-
-    private
-
-    def activity_params
-      params.require(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
-    end
-
-    def query_params
-      params.permit(:activity).permit(:email, :username, :name, :admin, :first_name, :last_name, :phone)
-    end
-
-  end
-end
-\end{verbatim}
-
-\url{./app/controllers/api/activities_controller.rb}
-
-\begin{verbatim}
-module Api
-  class ActivitiesController < Api::BaseController
-
-    private
-
-    def activity_params
-      params.require(:activity).permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
-    end
-
-    def query_params
-      params.permit(:work_area, :coordinator, :sign, :num_tickets, :vol_needed, :comments)
-    end
-
-  end
-end
-\end{verbatim}
-
-\url{./app/controllers/api/pages_controller.rb}
-
-\begin{verbatim}
-module Api
-  class PagesController < Api::BaseController
-
-    private
-
-    def page_params
-      params.require(:page).permit(:title, :description)
-    end
-
-    def query_params
-      params.permit(:title, :description)
-    end
-
-  end
-end
-\end{verbatim}
-
-\url{./app/controllers/api/shifts_controller.rb}
-
-\begin{verbatim}
-module Api
-  class ShiftsController < Api::BaseController
-
-    private
-
-    def shift_params
-      params.require(:shift).permit(:title, :time, :vols_needed, :volunteers, :volunteer, :guest)
-    end
-
-    def query_params
-      params.permit(:title,  :time, :vols_needed, :volunteers, :volunteer, :guest)
-    end
-
-  end
-end
-\end{verbatim}
-
-\url{./app/controllers/api/volunteers_controller.rb}
-
-\begin{verbatim}
-module Api
-  class VolunteersController < Api::BaseController
-
-    private
-
-    def volunteer_params
-      params.require(:volunteer).permit(:name, :email, :phone)
-    end
-
-    def query_params
-      params.permit(:name, :email, :phone)
-    end
-
-  end
-end
-\end{verbatim}
-\end{itemize}
-
-\item $\boxtimes$ routing
-
-\url{./config/routes.rb}
-
-\begin{verbatim}
-namespace :api do
-  resources :logs, :periods
-end
-\end{verbatim}
-
-\item $\boxtimes$ serializing data
-
-\begin{verbatim}
-mkdir app/views/api /shifts etc
-\end{verbatim}
+\item $\square$ Sun Oct 11 11:53:19 CDT 2015
 
 \begin{itemize}
-\item $\boxtimes$ \url{./app/views/api/users/index.json.jbuilder}
-
-\begin{verbatim}
-json.users @users do |user|
-  json.id user.id
-  json.email user.email
-  json.username user.username
-  json.name user.name
-  json.admin user.admin
-  json.first_name user.first_name
-  json.last_name user.last_name
-  json.phone user.phone
-
-  #json.period_id log.period ? log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/users/show.json.jbuilder}
-
-\begin{verbatim}
-json.user do
-  json.id  @user.id
-  json.username @user.username
-  json.name @user.name
-  json.admin @user.admin
-  json.first_name @user.first_name
-  json.last_name @user.last_name  
-  json.phone @user.phone
-
-  #json.period_id @log.period ? @log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/activities/index.json.jbuilder}
-
-\begin{verbatim}
-json.activities @activities do |act|
-  json.id act.id
-  json.work_area act.work_area
-  json.coordinator act.coordinator
-  json.sign act.sign
-  json.comments act.comments
-
-  #json.period_id log.period ? log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/activities/show.json.jbuilder}
-
-\begin{verbatim}
-json.activity do
-  json.id  @activity.id
-  json.work_area @activity.work_area
-  json.coordinator @activity.coordinator
-  json.sign @activity.sign
-  json.comments @activity.comments
-
-  #json.period_id @log.period ? @log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/pages/index.json.jbuilder}
-
-\begin{verbatim}
-json.pages @pages do |page|
-  json.id page.id
-  json.title page.title
-  json.description page.description
-
-  #json.period_id log.period ? log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/pages/show.json.jbuilder}
-
-\begin{verbatim}
-json.page do
-  json.id  @page.id
-  json.title @page.title
-  json.description @page.description
-
-  #json.period_id @log.period ? @log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/shifts/index.json.jbuilder}
-
-\begin{verbatim}
-json.shifts @shifts do |shift|
-  json.id shift.id
-  json.title shift.title
-  json.time shift.time
-  json.vols_needed shift.vols_needed
-  json.volunteer shift.volunteer
-  json.guest shift.guest
-
-  #json.period_id log.period ? log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/shifts/show.json.jbuilder}
-
-\begin{verbatim}
-json.shift do
-  json.id  @shift.id
-  json.title @shift.title
-  json.time @shift.time
-  json.vols_needed @shift.vols_needed
-  json.volunteer @shift.volunteer
-  json.guest @shift.guest
-
-  #json.period_id @log.period ? @log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/volunteers/index.json.jbuilder}
-
-\begin{verbatim}
-json.volunteers @volunteers do |vol|
-  json.id vol.id
-  json.name vol.name
-  json.email vol.email
-  json.phone vol.phone
-
-  #json.period_id log.period ? log.period_id : nil
-end
-\end{verbatim}
-
-\item $\boxtimes$ \url{./app/views/api/volunteers/show.json.jbuilder}
-
-\begin{verbatim}
-json.volunteer do
-  json.id  @volunteer.id
-  json.name @volunteer.name
-  json.email @volunteer.email
-  json.phone @volunteer.phone
-
-  #json.period_id @log.period ? @log.period_id : nil
-end
-\end{verbatim}
+\item $\square$ gather user feedback
+\begin{itemize}
+\item $\square$ survey
+\begin{itemize}
+\item $\square$ delivery methods
+\begin{itemize}
+\item $\square$ email
+\item $\square$ rails engine
+\begin{itemize}
+\item $\square$ \url{https://github.com/runtimerevolution/survey}
 \end{itemize}
-
-\item $\square$ security and performance concerns
+\end{itemize}
+\item $\square$ elements
 
 \begin{itemize}
-\item $\square$ use fragment caching to make API efficient
+\item $\square$ 5 tips for writing a great survey
+
+\url{http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey}
+
+Be Thankful!
 
 \begin{itemize}
-\item $\square$ \url{http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching}
+\item $\square$ Define Your Objectives. 
 
-\item $\square$ \url{https://github.com/rails/jbuilder}
-          offers advantages in caching over libraries like \url{https://github.com/rails-api/active_model_serializers}
-          because you can cache JSON templates the same way you would \emph{erb} templates
-\end{itemize}
+Figure out the decision or decisions you're trying to make to 
+focus your survey.   
 
-\item $\square$ secure your API, gems that we use everyday include CanCan(Can) 
-and Devise to offer per user permissions on resources
-
-\item $\square$ include some more complex functionality like side-loading for 
-convenience in end-user application development
-\end{itemize}
-\end{itemize}
-\item $\square$ rebuild views in angular?
-\item $\boxminus$ build mobile app for sign-up
 \begin{itemize}
-\item $\boxminus$ ruboto
-\url{http://public.dhe.ibm.com/software/dw/demos/jrubyandandroid/index.htm}
+\item $\square$ Objectives
+
 \begin{itemize}
-\item $\boxtimes$ expose public api
-\item $\square$ connect application via http requests
-\url{https://developer.android.com/training/volley/index.html}
-\item $\square$ build mobile views
-\end{itemize}
-\item $\square$ phonegap
-\end{itemize}
-\item $\boxtimes$ re-route \url{http://www.prairiehill.com} => heroku app
+\item collect user feedback in order to understand
+
+\begin{itemize}
+\item what worked? what didn't work?
+\item how did the site feel?
+\item browser and system type?
 \end{itemize}
 
-\subsubsection*{excel export}
-\label{sec-1-1-1}
+\item improve the application based on this feedback
+\end{itemize}
+\end{itemize}
 
-\url{http://railscasts.com/episodes/362-exporting-csv-and-excel}
-\subsection*{What we need to look at for functionality:}
+\item $\square$ Work Backwards. 
+
+Once you've set your objectives, determine the data you need to 
+gather in your survey to make your decision.
+
+\begin{itemize}
+\item $\square$ data needed
+
+\begin{itemize}
+\item comments, textual feedback
+
+What's good, what could be better, and how?
+
+\begin{itemize}
+\item general
+\begin{itemize}
+\item look \& feel
+\item functionality
+\begin{itemize}
+\item what worked?
+\item what did not work?
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\item $\square$ Check for Bias. 
+
+Make sure you're not asking leading questions.
+
+\item $\square$ Do a Test Drive. 
+
+Send your survey to friends and colleagues for a test run. 
+They'll help make sure your questions and response options are 
+understandable and all your survey logic works.
+
+\item $\square$ Collect Results and Analyze Data. 
+
+This is where it gets really fun. The data rolling in from your 
+survey should help you decide what product to launch next, how 
+to raise more money at your next fundraiser, what to do to keep 
+customers coming back, what to serve at your next party and much 
+more.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item $\square$ create special \hyperref[sec-1-3]{event} section
+\begin{itemize}
+\item $\square$ section for LUX art event
+\begin{itemize}
+\item Event MVC
+\url{./app/models/event.rb}
+\url{./app/helpers/events_helper.rb}
+\url{./app/helpers/application_helper.rb}
+\url{./app/views/events}
+\url{./app/views/layouts/}
+\url{./app/controllers/events_controller.rb}
+
+\begin{itemize}
+\item add condition to account for past events
+\begin{itemize}
+\item display past events for information purposes
+\begin{itemize}
+\item past events view
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item $\square$ details in email from Mandie
+
+\texttt{Chris Rudasill benefit}
+\href{docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt}{original document}
+
+\emph{Art Auction to Benefit PRAIRIE HILL}
+
+Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+several pieces of his original artwork to be sold in a silent 
+auction. 100\% of the profits will go directly to the further 
+funding of art materials and enrichment opportunities at PRAIRIE  
+HILL. 
+
+Don’t miss this great opportunity to see and purchase original artwork 
+at accessible prices (some starting bids will be as low as \$10) while 
+supporting education through year-round and summer camp programming at 
+PRAIRIE HILL Learning Center.
+
+\begin{itemize}
+\item Silent auction during First Friday 
+\begin{itemize}
+\item 11/6/15 (November 6)
+\begin{itemize}
+\item 5–8 p.m.
+\end{itemize}
+\end{itemize}
+\item Lux Center for the Arts 
+\begin{itemize}
+\item 2601 N 48th St, Lincoln, NE 68504
+\end{itemize}
+\end{itemize}
+For more information and images of Chris’s artwork, visit: 
+\href{http://chrisrudasill.weebly.com}{chrisrudasill.weebly.com}   
+
+For more info about PRAIRIE HILL, visit:   
+\href{http://prairiehill.com}{prairiehill.com}
+
+\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_1.jpeg}
+
+\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_2.jpeg}
+\end{itemize}
+
+\item $\square$ upgrade heroku dyno
+\item $\square$ design for mobile
+
+\begin{itemize}
+\item $\square$ consider building separate mobile site to learn Angular, making 
+ajax calls to the current phill api
+
+\url{file:///home/son/bin/js/angular/learnAngular/README.org}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+
+\begin{itemize}
+\item $\square$ update staff page
+\begin{itemize}
+\item $\square$ waiting for updates from Mandie
+\end{itemize}
+\item $\square$ hide ccf section until 2016
+\begin{itemize}
+\item $\square$ backup database
+\end{itemize}
+\end{itemize}
+
+
+\begin{itemize}
+\item $\boxminus$ Wed Oct  7 10:35:18 CDT 2015
+
+\begin{itemize}
+\item $\boxminus$ hide ccf section until 2016
+\begin{itemize}
+\item $\boxtimes$ keep open/accessible by path for portfolio demo
+\item $\boxtimes$ hide links to ccf
+
+\url{./app/views/layouts/_static_menu.html.erb}
+
+\item $\boxtimes$ remove from slides
+
+\url{./app/views/pages/home.html.erb}
+
+\item $\square$ backup database
+\item $\square$ prevent modification?
+\end{itemize}
+\item $\square$ create special event section
+\begin{itemize}
+\item $\square$ section for LUX art event
+\item $\square$ details in email from Mandie
+\end{itemize}
+\item $\boxminus$ update staff page
+\begin{itemize}
+\item $\boxtimes$ substitute staff page with coming soon page
+
+\url{./app/views/pages/staff.html.erb}
+
+\item $\square$ wait for updates from Mandie
+\end{itemize}
+\item $\square$ design for mobile
+\item $\square$ upgrade heroku dyno
+\end{itemize}
+\end{itemize}
+
+
+\subsection*{Configuration}
 \label{sec-1-2}
 
-\subsubsection*{mailer contact}
-\label{sec-1-2-1}
+\url{./Gemfile}
 
-\url{http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/}
-
-set up successfully in development
-
-\begin{itemize}
-\item $\square$ change heroku configs to prairiehill email authentication for production
-\end{itemize}
-\subsubsection*{user accounts}
-\label{sec-1-2-2}
-
-\begin{itemize}
-\item $\square$ We need USERs with authenticatable accounts
-
-These users will have various access to update content and that's really
-all that they need. However,
-
-\begin{itemize}
-\item $\square$ Admin/General user
-
-\url{https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role}
-
-We will have user accounts for general things like summer camp and 
-country fair sign up
-
-We will also have admin users who also have access to CMS
-
-\begin{itemize}
-\item $\square$ install \& configure RailsAdmin
-
-\url{https://github.com/sferik/rails_admin}
-
-\begin{itemize}
-\item $\square$ bundle the gem
-
-\begin{verbatim}
-gem 'rails_admin'
-bundle install
-\end{verbatim}
-
-\item $\square$ install RailsAdmin
-
-\begin{verbatim}
-rails g rails_admin:install
-\end{verbatim}
-
-\item $\square$ configure for Devise
-
-\url{https://github.com/sferik/rails_admin/wiki/Devise}
-\end{itemize}
-\end{itemize}
-
-\item $\square$ Using ComfortableMexicanSofa for Content Management
-
-\begin{itemize}
-\item $\square$ already set up to use Paperclip for images
-
-\item $\square$ WYSIWYG
-
-\url{./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css}
-
-\begin{itemize}
-\item $\boxtimes$ editor window is very short
-\end{itemize}
-\end{itemize}
-
-\item $\square$ Private content
-
-\begin{itemize}
-\item $\square$ admin vs common user accounts
-\end{itemize}
-
-\item $\square$ User profiles?
-
-\item $\square$ Summer Camp Registration model?
-
-\item $\square$ Volunteers/CCF
-
-\begin{itemize}
-\item $\square$ connect devise users with shifts?
-
-\item $\square$ Sign up views
-
-\begin{itemize}
-\item $\square$ if user signed in\ldots{}
-
-\item $\square$ time to learn some jQuery!
-
-\item $\square$ FIRST: Shows Activity titles and a number of volunteers total needed
-
-\item $\square$ SECOND: Clicking on one of the FIRST shows a view of specific times
-and number of volunteers still needed for each, just after a description
-of the activity itself
-
-\begin{itemize}
-\item $\square$ checkboxes for selected desired shifts?
-
-\item $\square$ ability to remove volunteer from shifts
-\end{itemize}
-
-\item $\square$ BLOG/NEWSfeed for news updates?
-
-\item $\square$ PAGEs for general website content
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\subsection*{ModelViewControl}
+\subsection*{Events}
 \label{sec-1-3}
 
-\subsubsection*{Model}
+\begin{verbatim}
+rails g scaffold Event title:string subtitle:string location:string \ 
+location_address:text date_and_time:datetime parent:string \
+description:text links:text event_image_id:string
+\end{verbatim}
+
+\begin{verbatim}
+rake db:migrate
+\end{verbatim}
+
+\url{./config/routes.rb}
+\url{./app/models/ability.rb}
+\url{./app/controllers}
+\url{./app/controllers/events_controller.rb}
+
+\begin{verbatim}
+def new
+  @event = Event.new
+  authorize! :manage, @event
+end
+\end{verbatim}
+
+\begin{verbatim}
+<%= if.can? :manage, @event %>
+  <%= link_to "Edit", edit_event_path(@event) %>
+<%= end %>
+\end{verbatim}
+
+\begin{itemize}
+\item $\square$ image file upload(s)
+
+PaperClip
+
+\url{https://github.com/thoughtbot/paperclip/issues/2021}
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+\end{verbatim}
+
+::::::::::::::::::::::::::::::::::::
+Refile Below, not quite successful yet
+
+\url{https://github.com/refile/refile}
+
+\begin{itemize}
+\item $\square$ to S3
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+\end{verbatim}
+
+\url{./app/models/event.rb}
+
+\begin{verbatim}
+Class Event < ActiveRecord::Base
+  attachment :event_image
+end
+\end{verbatim}
+
+\url{./app/views/events}
+\url{./app/views/events/_form.html.erb}
+\url{./app/views/events/_form.html.haml}
+
+\begin{verbatim}
+<%= form_for @event do |event| %>
+...
+  <%= form.attachment_field :event_image %>
+...
+<% end %>
+\end{verbatim}
+
+\url{./app/controllers/events_controller.rb}
+
+\begin{verbatim}
+def event_params
+  params.require(:event).permit(... :event_image, ...)
+end
+\end{verbatim}
+
+\url{./app/views/events/show.html.erb}
+\url{./app/views/events/show.html.haml}
+
+\begin{verbatim}
+<%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %>
+\end{verbatim}
+
+\begin{itemize}
+\item $\square$ s3
+
+\url{./Gemfile}
+
+\begin{verbatim}
+gem 'aws-sdk', '~>2'
+gem 'refile-s3'
+\end{verbatim}
+
+\url{./config/environments/production.rb}
+\url{./config/initializers/refile.rb}
+
+\begin{verbatim}
+require 'refile/s3'
+
+aws = {
+  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+  bucket: ENV['AWS_BUCKET']
+}
+Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
+Refile.store = Refile::S3.new(prefix: 'store', **aws)
+\end{verbatim}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+
+\subsubsection*{Chris Rudasill benefit (\hyperref[sec-1-3]{event})}
 \label{sec-1-3-1}
 
-Pages
+\href{docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt}{original document}
 
-\url{./app/controllers/pages_controller.rb}
-\url{./app/models/page.rb}
+\emph{Art Auction to Benefit PRAIRIE HILL}
 
-\begin{itemize}
-\item Page
-\label{sec-1-3-1-1}
+Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+several pieces of his original artwork to be sold in a silent 
+auction. 100\% of the profits will go directly to the further 
+funding of art materials and enrichment opportunities at PRAIRIE  
+HILL. 
 
-\begin{itemize}
-\item $\boxtimes$ Create Static Pages
-
-\url{http://www.railstutorial.org/book/static_pages}
-
-\begin{itemize}
-\item $\boxtimes$ Generate a Pages controller
-
-\url{./app/controllers/static_pages_controller.rb}
-\url{./config/routes.rb}
-
-\begin{verbatim}
-rails g controller StaticPages home
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-
-\item Rails Generation
-\label{sec-1-3-1-2}
-
-\begin{itemize}
-\item Scaffolding
-\label{sec-1-3-1-2-1}
-
-\begin{itemize}
-\item $\boxtimes$ Disable scaffold stylesheet creation 
-
-\url{./config/application.rb}
-
-\begin{verbatim}
-config.generators do |g|
-  g.stylesheets false
-end
-\end{verbatim}
-
-\item $\square$ Generate a scaffold
-
-EXAMPLE
-\begin{verbatim}
-rails g scaffold Page index
-\end{verbatim}
-
-\item $\square$ migrate the database
-
-\begin{verbatim}
-rake db:migrate
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-\subsubsection*{View}
-\label{sec-1-3-2}
-
-\begin{itemize}
-\item Skrollr
-\label{sec-1-3-2-1}
-
-\url{https://github.com/reed/skrollr-rails}
-
-???"@import 'skrollr';" in \url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}?
-
-\begin{itemize}
-\item $\boxtimes$ add skrollr script
-
-\begin{itemize}
-\item $\boxtimes$ make sure skrollr-rails is in the Gemfile
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem 'skrollr-rails'
-\end{verbatim}
-
-\item $\boxtimes$ add the following script just before </body> tag
-
-\url{./app/views/layouts/application.html.erb}
-
-\begin{verbatim}
-<script>
- (function($){
-   skrollr.init({
-     forceHeight: false,
-     smoothScrolling: false
-   }).refresh();
- } (jQuery));
-</script>
-\end{verbatim}
-
-\item $\boxtimes$ Place \#skrollr-body div tag around <\%= yield \%> tag
-
-\begin{verbatim}
-<div id="skrollr-body">
-\end{verbatim}
-\end{itemize}
-\end{itemize}
+Don’t miss this great opportunity to see and purchase original artwork 
+at accessible prices (some starting bids will be as low as \$10) while 
+supporting education through year-round and summer camp programming at 
+PRAIRIE HILL Learning Center.
 
 
 \begin{itemize}
-\item $\boxtimes$ require skrollr in application.js
-
-\url{./app/assets/javascripts/application.js}
-
-\begin{verbatim}
-//= require skrollr
-\end{verbatim}
-
+\item Silent auction during First Friday 
 \begin{itemize}
-\item $\boxtimes$ For IE compatibility
-
-\begin{verbatim}
-//= require skrollr
-//= require skrollr.ie
-\end{verbatim}
-
-\item $\boxtimes$ This plugin makes hashlinks scroll nicely to their target position.
-
-\begin{verbatim}
-//= require skrollr
-//= require skrollr.menu
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-
-\item Bootstrap-sass
-\label{sec-1-3-2-2}
-
+\item 11/6/15 (November 6)
 \begin{itemize}
-\item $\boxtimes$ Create custom bootstrap stylesheet
-
-\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
-
+\item 5–8 p.m.
+\end{itemize}
+\end{itemize}
+\item Lux Center for the Arts 
 \begin{itemize}
-\item $\boxtimes$ create file
-
-\begin{verbatim}
-echo "@import 'bootsrap';" > app/assets/stylesheets/bootstrap_and_customization.css.scss
-\end{verbatim}
-\end{itemize}
-\textbf{NOTE} Place new variables before "@import 'bootstrap'"
-
-\begin{itemize}
-\item $\boxtimes$ Fonts
-
-\emph{EXAMPLE:}
-\begin{verbatim}
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script);
-\end{verbatim}
-
-\item $\boxtimes$ Variables
-
-\begin{verbatim}
-$phill-grn: #3f8000;
-\end{verbatim}
-\end{itemize}
-
-\item $\boxtimes$ Require Bootstrap's Javascript, after jquery$_{\text{ujs}}$ 
-
-\url{./app/assets/javascripts/application.js}
-
-\begin{verbatim}
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap
-//= require turbolinks
-//= require_tree .
-\end{verbatim}
-\end{itemize}
-
-\item Assets
-\label{sec-1-3-2-3}
-
-\begin{itemize}
-\item Stylesheets
-\label{sec-1-3-2-3-1}
-
-\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
-\item Javascripts
-\label{sec-1-3-2-3-2}
-
-\begin{itemize}
-\item $\boxtimes$ Replace turbolinks with jquery-turbolinks
-
-\url{./app/assets/javascripts/application.js}
-
-\begin{itemize}
-\item $\boxtimes$ Check for jquery-turbolinks in Gemfile
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem 'jquery-turbolinks'
-bundle
-\end{verbatim}
-
-\item $\boxtimes$ remove turbolinks line
-
-\begin{verbatim}
-//= require turbolinks
-\end{verbatim}
-
-\item $\boxtimes$ add jquery.turbolinks under bootstrap
-
-\begin{verbatim}
-//= require bootstrap
-//= require jquery.turbolinks
-\end{verbatim}
-
-\begin{itemize}
-\item $\boxtimes$ Restart the server
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\item Images
-\label{sec-1-3-2-3-3}
-
-\begin{itemize}
-\item $\boxtimes$ css background images 
-
-\url{./app/assets/stylesheets/bootstrap_and_customization.css.scss}
-
-\begin{verbatim}
-background: image-url('image.jpg')
-\end{verbatim}
-
-\item $\square$ run the following command to precompile assets
-
-\begin{verbatim}
-RAILS_ENV=production bundle exec rake assets:precompile
-\end{verbatim}
-
-\item $\square$ set video as background?
+\item 2601 N 48th St, Lincoln, NE 68504
 \end{itemize}
 \end{itemize}
 
+For more information and images of Chris’s artwork, visit: 
+\href{http://chrisrudasill.weebly.com}{chrisrudasill.weebly.com}   
 
-\item Views
-\label{sec-1-3-2-4}
+For more info about PRAIRIE HILL, visit:   
+\href{http://prairiehill.com}{prairiehill.com}
 
-\begin{itemize}
-\item Application
-\label{sec-1-3-2-4-1}
+\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_1.jpeg}
 
-\url{./app/views/}
+\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_2.jpeg}
 
-\begin{itemize}
-\item $\boxtimes$ add viewport
 
-\url{./app/views/layouts/application.html.erb}
+\subsection*{Styles}
+\label{sec-1-4}
 
-\begin{verbatim}
-<meta name="viewport" content="width=device-width, intial-scale=1.0">
-\end{verbatim}
-
-\item $\square$ Optional page refresh interval
-
-\begin{verbatim}
-<meta http-equiv="REFRESH" content="60" />
-\end{verbatim}
-\end{itemize}
-
-\item Pages
-\label{sec-1-3-2-4-2}
-
-\url{./app/views/pages/}
-\url{./app/views/pages/pages.org}
-\end{itemize}
-\end{itemize}
-
-\subsubsection*{Control}
-\label{sec-1-3-3}
-
-\begin{itemize}
-\item AngularJS (Honeybadger tutorial)
-\label{sec-1-3-3-1}
-
-This example from honeybadger may be my key to fixing the issue I am having with
-the the Prairie Hill volunteer sign-up. Let's try it out, first in this sample
-app. Once I understand what is going on and how to impliment Angular, maybe it 
-will be a better solution than all of that erb crap I was trying to use\ldots{}
-
-\url{https://www.honeybadger.io/blog/2013/12/11/beginners-guide-to-angular-js-rails}
-
-\begin{itemize}
-\item Initial setup
-\label{sec-1-3-3-1-0-1}
-
-\begin{itemize}
-\item $\boxtimes$ create the project
-
-\begin{verbatim}
-rails new rest --database=postgresql --skip-test-unit
-\end{verbatim}
-
-\item $\square$ create the PostgreSQL database user:
-
-\begin{verbatim}
-createuser -P -s -e rest
-\end{verbatim}
-
-\item $\square$ Add RSpec to your Gemfile \& Install RSpec
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem "rspec-rails", "~> 2.14.0"
-\end{verbatim}
-
-\begin{verbatim}
-bundle install
-\end{verbatim}
-
-\begin{verbatim}
-rails g rspec:install
-\end{verbatim}
-
-\item $\square$ Create the database:
-
-\begin{verbatim}
-rake db:create
-\end{verbatim}
-\end{itemize}
-
-\item Creating the Restaurant model
-\label{sec-1-3-3-1-0-2}
-
-\begin{itemize}
-\item $\square$ Create the Restaurant resource
-
-\begin{verbatim}
-rails g scaffold restaurant name:string
-\end{verbatim}
-
-\item $\square$ Make sure restaurant names are unique
-
-\url{./db/migrate/}
-
-\begin{verbatim}
-class CreateRestaurants < ActiveRecord::Migration
-  def change
-    create_table :restaurants do |t|
-      t.string :name
-
-      t.timestamps
-    end
-
-    add_index :restaurants, :name, unique: true
-  end
-end
-\end{verbatim}
-
-\begin{itemize}
-\item $\square$ Run the migration
-
-\begin{verbatim}
-rake db:migrate
-\end{verbatim}
-
-\item $\square$ Add some specs\ldots{}
-
-Need to start learning TDD, but I'm lazy right now
-\end{itemize}
-\end{itemize}
-
-\item Bringing AngularJS into the mix
-\label{sec-1-3-3-1-0-3}
-
-\begin{itemize}
-\item $\boxtimes$ Create the controller
-
-\begin{verbatim}
-rails g controller static_pages index
-\end{verbatim}
-
-\item $\boxtimes$ Update routes
-
-\url{./config/routes.rb}
-
-\begin{verbatim}
-root 'static_pages#index'
-\end{verbatim}
-
-\item $\boxtimes$ Download Angular
-
-\begin{verbatim}
-wget http://code.angularjs.org/1.1.5/angular.js \
-http://code.angularjs.org/1.1.5/angular-mocks.js
-\end{verbatim}
-
-\begin{verbatim}
-mv angular* app/assets/javascripts
-\end{verbatim}
-
-\item $\boxminus$ Add it to the asset pipeline
-
-\url{./app/assets/javascripts/application.js}
-
-\begin{itemize}
-\item $\square$ Remove turbolinks line
-
-Keeping it in for now as a test
-
-\item $\square$ Add the following two lines
-
-\begin{verbatim}
-//= require angular
-//= require main
-\end{verbatim}
-
-\item $\boxtimes$ Set up the layout
-
-\url{./app/views/layouts/application.html.erb}
-
-naming the app via angular "phill" for simplicity
-keeping turbolinks code in for now until I see a real reason to 
-take it out
-
-\begin{itemize}
-\item $\boxtimes$ tested taking out turbolinks markup
-\end{itemize}
-\begin{verbatim}
-<!DOCTYPE html>
-<html ng-app="phill">
-<head>
-  <title>Rest</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<div ng-view>
-  <%= yield %>
-</div>
-
-</body>
-</html>
-\end{verbatim}
-
-\item $\boxtimes$ Creating an Angular controller
-
-\begin{verbatim}
-mkdir -p app/assets/javascripts/angular/controllers
-\end{verbatim}
-
-\begin{itemize}
-\item $\boxtimes$ Create the controller
-
-\url{./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee}
-
-\begin{verbatim}
-@phill.controller 'HomeCtrl', ['$scope', ($scope) ->
-
-]
-\end{verbatim}
-
-\item $\boxtimes$ Add an Angular route
-
-\url{./app/assets/javascripts/main.js.coffee}
-
-\begin{verbatim}
-# This line is related to our Angular app, not to our
-# HomeCtrl specifically. This is basically how we tell
-# Angular about the existence of our application.
-@phill = angular.module('phill', [])
-\end{verbatim}
-
-\begin{verbatim}
-# This routing directive tells Angular about the default
-# route for our application. The term "otherwise" here
-# might seem somewhat awkward, but it will make more
-# sense as we add more routes to our application.
-@phill.config(['$routeProvider', ($routeProvider) ->
-  $routeProvider.
-    otherwise({
-      templateUrl: '../templates/home.html',
-      controller: 'HomeCtrl'
-    }) 
-])
-\end{verbatim}
-
-\item $\boxtimes$ Add an Angular template
-
-\begin{verbatim}
-mkdir public/templates
-\end{verbatim}
-
-\url{./public/templates/home.html}
-
-\begin{verbatim}
-This is the home page
-\end{verbatim}
-
-\begin{itemize}
-\item $\boxtimes$ An example of data binding
-
-\url{./app/assets/javascripts/angular/controllers/HomeCtrl.js.coffee}
-
-\begin{verbatim}
-@phill.controller 'HomeCtrl', ['$scope', ($scope) ->
-  $scope.foo = 'bar'        
-]
-\end{verbatim}
-
-\url{./public/templates/home.html}
-
-\begin{verbatim}
-Value of "foo": {{foo}}
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-\item Doing it for real this time
-\label{sec-1-3-3-1-0-4}
-
-\begin{itemize}
-\item $\square$ Seed the database
-
-\url{./db/seeds.rb}
-
-\begin{verbatim}
-Restaurant.create([
-  { name: "The French Laundry" },
-  { name: "Chez Panisse" },
-  { name: "Bouchon" },
-  { name: "Noma" },
-  { name: "Taco Bell" },
-])
-\end{verbatim}
-
-\begin{verbatim}
-rake db:seed
-\end{verbatim}
-
-\item $\boxtimes$ Creating a shift index page
-
-\begin{verbatim}
-mkdir public/templates/shifts
-\end{verbatim}
-
-\url{./public/templates/shifts/index.html}
-
-\begin{verbatim}
-<a href="/#">index</a>
-<ul ng-repeat="restaurant in restaurants">
-  <li>
-    <a ng-click="viewRestaurant(restaurant.id)">
-      {{ restaurant.name }}
-    </a>
-  </li>
-</ul>
-\end{verbatim}
-
-OR rather
-
-\begin{verbatim}
-<a href="/#">Shifts</a>
-<ul ng-repeat="shift in shifts">
-  <li>
-    <a ng-click="viewShift(shift.id)">
-      {{ shift.title }}
-    </a>
-  </li>
-</ul>
-\end{verbatim}
-
-\item $\boxtimes$ Create the controller
-
-\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
-
-\begin{verbatim}
-@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-  $scope.restaurants = []
-  $http.get('./restaurants.json').success((data) ->
-    $scope.restaurants = data
-  )
-]
-\end{verbatim}
-
-OR rather
-
-\begin{verbatim}
-@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-  $scope.shifts = []
-  $http.get('./shifts.json').success((data) ->
-    $scope.shifts = data
-  )
-]
-\end{verbatim}
-
-\item $\boxtimes$ Adjust routing configuration
-
-\url{./app/assets/javascripts/main.js.coffee}
-
-\begin{verbatim}
-@phill = angular.module('phill', [])
-
-@phill.config(['$routeProvider', ($routeProvider) ->
-  $routeProvider.
-    when('/shifts', {
-      templateUrl: '../templates/shifts/index.html',
-      controller: 'ShiftIndexCtrl'
-    }).
-    otherwise({
-      templateUrl: '../templates/home.html',
-      controller: 'HomeCtrl'
-    })
-])
-\end{verbatim}
-\end{itemize}
-
-\item Adding our first test
-\label{sec-1-3-3-1-0-5}
-
-fill in later
-
-\item Building out the shifts page
-\label{sec-1-3-3-1-0-6}
-
-When you generate scaffolding in Rails 4, it gives you some .jbuilder files:
-
-\url{./app/views/shifts/index.json.jbuilder}
-
-\begin{itemize}
-\item $\boxtimes$ Add :id parameter for json.extract!
-
-\begin{verbatim}
-json.array!(@restaurants) do |restaurant|
-  json.extract! restaurant, :id, :name
-  json.url restaurant_url(restaurant, format: :json)
-end
-\end{verbatim}
-
-OR rather
-
-\begin{verbatim}
-json.array!(@shifts) do |shift|
-  json.extract! shift, :id, :title, :vols_needed, :user_ids
-  json.url shift_url(shift, format: :json)
-end
-\end{verbatim}
-
-\item $\square$ define pushShift()
-
-\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
-
-\item $\boxtimes$ define viewShift()
-
-\url{./app/assets/javascripts/angular/controllers/ShiftIndexCtrl.js.coffee}
-
-\begin{verbatim}
-@rest.controller 'RestaurantIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-  $scope.restaurants = []
-  $http.get('./restaurants.json').success((data) ->
-    $scope.restaurants = data
-  )
-
-  $scope.viewRestaurant = (id) ->
-    $location.url "/restaurants/#{id}"
-]
-\end{verbatim}
-
-OR rather
-
-\begin{verbatim}
-@phill.controller 'ShiftIndexCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
-  $scope.shifts = []
-  $http.get('./shifts.json').success((data) ->
-    $scope.shifts = data
-  )
-
-  $scope.viewShift = (id) ->
-    $location.url "/shifts/#{id}"        
-]
-\end{verbatim}
-
-\item $\boxtimes$ Create show template, route and controller
-
-\url{./public/templates/shifts/show.html}
-
-\begin{verbatim}
-<h1>{{shift.title}}</h1>
-\end{verbatim}
-
-\url{./app/assets/javascripts/main.js.coffee}
-
-\begin{verbatim}
-@rest = angular.module('rest', [])
-
-@rest.config(['$routeProvider', ($routeProvider) ->
-  $routeProvider.
-    when('/restaurants', {
-      templateUrl: '../templates/restaurants/index.html',
-      controller: 'RestaurantIndexCtrl'
-    }).
-    when('/restaurants/:id', {
-      templateUrl: '../templates/restaurants/show.html',
-      controller: 'RestaurantShowCtrl'
-    }).
-    otherwise({
-      templateUrl: '../templates/home.html',
-      controller: 'HomeCtrl'
-    })
-])
-\end{verbatim}
-
-\url{./app/assets/javascripts/angular/controllers/ShiftShowCtrl.js.coffee}
-
-\begin{verbatim}
-@rest.controller 'RestaurantShowCtrl', ['$scope', '$http', '$routeParams', ($scope, $http, $routeParams) ->
-  $http.get("./restaurants/#{$routeParams.id}.json").success((data) ->
-    $scope.restaurant = data
-  )
-]
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-
-
-
-
-\item Routes
-\label{sec-1-3-3-2}
-
-\href{./app/views/}{Views Directory}
-
-\url{./config/routes.rb}
-
-\begin{itemize}
-\item $\boxtimes$ create root path
-
-\begin{verbatim}
-root 'static_pages#home'
-\end{verbatim}
-
-\item $\square$ create paths for desired routes
-
-\begin{verbatim}
-get "about" => "pages#about"
-get "news" => "pages#news"
-get "programs" => "pages#programs"
-get "calendar" => "pages#calendar"
-get "contact" => "contacts#new"
-get "staffandboard" => "pages#staff"
-get "jobs" => "pages#jobs"
-get "donate" => "pages#donate"
-get "camp" => "pages#summer_camp"
-get "csv" => "pages#csvupload"
-get "ccf" => "shifts#volunteer"
-\end{verbatim}
-\end{itemize}
-
-
-\item Controllers
-\label{sec-1-3-3-3}
-
-\url{./app/controllers/application_controller.rb}
-
-\url{./app/controllers/pages_controller.rb}
-\end{itemize}
-% Emacs 24.4.1 (Org mode 8.2.6)
+\url{./app/assets/stylesheets}
+% Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}

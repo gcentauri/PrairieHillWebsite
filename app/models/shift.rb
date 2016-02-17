@@ -3,17 +3,15 @@ class Shift < ActiveRecord::Base
   has_and_belongs_to_many :users, :dependent => :destroy
   accepts_nested_attributes_for :users
 
-  belongs_to :activity
-  belongs_to :user
-  
+
   def self.to_xlsx(options = {})
 
     workbook = WriteExcel.new('shifts.xlsx')
 #    workbook = WriteExcel.new(STDOUT)
-    
+   
     @shiftTitles = all.pluck(:title).uniq
     @shiftTitles.each do |title|
-      
+     
       worksheet = workbook.add_worksheet
 
       # format = workbook.add_format
@@ -76,7 +74,7 @@ class Shift < ActiveRecord::Base
   # end
 
   def add_user_idee(id)
-    
+   
     user_ids_will_change!
     update_attribute(:user_ids, self.user_ids << id)
 
