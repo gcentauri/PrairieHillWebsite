@@ -21,20 +21,21 @@
 	    PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-13, 14-15 with some options for 6-15 year olds and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
 	  </p>
 	  <hr/>
-	  <%= cms_snippet_content('camp-sessions', @cms_site).html_safe %>
-	</div>
-	<div class='small-6 columns'>
-	  <%= image_tag "daniel-brushing.png" %>
-	  <a class="button success bottom-shadow"
+	    <a class="button success bottom-shadow"
 	     style='margin:15px;'
 	     href="https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform"
 	     target="_blank"
 	     >
 	    NatureWorks - Registration Form
-	  </a>
+	    </a>
+	    <%= link_to 'More Info', camp_path, class: 'button success bottom-shadow' %>
+	</div>
+
+	<div class='small-6 columns'>
+	  <%= image_tag "daniel-brushing.png" %>
+	
 	</div>
       </div>
     </div>
   </div>
 </div>
-

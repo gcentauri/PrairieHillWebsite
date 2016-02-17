@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Prairie Hill Learning Center Website</title>
-<!-- 2015-10-07 Wed 14:24 -->
+<!-- 2016-02-15 Mon 11:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="AnderSon" />
@@ -142,9 +142,473 @@ for the JavaScript code in this tag.
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Prairie Hill Learning Center</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
+<p>
+Rails application for <a href="http://www.prairiehill.com">prairiehill.com</a>
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
 <h3 id="sec-1-1"><span class="todo TODO">TODO</span> </h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><code>[-]</code> Sat Feb 13 18:47:52 CST 2016
+
+<ul class="org-ul">
+<li><code>[X]</code> hide camp page
+</li>
+<li><code>[&#xa0;]</code> update camp page
+
+<p>
+<a href="https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform">https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform</a>
+</p>
+
+<p>
+<a href="./config/routes.rb">./config/routes.rb</a>
+</p>
+
+<p>
+<a href="./app/views/pages/summer_camp.html.erb">./app/views/pages/summer_camp.html.erb</a>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-web" id="current-snippet-summer-camp">&lt;h1 class="tour-dates" style="font-size: 4vw;"&gt;&lt;strong&gt;NatureWorks Summer Day Camps and Mini-camps &lt;/strong&gt;&lt;/h1&gt;
+&lt;p class="content-box"&gt;
+  PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
+&lt;/p&gt;
+&lt;p class="content-box"&gt;
+  &lt;em&gt;Summer Camps are full for this year&lt;/em&gt;. Please plan to join us for our &lt;strong&gt;Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3&lt;/strong&gt;. Check back for updates and details!&lt;br&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class="hi-li"&gt;
+  &lt;a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;amp;w=1"&gt;NatureWorks - Registration Form &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;Survival and Awareness -- with BJ Spring&lt;/h2&gt;
+&lt;h3 class="camp-title"&gt;June 1-12&lt;/h3&gt;
+&lt;p class="camp-subtitle"&gt;
+  One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;What's the Story?&lt;/h2&gt;
+&lt;h3 class="camp-title"&gt;June 15 - 26&lt;br&gt;
+&lt;/h3&gt;
+&lt;p class="camp-subtitle"&gt;
+  This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp;amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;Suzuki Violin Camp&lt;/h2&gt;
+&lt;h3 class="camp-title"&gt;July 6-10&lt;/h3&gt;
+&lt;p class="camp-subtitle"&gt;
+  Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;Simple Machines and Complex Creations&lt;/h2&gt;
+&lt;h3 class="camp-title"&gt;July 13-24&lt;/h3&gt;
+&lt;p class="camp-subtitle"&gt;
+  "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
+  &lt;br&gt;
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;Animal Encounters&lt;/h2&gt;
+&lt;h3 class="camp-title"&gt;July 27-31&lt;/h3&gt;
+&lt;p class="camp-subtitle"&gt;
+  This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
+&lt;/p&gt;
+&lt;h2 class="camp-title"&gt;Mini-camps for children ages 3-6&lt;/h2&gt;
+&lt;p class="camp-subtitle"&gt;
+  Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
+&lt;/p&gt;
+&lt;p class="hi-li camp-link"&gt;
+  &lt;span style="color: #000000;" rel="color: #000000;"&gt; &lt;strong&gt; &lt;a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;amp;w=1" class="hidden"&gt;Mini-Camp PRAIRIE HILL - Registration Form &lt;/a&gt; &lt;/strong&gt; &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 style="text-align: left;"&gt;&lt;strong&gt;&lt;u data-redactor-tag="u"&gt;Camp PRAIRIE HILL Daily Schedule&lt;/u&gt; *&lt;/strong&gt;&lt;/h3&gt;
+&lt;div class="table"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+	&lt;th&gt;
+	&lt;/th&gt;
+	&lt;th&gt;
+	&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt;9:00 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Drop-off: greeting and getting ready for the day
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 9:15 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Circle Time: flag raising, songs, movement games
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 9:30 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Garden Time/Nature Walk
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 10:15 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Pony Rides
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 11:15 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Lunch Preparation/Story Time
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 11:30 a.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Picnic Lunch
+	&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+	&lt;td&gt;
+	  &lt;strong&gt; 12:15 p.m.&lt;/strong&gt;
+	&lt;/td&gt;
+	&lt;td&gt;
+	  Prepare for Pickup (12:30 p.m.)
+	&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;hr&gt;
+  &lt;address&gt;&lt;strong&gt;&lt;em data-redactor-tag="em"&gt;*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.&lt;/em&gt;&lt;/strong&gt;&lt;/address&gt;&lt;address&gt; &lt;/address&gt;&lt;address&gt;All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.&lt;/address&gt;&lt;address&gt; &lt;/address&gt;&lt;address&gt;Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.&lt;/address&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+<pre class="example">
+&lt;div class='col-md-11'&gt;
+  &lt;%#= cms_snippet_content('summer-camp', @cms_site).html_safe %&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="org-src-container">
+
+<pre class="src src-web" id="summer_camp.html.erb">&lt;div class="small-12 small-centered columns card" style='overflow:hidden;'&gt;
+
+  &lt;div class='row'&gt;
+    &lt;div class='small-11 small-centered columns'&gt;
+      Summer Camp 2016 Coming Soon!
+    &lt;/div&gt;
+
+    &lt;div class='col-md-11'&gt;
+      &lt;%#= cms_snippet_content('summer-camp', @cms_site).html_safe %&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> color ideas
+
+
+<div class="figure">
+<p><img src="https://ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg" alt="24_farm.jpg" />
+</p>
+</div>
+
+<p>
+b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+</p>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> create tabs and front page news
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> ready for links to google forms etc
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> Sun Oct 11 11:53:19 CDT 2015
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> gather user feedback
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> survey
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> delivery methods
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> email
+</li>
+<li><code>[&#xa0;]</code> rails engine
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> <a href="https://github.com/runtimerevolution/survey">https://github.com/runtimerevolution/survey</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>[&#xa0;]</code> elements
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> 5 tips for writing a great survey
+
+<p>
+<a href="http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey">http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey</a>
+</p>
+
+<p>
+Be Thankful!
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Define Your Objectives. 
+
+<p>
+Figure out the decision or decisions you're trying to make to 
+focus your survey.   
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Objectives
+
+<ul class="org-ul">
+<li>collect user feedback in order to understand
+
+<ul class="org-ul">
+<li>what worked? what didn't work?
+</li>
+<li>how did the site feel?
+</li>
+<li>browser and system type?
+</li>
+</ul>
+</li>
+
+<li>improve the application based on this feedback
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> Work Backwards. 
+
+<p>
+Once you've set your objectives, determine the data you need to 
+gather in your survey to make your decision.
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> data needed
+
+<ul class="org-ul">
+<li>comments, textual feedback
+
+<p>
+What's good, what could be better, and how?
+</p>
+
+<ul class="org-ul">
+<li>general
+<ul class="org-ul">
+<li>look &amp; feel
+</li>
+<li>functionality
+<ul class="org-ul">
+<li>what worked?
+</li>
+<li>what did not work?
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> Check for Bias. 
+
+<p>
+Make sure you're not asking leading questions. 
+</p>
+</li>
+
+<li><code>[&#xa0;]</code> Do a Test Drive. 
+
+<p>
+Send your survey to friends and colleagues for a test run. 
+They'll help make sure your questions and response options are 
+understandable and all your survey logic works.
+</p>
+</li>
+
+<li><code>[&#xa0;]</code> Collect Results and Analyze Data. 
+
+<p>
+This is where it gets really fun. The data rolling in from your 
+survey should help you decide what product to launch next, how 
+to raise more money at your next fundraiser, what to do to keep 
+customers coming back, what to serve at your next party and much 
+more.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>[&#xa0;]</code> create special <a href="#sec-1-3">event</a> section
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> section for LUX art event
+<ul class="org-ul">
+<li>Event MVC
+<a href="./app/models/event.rb">./app/models/event.rb</a>
+<a href="./app/helpers/events_helper.rb">./app/helpers/events_helper.rb</a>
+<a href="./app/helpers/application_helper.rb">./app/helpers/application_helper.rb</a>
+<a href="./app/views/events">./app/views/events</a>
+<a href="./app/views/layouts/">./app/views/layouts/</a>
+<a href="./app/controllers/events_controller.rb">./app/controllers/events_controller.rb</a>
+
+<ul class="org-ul">
+<li>add condition to account for past events
+<ul class="org-ul">
+<li>display past events for information purposes
+<ul class="org-ul">
+<li>past events view
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>[&#xa0;]</code> details in email from Mandie
+
+<p>
+<i>Chris Rudasill benefit</i>
+<a href="docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt">original document</a>
+</p>
+
+<p>
+<i>Art Auction to Benefit PRAIRIE HILL</i>
+</p>
+
+<p>
+Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+several pieces of his original artwork to be sold in a silent 
+auction. 100% of the profits will go directly to the further 
+funding of art materials and enrichment opportunities at PRAIRIE  
+HILL. 
+</p>
+
+<p>
+Don’t miss this great opportunity to see and purchase original artwork 
+at accessible prices (some starting bids will be as low as $10) while 
+supporting education through year-round and summer camp programming at 
+PRAIRIE HILL Learning Center.
+</p>
+
+<ul class="org-ul">
+<li>Silent auction during First Friday 
+<ul class="org-ul">
+<li>11/6/15 (November 6)
+<ul class="org-ul">
+<li>5–8 p.m. 
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lux Center for the Arts 
+<ul class="org-ul">
+<li>2601 N 48th St, Lincoln, NE 68504
+</li>
+</ul>
+</li>
+</ul>
+<p>
+For more information and images of Chris’s artwork, visit: 
+<a href="http://chrisrudasill.weebly.com">chrisrudasill.weebly.com</a>   
+</p>
+
+<p>
+For more info about PRAIRIE HILL, visit:   
+<a href="http://prairiehill.com">prairiehill.com</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./app/assets/images/rudasill_1.jpeg" alt="rudasill_1.jpeg" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./app/assets/images/rudasill_2.jpeg" alt="rudasill_2.jpeg" />
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><code>[&#xa0;]</code> upgrade heroku dyno
+</li>
+<li><code>[&#xa0;]</code> design for mobile
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> consider building separate mobile site to learn Angular, making 
+ajax calls to the current phill api
+
+<p>
+<a href="file:///home/son/bin/js/angular/learnAngular/README.html">file:///home/son/bin/js/angular/learnAngular/README.html</a>
+</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> update staff page
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> waiting for updates from Mandie
+</li>
+</ul>
+</li>
+<li><code>[&#xa0;]</code> hide ccf section until 2016
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> backup database
+</li>
+</ul>
+</li>
+</ul>
+
+
 <ul class="org-ul">
 <li><code>[-]</code> Wed Oct  7 10:35:18 CDT 2015
 
@@ -160,7 +624,7 @@ for the JavaScript code in this tag.
 </p>
 </li>
 
-<li><code>[&#xa0;]</code> remove from slides
+<li><code>[X]</code> remove from slides
 
 <p>
 <a href="./app/views/pages/home.html.erb">./app/views/pages/home.html.erb</a>
@@ -201,6 +665,250 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 </ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Configuration</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Events</h3>
+<div class="outline-text-3" id="text-1-3">
+<pre class="example">
+rails g scaffold Event title:string subtitle:string location:string \ 
+location_address:text date_and_time:datetime parent:string \
+description:text links:text event_image_id:string
+</pre>
+
+<pre class="example">
+rake db:migrate
+</pre>
+
+<p>
+<a href="./config/routes.rb">./config/routes.rb</a>
+<a href="./app/models/ability.rb">./app/models/ability.rb</a>
+<a href="./app/controllers">./app/controllers</a>
+<a href="./app/controllers/events_controller.rb">./app/controllers/events_controller.rb</a>
+</p>
+
+<pre class="example">
+def new
+  @event = Event.new
+  authorize! :manage, @event
+end
+</pre>
+
+<pre class="example">
+&lt;%= if.can? :manage, @event %&gt;
+  &lt;%= link_to "Edit", edit_event_path(@event) %&gt;
+&lt;%= end %&gt;
+</pre>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> image file upload(s)
+
+<p>
+PaperClip
+</p>
+
+<p>
+<a href="https://github.com/thoughtbot/paperclip/issues/2021">https://github.com/thoughtbot/paperclip/issues/2021</a>
+</p>
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem 'paperclip', :git =&gt; 'https://github.com/thoughtbot/paperclip', :ref =&gt; '523bd46c768226893f23889079a7aa9c73b57d68'
+</pre>
+
+<p>
+::::::::::::::::::::::::::::::::::::
+Refile Below, not quite successful yet
+</p>
+
+<p>
+<a href="https://github.com/refile/refile">https://github.com/refile/refile</a>
+</p>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> to S3
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+</pre>
+
+<p>
+<a href="./app/models/event.rb">./app/models/event.rb</a>
+</p>
+
+<pre class="example">
+Class Event &lt; ActiveRecord::Base
+  attachment :event_image
+end
+</pre>
+
+<p>
+<a href="./app/views/events">./app/views/events</a>
+<a href="./app/views/events/_form.html.erb">./app/views/events/_form.html.erb</a>
+<a href="./app/views/events/_form.html.haml">./app/views/events/_form.html.haml</a>
+</p>
+
+<pre class="example">
+&lt;%= form_for @event do |event| %&gt;
+...
+  &lt;%= form.attachment_field :event_image %&gt;
+...
+&lt;% end %&gt;
+</pre>
+
+<p>
+<a href="./app/controllers/events_controller.rb">./app/controllers/events_controller.rb</a>
+</p>
+
+<pre class="example">
+def event_params
+  params.require(:event).permit(... :event_image, ...)
+end
+</pre>
+
+<p>
+<a href="./app/views/events/show.html.erb">./app/views/events/show.html.erb</a>
+<a href="./app/views/events/show.html.haml">./app/views/events/show.html.haml</a>
+</p>
+
+<pre class="example">
+&lt;%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %&gt;
+</pre>
+
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> s3
+
+<p>
+<a href="./Gemfile">./Gemfile</a>
+</p>
+
+<pre class="example">
+gem 'aws-sdk', '~&gt;2'
+gem 'refile-s3'
+</pre>
+
+<p>
+<a href="./config/environments/production.rb">./config/environments/production.rb</a>
+<a href="./config/initializers/refile.rb">./config/initializers/refile.rb</a>
+</p>
+
+<pre class="example">
+require 'refile/s3'
+
+aws = {
+  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+  bucket: ENV['AWS_BUCKET']
+}
+Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
+Refile.store = Refile::S3.new(prefix: 'store', **aws)
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">Chris Rudasill benefit (<a href="#sec-1-3">event</a>)</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+<a href="docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt">original document</a>
+</p>
+
+<p>
+<i>Art Auction to Benefit PRAIRIE HILL</i>
+</p>
+
+<p>
+Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+several pieces of his original artwork to be sold in a silent 
+auction. 100% of the profits will go directly to the further 
+funding of art materials and enrichment opportunities at PRAIRIE  
+HILL. 
+</p>
+
+<p>
+Don’t miss this great opportunity to see and purchase original artwork 
+at accessible prices (some starting bids will be as low as $10) while 
+supporting education through year-round and summer camp programming at 
+PRAIRIE HILL Learning Center.
+</p>
+
+
+<ul class="org-ul">
+<li>Silent auction during First Friday 
+<ul class="org-ul">
+<li>11/6/15 (November 6)
+<ul class="org-ul">
+<li>5–8 p.m. 
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lux Center for the Arts 
+<ul class="org-ul">
+<li>2601 N 48th St, Lincoln, NE 68504
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+For more information and images of Chris’s artwork, visit: 
+<a href="http://chrisrudasill.weebly.com">chrisrudasill.weebly.com</a>   
+</p>
+
+<p>
+For more info about PRAIRIE HILL, visit:   
+<a href="http://prairiehill.com">prairiehill.com</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./app/assets/images/rudasill_1.jpeg" alt="rudasill_1.jpeg" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./app/assets/images/rudasill_2.jpeg" alt="rudasill_2.jpeg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Styles</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<a href="./app/assets/stylesheets">./app/assets/stylesheets</a>
+</p>
 </div>
 </div>
 </div>

@@ -1,0 +1,1 @@
+<%= cms_snippet_content('camp-info', @cms_site).html_safe %>
