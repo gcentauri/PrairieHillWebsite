@@ -19,6 +19,13 @@
   <li><%= nav_link "CONTACT", contact_path %></li>
 
   <li class=''>
+    <%= link_to camp_path, class: 'attention' do %>
+      <i class='fa fa-users fa-1x'></i> <span style='color:gold;'>Summer Camp!</span> <span style="font-size:1.7rem;font-family:'News Cycle';"></span>
+    <% end %>
+  </li>
+
+  
+  <li class='hidden'>
     <%= link_to "/events/#{featured_event}", class: 'attention' do %>
       <i class='fa fa-users fa-1x'></i> <span style='color:gold;'>Special Events!</span> <span style="font-size:1.7rem;font-family:'News Cycle';"></span>
     <% end %>

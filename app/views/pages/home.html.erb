@@ -119,6 +119,22 @@ description: 'Montessori education for children with an emphasis on meeting the 
        border-radius: 3px;
        '
        >
+
+    <div id='camp-info-mobile'>
+      <%= link_to (image_tag "natureworks-title.png", class: 'padded'), camp_path %>
+      <div class='small-12 small-centered columns'>
+	<%= link_to (image_tag "daniel-brushing.png", class: 'feature-image'), camp_path %>
+      </div>
+
+      <p class="content-box padded" style='font-size:2.5vw;'>
+	PRAIRIE HILL offers nature-centered day camp programs for children
+	ages 6-15 and mini-camps for ages 3-6) on our historic farm, just
+	seven miles south of Lincoln, Nebraska.
+      </p>
+
+      <%= link_to 'More Info', camp_path, class: 'button success bottom-shadow expand' %>
+    </div>
+    
     <a href='#' data-reveal-id='quoteModal'>
       <%= image_tag "kellan-bellpepper.jpg", style: 'width: 100%;', class: 'feature-image' %>
     </a>
