@@ -42,14 +42,15 @@
 	<div class='small-6 columns'>
 	  <%= image_tag "daniel-brushing.png", class: 'feature-image' %>
 	</div>
-	<div class='row'>
-	  <div class='small-12 small-centered columns'>
-	    <%= cms_snippet_content('camp-sessions', @cms_site).html_safe %>
-	  </div>
+      </div>
+      <div class='row'>
+	<div class='small-12 small-centered columns'>
+	  <%= cms_snippet_content('camp-sessions', @cms_site).html_safe %>
 	</div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <% content_for :small do %>
