@@ -6,7 +6,33 @@
 * Prairie Hill Learning Center 
   
   Rails application for [[http://www.prairiehill.com][prairiehill.com]]
-  
+
+** Issues :noexport:
+
+*** Mon May 16 13:11:00 CDT 2016 
+
+    Thanks to [[https://www.linkedin.com/in/eddie-hanline-iii-online-marketing-expert-8442b560?authType=name&authToken=dLO8&trk=wonton-desktop][Eddie Hanline]] for catching some cross-browser issues, I've found
+    at least a couple [[https://app.crossbrowsertesting.com/public/ie2f337ea3f7cff3/screenshots/z7db3f51ed0d97ff4bb7][issues]] to deal with...
+
+    Eddie said he is using Chrome for Mac, but my tests don't show any issues:
+    https://app.crossbrowsertesting.com/public/ie2f337ea3f7cff3/screenshots/ze11b3217f05bf0e0e0c
+    
+    Not sure what to do here. I have been meaning to redesign and perhaps this 
+    would be a good side project to go along with the Viking projects...
+
+**** Major
+
+     - [ ] Windows Vista, E8, 1024x768
+
+       https://app.crossbrowsertesting.com/public/ie2f337ea3f7cff3/screenshots/z7db3f51ed0d97ff4bb7/z52c57f2d8f84d850c8d
+
+     - [ ] Windows 7, E9, 1024x768
+
+       https://app.crossbrowsertesting.com/public/ie2f337ea3f7cff3/screenshots/z7db3f51ed0d97ff4bb7/z261693dfe02a6760e42
+
+       
+
+
 ** TODO 
    
    - [-] Sat Feb 13 18:47:52 CST 2016

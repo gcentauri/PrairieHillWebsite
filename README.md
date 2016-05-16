@@ -12,153 +12,293 @@ Rails application for [prairiehill.com](http://www.prairiehill.com)
         
         <./config/routes.rb>
         
+        <./app/views/pages/home.html.erb>
+        
         <./app/views/pages/summer_camp.html.erb>
         
-            <h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
-            <p class="content-box">
-              PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
-            </p>
-            <p class="content-box">
-              <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
-            </p>
-            <hr>
-            <p class="hi-li">
-              <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
-            </p>
-            <h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
-            <h3 class="camp-title">June 1-12</h3>
-            <p class="camp-subtitle">
-              One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
-            </p>
-            <h2 class="camp-title">What's the Story?</h2>
-            <h3 class="camp-title">June 15 - 26<br>
-            </h3>
-            <p class="camp-subtitle">
-              This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
-            </p>
-            <h2 class="camp-title">Suzuki Violin Camp</h2>
-            <h3 class="camp-title">July 6-10</h3>
-            <p class="camp-subtitle">
-              Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
-            </p>
-            <h2 class="camp-title">Simple Machines and Complex Creations</h2>
-            <h3 class="camp-title">July 13-24</h3>
-            <p class="camp-subtitle">
-              "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
-              <br>
-            </p>
-            <h2 class="camp-title">Animal Encounters</h2>
-            <h3 class="camp-title">July 27-31</h3>
-            <p class="camp-subtitle">
-              This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
-            </p>
-            <h2 class="camp-title">Mini-camps for children ages 3-6</h2>
-            <p class="camp-subtitle">
-              Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
-            </p>
-            <p class="hi-li camp-link">
-              <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
-            </p>
-            <h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
-            <div class="table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                    </th>
-                    <th>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>9:00 a.m.</strong>
-                    </td>
-                    <td>
-                      Drop-off: greeting and getting ready for the day
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 9:15 a.m.</strong>
-                    </td>
-                    <td>
-                      Circle Time: flag raising, songs, movement games
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 9:30 a.m.</strong>
-                    </td>
-                    <td>
-                      Garden Time/Nature Walk
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 10:15 a.m.</strong>
-                    </td>
-                    <td>
-                      Pony Rides
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 11:15 a.m.</strong>
-                    </td>
-                    <td>
-                      Lunch Preparation/Story Time
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 11:30 a.m.</strong>
-                    </td>
-                    <td>
-                      Picnic Lunch
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong> 12:15 p.m.</strong>
-                    </td>
-                    <td>
-                      Prepare for Pickup (12:30 p.m.)
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
-            </div>
+        ,-&#x2014;2016
         
-            <div class='col-md-11'>
-              <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-            </div>
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
         
-            <div class="small-12 small-centered columns card" style='overflow:hidden;'>
-            
-              <div class='row'>
-                <div class='small-11 small-centered columns'>
-                  Summer Camp 2016 Coming Soon!
-                </div>
-            
-                <div class='col-md-11'>
-                  <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-                </div>
-            
-              </div>
-            </div>
         
-        -   [ ] color ideas
-            
-            ![img](//ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg)
-            
-            b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+        <colgroup>
+        <col  class="left" />
+        </colgroup>
+        <tbody>
+        <tr>
+        <td class="left">NatureWorks Summer Camps 2016</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">NatureWorks Summer Day Camps and Mini-camps 2016</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">PRAIRIE HILL offers nature-centered day camp programs for children</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">(ages 6-9, 10-13, 14-15 and mini-camps for ages 3-6) on our</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">historic farm, just seven miles south of Lincoln, Nebraska.</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">More Info Button (to full camp page)</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        </tbody>
+        </table>
+        
+        \`-&#x2014;
+        
+        ,-&#x2014;2015
+        
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+        
+        
+        <colgroup>
+        <col  class="left" />
+        </colgroup>
+        <tbody>
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">NatureWorks Summer Day Camps and Mini-camps</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">PRAIRIE HILL offers nature-centered day camp programs for children</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">(ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">historic farm, just seven miles south of Lincoln, Nebraska.</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">Summer Camps are full for this year. Please plan to join us for our</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">Children's Country Fair and "Little Run on the Prairie" children's fun</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3.</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">Check back for updates and details!</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="left">&#xa0;</td>
+        </tr>
+        </tbody>
+        </table>
+        
+        \`-&#x2014;
+
+    <h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
+    <p class="content-box">
+      PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
+    </p>
+    <p class="content-box">
+      <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
+    </p>
+    <hr>
+    <p class="hi-li">
+      <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
+    </p>
+    <h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
+    <h3 class="camp-title">June 1-12</h3>
+    <p class="camp-subtitle">
+      One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
+    </p>
+    <h2 class="camp-title">What's the Story?</h2>
+    <h3 class="camp-title">June 15 - 26<br>
+    </h3>
+    <p class="camp-subtitle">
+      This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
+    </p>
+    <h2 class="camp-title">Suzuki Violin Camp</h2>
+    <h3 class="camp-title">July 6-10</h3>
+    <p class="camp-subtitle">
+      Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
+    </p>
+    <h2 class="camp-title">Simple Machines and Complex Creations</h2>
+    <h3 class="camp-title">July 13-24</h3>
+    <p class="camp-subtitle">
+      "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
+      <br>
+    </p>
+    <h2 class="camp-title">Animal Encounters</h2>
+    <h3 class="camp-title">July 27-31</h3>
+    <p class="camp-subtitle">
+      This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
+    </p>
+    <h2 class="camp-title">Mini-camps for children ages 3-6</h2>
+    <p class="camp-subtitle">
+      Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
+    </p>
+    <p class="hi-li camp-link">
+      <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
+    </p>
+    <h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>
+            </th>
+            <th>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>9:00 a.m.</strong>
+            </td>
+            <td>
+              Drop-off: greeting and getting ready for the day
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 9:15 a.m.</strong>
+            </td>
+            <td>
+              Circle Time: flag raising, songs, movement games
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 9:30 a.m.</strong>
+            </td>
+            <td>
+              Garden Time/Nature Walk
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 10:15 a.m.</strong>
+            </td>
+            <td>
+              Pony Rides
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 11:15 a.m.</strong>
+            </td>
+            <td>
+              Lunch Preparation/Story Time
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 11:30 a.m.</strong>
+            </td>
+            <td>
+              Picnic Lunch
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong> 12:15 p.m.</strong>
+            </td>
+            <td>
+              Prepare for Pickup (12:30 p.m.)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
+    </div>
+
+    <div class='col-md-11'>
+      <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+    </div>
+
+    <div class="small-12 small-centered columns card" style='overflow:hidden;'>
     
-    -   [ ] create tabs and front page news
-        -   [ ] ready for links to google forms etc
+      <div class='row'>
+        <div class='small-11 small-centered columns'>
+          Summer Camp 2016 Coming Soon!
+        </div>
+    
+        <div class='col-md-11'>
+          <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+        </div>
+    
+      </div>
+    </div>
+
+-   [ ] design
+    -   [ ] color ideas
+        
+        ![img](//ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg)
+        
+        b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+    -   [ ] make registration link to button
+
+-   [ ] create tabs and front page news
+    
+    <./app/views/pages/home.html.erb>
+    
+    <./app/views/pages/_camp_brief.html.erb>
+    
+    <./app/assets/stylesheets/bootstrap_and_customization.css.scss>
+    
+    -   [ ] ready for links to google forms etc
 
 -   [ ] Sun Oct 11 11:53:19 CDT 2015
     -   [ ] gather user feedback
@@ -272,11 +412,11 @@ Rails application for [prairiehill.com](http://www.prairiehill.com)
             ajax calls to the current phill api
             
             <file:///home/son/bin/js/angular/learnAngular/README.md>
-
--   [ ] update staff page
-    -   [ ] waiting for updates from Mandie
--   [ ] hide ccf section until 2016
-    -   [ ] backup database
+    
+    -   [ ] update staff page
+        -   [ ] waiting for updates from Mandie
+    -   [ ] hide ccf section until 2016
+        -   [ ] backup database
 
 -   [-] Wed Oct  7 10:35:18 CDT 2015
     -   [-] hide ccf section until 2016
