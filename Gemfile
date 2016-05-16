@@ -1,8 +1,7 @@
-
 source 'http://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.6'
 gem 'sass-rails', '>= 3.2'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
