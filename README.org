@@ -66,6 +66,16 @@
 
            : gem 'grape'
 
+           [[API Controllers]]
+
+           : app/controllers/api/base.rb
+
+           : module API
+           :   class Base < Grape::API
+           :     mount API::V1::Base
+           :   end
+           : end
+
 ** Config
 
 *** Gems
@@ -153,6 +163,29 @@
       end
     #+end_src
 
+
+*** API
+
+    [[API Controllers]]
+
+
+*** MVC
+
+**** Models
+
+**** Views
+
+**** Controllers
+
+***** API Controllers
+
+      [[./app/controllers/api]]
+
+
+***** NB
+
+      [[Research]]
+      
 ** Issues :noexport:
 
 *** Mon May 16 13:11:00 CDT 2016 

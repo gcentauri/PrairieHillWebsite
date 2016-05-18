@@ -60,6 +60,16 @@ made a mess of it (at least in my mind).
                 1
                 
                     gem 'grape'
+                
+                1.2.3.3.1
+                
+                    app/controllers/api/base.rb
+                
+                    module API
+                      class Base < Grape::API
+                        mount API::V1::Base
+                      end
+                    end
 
 ## Config
 
@@ -144,3 +154,23 @@ made a mess of it (at least in my mind).
       gem 'rails_12factor'
       gem 'unicorn-rails'
     end
+
+### API
+
+1.2.3.3.1
+
+### MVC
+
+-   Models
+
+-   Views
+
+-   Controllers
+
+    -   API Controllers
+    
+        <./app/controllers/api>
+    
+    -   NB
+    
+        1.1.1.2
