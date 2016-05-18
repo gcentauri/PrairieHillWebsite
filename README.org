@@ -76,6 +76,81 @@
            :   end
            : end
 
+           : app/controllers/api/v1/base.rb
+
+           : module API
+           :   module V1
+           :     class Base < Grape::API
+           :       mount API::V1::Activities
+           :       # mount API::V1::AnotherResource
+           :     end
+           :   end
+           : end
+
+           : app/controllers/api/v1/graduates.rb
+           
+           : module API
+           :   module V1
+           :     class Activities < Grape::API
+           :       include API::V1::Defaults
+           : 
+           :       resource :activities do
+           :         desc "Return all activities"
+           :         get "", root: :activities do
+           :           Activity.all
+           :         end
+           :
+           :         desc "Return an activity"
+           :         params do
+           :           requires :id, type: String, desc: "ID of the activity"
+           :         end
+           :         get ":id", root: "activity" do
+           :           Activity.where(id: permitted_params[:id]).first!
+           :         end
+           :       end
+           :     end
+           :   end
+           : end
+
+           : app/controllers/api/v1/defaults.rb
+
+           : module API  
+           :   module V1
+           :     module Defaults
+           :       extend ActiveSupport::Concern
+           : 
+           :       included do
+           :         prefix "api"
+           :         version "v1", using: :path
+           :         default_format :json
+           :         format :json
+           :         formatter :json, 
+           :              Grape::Formatter::ActiveModelSerializers
+           : 
+           :         helpers do
+           :           def permitted_params
+           :             @permitted_params ||= declared(params, 
+           :                include_missing: false)
+           :           end
+           : 
+           :           def logger
+           :             Rails.logger
+           :           end
+           :         end
+           : 
+           :         rescue_from ActiveRecord::RecordNotFound do |e|
+           :           error_response(message: e.message, status: 404)
+           :         end
+           : 
+           :         rescue_from ActiveRecord::RecordInvalid do |e|
+           :           error_response(message: e.message, status: 422)
+           :         end
+           :       end
+           :     end
+           :   end
+           : end  
+           
+
 ** Config
 
 *** Gems
