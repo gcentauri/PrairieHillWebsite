@@ -7,6 +7,152 @@
   
   Rails application for [[http://www.prairiehill.com][prairiehill.com]]
 
+** 2016 ReDesign
+
+   : Mon May 16 15:21:05 CDT 2016
+
+   This was one of my first applications and took on many bloated features as I
+   made things work properly, but it's time for some spring cleaning! As I prepare
+   for the Viking Code School this summer, I'm taking it upon myself to get back
+   to some older projects that need some love as I apply what I will learn from 
+   this course. [[https://www.tumblr.com/blog/vikingreins][Check]] [[https://twitter.com/50nand3r][out]] [[https://github.com/son1112][my]] [[http://www.sonarch.org][progress]] [[https://www.tumblr.com/blog/vikingreins][here]]!
+
+*** Reconstruction Plan
+    
+    The sad truth is that, in great excitement for learning a new tool, I certainly
+    went the nuby way of adding nearly everything under the sun. This was like my
+    first car. I put it to the test, but really wore down it around the edges and
+    made a mess of it (at least in my mind). 
+
+**** The Strip Down
+
+     : Wed May 18 10:02:36 CDT 2016
+
+     Now, I did consider stripping everything down and building the frontend design
+     back up, but I've recently started to learn AngularJS. My new plan is to build 
+     a new application in Angular and turn this old application into the static 
+     content API. This is not to say that a [[strip down]] will not happen, but let's
+     put that off for just one more second.
+
+     Here's a skeletal outline of the new setup:
+
+     - [ ] Phill API (Rails)
+       - [ ] Content
+     - [ ] Phill Frontend (Angular)
+       - [ ] CMS
+       - [ ] Volunteer Application
+     - [ ] firebase
+       - Eventually, I will end up moving everything to this side
+         - [ ] Content
+         - [ ] Volunteers/Users
+
+**** Research
+
+     - [ ] convert rails application into api-only
+
+       http://edgeguides.rubyonrails.org/api_app.html
+
+       - [ ] Grape
+
+         http://www.thegreatcodeadventure.com/making-a-rails-api-with-grap/
+         https://github.com/ruby-grape/grape
+         https://github.com/ruby-grape/grape/blob/v0.16.2/README.md
+         http://www.ruby-grape.org/
+         https://groups.google.com/forum/#!forum/ruby-grape
+
+         - stable release
+
+           [[Gemfile]]
+
+           : gem 'grape'
+
+** Config
+
+*** Gems
+
+    [[./Gemfile]]
+
+    #+NAME: Gemfile
+    #+begin_src ruby :tangle Gemfile :padline no
+      source 'http://rubygems.org'
+      ruby '2.3.1'
+
+      gem 'rails', '4.2.6'
+      gem 'sass-rails', '>= 3.2'
+      gem 'compass-rails', '~> 2.0.alpha.0'
+      gem 'uglifier', '2.5.1'
+      gem 'coffee-rails', '4.0.1'
+      gem 'jquery-rails', '3.1.1'
+      gem 'jquery-ui-rails'
+      gem 'jbuilder'
+      gem 'kaminari'
+      gem 'responders'
+      gem 'bcrypt'
+      gem 'devise'
+      gem 'pg'
+      gem 'comfortable_mexican_sofa', '1.12.7'
+      gem 'sdoc', '~> 0.4.0',          group: :doc
+      gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+      gem 'aws-sdk'
+      gem 'mail_form'
+      gem 'simple_form'
+      gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+      gem 'skrollr-rails'
+      gem 'rails_admin'
+      gem 'picturefill'
+      gem 'autoprefixer-rails'
+      gem 'chronic'
+      gem 'acts_as_xlsx'
+      gem 'axlsx'
+      gem 'axlsx_rails'
+      gem 'rubyzip'
+      gem 'writeexcel', '1.0.5'
+      gem 'figaro'
+      gem 'meta-tags'
+      gem 'metamagic'
+      gem 'safe_yaml', '1.0.4'
+      gem 'sitemap_generator'
+      gem 'dynamic_sitemaps'
+      gem 'fullcalendar-rails'
+      gem 'momentjs-rails'
+      gem 'jquery-datetimepicker-rails'
+      gem 'cocoon'
+      gem 'turbolinks'
+      gem 'jquery-turbolinks'
+      gem 'masonry-rails'
+      gem 'omniauth', '~> 1.2.2'
+      gem 'omniauth-google-oauth2'
+      gem 'json'
+      gem 'instagramjs-rails'
+      gem 'dalli'
+      gem 'foundation-rails'
+      gem 'foundation-icons-sass-rails'
+      gem 'jquery-slick-rails'
+      gem 'koala', '~> 2.2'
+      gem 'jquery-scrollto-rails'
+      gem 'font_assets'
+      gem 'font-awesome-rails'
+      gem 'cancancan', '~> 1.10'
+      gem 'dotenv-rails', :groups => [:development, :test]
+      gem 'jscrollpane-rails'
+      gem 'spring',        group: :development
+      gem 'grape'
+
+      group :development, :test do
+        gem 'byebug'
+        gem 'sqlite3'
+        gem 'foreman'
+        gem 'pry-rails'
+        gem 'unicorn'
+        gem 'rails-dev-tweaks', '~> 1.1'
+      end
+
+      group :production do
+        gem 'rails_12factor'
+        gem 'unicorn-rails'
+      end
+    #+end_src
+
 ** Issues :noexport:
 
 *** Mon May 16 13:11:00 CDT 2016 
@@ -30,1226 +176,1223 @@
 
        https://app.crossbrowsertesting.com/public/ie2f337ea3f7cff3/screenshots/z7db3f51ed0d97ff4bb7/z261693dfe02a6760e42
 
-       
+** 20.14, 20.15 :noexport:
+*** Configuration                                                  :noexport:
 
-
-** TODO 
-   
-   - [-] Sat Feb 13 18:47:52 CST 2016
-     
-     - [X] hide camp page
-     - [ ] update camp page
-       
-       https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform
-
-       [[./config/routes.rb]]
-       
-       [[./app/views/pages/home.html.erb]]
-       
-       [[./app/views/pages/summer_camp.html.erb]]
-       
-       ,----2016
-       | NatureWorks Summer Camps 2016                                      |
-       | NatureWorks Summer Day Camps and Mini-camps 2016                   |
-       |                                                                    |
-       | PRAIRIE HILL offers nature-centered day camp programs for children |
-       | (ages 6-9, 10-13, 14-15 and mini-camps for ages 3-6) on our        |
-       | historic farm, just seven miles south of Lincoln, Nebraska.        |
-       |                                                                    |
-       | More Info Button (to full camp page)                               |
-       |                                                                    |
-       `----
-   
-       ,----2015
-       |                                                                          |
-       | NatureWorks Summer Day Camps and Mini-camps                              |
-       |                                                                          |
-       | PRAIRIE HILL offers nature-centered day camp programs for children       |
-       | (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our |
-       | historic farm, just seven miles south of Lincoln, Nebraska.              |
-       |                                                                          |
-       | Summer Camps are full for this year. Please plan to join us for our      |
-       | Children's Country Fair and "Little Run on the Prairie" children's fun   |
-       | run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3.  |
-       | Check back for updates and details!                                      |
-       |                                                                          |
-       `----
-   
-   #+name: current snippet 'summer-camp'
-   #+begin_src web
-         <h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
-         <p class="content-box">
-           PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
-         </p>
-         <p class="content-box">
-           <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
-         </p>
-         <hr>
-         <p class="hi-li">
-           <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
-         </p>
-         <h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
-         <h3 class="camp-title">June 1-12</h3>
-         <p class="camp-subtitle">
-           One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
-         </p>
-         <h2 class="camp-title">What's the Story?</h2>
-         <h3 class="camp-title">June 15 - 26<br>
-         </h3>
-         <p class="camp-subtitle">
-           This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
-         </p>
-         <h2 class="camp-title">Suzuki Violin Camp</h2>
-         <h3 class="camp-title">July 6-10</h3>
-         <p class="camp-subtitle">
-           Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
-         </p>
-         <h2 class="camp-title">Simple Machines and Complex Creations</h2>
-         <h3 class="camp-title">July 13-24</h3>
-         <p class="camp-subtitle">
-           "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
-           <br>
-         </p>
-         <h2 class="camp-title">Animal Encounters</h2>
-         <h3 class="camp-title">July 27-31</h3>
-         <p class="camp-subtitle">
-           This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
-         </p>
-         <h2 class="camp-title">Mini-camps for children ages 3-6</h2>
-         <p class="camp-subtitle">
-           Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
-         </p>
-         <p class="hi-li camp-link">
-           <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
-         </p>
-         <h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
-         <div class="table">
-           <table>
-             <thead>
-               <tr>
-                 <th>
-                 </th>
-                 <th>
-                 </th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>
-                   <strong>9:00 a.m.</strong>
-                 </td>
-                 <td>
-                   Drop-off: greeting and getting ready for the day
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 9:15 a.m.</strong>
-                 </td>
-                 <td>
-                   Circle Time: flag raising, songs, movement games
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 9:30 a.m.</strong>
-                 </td>
-                 <td>
-                   Garden Time/Nature Walk
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 10:15 a.m.</strong>
-                 </td>
-                 <td>
-                   Pony Rides
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 11:15 a.m.</strong>
-                 </td>
-                 <td>
-                   Lunch Preparation/Story Time
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 11:30 a.m.</strong>
-                 </td>
-                 <td>
-                   Picnic Lunch
-                 </td>
-               </tr>
-               <tr>
-                 <td>
-                   <strong> 12:15 p.m.</strong>
-                 </td>
-                 <td>
-                   Prepare for Pickup (12:30 p.m.)
-                 </td>
-               </tr>
-             </tbody>
-           </table>
-           <hr>
-           <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
-         </div>
-       #+end_src
-   
-       : <div class='col-md-11'>
-       :   <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-       : </div>
-   
-   #+name: summer_camp.html.erb
-   #+begin_src web
-     <div class="small-12 small-centered columns card" style='overflow:hidden;'>
-
-       <div class='row'>
-         <div class='small-11 small-centered columns'>
-           Summer Camp 2016 Coming Soon!
-         </div>
-         
-         <div class='col-md-11'>
-           <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-         </div>
-
-       </div>
-     </div>
-   #+end_src
-
-       - [ ] design
-	 - [ ] color ideas
-
-	   https://ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg
-	 
-	   b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
-	 - [ ] make registration link to button
-
-       - [ ] create tabs and front page news
-
-	 [[./app/views/pages/home.html.erb]]
-
-	 [[./app/views/pages/_camp_brief.html.erb]]
-
-	 [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
-
-	 - [ ] ready for links to google forms etc
-	 
-       - [ ] Sun Oct 11 11:53:19 CDT 2015
-     
-	 - [ ] gather user feedback
-	   - [ ] survey
-	     - [ ] delivery methods
-	       - [ ] email
-	       - [ ] rails engine
-		 - [ ] https://github.com/runtimerevolution/survey
-	     - [ ] elements
-	   
-	       - [ ] 5 tips for writing a great survey
-	     
-		 http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey
-	     
-		 Be Thankful!
-	     
-		 - [ ] Define Your Objectives. 
-	       
-		   Figure out the decision or decisions you're trying to make to 
-		   focus your survey.   
-	       
-		   - [ ] Objectives
-		 
-		     - collect user feedback in order to understand
-		   
-		       - what worked? what didn't work?
-		       - how did the site feel?
-		       - browser and system type?
-		     
-		     - improve the application based on this feedback
-		   
-		 - [ ] Work Backwards. 
-	       
-		   Once you've set your objectives, determine the data you need to 
-		   gather in your survey to make your decision.
-	       
-		   - [ ] data needed
-		 
-		     - comments, textual feedback
-		   
-		       What's good, what could be better, and how?
-		   
-		       - general
-			 - look & feel
-			 - functionality
-			   - what worked?
-			   - what did not work?
-			 
-		 - [ ] Check for Bias. 
-	       
-		   Make sure you're not asking leading questions. 
-	       
-		 - [ ] Do a Test Drive. 
-	       
-		   Send your survey to friends and colleagues for a test run. 
-		   They'll help make sure your questions and response options are 
-		   understandable and all your survey logic works.
-	       
-		 - [ ] Collect Results and Analyze Data. 
-	       
-		   This is where it gets really fun. The data rolling in from your 
-		   survey should help you decide what product to launch next, how 
-		   to raise more money at your next fundraiser, what to do to keep 
-		   customers coming back, what to serve at your next party and much 
-		   more.
-	 - [ ] create special [[Events][event]] section
-	   - [ ] section for LUX art event
-	     - Event MVC
-	       [[./app/models/event.rb]]
-	       [[./app/helpers/events_helper.rb]]
-	       [[./app/helpers/application_helper.rb]]
-	       [[./app/views/events]]
-	       [[./app/views/layouts/]]
-	       [[./app/controllers/events_controller.rb]]
-	   
-	       - add condition to account for past events
-		 - display past events for information purposes
-		   - past events view
-	   - [ ] details in email from Mandie
-	 
-	     [[Chris Rudasill benefit]]
-	     [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
-	 
-	     /Art Auction to Benefit PRAIRIE HILL/
-	 
-	     Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
-	     several pieces of his original artwork to be sold in a silent 
-	     auction. 100% of the profits will go directly to the further 
-	     funding of art materials and enrichment opportunities at PRAIRIE  
-	     HILL. 
-	 
-	     Don’t miss this great opportunity to see and purchase original artwork 
-	     at accessible prices (some starting bids will be as low as $10) while 
-	     supporting education through year-round and summer camp programming at 
-	     PRAIRIE HILL Learning Center.
-	 
-	     - Silent auction during First Friday 
-	       - 11/6/15 (November 6)
-		 - 5–8 p.m. 
-	     - Lux Center for the Arts 
-	       - 2601 N 48th St, Lincoln, NE 68504
-	     
-	     For more information and images of Chris’s artwork, visit: 
-	     [[http://chrisrudasill.weebly.com][chrisrudasill.weebly.com]]   
-	 
-	     For more info about PRAIRIE HILL, visit:   
-	     [[http://prairiehill.com][prairiehill.com]]
-	 
-	     [[./app/assets/images/rudasill_1.jpeg]]
-	 
-	     [[./app/assets/images/rudasill_2.jpeg]]
-	 
-	 - [ ] upgrade heroku dyno
-	 - [ ] design for mobile
-       
-	   - [ ] consider building separate mobile site to learn Angular, making 
-	     ajax calls to the current phill api
-	 
-	     [[~/bin/js/angular/learnAngular/README.org]]
-	 
-	 - [ ] update staff page
-	   - [ ] waiting for updates from Mandie
-	 - [ ] hide ccf section until 2016
-	   - [ ] backup database
-	 
-       - [-] Wed Oct  7 10:35:18 CDT 2015
-     
-	 - [-] hide ccf section until 2016
-	   - [X] keep open/accessible by path for portfolio demo
-	   - [X] hide links to ccf
-	 
-	     [[./app/views/layouts/_static_menu.html.erb]]
-	 
-	   - [X] remove from slides
-	 
-	     [[./app/views/pages/home.html.erb]]
-	 
-	   - [ ] backup database
-	   - [ ] prevent modification?
-	 - [ ] create special event section
-	   - [ ] section for LUX art event
-	   - [ ] details in email from Mandie
-	 - [-] update staff page
-	   - [X] substitute staff page with coming soon page
-	 
-	     [[./app/views/pages/staff.html.erb]]
-	 
-	   - [ ] wait for updates from Mandie
-	 - [ ] design for mobile
-	 - [ ] upgrade heroku dyno
-       
-       
-** Configuration
-
-*** Gems
-
-    [[./Gemfile]]
-
-   #+NAME: Gemfile
-   #+begin_src ruby :tangle Gemfile :padline no
-     source 'http://rubygems.org'
-     ruby '2.3.1'
-
-     gem 'rails', '4.2.6'
-     gem 'sass-rails', '>= 3.2'
-     gem 'compass-rails', '~> 2.0.alpha.0'
-     gem 'uglifier', '2.5.1'
-     gem 'coffee-rails', '4.0.1'
-     gem 'jquery-rails', '3.1.1'
-     gem 'jquery-ui-rails'
-     gem 'jbuilder'
-     gem 'kaminari'
-     gem 'responders'
-     gem 'bcrypt'
-     gem 'devise'
-     gem 'pg'
-     gem 'comfortable_mexican_sofa', '1.12.7'
-     gem 'sdoc', '~> 0.4.0',          group: :doc
-     #gem 'paperclip', '~> 4.3'
-     gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
-     #gem 'aws-sdk', '~>2'
-     gem 'aws-sdk'
-     gem 'mail_form'
-     gem 'simple_form'
-     gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
-     gem 'skrollr-rails'
-     gem 'rails_admin'
-     gem 'picturefill'
-     gem 'autoprefixer-rails'
-     gem 'chronic'
-     gem 'acts_as_xlsx'
-     gem 'axlsx'
-     gem 'axlsx_rails'
-     gem 'rubyzip'
-     gem 'writeexcel', '1.0.5'
-     gem 'figaro'
-     gem 'meta-tags'
-     gem 'metamagic'
-     gem 'safe_yaml', '1.0.4'
-     gem 'sitemap_generator'
-     gem 'dynamic_sitemaps'
-     gem 'fullcalendar-rails'
-     gem 'momentjs-rails'
-     gem 'jquery-datetimepicker-rails'
-     gem 'cocoon'
-     gem 'turbolinks'
-     gem 'jquery-turbolinks'
-     gem 'masonry-rails'
-     gem 'omniauth', '~> 1.2.2'
-     gem 'omniauth-google-oauth2'
-     gem 'json'
-     gem 'instagramjs-rails'
-     #gem 'will_paginate', '~> 3.0.6'
-     gem 'dalli'
-     gem 'foundation-rails'
-     gem 'foundation-icons-sass-rails'
-     gem 'jquery-slick-rails'
-     gem 'koala', '~> 2.2'
-     gem 'jquery-scrollto-rails'
-     gem 'font_assets'
-     gem 'font-awesome-rails'
-     gem 'cancancan', '~> 1.10'
-     #gem 'refile', require: 'refile/rails'
-     #gem 'refile-mini_magick'
-     #gem 'refile-s3'
-     gem 'dotenv-rails', :groups => [:development, :test]
-     #gem 'nicescroll-rails'
-     gem 'jscrollpane-rails'
-
-     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-     gem 'spring',        group: :development
-
-     group :development, :test do
-       gem 'byebug'
-       gem 'sqlite3'
-       gem 'foreman'
-       gem 'pry-rails'
-       gem 'unicorn'
-       gem 'rails-dev-tweaks', '~> 1.1'
-     end
-
-     group :production do
-       gem 'rails_12factor'
-       gem 'unicorn-rails'
-     end
-
-   #+end_src
-   
-
-** Events
-
-   : rails g scaffold Event title:string subtitle:string location:string \ 
-   : location_address:text date_and_time:datetime parent:string \
-   : description:text links:text event_image_id:string
-
-   : rake db:migrate
-
-   [[./config/routes.rb]]
-   [[./app/models/ability.rb]]
-   [[./app/controllers]]
-   [[./app/controllers/events_controller.rb]]
-   
-   : def new
-   :   @event = Event.new
-   :   authorize! :manage, @event
-   : end
-
-   : <%= if.can? :manage, @event %>
-   :   <%= link_to "Edit", edit_event_path(@event) %>
-   : <%= end %>
-
-   - [ ] image file upload(s)
-
-     PaperClip
-
-     https://github.com/thoughtbot/paperclip/issues/2021
+**** Gems
 
      [[./Gemfile]]
 
-     : gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+    #+NAME: Gemfile
+    #+begin_src ruby
+      source 'http://rubygems.org'
+      ruby '2.3.1'
 
-     ::::::::::::::::::::::::::::::::::::
-     Refile Below, not quite successful yet
+      gem 'rails', '4.2.6'
+      gem 'sass-rails', '>= 3.2'
+      gem 'compass-rails', '~> 2.0.alpha.0'
+      gem 'uglifier', '2.5.1'
+      gem 'coffee-rails', '4.0.1'
+      gem 'jquery-rails', '3.1.1'
+      gem 'jquery-ui-rails'
+      gem 'jbuilder'
+      gem 'kaminari'
+      gem 'responders'
+      gem 'bcrypt'
+      gem 'devise'
+      gem 'pg'
+      gem 'comfortable_mexican_sofa', '1.12.7'
+      gem 'sdoc', '~> 0.4.0',          group: :doc
+      #gem 'paperclip', '~> 4.3'
+      gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+      #gem 'aws-sdk', '~>2'
+      gem 'aws-sdk'
+      gem 'mail_form'
+      gem 'simple_form'
+      gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+      gem 'skrollr-rails'
+      gem 'rails_admin'
+      gem 'picturefill'
+      gem 'autoprefixer-rails'
+      gem 'chronic'
+      gem 'acts_as_xlsx'
+      gem 'axlsx'
+      gem 'axlsx_rails'
+      gem 'rubyzip'
+      gem 'writeexcel', '1.0.5'
+      gem 'figaro'
+      gem 'meta-tags'
+      gem 'metamagic'
+      gem 'safe_yaml', '1.0.4'
+      gem 'sitemap_generator'
+      gem 'dynamic_sitemaps'
+      gem 'fullcalendar-rails'
+      gem 'momentjs-rails'
+      gem 'jquery-datetimepicker-rails'
+      gem 'cocoon'
+      gem 'turbolinks'
+      gem 'jquery-turbolinks'
+      gem 'masonry-rails'
+      gem 'omniauth', '~> 1.2.2'
+      gem 'omniauth-google-oauth2'
+      gem 'json'
+      gem 'instagramjs-rails'
+      #gem 'will_paginate', '~> 3.0.6'
+      gem 'dalli'
+      gem 'foundation-rails'
+      gem 'foundation-icons-sass-rails'
+      gem 'jquery-slick-rails'
+      gem 'koala', '~> 2.2'
+      gem 'jquery-scrollto-rails'
+      gem 'font_assets'
+      gem 'font-awesome-rails'
+      gem 'cancancan', '~> 1.10'
+      #gem 'refile', require: 'refile/rails'
+      #gem 'refile-mini_magick'
+      #gem 'refile-s3'
+      gem 'dotenv-rails', :groups => [:development, :test]
+      #gem 'nicescroll-rails'
+      gem 'jscrollpane-rails'
 
-     https://github.com/refile/refile
+      # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+      gem 'spring',        group: :development
 
-     - [ ] to S3
+      group :development, :test do
+        gem 'byebug'
+        gem 'sqlite3'
+        gem 'foreman'
+        gem 'pry-rails'
+        gem 'unicorn'
+        gem 'rails-dev-tweaks', '~> 1.1'
+      end
 
-       [[./Gemfile]]
+      group :production do
+        gem 'rails_12factor'
+        gem 'unicorn-rails'
+      end
 
-       : gem "refile", require: "refile/rails"
-       : gem "refile-mini_magick"
+    #+end_src
 
-       [[./app/models/event.rb]]
+*** Events                                                         :noexport:
 
-       : Class Event < ActiveRecord::Base
-       :   attachment :event_image
-       : end
+    : rails g scaffold Event title:string subtitle:string location:string \ 
+    : location_address:text date_and_time:datetime parent:string \
+    : description:text links:text event_image_id:string
 
-       [[./app/views/events]]
-       [[./app/views/events/_form.html.erb]]
-       [[./app/views/events/_form.html.haml]]
+    : rake db:migrate
 
-       : <%= form_for @event do |event| %>
-       : ...
-       :   <%= form.attachment_field :event_image %>
-       : ...
-       : <% end %>
-
-       [[./app/controllers/events_controller.rb]]
-
-       : def event_params
-       :   params.require(:event).permit(... :event_image, ...)
-       : end
-
-       [[./app/views/events/show.html.erb]]
-       [[./app/views/events/show.html.haml]]
-
-       : <%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %>
-
-       - [ ] s3
-
-	 [[./Gemfile]]
-
-	 : gem 'aws-sdk', '~>2'
-	 : gem 'refile-s3'
-
-	 [[./config/environments/production.rb]]
-	 [[./config/initializers/refile.rb]]
-
-	 : require 'refile/s3'
-	 : 
-	 : aws = {
-	 :   access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-	 :   secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-	 :   bucket: ENV['AWS_BUCKET']
-	 : }
-	 : Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
-	 : Refile.store = Refile::S3.new(prefix: 'store', **aws)
-	 
-	 
-*** Chris Rudasill benefit ([[Events][event]])
-
-    [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
-
-    /Art Auction to Benefit PRAIRIE HILL/
-
-    Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
-    several pieces of his original artwork to be sold in a silent 
-    auction. 100% of the profits will go directly to the further 
-    funding of art materials and enrichment opportunities at PRAIRIE  
-    HILL. 
-
-    Don’t miss this great opportunity to see and purchase original artwork 
-    at accessible prices (some starting bids will be as low as $10) while 
-    supporting education through year-round and summer camp programming at 
-    PRAIRIE HILL Learning Center.
-
-
-	 - Silent auction during First Friday 
-	   - 11/6/15 (November 6)
-	     - 5–8 p.m. 
-	 - Lux Center for the Arts 
-	   - 2601 N 48th St, Lincoln, NE 68504
-
-	 For more information and images of Chris’s artwork, visit: 
-	 [[http://chrisrudasill.weebly.com][chrisrudasill.weebly.com]]   
-
-	 For more info about PRAIRIE HILL, visit:   
-	 [[http://prairiehill.com][prairiehill.com]]
-
-	 [[./app/assets/images/rudasill_1.jpeg]]
-
-	 [[./app/assets/images/rudasill_2.jpeg]]
-
-	 
-** Styles
-
-   [[./app/assets/stylesheets]]
-
-** OLD :noexport:
-*** TODO
-
-   - [-] August 2015
-
-     - [-] take summer camp down
-       - [X] remove from menu
-       - [ ] restrict access to page
-     - [ ] ccf app
-       - [ ] function
-	 - [ ] volunteer others
-	 - [ ] advance my shifts page
-	 - [ ] show schedule/calendar to see where friends are volunteering
-	 - [ ] spreadsheet export
-       - [ ] informational page
-	 what is the country fair?
-	 simple info page, what's at the fair? (find scott's video from previous years)
-	 slide show - madeline pics (look on fb, 5-10 pics)
-       - [ ] fun run info, registration link
-       - [ ] move ccf menu link to after programs, make it stand out
-   
-   - [ ] fix change/forgot password issue
-   - [-] rebuild ccf volunteer app
-
-     [[./config/routes.rb]]
+    [[./config/routes.rb]]
+    [[./app/models/ability.rb]]
+    [[./app/controllers]]
+    [[./app/controllers/events_controller.rb]]
     
-     #+BEGIN_SRC ruby :tangle "config/routes.rb"
-       Rails.application.routes.draw do
+    : def new
+    :   @event = Event.new
+    :   authorize! :manage, @event
+    : end
 
-         namespace :api, defaults: {format: 'json'} do
-           resources :activities,
-                     :pages,
-                     :shifts,
-                     :volunteers,
-                     :users
-         end
-        
-         resources :activities
-         resources :shifts 
-         resources :volunteers
+    : <%= if.can? :manage, @event %>
+    :   <%= link_to "Edit", edit_event_path(@event) %>
+    : <%= end %>
 
-         match '/contacts', to: 'contacts#new', via: 'get'
-         resources "contacts", only: [:new, :create]
-        
-         comfy_route :cms_admin, :path => '/admin'
+    - [ ] image file upload(s)
 
-         devise_for :users
-         resources :pages
+      PaperClip
 
-         root "pages#home"
+      https://github.com/thoughtbot/paperclip/issues/2021
 
-         get "about" => "pages#about"
-         get "news" => "pages#news"
-         get "events" => "pages#events"
-         get "programs" => "pages#programs"
-         get "calendar" => "pages#calendar"
-         get "contact" => "pages#contact"
-         get "staffandboard" => "pages#staff"
-         get "jobs" => "pages#jobs"
-         get "donate" => "pages#donate"
-         get "camp" => "pages#summer_camp"
-         get "csv" => "pages#csvupload"
-         get "uniq" => "pages#unique"
-         get "ccf" => "shifts#volunteer"
-         get "user_shifts" => "shifts#user_shifts"
+      [[./Gemfile]]
 
-         # Make sure this routeset is defined last
-         comfy_route :cms, :path => '/', :sitemap => true
-       end
-     #+END_SRC
+      : gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 
-     - [ ] connect with drive api to the spreadsheet?
-       - [ ] omniauth
-	 
-	 https://www.twilio.com/blog/2014/09/gmail-api-oauth-rails.html
-         https://github.com/intridea/omniauth
-       
-     - [ ] make use of fullcalendar for interaction?
-       see [[~/RAILS-dev/son/budget/README.org][Budget]] for working example and detailed instructions
+      ::::::::::::::::::::::::::::::::::::
+      Refile Below, not quite successful yet
 
-       - calendar integration?
+      https://github.com/refile/refile
 
-	 - [ ] sample integration
+      - [ ] to S3
 
-	   [[./config/routes.rb]]
+        [[./Gemfile]]
 
-	   [[http://blog.crowdint.com/2014/02/18/fancy-calendars-for-your-web-application-with-fullcalendar.html][FullCalendar Rails]]
+        : gem "refile", require: "refile/rails"
+        : gem "refile-mini_magick"
 
-	   http://fullcalendar.io/docs/event_data/Event_Object/#color-options
+        [[./app/models/event.rb]]
 
-	   - [ ] Activities
+        : Class Event < ActiveRecord::Base
+        :   attachment :event_image
+        : end
 
-	     - [ ] Configuration
+        [[./app/views/events]]
+        [[./app/views/events/_form.html.erb]]
+        [[./app/views/events/_form.html.haml]]
 
-	       [[./Gemfile]]
+        : <%= form_for @event do |event| %>
+        : ...
+        :   <%= form.attachment_field :event_image %>
+        : ...
+        : <% end %>
 
-	       : gem 'fullcalendar-rails'
-	       : gem 'momentjs-rails'
+        [[./app/controllers/events_controller.rb]]
+
+        : def event_params
+        :   params.require(:event).permit(... :event_image, ...)
+        : end
+
+        [[./app/views/events/show.html.erb]]
+        [[./app/views/events/show.html.haml]]
+
+        : <%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %>
+
+        - [ ] s3
+
+	  [[./Gemfile]]
+
+	  : gem 'aws-sdk', '~>2'
+	  : gem 'refile-s3'
+
+	  [[./config/environments/production.rb]]
+	  [[./config/initializers/refile.rb]]
+
+	  : require 'refile/s3'
+	  : 
+	  : aws = {
+	  :   access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+	  :   secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+	  :   bucket: ENV['AWS_BUCKET']
+	  : }
+	  : Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
+	  : Refile.store = Refile::S3.new(prefix: 'store', **aws)
 	  
-	       : bundle install
-	      
-	       [[./app/assets/stylesheets/application.css.scss]]
-
-	       : *= require fullcalendar
 	  
-	       [[./app/assets/javascripts/application.js]]
+**** Chris Rudasill benefit ([[Events][event]])
 
-	       These are order-sensitive
-	      
-	       : //= require moment
-	       : //= require fullcalendar
+     [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
 
-	       [[./app/views/activities/index.html.erb]]
-	      
-	       : <div id='calendar'></div>
+     /Art Auction to Benefit PRAIRIE HILL/
 
-	       [[./app/views/activities/new.html.erb]]
+     Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+     several pieces of his original artwork to be sold in a silent 
+     auction. 100% of the profits will go directly to the further 
+     funding of art materials and enrichment opportunities at PRAIRIE  
+     HILL. 
 
-	       [[./app/views/activities/edit.html.erb]]
+     Don’t miss this great opportunity to see and purchase original artwork 
+     at accessible prices (some starting bids will be as low as $10) while 
+     supporting education through year-round and summer camp programming at 
+     PRAIRIE HILL Learning Center.
 
-	       [[./app/views/activities/_form.html.erb]]
 
-	       [[./app/assets/javascripts/activities.js]]
+	  - Silent auction during First Friday 
+	    - 11/6/15 (November 6)
+	      - 5–8 p.m. 
+	  - Lux Center for the Arts 
+	    - 2601 N 48th St, Lincoln, NE 68504
 
-	       [[./app/views/activities/index.json.jbuilder]]
+	  For more information and images of Chris’s artwork, visit: 
+	  [[http://chrisrudasill.weebly.com][chrisrudasill.weebly.com]]   
 
-	       [[file:db/migrate/20150424144648_add_start_end_times_to_activities.rb][file:~/RAILS-dev/son/phill/PrairieHillWebsite/db/migrate/20150424144648_add_start_end_times_to_activities.rb]]
+	  For more info about PRAIRIE HILL, visit:   
+	  [[http://prairiehill.com][prairiehill.com]]
 
-	       : rails g migration AddStartEndTimesToActivities start_time:datetime end_time:datetime
-	       : rake db:migrate
+	  [[./app/assets/images/rudasill_1.jpeg]]
 
-	       [[./app/controllers/activities_controller.rb]]
+	  [[./app/assets/images/rudasill_2.jpeg]]
+**** Styles                                                        :noexport:
 
-	   - [ ] datepicker
+     [[./app/assets/stylesheets]]
 
-	     https://github.com/Nerian/bootstrap-datepicker-rails
-	     https://jqueryui.com/datepicker/#min-max
+         
 
-	     [[./Gemfile]]
-	    
-	     : gem 'bootstrap-datepicker-rails'
 
-	     : bundle install
-	
-	     [[./app/assets/stylesheets/application.css.scss]]
-
-	     : *= require bootstrap-datepicker3
-
-	     [[./app/assets/javascripts/application.js]]
-
-	     : //= require bootstrap-datepicker
-
-	   - [ ] datetimepicker
-
-	     Datepicker allows for a slick date selection, but what about times?
-             There are a few different gem solutions that make use of timepicker 
-             and datepicker js libraries.
-
-	     https://github.com/Envek/jquery-datetimepicker-rails
-
-	     [[./Gemfile][gem 'jquery-datetimepicker-rails']]
-	    
-	     [[./app/assets/stylesheets/application.css.scss]]
-
-	     : *= require jquery.datetimepicker
-
-	     [[./app/assets/javascripts/application.js]]
-
-	     : //= require jquery.datetimepicker
-
-	     to autoinitialize
-
-	     : //= require jquery.datetimepicker/init
-
-	     [[./app/assets/javascripts/shifts.js]]
-
-	     : $('.datetimepicker').datetimepicker();
-
-	     [[./app/views/shifts/_form.html.erb]]
-
-	     : <%= f.text_field :start_time, class: 'datetimepicker' %>
-
-	     - [ ] for user shift selection (TRANSFER TO [[~/RAILS-dev/phill/PrairieHillWebsite][PHILL NOTES]])
-
-	       - [ ] timepicker
-
-		 #+begin_src js
-                   $('#timepicker').datetimepicker({
-                       datepicker: false,
-                       format: 'H:i'
-                   });
-		 #+end_src
-
-     - [X] backup volunteer data
-       - [X] check api access to user data
-	 - [X] update api to authenticate requests
-	   [[http://railscasts.com/episodes/352-securing-an-api?view%3Dasciicast][RailsCasts Episode 352 - Securing an API]]
-	   - [X] Basic
-
-	     : http_basic_authenticate_with name: "admin", 
-	     :                              password: "secret"
-
-	 - [X] ruby?
-	   [[https://gist.github.com/kyletcarlson/7911188][Kyle T Carlson]]
-	   [[http://www.rubyinside.com/nethttp-cheat-sheet-2940.html][NET HTTP Cheat Sheet]]
-
-	   : require "net/http"
-	   : require "uri"
-	   :
-	   : uri = URI.parse("http://www.prairiehill.com/api/users")
-
-       - [X] user info
-       - [X] last years activity/shift data
-     - [-] re-organize resource relationships
-       - [ ] destroy volunteer resource?
-       - [-] Devise User/Volunteer
-	 [[./db/migrate]]
-	 [[./app/models/user.rb]]
-
-	 #+begin_src ruby :tangle "./app/models/user.rb"
-           class User < ActiveRecord::Base
-             # Include default devise modules. Others available are:
-             # :confirmable, :lockable, :timeoutable and :omniauthable
-             devise :database_authenticatable, :registerable,
-                    :recoverable, :rememberable, :trackable, :validatable
-
-             validates :username,
-                       presence: true,
-                       length: {maximum: 255},
-                       uniqueness: { case_sensitive: false },
-                       format: { with: /\A[a-zA-Z0-9]*\z/,
-                                 message: "may only contain letters and numbers." }
-
-             has_many :shifts
-             #has_many :activities through: :shifts
-
-             # Virtual attribute for authenticating by either username or email
-             # This is in addition to a real persisted field like 'username'
-             attr_accessor :login
-
-
-             def self.find_first_by_auth_conditions(warden_conditions)
-               conditions = warden_conditions.dup
-               if login = conditions.delete(:login)
-                 # when allowing distinct User records with, e.g., "username" and "UserName"...
-                 # where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-                 where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
-               else
-                 where(conditions).first
-               end
-             end
-
-             #### This is the correct method you override with the code above
-             #### def self.find_for_database_authentication(warden_conditions)
-             #### end
-           end
-	 #+end_src
-	 - attributes
-	   - id 
-	   - email 
-	   - username 
-	   - name 
-	   - admin 
-	   - first_name 
-	   - last_name 
-	   - phone
-	 - [ ] has guest?
-	 - [X] has many shifts
-	 - [X] has many activities through shifts
-       - [-] Activity
-	 [[./app/models/activity.rb]]
-
-	 #+begin_src ruby :tangle "./app/models/activity.rb"
-           class Activity < ActiveRecord::Base
-
-             has_many :shifts
-            
-             def self.to_csv(options = {})
-               CSV.generate(options) do |csv|
-                 csv << column_names
-                 all.each do |activity|
-                   csv << activity.attributes.values_at(*column_names)
-                 end
-               end
-             end
-           end
-	 #+end_src
-
-	 - [X] has many shifts
-	 - [ ] belongs to users
-
-       - [ ] Shifts
-
-	 [[./app/models/shift.rb]]
-
-	 #+begin_src ruby :tangle "./app/models/shift.rb"
-           class Shift < ActiveRecord::Base
-             has_and_belongs_to_many :users, :dependent => :destroy
-             accepts_nested_attributes_for :users
-
-
-             def self.to_xlsx(options = {})
-
-               workbook = WriteExcel.new('shifts.xlsx')
-           #    workbook = WriteExcel.new(STDOUT)
-              
-               @shiftTitles = all.pluck(:title).uniq
-               @shiftTitles.each do |title|
-                
-                 worksheet = workbook.add_worksheet
-
-                 # format = workbook.add_format
-                 # format.set_bold
-                 # format.set_color('red')
-                 # format.set_align('right')
-
-                 worksheet.write(0, 0, title) 
-
-                 @shifts_by_title = all.where(title: title)      
-                 @shifts_by_title.each do |shift|
-                   worksheet.write(1, 1, 'hotdog' )#shift.title)
-                 end
-               end
-
-               workbook.close
-
-             end
-
-
-             def self.to_csv(options = {})
-               CSV.generate(options) do |csv|
-                 csv << ["", "Time", "Volunteer", "Guest Volunteer"]
-                 @shiftTitles = all.pluck(:title).uniq
-                 @shiftTitles.each do |title|
-                   csv << [title]
-                   @shifts_by_title = all.where(title: title)
-                   @shifts_by_title.each do |shift|
-                     csv << ["", shift.time, shift.volunteer, shift.guest]
-                   end
-                 end
-               end
-             end
-
-             # def self.to_csv(options = {})
-             #   CSV.generate(options) do |csv|
-             #     csv << ["", "Time", "Volunteer", "Guest Volunteer"]
-             #     @shiftTitles = all.pluck(:title).uniq
-
-             #     @shiftTitles.each do |title|
-             #       csv << [title]
-
-             #       @shifts_by_title = all.where(title: title)
-             #       @shifts_by_title.each do |shift|
-
-             #         csv << ["", shift.time, shift.volunteer, shift.guest]
-             #       end
-             #     end
-
-             #   end
-             # end
-
-             # def self.to_csv(options = {})
-             #   CSV.generate(options) do |csv|
-             #     csv << column_names
-             #     all.each do |shift|
-             #       csv << shift.attributes.values_at(*column_names)
-             #     end
-             #   end
-             # end
-
-             def add_user_idee(id)
-              
-               user_ids_will_change!
-               update_attribute(:user_ids, self.user_ids << id)
-
-               self.save
-
-             end
-
-             def cancel_shift
-
-               shift.volunteer = nil
-               shift.save
-
-             end
-           end
-
-	 #+end_src
-
-	 - [ ] has guest?  
-	 - [ ] belongs to activity
-	 - [ ] belongs to users
-	   - [ ] has guest?
-
-   - [-] build an API
-     https://codelation.com/blog/rails-restful-api-just-add-water
-     - [X] add to [[./Gemfile]]
-
-       : gem 'jbuilder'
-       : gem 'kaminari'
-       : gem 'responders'
+*** TODO                                                           :noexport:
+    
+    - [-] Sat Feb 13 18:47:52 CST 2016
       
-     - [X] controllers
-
-       - [X] create file [[./app/controllers/api/base_controller.rb]]
-
-       - [X] add the public resource methods to the same controller
-
-       - [X] connect base controller to model controllers
-
-	 Pay attention that these inherit from /Api::BaseController/
-
-	 [[./app/controllers/api/users_controller.rb]]
-
-	 [[./app/controllers/api/activities_controller.rb]]
-
-	 [[./app/controllers/api/pages_controller.rb]]
-
-	 [[./app/controllers/api/shifts_controller.rb]]
-
-	 [[./app/controllers/api/volunteers_controller.rb]]
-
-     - [X] routing
-
-       [[./config/routes.rb]]
-
-       :   namespace :api do
-       :     resources :logs, :periods
-       :   end
-
-     - [X] serializing data
-
-       : mkdir app/views/api /shifts etc
-
-       - [X] [[./app/views/api/users/index.json.jbuilder]]
-
-       - [X] [[./app/views/api/users/show.json.jbuilder]]
-
-       - [X] [[./app/views/api/activities/index.json.jbuilder]]
-
-       - [X] [[./app/views/api/activities/show.json.jbuilder]]
-
-       - [X] [[./app/views/api/pages/index.json.jbuilder]]
-
-       - [X] [[./app/views/api/pages/show.json.jbuilder]]
-
-       - [X] [[./app/views/api/shifts/index.json.jbuilder]]
-	
-       - [X] [[./app/views/api/shifts/show.json.jbuilder]]
-
-       - [X] [[./app/views/api/volunteers/index.json.jbuilder]]
-
-       - [X] [[./app/views/api/volunteers/show.json.jbuilder]]
-
-     - [ ] security and performance concerns
-
-       - [ ] use fragment caching to make API efficient
-
-	 - [ ] http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching
-
-	 - [ ] https://github.com/rails/jbuilder
-	   offers advantages in caching over libraries like https://github.com/rails-api/active_model_serializers
-	   because you can cache JSON templates the same way you would /erb/ templates
-
-       - [ ] secure your API, gems that we use everyday include CanCan(Can) 
-	 and Devise to offer per user permissions on resources
-
-       - [ ] include some more complex functionality like side-loading for 
-	 convenience in end-user application development
-   - [ ] rebuild views in angular?
-   - [-] build mobile app for sign-up
-     - [-] ruboto
-       http://public.dhe.ibm.com/software/dw/demos/jrubyandandroid/index.htm
-       - [X] expose public api
-       - [ ] connect application via http requests
-	 https://developer.android.com/training/volley/index.html
-       - [ ] build mobile views
-
-	 [[./app/views/layouts/application.html.erb]]
-
-	 - [ ] TITLE
-
-	   : <%= render 'layouts/title' %>
-
-	 - [ ] NAV
-
-	   : <%= render 'layouts/mobile_static_menu' %>
-
-	   [[./app/views/layouts/_mobile_static_menu.html.erb]]
-	   [[./app/assets/stylesheets/pages.scss]]
-
-	 - [ ] CONTENT
-
-	   : <%= yield :small %>
-
-	   [[./app/views/pages/home.html.erb]]
-
-	   : <% content_for :small do %> 
-
-     - [ ] phonegap
-   - [X] re-route http://www.prairiehill.com => heroku app
-
-*** excel export
-
-    http://railscasts.com/episodes/362-exporting-csv-and-excel
-
-*** What we need to look at for functionality:
-   
-*** mailer contact
-
-    http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
-
-   set up successfully in development
-   
-   - [ ] change heroku configs to prairiehill email authentication for production
-
-*** user accounts
-
- - [ ] We need USERs with authenticatable accounts
-   
-   These users will have various access to update content and that's really
-   all that they need. However,
-
-   - [ ] Admin/General user
-
-     https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
-
-     We will have user accounts for general things like summer camp and 
-     country fair sign up
-
-     We will also have admin users who also have access to CMS
-
-     - [ ] install & configure RailsAdmin
-
-	   https://github.com/sferik/rails_admin
-
-       - [ ] bundle the gem
-       
-	   : gem 'rails_admin'
-	   : bundle install
-
-       - [ ] install RailsAdmin
-
-	     : rails g rails_admin:install
-
-       - [ ] configure for Devise
-
-	 https://github.com/sferik/rails_admin/wiki/Devise
-
-   - [ ] Using ComfortableMexicanSofa for Content Management
-
-     - [ ] already set up to use Paperclip for images
-
-     - [ ] WYSIWYG
-
-       [[./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css]]
-
-	 - [X] editor window is very short
-
-   - [ ] Private content
-
-     - [ ] admin vs common user accounts
-
-   - [ ] User profiles?
-
-   - [ ] Summer Camp Registration model?
-
-   - [ ] Volunteers/CCF
+      - [X] hide camp page
+      - [ ] update camp page
+        
+        https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform
+
+        [[./config/routes.rb]]
+        
+        [[./app/views/pages/home.html.erb]]
+        
+        [[./app/views/pages/summer_camp.html.erb]]
+        
+        ,----2016
+        | NatureWorks Summer Camps 2016                                      |
+        | NatureWorks Summer Day Camps and Mini-camps 2016                   |
+        |                                                                    |
+        | PRAIRIE HILL offers nature-centered day camp programs for children |
+        | (ages 6-9, 10-13, 14-15 and mini-camps for ages 3-6) on our        |
+        | historic farm, just seven miles south of Lincoln, Nebraska.        |
+        |                                                                    |
+        | More Info Button (to full camp page)                               |
+        |                                                                    |
+        `----
+    
+        ,----2015
+        |                                                                          |
+        | NatureWorks Summer Day Camps and Mini-camps                              |
+        |                                                                          |
+        | PRAIRIE HILL offers nature-centered day camp programs for children       |
+        | (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our |
+        | historic farm, just seven miles south of Lincoln, Nebraska.              |
+        |                                                                          |
+        | Summer Camps are full for this year. Please plan to join us for our      |
+        | Children's Country Fair and "Little Run on the Prairie" children's fun   |
+        | run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3.  |
+        | Check back for updates and details!                                      |
+        |                                                                          |
+        `----
+    
+    #+name: current snippet 'summer-camp'
+    #+begin_src web
+          <h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
+          <p class="content-box">
+            PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
+          </p>
+          <p class="content-box">
+            <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
+          </p>
+          <hr>
+          <p class="hi-li">
+            <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
+          </p>
+          <h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
+          <h3 class="camp-title">June 1-12</h3>
+          <p class="camp-subtitle">
+            One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
+          </p>
+          <h2 class="camp-title">What's the Story?</h2>
+          <h3 class="camp-title">June 15 - 26<br>
+          </h3>
+          <p class="camp-subtitle">
+            This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
+          </p>
+          <h2 class="camp-title">Suzuki Violin Camp</h2>
+          <h3 class="camp-title">July 6-10</h3>
+          <p class="camp-subtitle">
+            Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
+          </p>
+          <h2 class="camp-title">Simple Machines and Complex Creations</h2>
+          <h3 class="camp-title">July 13-24</h3>
+          <p class="camp-subtitle">
+            "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
+            <br>
+          </p>
+          <h2 class="camp-title">Animal Encounters</h2>
+          <h3 class="camp-title">July 27-31</h3>
+          <p class="camp-subtitle">
+            This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
+          </p>
+          <h2 class="camp-title">Mini-camps for children ages 3-6</h2>
+          <p class="camp-subtitle">
+            Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
+          </p>
+          <p class="hi-li camp-link">
+            <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
+          </p>
+          <h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                  </th>
+                  <th>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>9:00 a.m.</strong>
+                  </td>
+                  <td>
+                    Drop-off: greeting and getting ready for the day
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 9:15 a.m.</strong>
+                  </td>
+                  <td>
+                    Circle Time: flag raising, songs, movement games
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 9:30 a.m.</strong>
+                  </td>
+                  <td>
+                    Garden Time/Nature Walk
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 10:15 a.m.</strong>
+                  </td>
+                  <td>
+                    Pony Rides
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 11:15 a.m.</strong>
+                  </td>
+                  <td>
+                    Lunch Preparation/Story Time
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 11:30 a.m.</strong>
+                  </td>
+                  <td>
+                    Picnic Lunch
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong> 12:15 p.m.</strong>
+                  </td>
+                  <td>
+                    Prepare for Pickup (12:30 p.m.)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+            <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
+          </div>
+        #+end_src
+    
+        : <div class='col-md-11'>
+        :   <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+        : </div>
+    
+    #+name: summer_camp.html.erb
+    #+begin_src web
+      <div class="small-12 small-centered columns card" style='overflow:hidden;'>
+
+        <div class='row'>
+          <div class='small-11 small-centered columns'>
+            Summer Camp 2016 Coming Soon!
+          </div>
+          
+          <div class='col-md-11'>
+            <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
+          </div>
+
+        </div>
+      </div>
+    #+end_src
+
+        - [ ] design
+          - [ ] color ideas
+
+            https://ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg
+          
+            b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+          - [ ] make registration link to button
+
+        - [ ] create tabs and front page news
+
+          [[./app/views/pages/home.html.erb]]
+
+          [[./app/views/pages/_camp_brief.html.erb]]
+
+          [[./app/assets/stylesheets/bootstrap_and_customization.css.scss]]
+
+          - [ ] ready for links to google forms etc
+          
+        - [ ] Sun Oct 11 11:53:19 CDT 2015
+      
+          - [ ] gather user feedback
+            - [ ] survey
+              - [ ] delivery methods
+                - [ ] email
+                - [ ] rails engine
+                  - [ ] https://github.com/runtimerevolution/survey
+              - [ ] elements
+            
+                - [ ] 5 tips for writing a great survey
+              
+                  http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey
+              
+                  Be Thankful!
+              
+                  - [ ] Define Your Objectives. 
+                
+                    Figure out the decision or decisions you're trying to make to 
+                    focus your survey.   
+                
+                    - [ ] Objectives
+                  
+                      - collect user feedback in order to understand
+                    
+                        - what worked? what didn't work?
+                        - how did the site feel?
+                        - browser and system type?
+                      
+                      - improve the application based on this feedback
+                    
+                  - [ ] Work Backwards. 
+                
+                    Once you've set your objectives, determine the data you need to 
+                    gather in your survey to make your decision.
+                
+                    - [ ] data needed
+                  
+                      - comments, textual feedback
+                    
+                        What's good, what could be better, and how?
+                    
+                        - general
+                          - look & feel
+                          - functionality
+                            - what worked?
+                            - what did not work?
+                          
+                  - [ ] Check for Bias. 
+                
+                    Make sure you're not asking leading questions. 
+                
+                  - [ ] Do a Test Drive. 
+                
+                    Send your survey to friends and colleagues for a test run. 
+                    They'll help make sure your questions and response options are 
+                    understandable and all your survey logic works.
+                
+                  - [ ] Collect Results and Analyze Data. 
+                
+                    This is where it gets really fun. The data rolling in from your 
+                    survey should help you decide what product to launch next, how 
+                    to raise more money at your next fundraiser, what to do to keep 
+                    customers coming back, what to serve at your next party and much 
+                    more.
+          - [ ] create special [[Events][event]] section
+            - [ ] section for LUX art event
+              - Event MVC
+                [[./app/models/event.rb]]
+                [[./app/helpers/events_helper.rb]]
+                [[./app/helpers/application_helper.rb]]
+                [[./app/views/events]]
+                [[./app/views/layouts/]]
+                [[./app/controllers/events_controller.rb]]
+            
+                - add condition to account for past events
+                  - display past events for information purposes
+                    - past events view
+            - [ ] details in email from Mandie
+          
+              [[Chris Rudasill benefit]]
+              [[file:docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt][original document]]
+          
+              /Art Auction to Benefit PRAIRIE HILL/
+          
+              Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
+              several pieces of his original artwork to be sold in a silent 
+              auction. 100% of the profits will go directly to the further 
+              funding of art materials and enrichment opportunities at PRAIRIE  
+              HILL. 
+          
+              Don’t miss this great opportunity to see and purchase original artwork 
+              at accessible prices (some starting bids will be as low as $10) while 
+              supporting education through year-round and summer camp programming at 
+              PRAIRIE HILL Learning Center.
+          
+              - Silent auction during First Friday 
+                - 11/6/15 (November 6)
+                  - 5–8 p.m. 
+              - Lux Center for the Arts 
+                - 2601 N 48th St, Lincoln, NE 68504
+              
+              For more information and images of Chris’s artwork, visit: 
+              [[http://chrisrudasill.weebly.com][chrisrudasill.weebly.com]]   
+          
+              For more info about PRAIRIE HILL, visit:   
+              [[http://prairiehill.com][prairiehill.com]]
+          
+              [[./app/assets/images/rudasill_1.jpeg]]
+          
+              [[./app/assets/images/rudasill_2.jpeg]]
+          
+          - [ ] upgrade heroku dyno
+          - [ ] design for mobile
+        
+            - [ ] consider building separate mobile site to learn Angular, making 
+              ajax calls to the current phill api
+          
+              [[~/bin/js/angular/learnAngular/README.org]]
+          
+          - [ ] update staff page
+            - [ ] waiting for updates from Mandie
+          - [ ] hide ccf section until 2016
+            - [ ] backup database
+          
+        - [-] Wed Oct  7 10:35:18 CDT 2015
+      
+          - [-] hide ccf section until 2016
+            - [X] keep open/accessible by path for portfolio demo
+            - [X] hide links to ccf
+          
+              [[./app/views/layouts/_static_menu.html.erb]]
+          
+            - [X] remove from slides
+          
+              [[./app/views/pages/home.html.erb]]
+          
+            - [ ] backup database
+            - [ ] prevent modification?
+          - [ ] create special event section
+            - [ ] section for LUX art event
+            - [ ] details in email from Mandie
+          - [-] update staff page
+            - [X] substitute staff page with coming soon page
+          
+              [[./app/views/pages/staff.html.erb]]
+          
+            - [ ] wait for updates from Mandie
+          - [ ] design for mobile
+          - [ ] upgrade heroku dyno
+
+*** OLD                                                            :noexport:
+**** TODO
+
+    - [-] August 2015
+
+      - [-] take summer camp down
+        - [X] remove from menu
+        - [ ] restrict access to page
+      - [ ] ccf app
+        - [ ] function
+	  - [ ] volunteer others
+	  - [ ] advance my shifts page
+	  - [ ] show schedule/calendar to see where friends are volunteering
+	  - [ ] spreadsheet export
+        - [ ] informational page
+	  what is the country fair?
+	  simple info page, what's at the fair? (find scott's video from previous years)
+	  slide show - madeline pics (look on fb, 5-10 pics)
+        - [ ] fun run info, registration link
+        - [ ] move ccf menu link to after programs, make it stand out
+    
+    - [ ] fix change/forgot password issue
+    - [-] rebuild ccf volunteer app
+
+      [[./config/routes.rb]]
      
-     - [ ] connect devise users with shifts?
+      #+BEGIN_SRC ruby 
+        Rails.application.routes.draw do
 
-     - [ ] Sign up views
+          namespace :api, defaults: {format: 'json'} do
+            resources :activities,
+                      :pages,
+                      :shifts,
+                      :volunteers,
+                      :users
+          end
+         
+          resources :activities
+          resources :shifts 
+          resources :volunteers
 
-       - [ ] if user signed in...
+          match '/contacts', to: 'contacts#new', via: 'get'
+          resources "contacts", only: [:new, :create]
+         
+          comfy_route :cms_admin, :path => '/admin'
 
-       - [ ] time to learn some jQuery!
+          devise_for :users
+          resources :pages
 
-       - [ ] FIRST: Shows Activity titles and a number of volunteers total needed
-	 
-       - [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
-	 and number of volunteers still needed for each, just after a description
-	 of the activity itself
+          root "pages#home"
 
-	 - [ ] checkboxes for selected desired shifts?
+          get "about" => "pages#about"
+          get "news" => "pages#news"
+          get "events" => "pages#events"
+          get "programs" => "pages#programs"
+          get "calendar" => "pages#calendar"
+          get "contact" => "pages#contact"
+          get "staffandboard" => "pages#staff"
+          get "jobs" => "pages#jobs"
+          get "donate" => "pages#donate"
+          get "camp" => "pages#summer_camp"
+          get "csv" => "pages#csvupload"
+          get "uniq" => "pages#unique"
+          get "ccf" => "shifts#volunteer"
+          get "user_shifts" => "shifts#user_shifts"
+
+          # Make sure this routeset is defined last
+          comfy_route :cms, :path => '/', :sitemap => true
+        end
+      #+END_SRC
+
+      - [ ] connect with drive api to the spreadsheet?
+        - [ ] omniauth
+	  
+	  https://www.twilio.com/blog/2014/09/gmail-api-oauth-rails.html
+          https://github.com/intridea/omniauth
+        
+      - [ ] make use of fullcalendar for interaction?
+        see [[~/RAILS-dev/son/budget/README.org][Budget]] for working example and detailed instructions
+
+        - calendar integration?
+
+	  - [ ] sample integration
+
+	    [[./config/routes.rb]]
+
+	    [[http://blog.crowdint.com/2014/02/18/fancy-calendars-for-your-web-application-with-fullcalendar.html][FullCalendar Rails]]
+
+	    http://fullcalendar.io/docs/event_data/Event_Object/#color-options
+
+	    - [ ] Activities
+
+	      - [ ] Configuration
+
+	        [[./Gemfile]]
+
+	        : gem 'fullcalendar-rails'
+	        : gem 'momentjs-rails'
 	   
-	 - [ ] ability to remove volunteer from shifts
+	        : bundle install
+	       
+	        [[./app/assets/stylesheets/application.css.scss]]
 
-       - [ ] BLOG/NEWSfeed for news updates?
+	        : *= require fullcalendar
+	   
+	        [[./app/assets/javascripts/application.js]]
 
-       - [ ] PAGEs for general website content
+	        These are order-sensitive
+	       
+	        : //= require moment
+	        : //= require fullcalendar
 
-*** ModelViewControl
+	        [[./app/views/activities/index.html.erb]]
+	       
+	        : <div id='calendar'></div>
 
-*** Model
+	        [[./app/views/activities/new.html.erb]]
 
-    Pages
+	        [[./app/views/activities/edit.html.erb]]
 
-    [[./app/controllers/pages_controller.rb]]
-    [[./app/models/page.rb]]
+	        [[./app/views/activities/_form.html.erb]]
 
-**** Page
+	        [[./app/assets/javascripts/activities.js]]
 
-     - [X] Create Static Pages
+	        [[./app/views/activities/index.json.jbuilder]]
 
-       http://www.railstutorial.org/book/static_pages
+	        [[file:db/migrate/20150424144648_add_start_end_times_to_activities.rb][file:~/RAILS-dev/son/phill/PrairieHillWebsite/db/migrate/20150424144648_add_start_end_times_to_activities.rb]]
 
-       - [X] Generate a Pages controller
+	        : rails g migration AddStartEndTimesToActivities start_time:datetime end_time:datetime
+	        : rake db:migrate
 
-	 [[./app/controllers/static_pages_controller.rb]]
-	 [[./config/routes.rb]]
+	        [[./app/controllers/activities_controller.rb]]
 
-	 : rails g controller StaticPages home
+	    - [ ] datepicker
+
+	      https://github.com/Nerian/bootstrap-datepicker-rails
+	      https://jqueryui.com/datepicker/#min-max
+
+	      [[./Gemfile]]
+	     
+	      : gem 'bootstrap-datepicker-rails'
+
+	      : bundle install
+	 
+	      [[./app/assets/stylesheets/application.css.scss]]
+
+	      : *= require bootstrap-datepicker3
+
+	      [[./app/assets/javascripts/application.js]]
+
+	      : //= require bootstrap-datepicker
+
+	    - [ ] datetimepicker
+
+	      Datepicker allows for a slick date selection, but what about times?
+              There are a few different gem solutions that make use of timepicker 
+              and datepicker js libraries.
+
+	      https://github.com/Envek/jquery-datetimepicker-rails
+
+	      [[./Gemfile][gem 'jquery-datetimepicker-rails']]
+	     
+	      [[./app/assets/stylesheets/application.css.scss]]
+
+	      : *= require jquery.datetimepicker
+
+	      [[./app/assets/javascripts/application.js]]
+
+	      : //= require jquery.datetimepicker
+
+	      to autoinitialize
+
+	      : //= require jquery.datetimepicker/init
+
+	      [[./app/assets/javascripts/shifts.js]]
+
+	      : $('.datetimepicker').datetimepicker();
+
+	      [[./app/views/shifts/_form.html.erb]]
+
+	      : <%= f.text_field :start_time, class: 'datetimepicker' %>
+
+	      - [ ] for user shift selection (TRANSFER TO [[~/RAILS-dev/phill/PrairieHillWebsite][PHILL NOTES]])
+
+	        - [ ] timepicker
+
+		  #+begin_src js
+                    $('#timepicker').datetimepicker({
+                        datepicker: false,
+                        format: 'H:i'
+                    });
+		  #+end_src
+
+      - [X] backup volunteer data
+        - [X] check api access to user data
+	  - [X] update api to authenticate requests
+	    [[http://railscasts.com/episodes/352-securing-an-api?view%3Dasciicast][RailsCasts Episode 352 - Securing an API]]
+	    - [X] Basic
+
+	      : http_basic_authenticate_with name: "admin", 
+	      :                              password: "secret"
+
+	  - [X] ruby?
+	    [[https://gist.github.com/kyletcarlson/7911188][Kyle T Carlson]]
+	    [[http://www.rubyinside.com/nethttp-cheat-sheet-2940.html][NET HTTP Cheat Sheet]]
+
+	    : require "net/http"
+	    : require "uri"
+	    :
+	    : uri = URI.parse("http://www.prairiehill.com/api/users")
+
+        - [X] user info
+        - [X] last years activity/shift data
+      - [-] re-organize resource relationships
+        - [ ] destroy volunteer resource?
+        - [-] Devise User/Volunteer
+	  [[./db/migrate]]
+	  [[./app/models/user.rb]]
+
+	  #+begin_src ruby 
+            class User < ActiveRecord::Base
+              # Include default devise modules. Others available are:
+              # :confirmable, :lockable, :timeoutable and :omniauthable
+              devise :database_authenticatable, :registerable,
+                     :recoverable, :rememberable, :trackable, :validatable
+
+              validates :username,
+                        presence: true,
+                        length: {maximum: 255},
+                        uniqueness: { case_sensitive: false },
+                        format: { with: /\A[a-zA-Z0-9]*\z/,
+                                  message: "may only contain letters and numbers." }
+
+              has_many :shifts
+              #has_many :activities through: :shifts
+
+              # Virtual attribute for authenticating by either username or email
+              # This is in addition to a real persisted field like 'username'
+              attr_accessor :login
 
 
-**** Rails Generation
+              def self.find_first_by_auth_conditions(warden_conditions)
+                conditions = warden_conditions.dup
+                if login = conditions.delete(:login)
+                  # when allowing distinct User records with, e.g., "username" and "UserName"...
+                  # where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+                  where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
+                else
+                  where(conditions).first
+                end
+              end
 
-***** Scaffolding
+              #### This is the correct method you override with the code above
+              #### def self.find_for_database_authentication(warden_conditions)
+              #### end
+            end
+	  #+end_src
+	  - attributes
+	    - id 
+	    - email 
+	    - username 
+	    - name 
+	    - admin 
+	    - first_name 
+	    - last_name 
+	    - phone
+	  - [ ] has guest?
+	  - [X] has many shifts
+	  - [X] has many activities through shifts
+        - [-] Activity
+	  [[./app/models/activity.rb]]
 
-      - [X] Disable scaffold stylesheet creation 
+	  #+begin_src ruby 
+            class Activity < ActiveRecord::Base
 
-       	[[./config/application.rb]]
+              has_many :shifts
+             
+              def self.to_csv(options = {})
+                CSV.generate(options) do |csv|
+                  csv << column_names
+                  all.each do |activity|
+                    csv << activity.attributes.values_at(*column_names)
+                  end
+                end
+              end
+            end
+	  #+end_src
 
-       	 : config.generators do |g|
-       	 :   g.stylesheets false
-       	 : end
+	  - [X] has many shifts
+	  - [ ] belongs to users
 
-      - [ ] Generate a scaffold
+        - [ ] Shifts
 
-       	EXAMPLE
-       	: rails g scaffold Page index
+	  [[./app/models/shift.rb]]
 
-      - [ ] migrate the database
+	  #+begin_src ruby 
+            class Shift < ActiveRecord::Base
+              has_and_belongs_to_many :users, :dependent => :destroy
+              accepts_nested_attributes_for :users
 
-       	: rake db:migrate
+
+              def self.to_xlsx(options = {})
+
+                workbook = WriteExcel.new('shifts.xlsx')
+            #    workbook = WriteExcel.new(STDOUT)
+               
+                @shiftTitles = all.pluck(:title).uniq
+                @shiftTitles.each do |title|
+                 
+                  worksheet = workbook.add_worksheet
+
+                  # format = workbook.add_format
+                  # format.set_bold
+                  # format.set_color('red')
+                  # format.set_align('right')
+
+                  worksheet.write(0, 0, title) 
+
+                  @shifts_by_title = all.where(title: title)      
+                  @shifts_by_title.each do |shift|
+                    worksheet.write(1, 1, 'hotdog' )#shift.title)
+                  end
+                end
+
+                workbook.close
+
+              end
+
+
+              def self.to_csv(options = {})
+                CSV.generate(options) do |csv|
+                  csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+                  @shiftTitles = all.pluck(:title).uniq
+                  @shiftTitles.each do |title|
+                    csv << [title]
+                    @shifts_by_title = all.where(title: title)
+                    @shifts_by_title.each do |shift|
+                      csv << ["", shift.time, shift.volunteer, shift.guest]
+                    end
+                  end
+                end
+              end
+
+              # def self.to_csv(options = {})
+              #   CSV.generate(options) do |csv|
+              #     csv << ["", "Time", "Volunteer", "Guest Volunteer"]
+              #     @shiftTitles = all.pluck(:title).uniq
+
+              #     @shiftTitles.each do |title|
+              #       csv << [title]
+
+              #       @shifts_by_title = all.where(title: title)
+              #       @shifts_by_title.each do |shift|
+
+              #         csv << ["", shift.time, shift.volunteer, shift.guest]
+              #       end
+              #     end
+
+              #   end
+              # end
+
+              # def self.to_csv(options = {})
+              #   CSV.generate(options) do |csv|
+              #     csv << column_names
+              #     all.each do |shift|
+              #       csv << shift.attributes.values_at(*column_names)
+              #     end
+              #   end
+              # end
+
+              def add_user_idee(id)
+               
+                user_ids_will_change!
+                update_attribute(:user_ids, self.user_ids << id)
+
+                self.save
+
+              end
+
+              def cancel_shift
+
+                shift.volunteer = nil
+                shift.save
+
+              end
+            end
+
+	  #+end_src
+
+	  - [ ] has guest?  
+	  - [ ] belongs to activity
+	  - [ ] belongs to users
+	    - [ ] has guest?
+
+    - [-] build an API
+      https://codelation.com/blog/rails-restful-api-just-add-water
+      - [X] add to [[./Gemfile]]
+
+        : gem 'jbuilder'
+        : gem 'kaminari'
+        : gem 'responders'
+       
+      - [X] controllers
+
+        - [X] create file [[./app/controllers/api/base_controller.rb]]
+
+        - [X] add the public resource methods to the same controller
+
+        - [X] connect base controller to model controllers
+
+	  Pay attention that these inherit from /Api::BaseController/
+
+	  [[./app/controllers/api/users_controller.rb]]
+
+	  [[./app/controllers/api/activities_controller.rb]]
+
+	  [[./app/controllers/api/pages_controller.rb]]
+
+	  [[./app/controllers/api/shifts_controller.rb]]
+
+	  [[./app/controllers/api/volunteers_controller.rb]]
+
+      - [X] routing
+
+        [[./config/routes.rb]]
+
+        :   namespace :api do
+        :     resources :logs, :periods
+        :   end
+
+      - [X] serializing data
+
+        : mkdir app/views/api /shifts etc
+
+        - [X] [[./app/views/api/users/index.json.jbuilder]]
+
+        - [X] [[./app/views/api/users/show.json.jbuilder]]
+
+        - [X] [[./app/views/api/activities/index.json.jbuilder]]
+
+        - [X] [[./app/views/api/activities/show.json.jbuilder]]
+
+        - [X] [[./app/views/api/pages/index.json.jbuilder]]
+
+        - [X] [[./app/views/api/pages/show.json.jbuilder]]
+
+        - [X] [[./app/views/api/shifts/index.json.jbuilder]]
+	 
+        - [X] [[./app/views/api/shifts/show.json.jbuilder]]
+
+        - [X] [[./app/views/api/volunteers/index.json.jbuilder]]
+
+        - [X] [[./app/views/api/volunteers/show.json.jbuilder]]
+
+      - [ ] security and performance concerns
+
+        - [ ] use fragment caching to make API efficient
+
+	  - [ ] http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching
+
+	  - [ ] https://github.com/rails/jbuilder
+	    offers advantages in caching over libraries like https://github.com/rails-api/active_model_serializers
+	    because you can cache JSON templates the same way you would /erb/ templates
+
+        - [ ] secure your API, gems that we use everyday include CanCan(Can) 
+	  and Devise to offer per user permissions on resources
+
+        - [ ] include some more complex functionality like side-loading for 
+	  convenience in end-user application development
+    - [ ] rebuild views in angular?
+    - [-] build mobile app for sign-up
+      - [-] ruboto
+        http://public.dhe.ibm.com/software/dw/demos/jrubyandandroid/index.htm
+        - [X] expose public api
+        - [ ] connect application via http requests
+	  https://developer.android.com/training/volley/index.html
+        - [ ] build mobile views
+
+	  [[./app/views/layouts/application.html.erb]]
+
+	  - [ ] TITLE
+
+	    : <%= render 'layouts/title' %>
+
+	  - [ ] NAV
+
+	    : <%= render 'layouts/mobile_static_menu' %>
+
+	    [[./app/views/layouts/_mobile_static_menu.html.erb]]
+	    [[./app/assets/stylesheets/pages.scss]]
+
+	  - [ ] CONTENT
+
+	    : <%= yield :small %>
+
+	    [[./app/views/pages/home.html.erb]]
+
+	    : <% content_for :small do %> 
+
+      - [ ] phonegap
+    - [X] re-route http://www.prairiehill.com => heroku app
+
+**** excel export
+
+     http://railscasts.com/episodes/362-exporting-csv-and-excel
+
+**** What we need to look at for functionality:
+    
+**** mailer contact
+
+     http://rubyonrailshelp.wordpress.com/2014/01/08/rails-4-simple-form-and-mail-form-to-make-contact-form/
+
+    set up successfully in development
+    
+    - [ ] change heroku configs to prairiehill email authentication for production
+
+**** user accounts
+
+  - [ ] We need USERs with authenticatable accounts
+    
+    These users will have various access to update content and that's really
+    all that they need. However,
+
+    - [ ] Admin/General user
+
+      https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
+
+      We will have user accounts for general things like summer camp and 
+      country fair sign up
+
+      We will also have admin users who also have access to CMS
+
+      - [ ] install & configure RailsAdmin
+
+	    https://github.com/sferik/rails_admin
+
+        - [ ] bundle the gem
+        
+	    : gem 'rails_admin'
+	    : bundle install
+
+        - [ ] install RailsAdmin
+
+	      : rails g rails_admin:install
+
+        - [ ] configure for Devise
+
+	  https://github.com/sferik/rails_admin/wiki/Devise
+
+    - [ ] Using ComfortableMexicanSofa for Content Management
+
+      - [ ] already set up to use Paperclip for images
+
+      - [ ] WYSIWYG
+
+        [[./app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css]]
+
+	  - [X] editor window is very short
+
+    - [ ] Private content
+
+      - [ ] admin vs common user accounts
+
+    - [ ] User profiles?
+
+    - [ ] Summer Camp Registration model?
+
+    - [ ] Volunteers/CCF
+      
+      - [ ] connect devise users with shifts?
+
+      - [ ] Sign up views
+
+        - [ ] if user signed in...
+
+        - [ ] time to learn some jQuery!
+
+        - [ ] FIRST: Shows Activity titles and a number of volunteers total needed
+	  
+        - [ ] SECOND: Clicking on one of the FIRST shows a view of specific times
+	  and number of volunteers still needed for each, just after a description
+	  of the activity itself
+
+	  - [ ] checkboxes for selected desired shifts?
+	    
+	  - [ ] ability to remove volunteer from shifts
+
+        - [ ] BLOG/NEWSfeed for news updates?
+
+        - [ ] PAGEs for general website content
+
+**** ModelViewControl
+
+**** Model
+
+     Pages
+
+     [[./app/controllers/pages_controller.rb]]
+     [[./app/models/page.rb]]
+
+***** Page
+
+      - [X] Create Static Pages
+
+        http://www.railstutorial.org/book/static_pages
+
+        - [X] Generate a Pages controller
+
+	  [[./app/controllers/static_pages_controller.rb]]
+	  [[./config/routes.rb]]
+
+	  : rails g controller StaticPages home
+
+
+***** Rails Generation
+
+****** Scaffolding
+
+       - [X] Disable scaffold stylesheet creation 
+
+       	 [[./config/application.rb]]
+
+       	  : config.generators do |g|
+       	  :   g.stylesheets false
+       	  : end
+
+       - [ ] Generate a scaffold
+
+       	 EXAMPLE
+       	 : rails g scaffold Page index
+
+       - [ ] migrate the database
+
+       	 : rake db:migrate
 
 
 *** View
@@ -1822,7 +1965,7 @@
 
       [[./app/controllers/application_controller.rb]]
 
-      #+begin_src ruby :tangle "./app/controllers/application_controller.rb"
+      #+begin_src ruby 
        	class ApplicationController < ActionController::Base
           # Prevent CSRF attacks by raising an exception.
           # For APIs, you may want to use :null_session instead.

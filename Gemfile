@@ -16,9 +16,7 @@ gem 'devise'
 gem 'pg'
 gem 'comfortable_mexican_sofa', '1.12.7'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-#gem 'paperclip', '~> 4.3'
 gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
-#gem 'aws-sdk', '~>2'
 gem 'aws-sdk'
 gem 'mail_form'
 gem 'simple_form'
@@ -50,7 +48,6 @@ gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
 gem 'json'
 gem 'instagramjs-rails'
-#gem 'will_paginate', '~> 3.0.6'
 gem 'dalli'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
@@ -60,15 +57,10 @@ gem 'jquery-scrollto-rails'
 gem 'font_assets'
 gem 'font-awesome-rails'
 gem 'cancancan', '~> 1.10'
-#gem 'refile', require: 'refile/rails'
-#gem 'refile-mini_magick'
-#gem 'refile-s3'
 gem 'dotenv-rails', :groups => [:development, :test]
-#gem 'nicescroll-rails'
 gem 'jscrollpane-rails'
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+gem 'grape'
 
 group :development, :test do
   gem 'byebug'
