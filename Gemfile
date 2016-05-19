@@ -60,7 +60,11 @@ gem 'cancancan', '~> 1.10'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'jscrollpane-rails'
 gem 'spring',        group: :development
+
 gem 'grape'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'grape-active_model_serializers'
+gem 'grape-swagger-rails'
 
 group :development, :test do
   gem 'byebug'

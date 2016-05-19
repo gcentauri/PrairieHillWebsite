@@ -1,13 +1,16 @@
-
 Rails.application.routes.draw do
 
-  namespace :api, defaults: {format: 'json'} do
-    resources :activities,
-              :pages,
-              :shifts,
-              :volunteers,
-              :users
-  end
+  mount API::Base, at: "/"
+  
+  mount GrapeSwaggerRails::Engine, at: "/documentation"
+
+  # namespace :api, defaults: {format: 'json'} do
+  #   resources :activities,
+  #             :pages,
+  #             :shifts,
+  #             :volunteers,
+  #             :users
+  # end
  
   resources :activities
   resources :shifts 
