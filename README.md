@@ -4,6 +4,33 @@ Rails application for [prairiehill.com](http://www.prairiehill.com)
 
 ## 2016 ReDesign
 
+    Sat Jun 25 13:47:01 CDT 2016
+
+Keeping several options open and developing each at their own pace, one 
+direction I am currently considering, as I learn Angular, is to maintain the
+current rails application (as opposed to rebuilding the entirety of the site 
+and applications in ng1 or ng2) and build the 3rd version of the ccf volunteer 
+application as an angular app, independent of the current rails application.
+
+<file:///home/son/Angular>
+
+However, one other possiblity I have considered is to build something in Electron.
+[@zacharyabresch](https://twitter.com/zacharyabresch) was raving about it recently and from the look of it, may be 
+nice approach to "building native applications with web technologies like JavaScript,
+HTML, and CSS."
+
+Let's get started
+
+### Electron: Get Started
+
+<https://electron-api-demos.githubapp.com/updates/electron-api-demos-linux.zip>
+
+"The [Electron API Demos app](https://github.com/electron/electron-api-demos) interactively demonstrates the most important 
+features of the Electron API. See what's possible with Electron with sample
+code and helpful tips for building your app."
+
+<file:///home/son/ELECTRON/README.md>
+
     Mon May 16 15:21:05 CDT 2016
 
 This was one of my first applications and took on many bloated features as I
@@ -45,8 +72,23 @@ made a mess of it (at least in my mind).
 
     -   [ ] configure Grape to either
         -   [ ] connect with existing CMS
+            
+            As much as I'd like to do this just to say that I can (and I know I can),
+            it's seeming like too much a pain right now.
+            
+            <http://www.prairiehill.com/admin/sites/1/snippets/13/edit>
+            
+            3
+            
+                comfy_route :cms_admin, :path => '/admin'
+                comfy_route :cms, :path => '/', :sitemap => true
+            
             OR
         -   [ ] create new models for cms objects
+            
+            The question now is, do I want to build this in my Rails app or my Angular
+            application?
+            
             -   [ ] pages
                 -   title
                 -   subtitle
@@ -54,6 +96,7 @@ made a mess of it (at least in my mind).
                     -   mark one as primary
                 -   main<sub>content</sub>
                 -   files
+    -   [ ] build phill in angular
 
 ## Config
 
@@ -370,4 +413,4 @@ made a mess of it (at least in my mind).
     
     -   NB
     
-        1.1.1.2
+        1.1.2.2
