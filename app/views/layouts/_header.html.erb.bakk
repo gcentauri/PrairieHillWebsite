@@ -1,0 +1,98 @@
+
+<div id='logo' class='row'>
+  <div class='col-md-12'>
+    <%= link_to image_tag("logo-transparent.png", class: "title-logo"), root_path %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-12'>
+    <div class='title'>
+      PRAIRIE HILL 
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-12'>
+    <div class='subtitle'>
+      Learning Center
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div id='sidebar'>
+    <%= render 'layouts/menu' %>
+  </div>
+  <% unless current_page?(root_path) %>
+    <div id='credits'>
+      Background photo by <a href='http://tropicalaffair.me/'>Cheryl Pennington</a>.
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='social small-3 small-centered small-centered'>
+      <%= link_to image_tag("facebook.png", class: "fb"), "https://www.facebook.com/PrairieHillLearningCenter?ref=br_tf" %>
+    </div>
+  </div>
+</div>
+
+<script>
+
+ var toggleMenu = function(){
+   $('.user-menu').click(function(){
+     $(this).siblings('.menu-list').toggle('slow', function() {
+       bodyClickToggle();
+     });
+     $(this).siblings('.menu-type').toggle('slow');
+     //   msg();
+     
+     return false;
+   });
+ };
+
+ var bodyClickToggle = function(){
+   $(document).click(function(){
+     $('.menu-list').hide('slow');
+     $('.menu-type').show('slow');
+     $('.menu-list-mobile').hide('slow');
+     $('.menu-title').show('slow');
+     $('.ccf-video').hide('slow');
+   });
+   return false;
+ };
+
+ toggleMenu();
+ 
+ $('.menu-type').click(function(){
+   $(this).siblings('.menu-list').toggle('slow');
+   $(this).toggle('slow');
+   //   msg();
+   
+   return false;
+ });
+
+ $(document).ready(function () {
+   $('.video-watch').click(function() {
+     if( $('.ccf-video').hasClass('hidden') ) {
+       $('.ccf-video').toggleClass('hidden');
+     }
+     else {
+       $('.ccf-video').toggleClass('');
+     }
+   });
+ });
+
+
+ $(document).ready(function () {
+   $(document).click(function(){
+     if( $('.ccf-video').hasClass('hidden') ) {
+       $('.ccf-video').toggleClass('');
+     }
+     else {
+       $('.ccf-video').toggle('slow');
+     }
+   });
+ });
+ 
+</script>

@@ -35,5 +35,4 @@
 //= require_self
 //= require_tree .
 
-
 $(function(){ $(document).foundation(); });

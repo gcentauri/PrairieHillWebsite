@@ -1,8 +1,0 @@
-<div style='position:absolute;z-index:2;'>
-  <h1 class='hi-li padded bottom-shadow'><%= @name %>!</h1>
-  <a href='/ccf' class='button large success expand padded-sides' style='color:white;'>At the Country Fair, Oct 3!</a>
-</div>
-
-<div style='position:relative;z-index:1;'>
-  <%= image_tag("artisan.jpg") %>
-</div>

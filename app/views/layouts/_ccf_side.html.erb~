@@ -1,1 +1,0 @@
-  <li><%= nav_link "HOME", root_path %></li>

@@ -10,187 +10,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://fonts.googleapis.com/css?family=Lobster|Pacifico' rel='stylesheet' type='text/css'>
   </head>
+
   <body>
 
-    <!--MOBILE-->
-    <div id='small-browser' class='small-12 columns'>
-
-      <div id='mobile-preview-button' class='hidden small-12 small-centered columns button expand radius hi-li bottom-shadow' style='position:fixed;z-index:20;'>
-        <% case request.fullpath %>
-        <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts' %>
-
-        View Shifts
-
-        <% when '/users/sign_in' %>
-
-        Sign In
-
-        <% else %>
-
-        Welcome!
-
-        <% end %>
-      </div>
-
-      <% case request.fullpath %>
-      <% when '/ccf', '/ccf/volunteer', '/activities', '/ccf/activities', '/ccf/user_shifts', '/activities/new', '/user_shifts', '/ccf/user_shifts', '/users/sign_in' %>
-      <% else %>
-      <div id='redirect-message'
-	   class='hidden small-12 columns'
-	   style='
-	   position:fixed;
-	   top:20%;
-	   left:0;
-	   z-index:12;
-	   '
-	   >
-        <h1 class='padded hi-li
-	    bottom-shadow'
-	    style='text-align:center;
-	    border-top: 10px solid rgba(255,255,255,0.1);'>
-	  
-        </h1>
-      </div>
-      <% end %>
-      
-      <!--LOGO-->
-      <div id='mobile-logo-placeholder'
-	   class='
-	   small-12 small-centered columns
-	   '
-	   style='
-	   top:1%;	   
-	   left:80%;
-	   width:11%;
-	   '
-	   >
-        <%= image_tag "logo-transparent.png", style: "background-color:white;border: 2px solid white;", class: 'bottom-shadow' %>
-      </div>
-      <!--LOGO-->
-
-      <!--YIELD-->
-      <div id='mobile-preview-view'
-	   class='
-	   //hidden
-	   small-12 small-centered columns
-	   '
-	   style='
-	   position:relative;
-	   left:4%;
-	   opacity:1;
-	   '
-	   >
-
-        <!--MOBILE HEADER-->
-        <div id='mobile-header'
-	     data-reveal-id='missionstatementModal'
-	     
-	     class=''>
-	  <%= render 'layouts/title' %>
+    <!--HEADER-->
+    <div class='expanded row'>
+      <div class='small-12 large-12 right columns'>
+        <div class='header' style=''>
+          <%= render 'layouts/header' %>
         </div>
-        <!--MOBILE HEADER-->
-
-        <!--MOBILE NAV-->
-        <div class='small-12 columns'>
-	  <%= render 'layouts/mobile_static_menu' %>
-        </div>
-        <!--MOBILE NAV-->
-
-        <!--MOBILE CONTENT-->
-        <div id='mobile-content' class='small-11 small-centered columns'>
-	  <%= yield :small %>
-	  <!--links-->
-	  <h2 class='hi-li padded-sides'>Links</h2>
-	  <%= render 'layouts/menu_mobile_extra' %>
-        </div>
-        <!---->
-
-      </div>
-      <!--YIELD-->
-    </div>
-    <!--end MOBILE-->
-    
-    <!--PAGE 12-->
-    <div class='row'>
-
-      <div id='normal-browser' class='small-12 small-centered columns'>
-
-        <!--NAV 2-->
-        <div id='header' class='small-3 columns'
-	     style='position:fixed;z-index:3;'>
-	  <%= render 'layouts/large_header' %>
-        </div>
-
-        <!--MAIN 8-->
-        <div class='small-9 small-centered columns'
-	     style='
-	     padding:0;
-	     margin:0;
-	     position:fixed;
-	     top:20px;
-	     right:100px;
-	     z-index:2;
-	     border-radius:2px;
-	     '
-	     >
-
-	  <!---TITLE--->
-	  <div id='ph-title' class='small-12 columns'
-	       style='
-	       padding:0;
-	       opacity:0.9;
-	       '
-	       >
-	    <%= render 'layouts/title' %>
-	  </div>
-	  <!--^^-->
-	  
-	  <!--CONTENT-->
-	  <div id='nicescroll-test' class='small-12 columns'>
-	    <div class='row'>
-
-	      <div id='primary-element'
-		   class='small-9 columns content'
-		   style='
-		   '>
-
-	        <%= yield %>
-
-
-	      </div>
-	    </div>
-
-	    <%#= render 'layouts/expand_retract_buttons' %>
-	    
-	  </div>
-	  <!--^^-->
-
-	  <!--SLIDES CONTROL ATTACHMENT-->
-	  <div class='footer-slide small-2 right columns'>
-	    <div id='slide-area'
-	         class='card'
-	         style='position:relative;
-	         float:right;
-	         '>
-	    </div>
-	  </div>
-	  <!--SLIDES CONTROL ATTACHMENT-->
-
-	  
-	  <!--FOOTER-->
-	  <div id='footer-main' class='small-9 small-centered columns footer'
-	       >
-	    <div class='row'>
-	      <%= render '/layouts/footer' %>
-	    </div>
-	  </div>
-	  <!--endFOOTER-->
-        </div>
-        <!--endMAIN-->
       </div>
     </div>
-    <!--endPAGE-->  
 
-    
+    <!--MAIN-->
+    <div id='main' class='expanded row'>
+      <div class='small-10 columns'>
+
+        <!--NAV left side-->
+        <div class='small-2 columns hidden'>
+          <div data-sticky-container>
+            <div class='sticky' data-sticky data-margin-top="15">
+              <%= render 'layouts/nav' %>
+            </div>
+          </div>
+        </div>
+
+        <!--CONTENT-->
+        <div id='content' class='small-10 columns'>
+          <div class='small-10 large-10 large-centered columns content'>
+            <%= yield %>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <div class='expanded row'>
+      <div class='small-12 columns'>
+        <div class='small-2 columns'></div>
+        <div class='small-10 columns'>
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
+
+    <div id='bottom'></div>
   </body>
 </html>

@@ -23,6 +23,8 @@
  *= require 'font-awesome'
  *= require jscrollpane
  *= require_self
+//= require foundation_and_overrides
+
  //= require foundation_and_overrides
 
  *= require_tree .
@@ -31,6 +33,7 @@
 //@import "bootstrap-sprockets";
 //@import "bootstrap";
 
+@import 'foundation_and_overrides';
 @import 'foundation-icons';
 @import 'slick';
 @import 'font-awesome';

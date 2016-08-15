@@ -1,25 +1,25 @@
-@import 'bootstrap_and_customization';
+/* @import 'bootstrap_and_customization'; */
 
-.canvased-creamy-blue {
-    background: image-url('creamy_blue_canvas_seamless.jpg') fixed;
-    background-size: 50%;
-}
+/* .canvased-creamy-blue { */
+/*     background: image-url('creamy_blue_canvas_seamless.jpg') fixed; */
+/*     background-size: 50%; */
+/* } */
 
-.canvased-light-creamy-blue {
-    background: image-url('light_creamy_blue_canvas_seamless.jpg') fixed;
-    background-size: 50%;
-}
+/* .canvased-light-creamy-blue { */
+/*     background: image-url('light_creamy_blue_canvas_seamless.jpg') fixed; */
+/*     background-size: 50%; */
+/* } */
 
-.card {
-    @extend .bottom-shadow;
-    @extend .padded;
-    //@extend .canvased-light-creamy-blue;
-    border-left: 1px solid rgba(0,0,0,0.1);
-    border-top: 1px dotted rgba(0,0,0,0.1);
-    border-right: 1px dotted rgba(0,0,0,0.1);
-    border-radius: 15px;
-    background-color: white;//rgba(219,206,189,0.1);
-}
+/* .card { */
+/*     @extend .bottom-shadow; */
+/*     @extend .padded; */
+/*     //@extend .canvased-light-creamy-blue; */
+/*     border-left: 1px solid rgba(0,0,0,0.1); */
+/*     border-top: 1px dotted rgba(0,0,0,0.1); */
+/*     border-right: 1px dotted rgba(0,0,0,0.1); */
+/*     border-radius: 15px; */
+/*     background-color: white;//rgba(219,206,189,0.1); */
+/* } */
 
-#event-info {
-}
+/* #event-info { */
+/* } */

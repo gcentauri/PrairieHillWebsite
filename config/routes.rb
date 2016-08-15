@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  mount API::Base, at: "/"
+  #mount API::Base, at: "/"
   
-  mount GrapeSwaggerRails::Engine, at: "/documentation"
+  #mount GrapeSwaggerRails::Engine, at: "/documentation"
 
   # namespace :api, defaults: {format: 'json'} do
   #   resources :activities,

@@ -18,7 +18,8 @@
 #/config/initializers/comfortable_mexican_sofa.rb
 
 .env*
-
+dump.rdb
+*~
 
 # Ignore application configuration
 /config/application.yml

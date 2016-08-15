@@ -1,7 +1,0 @@
-<% $current_uri = request.env['PATH_INFO'] %>
-<% case $current_uri %>
-<% when about_path %>
-<%= render 'page_add_about' %>
-<% when news_path %>
-<%= render 'page_add_news' %>
-<% end %>

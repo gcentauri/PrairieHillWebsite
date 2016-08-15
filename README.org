@@ -3,7 +3,380 @@
 #+EMAIL: son@lincolnix.net
 #+OPTIONS: toc:nil num:nil
 
-* Prairie Hill Learning Center 
+* Files
+
+** ├── [[./app][app]]
+
+*** ├── [[./app/assets][assets]]
+
+**** ├── images
+**** ├── [[./app/assets/javascripts][javascripts]]
+
+***** ├── activities.js
+***** ├── [[./app/assets/javascripts/application.js][application.js]]
+***** ├── bootstrap-datetimepicker.js
+***** ├── ccf.js
+***** ├── comfortable_mexican_sofa
+***** ├── comfy
+***** ├── events.js
+***** ├── instagram-feed.js
+***** ├── jquery.mousewheel.js
+***** ├── jquery.skroller.js
+***** ├── jquery.skroller.min.js
+***** ├── main.js.coffee
+***** ├── pages.js
+***** └── shifts.js
+
+**** └── [[./app/assets/stylesheets][stylesheets]]
+
+***** ├── activities.css.scss
+***** ├── [[./app/assets/stylesheets/application.css.scss][application.css.scss]]
+***** ├── [[./app/assets/stylesheets/bootstrap_and_customization.css.scss][bootstrap_and_customization.css.scss]]
+***** ├── ccf.scss
+***** ├── comfortable_mexican_sofa
+***** ├── comfy
+***** ├── events.scss
+***** ├── [[./app/assets/stylesheets/foundation_and_overrides.scss][foundation_and_overrides.scss]]
+***** ├── jquery.jscrollpane.css
+***** ├── pages.scss
+***** ├── perfect-scrollbar.css
+***** ├── perfect-scrollbar.css.scss
+***** ├── perfect-scrollbar.min.css
+***** └── shifts.css.scss
+
+*** ├── concerns
+*** ├── [[./app/controllers][controllers]]
+
+**** ├── activities_controller.rb
+**** ├── [[./app/controllers/api][api]]
+
+***** ├── [[./app/controllers/api/base.rb][base.rb]]
+
+      #+name: api base controller
+      #+begin_src ruby :tangle app/controllers/api/base.rb :padline no
+        # module API
+        #   class Base < Grape::API
+        #     mount API::V1::Base
+        #   end
+        # end
+      #+end_src
+
+***** └── v1
+
+**** ├── application_controller.rb
+**** ├── ccf_controller.rb
+**** ├── comfy
+**** ├── concerns
+**** ├── contacts_controller.rb
+**** ├── events_controller.rb
+**** ├── pages_controller.rb
+**** ├── registrations_controller.rb
+**** ├── sessions_controller.rb
+**** ├── shifts_controller.rb
+**** ├── users_controller.rb
+**** └── volunteers_controller.rb
+
+*** ├── helpers
+*** ├── inputs
+*** ├── mailers
+*** ├── models
+*** ├── serializers
+*** └── [[./app/views][views]]
+
+**** ├── activities
+**** ├── api
+**** ├── comfy
+**** ├── contacts
+**** ├── devise
+**** ├── events
+**** ├── [[./app/views/layouts][layouts]]
+
+***** ├── [[./app/views/layouts/application.html.erb][application.html.erb]]
+***** ├── _arrowtab.html.erb
+***** ├── _buffer_variations.html.erb
+***** ├── _ccf_side.html.erb
+***** ├── _expand_retract_buttons.html.erb
+***** ├── _extra.html.erb
+***** ├── _footer.html.erb
+***** ├── _foundation_side.html.erb
+***** ├── [[./app/views/layouts/_header.html.erb][_header.html.erb]]
+***** ├── _instagram.html.erb
+***** ├── _large_header.html.erb
+***** ├── _menu.html.erb
+***** ├── _menu_mobile_extra.html.erb
+***** ├── _mobile_static_menu.html.erb
+***** ├── [[./app/views/layouts/_nav.html.erb][_nav.html.erb]]
+***** ├── _paypal_btn.html.erb
+***** ├── _quote_filter.html.erb
+***** ├── _quote.html.erb
+***** ├── _skrollr.html.erb
+***** ├── _small_header.html.erb
+***** ├── _static_menu.html.erb
+***** ├── _title.html.erb
+***** ├── useful-snippets.html.erb
+***** ├── _user_menu.html.erb
+***** └── _volunteer_menu.html.erb
+
+**** ├── [[./app/views/pages][pages]]
+
+***** ├── _about2.html.erb
+***** ├── _about.html.erb
+***** ├── about.html.erb
+***** ├── add_shift.html.erb
+***** ├── add_user_idee.html.erb
+***** ├── _blah.html.erb
+***** ├── calendar.html.erb
+***** ├── _camp_brief.html.erb
+***** ├── ccf.html.erb
+***** ├── ccf_info.html.erb
+***** ├── _ccf_menu.html.erb
+***** ├── _ccf_slide.html.erb
+***** ├── _ccf_slide_layout.html.erb
+***** ├── _contact.html.erb
+***** ├── contact.html.erb
+***** ├── csvupload.html.erb
+***** ├── donate.html.erb
+***** ├── edit.html.erb
+***** ├── events.html.erb
+***** ├── _financial_info_button.html.erb
+***** ├── _form.html.erb
+***** ├── foundation_template.html.erb
+***** ├── [[./app/views/pages/home.html.erb][home.html.erb]]
+***** ├── index.html.erb
+***** ├── index.json.jbuilder
+***** ├── jobs.html.erb
+***** ├── jquery_instagram.html.erb
+***** ├── _latest.html.erb
+***** ├── _legal.html.erb
+***** ├── legal_info.html.erb
+***** ├── new.html.erb
+***** ├── _news.html.erb
+***** ├── news.html.erb
+***** ├── _news_slider.html.erb
+***** ├── _page_add_about.html.erb
+***** ├── _page_add_calendar.html.erb
+***** ├── _page_add_case.html.erb
+***** ├── _page_add_contact.html.erb
+***** ├── _page_add_news.html.erb
+***** ├── _page_add_programs.html.erb
+***** ├── _page_add_quote.html.erb
+***** ├── pages.html
+***** ├── pages.org
+***** ├── programs.html.erb
+***** ├── sandbox.html.erb
+***** ├── show.html.erb
+***** ├── show.json.jbuilder
+***** ├── staff_bod.html.erb
+***** ├── staff.html.erb
+***** ├── _summer_camp.html.erb
+***** ├── summer_camp.html.erb
+***** ├── _tour.html.erb
+***** ├── _tour_scenic.html.erb
+***** ├── _uniq_list.html.erb
+***** ├── unique.html.erb
+***** ├── volunteer.html.erb
+***** └── _zero_height.html.erb
+
+**** ├── scratch.html.erb
+**** ├── shifts
+**** └── volunteers
+
+** ├── bin
+** ├── .bundle
+** ├── [[./config][config]]
+
+*** ├── [[./config/application.rb][application.rb]]
+*** ├── boot.rb
+*** ├── database.yml
+*** ├── environment.rb
+*** ├── [[./config/environments][environments]]
+
+**** ├── [[./config/environments/development.rb][development.rb]]
+**** ├── production.rb
+**** └── test.rb
+
+0 directories, 5 files
+    
+
+*** ├── [[./config/initializers][initializers]]
+
+**** ├── [[./config/initializers/assets.rb][assets.rb]]
+**** ├── backtrace_silencers.rb
+**** ├── comfortable_mexican_sofa.rb
+**** ├── cookies_serializer.rb
+**** ├── dev_environment.rb
+**** ├── [[./config/initializers/devise.rb][devise.rb]]
+**** ├── filter_parameter_logging.rb
+**** ├── foreman_debugger.rb
+**** ├── form.rb
+**** ├── inflections.rb
+**** ├── log_level.rb
+**** ├── mime_types.rb
+**** ├── omniauth.rb
+**** ├── rails_admin.rb
+**** ├── ranged_datetime_wrapper.rb
+**** ├── refile.rb
+**** ├── [[./config/initializers/safe_yaml.rb][safe_yaml.rb]]
+
+     #+name: safe yaml initializer
+     #+begin_src ruby :tangle config/initializers/safe_yaml.rb :padline no
+       # SafeYAMLL::OPTIONS[:default_mode] = :safe
+     #+end_src
+
+**** ├── session_store.rb
+**** ├── simple_form_bootstrap.rb
+**** ├── simple_form.rb
+**** ├── timeout.rb
+**** └── wrap_parameters.rb
+
+*** ├── locales
+*** ├── [[./config/routes.rb][routes.rb]]
+*** ├── [[./config/secrets.yml][secrets.yml]]
+*** ├── sitemap.rb
+*** └── [[./config/unicorn.rb][unicorn.rb]]
+
+    #+name: unicorn config
+    #+begin_src ruby :tangle config/unicorn.rb :padline no
+      worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)
+      timeout 60
+      preload_app true
+
+      before_fork do |server, worker|
+        Signal.trap 'TERM' do
+          puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
+          Process.kill 'QUIT', Process.pid
+        end
+
+        defined?(ActiveRecord::Base) and
+          ActiveRecord::Base.connection.disconnect!
+      end
+
+      after_fork do |server, worker|
+        Signal.trap 'TERM' do
+          puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
+        end
+
+        defined?(ActiveRecord::Base) and
+          ActiveRecord::Base.establish_connection
+      end
+    #+end_src
+
+** ├── config.ru
+** ├── db
+** ├── dev
+** ├── docs
+** ├── dump.rdb
+** ├── .env
+** ├── [[./Gemfile][Gemfile]]
+
+   #+name: Gemfile
+   #+begin_src ruby :tangle Gemfile :padline no
+     source 'http://rubygems.org'
+     ruby '2.3.1'
+
+     gem 'rails', '4.2.6'
+     gem 'sass-rails', '~> 5.0'
+     gem 'compass-rails', '~> 2.0.alpha.0'
+     gem 'uglifier', '2.5.1'
+     gem 'coffee-rails', '4.1.0'
+     gem 'jquery-rails'
+     gem 'jquery-ui-rails'
+     gem 'jbuilder', '~> 2.0'
+     gem 'kaminari'
+     gem 'responders'
+     gem 'bcrypt'
+     gem 'devise'
+     gem 'pg'
+     gem 'comfortable_mexican_sofa', '1.12.7'
+     gem 'sdoc', '~> 0.4.0',          group: :doc
+     gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
+     gem 'aws-sdk'
+     gem 'mail_form'
+     gem 'simple_form'
+     #gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+     gem 'skrollr-rails'
+     gem 'rails_admin'
+     gem 'picturefill'
+     gem 'autoprefixer-rails'
+     gem 'chronic'
+     gem 'acts_as_xlsx'
+     gem 'axlsx'
+     gem 'axlsx_rails'
+     gem 'rubyzip'
+     gem 'writeexcel', '1.0.5'
+     gem 'figaro'
+     gem 'meta-tags'
+     gem 'metamagic'
+     #gem 'safe_yaml'
+     gem 'sitemap_generator'
+     gem 'dynamic_sitemaps'
+     gem 'fullcalendar-rails'
+     gem 'momentjs-rails'
+     gem 'jquery-datetimepicker-rails'
+     gem 'cocoon'
+     gem 'turbolinks'
+     gem 'jquery-turbolinks'
+     gem 'masonry-rails'
+     gem 'omniauth', '~> 1.2.2'
+     gem 'omniauth-google-oauth2'
+     gem 'json'
+     gem 'instagramjs-rails'
+     gem 'dalli'
+     gem 'foundation-rails'
+     gem 'foundation-icons-sass-rails'
+     gem 'jquery-slick-rails'
+     gem 'koala', '~> 2.2'
+     gem 'jquery-scrollto-rails'
+     gem 'font_assets'
+     gem 'font-awesome-rails'
+     gem 'cancancan', '~> 1.10'
+     gem 'dotenv-rails', :groups => [:development, :test]
+     gem 'jscrollpane-rails'
+     gem 'spring',        group: :development
+     #gem 'grape'
+     gem 'rack-cors', :require => 'rack/cors'
+     #gem 'grape-active_model_serializers'
+     #gem 'grape-swagger-rails'
+
+     group :development, :test do
+       gem 'byebug'
+       gem 'sqlite3'
+       gem 'foreman'
+       gem 'pry-rails'
+       #gem 'unicorn'
+       gem 'unicorn-rails'
+       gem 'rails-dev-tweaks', '~> 1.1'
+     end
+
+     group :production do
+       gem 'rails_12factor'
+       gem 'unicorn-rails'
+     end
+   #+end_src
+
+** ├── Gemfile.lock
+** ├── .git
+** ├── [[./.gitignore][.gitignore]]
+** ├── gittest
+** ├── lib
+** ├── log
+** ├── mysite.thor
+** ├── [[./Procfile][Procfile]]
+** ├── public
+** ├── Rakefile
+** ├── README.html
+** ├── README.md
+** ├── README.org
+** ├── README.pdf
+** ├── README.tex
+** ├── shifts.zip
+** ├── test
+** ├── tmp
+** ├── TODO.html
+** ├── TODO.org
+** └── vendor
+
+* Prairie Hill Learning Center :noexport:
   
   Rails application for [[http://www.prairiehill.com][prairiehill.com]]
 
@@ -294,7 +667,7 @@
    [[./config/application.rb]]
 
    #+NAME: application.rb
-   #+begin_src ruby :tangle config/application.rb :padline no
+   #+begin_src ruby 
      require File.expand_path('../boot', __FILE__)
 
      require 'csv'
@@ -357,7 +730,7 @@
     [[./Gemfile]]
 
     #+NAME: Gemfile
-    #+begin_src ruby :tangle Gemfile :padline no
+    #+begin_src ruby 
       source 'http://rubygems.org'
       ruby '2.3.1'
 
@@ -446,7 +819,7 @@
     [[./config/routes.rb]]
 
     #+NAME: routes.rb
-    #+begin_src ruby :tangle config/routes.rb :padline no
+    #+begin_src ruby 
       Rails.application.routes.draw do
 
         mount API::Base, at: "/"
@@ -503,7 +876,7 @@
     [[./app/serializers/activity_serializer.rb]]
 
     #+NAME: activity_serializer
-    #+begin_src ruby :tangle app/serializers/activity_serializer.rb :padline no
+    #+begin_src ruby 
       class ActivitySerializer < ActiveModel::Serializer
         
         attributes :id, :work_area, :coordinator, :sign, :num_tickets, :vol_needed, :shift_ids, :created_at, :updated_at, :comments, :start_time, :end_time, :category
@@ -526,7 +899,7 @@
       [[./app/controllers/api/base.rb]]
 
       #+NAME: api base controller
-      #+begin_src ruby :tangle app/controllers/api/base.rb :padline no
+      #+begin_src ruby 
         module API
           class Base < Grape::API
             mount API::V1::Base
@@ -537,7 +910,7 @@
       [[./app/controllers/api/v1/base.rb]]
 
       #+NAME: api v1 base controller
-      #+begin_src ruby :tangle app/controllers/api/v1/base.rb :padline no
+      #+begin_src ruby 
         require "grape-swagger"
 
         module API
@@ -561,7 +934,7 @@
       [[./app/controllers/api/v1/activities.rb]]
 
       #+NAME: api v1 activities controller
-      #+begin_src ruby :tangle app/controllers/api/v1/activities.rb :padline no
+      #+begin_src ruby 
         module API
           module V1
             class Activities < Grape::API
@@ -589,7 +962,7 @@
       [[./app/controllers/api/v1/defaults.rb]]
 
       #+NAME: api v1 defaults
-      #+begin_src ruby :tangle app/controllers/api/v1/defaults.rb :padline no
+      #+begin_src ruby 
         module API  
           module V1
             module Defaults

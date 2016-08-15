@@ -2,223 +2,38 @@
 description: 'Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment',
   keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
 
-
-<!--SLICK SLIDER-->
-<div class='home-slider card'>
-
-  <!--SummerCamp2016-->
-  <!--<div class='home-slide'>-->
-    <!--<div class='row'>-->
-      <!--<div class='small-12 columns'>-->
-	<!--<%#= render 'pages/camp_brief' %>
-        <!--<%#= render 'pages/latest' %>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--^^-->
-  
-  <!--KELLAN/Mission/Philosophy-->
-  <div class='home-slide'>
-    <%= render 'pages/about2' %>
-  </div>
-  <!--^^-->
-
-  <!--COUNTRY FAIR HIDDEN-->
-  <!-- <div class='home-slide'>-->
-    
-  <!--   <div class='small-12 small-centered columns'>  -->
-
-  <!--     <!--title-->
-  <!--     <div class='row'>-->
-  <!-- 	<div class='small-9 columns hi-li bottom-shadow' style='border-radius:2px;position:relative;z-index:1;'>-->
-  <!-- 	  <h3 class='fancy' style='text-align:center;border-radius:2px;'><%#= link_to "Come to the Children's Country Fair!", ccf_path, style: 'padding:5px;' %></h3>-->
-  <!-- 	</div>-->
-  <!-- 	<div class='small-3 columns' style='border-radius:2px;position:relative;z-index:1;'>-->
-  <!-- 	  <%#= link_to activities_path, class: 'button fancy expand radius bottom-shadow' do %>-->
-  <!-- 	    <i class='fa fa-child fa-2x'></i> <span style='font-size:1.5rem;'>Volunteer!</span>-->
-  <!-- 	  <%# end %>-->
-  <!-- 	</div>-->
-  <!--     </div>-->
-
-  <!--     <!--content-->
-  <!--     <div class='row' style='position:absolute;top:350px;left:15px;'>-->
-  <!-- 	<div class='small-10 columns'>-->
-  <!-- 	  <p class='padded bottom-shadow' style='color:rgba(50,50,50,1);background:rgba(255,255,255,0.8);word-wrap:normal;font-size:1.5vw;position:relative;z-index:1;'><strong>Please join us October 3rd</strong> for a family and child-centered event that includes artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>-->
-  <!-- 	</div>-->
-  <!--     </div>-->
-  <!--   </div>-->
-
-  <!--   <!--image-->
-  <!--   <div class='row'>-->
-  <!--     <div class='small-12 columns' style='position:absolute;top:10px;left:5px;z-index:0;'>-->
-  <!-- 	<a href='/ccf'><%#= image_tag("hattie-ccf.jpg") %></a>-->
-  <!-- 	<%#= render 'pages/ccf_slide' %>-->
-  <!--     </div>-->
-  <!--   </div>-->
-    
-  <!-- </div>-->
-  <!--^^-->
-
-  <!--PH-UNIQ-->
-  <div class='home-slide'>
-
-    <div class='small-12 small-centered columns'>
-
-      <!--title-->
-      <div class='row'>
-	<div class='small-9 right columns hi-li bottom-shadow' style='border-radius:2px;position:relative;z-index:1;'>
-	  <h2>
-	    <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, uniq_path, class: "icon" %>
-	    <%= link_to "What makes PRAIRIE HILL unique?", uniq_path %>
-	  </h2>
-	</div>
-      </div>
-
-      <!--content-->
-      <div class='row'>
-	<div class='small-12 columns'>
-	  <div class='uniq-slider' style='position:relative;z-index:1;'>
-	    <%= render 'pages/uniq_list' %>
-	  </div>
-	</div>
-      </div>
-
-      <!--image-->
-      <div class='row'>
-	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
-	  <%= image_tag "carrying_saddle.jpg", class: 'feature-image' %>
-	</div>
-      </div>
-      
-    </div>
-  </div>
-  <!--^^-->
-
-  <!--TOUR-->
-  <div class='home-slide'>
-    <%= render 'pages/tour' %>
-  </div>
-  
-  <div class='home-slide'>
-    <%= render 'pages/tour_scenic' %>
-  </div>
-  
+<div class='small-12 columns'>
+  <%= image_tag("audrey_jump.jpg", class: "content-box") %>
 </div>
-<!--^^-->
+<div class='small-12 columns'>
+  <%= image_tag("kellan-bellpepper.jpg", class: "content-box") %>
+</div>
+<%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+<%= image_tag("landscape_field.jpg") %>
 
-<!--SMALL-->
-<% content_for :small do %>
+<%#= render 'pages/about2' %>
 
-  <h1>
-    <%#= render 'layouts/quote' %>
-  </h1>
-  <!--IMAGE-->
-  <div class='small-12 small-centered columns'
-       style='
-       background: white;
-       padding: 5px;
-       border-radius: 3px;
-       '
-       >
+<%= link_to "<i class='fa fa-info-circle'></i>".html_safe, uniq_path%>
+<%= link_to "What makes PRAIRIE HILL unique?", uniq_path %>
+<%= render 'pages/uniq_list' %>
+<%= image_tag "carrying_saddle.jpg"%>
+<%= render 'pages/tour' %>
+<%= render 'pages/tour_scenic' %>
+<%= link_to (image_tag "natureworks-title.png"), camp_path %>
+<%= link_to (image_tag "daniel-brushing.png"), camp_path %>
 
-    <div id='camp-info-mobile'>
-      <%= link_to (image_tag "natureworks-title.png", class: 'padded'), camp_path %>
-      <div class='small-12 small-centered columns'>
-	<%= link_to (image_tag "daniel-brushing.png", class: 'feature-image'), camp_path %>
-      </div>
+<%= render 'layouts/quote' %>
 
-      <p class="content-box padded" style='font-size:2.5vw;'>
-	PRAIRIE HILL offers nature-centered day camp programs for children
-	ages 6-15 and mini-camps for ages 3-6) on our historic farm, just
-	seven miles south of Lincoln, Nebraska.
-      </p>
-
-      <%= link_to 'More Info', camp_path, class: 'button success bottom-shadow expand' %>
-    </div>
+<p class="content-box padded" style='font-size:2.5vw;'>
+  PRAIRIE HILL offers nature-centered day camp programs for children
+  ages 6-15 and mini-camps for ages 3-6) on our historic farm, just
+  seven miles south of Lincoln, Nebraska.
+</p>
+<%= link_to 'More Info', camp_path %>
     
-    <a href='#' data-reveal-id='quoteModal'>
-      <%= image_tag "kellan-bellpepper.jpg", style: 'width: 100%;', class: 'feature-image' %>
-    </a>
+<%= image_tag "kellan-bellpepper.jpg" %>
 
-    <div id='quoteModal' class='reveal-modal' data-reveal aria-labelledby='quoteModalTitle' aria-hidden='true' role='dialog'>
-      <h2 id='quoteModalTitle'>Education</h2>
-      <h1>
-	<%y= render 'layouts/quote' %>
-      </h1>
-    </div>
-  </div>
-  <!--IMAGE-->
-  
-  <!--MISSION STATEMENT-->
-  <div id='missionstatementModal'
-       class='
-       reveal-modal
-       '
-       data-reveal
-       aria-labelledby='missionstatementTitle'
-       aria-hidden='true'
-       role='dialog'
-       style='
-       border-radius: 5px;
-       '>
-    <h1 id='missionstatementTitle'>Mission Statement</h1>
-    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-    <a class='close-reveal-modal' aria-labelledby="Close">&#215;</a>
-  </div>
-
-  <div class='justify'
-       >
-    <h1 class='hi-li padded-sides'>Mission Statement</h1>
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
-      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-    </div>
-  </div>
-  <!--MISSION STATEMENT-->
-  <br/>
-  <!--about/philosophy-->
-  <div class='justify'
-       >
-    <h1 class='hi-li padded-sides'>Philosophy</h1>
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
-      <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-    </div>
-  </div>
-  <!--about/philosophy-->
-  
-<% end %>
-<!--small-browser-->
-
-
-<!--JS-->
-<script>
- $(document).ready(function(){
-
- });
-
- var winHeight = $(window).height();
-
- $('#content').css({
-   'top': winHeight,
- });
-
- $(window).resize(function(){
-   $('#content').css({
-     'top': winHeight,
-   });
- });
-
-</script>
-
+<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+<%= cms_snippet_content('philosophy', @cms_site).html_safe %>
 
