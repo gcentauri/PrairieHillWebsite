@@ -3,7 +3,7 @@
 @import 'settings';
 @import 'foundation';
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two|Satisfy|Rancho|Schoolbell|Lateef);
 @import url(https://fonts.googleapis.com/css?family=Lobster|Pacifico|Berkshire+Swash|Fontdiner+Swanky|Rancho);
 
 // If you'd like to include motion-ui, you need to install the motion-ui sass package.
@@ -60,7 +60,15 @@ body {
 }
 
 html, body {
-    background-color: #f2f9ff;
+    //background-color: #f2f9ff;
+    background: rgba(242,249,255,0.5);
+    background: linear-gradient(right top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    /*
+    background: -webkit-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
+    background: -o-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
+    background: -moz-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
+    background: linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,1));
+    */
 }
 
 html, body {
@@ -70,9 +78,9 @@ html, body {
 }
 
 .bottom-shadow {
-    -webkit-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.6);
-    -moz-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.6);
-    box-shadow: 0 4px 4px -2px rgba(1,1,1,0.6);
+    -webkit-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
+    -moz-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
+    box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
 }
 
 .box h1 {
@@ -110,7 +118,6 @@ html, body {
 
 .header {
     @extend .bottom-shadow;
-    //border-bottom: 1px solid rgba(51,51,51,0.5);
 
     position:fixed;
     top:0;
@@ -118,19 +125,65 @@ html, body {
     width:100%;
     height:205px;
     width:100%;
-    background-color: #fffff3;
+    background: rgba(255,252,216,0.9);
+
+    background: repeating-linear-gradient(right top, white, rgba(50,154,17,0.9));
+    //background: linear-gradient(right top, white, rgba(255,252,216,1), rgba(50,154,17,0.9));
+    //background: linear-gradient(right top, rgba(255,252,216,0.3), rgba(50,154,17,0.9));
+    //background: linear-gradient(left top, white,rgba(50,154,17,1));
+    /*
+    background: -webkit-linear-gradient(left top, white,rgba(50,154,17,0.9)); 
+    background: -o-linear-gradient(left top, white,rgba(50,154,17,0.9)); 
+    background: -moz-linear-gradient(left top, white,rgba(50,154,17,0.9)); 
+    */
+}
+
+#title {
+    //@extend .bottom-shadow;
+    //border-bottom: 1px solid rgba(31,128,0,0.5);
+}
+
+.title {
+    color: #f7f7f3;
+    padding:10px;
+    font-size:2em;
+    text-shadow: 1px 1px 1px rgba(55,55,55,0.3);
+    position: relative;
+    z-index: 3;
+
+    .kaushan {
+        font-family: 'Kaushan Script', 'Satisfy', 'Lateef', 'News Cycle', 'Kaushan Script', 'Roboto';
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 1px rgba(51,51,51,0.5);
+    }
 }
 
 .logo {
     @extend .bottom-shadow;
-    //border-left: 1px solid #333;
-    //border-right: 1px solid #333;
+    border-left: 1px solid white;
     border-bottom: 1px solid rgba(51,51,51,0.5);
-
     border-radius: 0 0 1px 1px; 
-    
+    //background:#f7f7f3;
     background:white;
-    //padding:5px;
+}
+
+ul.nav-main {
+    margin: 8px 0 0 4px;
+    //border-top: 20px solid rgba(31,128,0,0.1);
+    background: rgba(31,128,0,0.1);
+    border-radius: 1px;
+    position: relative;
+    top: 9px;
+    left: 65px;
+    z-index:0;
+    
+    li a {
+        //color: rgba(255,252,216,1);
+        color: rgba(255,237,0,1);
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 1px rgba(55,55,55,0.5);
+    }
 }
 
 .nav {
@@ -139,7 +192,7 @@ html, body {
 }
 
 #main {
-    margin-top: 25em;
+    margin-top: 20em;
 }
 
 #content {}
@@ -147,6 +200,8 @@ html, body {
 .content {
     border-left: 1px solid rgba(51,51,51,0.2);
     border-right: 1px solid rgba(51,51,51,0.2);
+    border-top: 1px solid rgba(51,51,51,0.1);
+    border-radius: 2px;
     background: white;
 }
 
@@ -155,10 +210,23 @@ html, body {
     border: 1px solid rgba(51,51,51,0.2);
 }
 
+.p-box {
+    @extend .content-box;
+    padding: 15px;
+    border: none;
+    text-align: justify;
+}
+
 .hidden {
     display:none;
 }
 
 .white-bg {
     background-color: white !important;
+}
+
+@media screen and (min-width:1338px) {
+    .logo {
+        transform: translate(200px,0);
+    }
 }
