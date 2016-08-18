@@ -178,7 +178,32 @@
 ***** └── _zero_height.html.erb
 
 **** ├── scratch.html.erb
-**** ├── shifts
+**** ├── [[./app/views/shifts][shifts]]
+
+***** ├── add_shift.html.erb
+***** ├── ajax.html
+***** ├── edit.html.erb
+***** ├── _form.html.erb
+***** ├── index.html.erb
+***** ├── index.html.haml
+***** ├── index.json.jbuilder
+***** ├── index.xls.erb
+***** ├── index.xls.erb.bak
+***** ├── index.xlsx.axlsx
+***** ├── _login.html.erb
+***** ├── login.html.erb
+***** ├── new.html.erb
+***** ├── sandbox.html.erb
+***** ├── _shift_filler.html.erb
+***** ├── _shift_match.html.erb
+***** ├── show.html.erb
+***** ├── _sub.html.erb
+***** ├── user_shifts.html.erb
+***** └── [[./app/views/shifts/volunteer.html.erb][volunteer.html.erb]]
+
+0 directories, 36 files
+
+
 **** └── volunteers
 
 ** ├── bin
@@ -197,7 +222,6 @@
 
 0 directories, 5 files
     
-
 *** ├── [[./config/initializers][initializers]]
 
 **** ├── [[./config/initializers/assets.rb][assets.rb]]

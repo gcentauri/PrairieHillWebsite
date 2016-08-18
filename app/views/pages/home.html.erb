@@ -6,12 +6,14 @@ description: 'Montessori education for children with an emphasis on meeting the 
   <%= image_tag("audrey_jump.jpg", class: "content-box") %>
 </div>
 
-<div class='small-12 columns p-box'>
-  <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+<div class='small-12 columns'>
+  <div class='hi-li-box'>
+    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+  </div>
 </div>
 
 <div class='small-12 columns p-box'>
-  <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+  <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
 </div>
 
 <div class='small-12 columns'>

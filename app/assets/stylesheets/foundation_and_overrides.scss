@@ -210,6 +210,21 @@ ul.nav-main {
     border: 1px solid rgba(51,51,51,0.2);
 }
 
+.hi-li {
+    background: rgba(255,237,0,0.8);    
+}
+
+.hi-li-box {
+    @extend .hi-li;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.kaushan {
+    font-family: 'Kaushan Script', 'Satisfy', 'Lateef', 'News Cycle', 'Kaushan Script', 'Roboto';
+}
+
 .p-box {
     @extend .content-box;
     padding: 15px;
