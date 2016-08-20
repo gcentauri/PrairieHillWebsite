@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :guests
   #mount API::Base, at: "/"
   
   #mount GrapeSwaggerRails::Engine, at: "/documentation"

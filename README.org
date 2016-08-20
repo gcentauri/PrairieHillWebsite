@@ -63,7 +63,7 @@
 
 ***** └── v1
 
-**** ├── application_controller.rb
+**** ├── [[./app/controllers/application_controller.rb][application_controller.rb]]
 **** ├── ccf_controller.rb
 **** ├── comfy
 **** ├── concerns
@@ -72,14 +72,29 @@
 **** ├── pages_controller.rb
 **** ├── registrations_controller.rb
 **** ├── sessions_controller.rb
-**** ├── shifts_controller.rb
+**** ├── [[./app/controllers/shifts_controller.rb][shifts_controller.rb]]
 **** ├── users_controller.rb
 **** └── volunteers_controller.rb
 
 *** ├── helpers
 *** ├── inputs
 *** ├── mailers
-*** ├── models
+*** ├── [[./app/models][models]]
+
+**** ├── ability.rb
+**** ├── [[./app/models/activity.rb][activity.rb]]
+**** ├── admin.rb
+**** ├── comfy
+**** ├── concerns
+**** ├── contact.rb
+**** ├── event.rb
+**** ├── [[./app/models/guest.rb][guest.rb]]
+**** ├── .keep
+**** ├── page.rb
+**** ├── [[./app/models/shift.rb][shift.rb]]
+**** ├── [[./app/models/user.rb][user.rb]]
+**** └── volunteer.rb
+
 *** ├── serializers
 *** └── [[./app/views][views]]
 
@@ -200,9 +215,6 @@
 ***** ├── _sub.html.erb
 ***** ├── user_shifts.html.erb
 ***** └── [[./app/views/shifts/volunteer.html.erb][volunteer.html.erb]]
-
-0 directories, 36 files
-
 
 **** └── volunteers
 

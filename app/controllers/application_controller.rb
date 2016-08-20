@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   skip_before_action :verify_authenticity_token, if: :json_request?
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  # http://stackoverflow.com/questions/38215274/devise-nomethoderror-for-parametersanitizer
+  # before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_contacts
 
   def set_contacts
@@ -23,9 +25,17 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin) }
+    # devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me) }
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :first_name, :last_name, :phone, :username, :email, :password, :password_confirmation, :remember_me])
+    
+    # devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :username, :email, :password, :remember_me]) 
+    
+    # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin) }
+
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :email, :password, :password_confirmation, :current_password, :phone, :first_name, :last_name, :admin])
   end
 
   def json_request?

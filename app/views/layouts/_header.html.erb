@@ -1,24 +1,33 @@
+<!--HEADER-->
 <div class='expanded row'>
   <div class='small-12 large-8 large-centered columns'>
-
-    <!--TITLE-->
-    <div class='small-10 medium-10 large-10 columns' style='padding-left:0;'>
-      <div id='title' data-sticky-container>
+    
+    <div class='small-10 medium-10 large-12 columns' style='padding-left:0;'>
+      <!--TITLE-->
+      <div id='title' class='small-5 large-6 left columns' data-sticky-container>
         <div class='sticky title' data-sticky data-margin-top="0">
-          <!--<div class='box effect3'>-->
-          <h1 class='title' style=''><strong><span style='font-size:9rem;'>PRAIRIE HILL</span> <span class='kaushan'>Learning Center</span></strong></h1>
-          <!--</div>-->
-        </div>
-      </div>
-    </div>
 
-    <!--LOGO-->
-    <div class='small-2 medium-2 large-2 right columns'><!-- style='position:absolute;right:0;'>-->
-      <div data-sticky-container>
-        <div class='sticky' data-sticky data-margin-top="0">
-          <%= link_to image_tag("logo-transparent.png", class: "logo"), root_path %>
+          <!--main-->
+          <div class='small-12 large-12 left columns'>
+            <h1 class='maintitle'>
+              <strong>
+                PRAIRIE HILL
+              </strong>
+            </h1>
+          </div>
+
+          <!--sub-->
+          <div class='small-12 large-12 right columns'>
+            <h1 class='subtitle five-rem'>          
+              <strong>
+                Learning Center
+              </strong>
+            </h1>
+          </div>
+
         </div>
       </div>
+
     </div>
 
     <!--NAV-->
@@ -29,5 +38,15 @@
         </div>
       </div>
     </div>
+    
+    <!--LOGO-->
+    <div class='small-2 medium-2 large-2 right columns'>
+      <div data-sticky-container>
+        <div class='sticky' data-sticky data-margin-top="0">
+          <%= link_to image_tag("logo-transparent.png", class: "logo"), root_path %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

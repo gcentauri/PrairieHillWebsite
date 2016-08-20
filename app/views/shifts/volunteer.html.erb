@@ -1,204 +1,138 @@
-<div id="country-fair">
-  <div id='fair-info' class='ccf'>
-    <div class='info-rect'></div>
-    <%= cms_snippet_content('ccf', @cms_site).html_safe %>
+<%#= cms_snippet_content('childrens-country-fair', @cms_site).html_safe %>
+<div id='ccf-info' class='expanded row'>
+
+  <div class='small-12 columns left'>
+    <%= image_tag('hattie-ccf.jpg', class: 'content-box') %>
   </div>
 
-  <div class='video-watch' style='cursor:pointer'>
-    <%#= link_to 'How to Volunteer Video', '#' %>
-    Click Here to Play a Video
+  <div class='small-6 columns left'>
+    <h1 class='hi-li padded kaushan'>The Children's Country Fair</h1>
+  </div>
+  <div class='small-6 columns right'>
+    <h3 class='green padded'><strong>Saturday, October 8, 2016 11am-3pm</strong></h3>
   </div>
 
-  <div class="ccf-video hidden">
-    <iframe width="840" height="473" src="//www.youtube.com/embed/bCoKqEN_x4U" frameborder="0" allowfullscreen></iframe>
+  <div class='small-12 columns'>
+    <div id="ccf-welcome">
+      Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!
+    </div>
   </div>
 
-  <div id="activities" class="activities">
+  <div class='small-12 columns'>
+    <p class="">
+      <span class="">Volunteer here!</span>
+      Click on any of the activities you see to the right to view available shifts, then click the "Sign Up" button.
+    </p>
+  </div>
 
-    <% if current_user %>
+  <div class='small-12 columns'>
+    <p>
+      <a href="/user_shifts">View your scheduled shifts here</a>.
+    </p>
+  </div>
+
+  <div class='small-12 columns'>
+    <ul id='activity-examples'>
+      <li>
+        Help place tables, chairs, canopies, signs, materials, trash and composting bins.
+      </li>
+
+      <li>
+        Organize items, label and price as needed, collect money and tickets for items purchased, prepare root beet floats.
+      </li>
+
+      <li>
+        Assemble orders, prepare sandwiches, etc. , collect money and tickets for meals.
+      </li>
+      <li>
+        Bring a creative spirit and have fun!  Supplies and sample design inspirations are provided.
+      </li>
+      <li>
+        This activity will make you laugh and get you wet.
+      </li>
       
-      <%# @uniq_shifts.each do |title| %>
-      <% @activityOrder.each do |title| %>
-	
-	<% @shifts_by_title = @shifts.where(title: title) %>
-	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''").sort_by { |s| natural_order(s) }  %>
-	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| natural_order(s) } %>
-	<%# @shifts_sorted_vols = @shifts_with_vols.concat(@shifts_no_vol) %>
-	<% @shifts_sorted_vols = @shifts_no_vol.concat(@shifts_with_vols) %>
-	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
-	<% @title_vols = @empty_shifts.count %>
-	<% @times = @shifts_by_title.pluck(:time) %>
-	<% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
-	<% @activities_w_title = @activities.where(work_area: title).first %>
-	<% unless @activities_w_title == nil %>
-	  <% @coordinator = @activities_w_title.coordinator %>
-	<% end %>
-
-	<%# if @title_vols > 0 %>
-
-
-	  <div class='activity' style='cursor:pointer;'>
-	    
-	    <% if current_user.try(:admin?) %>
-
-	      <div class="activity-vols">
-		<%= @title_vols %>
-	      </div>
-
-	      <div id="<%= title.split.first %>" class="activity-title"> 
-		<%= title %>
-	      </div>
-
-
-		<% unless (@coordinator == nil || @coordinator == '') %>
-		  <div id='coordinator' class='hidden lead'>
-		    <%= @coordinator %><br/>
-		      (coordinator)
-		  </div>
-		<% end %>
-
-
-	    <% else %>
-	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>
-
-		<div class="activity-vols">
-		  <%= @title_vols %>
-		</div>
-
-		<div id="<%= title.split.first %>" class="activity-title"> 
-		  <%= title %>
-		</div>
-
-
-		  <% unless (@coordinator == nil || @coordinator == '') %>
-		    <div id='coordinator' class='hidden lead'>
-		      <%= @coordinator %><br/>
-		      (coordinator)
-		    </div>
-		  <% end %>
-
-		
-	      <% end %>
-	    <% end %>
-
-	  </div>
-
-
-	  <div class="sub" style="display:none;">
-
-	    <% if current_user.try(:admin?) %>
-	      <%= render 'shift_filler' %>
-	    <% else %>
-	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>	  
-		<%= render 'shift_filler' %>
-	      <% end %>
-	    <% end %>
-	    
-	  </div>
-
-	<%# end %>
-
-
-      <% end %>
-    <% else %>
-      <%= render 'login' %>
-    <% end %>
-
-  </div>
-
-  <% if (@username != nil) %>
-    <% @user_shifts_count = @shifts.where(volunteer: @username).count %>
-  <% else %>
-    <% @user_shifts_count = 0 %>
-  <% end %>
-
-  <div id='ccf-info-admin'>
-    <span style='padding-right:5px;'>
-      You have signed up for 
-      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
-	<%= @user_shifts_count %>
-	<%= link_to " shifts!", user_shifts_path %>
-      </span>
-    </span>
-    <span style='padding-right:5px;'>
-      <span class="glyphicon glyphicon-leaf" style="padding: 0 5px 0 5px;"></span> 
-      <% if @user_shifts_count > 0 %>
-	Thank you!
-      <% end %>
-    </span>
-    <span>
-      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
-	<%= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteer hours available! 
-    </span>
+      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
+      <li>
+        This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.
+      </li>
+      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
+      <li>
+        You will start and stop the music and give the winner a cake!
+      </li>
+      <em><span class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
+      <li>
+        Assist children as they assume new identities from Prairie Hill's expansive costume collection.
+      </li>
+      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
+      <li>
+        Supervise, cheer, and assist children as they navigate a fun challenge course for young children.
+      </li>
+      <li>
+        Supplies (pennies and cups) will be on hand. Stock cups as needed.
+      </li>
+      <em><span class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
+      <li>
+        Don a fun outfit with many pockets. Collect a ticket and invite the player to check a pocket.  Supplies (including outfit!) is provided.
+      </li>
+      <li>
+        One person will take tickets, the other will get dunked! (you can swap spots). Bring a change of clothes.
+      </li>
+      <li>
+        Collect cash ($2 per car; musicians and vendors park free) and direct cars to parking in the pasture. Dress for the weather. Bring a water bottle. We provide a chair, safety vest, and money aprons. Parkers will be stationed on highway 77 at the pasture entrance and in the pasture.
+      </li>
+      <li>
+        Use your own camera and share the photos you take with the Fair Planning team to be distributed to the community.
+      </li>
+      <li>
+        Someone ready to run from one end of the fair to the other as needed by various members of the fair committee.
+      </li>
+      <li>
+        Take tickets. Volunteer will need some sense of how to throw a lasso.
+      </li>
+      <li>
+        Collect tickets.
+      </li>
+      <em><span class="brighten" data-redactor-tag="span">Ideal for parent to volunteer with their young child</span></em>.
+      <li>
+        Count tickets, collect money, encourage raffle and fund raising package sales.
+      </li>
+      <li>
+        Ideal for an Older Elementary or Adolescent student. Assist participants in drawing simple animals.  Samples will be provided.
+      </li>
+      <li>
+        Assist children (with someone from Dixon Power Systems) as they get their hands wet creating energy.
+      </li>
+      <li>
+        Assist Children (with someone from Lux) in creating their own button and bookmark designs.
+      </li>
+      <li>
+        Adult volunteer to run corn cobbing machine. Will need to stay alert to assist children with cranking while keeping hands out of the machine.
+      </li>
+      <li>
+        Assist children with monor injuries. Call EMS if needed. First aid supplies are included.
+      </li>
+    </ul>
   </div>
 </div>
 
-<script>
- 
- $(document).ready(function ($) {
-   "use strict";
-   $('#activities').perfectScrollbar({
-     suppressScrollX: true
-   });
- });
 
- var toggleHidden = function(element) {
-   if( $(element).hasClass('hidden') ) {
-     $(element).toggleClass('hidden');
-   }
-   else {
-     $(element).toggleClass('');
-   }
- };
-
- $('.activity-title').hover(
-   function(){
-     if( $(this).next('.lead').hasClass('hidden') ) {
-       $(this).next('.lead').toggleClass('hidden');
-     }
-     else {
-       $('.lead').toggleClass('');
-     }
-   }, function() {
-     $(this).next('.lead').toggleClass('hidden');
-   }
- );
-   
-  var info = $('.ccf').children('#vol').text();
-
- $('.activity-title').hover(
-   function(){
-     var tmpid = $(this).attr('id');
-     var desc = $('.ccf').next('.descriptions').children("." + tmpid).html();
-     var actData = $('.ccf').next('.descriptions').children("." + tmpid).data();
-
-     if ( actData.parentChild = "true" ) {
-       $('.ccf').children('#vol').html(desc);
-     }
-     else {
-       $('.ccf').children('#vol').text(desc);
-     }
-     
-   }, function() {
-     $('.ccf').children('#vol').text(info);
-   }
- );
- 
-
- $('.activity').click(function(){
-   if ( $(this).hasClass('faded')) {
-     $(this).toggleClass('');
-   }
-   else {
-     $(this).next('.sub').toggle('slow');
-     $(this).nextAll('.activity').toggle('slow');
-   }
-
-   return false;
- });
-
-</script>
-
-
-
-
+<h1>Upcoming Events</h1>
+<p>
+  Family Fun Run
+</p>
+<p>
+  Benefit run for Jennifer Bratcher and family (Bodi Imports)
+</p>
+<h3>1 MILE RUN in the PRAIRIE HILL Pasture</h3>
+<p>
+  <em>Non-competitive fun run -- everyone is a winner :)</em>
+</p>
+<h3>Cost-$10</h3>
+<h3>ADDITIONAL DONATIONS WELCOME</h3>
+<h3>Saturday, September 27th</h3>
+<h3>10:30 AM- start</h3>
+<h3>Packet Pick up 9:30 AM</h3>
+<p>
+  Prairie Hill Learning Center 11705 South 12 th Street, Roca Hwy 77 South, past Sprague Road, on the right hand side of the road LOOK FOR THE Children’s Country Fair SIGNS!!! (Fair 11am-3pm) T-Shirts for YOUTH THIS IS A ZERO WASTE EVENT SO BRING YOUR WATER BOTTLES AND WE WILL FILL THEM UP J GELATO after the run. THANKS to Erin Burianek!! MANY THANKS to our Title Sponsor On line registration @ GetMeRegistered.com Walk on registration available without T-shirt. Run for JENNIFER Contact info: Rosina Paolini 402-423-1260
+</p>
+<h2>Children's Country Fair</h2>

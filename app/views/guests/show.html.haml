@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @guest.name
+%p
+  %b Shift ids:
+  = @guest.shift_ids
+%p
+  %b User:
+  = @guest.user_id
+
+= link_to 'Edit', edit_guest_path(@guest)
+\|
+= link_to 'Back', guests_path

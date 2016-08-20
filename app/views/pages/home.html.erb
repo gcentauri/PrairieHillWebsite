@@ -3,7 +3,7 @@ description: 'Montessori education for children with an emphasis on meeting the 
   keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
 
 <div class='small-12 columns'>
-  <%= image_tag("audrey_jump.jpg", class: "content-box") %>
+  <%= image_tag("audrey_jump.jpg", class: "content-box bottom-shadow") %>
 </div>
 
 <div class='small-12 columns'>
@@ -13,27 +13,43 @@ description: 'Montessori education for children with an emphasis on meeting the 
 </div>
 
 <div class='small-12 columns p-box'>
-  <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+  <div class='small-7 columns'>
+    <hr>
+    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+  </div>
+
+  <div class='small-5 columns'>
+    <%= image_tag("kellan-bellpepper.jpg", class: "content-box bottom-shadow") %>
+  </div>
+
 </div>
 
 <div class='small-12 columns'>
-  <%= image_tag("kellan-bellpepper.jpg", class: "content-box") %>
+  <div class='hi-li-box'>
+    <%= render 'layouts/quote' %>
+  </div>
 </div>
 
-<%= image_tag("landscape_field.jpg") %>
+<hr/>
 
-<%#= render 'pages/about2' %>
+<div id='about'>
+  <div class='small-12 columns'>
+    <h1><%= link_to "What makes PRAIRIE HILL unique?", uniq_path %></h1>
+  </div>
 
-<%= link_to "<i class='fa fa-info-circle'></i>".html_safe, uniq_path%>
-<%= link_to "What makes PRAIRIE HILL unique?", uniq_path %>
-<%= render 'pages/uniq_list' %>
+
+  <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, uniq_path%>
+
+  <%= render 'pages/uniq_list' %>
+</div>
+
 <%= image_tag "carrying_saddle.jpg"%>
 <%= render 'pages/tour' %>
 <%= render 'pages/tour_scenic' %>
 <%= link_to (image_tag "natureworks-title.png"), camp_path %>
 <%= link_to (image_tag "daniel-brushing.png"), camp_path %>
 
-<%= render 'layouts/quote' %>
+
 
 <p class="content-box padded" style='font-size:2.5vw;'>
   PRAIRIE HILL offers nature-centered day camp programs for children
@@ -41,7 +57,7 @@ description: 'Montessori education for children with an emphasis on meeting the 
   seven miles south of Lincoln, Nebraska.
 </p>
 <%= link_to 'More Info', camp_path %>
-    
+
 <%= image_tag "kellan-bellpepper.jpg" %>
 
 <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>

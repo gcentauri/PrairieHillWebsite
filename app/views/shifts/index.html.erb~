@@ -1,4 +1,0 @@
-  <p>
-    Download:
-    <%= link_to "Excel", shifts_path(format: "xls") %>
-  </p>

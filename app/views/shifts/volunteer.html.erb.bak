@@ -1,0 +1,192 @@
+<div id="">
+  <div id='' class=''>
+    <div class=''></div>
+    <%= cms_snippet_content('ccf', @cms_site).html_safe %>
+  </div>
+
+  <div id="activities">
+
+    <% if current_user %>
+      <% @activityOrder.each do |title| %>
+	
+	<% @shifts_by_title = @shifts.where(title: title) %>
+	<% @shifts_with_vols = @shifts_by_title.where("volunteer is NOT NULL and volunteer != ''").sort_by { |s| natural_order(s) }  %>
+	<% @shifts_no_vol = @shifts_by_title.where("volunteer is NULL or volunteer = ''").sort_by { |s| natural_order(s) } %>
+	<% @shifts_sorted_vols = @shifts_no_vol.concat(@shifts_with_vols) %>
+	<% @empty_shifts = (@shifts_by_title.where(volunteer: nil))+(@shifts_by_title.where(volunteer: "")) %>
+	<% @title_vols = @empty_shifts.count %>
+	<% @times = @shifts_by_title.pluck(:time) %>
+	<% @time_vols = @shifts_by_title.pluck(:vols_needed) %>	
+	<% @activities_w_title = @activities.where(work_area: title).first %>
+	<% unless @activities_w_title == nil %>
+	  <% @coordinator = @activities_w_title.coordinator %>
+	<% end %>
+
+	<%# if @title_vols > 0 %>
+
+
+	  <div class='activity' style='cursor:pointer;'>
+	    
+	    <% if current_user.try(:admin?) %>
+
+	      <div class="activity-vols">
+		<%= @title_vols %>
+	      </div>
+
+	      <div id="<%= title.split.first %>" class="activity-title"> 
+		<%= title %>
+	      </div>
+
+
+		<% unless (@coordinator == nil || @coordinator == '') %>
+		  <div id='coordinator' class='hidden lead'>
+		    <%= @coordinator %><br/>
+		      (coordinator)
+		  </div>
+		<% end %>
+
+
+	    <% else %>
+	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>
+
+		<div class="activity-vols">
+		  <%= @title_vols %>
+		</div>
+
+		<div id="<%= title.split.first %>" class="activity-title"> 
+		  <%= title %>
+		</div>
+
+
+		  <% unless (@coordinator == nil || @coordinator == '') %>
+		    <div id='coordinator' class='hidden lead'>
+		      <%= @coordinator %><br/>
+		      (coordinator)
+		    </div>
+		  <% end %>
+
+		
+	      <% end %>
+	    <% end %>
+
+	  </div>
+
+
+	  <div class="sub" style="display:none;">
+
+	    <% if current_user.try(:admin?) %>
+	      <%= render 'shift_filler' %>
+	    <% else %>
+	      <% if (title != 'Pony Rides') & (title != 'Pony Wagon Rides') %>	  
+		<%= render 'shift_filler' %>
+	      <% end %>
+	    <% end %>
+	    
+	  </div>
+
+	<%# end %>
+
+
+      <% end %>
+    <% else %>
+      <%= render 'login' %>
+    <% end %>
+
+  </div>
+
+  <% if (@username != nil) %>
+    <% @user_shifts_count = @shifts.where(volunteer: @username).count %>
+  <% else %>
+    <% @user_shifts_count = 0 %>
+  <% end %>
+
+  <div id='ccf-info-admin'>
+    <span style='padding-right:5px;'>
+      You have signed up for 
+      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+	<%= @user_shifts_count %>
+	<%= link_to " shifts!", user_shifts_path %>
+      </span>
+    </span>
+    <span style='padding-right:5px;'>
+      <span class="glyphicon glyphicon-leaf" style="padding: 0 5px 0 5px;"></span> 
+      <% if @user_shifts_count > 0 %>
+	Thank you!
+      <% end %>
+    </span>
+    <span>
+      <span class='padded' style='font-size:3vw;font-style:bold;background:gold;color:black;'>
+	<%#= (@shifts.where(volunteer: nil).count + @shifts.where(volunteer: "").count) %></span>   Volunteer hours available! 
+    </span>
+  </div>
+</div>
+
+<script>
+ 
+ $(document).ready(function ($) {
+   "use strict";
+   $('#activities').perfectScrollbar({
+     suppressScrollX: true
+   });
+ });
+
+ var toggleHidden = function(element) {
+   if( $(element).hasClass('hidden') ) {
+     $(element).toggleClass('hidden');
+   }
+   else {
+     $(element).toggleClass('');
+   }
+ };
+
+ $('.activity-title').hover(
+   function(){
+     if( $(this).next('.lead').hasClass('hidden') ) {
+       $(this).next('.lead').toggleClass('hidden');
+     }
+     else {
+       $('.lead').toggleClass('');
+     }
+   }, function() {
+     $(this).next('.lead').toggleClass('hidden');
+   }
+ );
+   
+  var info = $('.ccf').children('#vol').text();
+
+ $('.activity-title').hover(
+   function(){
+     var tmpid = $(this).attr('id');
+     var desc = $('.ccf').next('.descriptions').children("." + tmpid).html();
+     var actData = $('.ccf').next('.descriptions').children("." + tmpid).data();
+
+     if ( actData.parentChild = "true" ) {
+       $('.ccf').children('#vol').html(desc);
+     }
+     else {
+       $('.ccf').children('#vol').text(desc);
+     }
+     
+   }, function() {
+     $('.ccf').children('#vol').text(info);
+   }
+ );
+ 
+
+ $('.activity').click(function(){
+   if ( $(this).hasClass('faded')) {
+     $(this).toggleClass('');
+   }
+   else {
+     $(this).next('.sub').toggle('slow');
+     $(this).nextAll('.activity').toggle('slow');
+   }
+
+   return false;
+ });
+
+</script>
+
+
+
+

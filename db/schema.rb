@@ -11,21 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113202928) do
+ActiveRecord::Schema.define(version: 20160819144807) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
     t.string   "coordinator"
-    t.boolean  "sign"
-    t.integer  "num_tickets"
-    t.string   "vol_needed"
     t.text     "shift_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "comments"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "category"
   end
 
   create_table "comfy_cms_blocks", force: :cascade do |t|
@@ -169,6 +163,14 @@ ActiveRecord::Schema.define(version: 20151113202928) do
     t.boolean  "featured"
   end
 
+  create_table "guests", force: :cascade do |t|
+    t.string   "name"
+    t.text     "shift_ids"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -178,22 +180,15 @@ ActiveRecord::Schema.define(version: 20151113202928) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "time"
-    t.integer  "vols_needed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "volunteers",  default: "[]"
-    t.string   "volunteer"
-    t.string   "guest"
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "activity_id"
     t.integer  "user_id"
     t.string   "category"
+    t.integer  "guest_id"
   end
-
-  add_index "shifts", ["guest"], name: "index_shifts_on_guest"
 
   create_table "shifts_users", force: :cascade do |t|
     t.integer "shift_id"

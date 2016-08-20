@@ -4,65 +4,65 @@
 @import 'foundation';
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two|Satisfy|Rancho|Schoolbell|Lateef);
-@import url(https://fonts.googleapis.com/css?family=Lobster|Pacifico|Berkshire+Swash|Fontdiner+Swanky|Rancho);
+            @import url(https://fonts.googleapis.com/css?family=Lobster|Pacifico|Berkshire+Swash|Fontdiner+Swanky|Rancho);
 
-// If you'd like to include motion-ui, you need to install the motion-ui sass package.
-//
-// @import 'motion-ui/motion-ui';
+                        // If you'd like to include motion-ui, you need to install the motion-ui sass package.
+                        //
+                        // @import 'motion-ui/motion-ui';
 
-// We include everything by default.  To slim your CSS, remove components you don't use.
+                        // We include everything by default.  To slim your CSS, remove components you don't use.
 
-@include foundation-global-styles;
-@include foundation-grid;
-@include foundation-typography;
-@include foundation-button;
-@include foundation-forms;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
-@include foundation-accordion;
-@include foundation-accordion-menu;
-@include foundation-badge;
-@include foundation-breadcrumbs;
-@include foundation-button-group;
-@include foundation-callout;
-@include foundation-close-button;
-@include foundation-drilldown-menu;
-@include foundation-dropdown;
-@include foundation-dropdown-menu;
-@include foundation-flex-video;
-@include foundation-label;
-@include foundation-media-object;
-@include foundation-menu;
-@include foundation-off-canvas;
-@include foundation-orbit;
-@include foundation-pagination;
-@include foundation-progress-bar;
-@include foundation-slider;
-@include foundation-sticky;
-@include foundation-reveal;
-@include foundation-switch;
-@include foundation-table;
-@include foundation-tabs;
-@include foundation-thumbnail;
-@include foundation-title-bar;
-@include foundation-tooltip;
-@include foundation-top-bar;
-//@include foundation-flex-classes;
-//@include foundation-flex-grid;
+                        @include foundation-global-styles;
+                        @include foundation-grid;
+                        @include foundation-typography;
+                        @include foundation-button;
+                        @include foundation-forms;
+                        @include foundation-visibility-classes;
+                        @include foundation-float-classes;
+                        @include foundation-accordion;
+                        @include foundation-accordion-menu;
+                        @include foundation-badge;
+                        @include foundation-breadcrumbs;
+                        @include foundation-button-group;
+                        @include foundation-callout;
+                        @include foundation-close-button;
+                        @include foundation-drilldown-menu;
+                        @include foundation-dropdown;
+                        @include foundation-dropdown-menu;
+                        @include foundation-flex-video;
+                        @include foundation-label;
+                        @include foundation-media-object;
+                        @include foundation-menu;
+                        @include foundation-off-canvas;
+                        @include foundation-orbit;
+                        @include foundation-pagination;
+                        @include foundation-progress-bar;
+                        @include foundation-slider;
+                        @include foundation-sticky;
+                        @include foundation-reveal;
+                        @include foundation-switch;
+                        @include foundation-table;
+                        @include foundation-tabs;
+                        @include foundation-thumbnail;
+                        @include foundation-title-bar;
+                        @include foundation-tooltip;
+                        @include foundation-top-bar;
+                        //@include foundation-flex-classes;
+                        //@include foundation-flex-grid;
 
-// If you'd like to include motion-ui, you need to install the motion-ui sass package.
-//
-// @include motion-ui-transitions;
-// @include motion-ui-animations;
+                        // If you'd like to include motion-ui, you need to install the motion-ui sass package.
+                        //
+                        // @include motion-ui-transitions;
+                        // @include motion-ui-animations;
 
-body {
-    background: transparent !important;
-}
+                        body {
+                            background: transparent !important;
+                        }
 
-html, body {
-    //background-color: #f2f9ff;
-    background: rgba(242,249,255,0.5);
-    background: linear-gradient(right top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+                        html, body {
+                            //background-color: #f2f9ff;
+                            background: rgba(242,249,255,0.5);
+                            background: linear-gradient(right top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
     /*
     background: -webkit-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
     background: -o-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
@@ -77,14 +77,24 @@ html, body {
     font-size: 1vw;
 }
 
+h1,h2,h3,h4,
+p,a,li {
+    color: #004437;
+}
+
 .bottom-shadow {
     -webkit-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
     -moz-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
     box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
 }
 
-.box h1 {
+.center {
     text-align: center;
+}
+
+.box h1 {
+    @extend .center;
+    //text-align: center;
     position: relative;
     top: 0;
 }
@@ -151,10 +161,23 @@ html, body {
     position: relative;
     z-index: 3;
 
-    .kaushan {
+    .maintitle {
+        //@extend .hi-li;
+
+        font-size:9rem;
+        border-radius:2px;
+        
+    }
+    
+    .subtitle {
         font-family: 'Kaushan Script', 'Satisfy', 'Lateef', 'News Cycle', 'Kaushan Script', 'Roboto';
         margin-bottom: 10px;
         text-shadow: 1px 1px 1px rgba(51,51,51,0.5);
+
+        display: inline;
+        line-height: 0;
+        color: rgba(255,237,0,0.9);
+
     }
 }
 
@@ -170,19 +193,30 @@ html, body {
 ul.nav-main {
     margin: 8px 0 0 4px;
     //border-top: 20px solid rgba(31,128,0,0.1);
-    background: rgba(31,128,0,0.1);
+    //background: rgba(31,128,0,0.1);
     border-radius: 1px;
     position: relative;
     top: 9px;
     left: 65px;
     z-index:0;
     
-    li a {
-        //color: rgba(255,252,216,1);
-        color: rgba(255,237,0,1);
-        font-weight: bold;
-        font-size: 1.5rem;
-        text-shadow: 1px 1px 1px rgba(55,55,55,0.5);
+    li {
+        a {
+            //color: rgba(255,252,216,1);
+            color: rgba(255,237,0,1);
+            font-weight: bold;
+            font-size: 2.0rem;
+            text-shadow: 1px 1px 1px rgba(55,55,55,0.4);
+
+        }
+
+        &.active {
+            @extend .hi-li;
+            border-radius: 2px;
+            a {
+                color: white;
+            }
+        }
     }
 }
 
@@ -211,12 +245,21 @@ ul.nav-main {
 }
 
 .hi-li {
-    background: rgba(255,237,0,0.8);    
+    background: rgba(255,237,0,0.7);    
+}
+
+.green {
+    color: rgba(50,154,17,0.9);
+}
+
+.padded {
+    padding: 15px;
 }
 
 .hi-li-box {
     @extend .hi-li;
-    padding: 15px;
+    @extend .padded;
+
     font-size: 2rem;
     text-align: center;
 }
@@ -225,11 +268,28 @@ ul.nav-main {
     font-family: 'Kaushan Script', 'Satisfy', 'Lateef', 'News Cycle', 'Kaushan Script', 'Roboto';
 }
 
+.one-rem {
+    font-size: 1rem;
+}
+.two-rem {
+    font-size: 2rem;
+}
+.three-rem {
+    font-size: 3rem;
+}
+.four-rem {
+    font-size: 4rem;
+}
+.five-rem {
+    font-size: 5rem;
+}
+
 .p-box {
     @extend .content-box;
     padding: 15px;
     border: none;
     text-align: justify;
+    font-size: 2rem;
 }
 
 .hidden {
@@ -241,6 +301,10 @@ ul.nav-main {
 }
 
 @media screen and (min-width:1338px) {
+    .title {
+        transform: translate(-220px,0);
+    }
+
     .logo {
         transform: translate(200px,0);
     }
