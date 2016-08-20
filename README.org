@@ -76,7 +76,15 @@
 **** ├── users_controller.rb
 **** └── volunteers_controller.rb
 
-*** ├── helpers
+*** ├── [[./app/helpers][helpers]]
+
+**** ├── activities_helper.rb
+**** ├── [[./app/helpers/application_helper.rb][application_helper.rb]]
+**** ├── events_helper.rb
+**** ├── guests_helper.rb
+**** ├── pages_helper.rb
+**** └── shifts_helper.rb
+
 *** ├── inputs
 *** ├── mailers
 *** ├── [[./app/models][models]]

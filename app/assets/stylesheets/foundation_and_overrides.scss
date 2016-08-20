@@ -3,83 +3,81 @@
 @import 'settings';
 @import 'foundation';
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two|Satisfy|Rancho|Schoolbell|Lateef);
-            @import url(https://fonts.googleapis.com/css?family=Lobster|Pacifico|Berkshire+Swash|Fontdiner+Swanky|Rancho);
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two|Satisfy|Rancho|Schoolbell|Lateef|Lobster|Pacifico|Berkshire+Swash|Fontdiner+Swanky|Rancho');
 
-                        // If you'd like to include motion-ui, you need to install the motion-ui sass package.
-                        //
-                        // @import 'motion-ui/motion-ui';
+// If you'd like to include motion-ui, you need to install the motion-ui sass package.
+//
+// @import 'motion-ui/motion-ui';
 
-                        // We include everything by default.  To slim your CSS, remove components you don't use.
+// We include everything by default.  To slim your CSS, remove components you don't use.
 
-                        @include foundation-global-styles;
-                        @include foundation-grid;
-                        @include foundation-typography;
-                        @include foundation-button;
-                        @include foundation-forms;
-                        @include foundation-visibility-classes;
-                        @include foundation-float-classes;
-                        @include foundation-accordion;
-                        @include foundation-accordion-menu;
-                        @include foundation-badge;
-                        @include foundation-breadcrumbs;
-                        @include foundation-button-group;
-                        @include foundation-callout;
-                        @include foundation-close-button;
-                        @include foundation-drilldown-menu;
-                        @include foundation-dropdown;
-                        @include foundation-dropdown-menu;
-                        @include foundation-flex-video;
-                        @include foundation-label;
-                        @include foundation-media-object;
-                        @include foundation-menu;
-                        @include foundation-off-canvas;
-                        @include foundation-orbit;
-                        @include foundation-pagination;
-                        @include foundation-progress-bar;
-                        @include foundation-slider;
-                        @include foundation-sticky;
-                        @include foundation-reveal;
-                        @include foundation-switch;
-                        @include foundation-table;
-                        @include foundation-tabs;
-                        @include foundation-thumbnail;
-                        @include foundation-title-bar;
-                        @include foundation-tooltip;
-                        @include foundation-top-bar;
-                        //@include foundation-flex-classes;
-                        //@include foundation-flex-grid;
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-menu;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+//@include foundation-flex-classes;
+//@include foundation-flex-grid;
 
-                        // If you'd like to include motion-ui, you need to install the motion-ui sass package.
-                        //
-                        // @include motion-ui-transitions;
-                        // @include motion-ui-animations;
+// If you'd like to include motion-ui, you need to install the motion-ui sass package.
+//
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
 
-                        body {
-                            background: transparent !important;
-                        }
+body {
+    background: transparent !important;
+}
 
-                        html, body {
-                            //background-color: #f2f9ff;
-                            background: rgba(242,249,255,0.5);
-                            background: linear-gradient(right top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+html, body {
+    //background-color: #f2f9ff;
+    background: rgba(242,249,255,0.5);
+    background: linear-gradient(right top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
     /*
     background: -webkit-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
     background: -o-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
     background: -moz-linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,0.5));
     background: linear-gradient(left top, rgba(242,249,255,0),rgba(242,249,255,1));
-    */
-}
+   */
 
-html, body {
     background-color:rgba(230,248,255,0.1);
     font-family: 'News Cycle', 'Kaushan Script', 'Roboto';
     font-size: 1vw;
 }
 
 h1,h2,h3,h4,
-p,a,li {
-    color: #004437;
+p,li {
+    //color: #002717;
+    color: rgba(0,39,23,0.9);
 }
 
 .bottom-shadow {
@@ -309,3 +307,5 @@ ul.nav-main {
         transform: translate(200px,0);
     }
 }
+
+
