@@ -1,15 +1,16 @@
 <!--HEADER-->
 <div class='expanded row'>
-  <div class='small-12 large-8 large-centered columns'>
+  <div class='small-12 large-12 large-centered columns'>
+
+    <!--TITLE-->
+    <div id='title' class='small-8 columns' style='padding-left:0;'>
     
-    <div class='small-12 medium-12 large-12 columns' style='padding-left:0;'>
-      <!--TITLE-->
-      <div id='title' class='small-12 large-6 left columns' data-sticky-container>
+      <div class='small-12 left columns' data-sticky-container>
         <div class='sticky title' data-sticky data-margin-top="0">
 
           <!--main-->
-          <div class='small-12 medium-12 large-12 left columns'>
-            <h1 class='maintitle'>
+          <div class='small-12 left columns'>
+            <h1 class=''>
               <strong>
                 PRAIRIE HILL
               </strong>
@@ -17,8 +18,8 @@
           </div>
 
           <!--sub-->
-          <div class='small-12 medium-12 large-12 right columns'>
-            <h1 class='subtitle five-rem'>          
+          <div class='small-12 right columns'>
+            <h1 class='subtitle'>          
               <strong>
                 Learning Center
               </strong>
@@ -27,24 +28,25 @@
 
         </div>
       </div>
-
     </div>
 
-    <!--NAV-->
-    <div id='nav-main' class='small-12 medium-12 large-8 large-centered columns'>
+    <!--LOGO-->
+    <div id='logo' class='small-4 right columns'>
       <div data-sticky-container>
-        <div class='sticky' data-sticky data-margin-top="10">
-          <%= render 'layouts/nav' %>
+        <div class='sticky' data-sticky data-margin-top="3">
+          <%= link_to image_tag("logo-transparent.png", class: "logo small-8 columns"), root_path %>
         </div>
       </div>
     </div>
-    
-    <!--LOGO-->
-    <div class='small-2 medium-2 large-2 right columns'>
-      <div data-sticky-container>
-        <div class='sticky' data-sticky data-margin-top="0">
-          <%= link_to image_tag("logo-transparent.png", class: "logo"), root_path %>
-        </div>
+
+    <!--NAV-->
+    <div class='row expanded'>
+      <div id='nav-main' class='small-12 columns'>
+        <!--<div data-sticky-container>-->
+        <!--<div class='sticky' data-sticky data-margin-top="2em">-->
+        <%= render 'layouts/nav' %>
+        <!--</div>-->
+        <!--</div>-->
       </div>
     </div>
 
