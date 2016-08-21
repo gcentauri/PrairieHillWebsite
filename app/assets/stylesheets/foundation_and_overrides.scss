@@ -191,29 +191,45 @@ p,li {
 ul.nav-main {
     margin: 8px 0 0 4px;
     //border-top: 20px solid rgba(31,128,0,0.1);
-    //background: rgba(31,128,0,0.1);
-    border-radius: 1px;
+
+    border-radius: 2px;
     position: relative;
     top: 9px;
     left: 65px;
     z-index:0;
     
     li {
+        //background: rgba(31,128,0,0.1);
+        background: #f7f7f3;
+        padding-bottom: 1px;
         a {
             //color: rgba(255,252,216,1);
-            color: rgba(255,237,0,1);
+            //color: rgba(255,237,0,1);
+            //color: rgba(0,17,11,0.8);
+            color: rgba(10,41,0,0.8);
             font-weight: bold;
-            font-size: 2.0rem;
-            text-shadow: 1px 1px 1px rgba(55,55,55,0.4);
+            //border-top: 1px solid rgba(10,41,0,0.1);
+            //border-bottom: 1px solid rgba(10,41,0,0.1);
+            //font-size: 2.0rem;
+            font-size: 0.8vw;
+            text-shadow: 1px 1px 1px rgba(55,55,55,0.2);
 
+            &:hover {
+                text-decoration: none;
+            }
         }
 
         &.active {
             @extend .hi-li;
             border-radius: 2px;
             a {
-                color: white;
+                //color: white;
+                color: rgba(10,41,0,0.8);
             }
+        }
+
+        &:hover {
+            @extend .hi-li;
         }
     }
 }
@@ -227,8 +243,6 @@ ul.nav-main {
     margin-top: 20em;
 }
 
-#content {}
-
 .content {
     border-left: 1px solid rgba(51,51,51,0.2);
     border-right: 1px solid rgba(51,51,51,0.2);
@@ -240,6 +254,12 @@ ul.nav-main {
 .content-box {
     margin-top:10px;
     border: 1px solid rgba(51,51,51,0.2);
+}
+
+.special-box {
+    border: 1px solid rgba(0,39,23,0.2);
+    padding:10px 0;
+    margin-top: 10px;
 }
 
 .hi-li {
@@ -260,6 +280,11 @@ ul.nav-main {
 
     font-size: 2rem;
     text-align: center;
+}
+
+.hi-li-green-box {
+    @extend .hi-li-box;
+    background: rgba(50,154,17,0.9);
 }
 
 .kaushan {
@@ -298,13 +323,65 @@ ul.nav-main {
     background-color: white !important;
 }
 
+#uniq-list {
+    list-style-type: none;
+    float: left;
+    margin-left: 0;
+    li {
+        @extend .content-box;
+        @extend .padded;
+    }
+}
+
+/*MEDIA QUERIES*/
+/*@media screen and (max-width:1338px) {
+    .title {
+        transform: translate(-120px,0);
+    }
+
+    .logo {
+        transform: translate(100px,0);
+    }
+}
+*/
+
 @media screen and (min-width:1338px) {
+
     .title {
         transform: translate(-220px,0);
     }
 
     .logo {
         transform: translate(200px,0);
+    }
+
+}
+
+@media screen and (max-width:1648px) {
+
+    #nav-main {
+        transform: translate(0,50px);
+    }
+    
+    ul.nav-main {
+        li {
+            background: white;
+            a {
+                //font-size: 1.5rem;
+                font-size: 1.6vw;
+                color: rgba(0,17,11,0.9);
+                text-shadow: 1px 1px 1px rgba(55,55,55,0.1);
+                border-top: 1px solid rgba(10,41,0,0.1);
+                border-bottom: 1px solid rgba(10,41,0,0.1);
+            }
+
+            &.active {
+                a {
+                    color: rgba(0,17,11,0.7);
+                }
+            }
+
+        }
     }
 }
 

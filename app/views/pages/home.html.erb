@@ -2,64 +2,89 @@
 description: 'Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment',
   keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
 
-<div class='small-12 columns'>
-  <%= image_tag("audrey_jump.jpg", class: "content-box bottom-shadow") %>
-</div>
-
-<div class='small-12 columns'>
-  <div class='hi-li-box'>
-    <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-  </div>
-</div>
-
-<div id='about' class='small-12 columns p-box'>
-  <div class='small-7 columns'>
-    <hr>
-    <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-  </div>
-
-  <div class='small-5 columns'>
-    <%= image_tag("kellan-bellpepper.jpg", class: "content-box bottom-shadow") %>
-  </div>
-
-</div>
-
-<div class='small-12 columns'>
-  <div class='hi-li-box'>
-    <%= render 'layouts/quote' %>
-  </div>
-</div>
-
-<hr/>
-
-<div id='about'>
+<!--MISSION-->
+<div id='top' class='expanded row bottom-shadow content-box special-box'>
   <div class='small-12 columns'>
-    <h1><%= link_to "What makes PRAIRIE HILL unique?", uniq_path %></h1>
+    <%= image_tag("audrey_jump.jpg", class: "bottom-shadow") %>
   </div>
 
-
-  <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, uniq_path%>
-
-  <%= render 'pages/uniq_list' %>
+  <div class='small-12 columns'>
+    <div class='hi-li-box content-box'>
+      <%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
+    </div>
+  </div>
 </div>
 
-<%= image_tag "carrying_saddle.jpg"%>
-<%= render 'pages/tour' %>
-<%= render 'pages/tour_scenic' %>
-<%= link_to (image_tag "natureworks-title.png"), camp_path %>
-<%= link_to (image_tag "daniel-brushing.png"), camp_path %>
+<!--ABOUT-->
+<div id='about' class='small-12 columns bottom-shadow content-box special-box'>
+  <div class='expanded row'>
+    <div class='small-7 columns'>
+      <hr>
+      <span class='p-box'>
+        <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
+      </span>
+    </div>
+
+    <div class='small-5 columns'>
+      <%= image_tag("kellan-bellpepper.jpg", class: "content-box bottom-shadow") %>
+    </div>
+  </div>
+
+  <div class='expanded row'>
+    <div class='small-12 columns'>
+      <div class='hi-li-box content-box'>
+        <%= render 'layouts/quote' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--UNIQ-->
+<div id='' class='small-12 columns bottom-shadow content-box special-box'>
+  <div class='small-12 columns'>
+    <h1 class='hi-li-green-box content-box' style='color:white;font-size:3vw;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
+      <stong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
+    </h1>
+  </div>
+
+  <div class='small-12 columns'>
+    <%= image_tag "cate.jpg", class: 'small-12 columns content-box bottom-shadow' %>
+  </div>
+
+  <!--list-->
+  <div class='small-12 large-centered columns'>
+    <%= render 'pages/uniq_list' %>
+  </div>
+  
+</div>
+
+<div id='' class='small-12 columns bottom-shadow content-box special-box'>
+  <div class='small-12 columns'>
+    <%= image_tag "ella_reads.jpg", class: 'small-12 columns' %>
+  </div>
+
+  <div class='small-12 columns'>
+    <h3 class='hi-li-grn padded'>
+      Prospective Parent Tour Dates
+    </h3>
+    <div class='' style=''>
+      Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+    </div>
+
+    <h4 class=''><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
+  </div>
+
+  <%= image_tag "carrying_saddle.jpg"%>
+  
+  <%#= render 'pages/tour_scenic' %>
+  <%= link_to (image_tag "daniel-brushing.png"), camp_path %>
+</div>
+
+<%#= link_to (image_tag "natureworks-title.png"), camp_path %>
 
 
+<!--<p class="content-box padded" style='font-size:2.5vw;'>PRAIRIE HILL offers nature-centered day camp programs for children ages 6-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.</p>-->
+<%#= link_to 'More Info', camp_path %>
 
-<p class="content-box padded" style='font-size:2.5vw;'>
-  PRAIRIE HILL offers nature-centered day camp programs for children
-  ages 6-15 and mini-camps for ages 3-6) on our historic farm, just
-  seven miles south of Lincoln, Nebraska.
-</p>
-<%= link_to 'More Info', camp_path %>
 
-<%= image_tag "kellan-bellpepper.jpg" %>
-
-<%= cms_snippet_content('mission-statement', @cms_site).html_safe %>
-<%= cms_snippet_content('philosophy', @cms_site).html_safe %>
 
