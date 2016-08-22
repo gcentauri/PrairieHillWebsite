@@ -144,7 +144,7 @@
 
 ***** ├── _about2.html.erb
 ***** ├── _about.html.erb
-***** ├── about.html.erb
+***** ├── [[./app/views/pages/about.html.erb][about.html.erb]]
 ***** ├── add_shift.html.erb
 ***** ├── add_user_idee.html.erb
 ***** ├── _blah.html.erb

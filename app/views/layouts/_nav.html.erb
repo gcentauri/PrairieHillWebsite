@@ -1,12 +1,13 @@
 <div id='nav-mobile'>
-<ul class="dropdown menu nav-main" data-dropdown-menu>
-  <li>
-    <a href="#"><i class='fa fa-bars'></i></a>
-    <ul class="menu nav-main">
 
-      <%#= content_for :nav %>
-      
-      <%# content_for :nav do %>
+  <ul class="dropdown menu nav-main" data-dropdown-menu>
+    <li class='is-dropdown-submenu-parent'>
+      <a href="#" class='mobile-icon-link' style='font-size:3vw;padding:5px;'>
+        <i id='nav-mobile-icon' class='fa fa-compass center text-outline-darker' style=''></i>
+      </a>
+
+      <ul class="menu nav-main">
+
         <li><%= nav_link "HOME", root_path %></li>
         <li><%= nav_link "ABOUT", about_path %></li>
         <!--<li><%#= nav_link "ABOUT", '#about' %></li>-->
@@ -19,28 +20,28 @@
         <li><%= nav_link "DONATE", donate_path %></li>
         <li><%= nav_link "FINANCIAL", '#financial' %></li>
         <li><%= nav_link "Country FAIR", ccf_path %></li>
-      <%# end %>
+        
+      </ul>
       
-    </ul>
-  </li>
-</ul>
+    </li>
+  </ul>
 </div>
 
 <div id='nav-full'>
-    <ul class="menu nav-main">
+  <ul class="menu nav-main">
 
-        <li><%= nav_link "HOME", root_path %></li>
-        <li><%= nav_link "ABOUT", about_path %></li>
-        <!--<li><%#= nav_link "ABOUT", '#about' %></li>-->
-        <li><%= nav_link "PROGRAMS", programs_path %></li>
-        <li><%= nav_link "TOURS", news_path %></li>
-        <li><%= nav_link "STAFF", staffandboard_path %></li>
-        <li><%= nav_link "CALENDAR", calendar_path %></li>
-        <li><%= nav_link "CONTACT", contact_path %></li>
-        <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
-        <li><%= nav_link "DONATE", donate_path %></li>
-        <li><%= nav_link "FINANCIAL", '#financial' %></li>
-        <li><%= nav_link "Country FAIR", ccf_path %></li>
-      
-    </ul>
+    <li><%= nav_link "HOME", root_path %></li>
+    <li><%= nav_link "ABOUT", about_path %></li>
+    <!--<li><%#= nav_link "ABOUT", '#about' %></li>-->
+    <li><%= nav_link "PROGRAMS", programs_path %></li>
+    <li><%= nav_link "TOURS", news_path %></li>
+    <li><%= nav_link "STAFF", staffandboard_path %></li>
+    <li><%= nav_link "CALENDAR", calendar_path %></li>
+    <li><%= nav_link "CONTACT", contact_path %></li>
+    <li><%= nav_link "EMPLOYMENT", jobs_path %></li>
+    <li><%= nav_link "DONATE", donate_path %></li>
+    <li><%= nav_link "FINANCIAL", '#financial' %></li>
+    <li><%= nav_link "Country FAIR", ccf_path %></li>
+    
+  </ul>
 </div>

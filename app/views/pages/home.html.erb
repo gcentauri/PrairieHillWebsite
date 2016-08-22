@@ -15,65 +15,30 @@ description: 'Montessori education for children with an emphasis on meeting the 
   </div>
 </div>
 
-<!--ABOUT-->
-<div id='about' class='small-12 columns bottom-shadow content-box special-box'>
-  <div class='expanded row'>
-    <div class='small-7 columns'>
-      <hr>
-      <span class='p-box'>
-        <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
-      </span>
-    </div>
 
-    <div class='small-5 columns'>
-      <%= image_tag("kellan-bellpepper.jpg", class: "content-box bottom-shadow") %>
-    </div>
-  </div>
-
-  <div class='expanded row'>
-    <div class='small-12 columns'>
-      <div class='hi-li-box content-box'>
-        <%= render 'layouts/quote' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--UNIQ-->
-<div id='' class='small-12 columns bottom-shadow content-box special-box'>
-  <div class='small-12 columns'>
-    <h1 class='hi-li-green-box content-box' style='color:white;font-size:3vw;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
-      <stong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
-    </h1>
-  </div>
-
-  <div class='small-12 columns'>
-    <%= image_tag "cate.jpg", class: 'small-12 columns content-box bottom-shadow' %>
-  </div>
-
-  <!--list-->
-  <div class='small-12 large-centered columns'>
-    <%= render 'pages/uniq_list' %>
-  </div>
-  
-</div>
-
+<!--TOURS-->
 <div id='' class='small-12 columns bottom-shadow content-box special-box'>
   <div class='small-12 columns'>
     <%= image_tag "ella_reads.jpg", class: 'small-12 columns' %>
   </div>
 
   <div class='small-12 columns'>
-    <h3 class='hi-li-grn padded'>
-      Prospective Parent Tour Dates
-    </h3>
-    <div class='' style=''>
-      Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+    <h2 class='hi-li green padded'>
+      <strong>
+        Prospective Parent Tour Dates
+      </strong>
+    </h2>
+    <div class='p-box' style=''>
+      <p>
+        Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+      </p>
     </div>
 
-    <h4 class=''><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h4>
+    <h3 class='center green kaushan'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h3>
   </div>
+</div>
 
+<div id='' class='small-12 columns bottom-shadow content-box special-box'>
   <%= image_tag "carrying_saddle.jpg"%>
   
   <%#= render 'pages/tour_scenic' %>
