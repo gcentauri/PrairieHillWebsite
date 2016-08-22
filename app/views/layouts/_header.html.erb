@@ -2,52 +2,59 @@
 <div class='expanded row'>
   <div class='small-12 large-12 large-centered columns'>
 
-    <!--TITLE-->
-    <div id='title' class='small-8 columns' style='padding-left:0;'>
-    
-      <div class='small-12 left columns' data-sticky-container>
-        <div class='sticky title' data-sticky data-margin-top="0">
+    <div class="row expanded">
+      <!--TITLE-->
+      <%= link_to root_path do %>
+      <div id='title' class='small-8 medium-10 columns' style='padding-left:0;'>
+        
+        <div class='small-12 left columns' style=''>
+          <!--<div class='small-12 left columns' data-sticky-container>-->
+          <div class='title'>
+            <!--<div class='sticky title' data-sticky data-margin-top="0">-->
 
-          <!--main-->
-          <div class='small-12 left columns'>
-            <h1 class=''>
-              <strong>
-                PRAIRIE HILL
-              </strong>
-            </h1>
+            <!--main-->
+            <div class='small-12 left columns'>
+              <h1 class='maintitle'>
+                <strong>
+                    PRAIRIE HILL
+                </strong>
+              </h1>
+            </div>
+
+            <!--sub-->
+            <div class='small-12 right columns'>
+              <h1 class='subtitle'>          
+                <strong>
+                  Learning Center
+                </strong>
+              </h1>
+            </div>
+
           </div>
+        </div>
+      </div>
+      <% end %>
 
-          <!--sub-->
-          <div class='small-12 right columns'>
-            <h1 class='subtitle'>          
-              <strong>
-                Learning Center
-              </strong>
-            </h1>
+      <!--LOGO-->
+      <div id='logo' class='small-4 medium-2 right columns'>
+        <div style='position:absolute;'>
+          <!--<div data-sticky-container>-->
+          <div>
+            <!--<div class='sticky' data-sticky data-margin-top="3">-->
+            <%= link_to image_tag("logo-transparent.png", class: "logo small-7 columns"), root_path %>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!--LOGO-->
-    <div id='logo' class='small-4 right columns'>
-      <div data-sticky-container>
-        <div class='sticky' data-sticky data-margin-top="3">
-          <%= link_to image_tag("logo-transparent.png", class: "logo small-8 columns"), root_path %>
-        </div>
-      </div>
-    </div>
-
-    <!--NAV-->
     <div class='row expanded'>
-      <div id='nav-main' class='small-12 columns'>
-        <!--<div data-sticky-container>-->
-        <!--<div class='sticky' data-sticky data-margin-top="2em">-->
+
+      <!--NAV-->
+      <div id='nav-main' class='small-12 right columns'>
+
         <%= render 'layouts/nav' %>
-        <!--</div>-->
-        <!--</div>-->
       </div>
+      
     </div>
 
   </div>

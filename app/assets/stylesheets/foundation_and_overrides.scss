@@ -147,25 +147,22 @@ p,li {
     */
 }
 
-#title {
-    //@extend .bottom-shadow;
-    //border-bottom: 1px solid rgba(31,128,0,0.5);
-}
-
 .title {
     color: #f7f7f3;
     padding:10px;
     font-size:2em;
     text-shadow: 1px 1px 1px rgba(55,55,55,0.3);
-    position: relative;
+
+    position: absolute;
     z-index: 3;
+    top: -10px;
+    left: 6%;
 
     .maintitle {
-        //@extend .hi-li;
-
-        font-size:9rem;
+        padding-left: 4px;
+        font-size:4vw;
         border-radius:2px;
-        
+        line-height:0.7;
     }
     
     .subtitle {
@@ -176,7 +173,6 @@ p,li {
         display: inline;
         line-height: 0;
         color: rgba(255,237,0,0.9);
-
     }
 }
 
@@ -195,9 +191,9 @@ ul.nav-main {
     //border-top: 20px solid rgba(31,128,0,0.1);
 
     border-radius: 2px;
-    position: relative;
-    top: 100px;
-    //left: 65px;
+    position: absolute;
+    top: 150px;
+    left: 15px;
     z-index:0;
     
     li {
@@ -352,6 +348,7 @@ ul.nav-main {
 }
 */
 
+/*MIN*/
 @media screen and (min-width:1338px) {
 
     .title {
@@ -362,17 +359,61 @@ ul.nav-main {
         //transform: translate(200px,0);
     }
 
+    #nav-mobile {
+        display: none
+    }
+
+    #nav-full {
+        display: inline-block;
+    }
+
+}
+
+
+/*MAX*/
+@media screen and (max-width:948px) {
+    
+    .title {
+        .maintitle {
+            font-size: 9vw;
+        }
+        .subtitle {
+            font-size: 6vw;
+        }
+    }
+
+}
+
+@media screen and (max-width:1338px) {
+    #nav-mobile {
+        display: inline-block;
+    }
+
+    #nav-full {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width:1648px) {
 
+    .title {
+        .maintitle {
+            //font-size: 9vw;
+        }
+        .subtitle {
+            //font-size: 6vw;
+        }
+    }
+    
     #nav-main {
         //transform: translate(0,50px);
     }
     
     ul.nav-main {
         li {
-            background: white;
+            //background: white;
+            background: transparent;
             a {
                 //font-size: 1.5rem;
                 //font-size: 1.6vw;
