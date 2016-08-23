@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
   get "news" => "pages#news"
+  get "tours" => "pages#tours"
   get "events" => "pages#events"
   get "programs" => "pages#programs"
   get "calendar" => "pages#calendar"
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   get "camp" => "pages#summer_camp"
   get "csv" => "pages#csvupload"
   get "uniq" => "pages#unique"
+  get "financial" => "pages#financial"
   get "ccf" => "shifts#volunteer"
   get "user_shifts" => "shifts#user_shifts"
 

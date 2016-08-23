@@ -3,247 +3,101 @@ description: "Programs for children age 18 months to 14 years",
   keywords: %w(programs young-children elementary primary home environment)
 %>
 
-<%= render 'financial_info_button' %>
-
-<div class='programs-slider card'>
-  <!--YCC-->
-  <div class='programs-slide'
-       style='
-       position:relative;
-       z-index:0;
-       '
-       >
-    <div class='small-12 small-centered columns'>
-
-      <!--title-->
-      <div class='row'>
-	<div class='small-12 columns' style='position:relative;z-index:1;'>
-	  <h2 class='hi-li padded'>Young Children's Community</h2>
-	  
-	</div>
-      </div>
-
-      <!--content-->
-      <div class='row'>
-	<div class='small-5 columns padded' style='position:absolute;left:5%;top:100%;z-index:1;background:rgba(255,255,255,0.7);border-radius:3px;'>
-	  <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
-	</div>
-      </div>
-
-      <!--image-->
-      <div class='row'>
-	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
-	  <%= image_tag("feeding-patches.png") %>
-	</div>
-      </div>
-
+<!--YCC-->
+<div class='expanded row bottom-shadow content-box special-box'>
+  <!--title-->
+  <div class='small-12 columns'>
+    <div class='hi-li-box content-box'>
+      <strong><h1 class='padded kaushan green text-outline-dark'>Young Children's Community</h1></strong>
     </div>
   </div>
-  <!--^^-->
 
-  <!--PRIMARY-->
-  <div class='programs-slide'>
-    <div class='small-12 small-centered columns'>
-
-      <!--title-->
-      <div class='row'>
-	<div class='small-12 columns' style='position:relative;z-index:1;'>
-	  <h2 class='hi-li padded'>Primary Community</h2>
-	</div>
-      </div>
-
-      <!--content-->
-      <div class='row'>
-	<div class='small-5 columns padded' style='position:absolute;left:5%;z-index:1;background:rgba(255,255,255,0.7);border-radius:3px;'>
-	  <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
-	</div>
-
-	<div class='small-6 columns' style='position:relative;z-index:1;right:35px;'>
-	  <%= image_tag("primary-program-2-15.png") %>
-	</div>
-      </div>
-
-      <!--image-->
-      <div class='row'>
-	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
-	  <%= image_tag("leaves2.jpg") %>
-	  
-	</div>
-      </div>
-      
+  <!--content-->
+  <div class='small-12 columns'>
+    <div class='p-box'>
+      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
     </div>
   </div>
-  <!--^^-->
 
-  <!--ELEMENTARY-->
-  <div class='programs-slide'>
-    <div class='small-12 small-centered columns'>
-
-      <div class='row'>
-	<div class='small-12 columns' style='position:relative;z-index:1;'>
-	  <h2 class='hi-li padded'>Elementary Community</h2>
-	</div>
-      </div>
-
-      <div class='row' style=''>
-	<div class='small-11 small-centered columns padded' style='position:absolute;left:5%;top:250%;z-index:1;background:rgba(255,255,255,0.7);border-radius:3px;'>
-	  <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
-	</div>
-      </div>
-
-      <div class='row'>
-	<div class='small-12 columns' style='position:absolute;top:0;z-index:0;'>
-	  <%= image_tag("jason_adolescents.jpg") %>
-	</div>
-      </div>
-
-    </div>
+  <!--image-->
+  <div class='small-12 columns'>
+    <%= image_tag("feeding-patches.png", class: 'bottom-shadow') %>
   </div>
-  <!--^^-->
 
-  <!--FINANCIAL-->
-  <div id='financial-info' class='programs-slide'>
-    <div class='small-12 small-centered columns'>
-
-      <div class='row'>
-	<div class='small-12 small-centered columns'>
-	  <h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/058/original/Financial_Information_September_1__2016.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
-	</div>
-      </div>
-
-      <div class='row'>
-	<div class='small-11 columns'>
-	  <!--[if !IE]>-->
-	  <%= cms_snippet_content('financial', @cms_site).html_safe %>
-	  <!--<![endif]-->
-	  <!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
-	  </EMBED>
-	</div>
-      </div>
-
-    </div>
-  </div>
-  <!--^^-->
-
-</div>
-
-<!--FINANCIAL-->
-<div class='hidden'>
-  <div class='small-12 small-centered columns'>
-
-    <div class='row'>
-      <div class='small-12 small-centered columns'>
-	<h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='small-11 columns'>
-	<!--[if !IE]>-->
-	<%= cms_snippet_content('financial', @cms_site).html_safe %>
-	<!--<![endif]-->
-	<!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
-	  </EMBED>
-      </div>
-    </div>
-
-  </div>
 </div>
 <!--^^-->
 
-<!--SMALL-->
-<% content_for :small do %>
-  <div class='small-12 small-centered columns'>
-
-    <!--YCC-->
-    <h2 class='hi-li padded'>Young Children's Community</h2>
-
-    <div class='small-12 small-centered columns'
-	 style='
-	 background: white;
-	 padding: 5px;
-	 border-radius: 3px;
-	 '
-	 >
-      <%= image_tag("feeding-patches.png") %>
+<!--PRIMARY-->
+<div class='expanded row bottom-shadow content-box special-box'>
+  <!--title-->
+  <div class='small-12 columns'>
+    <div class='hi-li-box content-box'>
+      <strong><h1 class='padded kaushan green text-outline-dark'>Primary Community</h1></strong>
     </div>
+  </div>
 
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
-      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
-    </div>
-    <!--YCC-->
-
-    <!--PRIMARY-->
-    <h2 class='hi-li padded'>Primary Community</h2>
-
-    <div class='small-12 small-centered columns'
-	 style='
-	 background: white;
-	 padding: 5px;
-	 border-radius: 3px;
-	 '
-	 >
-      <%= image_tag("primary-program-2-15.png") %>
-    </div>
-
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
+  <!--content-->
+  <div class='small-12 columns'>
+    <div class='p-box'>
       <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
     </div>
-    <!--PRIMARY-->
+  </div>
 
-    <!--ELEMENTARY-->
-    <h2 class='hi-li padded'>Elementary Community</h2>
+  <!--image-->
+  <div class='small-12 columns'>
+    <%= image_tag("primary-program-2-15.png", class: 'bottom-shadow small-12 columns') %>
+  </div>
 
-    <div class='small-12 small-centered columns'
-	 style='
-	 background: white;
-	 padding: 5px;
-	 border-radius: 3px;
-	 '
-	 >
-      <%= image_tag("jason_adolescents.jpg") %>
+</div>
+<!--^^-->
+
+<!--ELEMENTARY-->
+<div class='expanded row bottom-shadow content-box special-box'>
+  <!--title-->
+  <div class='small-12 columns'>
+    <div class='hi-li-box content-box'>
+      <strong><h1 class='padded kaushan green text-outline-dark'>Elementary Community</h1></strong>
     </div>
+  </div>
 
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
+  <!--content-->
+  <div class='small-12 columns'>
+    <div class='p-box'>
       <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
     </div>
-    <!--ELEMENTARY-->
-    
-    <!--FINANCIAL-->
-    <h2 class='hi-li padded-sides'>Financial Information</h2>
-    <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
-      Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.
-    </div>
-    <!--FINANCIAL-->    
-
-    <%= cms_snippet_content('financial', @cms_site).html_safe %>
-    <!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
   </div>
-<% end %>
+
+  <!--image-->
+  <div class='small-12 columns'>
+    <%= image_tag("jason_adolescents.jpg") %>
+  </div>
+
+</div>
+<!--^^-->
+
+<!--ADOLESCENT-->
+<div class='expanded row bottom-shadow content-box special-box'>
+  <!--title-->
+  <div class='small-12 columns'>
+    <div class='hi-li-box content-box'>
+      <strong><h1 class='padded kaushan green text-outline-dark'>Adolescent Community</h1></strong>
+    </div>
+  </div>
+
+  <!--content-->
+  <div class='small-12 columns'>
+    <div class='p-box'>
+      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+    </div>
+  </div>
+
+  <!--image-->
+  <div class='small-12 columns'>
+    <%= image_tag("jason_adolescents.jpg") %>
+  </div>
+
+</div>
+<!--^^-->
 
 
 <script>

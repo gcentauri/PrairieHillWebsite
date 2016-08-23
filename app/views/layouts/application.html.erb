@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag( 'http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two') %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'vendor/modernizr' %>
+    <%#= javascript_include_tag 'vendor/modernizr' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://fonts.googleapis.com/css?family=Lobster|Pacifico' rel='stylesheet' type='text/css'>
@@ -24,7 +24,7 @@
 
     <!--MAIN-->
     <div id='main' class='expanded row'>
-      <div class='small-12 large-12 columns'>
+      <div class='small-12 columns'>
 
         <!--CONTENT-->
         <div id='content' class='small-12 large-7 large-centered columns'>
@@ -37,12 +37,15 @@
     </div>
 
     <!--FOOTER-->
-    <div class='expanded row'>
+    <div id='footer' class='expanded row'>
       <div class='small-12 columns'>
-        <div class='small-2 columns'></div>
-        <div class='small-10 columns'>
-          <%= render 'layouts/footer' %>
+        
+        <div class='small-12 large-7 large-centered columns'>
+          <div class='small-12 large-12 columns'>
+            <%= render 'layouts/footer' %>
+          </div>
         </div>
+        
       </div>
     </div>
 

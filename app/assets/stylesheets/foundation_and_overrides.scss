@@ -196,6 +196,10 @@ ul.nav-main {
     left: 3%;
     z-index:0;
     background: white;
+
+    li.event {
+        background: rgba(117,183,189,1);
+    }
     
     li {
         background: #f7f7f3;
