@@ -1,52 +1,15 @@
-<%= render 'financial_info_button' %>
+<%#= render 'financial_info_button' %>
 
 <!--FINANCIAL-->
-<div>
-  <div class=''>
+<div id='financial' class='expanded row bottom-shadow content-box special-box'>
 
-    <div class=''>
-      <div class=''>
-	<h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/058/original/Financial_Information_September_1__2016.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='small-11 columns'>
-	<!--[if !IE]>-->
-	<%= cms_snippet_content('financial', @cms_site).html_safe %>
-	<!--<![endif]-->
-	<!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
-	  </EMBED>
-      </div>
-    </div>
-
+  <div class='small-12 columns'>
+    <h3>Click <strong>
+      <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/058/original/Financial_Information_September_1__2016.pdf" %></strong> to download a copy of the most current Financial Information and Policies.</h3>
   </div>
-</div>
-<!--^^-->
 
-</div>
-
-<!--FINANCIAL-->
-<div class='hidden'>
-  <div class='small-12 small-centered columns'>
-
-    <div class='row'>
-      <div class='small-12 small-centered columns'>
-	<h3>Click <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/financial.pdf" %> to download a copy of the most current Financial Information and Policies.</h3>
-      </div>
-    </div>
-
-    <div class='row'>
-      <div class='small-11 columns'>
-	<!--[if !IE]>-->
-	<%= cms_snippet_content('financial', @cms_site).html_safe %>
-	<!--<![endif]-->
-	<!--<EMBED SRC="http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/057/original/Financial_Information_September_1__2015.pdf" WIDTH="950" HEIGHT="800" ALIGN="BOTTOM">-->
-	</EMBED>
-      </div>
-    </div>
-
+  <div class='small-12 columns'>
+    <%= cms_snippet_content('financial', @cms_site).html_safe %>
   </div>
-</div>
-<!--^^-->
 
+</div>

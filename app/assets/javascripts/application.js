@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery-ui
-//= require turbolinks
+
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
@@ -35,4 +35,9 @@
 //= require_self
 //= require_tree .
 
+
 $(function(){ $(document).foundation(); });
+
+/*$(document).on('ready page:load', function() {
+    $(document).foundation();
+});*/

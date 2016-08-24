@@ -1,23 +1,132 @@
 <%#= cms_snippet_content('childrens-country-fair', @cms_site).html_safe %>
-<div id='ccf-info' class='expanded row'>
-
-  <div class='small-12 columns left'>
-    <%= image_tag('hattie-ccf.jpg', class: 'content-box') %>
-  </div>
-
-  <div class='small-6 columns left'>
-    <h1 class='hi-li padded kaushan'>The Children's Country Fair</h1>
-  </div>
-  <div class='small-6 columns right'>
-    <h3 class='green padded'><strong>Saturday, October 8, 2016 11am-3pm</strong></h3>
-  </div>
-
+<div id='ccf-info' class='expanded row bottom-shadow content-box special-box'>
+  <!--image-->
   <div class='small-12 columns'>
-    <div id="ccf-welcome">
-      Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!
+    <%= image_tag('hattie-ccf.jpg', class: 'bottom-shadow') %>
+  </div>
+
+  <!--header-->
+  <div class='row expanded' data-equalizer data-equalize-on='large' id='header-eq'>
+    <div class='small-12 large-6 columns left' data-equalizer-watch>
+
+      <h1 class='hi-li padded green kaushan center'>
+        The Children's Country Fair
+      </h1>
+
+    </div>
+    <div class='small-12 large-6 columns right' data-equalizer-watch>
+      <h2 class='green padded center content-box' style='margin-top:20px;'>
+        <strong>Saturday, October 8, 2016 11am-3pm</strong>
+      </h2>
     </div>
   </div>
 
+  <hr>
+  
+  <!--content-->
+  <div id="ccf-welcome">
+    <div class='small-11 small-centered columns'>
+      <p class='p-box'>
+        Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more! Check back often for details and activity shift sign-up coming soon!
+      </p>
+      <p class='p-box'>
+        Don't forget to check out the <strong><em><a href='#fun-run'>Little Run on the Prairie!</a></em></strong>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!--ACTIVITY EXAMPLES-->
+  <div class='small-12 columns content-box padded p-box'>
+    <div class='small-11 small-centered columns'>
+      <ul id='activity-examples' class='padded'>
+        <li>Help place tables, chairs, canopies, signs, materials, trash and composting bins.</li>
+        <li>Organize items, label and price as needed, collect money and tickets for items purchased, prepare root beet floats.</li>
+        <li>Assemble orders, prepare sandwiches, etc. , collect money and tickets for meals.</li>
+        <li>Bring a creative spirit and have fun!  Supplies and sample design inspirations are provided.</li>
+        <li>This activity will make you laugh and get you wet.</li>
+        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
+
+        <li>This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.</li>
+        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
+
+        <li>You will start and stop the music and give the winner a cake!</li>
+        <em><span class="brighten hidden" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
+
+        <li>Assist children as they assume new identities from Prairie Hill's expansive costume collection.</li>
+        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
+
+        <li>Supervise, cheer, and assist children as they navigate a fun challenge course for young children.</li>
+        <li>Supplies (pennies and cups) will be on hand. Stock cups as needed.</li>
+        <em><span class="brighten hidden" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
+
+        <li>Don a fun outfit with many pockets. Collect a ticket and invite the player to check a pocket.  Supplies (including outfit!) is provided.</li>
+        <li>One person will take tickets, the other will get dunked! (you can swap spots). Bring a change of clothes.</li>
+        <li>Collect cash ($2 per car; musicians and vendors park free) and direct cars to parking in the pasture. Dress for the weather. Bring a water bottle. We provide a chair, safety vest, and money aprons. Parkers will be stationed on highway 77 at the pasture entrance and in the pasture.</li>
+        <li>Use your own camera and share the photos you take with the Fair Planning team to be distributed to the community.</li>
+        <li>Someone ready to run from one end of the fair to the other as needed by various members of the fair committee.</li>
+        <li>Take tickets. Volunteer will need some sense of how to throw a lasso.</li>
+        <li>Collect tickets.</li>
+        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent to volunteer with their young child</span></em>.
+
+        <li>Count tickets, collect money, encourage raffle and fund raising package sales.</li>
+        <li>Ideal for an Older Elementary or Adolescent student. Assist participants in drawing simple animals.  Samples will be provided.</li>
+        <li>Assist children (with someone from Dixon Power Systems) as they get their hands wet creating energy.</li>
+        <li>Assist Children (with someone from Lux) in creating their own button and bookmark designs.</li>
+        <li>Adult volunteer to run corn cobbing machine. Will need to stay alert to assist children with cranking while keeping hands out of the machine.</li>
+        <li>Assist children with monor injuries. Call EMS if needed. First aid supplies are included.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!--FUN RUN-->
+<div id='fun-run' class='expanded row bottom-shadow content-box special-box'>
+
+  <h1 class='hi-li padded green kaushan center'>
+    Little Run on the Prairie!
+  </h1>
+
+  <div class='small-6 columns left'>
+    <%= image_tag('swanson.jpg', class: 'bottom-shadow') %>
+    <div class='row'>
+      <div class='small-8 small-centered columns'>
+        <p class='p-box'>
+          <a href='https://www.facebook.com/events/119411401842459/'>Facebook Event</a> |
+          <a href='http://getmeregistered.com/LittleRunOnThePrairie'>Register Online</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class='small-6 columns right'>
+    <h3>Saturday, October 8th</h3>
+    <h3>Packet Pick up 9:30 AM</h3>
+
+    A 1-mile fun run for children, youth and adults!
+
+    T-shirt with registration by September 16th
+
+    same day registration at 10:00 in the pasture
+
+    Parents are welcome to run with their children! Children need not run the entire length of the mile, they can run/ walk as much as they can! 
+
+    Children's Country Fair immediately following the run 11-3pm. 
+    <p>
+      <em>Non-competitive fun run -- everyone is a winner :)</em>
+    </p>
+    <h3>Cost-$10</h3>
+    <h3>ADDITIONAL DONATIONS WELCOME</h3>
+
+        Many thanks to Scott Swanson, MD for the title sponsorship of this event.
+  </div>
+</div>
+<!---->
+
+
+<!--SAVE-->
+<div class='hidden'>
   <div class='small-12 columns'>
     <p class="">
       <span class="">Volunteer here!</span>
@@ -30,109 +139,6 @@
       <a href="/user_shifts">View your scheduled shifts here</a>.
     </p>
   </div>
-
-  <div class='small-12 columns'>
-    <ul id='activity-examples'>
-      <li>
-        Help place tables, chairs, canopies, signs, materials, trash and composting bins.
-      </li>
-
-      <li>
-        Organize items, label and price as needed, collect money and tickets for items purchased, prepare root beet floats.
-      </li>
-
-      <li>
-        Assemble orders, prepare sandwiches, etc. , collect money and tickets for meals.
-      </li>
-      <li>
-        Bring a creative spirit and have fun!  Supplies and sample design inspirations are provided.
-      </li>
-      <li>
-        This activity will make you laugh and get you wet.
-      </li>
-      
-      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
-      <li>
-        This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.
-      </li>
-      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
-      <li>
-        You will start and stop the music and give the winner a cake!
-      </li>
-      <em><span class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
-      <li>
-        Assist children as they assume new identities from Prairie Hill's expansive costume collection.
-      </li>
-      <em><span class="brighten" data-redactor-tag="span">Ideal for parent and child team</span></em>
-      <li>
-        Supervise, cheer, and assist children as they navigate a fun challenge course for young children.
-      </li>
-      <li>
-        Supplies (pennies and cups) will be on hand. Stock cups as needed.
-      </li>
-      <em><span class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
-      <li>
-        Don a fun outfit with many pockets. Collect a ticket and invite the player to check a pocket.  Supplies (including outfit!) is provided.
-      </li>
-      <li>
-        One person will take tickets, the other will get dunked! (you can swap spots). Bring a change of clothes.
-      </li>
-      <li>
-        Collect cash ($2 per car; musicians and vendors park free) and direct cars to parking in the pasture. Dress for the weather. Bring a water bottle. We provide a chair, safety vest, and money aprons. Parkers will be stationed on highway 77 at the pasture entrance and in the pasture.
-      </li>
-      <li>
-        Use your own camera and share the photos you take with the Fair Planning team to be distributed to the community.
-      </li>
-      <li>
-        Someone ready to run from one end of the fair to the other as needed by various members of the fair committee.
-      </li>
-      <li>
-        Take tickets. Volunteer will need some sense of how to throw a lasso.
-      </li>
-      <li>
-        Collect tickets.
-      </li>
-      <em><span class="brighten" data-redactor-tag="span">Ideal for parent to volunteer with their young child</span></em>.
-      <li>
-        Count tickets, collect money, encourage raffle and fund raising package sales.
-      </li>
-      <li>
-        Ideal for an Older Elementary or Adolescent student. Assist participants in drawing simple animals.  Samples will be provided.
-      </li>
-      <li>
-        Assist children (with someone from Dixon Power Systems) as they get their hands wet creating energy.
-      </li>
-      <li>
-        Assist Children (with someone from Lux) in creating their own button and bookmark designs.
-      </li>
-      <li>
-        Adult volunteer to run corn cobbing machine. Will need to stay alert to assist children with cranking while keeping hands out of the machine.
-      </li>
-      <li>
-        Assist children with monor injuries. Call EMS if needed. First aid supplies are included.
-      </li>
-    </ul>
-  </div>
 </div>
+<!---->
 
-
-<h1>Upcoming Events</h1>
-<p>
-  Family Fun Run
-</p>
-<p>
-  Benefit run for Jennifer Bratcher and family (Bodi Imports)
-</p>
-<h3>1 MILE RUN in the PRAIRIE HILL Pasture</h3>
-<p>
-  <em>Non-competitive fun run -- everyone is a winner :)</em>
-</p>
-<h3>Cost-$10</h3>
-<h3>ADDITIONAL DONATIONS WELCOME</h3>
-<h3>Saturday, September 27th</h3>
-<h3>10:30 AM- start</h3>
-<h3>Packet Pick up 9:30 AM</h3>
-<p>
-  Prairie Hill Learning Center 11705 South 12 th Street, Roca Hwy 77 South, past Sprague Road, on the right hand side of the road LOOK FOR THE Children’s Country Fair SIGNS!!! (Fair 11am-3pm) T-Shirts for YOUTH THIS IS A ZERO WASTE EVENT SO BRING YOUR WATER BOTTLES AND WE WILL FILL THEM UP J GELATO after the run. THANKS to Erin Burianek!! MANY THANKS to our Title Sponsor On line registration @ GetMeRegistered.com Walk on registration available without T-shirt. Run for JENNIFER Contact info: Rosina Paolini 402-423-1260
-</p>
-<h2>Children's Country Fair</h2>

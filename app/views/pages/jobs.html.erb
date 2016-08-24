@@ -1,15 +1,7 @@
-<div class='col-md-12 buffer-bottom bottom-shadow card'>
-  <%= cms_snippet_content('employment', @cms_site).html_safe %>
-</div>
+<div id='jobs' class='expanded row bottom-shadow content-box special-box'>
 
-<% content_for :small do %>
-  <div class='small-12 small-centered columns padded'
-	 style='
-	 background:white;
-	 font-size:4vw;
-	 border-radius: 5px;
-	 '
-	 >
+  <div class='small-12 columns p-box'>
     <%= cms_snippet_content('employment', @cms_site).html_safe %>
   </div>
-<% end %>
+
+</div>
