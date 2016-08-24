@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery-ui
-
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
@@ -27,9 +26,6 @@
 //= require masonry/jquery.masonry
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
-//= require skrollr
-//= require skrollr.ie
-//= require skrollr.menu
 //= require jquery.slick
 //= require jquery.jscrollpane
 //= require_self
