@@ -1,4 +1,4 @@
-class CcfController < InheritedResources::Base
+class CcfController < ApplicationController
   def volunteer
   end
 end
