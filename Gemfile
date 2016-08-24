@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '4.2.6'
-gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'kaminari'
 gem 'responders'
 gem 'bcrypt'
+gem 'dotenv-rails', :groups => [:development, :test], :require => 'dotenv/rails-now'
 gem 'devise'
 gem 'pg'
 gem 'comfortable_mexican_sofa', '1.12.7'
