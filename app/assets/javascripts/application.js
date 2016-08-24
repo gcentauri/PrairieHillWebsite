@@ -15,7 +15,6 @@
 //= require foundation
 //= require jquery-ui
 //= require jquery.turbolinks
-//= require bootstrap-sprockets
 //= require cocoon
 //= require moment
 //= require fullcalendar
