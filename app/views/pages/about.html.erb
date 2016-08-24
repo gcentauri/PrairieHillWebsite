@@ -1,4 +1,9 @@
-<%#= render 'about2' %>
+<div id='home-nav' class='expanded row'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'><em><a href='#uniq'>What Makes PRAIRIE HILL unique?</a></em></h4>
+  </div>
+</div>
+
 <!--ABOUT-->
 <div id='about' class='small-12 columns bottom-shadow content-box special-box'>
   <div class='expanded row'>
@@ -10,14 +15,14 @@
   </div>
 
   <div class='expanded row'>
-    <div class='small-12 large-7 columns'>
+    <div class='small-12 medium-6 large-7 columns'>
       <hr>
       <span class='p-box'>
         <%= cms_snippet_content('philosophy', @cms_site).html_safe %>
       </span>
     </div>
 
-    <div class='small-12 large-5 columns'>
+    <div class='small-12 medium-6 large-5 columns'>
       <%= image_tag("kellan-bellpepper.jpg", class: "bottom-shadow small-12 columns") %>
     </div>
   </div>
@@ -25,9 +30,10 @@
 </div>
 
 <!--UNIQ-->
-<div id='' class='small-12 columns bottom-shadow content-box special-box'>
+<div id='uniq' class='small-12 columns bottom-shadow content-box special-box'>
   <div class='small-12 columns'>
-    <h1 class='hi-li-green-box content-box' style='color:white;font-size:3vw;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
+    <h1 class='hi-li-green-box content-box four-rem'
+        style='color:white;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
       <stong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
     </h1>
   </div>

@@ -2,6 +2,12 @@
 description: 'Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment',
   keywords: %w(unique nebraska roca farm country animals young elementary primary adolescent help education tradition family community) %>
 
+<div id='home-nav' class='expanded row'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'><em><a href='#tours'>PARENT TOURS</a></em></h4>
+  </div>
+</div>
+
 <!--MISSION-->
 <div id='' class='expanded row bottom-shadow content-box special-box'>
   <div class='small-12 columns'>
@@ -15,14 +21,13 @@ description: 'Montessori education for children with an emphasis on meeting the 
   </div>
 </div>
 
-
 <!--TOURS-->
 <div id='' class='small-12 columns bottom-shadow content-box special-box'>
-  <div class='small-12 columns'>
-    <%= image_tag "ella_reads.jpg", class: 'small-12 columns' %>
+  <div id='tours' class='small-12 medium-6 columns'>
+    <%= image_tag "ella_reads.jpg", class: 'small-12 medium-12 columns' %>
   </div>
 
-  <div class='small-12 columns'>
+  <div id='' class='small-12 medium-6 columns'>
     <h2 class='hi-li green padded'>
       <strong>
         Prospective Parent Tour Dates
@@ -38,7 +43,8 @@ description: 'Montessori education for children with an emphasis on meeting the 
   </div>
 </div>
 
-<div id='' class='small-12 columns bottom-shadow content-box special-box'>
+<!--camp-->
+<div id='' class='hidden' class='small-12 columns bottom-shadow content-box special-box'>
   <%= image_tag "carrying_saddle.jpg"%>
   
   <%#= render 'pages/tour_scenic' %>
