@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '4.2.6'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
@@ -57,7 +58,7 @@ gem 'jquery-scrollto-rails'
 gem 'font_assets'
 gem 'font-awesome-rails'
 gem 'cancancan', '~> 1.10'
-gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'jscrollpane-rails'
 gem 'spring',        group: :development
 #gem 'grape'
