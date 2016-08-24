@@ -37,7 +37,7 @@ module PrairieHillWebsite
       'X-Frame-Options' => ''
     }
 
-    config.serve_static_assets = true
+    #config.serve_static_assets = true
     
     #config.cache_store = :dalli_store
     
