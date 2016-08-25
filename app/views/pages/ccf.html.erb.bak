@@ -1,0 +1,141 @@
+<div id='ccf-content' class='small-12 small-centered columns'>
+
+  
+  <!--CONTENT-->
+  <div class='small-12 small-centered columns'>
+
+    <div class='row'>
+      <!--IMG-->
+      <div class='small-8 columns'>
+	<div class='bottom-shadow' style='position:relative;top:0;padding:0;'>
+	  <%= render 'pages/ccf_slide' %>
+	</div>
+	
+	<img id='ccf-main-img' class='bottom-shadow hidden' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' />
+      </div>
+      <!--^^-->
+
+      <!--INFO-->
+      <div class='small-4 columns justify' style='position:relative;top:20px;'>
+
+	<div class='row'>
+	  <div class='small-12 columns'>
+	    <p style='word-wrap:normal;font-size:1.3vw;padding:10px 0 5px 0;'>Please join us for a family and child-centered event that includes pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</p>
+	  </div>
+	</div>
+
+	<div class='row'>
+	  <div class='small-12 small-centered columns'>
+	    <a class='button success expand radius bottom-shadow'
+	       href='/ccf/info'
+	       style='font-size:1.2vw;'
+	       >
+	      <i class='fa fa-info-circle fa-2x'></i> What is the country fair all about?</a
+	  </div>
+	</div>
+
+	<div id='activities-load' class='small-12 small-centered columns'>
+	  <!--<a class='button large fancy expand radius bottom-shadow' href='/activities'><strong><i class='fa fa-users'></i>Volunteer Here</strong>!</a>-->
+	  <a class='button large fancy expand radius bottom-shadow'
+	     href='/activities'>
+	    <i class='fa fa-child fa-3x'></i>
+	    <strong><span style='font-size:1.2em;'>Volunteer Here !</span></strong></a>
+	</div>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<ul class='orbit-info-slider hidden' data-orbit>
+  <li>
+    <img class='' src='http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/027/original/hattie-ccf.jpg' alt='slide 1' />
+    <div class='orbit-caption'>
+      <h2>Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more!</h2>
+    </div>
+    <a class='button' href='/activities'>Volunteer Here!</a>
+  </li>
+</ul>
+
+<div class='hidden'>
+  <em><span data-redactor-tag="span" class="brighten">Ideal for parent and child team</span></em>
+	    </p>
+	    <p>
+	      This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.
+	    </p>
+	    <p>
+	      <em><span data-redactor-tag="span" class="brighten">Ideal for parent and child team</span></em>
+	    </p>
+	    <p>
+	      You will start and stop the music and give the winner a cake!
+	    </p>
+	    <p>
+	      <em><span data-redactor-tag="span" class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;">Ideal for parent and elementary child team</span></em>
+	    </p>
+	    <p>
+	      Assist children as they assume new identities from Prairie Hill's expansive costume collection.
+	    </p>
+	    <p>
+	      <em><span data-redactor-tag="span" class="brighten">Ideal for parent and child team</span></em>
+	    </p>
+	    <p>
+	      Supervise, cheer, and assist children as they navigate a fun challenge course for young children.
+	    </p>
+	    <p>
+	      Supplies (pennies and cups) will be on hand. Stock cups as needed.
+	    </p>
+	    <p>
+	      <em><span data-redactor-tag="span" class="brighten" style="font-size: 1vw;" rel="font-size: 1vw;">Ideal for parent and elementary child team</span></em>
+	    </p>
+	    <p>
+	      Don a fun outfit with many pockets. Collect a ticket and invite the player to check a pocket.  Supplies (including outfit!) is provided.
+	    </p>
+	    <p>
+	      One person will take tickets, the other will get dunked! (you can swap spots). Bring a change of clothes.
+	    </p>
+	    <p>
+	      Collect cash ($2 per car; musicians and vendors park free) and direct cars to parking in the pasture. Dress for the weather. Bring a water bottle. We provide a chair, safety vest, and money aprons. Parkers will be stationed on highway 77 at the pasture entrance and in the pasture.
+	    </p>
+	    <p>
+	      Use your own camera and share the photos you take with the Fair Planning team to be distributed to the community.
+	    </p>
+	    <p>
+	      Someone ready to run from one end of the fair to the other as needed by various members of the fair committee.
+	    </p>
+	    <p>
+	      Take tickets. Volunteer will need some sense of how to throw a lasso.
+	    </p>
+	    <p>
+	      Collect tickets.
+	    </p>
+	    <p>
+	      <em><span data-redactor-tag="span" class="brighten">Ideal for parent to volunteer with their young child</span></em>.
+	    </p>
+	    <p>
+	      Count tickets, collect money, encourage raffle and fund raising package sales.
+	    </p>
+	    <p>
+	      Ideal for an Older Elementary or Adolescent student. Assist participants in drawing simple animals.  Samples will be provided.
+	    </p>
+	    <p>
+	      Assist children (with someone from Dixon Power Systems) as they get their hands wet creating energy.
+	    </p>
+	    <p>
+	      Assist Children (with someone from Lux) in creating their own button and bookmark designs.
+	    </p>
+	    <p>
+	      Adult volunteer to run corn cobbing machine. Will need to stay alert to assist children with cranking while keeping hands out of the machine.
+	    </p>
+	    <p>
+	      Assist children with monor injuries. Call EMS if needed. First aid supplies are included.
+	    </p>
+
+
+	    <%#= cms_snippet_content('ccf', @cms_site).html_safe %>
+</div>
+
+<script>
+</script>

@@ -1,4 +1,4 @@
-% Created 2016-02-15 Mon 11:57
+% Created 2016-08-24 Wed 22:50
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -27,579 +27,1090 @@
 
 \maketitle
 
-\section*{Prairie Hill Learning Center}
+\section*{Files}
 \label{sec-1}
 
-Rails application for \href{http://www.prairiehill.com}{prairiehill.com}
-
-\subsection*{{\bfseries\sffamily TODO} }
+\subsection*{├── \href{./app}{app}}
 \label{sec-1-1}
 
-\begin{itemize}
-\item $\boxminus$ Sat Feb 13 18:47:52 CST 2016
+\subsubsection*{├── \href{./app/assets}{assets}}
+\label{sec-1-1-1}
 
 \begin{itemize}
-\item $\boxtimes$ hide camp page
-\item $\square$ update camp page
-
-\url{https://docs.google.com/forms/d/1JBaU-LJ1JWzM0gm2X38Bra1qCFcgUpiLmATPu9CbkTI/viewform}
-
-\url{./config/routes.rb}
-
-\url{./app/views/pages/summer_camp.html.erb}
+\item ├── images
+\label{sec-1-1-1-1}
+\item ├── \href{./app/assets/javascripts}{javascripts}
+\label{sec-1-1-1-2}
+\begin{itemize}
+\item ├── \href{./app/assets/javascripts/activities.js}{activities.js}
+\label{sec-1-1-1-2-1}
 
 \begin{verbatim}
-<h1 class="tour-dates" style="font-size: 4vw;"><strong>NatureWorks Summer Day Camps and Mini-camps </strong></h1>
-<p class="content-box">
-  PRAIRIE HILL offers nature-centered day camp programs for children (ages 6-9, 10-12,limited dates 12-15 and mini-camps for ages 3-6) on our historic farm, just seven miles south of Lincoln, Nebraska.
-</p>
-<p class="content-box">
-  <em>Summer Camps are full for this year</em>. Please plan to join us for our <strong>Children's Country Fair and "Little Run on the Prairie" children's fun run on Saturday, October 3rd. Run starts at 10:30am and Fair from 11-3</strong>. Check back for updates and details!<br>
-</p>
-<hr>
-<p class="hi-li">
-  <a class="hidden camp-link" href="https://docs.google.com/forms/d/1bXdH8JeozdZy8447xA8P-PVWVGh2cUJDsT36JYtSIu8/viewform?c=0&amp;w=1">NatureWorks - Registration Form </a>
-</p>
-<h2 class="camp-title">Survival and Awareness -- with BJ Spring</h2>
-<h3 class="camp-title">June 1-12</h3>
-<p class="camp-subtitle">
-  One of PRAIRIE HILL's favorite camps (offered for a rare two-week session), campers will develop their skills in nature through fox-walking, building primitive shelters, awareness and sensory exercises, basket/rope making, and much more...
-</p>
-<h2 class="camp-title">What's the Story?</h2>
-<h3 class="camp-title">June 15 - 26<br>
-</h3>
-<p class="camp-subtitle">
-  This two-week camp will be lead by storytellers and writers from various walks of life. Storytelling is a way to learn about culture, life &amp; death, growth, adventure, and moral dilemmas across space and time. Campers will hear engaging stories that weave together mythology, history, fiction and non-fiction. They will also have opportunities to write their own legends.
-</p>
-<h2 class="camp-title">Suzuki Violin Camp</h2>
-<h3 class="camp-title">July 6-10</h3>
-<p class="camp-subtitle">
-  Suzuki violin players from ages 3-15 are welcome to come play in the prairie with us! Small group lessons will take place throughout the day from experienced violin instructors and tutors. Pony riding, gardening, and exploring on the farm are also a part of the experience. Half-day or full-day options are available for this session.
-</p>
-<h2 class="camp-title">Simple Machines and Complex Creations</h2>
-<h3 class="camp-title">July 13-24</h3>
-<p class="camp-subtitle">
-  "Never give more to the mind than to the hand." is a quote that Maria Montessori used when writing about children. This session will give plenty of opportunities for the mind and the hand to work together to create and understand simple machines like the pulley, inclined plane, wheel-and-axel and more. There will also be opportunities to engage in creating unique art forms using these concepts and others. 
-  <br>
-</p>
-<h2 class="camp-title">Animal Encounters</h2>
-<h3 class="camp-title">July 27-31</h3>
-<p class="camp-subtitle">
-  This one-week science camp will be led by UNL professor, Eileen Hebets, who has headed up the Eight-legged Encounters event at Morrill Hall for the past several years. Children will observe and interact with a variety of animals during this camp, and will experience the scientific methods of questioning, observing, hypothesis, drawing conclusions, etc.
-</p>
-<h2 class="camp-title">Mini-camps for children ages 3-6</h2>
-<p class="camp-subtitle">
-  Each two-week session consists of six wonder-filled days (Tuesday-Thursday, Tuesday-Thursday). Your child will enjoy a rich, natural PRAIRIE HILL experience through gardening, leisurely walks in the pasture, egg-gathering, pony rides, building shelters in the woods, singing, stories, and much more. A lunch from home will taste delicious in the shade of our picnic area!
-</p>
-<p class="hi-li camp-link">
-  <span style="color: #000000;" rel="color: #000000;"> <strong> <a href="https://docs.google.com/forms/d/1JgJvfvQlzrz_14qwm32E80YxnDHjg2hNF2e_NPf6fkA/viewform?c=0&amp;w=1" class="hidden">Mini-Camp PRAIRIE HILL - Registration Form </a> </strong> </span>
-</p>
-<h3 style="text-align: left;"><strong><u data-redactor-tag="u">Camp PRAIRIE HILL Daily Schedule</u> *</strong></h3>
-<div class="table">
-  <table>
-    <thead>
-      <tr>
-	<th>
-	</th>
-	<th>
-	</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-	<td>
-	  <strong>9:00 a.m.</strong>
-	</td>
-	<td>
-	  Drop-off: greeting and getting ready for the day
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 9:15 a.m.</strong>
-	</td>
-	<td>
-	  Circle Time: flag raising, songs, movement games
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 9:30 a.m.</strong>
-	</td>
-	<td>
-	  Garden Time/Nature Walk
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 10:15 a.m.</strong>
-	</td>
-	<td>
-	  Pony Rides
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 11:15 a.m.</strong>
-	</td>
-	<td>
-	  Lunch Preparation/Story Time
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 11:30 a.m.</strong>
-	</td>
-	<td>
-	  Picnic Lunch
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  <strong> 12:15 p.m.</strong>
-	</td>
-	<td>
-	  Prepare for Pickup (12:30 p.m.)
-	</td>
-      </tr>
-    </tbody>
-  </table>
-  <hr>
-  <address><strong><em data-redactor-tag="em">*Schedule may vary depending on more time devoted to . . . watching a caterpillar crawl across a leaf . . . feeling the morning breeze in the meadow . . . picking juicy cherries in the orchard . . . enjoying a longer ride on Dolly, the Shetland . . . or, well . . . you get the idea.</em></strong></address><address> </address><address>All camps at PRAIRIE HILL include daily pony riding, gardening, singing, walks in the pasture, animal care, story-telling, snacks, picnics, and more. Call 402-438-6668 for more information.</address><address> </address><address>Please join us for a family picnic on Friday evening on June 5th, 19th and July 17th.</address>
-</div>
+//HEY THERE!!
+$(document).ready(function() {
+
+    $(function($) {
+        $('.shifts-link').on('click', function() {
+            var li = $(this).parent();
+            //console.log(li);
+
+            $(this).addClass('success');
+            //console.log($(this));
+
+            li.siblings("li").children("a").removeClass('success');
+            //console.log(li.siblings("li").children("a"));
+
+            $('#all-link').removeClass('success');
+            //console.log('#all-link');
+        });
+    });
 \end{verbatim}
 
 \begin{verbatim}
-<div class='col-md-11'>
-  <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-</div>
+    $('#all-link').on('click', function() {
+        $(this).addClass('success');
+        var prev_links = $('ul#category-selection').children("li").children("a");
+        prev_links.each(function() {
+            $(this).removeClass('success');
+        });
+        //$('ul#category-selection').children("li").removeClass('success');
+    });
+
+    $('.activity-target').hide();
+
+    $('.activity-toggle').on('click', function() {
+        var target = $(this).next('.activity-target');
+        var height_diff = (0 - target.height());
+        //target.slideToggle("slow");
+
+        //$(this).parents('.activity-box').next('.activity-box').css('top', height_diff);
+    });
+
+
+    $(function($) {
+        $('.friend-field').hide();
+
+        $('.add-friend-btn').on('click', function() {
+            $(this).hide();
+            $(this).siblings('div').show();
+        });
+    });
+
+    function category_name(category) {
+        var content = "#" + category;
+        return content;
+    };
+    function category_title_id(category) {
+        var title = category_name(category) + "-title";
+        return title;
+    };
+    function toggle_category(fun, string) {
+        var content = category_name(string);
+        var title = category_title_id(string);
+
+        if (fun == "hide")
+        {
+            function hide_contents() {//GET a towel
+                $(title).hide();
+                $(title).removeClass('selected');
+                console.log($(title));
+                $(content).hide();
+            };
+            hide_contents();
+        }
+        else if (fun == "show")
+        {
+            function show_contents() {//GET a towel
+                $(title).show();
+                $(title).addClass('selected');
+                $(content).show();
+
+                var other_categories = $(content).siblings();
+                var current_category = $(content).children().children('#activity-main-box');
+                current_category.toggleClass('show-type');
+
+                //console.log(other_categories);
+                other_categories.each( function( index, element ) {
+                    if ($(this).hasClass('show-type')) {
+                        $(this).toggleClass('show-type');
+                    }
+                });
+            };
+            show_contents();
+        }
+    };
+    function hide_single(string) {
+        toggle_category("hide", string);
+    };
+
+    function hide_all() {
+        hide_single("all");
+        hide_single("prep");
+        hide_single("station");
+        hide_single("teardown");    
+    };
+
+    //hide_all();
+
+    function show_single(string) {
+        toggle_category("show", string);
+    }
+
+    function get_categories(category) {
+        var categories_list = ["prep", "station", "teardown", "all"];
+        var categories =
+            {
+                list: categories_list, length: categories_list.length
+            };
+        var category_index = categories_list.indexOf(category); // "prep" 0
+    };
+
+    //masonry
+    function fix_height(){
+        var current_cat = $('.show-type').children('#type').attr("class");
+
+        var item_h = $('.masonry-item').height();
+        var item_m = $('.masonry-tiem').css('margin');
+        //console.log(item_m);
+        var type_count = $('.show-type').children('.masonry-item' + '.' + current_cat).size();
+
+        var height_fix = ((item_h * type_count) / 1.5);
+
+        //console.log(height_fix);
+        $('.masonry').css('height', height_fix);
+    };
+    ////
+
+    function focus (string) {
+        //hide all
+        hide_all();
+        //show chosen
+        show_single(string);
+        //fix_height();
+    };
+
+    hide_all();
+    //focus("prep");
+
+    //buttons
+    //CATEGORY SWITCHER!!!
+    //DRY it up
+    $('#prep-link').on( 'click', function() {
+        focus("prep");
+        $('#primary-element').scrollTo('#activities-main');
+    });
+    $('#teardown-link').on( 'click', function() {
+        focus("teardown");
+        $('#primary-element').scrollTo('#activities-main');     
+    });
+    $('#station-link').on( 'click', function() {
+        focus("station");
+        $('#primary-element').scrollTo('#activities-main');
+    });
+    $('#all-link').on( 'click', function() {
+        focus("all");
+        $('#primary-element').scrollTo('#activities-main');
+    });
+
+    $('.category-title').on('click', function() {
+        $('#primary-element').scrollTo(0);
+    });
+    ///
+
+
+    /// activity shift layout
+    $('#guest-signup-trigger').on( 'click', function() {
+        $$('#guest-signup-toggle').toggle("slow");
+    });
+
+    $('#calendar').fullCalendar({
+        eventSources: [
+            {
+                url: '/shifts.json',
+                //              title: shift.activity_id,
+            }
+        ],
+        eventColor: '#3f8000',
+        header: {
+            center: 'agendaThreeDay,agendaDay'
+        },
+        defaultView: 'agendaThreeDay',
+        aspectRatio: 2.0,
+        defaultDate: moment('2015-10-02'),
+        minTime: "09:00:00",
+        maxTime: "21:00:00",
+        views: {
+            agendaDay: {
+                buttonText: 'Day'
+            },
+            agendaFourDay: {
+                type: 'agenda',
+                duration: { days: 4 },
+                buttonText: '4 day'
+            },
+            agendaThreeDay: {
+                type: 'agenda',
+                duration: { days: 2 },
+                buttonText: 'Main'
+            }
+        }
+    });
+
+
+    //?
+    $('div.shifts-toggle').hide();
+    // $('.shifts-trigger').on('click', function(event) {
+    //  //var shifts = $(this).next();
+
+    //  $(this).next().toggle(1000);
+    // });
+    //?
+
+
+    $('a[href="#"]').click( function(e) {
+        e.preventDefault();
+    });
+
+
+    //title-button on click
+
+    //$('.arrow-down').hide();
+
+    // $('.title-button').on('click', function(event) {
+    //  $(this).toggleClass('success');
+
+    //  var arrow_left = $(this).children().children('.arrow-left');
+    //  var arrow_down = $(this).children().children('.arrow-down');
+    //  var arrow = $(this).children().children('.arrow');
+    //  var shift_arrows = $(this).parent('.arrow-guide')
+    //      .parent('.activity-toggle')
+    //      .next('.activity-target')
+    //      .children('#shifts')
+    //      .children('form')
+    //      .children('#shift-single')
+    //      .children('.arrow-guide')
+    //      .children('.arrow');
+    //  //there's got to be a better way! ^^^
+
+    //  arrow.toggleClass('active', 500);
+
+    //  shift_arrows.each(function() {
+    //      $(this).toggleClass('active');
+    //  });
+    // });
+
+    // $('#masonry-container').masonry({
+    //  itemSelector: '.box',
+    //  isFitWidth: true
+    // });
+
+    $('tr.open').hide();
+    $('button#open').text("Show Open");
+
+    $('button#open').bind('click', function(){
+        $(this).toggleClass('success');
+        $(this).toggleClass('open');
+
+        //$(this).text("Hide Open", "Show Open");
+        ($(this).text() === "Show Open") ? $(this).text("Hide Open") : $(this).text("Show Open");
+        $('tr.open').toggleClass('show');
+        $('tr.shift-time').css('background-color','red');
+    });
+
+
+    //ACTIVITIES SCROLL ANIMATION
+    //primary
+    var primary = $('div#primary-element');
+    var primary_width = primary.width();
+    var primary_height = primary.height();
+    var primary_top = primary.css('top');
+    //window
+    var doc_width = $(window).width();
+    var doc_height = $(window).height();
+    //dash
+    var dashboard = $('div#dashboard-element');
+    var dashWidth = dashboard.width();
+    var dashHeight = dashboard.height();
+    var dashLeft = dashboard.css('left');
+    //ccf info
+    var info_height = $('div#ccf-info').height();
+    var ccf_info = $('div#ccf-info');
+    var ccf_height = ccf_info.height();
+    var ccf_width = ccf_info.width();
+    var ccf_top = ccf_info.css('top');
+    var ccf_bg = ccf_info.css('background-color');
+    var ccf_pos = ccf_info.css('position');
+    var shifts_numbers_height = $('div#shifts-numbers').height();
+    var category_tabs_height = $('div#category-tabs').height();
+    var cur_dash_height = shifts_numbers_height + category_tabs_height
+
+    //primary.scrollTo('#ccf-info');
+
+    //console.log(primary.scrollTop());
+
+    $('#retract-button').hide();
+
+    $(function() {
+        //primary.scroll(function() {
+
+        $('#expand-button').on('click',function() {
+            $(this).hide();
+            //console.log($('.selected'));
+            //focus("prep");
+            $('#retract-button').show();
+
+            $('div#header').fadeOut("slow");
+            $('div#ph-title').fadeOut("slow");
+            //$('div#footer-main').fadeOut("slow");
+            $('#footer-buttons').fadeOut();
+
+            $('div#welcome-element').hide();
+            $('div#category-info').fadeOut();
+            $('div#tabs-open-close').fadeOut();
+
+            dashboard.hide();
+            dashboard.animate(
+                {
+                    width: (doc_width - 160),
+                    left: 0
+                }, 2000, 'easeOutCirc'
+            );
+
+            primary.animate(
+                {
+                    top: cur_dash_height + 40,
+                    width: (doc_width - 150),
+                    //height: (doc_height - 250) CCF KEEP and modify behavior, dep. path/route
+                    height: '80%' 
+                }, 1000, 'easeOutCubic'
+            );
+
+            primary.css('border-radius','50px');
+
+            $('div.category-title').animate(
+                {
+                    'margin-top' : '15px'
+                }
+            );
+
+            //ccf-info
+            ccf_info.css('position', 'fixed');
+            ccf_info.css('background', 'transparent');
+            ccf_info.toggleClass('bottom-shadow');
+            ccf_info.animate(
+                {
+                    top: 0,
+                    width: (doc_width - 160)
+                }
+            );
+
+            dashboard.fadeIn("slow");
+            //}
+            //}
+        });
+        //else if ($(this).scrollTop() < 20) {
+        //else if (this_top < 80) {
+        //else {
+
+        //      $(this).animate(
+        //          {
+        //              top: primary_top,
+        //              width: primary_width + 37,
+        //              height: primary_height
+        //          }, 1000
+        //      );
+
+        //      $('div#header').fadeIn("slow");
+        //      $('div#ph-title').fadeIn("slow");
+        //      $('div#footer-main').fadeIn("slow");
+        //      $('div#welcome-element').fadeIn(206);
+        //      $('div#category-info').fadeIn(501);
+        //      $('div#tabs-open-close').fadeIn(203);
+
+        //      dashboard.animate(
+        //          {
+        //              width: dashWidth,
+        //              left: dashLeft //?
+        //          }, 345
+        //      );
+
+        //      //ccf-info
+        //      ccf_info.css('position', ccf_pos);
+        //      ccf_info.css('background', ccf_bg);
+
+        //      //ccf_info.toggleClass('bottom-shadow');
+        //      ccf_info.animate(
+        //          {
+        //              top: ccf_top,
+        //              width: ccf_width + 37
+        //          }
+        //      );
+        //     }
+        // });
+    });
+
+
+    $('#retract-button').on('click',function() {
+        $(this).hide();
+        $('#expand-button').show();
+
+        primary.css('border-radius','0');
+        primary.animate(
+            {
+                top: primary_top,
+                width: primary_width + 35,
+                height: primary_height + 5
+            }, 1000
+        );
+
+        $('div#header').fadeIn("slow");
+        $('div#ph-title').fadeIn("slow");
+        //$('div#footer-main').fadeIn("slow");
+        $('#footer-buttons').fadeIn();
+
+        $('div#category-info').fadeIn();
+        $('div#welcome-element').fadeIn(1500);
+        $('div#tabs-open-close').fadeIn();
+
+        dashboard.hide();
+        dashboard.animate(
+            {
+                width: dashWidth,
+                left: dashLeft //?
+            }, 345
+        );
+
+        //ccf-info
+        ccf_info.css('position', ccf_pos);
+        ccf_info.css('background', ccf_bg);
+        ccf_info.toggleClass('bottom-shadow');
+        ccf_info.animate(
+            {
+                top: ccf_top,
+                width: ccf_width + 37
+            }
+        );
+
+        dashboard.fadeIn("slow");
+    });
+
+    $(function() {
+        // primary.scroll(function() {
+        //     if (primary.scrollTop() > 40) {
+        //      $('#heart-anim').animate(
+        //          {
+        //              'font-size':'80vw',
+        //              'opacity':'0',
+        //              'transform':'translate(1000px,500px)'
+        //          }, 512, 'easeInCirc'
+        //      );
+        //      $('#heart-anim').css(
+        //          {
+        //              'position' : 'fixed',
+        //              'top' : '10%',
+        //              'left' : '25%'
+        //          }
+        //      );
+        //     }
+        // });
+    });
+
+});
+
+//use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/
 \end{verbatim}
+
+\item ├── \href{./app/assets/javascripts/application.js}{application.js}
+\label{sec-1-1-1-2-2}
+\item ├── bootstrap-datetimepicker.js
+\label{sec-1-1-1-2-3}
+\item ├── ccf.js
+\label{sec-1-1-1-2-4}
+\item ├── comfortable$_{\text{mexican}}$$_{\text{sofa}}$
+\label{sec-1-1-1-2-5}
+\item ├── comfy
+\label{sec-1-1-1-2-6}
+\item ├── events.js
+\label{sec-1-1-1-2-7}
+\item ├── instagram-feed.js
+\label{sec-1-1-1-2-8}
+\item ├── jquery.mousewheel.js
+\label{sec-1-1-1-2-9}
+\item ├── jquery.skroller.js
+\label{sec-1-1-1-2-10}
+\item ├── jquery.skroller.min.js
+\label{sec-1-1-1-2-11}
+\item ├── main.js.coffee
+\label{sec-1-1-1-2-12}
+\item ├── pages.js
+\label{sec-1-1-1-2-13}
+\item └── shifts.js
+\label{sec-1-1-1-2-14}
+\end{itemize}
+
+\item └── \href{./app/assets/stylesheets}{stylesheets}
+\label{sec-1-1-1-3}
+
+\begin{itemize}
+\item ├── activities.css.scss
+\label{sec-1-1-1-3-1}
+\item ├── \href{./app/assets/stylesheets/application.css.scss}{application.css.scss}
+\label{sec-1-1-1-3-2}
+\item ├── \href{./app/assets/stylesheets/bootstrap_and_customization.css.scss}{bootstrap$_{\text{and}}$$_{\text{customization}}$.css.scss}
+\label{sec-1-1-1-3-3}
+\item ├── ccf.scss
+\label{sec-1-1-1-3-4}
+\item ├── comfortable$_{\text{mexican}}$$_{\text{sofa}}$
+\label{sec-1-1-1-3-5}
+\item ├── comfy
+\label{sec-1-1-1-3-6}
+\item ├── events.scss
+\label{sec-1-1-1-3-7}
+\item ├── \href{./app/assets/stylesheets/foundation_and_overrides.scss}{foundation$_{\text{and}}$$_{\text{overrides}}$.scss}
+\label{sec-1-1-1-3-8}
+\item ├── jquery.jscrollpane.css
+\label{sec-1-1-1-3-9}
+\item ├── pages.scss
+\label{sec-1-1-1-3-10}
+\item ├── perfect-scrollbar.css
+\label{sec-1-1-1-3-11}
+\item ├── perfect-scrollbar.css.scss
+\label{sec-1-1-1-3-12}
+\item ├── perfect-scrollbar.min.css
+\label{sec-1-1-1-3-13}
+\item └── shifts.css.scss
+\label{sec-1-1-1-3-14}
+\end{itemize}
+\end{itemize}
+
+\subsubsection*{├── concerns}
+\label{sec-1-1-2}
+\subsubsection*{├── \href{./app/controllers}{controllers}}
+\label{sec-1-1-3}
+
+\begin{itemize}
+\item ├── activities$_{\text{controller}}$.rb
+\label{sec-1-1-3-1}
+\item ├── \href{./app/controllers/api}{api}
+\label{sec-1-1-3-2}
+
+\begin{itemize}
+\item ├── \href{./app/controllers/api/base.rb}{base.rb}
+\label{sec-1-1-3-2-1}
 
 \begin{verbatim}
-<div class="small-12 small-centered columns card" style='overflow:hidden;'>
-
-  <div class='row'>
-    <div class='small-11 small-centered columns'>
-      Summer Camp 2016 Coming Soon!
-    </div>
-
-    <div class='col-md-11'>
-      <%#= cms_snippet_content('summer-camp', @cms_site).html_safe %>
-    </div>
-
-  </div>
-</div>
+# module API
+#   class Base < Grape::API
+#     mount API::V1::Base
+#   end
+# end
 \end{verbatim}
 
-\begin{itemize}
-\item $\square$ color ideas
-
-\url{https://ssl.gstatic.com/docs/forms/themes/images/v1/1a1c336297ccc987c4f65a5979d2e3f9dcb0a2bfcaeed37121f2c460367a434c/24_farm.jpg}
-
-b3ad35, ea8329, 6f672b, f9dabf, fedd3a, 963225
+\item └── v1
+\label{sec-1-1-3-2-2}
 \end{itemize}
 
-\item $\square$ create tabs and front page news
-\begin{itemize}
-\item $\square$ ready for links to google forms etc
+\item ├── \href{./app/controllers/application_controller.rb}{application$_{\text{controller}}$.rb}
+\label{sec-1-1-3-3}
+\item ├── ccf$_{\text{controller}}$.rb
+\label{sec-1-1-3-4}
+\item ├── comfy
+\label{sec-1-1-3-5}
+\item ├── concerns
+\label{sec-1-1-3-6}
+\item ├── contacts$_{\text{controller}}$.rb
+\label{sec-1-1-3-7}
+\item ├── events$_{\text{controller}}$.rb
+\label{sec-1-1-3-8}
+\item ├── pages$_{\text{controller}}$.rb
+\label{sec-1-1-3-9}
+\item ├── registrations$_{\text{controller}}$.rb
+\label{sec-1-1-3-10}
+\item ├── sessions$_{\text{controller}}$.rb
+\label{sec-1-1-3-11}
+\item ├── \href{./app/controllers/shifts_controller.rb}{shifts$_{\text{controller}}$.rb}
+\label{sec-1-1-3-12}
+\item ├── users$_{\text{controller}}$.rb
+\label{sec-1-1-3-13}
+\item └── volunteers$_{\text{controller}}$.rb
+\label{sec-1-1-3-14}
 \end{itemize}
-\end{itemize}
 
-\item $\square$ Sun Oct 11 11:53:19 CDT 2015
-
-\begin{itemize}
-\item $\square$ gather user feedback
-\begin{itemize}
-\item $\square$ survey
-\begin{itemize}
-\item $\square$ delivery methods
-\begin{itemize}
-\item $\square$ email
-\item $\square$ rails engine
-\begin{itemize}
-\item $\square$ \url{https://github.com/runtimerevolution/survey}
-\end{itemize}
-\end{itemize}
-\item $\square$ elements
-
-\begin{itemize}
-\item $\square$ 5 tips for writing a great survey
-
-\url{http://help.surveymonkey.com/articles/en_US/kb/5-Tips-for-Writing-a-Great-Survey}
-
-Be Thankful!
+\subsubsection*{├── \href{./app/helpers}{helpers}}
+\label{sec-1-1-4}
 
 \begin{itemize}
-\item $\square$ Define Your Objectives. 
+\item ├── activities$_{\text{helper}}$.rb
+\label{sec-1-1-4-1}
+\item ├── \href{./app/helpers/application_helper.rb}{application$_{\text{helper}}$.rb}
+\label{sec-1-1-4-2}
+\item ├── events$_{\text{helper}}$.rb
+\label{sec-1-1-4-3}
+\item ├── guests$_{\text{helper}}$.rb
+\label{sec-1-1-4-4}
+\item ├── pages$_{\text{helper}}$.rb
+\label{sec-1-1-4-5}
+\item └── shifts$_{\text{helper}}$.rb
+\label{sec-1-1-4-6}
+\end{itemize}
 
-Figure out the decision or decisions you're trying to make to 
-focus your survey.   
+\subsubsection*{├── inputs}
+\label{sec-1-1-5}
+\subsubsection*{├── mailers}
+\label{sec-1-1-6}
+\subsubsection*{├── \href{./app/models}{models}}
+\label{sec-1-1-7}
 
 \begin{itemize}
-\item $\square$ Objectives
+\item ├── ability.rb
+\label{sec-1-1-7-1}
+\item ├── \href{./app/models/activity.rb}{activity.rb}
+\label{sec-1-1-7-2}
+\item ├── admin.rb
+\label{sec-1-1-7-3}
+\item ├── comfy
+\label{sec-1-1-7-4}
+\item ├── concerns
+\label{sec-1-1-7-5}
+\item ├── contact.rb
+\label{sec-1-1-7-6}
+\item ├── event.rb
+\label{sec-1-1-7-7}
+\item ├── \href{./app/models/guest.rb}{guest.rb}
+\label{sec-1-1-7-8}
+\item ├── .keep
+\label{sec-1-1-7-9}
+\item ├── page.rb
+\label{sec-1-1-7-10}
+\item ├── \href{./app/models/shift.rb}{shift.rb}
+\label{sec-1-1-7-11}
+\item ├── \href{./app/models/user.rb}{user.rb}
+\label{sec-1-1-7-12}
+\item └── volunteer.rb
+\label{sec-1-1-7-13}
+\end{itemize}
+
+\subsubsection*{├── serializers}
+\label{sec-1-1-8}
+\subsubsection*{└── \href{./app/views}{views}}
+\label{sec-1-1-9}
 
 \begin{itemize}
-\item collect user feedback in order to understand
+\item ├── activities
+\label{sec-1-1-9-1}
+\item ├── api
+\label{sec-1-1-9-2}
+\item ├── comfy
+\label{sec-1-1-9-3}
+\item ├── contacts
+\label{sec-1-1-9-4}
+\item ├── devise
+\label{sec-1-1-9-5}
+\item ├── events
+\label{sec-1-1-9-6}
+\item ├── \href{./app/views/layouts}{layouts}
+\label{sec-1-1-9-7}
 
 \begin{itemize}
-\item what worked? what didn't work?
-\item how did the site feel?
-\item browser and system type?
+\item ├── \href{./app/views/layouts/application.html.erb}{application.html.erb}
+\label{sec-1-1-9-7-1}
+\item ├── \_arrowtab.html.erb
+\label{sec-1-1-9-7-2}
+\item ├── \_buffer$_{\text{variations}}$.html.erb
+\label{sec-1-1-9-7-3}
+\item ├── \_ccf$_{\text{side}}$.html.erb
+\label{sec-1-1-9-7-4}
+\item ├── \_expand$_{\text{retract}}$$_{\text{buttons}}$.html.erb
+\label{sec-1-1-9-7-5}
+\item ├── \_extra.html.erb
+\label{sec-1-1-9-7-6}
+\item ├── \_footer.html.erb
+\label{sec-1-1-9-7-7}
+\item ├── \_foundation$_{\text{side}}$.html.erb
+\label{sec-1-1-9-7-8}
+\item ├── \href{./app/views/layouts/_header.html.erb}{\_header.html.erb}
+\label{sec-1-1-9-7-9}
+\item ├── \_instagram.html.erb
+\label{sec-1-1-9-7-10}
+\item ├── \_large$_{\text{header}}$.html.erb
+\label{sec-1-1-9-7-11}
+\item ├── \_menu.html.erb
+\label{sec-1-1-9-7-12}
+\item ├── \_menu$_{\text{mobile}}$$_{\text{extra}}$.html.erb
+\label{sec-1-1-9-7-13}
+\item ├── \_mobile$_{\text{static}}$$_{\text{menu}}$.html.erb
+\label{sec-1-1-9-7-14}
+\item ├── \href{./app/views/layouts/_nav.html.erb}{\_nav.html.erb}
+\label{sec-1-1-9-7-15}
+\item ├── \_paypal$_{\text{btn}}$.html.erb
+\label{sec-1-1-9-7-16}
+\item ├── \_quote$_{\text{filter}}$.html.erb
+\label{sec-1-1-9-7-17}
+\item ├── \_quote.html.erb
+\label{sec-1-1-9-7-18}
+\item ├── \_skrollr.html.erb
+\label{sec-1-1-9-7-19}
+\item ├── \_small$_{\text{header}}$.html.erb
+\label{sec-1-1-9-7-20}
+\item ├── \_static$_{\text{menu}}$.html.erb
+\label{sec-1-1-9-7-21}
+\item ├── \_title.html.erb
+\label{sec-1-1-9-7-22}
+\item ├── useful-snippets.html.erb
+\label{sec-1-1-9-7-23}
+\item ├── \_user$_{\text{menu}}$.html.erb
+\label{sec-1-1-9-7-24}
+\item └── \_volunteer$_{\text{menu}}$.html.erb
+\label{sec-1-1-9-7-25}
 \end{itemize}
 
-\item improve the application based on this feedback
-\end{itemize}
-\end{itemize}
-
-\item $\square$ Work Backwards. 
-
-Once you've set your objectives, determine the data you need to 
-gather in your survey to make your decision.
+\item ├── \href{./app/views/pages}{pages}
+\label{sec-1-1-9-8}
 
 \begin{itemize}
-\item $\square$ data needed
+\item ├── \_about2.html.erb
+\label{sec-1-1-9-8-1}
+\item ├── \_about.html.erb
+\label{sec-1-1-9-8-2}
+\item ├── \href{./app/views/pages/about.html.erb}{about.html.erb}
+\label{sec-1-1-9-8-3}
+\item ├── add$_{\text{shift}}$.html.erb
+\label{sec-1-1-9-8-4}
+\item ├── add$_{\text{user}}$$_{\text{idee}}$.html.erb
+\label{sec-1-1-9-8-5}
+\item ├── \_blah.html.erb
+\label{sec-1-1-9-8-6}
+\item ├── calendar.html.erb
+\label{sec-1-1-9-8-7}
+\item ├── \_camp$_{\text{brief}}$.html.erb
+\label{sec-1-1-9-8-8}
+\item ├── ccf.html.erb
+\label{sec-1-1-9-8-9}
+\item ├── ccf$_{\text{info}}$.html.erb
+\label{sec-1-1-9-8-10}
+\item ├── \_ccf$_{\text{menu}}$.html.erb
+\label{sec-1-1-9-8-11}
+\item ├── \_ccf$_{\text{slide}}$.html.erb
+\label{sec-1-1-9-8-12}
+\item ├── \_ccf$_{\text{slide}}$$_{\text{layout}}$.html.erb
+\label{sec-1-1-9-8-13}
+\item ├── \_contact.html.erb
+\label{sec-1-1-9-8-14}
+\item ├── contact.html.erb
+\label{sec-1-1-9-8-15}
+\item ├── csvupload.html.erb
+\label{sec-1-1-9-8-16}
+\item ├── donate.html.erb
+\label{sec-1-1-9-8-17}
+\item ├── edit.html.erb
+\label{sec-1-1-9-8-18}
+\item ├── events.html.erb
+\label{sec-1-1-9-8-19}
+\item ├── \_financial$_{\text{info}}$$_{\text{button}}$.html.erb
+\label{sec-1-1-9-8-20}
+\item ├── \_form.html.erb
+\label{sec-1-1-9-8-21}
+\item ├── foundation$_{\text{template}}$.html.erb
+\label{sec-1-1-9-8-22}
+\item ├── \href{./app/views/pages/home.html.erb}{home.html.erb}
+\label{sec-1-1-9-8-23}
+\item ├── index.html.erb
+\label{sec-1-1-9-8-24}
+\item ├── index.json.jbuilder
+\label{sec-1-1-9-8-25}
+\item ├── jobs.html.erb
+\label{sec-1-1-9-8-26}
+\item ├── jquery$_{\text{instagram}}$.html.erb
+\label{sec-1-1-9-8-27}
+\item ├── \_latest.html.erb
+\label{sec-1-1-9-8-28}
+\item ├── \_legal.html.erb
+\label{sec-1-1-9-8-29}
+\item ├── legal$_{\text{info}}$.html.erb
+\label{sec-1-1-9-8-30}
+\item ├── new.html.erb
+\label{sec-1-1-9-8-31}
+\item ├── \_news.html.erb
+\label{sec-1-1-9-8-32}
+\item ├── news.html.erb
+\label{sec-1-1-9-8-33}
+\item ├── \_news$_{\text{slider}}$.html.erb
+\label{sec-1-1-9-8-34}
+\item ├── \_page$_{\text{add}}$$_{\text{about}}$.html.erb
+\label{sec-1-1-9-8-35}
+\item ├── \_page$_{\text{add}}$$_{\text{calendar}}$.html.erb
+\label{sec-1-1-9-8-36}
+\item ├── \_page$_{\text{add}}$$_{\text{case}}$.html.erb
+\label{sec-1-1-9-8-37}
+\item ├── \_page$_{\text{add}}$$_{\text{contact}}$.html.erb
+\label{sec-1-1-9-8-38}
+\item ├── \_page$_{\text{add}}$$_{\text{news}}$.html.erb
+\label{sec-1-1-9-8-39}
+\item ├── \_page$_{\text{add}}$$_{\text{programs}}$.html.erb
+\label{sec-1-1-9-8-40}
+\item ├── \_page$_{\text{add}}$$_{\text{quote}}$.html.erb
+\label{sec-1-1-9-8-41}
+\item ├── pages.html
+\label{sec-1-1-9-8-42}
+\item ├── pages.org
+\label{sec-1-1-9-8-43}
+\item ├── programs.html.erb
+\label{sec-1-1-9-8-44}
+\item ├── sandbox.html.erb
+\label{sec-1-1-9-8-45}
+\item ├── show.html.erb
+\label{sec-1-1-9-8-46}
+\item ├── show.json.jbuilder
+\label{sec-1-1-9-8-47}
+\item ├── staff$_{\text{bod}}$.html.erb
+\label{sec-1-1-9-8-48}
+\item ├── staff.html.erb
+\label{sec-1-1-9-8-49}
+\item ├── \_summer$_{\text{camp}}$.html.erb
+\label{sec-1-1-9-8-50}
+\item ├── summer$_{\text{camp}}$.html.erb
+\label{sec-1-1-9-8-51}
+\item ├── \_tour.html.erb
+\label{sec-1-1-9-8-52}
+\item ├── \_tour$_{\text{scenic}}$.html.erb
+\label{sec-1-1-9-8-53}
+\item ├── \_uniq$_{\text{list}}$.html.erb
+\label{sec-1-1-9-8-54}
+\item ├── unique.html.erb
+\label{sec-1-1-9-8-55}
+\item ├── volunteer.html.erb
+\label{sec-1-1-9-8-56}
+\item └── \_zero$_{\text{height}}$.html.erb
+\label{sec-1-1-9-8-57}
+\end{itemize}
+
+\item ├── scratch.html.erb
+\label{sec-1-1-9-9}
+\item ├── \href{./app/views/shifts}{shifts}
+\label{sec-1-1-9-10}
 
 \begin{itemize}
-\item comments, textual feedback
-
-What's good, what could be better, and how?
-
-\begin{itemize}
-\item general
-\begin{itemize}
-\item look \& feel
-\item functionality
-\begin{itemize}
-\item what worked?
-\item what did not work?
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-\item $\square$ Check for Bias. 
-
-Make sure you're not asking leading questions.
-
-\item $\square$ Do a Test Drive. 
-
-Send your survey to friends and colleagues for a test run. 
-They'll help make sure your questions and response options are 
-understandable and all your survey logic works.
-
-\item $\square$ Collect Results and Analyze Data. 
-
-This is where it gets really fun. The data rolling in from your 
-survey should help you decide what product to launch next, how 
-to raise more money at your next fundraiser, what to do to keep 
-customers coming back, what to serve at your next party and much 
-more.
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\item $\square$ create special \hyperref[sec-1-3]{event} section
-\begin{itemize}
-\item $\square$ section for LUX art event
-\begin{itemize}
-\item Event MVC
-\url{./app/models/event.rb}
-\url{./app/helpers/events_helper.rb}
-\url{./app/helpers/application_helper.rb}
-\url{./app/views/events}
-\url{./app/views/layouts/}
-\url{./app/controllers/events_controller.rb}
-
-\begin{itemize}
-\item add condition to account for past events
-\begin{itemize}
-\item display past events for information purposes
-\begin{itemize}
-\item past events view
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\item $\square$ details in email from Mandie
-
-\texttt{Chris Rudasill benefit}
-\href{docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt}{original document}
-
-\emph{Art Auction to Benefit PRAIRIE HILL}
-
-Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
-several pieces of his original artwork to be sold in a silent 
-auction. 100\% of the profits will go directly to the further 
-funding of art materials and enrichment opportunities at PRAIRIE  
-HILL. 
-
-Don’t miss this great opportunity to see and purchase original artwork 
-at accessible prices (some starting bids will be as low as \$10) while 
-supporting education through year-round and summer camp programming at 
-PRAIRIE HILL Learning Center.
-
-\begin{itemize}
-\item Silent auction during First Friday 
-\begin{itemize}
-\item 11/6/15 (November 6)
-\begin{itemize}
-\item 5–8 p.m.
-\end{itemize}
-\end{itemize}
-\item Lux Center for the Arts 
-\begin{itemize}
-\item 2601 N 48th St, Lincoln, NE 68504
-\end{itemize}
-\end{itemize}
-For more information and images of Chris’s artwork, visit: 
-\href{http://chrisrudasill.weebly.com}{chrisrudasill.weebly.com}   
-
-For more info about PRAIRIE HILL, visit:   
-\href{http://prairiehill.com}{prairiehill.com}
-
-\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_1.jpeg}
-
-\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_2.jpeg}
+\item ├── add$_{\text{shift}}$.html.erb
+\label{sec-1-1-9-10-1}
+\item ├── ajax.html
+\label{sec-1-1-9-10-2}
+\item ├── edit.html.erb
+\label{sec-1-1-9-10-3}
+\item ├── \_form.html.erb
+\label{sec-1-1-9-10-4}
+\item ├── index.html.erb
+\label{sec-1-1-9-10-5}
+\item ├── index.html.haml
+\label{sec-1-1-9-10-6}
+\item ├── index.json.jbuilder
+\label{sec-1-1-9-10-7}
+\item ├── index.xls.erb
+\label{sec-1-1-9-10-8}
+\item ├── index.xls.erb.bak
+\label{sec-1-1-9-10-9}
+\item ├── index.xlsx.axlsx
+\label{sec-1-1-9-10-10}
+\item ├── \_login.html.erb
+\label{sec-1-1-9-10-11}
+\item ├── login.html.erb
+\label{sec-1-1-9-10-12}
+\item ├── new.html.erb
+\label{sec-1-1-9-10-13}
+\item ├── sandbox.html.erb
+\label{sec-1-1-9-10-14}
+\item ├── \_shift$_{\text{filler}}$.html.erb
+\label{sec-1-1-9-10-15}
+\item ├── \_shift$_{\text{match}}$.html.erb
+\label{sec-1-1-9-10-16}
+\item ├── show.html.erb
+\label{sec-1-1-9-10-17}
+\item ├── \_sub.html.erb
+\label{sec-1-1-9-10-18}
+\item ├── user$_{\text{shifts}}$.html.erb
+\label{sec-1-1-9-10-19}
+\item └── \href{./app/views/shifts/volunteer.html.erb}{volunteer.html.erb}
+\label{sec-1-1-9-10-20}
 \end{itemize}
 
-\item $\square$ upgrade heroku dyno
-\item $\square$ design for mobile
-
-\begin{itemize}
-\item $\square$ consider building separate mobile site to learn Angular, making 
-ajax calls to the current phill api
-
-\url{file:///home/son/bin/js/angular/learnAngular/README.org}
-\end{itemize}
-\end{itemize}
+\item └── volunteers
+\label{sec-1-1-9-11}
 \end{itemize}
 
-
-\begin{itemize}
-\item $\square$ update staff page
-\begin{itemize}
-\item $\square$ waiting for updates from Mandie
-\end{itemize}
-\item $\square$ hide ccf section until 2016
-\begin{itemize}
-\item $\square$ backup database
-\end{itemize}
-\end{itemize}
-
-
-\begin{itemize}
-\item $\boxminus$ Wed Oct  7 10:35:18 CDT 2015
-
-\begin{itemize}
-\item $\boxminus$ hide ccf section until 2016
-\begin{itemize}
-\item $\boxtimes$ keep open/accessible by path for portfolio demo
-\item $\boxtimes$ hide links to ccf
-
-\url{./app/views/layouts/_static_menu.html.erb}
-
-\item $\boxtimes$ remove from slides
-
-\url{./app/views/pages/home.html.erb}
-
-\item $\square$ backup database
-\item $\square$ prevent modification?
-\end{itemize}
-\item $\square$ create special event section
-\begin{itemize}
-\item $\square$ section for LUX art event
-\item $\square$ details in email from Mandie
-\end{itemize}
-\item $\boxminus$ update staff page
-\begin{itemize}
-\item $\boxtimes$ substitute staff page with coming soon page
-
-\url{./app/views/pages/staff.html.erb}
-
-\item $\square$ wait for updates from Mandie
-\end{itemize}
-\item $\square$ design for mobile
-\item $\square$ upgrade heroku dyno
-\end{itemize}
-\end{itemize}
-
-
-\subsection*{Configuration}
+\subsection*{├── bin}
 \label{sec-1-2}
-
-\url{./Gemfile}
-
-\subsection*{Events}
+\subsection*{├── .bundle}
 \label{sec-1-3}
-
-\begin{verbatim}
-rails g scaffold Event title:string subtitle:string location:string \ 
-location_address:text date_and_time:datetime parent:string \
-description:text links:text event_image_id:string
-\end{verbatim}
-
-\begin{verbatim}
-rake db:migrate
-\end{verbatim}
-
-\url{./config/routes.rb}
-\url{./app/models/ability.rb}
-\url{./app/controllers}
-\url{./app/controllers/events_controller.rb}
-
-\begin{verbatim}
-def new
-  @event = Event.new
-  authorize! :manage, @event
-end
-\end{verbatim}
-
-\begin{verbatim}
-<%= if.can? :manage, @event %>
-  <%= link_to "Edit", edit_event_path(@event) %>
-<%= end %>
-\end{verbatim}
-
-\begin{itemize}
-\item $\square$ image file upload(s)
-
-PaperClip
-
-\url{https://github.com/thoughtbot/paperclip/issues/2021}
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
-\end{verbatim}
-
-::::::::::::::::::::::::::::::::::::
-Refile Below, not quite successful yet
-
-\url{https://github.com/refile/refile}
-
-\begin{itemize}
-\item $\square$ to S3
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
-\end{verbatim}
-
-\url{./app/models/event.rb}
-
-\begin{verbatim}
-Class Event < ActiveRecord::Base
-  attachment :event_image
-end
-\end{verbatim}
-
-\url{./app/views/events}
-\url{./app/views/events/_form.html.erb}
-\url{./app/views/events/_form.html.haml}
-
-\begin{verbatim}
-<%= form_for @event do |event| %>
-...
-  <%= form.attachment_field :event_image %>
-...
-<% end %>
-\end{verbatim}
-
-\url{./app/controllers/events_controller.rb}
-
-\begin{verbatim}
-def event_params
-  params.require(:event).permit(... :event_image, ...)
-end
-\end{verbatim}
-
-\url{./app/views/events/show.html.erb}
-\url{./app/views/events/show.html.haml}
-
-\begin{verbatim}
-<%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %>
-\end{verbatim}
-
-\begin{itemize}
-\item $\square$ s3
-
-\url{./Gemfile}
-
-\begin{verbatim}
-gem 'aws-sdk', '~>2'
-gem 'refile-s3'
-\end{verbatim}
-
-\url{./config/environments/production.rb}
-\url{./config/initializers/refile.rb}
-
-\begin{verbatim}
-require 'refile/s3'
-
-aws = {
-  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-  bucket: ENV['AWS_BUCKET']
-}
-Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
-Refile.store = Refile::S3.new(prefix: 'store', **aws)
-\end{verbatim}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-
-
-\subsubsection*{Chris Rudasill benefit (\hyperref[sec-1-3]{event})}
-\label{sec-1-3-1}
-
-\href{docs/ArtAuctionbyChrisRudasilltobenifittPrairieHill.docx.txt}{original document}
-
-\emph{Art Auction to Benefit PRAIRIE HILL}
-
-Local artist and PRAIRIE HILL dad Chris Rudasill is donating 
-several pieces of his original artwork to be sold in a silent 
-auction. 100\% of the profits will go directly to the further 
-funding of art materials and enrichment opportunities at PRAIRIE  
-HILL. 
-
-Don’t miss this great opportunity to see and purchase original artwork 
-at accessible prices (some starting bids will be as low as \$10) while 
-supporting education through year-round and summer camp programming at 
-PRAIRIE HILL Learning Center.
-
-
-\begin{itemize}
-\item Silent auction during First Friday 
-\begin{itemize}
-\item 11/6/15 (November 6)
-\begin{itemize}
-\item 5–8 p.m.
-\end{itemize}
-\end{itemize}
-\item Lux Center for the Arts 
-\begin{itemize}
-\item 2601 N 48th St, Lincoln, NE 68504
-\end{itemize}
-\end{itemize}
-
-For more information and images of Chris’s artwork, visit: 
-\href{http://chrisrudasill.weebly.com}{chrisrudasill.weebly.com}   
-
-For more info about PRAIRIE HILL, visit:   
-\href{http://prairiehill.com}{prairiehill.com}
-
-\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_1.jpeg}
-
-\includegraphics[width=.9\linewidth]{./app/assets/images/rudasill_2.jpeg}
-
-
-\subsection*{Styles}
+\subsection*{├── \href{./config}{config}}
 \label{sec-1-4}
 
-\url{./app/assets/stylesheets}
+\subsubsection*{├── \href{./config/application.rb}{application.rb}}
+\label{sec-1-4-1}
+\subsubsection*{├── boot.rb}
+\label{sec-1-4-2}
+\subsubsection*{├── database.yml}
+\label{sec-1-4-3}
+\subsubsection*{├── environment.rb}
+\label{sec-1-4-4}
+\subsubsection*{├── \href{./config/environments}{environments}}
+\label{sec-1-4-5}
+
+\begin{itemize}
+\item ├── \href{./config/environments/development.rb}{development.rb}
+\label{sec-1-4-5-1}
+\item ├── production.rb
+\label{sec-1-4-5-2}
+\item └── test.rb
+\label{sec-1-4-5-3}
+
+0 directories, 5 files
+\end{itemize}
+
+\subsubsection*{├── \href{./config/initializers}{initializers}}
+\label{sec-1-4-6}
+
+\begin{itemize}
+\item ├── \href{./config/initializers/assets.rb}{assets.rb}
+\label{sec-1-4-6-1}
+\item ├── backtrace$_{\text{silencers}}$.rb
+\label{sec-1-4-6-2}
+\item ├── comfortable$_{\text{mexican}}$$_{\text{sofa}}$.rb
+\label{sec-1-4-6-3}
+\item ├── cookies$_{\text{serializer}}$.rb
+\label{sec-1-4-6-4}
+\item ├── dev$_{\text{environment}}$.rb
+\label{sec-1-4-6-5}
+\item ├── \href{./config/initializers/devise.rb}{devise.rb}
+\label{sec-1-4-6-6}
+\item ├── filter$_{\text{parameter}}$$_{\text{logging}}$.rb
+\label{sec-1-4-6-7}
+\item ├── foreman$_{\text{debugger}}$.rb
+\label{sec-1-4-6-8}
+\item ├── form.rb
+\label{sec-1-4-6-9}
+\item ├── inflections.rb
+\label{sec-1-4-6-10}
+\item ├── log$_{\text{level}}$.rb
+\label{sec-1-4-6-11}
+\item ├── mime$_{\text{types}}$.rb
+\label{sec-1-4-6-12}
+\item ├── omniauth.rb
+\label{sec-1-4-6-13}
+\item ├── rails$_{\text{admin}}$.rb
+\label{sec-1-4-6-14}
+\item ├── ranged$_{\text{datetime}}$$_{\text{wrapper}}$.rb
+\label{sec-1-4-6-15}
+\item ├── refile.rb
+\label{sec-1-4-6-16}
+\item ├── \href{./config/initializers/safe_yaml.rb}{safe$_{\text{yaml}}$.rb}
+\label{sec-1-4-6-17}
+
+\begin{verbatim}
+# SafeYAMLL::OPTIONS[:default_mode] = :safe
+\end{verbatim}
+
+\item ├── session$_{\text{store}}$.rb
+\label{sec-1-4-6-18}
+\item ├── simple$_{\text{form}}$$_{\text{bootstrap}}$.rb
+\label{sec-1-4-6-19}
+\item ├── simple$_{\text{form}}$.rb
+\label{sec-1-4-6-20}
+\item ├── timeout.rb
+\label{sec-1-4-6-21}
+\item └── wrap$_{\text{parameters}}$.rb
+\label{sec-1-4-6-22}
+\end{itemize}
+
+\subsubsection*{├── locales}
+\label{sec-1-4-7}
+\subsubsection*{├── \href{./config/routes.rb}{routes.rb}}
+\label{sec-1-4-8}
+\subsubsection*{├── \href{./config/secrets.yml}{secrets.yml}}
+\label{sec-1-4-9}
+\subsubsection*{├── sitemap.rb}
+\label{sec-1-4-10}
+\subsubsection*{└── \href{./config/unicorn.rb}{unicorn.rb}}
+\label{sec-1-4-11}
+
+\begin{verbatim}
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)
+timeout 60
+preload_app true
+
+before_fork do |server, worker|
+  Signal.trap 'TERM' do
+    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
+    Process.kill 'QUIT', Process.pid
+  end
+
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.connection.disconnect!
+end
+
+after_fork do |server, worker|
+  Signal.trap 'TERM' do
+    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
+  end
+
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
+end
+\end{verbatim}
+
+\subsection*{├── config.ru}
+\label{sec-1-5}
+\subsection*{├── db}
+\label{sec-1-6}
+\subsection*{├── dev}
+\label{sec-1-7}
+\subsection*{├── docs}
+\label{sec-1-8}
+\subsection*{├── dump.rdb}
+\label{sec-1-9}
+\subsection*{├── .env}
+\label{sec-1-10}
+\subsection*{├── \href{./Gemfile}{Gemfile}}
+\label{sec-1-11}
+\subsection*{├── Gemfile.lock}
+\label{sec-1-12}
+\subsection*{├── .git}
+\label{sec-1-13}
+\subsection*{├── \href{./.gitignore}{.gitignore}}
+\label{sec-1-14}
+\subsection*{├── gittest}
+\label{sec-1-15}
+\subsection*{├── lib}
+\label{sec-1-16}
+\subsection*{├── log}
+\label{sec-1-17}
+\subsection*{├── mysite.thor}
+\label{sec-1-18}
+\subsection*{├── \href{./Procfile}{Procfile}}
+\label{sec-1-19}
+\subsection*{├── public}
+\label{sec-1-20}
+\subsection*{├── Rakefile}
+\label{sec-1-21}
+\subsection*{├── README.html}
+\label{sec-1-22}
+\subsection*{├── README.md}
+\label{sec-1-23}
+\subsection*{├── README.org}
+\label{sec-1-24}
+\subsection*{├── README.pdf}
+\label{sec-1-25}
+\subsection*{├── README.tex}
+\label{sec-1-26}
+\subsection*{├── shifts.zip}
+\label{sec-1-27}
+\subsection*{├── test}
+\label{sec-1-28}
+\subsection*{├── tmp}
+\label{sec-1-29}
+\subsection*{├── TODO.html}
+\label{sec-1-30}
+\subsection*{├── TODO.org}
+\label{sec-1-31}
+\subsection*{└── vendor}
+\label{sec-1-32}
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}

@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
 
   resources :guests
-  #mount API::Base, at: "/"
-  
-  #mount GrapeSwaggerRails::Engine, at: "/documentation"
-
-  # namespace :api, defaults: {format: 'json'} do
-  #   resources :activities,
-  #             :pages,
-  #             :shifts,
-  #             :volunteers,
-  #             :users
-  # end
- 
   resources :activities
   resources :shifts 
   resources :volunteers
+
+  #resources :volunteer, :controller => "shifts"
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
@@ -26,6 +16,10 @@ Rails.application.routes.draw do
   resources :pages
 
   root "pages#home"
+
+  # namespace :ccf do
+  #   resources :shifts
+  # end
 
   get "about" => "pages#about"
   get "news" => "pages#news"
@@ -41,7 +35,8 @@ Rails.application.routes.draw do
   get "csv" => "pages#csvupload"
   get "uniq" => "pages#unique"
   get "financial" => "pages#financial"
-  get "ccf" => "shifts#volunteer"
+  get "ccf" => "pages#ccf"
+  get "ccf_volunteer" => "shifts#volunteer"
   get "user_shifts" => "shifts#user_shifts"
 
   # Make sure this routeset is defined last

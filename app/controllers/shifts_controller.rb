@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 class ShiftsController < ApplicationController
   before_action :set_shift, only: [:show, :edit, :update, :destroy]
-  #before_action :volunteer, only: [:show, :edit, :update, :destroy]
 
   def index
     @activities = Activity.all
