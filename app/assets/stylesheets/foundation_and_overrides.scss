@@ -187,7 +187,9 @@ label {
 
 ul.nav-main {
     @extend .bottom-shadow;
+    
     margin: 8px 0 0 4px;
+    border: 1px solid rgba(0,39,23,0.2);
     border-radius: 2px;
     position: absolute;
     top: 115px;
@@ -197,7 +199,8 @@ ul.nav-main {
     background: white;
 
     li.event {
-        background: rgba(117,183,189,1);
+        //background: rgba(117,183,189,1);
+        background: rgba(190,228,247,0.9);
     }
     
     li {
@@ -234,7 +237,7 @@ ul.nav-main {
 }
 
 #nav-mobile-icon {
-    font-size: 6vw;
+    font-size: 3vw;
     margin:0;
     //color:#79DAE4;
     color: rgba(117,183,189,1);
@@ -344,10 +347,43 @@ ul.nav-main {
     font-size: 5rem;
 }
 
+.blue-box {
+    background:rgba(235,247,246,0.4);
+
+    background: linear-gradient(to left top, white, rgba(235,247,246,0.3));
+    /*background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));*/
+}
+
+.blue-box-outline {
+    @extend .blue-box;
+    border: 1px solid rgba(235,247,246,0.7);
+    margin-bottom: 3px;
+}
+
+#articles {
+    div {
+        @extend .blue-box-outline;
+    }
+}
+
 .p-box {
     @extend .content-box;
 
+    background:rgba(235,247,246,0.4);
+
+    background: linear-gradient(to left top, white, rgba(235,247,246,0.2));
+    /*background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+
+    */
+    
+    padding: 15px 25px;
+    
     border: none;
+    border-radius: 5px;
     text-align: justify;
     font-size: 2rem;
 
@@ -389,19 +425,15 @@ ul.nav-main {
     }
 }
 
-/*ACTIVITY/SHIFTS*/
-
-//#shifts-volunteer {
 //https://css-tricks.com/hash-tag-links-padding/
-#shifts-volunteer {
-    div.special-case:before {
-        display: block;
-        content: " ";
-        margin-top: -200px;
-        height: 285px;
-        visibility: hidden;
-    }
+.special-case:before {
+    display: block;
+    content: " ";
+    margin-top: -50px;
+    height: 170px;
+    visibility: hidden;
 }
+
 
 /*MEDIA QUERIES*/
 
@@ -447,15 +479,15 @@ ul.nav-main {
     
     .title {
         .maintitle {
-            font-size: 9vw;
+            font-size: 8vw;
         }
         .subtitle {
-            font-size: 6vw;
+            font-size: 5vw;
         }
     }
 
     #nav-mobile-icon {
-        font-size: 8vw;
+        font-size: 6vw;
     }
 }
 
@@ -473,7 +505,9 @@ ul.nav-main {
     #nav-full {
         display: none;
     }
-
+    ul.nav-main {
+        top: 100px;
+    }
 }
 
 @media screen and (max-width:1648px) {

@@ -27,62 +27,71 @@ description: 'Montessori education for children with an emphasis on meeting the 
 </div>
 
 <!--UNIQ-->
-<div id='uniq' class='small-12 columns bottom-shadow content-box special-box'>
-  <div class='small-12 columns'>
-    <h1 class='hi-li-green-box content-box four-rem'
-        style='color:white;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
-      <stong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
-    </h1>
-  </div>
+<div id='uniq' class='expanded row'>
+  <span class='special-case'></span>
+  <div class='small-12 columns bottom-shadow content-box special-box'>
+    
+    <div class='small-12 columns'>
+      <h1 class='hi-li-green-box content-box four-rem'
+          style='color:white;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
+        <strong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
+      </h1>
+    </div>
 
-  <div class='small-12 columns'>
-    <%= image_tag "cate.jpg", class: 'small-12 columns content-box bottom-shadow' %>
-  </div>
+    <div class='small-12 columns'>
+      <%= image_tag "cate.jpg", class: 'small-12 columns content-box bottom-shadow' %>
+    </div>
 
-  <!--list-->
-  <div class='small-12 large-centered columns'>
-    <%= render 'pages/uniq_list' %>
+    <!--list-->
+    <div class='small-12 large-centered columns'>
+      <%= render 'pages/uniq_list' %>
+    </div>
   </div>
-  
 </div>
 
 <!--TOURS-->
-<div id='tours' class='small-12 columns bottom-shadow content-box special-box'>
-  <div id='' class='small-12 medium-6 columns'>
-    <%= image_tag "ella_reads.jpg", class: 'small-12 medium-12 columns' %>
-  </div>
+<div id='tours'>
+  <span class='special-case'></span>
+  <div class='small-12 columns bottom-shadow content-box special-box'>
 
-  <div id='' class='small-12 medium-6 columns'>
-    <h2 class='hi-li green padded'>
-      <strong>
-        Prospective Parent Tour Dates
-      </strong>
-    </h2>
-    <div class='p-box'>
-      <p>
-        Prospective Parent Tours, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
-      </p>
+    <div class='small-12 medium-6 columns'>
+      <%= image_tag "ella_reads.jpg", class: 'small-12 medium-12 columns bottom-shadow' %>
     </div>
 
-    <h3 class='center green kaushan'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h3>
+    <div class='small-12 medium-6 columns'>
+      <h2 class='hi-li-gradient green padded bottom-shadow text-outline-dark'>
+        <strong>
+          <span class='kaushan'>Parent Tour Dates</span>
+        </strong>
+      </h2>
+      <div class='p-box' style='background:rgba(235,247,246,0.2);'>
+        <p>
+          <span class='green'><strong><em>Prospective Parent Tours</em></strong></span>, for adults and nursing infants only (children will be given opportunities to visit prior to enrollment), provide the opportunity to learn about the history of PRAIRIE HILL and Montessori education, observe the work of the children in the classrooms, and have your questions answered. Please <em>RSVP by calling 402.438.6668</em> or filling out the email form below.
+        </p>
+      </div>
+
+      <h3 class='center green kaushan'><%= cms_snippet_content('parent-tour', @cms_site).html_safe %></h3>
+    </div>
   </div>
 </div>
 
 <!--ARTICLES-->
-<div id='news' class='small-12 columns bottom-shadow content-box special-box'>
-  <div class='small-12 columns'>
-    <h2 class='hi-li green padded'>
-      <strong>
-        Prairie Hill in the News
-      </strong>
-    </h2>
-  </div>
-  
-  <div class='small-11 small-centered columns'>
-    <%= render 'pages/articles' %>
+<div id='news'>
+  <span class='special-case'></span>
+  <div class='small-12 columns bottom-shadow content-box special-box'>
+
+    <div class='small-12 columns'>
+      <h2 class='hi-li green padded bottom-shadow'>
+        <strong>
+          Prairie Hill in the News
+        </strong>
+      </h2>
+    </div>
+    
+    <div class='small-11 small-centered columns'>
+      <%= render 'pages/articles' %>
+    </div>
   </div>
 </div>
-
-
 
 
