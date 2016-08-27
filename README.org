@@ -674,7 +674,8 @@
 ***** ├── _tour.html.erb
 ***** ├── _tour_scenic.html.erb
 ***** ├── _uniq_list.html.erb
-***** ├── unique.html.erb
+***** ├── [[./app/views/pages/unique.html.erb][unique.html.erb]]
+***** ├── _unique.html.erb
 ***** ├── volunteer.html.erb
 ***** └── _zero_height.html.erb
 
@@ -819,6 +820,7 @@
 
    [[./config/application.rb][application.rb]]
    [[./app/views/layouts/application.html.erb][application.html.erb]]
+   [[./db/seeds.rb][seeds.rb]]
 
 *** [[Shift][CCF/Volunteer]]
 
@@ -841,24 +843,30 @@
         :   resources :shifts
         : end
 
-
-
 ** Activity
 
    [[./app/models/activity.rb][activity.rb]]
    [[./app/controllers/activities_controller.rb][activities_controller.rb]]
+   [[./app/helpers/activities_helper.rb][activities_helper.rb]]
 
    - [ ] has many [[Shift]]s
+
+*** Views
+
+    [[./app/views/activities/_form.html.erb][_form.html.erb]]
+    [[./app/views/activities/edit.html.erb][edit.html.erb]]
 
 ** Shift
 
    [[./app/models/shift.rb][shift.rb]]
    [[./app/controllers/shifts_controller.rb][shifts_controller.rb]]
+   [[./app/helpers/shifts_helper.rb][shifts_helper.rb]]
 
    - [ ] belongs to a [[User]]
 
 ** User
-   
+
+   [[./app/models/ability.rb][ability.rb]]
    [[./app/models/user.rb][user.rb]] ( [[Devise]] )
    [[./app/controllers/users_controller.rb][users_controller.rb]]
 
@@ -887,6 +895,13 @@
 
    - [ ] has many [[Shift]]s
    - [ ] belongs to a [[User]]
+
+
+* Content
+
+** Pages
+
+   [[./app/views/pages/home.html.erb][home.html.erb]]
 
 * Prairie Hill Learning Center :noexport:
   

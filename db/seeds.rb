@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Activity.destroy_all
+
 activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
               "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
               "Pony Rides", "Face Painting", "Water Play and Bubbles",
@@ -15,18 +17,25 @@ activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
               "Recycling, Compost, Trash Tracker", "Cider Press", "Corn Box",
               "Live Music"]
 
-shifts = [
-  [4,6], [9,11], [11,12], [12,1], [1,2], [2,3], [3,5]
-]
+
+# def make_shifts(activity)
+#   # creates shifts for activity
+#   shifts = Shift.create([
+#                           {
+                            
+#                           }
+#                         ])
+#   shift_ids = []
+#   # returns array of shift_ids for activity
+# end
 
 activities.each do |activity|
-  Activity.create([
-                    { work_area: activity }
+  Activity.create!([
+                    {
+                      work_area: activity
+                    }
                   ])
 end
 
-days = ["October 7th", "October 8th"]
-
-friday = days[0]
-saturday = days[1]
+p "Created #{Activity.count} activities"
 

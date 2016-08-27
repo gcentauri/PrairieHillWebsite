@@ -35,7 +35,7 @@ class ActivitiesController < ApplicationController
 
   def edit
     #@activity.shifts.build
-    authorize! :manage, @activity
+    #authorize! :manage, @activity
   end
 
   def create

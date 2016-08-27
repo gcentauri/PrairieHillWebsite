@@ -282,6 +282,15 @@ ul.nav-main {
     background: rgba(255,237,0,0.7);    
 }
 
+.hi-li-gradient {
+    background: rgba(255,237,0,0.7);
+    background: linear-gradient(to left top, rgba(255,237,0,0.5), rgba(255,237,0,0.9));
+    //rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    /*background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));*/
+}
+
 .text-outline-dark {
     text-shadow: 1px 1px 1px rgba(55,55,55,0.1);
 }
@@ -377,6 +386,20 @@ ul.nav-main {
     }
     p {
         //@extend .p-box;
+    }
+}
+
+/*ACTIVITY/SHIFTS*/
+
+//#shifts-volunteer {
+//https://css-tricks.com/hash-tag-links-padding/
+#shifts-volunteer {
+    div.special-case:before {
+        display: block;
+        content: " ";
+        margin-top: -200px;
+        height: 285px;
+        visibility: hidden;
     }
 }
 

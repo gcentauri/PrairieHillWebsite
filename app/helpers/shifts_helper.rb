@@ -2,7 +2,53 @@ module ShiftsHelper
 
   def get_times
 
+    days = ["October 7th", "October 8th"]
+    hours = {four: 4, six: 6, nine: 9, eleven: 11, twelve: 12, one: 1, two: 2, threee: 3, five: 5 }
+
+    friday = days[0]
+    saturday = days[1]
+
+    friday_hours = [
+      {
+        start: hours[:four],
+        stop: hours[:six]
+      }
+    ]
+    
+    saturday_hours = [
+      {
+        start: hours[:nine],
+        stop: hours[:eleven]
+      },
+
+      {
+        start: hours[:eleven],
+        stop: hours[:twelve]
+      },
+
+      {
+        start: hours[:twelve],
+        stop: hours[:one]
+      },
+
+      {
+        start: hours[:one],
+        stop: hours[:two]
+      },
+      
+      {
+        start: hours[:two],
+        stop: hours[:three]
+      },
+      
+      {
+        start: hours[:three],
+        stop: hours[:five]
+      }
+    ]
+
     @times = {
+      #Chronic.parse(friday + 
       'Fri 4pm'  => '2015-10-02 16:00:00 UTC',
       'Fri 6pm'  => '2015-10-02 18:00:00 UTC',
       'Sat 9am'  => '2015-10-03 09:00:00 UTC',

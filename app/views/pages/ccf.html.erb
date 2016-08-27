@@ -1,8 +1,9 @@
 <!--TOPNAV-->
 <div id='home-nav' class='expanded row'>
   <div class='small-12 columns'>
-    <h4 style='text-align:right;'><em>
-      <%= link_to 'VOLUNTEER!', ccf_volunteer_path %></em></h4>
+    <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
+      <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
+    <% end %>
   </div>
 </div>
 
@@ -29,6 +30,14 @@
   </div>
 
   <hr>
+
+  <div class='expanded row'>
+    <div class='small-12 columns'>
+      <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
+        <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
+      <% end %>
+    </div>
+  </div>
   
   <!--content-->
   <div id="ccf-welcome">
@@ -86,6 +95,15 @@
       </ul>
     </div>
   </div>
+
+  <div class='expanded row'>
+    <div class='small-12 columns'>
+      <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
+        <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
 <!--FUN RUN-->

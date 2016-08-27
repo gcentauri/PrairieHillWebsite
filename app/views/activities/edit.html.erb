@@ -1,9 +1,28 @@
-<div class="show">
-  <h1 class='hi-li' style='text-align: center'>
-    <%= @activity.work_area %>
+<!--TOPNAV-->
+<div id='home-nav' class='expanded row'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'>
+      <em><a href='#'>Activities </a> | </em>
+      <em><a href='#'>Your Shifts </a> | </em>
+      <em><a href='#'>Volunteers </a> | </em>
+      <em><a href='#'>Fun Run! </a> | </em>
+      <em><a href='#'>Account </a> | </em>
+      <!--AUTH if statement envelope-->
+      <div>
+        <em><a href='#'>Sign In </a> | </em>
+        <em><a href='#'>Sign Out </a></em>
+      </div>
+      <!--AUTH if statement envelope-->
+    </h4>
+  </div>
+</div>
+
+<div id='work-area' class='expanded row bottom-shadow content-box special-box'>
+  <h1 class='hi-li-box green five-rem text-outline-dark bottom-shadow' style='text-align:center;'>
+    <strong><%= @activity.work_area %></strong>
   </h1>
 </div>
 
-<%= render 'form' %>
-
-
+<div id='' class='expanded row bottom-shadow content-box special-box'>
+  <%= render 'form' %>
+</div>

@@ -1,5 +1,0 @@
-<%- headers = ['Name', 'Shifts'] -%>
-<%= CSV.generate_line headers %>
-<%- @activities.each do |activity| -%>
-  <%= CSV.generate_line([activity.work_area, activity.shift_ids]) %>
-<%- end -%>
