@@ -1,3 +1,42 @@
-<div class='col-md-12'>
-  <%= cms_snippet_content('ph-unique', @cms_site).html_safe %>
+<%#= cms_snippet_content('ph-unique', @cms_site).html_safe %>
+
+<!--SECTiONNAV-->
+<div class='expanded row blue-box-dark-outline'>
+  <div class='small-11 columns left'>
+    <h4 style='text-align:right;'>
+      <em><a href='#freedom'>Freedom | </a></em>
+      <em><a href='#experienced-staff'>Experienced Staff | </a></em>
+      <em><a href='#montessori-philosophy'>Montessori Philosophy | </a></em>
+      <em><a href='#elementary-option'>Elementary Option | </a></em>
+      <em><a href='#nutrition'>Nutrition | </a></em>
+      <em><a href='#flexible-schedules'>Flexible Schedules | </a></em>
+      <em><a href='#parent-education'>Parent Education | </a></em>
+      <em><a href='#community'>Community | </a></em>
+      <em><a href='#innovation'>Innovation | </a></em>
+      <em><a href='#tradition'>Tradition </a></em>
+    </h4>
+  </div>
+
+  <div class='small-1 columns right'>
+    <%= render 'top_button' %>
+  </div>
+</div>
+
+<div class='small-12 columns bottom-shadow content-box special-box'>
+  
+  <div class='small-12 columns'>
+    <h1 class='hi-li-green-box content-box four-rem'
+        style='color:white;font-weight:bold;text-shadow:1px 1px 1px rgba(10,41,0,0.5);'>
+      <strong><span class='kaushan'>What makes</span> <span style='color:yellow;padding-left:5px;'>PRAIRIE HILL</span> <span class='kaushan'>unique?</span></strong>
+    </h1>
+  </div>
+
+  <div class='small-12 large-6 large-centered columns'>
+    <%= image_tag "cate.jpg", class: 'small-12 columns content-box bottom-shadow' %>
+  </div>
+
+  <!--list-->
+  <div class='small-12 large-centered columns'>
+    <%= render 'pages/uniq_list' %>
+  </div>
 </div>

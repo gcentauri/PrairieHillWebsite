@@ -1,3 +1,20 @@
-<div class="content-top card">
-  <%= render 'news' %>
+<%= render 'metadata_partial' %>
+
+<div id='top' class='expanded row'>
+  <span class='special-case'></span>
+</div>
+
+<div class='small-12 columns bottom-shadow content-box special-box'>
+
+  <div class='small-12 columns'>
+    <h2 class='hi-li green padded bottom-shadow'>
+      <strong>
+        Prairie Hill in the News
+      </strong>
+    </h2>
+  </div>
+
+  <div class='small-11 small-centered columns'>
+    <%= render 'articles' %>
+  </div>
 </div>

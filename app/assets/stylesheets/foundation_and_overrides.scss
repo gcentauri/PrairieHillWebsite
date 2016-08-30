@@ -109,6 +109,14 @@ label {
     margin: 40px auto;
 }
 
+.rounded-three {
+    border-radius: 3px;
+}
+
+.rounded-five {
+    border-radius: 5px;
+}
+
 .effect3 {
     position: relative;
 }
@@ -126,6 +134,10 @@ label {
     box-shadow: 0 15px 10px #777;
     transform: rotate(3deg);
     //transform: rotate(-3deg);
+}
+
+#header {
+
 }
 
 .header {
@@ -258,7 +270,7 @@ ul.nav-main {
 }
 
 #main {
-    margin-top: 15em;
+    margin-top: 1em;
 }
 
 .content {
@@ -308,6 +320,10 @@ ul.nav-main {
 
 .green {
     color: rgba(50,154,17,0.9);
+}
+
+.yellow {
+    color: rgba(255,237,0,0.7);    
 }
 
 .padded {
@@ -360,6 +376,17 @@ ul.nav-main {
     @extend .blue-box;
     border: 1px solid rgba(235,247,246,0.7);
     margin-bottom: 3px;
+}
+
+.blue-box-dark-outline {
+    background:rgba(235,247,246,0.4);
+
+    background: linear-gradient(to left top, white, rgba(235,247,246,1));
+    /*background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));*/
+
+    border: 1px solid rgba(235,247,246,1);
 }
 
 #articles {
@@ -429,11 +456,15 @@ ul.nav-main {
 .special-case:before {
     display: block;
     content: " ";
-    margin-top: -50px;
-    height: 170px;
+    margin-top: 10px;
+    height: 130px;
     visibility: hidden;
 }
 
+.top-button {
+    position: relative;
+    top: 25px;
+}
 
 /*MEDIA QUERIES*/
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :articles
   resources :guests
   resources :activities
   resources :shifts 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :pages
-
+  
   root "pages#home"
 
   # namespace :ccf do
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
   get "news" => "pages#news"
+  get "media" => "pages#media"
   get "tours" => "pages#tours"
   get "events" => "pages#events"
   get "programs" => "pages#programs"

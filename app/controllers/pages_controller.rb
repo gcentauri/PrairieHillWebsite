@@ -4,8 +4,13 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
   end
-
+  
   def home
+    @articles = Article.all
+  end
+
+  def about
+    @articles = Article.all
   end
   
   def quiet

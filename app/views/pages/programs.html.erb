@@ -1,9 +1,11 @@
-<% meta title: "PRAIRIE HILL Learning Center Montessori Programs",
-description: "Programs for children age 18 months to 14 years",
-  keywords: %w(programs young-children elementary primary home environment)
-%>
+<%= render 'metadata_partial' %>
+<!--TOP-->
+<div id='top' class='expanded row'>
+  <span class='special-case'></span>
+</div>
 
-<div id='home-nav' class='expanded row'>
+<!--TOPNAV-->
+<div id='top-nav' class='expanded row blue-box-dark-outline'>
   <div class='small-12 columns'>
     <h4 style='text-align:right;'>
       <em><a href='#ycc'>YCC</a> |</em>  
@@ -14,7 +16,6 @@ description: "Programs for children age 18 months to 14 years",
     </h4>
   </div>
 </div>
-
 
 <!--YCC-->
 <div id='ycc' class='expanded row bottom-shadow content-box special-box'>
@@ -43,74 +44,179 @@ description: "Programs for children age 18 months to 14 years",
 <!--^^-->
 
 <!--PRIMARY-->
-<div id='primary' class='expanded row bottom-shadow content-box special-box'>
-  <!--title-->
-  <div class='small-12 columns'>
-    <div class='hi-li-box content-box'>
-      <strong><h1 class='padded kaushan green text-outline-dark'>Primary Community</h1></strong>
+<div id='primary' class='expanded row'>
+  <span class='special-case'></span>
+
+  <!--SECTiONNAV-->
+  <div class='expanded row blue-box-dark-outline'>
+
+    <div class='small-11 columns'>
+      <h4 style='text-align:right;'>
+        <em><a href='#ycc'>YCC</a> |</em>  
+        <em><a href='#primary'>PRIMARY</a> |</em>  
+        <em><a href='#elementary'>ELEMENTARY</a> |</em>  
+        <em><a href='#adolescent'>ADOLESCENT</a> |</em>  
+        <em><a href='/financial'>TUITION</a></em>
+      </h4>
     </div>
+
+    <div class='small-1 columns right'>
+      <!--TOP-BUTTON-->
+      <div class='expanded row'>
+        <div class='small-12 columns'>
+          <h4 style='text-align:right;'>
+            
+            <em><a href='#top'>
+              <span class='hi-li-gradient padded rounded-five bottom-shadow'>
+                <i class='fa fa-angle-up'></i>
+              </span>
+            </a></em>
+          </h4>
+        </div>
+      </div>
+    </div>
+    
   </div>
 
-  <!--content-->
-  <div class='small-12 columns'>
-    <div class='p-box'>
-      <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
+  <div class='small-12 columns bottom-shadow content-box special-box'>
+    <!--title-->
+    <div class='small-12 columns'>
+      <div class='hi-li-box content-box'>
+        <strong><h1 class='padded kaushan green text-outline-dark'>Primary Community</h1></strong>
+      </div>
     </div>
-  </div>
 
-  <!--image-->
-  <div class='small-12 columns'>
-    <%= image_tag("primary-program-2-15.png", class: 'bottom-shadow small-12 columns') %>
+    <!--content-->
+    <div class='small-12 columns'>
+      <div class='p-box'>
+        <%= cms_snippet_content('primary-program', @cms_site).html_safe %>
+      </div>
+    </div>
+
+    <!--image-->
+    <div class='small-12 columns'>
+      <%= image_tag("primary-program-2-15.png", class: 'bottom-shadow small-12 columns') %>
+    </div>
   </div>
 
 </div>
 <!--^^-->
 
 <!--ELEMENTARY-->
-<div id='elementary' class='expanded row bottom-shadow content-box special-box'>
-  <!--title-->
-  <div class='small-12 columns'>
-    <div class='hi-li-box content-box'>
-      <strong><h1 class='padded kaushan green text-outline-dark'>Elementary Community</h1></strong>
+<div id='elementary' class='expanded row'>
+  <span class="special-case"></span>
+
+  <!--SECTiONNAV-->
+  <div class='expanded row blue-box-dark-outline'>
+
+    <div class='small-11 columns'>
+      <h4 style='text-align:right;'>
+        <em><a href='#ycc'>YCC</a> |</em>  
+        <em><a href='#primary'>PRIMARY</a> |</em>  
+        <em><a href='#elementary'>ELEMENTARY</a> |</em>  
+        <em><a href='#adolescent'>ADOLESCENT</a> |</em>  
+        <em><a href='/financial'>TUITION</a></em>
+      </h4>
     </div>
-  </div>
 
-  <!--content-->
-  <div class='small-12 columns'>
-    <div class='p-box'>
-      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+    <div class='small-1 columns right'>
+      <!--TOP-BUTTON-->
+      <div class='expanded row'>
+        <div class='small-12 columns'>
+          <h4 style='text-align:right;'>
+            
+            <em><a href='#top'>
+              <span class='hi-li-gradient padded rounded-five bottom-shadow'>
+                <i class='fa fa-angle-up'></i>
+              </span>
+            </a></em>
+          </h4>
+        </div>
+      </div>
     </div>
+    
   </div>
+  
+  <div class='small-12 columns bottom-shadow content-box special-box'>
+    <!--title-->
+    <div class='small-12 columns'>
+      <div class='hi-li-box content-box'>
+        <strong><h1 class='padded kaushan green text-outline-dark'>Elementary Community</h1></strong>
+      </div>
+    </div>
 
-  <!--image-->
-  <div class='small-12 columns'>
-    <%= image_tag("jason_adolescents.jpg") %>
+    <!--content-->
+    <div class='small-12 columns'>
+      <div class='p-box'>
+        <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+      </div>
+    </div>
+
+    <!--image-->
+    <div class='small-12 columns'>
+      <%= image_tag("jason_adolescents.jpg") %>
+    </div>
+
   </div>
-
 </div>
 <!--^^-->
 
 <!--ADOLESCENT-->
-<div id='adolescent' class='expanded row bottom-shadow content-box special-box'>
-  <!--title-->
-  <div class='small-12 columns'>
-    <div class='hi-li-box content-box'>
-      <strong><h1 class='padded kaushan green text-outline-dark'>Adolescent Community</h1></strong>
+<div id='adolescent' class='expanded row'>
+  <span class='special-case'></span>
+
+  <!--SECTiONNAV-->
+  <div class='expanded row blue-box-dark-outline'>
+
+    <div class='small-11 columns'>
+      <h4 style='text-align:right;'>
+        <em><a href='#ycc'>YCC</a> |</em>  
+        <em><a href='#primary'>PRIMARY</a> |</em>  
+        <em><a href='#elementary'>ELEMENTARY</a> |</em>  
+        <em><a href='#adolescent'>ADOLESCENT</a> |</em>  
+        <em><a href='/financial'>TUITION</a></em>
+      </h4>
     </div>
-  </div>
 
-  <!--content-->
-  <div class='small-12 columns'>
-    <div class='p-box'>
-      <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
+    <div class='small-1 columns right'>
+      <!--TOP-BUTTON-->
+      <div class='expanded row'>
+        <div class='small-12 columns'>
+          <h4 style='text-align:right;'>
+            
+            <em><a href='#top'>
+              <span class='hi-li-gradient padded rounded-five bottom-shadow'>
+                <i class='fa fa-angle-up'></i>
+              </span>
+            </a></em>
+          </h4>
+        </div>
+      </div>
     </div>
+    
   </div>
 
-  <!--image-->
-  <div class='small-12 columns'>
-    <%= image_tag("jason_adolescents.jpg") %>
-  </div>
+  <div class='small-12 columns bottom-shadow content-box special-box'>
+    <!--title-->
+    <div class='small-12 columns'>
+      <div class='hi-li-box content-box'>
+        <strong><h1 class='padded kaushan green text-outline-dark'>Adolescent Community</h1></strong>
+      </div>
+    </div>
 
+    <!--content-->
+    <div class='small-12 columns'>
+      <div class='p-box'>
+        <%= cms_snippet_content('adolescent-program', @cms_site).html_safe %>
+      </div>
+    </div>
+
+    <!--image-->
+    <div class='small-12 columns'>
+      <%= image_tag("jason_adolescents.jpg") %>
+    </div>
+
+  </div>
 </div>
 <!--^^-->
 

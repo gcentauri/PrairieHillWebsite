@@ -1,5 +1,19 @@
 
 $(document).ready(function () {
+
+    $(window).on('scroll', function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > 50) {
+            //$('#header').stop().animate({height: "75px"}, 50);
+            //$('.subtitle').stop().animate({opacity: "0"}, 400);
+            //$('#nav-main').stop().animate({transform: "translate(-100px,0)"}), 200);
+        }
+        else {
+            //$('#header').stop().animate({height: "125px"}, 200);
+            //$('.subtitle').stop().animate({opacity: "1"}, 200);
+        }
+    });
+    
     //$('#mobile-preview-view').hide();
     
     //slick sliders
@@ -89,7 +103,6 @@ $(document).ready(function () {
 	fade: true,
 	//respondTo: 'min'
     });
-
     
     $('.programs-slider').slick({
 	autoplay: true,
@@ -149,19 +162,18 @@ $(document).ready(function () {
     //
     
     $(function($) {
-	if ($(window).width() > 767) {
-	    skrollr.init({
-		forceHeight: false,
-		smoothScrolling: false
-	    });//.refresh();
-
-	}
-
-	$(window).on('resize', function() {
-	    if ($(window).width() <= 767) {
-		skrollr.init().destroy();
-	    }
-	} (jQuery));
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
     });
     
     $(window).resize(function(){

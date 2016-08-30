@@ -1,9 +1,25 @@
+<%= render 'metadata_partial' %>
+
+<!--TOP-->
+<div id='top' class='expanded row'>
+  <span class='special-case'></span>
+</div>
+
 <!--TOPNAV-->
 <div id='home-nav' class='expanded row'>
   <div class='small-12 columns'>
-    <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
-      <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
-    <% end %>
+    <h4 style='text-align:right;'>
+      <em>
+        <%= link_to ccf_volunteer_path, class: '' do %>
+          VOLUNTEER! |
+      </em>
+      <em>
+        <%= link_to '#fun-run' do %>
+          Little Run on the Prairie!
+        <% end %>
+      </em>
+    </h4>
+        <% end %>
   </div>
 </div>
 
@@ -107,94 +123,105 @@
 </div>
 
 <!--FUN RUN-->
-<div id='fun-run' class='expanded row bottom-shadow content-box special-box'>
+<div id='fun-run' class='expanded row'>
+  <span class='special-case'></span>
 
-  <h1 class='hi-li padded green kaushan center'>
-    Little Run on the Prairie!
-  </h1>
-
-  <div class='row expanded'>
-
+  <!--SECTiONNAV-->
+  <div class='expanded row'>
     <div class='small-12 columns'>
-      
-      <h1 class='green center'><strong>Saturday, October 8th</strong></h1>
-      <hr>
-      <button class='expanded button large'
-              href='http://getmeregistered.com/LittleRunOnThePrairie'>
-        Register Online</button>
+      <h4 style='text-align:right;'>
+        <em><a href='#top'>Top </a></em> 
+      </h4>
+    </div>
+  </div>
+
+  <div class='bottom-shadow content-box special-box'>
+
+    <h1 class='hi-li padded green kaushan center'>
+      Little Run on the Prairie!
+    </h1>
+
+    <div class='row expanded'>
 
       <div class='small-12 columns'>
-        <!--info-->
-        <div class='row'>
-          <div class='small-12 columns content-box bottom-shadow'>
-            <h1 class='p-box'>
-              <strong>Little Run on the Prairie</strong> is a 1-mile fun run for children, youth and adults!  Parents are welcome to run with their children! Children need not run the entire length of the mile, they can run/walk as much as they can! Children's Country Fair immediately following the run 11-3pm.
-            </h1>
-          </div>
-          
-          <p class='padded' style='text-align:right;'><em>Non-competitive fun run -- everyone is a winner! :)</em></p>
+        
+        <h1 class='green center'><strong>Saturday, October 8th</strong></h1>
+        <hr>
+        <button class='expanded button large'
+                href='http://getmeregistered.com/LittleRunOnThePrairie'>
+          Register Online</button>
 
-        </div>
-
-
-
-        <div class='row'>
-
-          <!--left-->
-          <div class='small-12 large-6 columns left'>
-
-            <h2>
-              <a href='http://getmeregistered.com/LittleRunOnThePrairie'>
-                Register Online</a> or day-of at <em>10am in the pasture</em>
-            </h2>
-
-            <hr>
-
-            <p class='p-box'><span class='green'>$10</span> Registration</p>
-            <p class='p-box'>T-shirt with registration by September 16th</p>
-            <p class='p-box'>Packet Pick up @9:30 AM</p>
-            <p class='p-box'>ADDITIONAL DONATIONS WELCOME</p>
-
-            <hr>
-          </div>
-
-          <!--right-->
-          <div class='small-12 large-6 columns right'>
-            <%= image_tag('swanson.jpg', class: 'small-12 columns special-box bottom-shadow') %>
-            <div class='small-12 columns'>
-              <h4 class='center green text-outline-dark kaushan'>Many thanks to Scott Swanson, MD <span style='text-align:right;line-height:0.1;'>for the title sponsorship of this event!</h4>
+        <div class='small-12 columns'>
+          <!--info-->
+          <div class='row'>
+            <div class='small-12 columns content-box bottom-shadow'>
+              <h1 class='p-box'>
+                <strong>Little Run on the Prairie</strong> is a 1-mile fun run for children, youth and adults!  Parents are welcome to run with their children! Children need not run the entire length of the mile, they can run/walk as much as they can! Children's Country Fair immediately following the run 11-3pm.
+              </h1>
             </div>
-
-            <div class='row hidden'>
-              <div class='small-10 small-centered columns'>
-                <p class='p-box'>
-                  <a href='https://www.facebook.com/events/119411401842459/'>Facebook Event</a> |
-                  <a href='http://getmeregistered.com/LittleRunOnThePrairie'>Register Online</a>
-                </p>
-              </div>
-            </div>
+            
+            <p class='padded' style='text-align:right;'><em>Non-competitive fun run -- everyone is a winner! :)</em></p>
             
           </div>
 
-          <br>
-          
+          <div class='row'>
+
+            <!--left-->
+            <div class='small-12 large-6 columns left'>
+
+              <h2>
+                <a href='http://getmeregistered.com/LittleRunOnThePrairie'>
+                  Register Online</a> or day-of at <em>10am in the pasture</em>
+              </h2>
+
+              <hr>
+
+              <p class='p-box'><span class='green'>$10</span> Registration</p>
+              <p class='p-box'>T-shirt with registration by September 16th</p>
+              <p class='p-box'>Packet Pick up @9:30 AM</p>
+              <p class='p-box'>ADDITIONAL DONATIONS WELCOME</p>
+
+              <hr>
+            </div>
+
+            <!--right-->
+            <div class='small-12 large-6 columns right'>
+              <%= image_tag('swanson.jpg', class: 'small-12 columns special-box bottom-shadow') %>
+              <div class='small-12 columns'>
+                <h4 class='center green text-outline-dark kaushan'>Many thanks to Scott Swanson, MD <span style='text-align:right;line-height:0.1;'>for the title sponsorship of this event!</span></h4>
+              </div>
+
+              <div class='row hidden'>
+                <div class='small-10 small-centered columns'>
+                  <p class='p-box'>
+                    <a href='https://www.facebook.com/events/119411401842459/'>Facebook Event</a> |
+                    <a href='http://getmeregistered.com/LittleRunOnThePrairie'>Register Online</a>
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+
+            <br>
+            
+          </div>
         </div>
       </div>
+
     </div>
 
-  </div>
+    <div class='row expanded'>
 
-  <div class='row expanded'>
+      <div class='small-12 columns'>
+        
+        
+        <button class='expanded button large'
+                href='http://getmeregistered.com/LittleRunOnThePrairie'>
+          Register Online</button>
+        
+      </div>
 
-    <div class='small-12 columns'>
-      
-      
-      <button class='expanded button large'
-              href='http://getmeregistered.com/LittleRunOnThePrairie'>
-        Register Online</button>
-      
     </div>
-
   </div>
 </div>
 <!---->

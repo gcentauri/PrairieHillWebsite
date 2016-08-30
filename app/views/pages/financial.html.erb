@@ -1,8 +1,30 @@
-<%#= render 'financial_info_button' %>
+<%= render 'metadata_partial' %>
+<!--TOP-->
 
-<!--FINANCIAL-->
+<div id='top' class='expanded row'>
+  <span class='special-case'></span>
+</div>
+
+<!--TOPNAV-->
+<div id='home-nav' class='expanded row blue-box-dark-outline'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'>
+      <em><a href='/programs'>PROGRAMS</a></em>
+    </h4>
+  </div>
+</div>
+
+<!--MAIN-->
 <div id='financial' class='expanded row bottom-shadow content-box special-box'>
 
+  <div class='small-12 columns'>
+    <h2 class='hi-li-gradient green padded bottom-shadow'>
+      <strong>
+        Financial Information
+      </strong>
+    </h2>
+  </div>
+  
   <div class='small-12 columns'>
     <h3>Click <strong>
       <%= link_to "HERE", "http://s3.amazonaws.com/PHill/comfy/cms/files/files/000/000/058/original/Financial_Information_September_1__2016.pdf" %></strong> to download a copy of the most current Financial Information and Policies.</h3>
