@@ -54,27 +54,6 @@
       <div class='small-12 medium-4 columns padded'>
         <%= image_tag('books.jpg', class: 'bottom-shadow padded') %>
       </div>
-
-      <!--ACTIVITY BUTTONS-->
-      <div class='small-12 columns padded'>
-        <% @activities.each do |activity| %>
-          <div class='button large small-12 medium-4 columns bottom-shadow rounded-five' style='border:3px solid white;height:100px;'>
-            <div class='small-11 small-centered columns'>
-              <!--work area-->
-              <h3 style='margin-top:10!important;'>
-                <strong>
-                  <%= activity.work_area %>
-                </strong>
-              </h3>
-              <!--activity shifts-->
-              <% activity.shift_ids.each do |shift_id| %>
-                <%= @shifts.where(id: shift_id) %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      
       <!--image-->
       <div class='small-12 medium-4 columns padded'>
         <%= image_tag('bubbles-2.jpg', class: 'bottom-shadow padded') %>
@@ -101,7 +80,9 @@
       </div>
     </div>
 
-    
+    <%= @activities.each do |activity| %>
+      <%= activity.work_area %>
+    <% end %>
     
   </div>
 
@@ -216,3 +197,4 @@
   </div>
   <!---->
 </div>
+

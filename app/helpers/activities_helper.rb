@@ -1,5 +1,10 @@
 module ActivitiesHelper
-  
+
+  def get_activity_shifts
+
+  end
+
+  ###############################
   def get_closed_shifts
     Shift.where.not(user_id: nil)
   end

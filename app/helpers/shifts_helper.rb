@@ -1,5 +1,5 @@
 module ShiftsHelper
-
+  
   def get_times
 
     days = ["October 7th", "October 8th"]

@@ -21,23 +21,30 @@
 <div id='ycc' class='expanded row bottom-shadow content-box special-box'>
   <!--title-->
   <div class='small-12 columns'>
-    <div class='hi-li-box content-box'>
-      <strong><h1 class='padded kaushan text-outline-dark'><span class='text-outline-darker' style='color:white;'>
-        <i class='fa fa-child'></i></span>
-        <span class='green'>Young Children's Community</span></h1></strong>
-    </div>
-  </div>
-
-  <!--content-->
-  <div class='small-12 columns'>
-    <div class='p-box'>
-      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
+    <div class='hi-li-gradient content-box'>
+      <strong>
+        <h1 class='padded kaushan text-outline-dark'>
+          <span class='text-outline-darker' style='color:white;'>
+            <i class='fa fa-child'></i></span>
+          <span class='green'>Young Children's Community</span></h1></strong>
     </div>
   </div>
 
   <!--image-->
-  <div class='small-12 columns'>
-    <%= image_tag("feeding-patches.png", class: 'bottom-shadow') %>
+  <div class='small-12 large-6 columns padded'>
+    <%= image_tag("feeding-patches.png", class: 'bottom-shadow padded') %>
+  </div>
+
+  <!--image-->
+  <div class='small-0 medium-6 left columns padded'>
+    <%= image_tag("about.png", class: 'bottom-shadow padded') %>
+  </div>
+  
+  <!--content-->
+  <div class='small-12 medium-6 large-12 right columns'>
+    <div class='p-box'>
+      <%= cms_snippet_content('ycc-program', @cms_site).html_safe %>
+    </div>
   </div>
 
 </div>
@@ -81,8 +88,12 @@
   <div class='small-12 columns bottom-shadow content-box special-box'>
     <!--title-->
     <div class='small-12 columns'>
-      <div class='hi-li-box content-box'>
-        <strong><h1 class='padded kaushan green text-outline-dark'>Primary Community</h1></strong>
+      <div class='hi-li-gradient content-box'>
+        <strong>
+          <h1 class='padded kaushan green text-outline-dark'>
+            <span class='text-outline-darker' style='color:white;'>
+              <i class='fa fa-child'></i></span>
+              Primary Community</h1></strong>
       </div>
     </div>
 
@@ -136,12 +147,17 @@
     </div>
     
   </div>
-  
+
+  <!--main-->
   <div class='small-12 columns bottom-shadow content-box special-box'>
     <!--title-->
     <div class='small-12 columns'>
-      <div class='hi-li-box content-box'>
-        <strong><h1 class='padded kaushan green text-outline-dark'>Elementary Community</h1></strong>
+      <div class='hi-li-gradient content-box'>
+        <strong><h1 class='padded kaushan green text-outline-dark'>
+          <span class='text-outline-darker' style='color:white;'>
+            <i class='fa fa-child'></i></span>
+          Elementary Community</h1>
+        </strong>
       </div>
     </div>
 

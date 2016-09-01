@@ -9,13 +9,13 @@
 <div id='top-nav' class='expanded row'>
   <div class='small-12 columns'>
     <h4 style='text-align:right;'>
-      <em><a href='#shifts-volunteer'>Volunteer Below!</a></em>
+      <em><a class='hidden' href='#shifts-volunteer'>Volunteer Below!</a></em>
     </h4>
   </div>
 </div>
 
 <!--CCF-INFO-->
-<div id='ccf-info' class='expanded row'>
+<div id='ccf-info' class='hidden expanded row'>
 
   <div class='small-12 columns bottom-shadow content-box special-box'>
 
@@ -84,7 +84,7 @@
 
 <!--VOLUNTEER-->
 <div id='shifts-volunteer' class='expanded row'>
-  <span class='special-case'></span>
+  <span class='hidden special-case'></span>
 
   <!--SECTiONNAV-->
   <div class='expanded row blue-box-dark-outline'>
@@ -95,7 +95,7 @@
 
     <div class='small-1 columns right'>
       <!--TOP-BUTTON-->
-      <div class='expanded row'>
+      <div class='hidden expanded row'>
         <div class='small-12 columns'>
           <h4 style='text-align:right;'>
             
@@ -156,6 +156,10 @@
         <%= image_tag('treasure.jpg', class: 'bottom-shadow padded') %>
       </div>
     </div>
+
+    <%= @activities.each do |activity| %>
+      <%= activity.work_area %>
+    <% end %>
     
   </div>
 

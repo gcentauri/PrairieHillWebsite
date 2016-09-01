@@ -38,8 +38,8 @@ Rails.application.routes.draw do
   get "uniq" => "pages#unique"
   get "financial" => "pages#financial"
   get "ccf" => "pages#ccf"
-  get "ccf_volunteer" => "shifts#volunteer"
-  get "user_shifts" => "shifts#user_shifts"
+  get "ccf_volunteer" => "activities#index"
+  #get "user_shifts" => "shifts#user_shifts"
 
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true
