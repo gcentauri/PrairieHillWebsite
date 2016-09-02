@@ -94,6 +94,18 @@ label {
     text-align: center;
 }
 
+.text-center {
+    @extend .center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
 .box h1 {
     @extend .center;
     //text-align: center;
@@ -249,6 +261,12 @@ ul.nav-main {
     border-radius:3px;
 }
 
+#top-nav {
+    //@extend .bottom-shadow;
+    border-top: 1px solid rgba(0,39,23,0.1);
+    border-bottom: 1px solid rgba(0,39,23,0.1);
+}
+
 #nav-mobile-icon {
     font-size: 3vw;
     margin:0;
@@ -272,6 +290,20 @@ ul.nav-main {
 
 #main {
     margin-top: 1em;
+}
+
+#sidebar-left {
+    position: fixed;
+    left: 0;
+}
+
+#sidebar-right {
+    position: fixed;
+    right: 0;
+}
+
+.sidebar-item {
+    margin-bottom: 10px;
 }
 
 .content {
@@ -329,6 +361,27 @@ ul.nav-main {
 
 .padded {
     padding: 15px;
+}
+
+.padded-left-5 {
+    padding-left: 5px;
+}
+
+.padded-left {
+    padding-left: 15px;
+}
+
+.padded-right {
+    padding-right: 15px;
+}
+
+.padded-sides {
+    @extend .padded-left;
+    @extend .padded-right;
+}
+
+.padded-top-5 {
+    padding-top: 5px;
 }
 
 .hi-li-box {
@@ -462,6 +515,14 @@ ul.nav-main {
     visibility: hidden;
 }
 
+.sidebar-buffer-top:before {
+    display: block;
+    content: " ";
+    margin-top: 10px;
+    height: 200px;
+    visibility: hidden;
+}
+
 .top-button {
     position: relative;
     top: 25px;
@@ -526,6 +587,14 @@ ul.nav-main {
 @media screen and (max-width:1018px) {
     .title {
         left:0;
+    }
+
+    #sidebar-left {
+        display: none;
+    }
+
+    #sidebar-right {
+        display: none;
     }
 }
 

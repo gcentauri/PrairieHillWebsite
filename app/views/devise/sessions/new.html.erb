@@ -1,78 +1,60 @@
-<div class='row'>
-  <h2 class="hi-li padded">Sign in</h2>
+<%= render 'pages/metadata_partial' %>
+<!--TOP-->
+<div id='top' class='expanded row'>
+  <span class='special-case'></span>
 </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class='row'>
-    <div class='small-8 small-centered columns'>
+<!--TOPNAV-->
+<div id='top-nav' class='expanded row blue-box-dark-outline'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'>
+    </h4>
+  </div>
+</div>
 
-      <div class='row'>
-	<div class='small-6 columns'>
-	  <%= f.label "Username or Email", class: 'form-set' %>
-	  <%= f.text_field :login, class: 'form-control', class: 'form-set' %>
-	</div>
-	<div class='small-6 columns'>
-	  <%= f.label :password, class: 'form-set' %>
-	  <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: '*******' %>
-	</div>
-      </div>
-    </div>
+<div class='expanded row bottom-shadow content-box special-box'>
+
+  <div class='small-12 columns'>
+    <h2 class="kaushan hi-li-gradient padded bottom-shadow text-outline-dark">Sign in</h2>
   </div>
 
-  <div class='row'>
-    <div class='small-7 small-centered columns'>
-      <div class='small-5 columns'>
-	<% if devise_mapping.rememberable? -%>
-	  <%= f.label :remember_me, class: 'font-set' %>
-	  <%= f.check_box :remember_me %>
-	<% end -%>
-      </div>
-      <div class='small-5 columns'>
-	<ul class='button-group even-2'>
-	  <li><%= f.submit "Sign in", class: 'button' %></li>
-	  <li><%= link_to "Sign up", new_user_registration_path, class: 'button' %></li>
-	</ul>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-<% content_for :small do %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-    <div style='position:fixed;top:4%;'>
+    <div class='expanded row'>
       <div class='small-12 small-centered columns'>
-	<div class='small-6 left columns'>
-	  <%= f.label "Username or Email", class: 'mobile-text label bottom-shadow' %>
-	</div>
-	<div class='small-6 right columns'>
-	  <%= f.text_field :login, class: 'mobile-input' %>
-	</div>
-      </div>
 
-      <div class='small-12 small-centered columns'>
-	<%= f.label :password, class: 'mobile-text label bottom-shadow' %>
-	<%= f.password_field :password, autocomplete: "off", placeholder: '*******', class: 'mobile-input' %>
-      </div>
+        <!--email-->
+        <div class='expanded row'>
+	  <div class='small-6 small-centered columns'>
+	    <%= f.label "Email" %>
+	    <%= f.text_field :login %>
+	  </div>
+        </div>
+        <!--password-->
+        <div class='expanded row'>
+	  <div class='small-6 small-centered columns'>
+	    <%= f.label :password %>
+	    <%= f.password_field :password, autocomplete: "off", placeholder: '*******' %>
+	  </div>
+        </div>
+        <!--remember me / buttons-->
+        <div class='expanded row'>
+          <div class='small-6 small-centered columns'>
+            <% if devise_mapping.rememberable? -%>
+	      <%= f.label :remember_me, class: 'font-set' %>
+	      <%= f.check_box :remember_me %>
+	    <% end -%>
 
-      <div class='small-12 small-centered columns'>
-	<% if devise_mapping.rememberable? -%>
-	  <%= f.label :remember_me, class: 'mobile-text label bottom-shadow' %>
-	  <%= f.check_box :remember_me %>
-	<% end -%>
-      </div>
-
-      <div class='small-12 small-centered columns'>
-	<div class='small-6 columns left'>
-	  <%= f.submit "Sign in", class: 'button success bottom-shadow' %>
-	</div>
-	<div class='small-6 columns right'>
-	  <%= link_to "Sign up", new_user_registration_path, class: 'button success bottom-shadow' %>
-	</div>
+            <div class='small-6 columns right'>
+              <div class='small-6 columns left'>
+	        <%= f.submit 'Sign In', class: 'button large' %>
+              </div>
+              <div class='small-6 columns right'>
+	        <%= link_to "Sign up", new_user_registration_path, class: 'button large' %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
   <% end %>
-<% end %>
-
-
+</div>

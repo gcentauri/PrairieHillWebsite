@@ -26,13 +26,101 @@
     <div id='main' class='expanded row'>
       <div class='small-12 columns'>
 
+        <!--SIDEBAR LEFT-->
+        <div id='sidebar-left' class='large-2 columns left'>
+
+          <div class='small-12 small-centered columns'>
+
+            <div class='expanded row'>
+              <span class='sidebar-buffer-top'></span>
+            </div>
+
+            <!--SPECIAL-->
+            <div class='sidebar-item'>
+              <div class='hi-li-gradient expanded row bottom-shadow'>
+                <strong>
+                  <i class='fa fa-pagelines padded-left-5'></i>
+                  <em>
+                    <%= link_to "Children's Country Fair!", ccf_path %>
+                  </em>
+                </strong>
+              </div>
+              <div class='row'>
+                <div id='sidebar-content' class='small-11 columns small-centered padded-top-5'>
+                  <strong>
+                    Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
+                    <%= yield :leftside %>
+                  </strong>
+                </div>
+              </div>
+            </div>
+
+            <div class='sidebar-item'>
+              <div class='hi-li-gradient expanded row bottom-shadow'>
+                <strong>
+                  <i class='fa fa-pagelines padded-left-5'></i>
+                  <em><%= link_to 'Parent Tours', tours_path %></em>
+                </strong>
+              </div>
+              <div class='row'>
+                <div class='small-11 columns small-centered padded-top-5'>
+                  <strong>
+                    <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
+                  </strong>
+                </div>
+              </div>
+            </div>
+            <!--SPECIAL-->
+          </div>
+        </div>
+        <!--SIDEBAR LEFT-->
+        
         <!--CONTENT-->
-        <div id='content' class='small-12 large-7 large-centered columns'>
+        <div id='content' class='small-12 large-8 large-centered columns'>
           <div class='small-12 large-12 columns'>
             <%= yield %>
           </div>
         </div>
-        
+        <!--CONTENT-->
+
+        <!--SIDEBAR RIGHT-->
+        <div id='sidebar-right' class='large-2 columns right'>
+
+          <div class='small-12 small-centered columns'>
+
+            <div class='expanded row'>
+              <span class='sidebar-buffer-top'></span>
+            </div>
+
+            <!--QUICK INFO-->
+            <div class='expanded row blue-box-dark-outline bottom-shadow'>
+              <strong>
+                <i class='fa fa-pagelines padded-left-5'></i>
+                <em><%= link_to 'Account', edit_user_registration_path %></em>
+              </strong>
+            </div>
+            <div class='row'>
+              <div class='small-11 columns small-centered padded-top-5'>
+                <strong>
+                  <em><%= link_to 'Sign Up', new_user_registration_path %></em><br>
+                  <em><%= link_to 'Sign In', new_user_session_path %></em><br>
+                  <em><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></em><br>
+                  <%= yield :rightside %>
+                </strong>
+              </div>
+            </div>
+            <!--QUICK INFO-->
+            <!--PAGE SPECIFIC INFO-->
+            <div class='row'>
+              <div class='small-11 columns'>
+                <%= yield :rightside %>
+              </div>
+            </div>
+            <!--PAGE SPECIFIC INFO-->            
+          </div>
+        </div>
+        <!--SIDEBAR RIGHT-->
+
       </div>
     </div>
 
