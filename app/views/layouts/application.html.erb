@@ -46,7 +46,7 @@
                 </strong>
               </div>
               <div class='row'>
-                <div id='sidebar-content' class='small-11 columns small-centered padded-top-5'>
+                <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <strong>
                     Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
                     <%= yield :leftside %>
@@ -63,7 +63,7 @@
                 </strong>
               </div>
               <div class='row'>
-                <div class='small-11 columns small-centered padded-top-5'>
+                <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <strong>
                     <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>
                   </strong>
@@ -100,7 +100,7 @@
               </strong>
             </div>
             <div class='row'>
-              <div class='small-11 columns small-centered padded-top-5'>
+              <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                 <strong>
                   <em><%= link_to 'Sign Up', new_user_registration_path %></em><br>
                   <em><%= link_to 'Sign In', new_user_session_path %></em><br>

@@ -261,10 +261,12 @@ ul.nav-main {
     border-radius:3px;
 }
 
-#top-nav {
+#top-nav {}
+
+.section-nav {
     //@extend .bottom-shadow;
-    border-top: 1px solid rgba(0,39,23,0.1);
-    border-bottom: 1px solid rgba(0,39,23,0.1);
+    border-top: 1px solid rgba(0,39,23,0.1) !important;
+    border-bottom: 1px solid rgba(0,39,23,0.1) !important;
 }
 
 #nav-mobile-icon {
@@ -304,6 +306,15 @@ ul.nav-main {
 
 .sidebar-item {
     margin-bottom: 10px;
+}
+
+.sidebar-content {
+    border-left: 1px solid rgba(0,39,23,0.1);
+    @extend .bottom-shadow;
+    @extend .padded;
+    @extend .blue-box-dark-outline;
+    position: relative;
+    z-index: -1;
 }
 
 .content {
