@@ -1,6 +1,10 @@
 <% if user_signed_in? %>
-  <li><em><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></em><br></li>
+  <em><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></em>
 <% else %>
-  <li><em><%= link_to 'Sign In', new_user_session_path %></em><br></li>
-  <li><em><%= link_to 'Facebook', '/users/auth/facebook' %></em><br></li>
+  <%= link_to '/users/auth/facebook' do %>
+    <%= image_tag "fb-login.png", class: 'bottom-shadow' %>
+  <% end %>
+  <strong>
+    <%= link_to 'Sign in with Email', new_user_session_path, class: 'button large expanded padded rounded-five bottom-shadow' %>
+  </strong>
 <% end %>

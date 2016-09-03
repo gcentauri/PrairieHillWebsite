@@ -184,7 +184,7 @@ label {
 
     .maintitle {
         padding-left: 4px;
-        font-size:2vw;
+        //font-size:2vw;
         border-radius:2px;
         line-height:0.7;
     }
@@ -287,14 +287,14 @@ ul.nav-main {
 }
 
 #nav-mobile-icon {
-    font-size: 2vw;
+    //font-size: 2vw;
     margin:0;
     //color:#79DAE4;
     color: rgba(117,183,189,1);
 }
 
 #nav-mobile-auth-icon {
-    font-size: 2vw;
+    //font-size: 2vw;
     margin: 0;
     //color: rgba(235,255,240,1);
     color: rgba(117,183,189,1);
@@ -338,21 +338,25 @@ ul.nav-main {
 }
 
 .sidebar-content {
-    border-left: 1px solid rgba(0,39,23,0.1);
-//    @extend .bottom-shadow;
     @extend .padded;
-//    @extend .blue-box-dark-outline;
+
+    border-left: 1px solid rgba(0,39,23,0.1);
     position: relative;
-//    z-index: -1;
+}
 
-    .raise {
-//        position: relative;
-//        z-index: 10 !important;
+.shift-content {
+    @extend .blue-box;
+    border-top: 1px solid rgba(0,39,23,0.2);
+    border-left: 1px solid rgba(0,39,23,0.2);
+    position: relative;
+}
 
-        a {
-//            z-index: 10 !important;
-        }
-    }
+.staff-content {
+    @extend .shift-content;
+}
+
+select {
+    height: 3.4375rem;
 }
 
 .content {
@@ -627,20 +631,31 @@ ul.nav-main {
 
 
 /*MAX*/
+@media screen and (max-width:848px) {
+}
+
 @media screen and (max-width:948px) {
     
     .title {
         .maintitle {
-            font-size: 8vw;
+            //font-size: 8vw;
         }
         .subtitle {
-            font-size: 5vw;
+            //font-size: 5vw;
         }
     }
 
     #nav-mobile-icon {
-        font-size: 6vw;
+        //font-size: 5vw;
     }
+
+    ul.nav-main {
+        left: 15px;
+    }
+    ul.nav-auth {
+        left: 45px;
+    }
+
 }
 
 @media screen and (max-width:1018px) {

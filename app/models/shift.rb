@@ -2,6 +2,7 @@ class Shift < ActiveRecord::Base
   #has_and_belongs_to_many :users, :dependent => :destroy
   #accepts_nested_attributes_for :users
 
+  belongs_to :activity
   belongs_to :user
   belongs_to :guest
 

@@ -50,17 +50,12 @@
     <hr/>
     
     <div class="row">
-      <div class='col-md-10'>
+      <div class='small-10 columns'>
 	<h2>Shifts</h2>
-	<%# get_times %>
 	<hr/>
 
-	<h3>Preparation</h3>
-
 	<%= f.fields_for :shifts do |shift| %>
-	  <%# if shift.object.category == 'Preparation' %>
-	  <%#= render 'shift_fields', f: shift %>
-	  <%# end %>
+	  <%= render 'shift_fields', f: shift %>
 	<% end %>
 	<div class='links'>
 	  <%= link_to_add_association f, :shifts do %>
@@ -69,97 +64,6 @@
 	</div>
 
 	<hr/>
-
-	<h3>Stations</h3>
-	
-	<hr/>
-
-	<%= f.fields_for :shifts do |shift| %>
-	  <%# if shift.object.category == 'Station' %>
-	  <%#= render 'shift_fields', f: shift %>
-	  <%# end %>
-	<% end %>
-
-	<!-- <h4>11-12</h4>-->
-	
-	<!-- <%#= f.fields_for :shifts do |shift| %>-->
-	<!--   <%# if shift.object.category == 'Station' %>-->
-	<!--     <%# if shift.object.start_time == @times['Sat 11am'] %>-->
-	<!--       <%#= render 'shift_fields', f: shift %>-->
-	<!--     <%# end %>-->
-	<!--   <%# end %>-->
-	<!-- <%# end %>-->
-	<!-- <div class='links'>-->
-	<!--   <%#= link_to_add_association f, :shifts do %>-->
-	<!--     <i class='fa fa-plus'></i>-->
-	<!--   <%# end %>-->
-	<!-- </div>-->
-
-	<!-- <hr/>-->
-	<!-- <h4>12-1</h4>-->
-
-	<!-- <%#= f.fields_for :shifts do |shift| %>-->
-	<!--   <%# if shift.object.category == 'Station' %>-->
-	<!--     <%# if shift.object.start_time == @times['Sat 12pm'] %>-->
-	<!--       <%#= render 'shift_fields', f: shift %>-->
-	<!--     <%# end %>-->
-	<!--   <%# end %>-->
-	<!-- <%# end %>-->
-	<!-- <div class='links'>-->
-	<!--   <%#= link_to_add_association f, :shifts do %>-->
-	<!--     <i class='fa fa-plus'></i>-->
-	<!--   <%# end %>-->
-	<!-- </div>-->
-
-	<!-- <hr/>-->
-	<!-- <h4>1-2</h4>-->
-
-	<!-- <%#= f.fields_for :shifts do |shift| %>-->
-	<!--   <%# if shift.object.category == 'Station' %>-->
-	<!--     <%# if shift.object.start_time == @times['Sat 1pm'] %>-->
-	<!--       <%#= render 'shift_fields', f: shift %>-->
-	<!--     <%# end %>-->
-	<!--   <%# end %>-->
-	<!-- <%# end %>-->
-	<!-- <div class='links'>-->
-	<!--   <%#= link_to_add_association f, :shifts do %>-->
-	<!--     <i class='fa fa-plus'></i>-->
-	<!--   <%# end %>-->
-	<!-- </div>-->
-
-	<!-- <hr/>-->
-	<!-- <h4>2-3</h4>-->
-
-	<!-- <%#= f.fields_for :shifts do |shift| %>-->
-	<!--   <%# if shift.object.category == 'Station' %>-->
-	<!--     <%# if shift.object.start_time == @times['Sat 2pm'] %>-->
-	<!--       <%#= render 'shift_fields', f: shift %>-->
-	<!--     <%# end %>-->
-	<!--   <%# end %>-->
-	<!-- <%# end %>-->
-
-	<div class='links'>
-	  <%= link_to_add_association f, :shifts do %>
-	    <i class='fa fa-plus'></i>
-	  <% end %>
-	</div>
-	
-
-	<hr/>
-
-	<h3>Tear Down</h3>
-	
-	<%= f.fields_for :shifts do |shift| %>
-	  <%# if shift.object.category == 'Tear Down' %>
-	  <%#= render 'shift_fields', f: shift %>
-	  <%# end %>
-	<% end %>
-	<div class='links'>
-	  <%= link_to_add_association f, :shifts do %>
-	    <i class='fa fa-plus'></i>
-	  <% end %>
-	</div>
-
       </div>
     </div>
 
