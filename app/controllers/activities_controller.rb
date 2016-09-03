@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
 #class ActivitiesController < InheritedResources::Base
 
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @shifts = Shift.all

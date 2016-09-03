@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829184840) do
+ActiveRecord::Schema.define(version: 20160903035158) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -180,6 +180,16 @@ ActiveRecord::Schema.define(version: 20160829184840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -231,9 +241,13 @@ ActiveRecord::Schema.define(version: 20160829184840) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
   add_index "users", ["admin"], name: "index_users_on_admin"
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["first_name"], name: "index_users_on_first_name"
   add_index "users", ["last_name"], name: "index_users_on_last_name"

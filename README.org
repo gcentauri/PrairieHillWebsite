@@ -547,11 +547,12 @@
 **** ├── concerns
 **** ├── contacts_controller.rb
 **** ├── events_controller.rb
+**** ├── [[./app/controllers/omniauth_callbacks_controller.rb][omniauth_callbacks_controller.rb]]
 **** ├── pages_controller.rb
 **** ├── registrations_controller.rb
-**** ├── sessions_controller.rb
+**** ├── [[./app/controllers/sessions_controller.rb][sessions_controller.rb]]
 **** ├── [[./app/controllers/shifts_controller.rb][shifts_controller.rb]]
-**** ├── users_controller.rb
+**** ├── [[./app/controllers/users_controller.rb][users_controller.rb]]
 **** └── volunteers_controller.rb
 
 *** ├── [[./app/helpers][helpers]]
@@ -567,7 +568,7 @@
 *** ├── mailers
 *** ├── [[./app/models][models]]
 
-**** ├── ability.rb
+**** ├── [[./app/models/ability.rb][ability.rb]]
 **** ├── [[./app/models/activity.rb][activity.rb]]
 **** ├── admin.rb
 **** ├── comfy
@@ -575,6 +576,7 @@
 **** ├── contact.rb
 **** ├── event.rb
 **** ├── [[./app/models/guest.rb][guest.rb]]
+**** ├── [[./app/models/identity.rb][identity.rb]]
 **** ├── .keep
 **** ├── page.rb
 **** ├── [[./app/models/shift.rb][shift.rb]]
@@ -703,6 +705,10 @@
 ***** ├── user_shifts.html.erb
 ***** └── [[./app/views/shifts/volunteer.html.erb][volunteer.html.erb]]
 
+**** ├── [[./app/views/users][users]]
+
+***** ├── [[./app/views/users/finish_signup.html.erb][finish_signup.html.erb]]
+
 **** └── volunteers
 
 ** ├── bin
@@ -735,7 +741,7 @@
 **** ├── inflections.rb
 **** ├── log_level.rb
 **** ├── mime_types.rb
-**** ├── omniauth.rb
+**** ├── [[./config/initializers/omniauth.rb][omniauth.rb]]
 **** ├── rails_admin.rb
 **** ├── ranged_datetime_wrapper.rb
 **** ├── refile.rb
@@ -785,7 +791,16 @@
     #+end_src
 
 ** ├── config.ru
-** ├── db
+** ├── [[./db][db]]
+
+*** ├── cms_fixtures
+*** ├── development.sqlite3
+*** ├── [[./db/migrate][migrate]]
+*** ├── [[./db/schema.rb][schema.rb]]
+*** ├── seeds.rb
+*** ├── VolSpreadsheet.csv
+*** └── VolSpreedsheet.xlsx
+
 ** ├── dev
 ** ├── docs
 ** ├── dump.rdb

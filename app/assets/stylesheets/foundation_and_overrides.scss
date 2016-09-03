@@ -210,6 +210,23 @@ label {
     padding: 0;
 }
 
+ul.nav-auth {
+    @extend .bottom-shadow;
+
+    margin: 8px 0 0 4px;
+    border: 1px solid rgba(0,39,23,0.2);
+    border-radius: 2px;
+    
+    position: absolute;
+    top: 90px;
+    left: 6.5%;
+    background: white;
+
+    li {
+        padding-bottom: 1px;
+    }
+}
+
 ul.nav-main {
     @extend .bottom-shadow;
     
@@ -230,7 +247,7 @@ ul.nav-main {
     
     li {
         background: #f7f7f3;
-        padding-bottom: 1px;
+        //padding-bottom: 1px;
         a {
             color: rgba(10,41,0,0.8);
             font-weight: bold;
@@ -270,9 +287,16 @@ ul.nav-main {
 }
 
 #nav-mobile-icon {
-    font-size: 3vw;
+    font-size: 2vw;
     margin:0;
     //color:#79DAE4;
+    color: rgba(117,183,189,1);
+}
+
+#nav-mobile-auth-icon {
+    font-size: 2vw;
+    margin: 0;
+    //color: rgba(235,255,240,1);
     color: rgba(117,183,189,1);
 }
 
@@ -308,13 +332,27 @@ ul.nav-main {
     margin-bottom: 10px;
 }
 
+.sidebar-headline {
+    position: relative;
+    z-index: 1;
+}
+
 .sidebar-content {
     border-left: 1px solid rgba(0,39,23,0.1);
-    @extend .bottom-shadow;
+//    @extend .bottom-shadow;
     @extend .padded;
-    @extend .blue-box-dark-outline;
+//    @extend .blue-box-dark-outline;
     position: relative;
-    z-index: -1;
+//    z-index: -1;
+
+    .raise {
+//        position: relative;
+//        z-index: 10 !important;
+
+        a {
+//            z-index: 10 !important;
+        }
+    }
 }
 
 .content {
@@ -543,9 +581,19 @@ ul.nav-main {
 
 /*MIN*/
 
+@media screen and (min-width:1018px) {
+    #mobile-auth-nav {
+        //display: none;
+    }
+}
+
 @media screen and (min-width:1028px) {
     ul.nav-main {
         left: 9%;
+    }
+
+    ul.nav-auth {
+        display: none;
     }
 }
 

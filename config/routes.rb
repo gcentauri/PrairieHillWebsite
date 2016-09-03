@@ -5,16 +5,21 @@ Rails.application.routes.draw do
   resources :activities
   resources :shifts 
   resources :volunteers
-
-  #resources :volunteer, :controller => "shifts"
+  resources :pages
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
  
   comfy_route :cms_admin, :path => '/admin'
 
-  devise_for :users
-  resources :pages
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  # authenticated :user do
+  #   resources :activities, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+  #   #resources :activities
+  # end
+
   
   root "pages#home"
 
@@ -41,6 +46,10 @@ Rails.application.routes.draw do
   get "ccf_volunteer" => "activities#index"
   #get "user_shifts" => "shifts#user_shifts"
 
+  # devise_scope :user do
+  #   get '/auth/:provider/callback', to: 'devise/sessions#create'
+  # end
+  
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true
 end

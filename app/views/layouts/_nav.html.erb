@@ -2,7 +2,7 @@
 
   <ul class="dropdown menu nav-main" data-dropdown-menu data-options='disableHover:true;clickOpen:true'>
     <li class='is-dropdown-submenu-parent'>
-      <a href="#" class='mobile-icon-link' style='font-size:3vw;padding:5px;'>
+      <a href="#" class='mobile-icon-link' style='padding:5px;'>
         <i id='nav-mobile-icon'
            class='fa fa-chevron-circle-down center text-outline-darker'
            style=''></i>
@@ -14,6 +14,19 @@
       
     </li>
   </ul>
+
+  <ul class="dropdown menu nav-auth" data-dropdown-menu data-options='disableHover:true;clickOpen:true'>
+    <li class='is-dropdown-submenu-parent'>
+      <a href="#" class='mobile-icon-link' style='padding:5px;'>
+        <i id='nav-mobile-auth-icon'
+           class='fa fa-cog center text-outline-darker'></i>
+      </a>
+
+      <ul class='menu nav-auth'>
+        <%= render 'layouts/auth_nav' %>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <div id='nav-full'>
@@ -21,3 +34,5 @@
     <%= render 'layouts/nav_list' %>
   </ul>
 </div>
+
+

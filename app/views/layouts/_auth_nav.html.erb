@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <li><em><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></em><br></li>
+<% else %>
+  <li><em><%= link_to 'Sign In', new_user_session_path %></em><br></li>
+  <li><em><%= link_to 'Facebook', '/users/auth/facebook' %></em><br></li>
+<% end %>

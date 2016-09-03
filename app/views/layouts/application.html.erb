@@ -37,7 +37,8 @@
 
             <!--SPECIAL-->
             <div class='sidebar-item'>
-              <div class='hi-li-gradient expanded row bottom-shadow'>
+              <!--headline-->
+              <div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
                 <strong>
                   <i class='fa fa-pagelines padded-left-5'></i>
                   <em>
@@ -45,23 +46,28 @@
                   </em>
                 </strong>
               </div>
+              <!--content-->
               <div class='row'>
                 <div class='sidebar-content small-11 columns small-centered padded-top-5'>
-                  <strong>
-                    Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
-                    <%= yield :leftside %>
-                  </strong>
+                  <div class='raise'>
+                    <strong>
+                      Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
+                      <%= yield :leftside %>
+                    </strong>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class='sidebar-item'>
-              <div class='hi-li-gradient expanded row bottom-shadow'>
+              <!--headline-->
+              <div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
                 <strong>
                   <i class='fa fa-pagelines padded-left-5'></i>
                   <em><%= link_to 'Parent Tours', tours_path %></em>
                 </strong>
               </div>
+              <!--content-->
               <div class='row'>
                 <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <strong>
@@ -93,22 +99,24 @@
             </div>
 
             <!--QUICK INFO-->
-            <div class='expanded row blue-box-dark-outline bottom-shadow'>
-              <strong>
-                <i class='fa fa-pagelines padded-left-5'></i>
-                <em><%= link_to 'Account', edit_user_registration_path %></em>
-              </strong>
-            </div>
-            <div class='row'>
-              <div class='sidebar-content small-11 columns small-centered padded-top-5'>
+            <div class='sidebar-item'>
+              <!--headline-->
+              <div class='sidebar-headline expanded row blue-box-dark-outline bottom-shadow'>
                 <strong>
-                  <em><%= link_to 'Sign Up', new_user_registration_path %></em><br>
-                  <em><%= link_to 'Sign In', new_user_session_path %></em><br>
-                  <em><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></em><br>
-                  <%= yield :rightside %>
+                  <i class='fa fa-pagelines padded-left-5'></i>
+                  <em><%= link_to 'Account', edit_user_registration_path %></em>
                 </strong>
               </div>
+              <!--content-->
+              <div class='row'>
+                <div class='sidebar-content small-11 columns small-centered padded-top-5'>
+                  <strong>
+                    <%= render 'layouts/auth_nav' %>
+                  </strong>
+                </div>
+              </div>
             </div>
+
             <!--QUICK INFO-->
             <!--PAGE SPECIFIC INFO-->
             <div class='row'>
