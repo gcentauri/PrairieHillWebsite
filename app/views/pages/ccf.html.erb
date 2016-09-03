@@ -11,7 +11,7 @@
     <h4 style='text-align:right;'>
       <strong>
       <em>
-        <%= link_to ccf_volunteer_path, class: '' do %>
+        <%= link_to ccf_volunteer_path, class: 'hidden' do %>
           VOLUNTEER! |
         <% end %>
       </em>
@@ -26,102 +26,7 @@
 </div>
 
 <div id='ccf-info' class='expanded row bottom-shadow content-box special-box'>
-  <!--image-->
-  <div class='small-12 columns'>
-    <%= image_tag('hattie-ccf.jpg', class: 'bottom-shadow') %>
-  </div>
-
-  <!--header-->
-  <div class='row expanded' data-equalizer data-equalize-on='large' id='header-eq'>
-    <div class='small-12 large-6 columns left' data-equalizer-watch>
-
-      <h1 class='hi-li padded green kaushan center'>
-        The Children's Country Fair
-      </h1>
-
-    </div>
-    <div class='small-12 large-6 columns right' data-equalizer-watch>
-      <h2 class='green padded center content-box' style='margin-top:20px;'>
-        <strong>Saturday, October 8, 2016 11am-3pm</strong>
-      </h2>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class='expanded row'>
-    <div class='small-12 columns'>
-      <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
-        <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
-      <% end %>
-    </div>
-  </div>
-  
-  <!--content-->
-  <div id="ccf-welcome">
-    <div class='small-11 small-centered columns'>
-      <p class='p-box'>
-        Please join us for a family and child-centered event that includes wagon and pony rides, artisans, country fair food, music, cake-walk, obstacle course, dunk tank, face-painting and dress-up, water play, bubble-making, penny toss, and much more! Check back often for details and activity shift sign-up coming soon!
-      </p>
-      <p class='p-box'>
-        Don't forget to check out the <strong><em><a href='#fun-run'>Little Run on the Prairie!</a></em></strong>
-      </p>
-    </div>
-  </div>
-
-  <hr>
-
-  <!--ACTIVITY EXAMPLES-->
-  <div class='small-12 columns content-box padded p-box'>
-    <div class='small-11 small-centered columns'>
-      <ul id='activity-examples' class='padded'>
-        <li>Help place tables, chairs, canopies, signs, materials, trash and composting bins.</li>
-        <li>Organize items, label and price as needed, collect money and tickets for items purchased, prepare root beet floats.</li>
-        <li>Assemble orders, prepare sandwiches, etc. , collect money and tickets for meals.</li>
-        <li>Bring a creative spirit and have fun!  Supplies and sample design inspirations are provided.</li>
-        <li>This activity will make you laugh and get you wet.</li>
-        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
-
-        <li>This activity is located at the sand box by the farmhouse and is a perennial favorite among the younger set.</li>
-        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
-
-        <li>You will start and stop the music and give the winner a cake!</li>
-        <em><span class="brighten hidden" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
-
-        <li>Assist children as they assume new identities from Prairie Hill's expansive costume collection.</li>
-        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent and child team</span></em>
-
-        <li>Supervise, cheer, and assist children as they navigate a fun challenge course for young children.</li>
-        <li>Supplies (pennies and cups) will be on hand. Stock cups as needed.</li>
-        <em><span class="brighten hidden" style="font-size: 1vw;" rel="font-size: 1vw;" data-redactor-tag="span">Ideal for parent and elementary child team</span></em>
-
-        <li>Don a fun outfit with many pockets. Collect a ticket and invite the player to check a pocket.  Supplies (including outfit!) is provided.</li>
-        <li>One person will take tickets, the other will get dunked! (you can swap spots). Bring a change of clothes.</li>
-        <li>Collect cash ($2 per car; musicians and vendors park free) and direct cars to parking in the pasture. Dress for the weather. Bring a water bottle. We provide a chair, safety vest, and money aprons. Parkers will be stationed on highway 77 at the pasture entrance and in the pasture.</li>
-        <li>Use your own camera and share the photos you take with the Fair Planning team to be distributed to the community.</li>
-        <li>Someone ready to run from one end of the fair to the other as needed by various members of the fair committee.</li>
-        <li>Take tickets. Volunteer will need some sense of how to throw a lasso.</li>
-        <li>Collect tickets.</li>
-        <em><span class="brighten hidden" data-redactor-tag="span">Ideal for parent to volunteer with their young child</span></em>.
-
-        <li>Count tickets, collect money, encourage raffle and fund raising package sales.</li>
-        <li>Ideal for an Older Elementary or Adolescent student. Assist participants in drawing simple animals.  Samples will be provided.</li>
-        <li>Assist children (with someone from Dixon Power Systems) as they get their hands wet creating energy.</li>
-        <li>Assist Children (with someone from Lux) in creating their own button and bookmark designs.</li>
-        <li>Adult volunteer to run corn cobbing machine. Will need to stay alert to assist children with cranking while keeping hands out of the machine.</li>
-        <li>Assist children with monor injuries. Call EMS if needed. First aid supplies are included.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class='expanded row'>
-    <div class='small-12 columns'>
-      <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
-        <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
-      <% end %>
-    </div>
-  </div>
-
+  <%= render 'ccf_info' %>
 </div>
 
 <!--FUN RUN-->
@@ -129,11 +34,14 @@
   <span class='special-case'></span>
 
   <!--SECTiONNAV-->
-  <div class='expanded row'>
-    <div class='small-12 columns'>
+  <div class='section-nav expanded row blue-box-dark-outline'>
+    <div class='small-11 columns'>
       <h4 style='text-align:right;'>
-        <em><a href='#top'>Top </a></em> 
       </h4>
+    </div>
+
+    <div class='small-1 columns right'>
+      <%= render 'top_button' %>
     </div>
   </div>
 

@@ -11,8 +11,9 @@ Activity.destroy_all
 activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
               "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
               "Pony Rides", "Face Painting", "Water Play and Bubbles",
-              "Treasure Hunt", "Cake Walk", "Dress Up", "Obstacle Course",
-              "Penny Toss", "Pocket Person", "Dunk Tank", "Book Sale",
+              "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
+              "Penny Toss", "Pocket Person", "Dunk Tank",
+              "Older Elementary and Adolescent Booth", "Tshirt and PH Book Sale",
               "Parking Cars", "Photographers", "Runners",
               "Recycling, Compost, Trash Tracker", "Cider Press", "Corn Box",
               "Live Music"]
