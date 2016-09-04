@@ -630,7 +630,7 @@
 ***** ├── _blah.html.erb
 ***** ├── calendar.html.erb
 ***** ├── _camp_brief.html.erb
-***** ├── ccf.html.erb
+***** ├── [[./app/views/pages/ccf.html.erb][ccf.html.erb]]
 ***** ├── ccf_info.html.erb
 ***** ├── _ccf_menu.html.erb
 ***** ├── _ccf_slide.html.erb
