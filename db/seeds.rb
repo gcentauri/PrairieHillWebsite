@@ -38,6 +38,12 @@ Article.create!([
                     category: "nutrition"
                   },
                   {
+                    title: "Spotlight Prairie Hill",
+                    link: "http://baandek.org/posts/spotlight-prairie-hill/",
+                    source: "Baan Dek",
+                    category: "philosophy"
+                  },
+                  {
                     title:"Alternative Education Gives Future Startups a Head Start" ,
                     link: "http://www.nebraskaentrepreneurship.com/postarchive/alternative-education-gives-future-startups-a-head-start/" ,
                     source: "Nebraska Entrepeneurship",

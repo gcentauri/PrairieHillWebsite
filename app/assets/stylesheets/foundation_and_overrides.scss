@@ -392,6 +392,11 @@ select {
     background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));*/
 }
 
+.hi-li-button {
+    background: rgba(255,237,0,1);
+    //background: linear-gradient(to left top, rgba(255,237,0,0.9), rgba(255,237,0,0.9));
+}
+
 .text-outline-dark {
     text-shadow: 1px 1px 1px rgba(55,55,55,0.1);
 }
