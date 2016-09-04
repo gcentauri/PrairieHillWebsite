@@ -95,8 +95,8 @@
     </div>
 
     <!--image-->
-    <div class='small-12 columns'>
-      <%= image_tag("primary-program-2-15.png", class: 'bottom-shadow small-12 columns') %>
+    <div class='small-12 columns padded'>
+      <%= image_tag("primary-program-2-15.png", class: 'bottom-shadow padded small-12 small-centered columns') %>
     </div>
   </div>
 
@@ -141,15 +141,20 @@
     </div>
 
     <!--content-->
-    <div class='small-12 columns'>
+    <div class='small-12 medium-6 columns'>
       <div class='p-box'>
         <%= cms_snippet_content('elementary-program', @cms_site).html_safe %>
       </div>
     </div>
 
     <!--image-->
+    <div class='small-12 medium-6 columns padded'>
+      <%= image_tag("older_el.JPG", class: 'bottom-shadow padded') %>
+    </div>
+    
+    <!--image-->
     <div class='small-12 columns'>
-      <%= image_tag("jason_adolescents.jpg") %>
+      <%= image_tag("jason_adolescents.jpg", class: 'bottom-shadow padded') %>
     </div>
 
   </div>
@@ -200,14 +205,20 @@
     </div>
 
     <!--image-->
-    <div class='small-12 columns'>
-      <%= image_tag("jason_adolescents.jpg") %>
+    <div class='small-12 columns padded'>
+      <%= image_tag("adolescent.JPG", class: 'bottom-shadow padded') %>
     </div>
 
   </div>
 </div>
 <!--^^-->
 
+<% content_for :leftside do %>
+  <hr>
+  <div class='small-12 columns padded'>
+    <%= image_tag("small_barn.jpg", class: 'bottom-shadow padded small-12 small-centered columns') %>
+  </div>
+<% end %>
 
 <script>
  $(document).ready(function(){

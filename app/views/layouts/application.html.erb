@@ -52,7 +52,6 @@
                   <div class='raise'>
                     <strong>
                       Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
-                      <%= yield :leftside %>
                     </strong>
                   </div>
                 </div>
@@ -77,6 +76,9 @@
               </div>
             </div>
             <!--SPECIAL-->
+            <div class='sidebar-item'>
+              <%= yield :leftside %>
+            </div>
           </div>
         </div>
         <!--SIDEBAR LEFT-->
@@ -117,12 +119,17 @@
               </div>
             </div>
 
+            <div class='sidebar-item'>
+              <hr>
+              <div class='small-12 columns padded'>
+                <%= cms_snippet_content('philosophy', @cms_site).html_safe %>    
+              </div>
+            </div>
+            
             <!--QUICK INFO-->
             <!--PAGE SPECIFIC INFO-->
-            <div class='row'>
-              <div class='small-11 columns'>
-                <%= yield :rightside %>
-              </div>
+            <div class='sidebar-item'>
+              <%= yield :rightside %>
             </div>
             <!--PAGE SPECIFIC INFO-->            
           </div>
