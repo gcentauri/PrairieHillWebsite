@@ -1,6 +1,15 @@
 
 $(document).ready(function () {
 
+    $('.toggle').hide();
+    
+    $("#sidebar-toggle").on('click', function () {
+        console.log('click');
+        $(this).next(".toggle").slideToggle("slow", function() {
+            // Animation complete.
+        });
+    });
+    
     $(window).on('scroll', function () {
         var scrollTop = $(window).scrollTop();
         if (scrollTop > 50) {

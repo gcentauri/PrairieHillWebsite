@@ -103,14 +103,15 @@
             <!--QUICK INFO-->
             <div class='sidebar-item'>
               <!--headline-->
-              <div class='sidebar-headline expanded row blue-box-dark-outline bottom-shadow'>
+              <div id='sidebar-toggle' class='sidebar-headline expanded row blue-box-dark-outline bottom-shadow'>
                 <strong>
                   <i class='fa fa-pagelines padded-left-5'></i>
                   <em><%= link_to 'Account', edit_user_registration_path %></em>
+                  <span class='padded-sides' style='float:right;'><i class='fa fa-caret-down'></i></span>
                 </strong>
               </div>
               <!--content-->
-              <div class='row'>
+              <div class='row toggle'>
                 <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <strong>
                     <%= render 'layouts/auth_nav' %>
@@ -158,4 +159,5 @@
     </script>
   </body>
 </html>
+
 
