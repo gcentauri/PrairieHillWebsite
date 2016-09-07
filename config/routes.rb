@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :timeslots
   resources :articles
   resources :guests
   resources :activities

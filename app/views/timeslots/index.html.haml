@@ -1,0 +1,23 @@
+%h1 Listing timeslots
+
+%table
+  %thead
+    %tr
+      %th Activity
+      %th Shift
+      %th
+      %th
+      %th
+
+  %tbody
+    - @timeslots.each do |timeslot|
+      %tr
+        %td= timeslot.activity_id
+        %td= timeslot.shift_id
+        %td= link_to 'Show', timeslot
+        %td= link_to 'Edit', edit_timeslot_path(timeslot)
+        %td= link_to 'Destroy', timeslot, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Timeslot', new_timeslot_path

@@ -1,0 +1,9 @@
+= simple_form_for(@timeslot) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :activity_id
+    = f.input :shift_id
+
+  .form-actions
+    = f.button :submit

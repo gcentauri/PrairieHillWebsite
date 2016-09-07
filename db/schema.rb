@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903035158) do
+ActiveRecord::Schema.define(version: 20160907151520) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(version: 20160903035158) do
     t.integer  "user_id"
     t.string   "category"
     t.integer  "guest_id"
+    t.string   "nick"
   end
 
   create_table "shifts_users", force: :cascade do |t|
@@ -221,6 +222,13 @@ ActiveRecord::Schema.define(version: 20160903035158) do
   end
 
   add_index "shifts_volunteers", ["shift_id"], name: "index_shifts_volunteers_on_shift_id"
+
+  create_table "timeslots", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "shift_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

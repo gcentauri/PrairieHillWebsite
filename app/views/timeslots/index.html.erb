@@ -1,0 +1,10 @@
+<h1>Listing timeslots</h1>
+<% @timeslots.each do |timeslot| %>
+  <%= timeslot.activity_id %><br>
+  <%= timeslot.shift_id %><br>
+  <%= link_to 'Show', timeslot %>
+  <%= link_to 'Edit', edit_timeslot_path(timeslot) %>
+  <%= link_to 'Destroy', timeslot, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+<% end %>
+
+<%= link_to 'New Timeslot', new_timeslot_path %>

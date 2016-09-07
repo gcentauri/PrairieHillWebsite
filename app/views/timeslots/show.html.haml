@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Activity:
+  = @timeslot.activity_id
+%p
+  %b Shift:
+  = @timeslot.shift_id
+
+= link_to 'Edit', edit_timeslot_path(@timeslot)
+\|
+= link_to 'Back', timeslots_path

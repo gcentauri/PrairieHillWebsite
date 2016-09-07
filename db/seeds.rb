@@ -8,7 +8,7 @@
 
 Activity.destroy_all
 
-activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
+@activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
               "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
               "Pony Rides", "Face Painting", "Water Play and Bubbles",
               "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
@@ -18,7 +18,7 @@ activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
               "Recycling, Compost, Trash Tracker", "Cider Press", "Corn Box",
               "Live Music"]
 
-activities.each do |activity|
+@activities.each do |activity|
   Activity.create!([
                     {
                       work_area: activity
@@ -28,6 +28,340 @@ end
 
 p "Created #{Activity.count} activities"
 
+Shift.destroy_all
+
+@times = {
+  'Fri 4pm'  => '2016-10-07 16:00:00 UTC',
+  'Fri 6pm'  => '2016-10-07 18:00:00 UTC',
+  'Sat 9am'  => '2016-10-08 09:00:00 UTC',
+  'Sat 9:30am'  => '2016-10-08 09:30:00 UTC',
+  'Sat 10am' => '2016-10-08 10:00:00 UTC',
+  'Sat 11am' => '2016-10-08 11:00:00 UTC',
+  'Sat 11:15am' => '2016-10-08 11:15:00 UTC',
+  'Sat 11:30am' => '2016-10-08 11:30:00 UTC',
+  'Sat 12pm' => '2016-10-08 12:00:00 UTC',
+  'Sat 12:15pm' => '2016-10-08 12:15:00 UTC',
+  'Sat 12:30pm' => '2016-10-08 12:30:00 UTC',
+  'Sat 1pm'  => '2016-10-08 13:00:00 UTC',
+  'Sat 1:15pm'  => '2016-10-08 13:15:00 UTC',
+  'Sat 1:30pm'  => '2016-10-08 13:30:00 UTC',
+  'Sat 2pm'  => '2016-10-08 14:00:00 UTC',
+  'Sat 2:30pm'  => '2016-10-08 14:30:00 UTC',
+  'Sat 3pm'  => '2016-10-08 15:00:00 UTC',
+  'Sat 5pm'  => '2016-10-08 17:00:00 UTC'
+}
+
+shifts = [
+  [ 'Fri 4-6',   @times['Fri 4pm' ],  @times['Fri 6pm' ] ],
+  [ 'Sat 9-11',  @times['Sat 9am' ],  @times['Sat 11am'] ],
+  [ 'Sat 11-12', @times['Sat 11am'],  @times['Sat 12pm'] ],
+  [ 'Sat 12-1',  @times['Sat 12pm'],  @times['Sat 1pm' ] ],
+  [ 'Sat 1-2',   @times['Sat 1pm' ],  @times['Sat 2pm' ] ],
+  [ 'Sat 2-3',   @times['Sat 2pm' ],  @times['Sat 3pm' ] ],
+  [ 'Sat 3-5',   @times['Sat 3pm' ],  @times['Sat 5pm' ] ]
+]
+
+shifts.each do |shift|
+  Shift.create!([
+                  {
+                    nick: shift[0],
+                    start_time: shift[1],
+                    end_time: shift[2],
+                  }
+                ])
+end
+
+p "Created #{Shift.count} shifts"
+
+# TIMESLOTS
+
+Timeslot.destroy_all
+
+def get_activity_id(name)
+  activity = Activity.where(work_area: name).first
+
+  activity.id
+end
+
+def get_shift_id(nick)
+  shift = Shift.where(nick: nick).first
+
+  shift.id
+end
+
+@slots = [
+  # Signage
+  ## Saturday
+  {
+    area: "Signage",
+    time: "Sat 9-11",
+    num: 1
+  },
+  {
+    area: "Signage",
+    time: "Sat 3-5",
+    num: 1
+  },
+  # General Setup
+  ## Friday
+  {
+    area: "General Setup",
+    time: "Fri 4-6",
+    num: 6
+  },
+  ## Saturday
+  {
+    area: "General Setup",
+    time: "Sat 9-11",
+    num: 4
+  },
+  # General Teardown
+  ## Saturday
+  {
+    area: "General Teardown",
+    time: "Sat 3-5",
+    num: 4
+  },
+  # Coffee Sale
+  ## Saturday
+  {
+    area: "Coffee Sale",
+    time: "Sat 9-11",
+    num: 1
+  },
+  {
+    area: "Coffee Sale",
+    time: "Sat 11-12",
+    num: 1
+  },
+  {
+    area: "Coffee Sale",
+    time: "Sat 12-1",
+    num: 1
+  },
+  {
+    area: "Coffee Sale",
+    time: "Sat 1-2",
+    num: 1
+  },
+  {
+    area: "Coffee Sale",
+    time: "Sat 2-3",
+    num: 1
+  },
+  {
+    area: "Coffee Sale",
+    time: "Sat 3-5",
+    num: 1
+  },
+  # Food, Beverage and Bake Sale
+  ## Saturday
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 9-11",
+    num: 5
+  },
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 11-12",
+    num: 5
+  },
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 12-1",
+    num: 5
+  },
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 1-2",
+    num: 5
+  },
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 2-3",
+    num: 5
+  },
+  {
+    area: "Food, Beverage, Bake Sale",
+    time: "Sat 3-5",
+    num: 3
+  },
+  # Ticket Sales, Raffles, Country Store
+  ## Friday
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Fri 4-6",
+    num: 1
+  },
+  ## Saturday
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 9-11",
+    num: 3
+  },
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 11-12",
+    num: 3
+  },
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 12-1",
+    num: 3
+  },
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 1-2",
+    num: 3
+  },
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 2-3",
+    num: 3
+  },
+  {
+    area: "Ticket Sales, Raffles, Country Store",
+    time: "Sat 3-5",
+    num: 3
+  },
+  # Pony Rides
+  {
+    area: "Pony Rides",
+    time: "Sat 9-11",
+    num: 4
+  },
+  {
+    area: "Pony Rides",
+    time: "Sat 11-12",
+    num: 4
+  },
+  {
+    area: "Pony Rides",
+    time: "Sat 12-1",
+    num: 4
+  },
+  {
+    area: "Pony Rides",
+    time: "Sat 1-2",
+    num: 4
+  },
+  {
+    area: "Pony Rides",
+    time: "Sat 2-3",
+    num: 4
+  },
+  {
+    area: "Pony Rides",
+    time: "Sat 3-5",
+    num: 4
+  },
+  # Pony Wagon Rides?
+
+  # Face Painting
+  {
+    area: "Face Painting",
+    time: "Sat 11-12",
+    num: 2
+  },
+  {
+    area: "Face Painting",
+    time: "Sat 12-1",
+    num: 2
+  },
+  {
+    area: "Face Painting",
+    time: "Sat 1-2",
+    num: 2
+  },
+  {
+    area: "Face Painting",
+    time: "Sat 2-3",
+    num: 2
+  },
+  # Water Play and Bubbles
+  {
+    area: "Water Play and Bubbles",
+    time: "Sat 11-12",
+    num: 1
+  },
+  {
+    area: "Water Play and Bubbles",
+    time: "Sat 12-1",
+    num: 1
+  },
+  {
+    area: "Water Play and Bubbles",
+    time: "Sat 1-2",
+    num: 1
+  },
+  {
+    area: "Water Play and Bubbles",
+    time: "Sat 2-3",
+    num: 1
+  },
+  # Treasure Hunt
+  {
+    area: "Treasure Hunt",
+    time: "Sat 11-12",
+    num: 1
+  },
+  {
+    area: "Treasure Hunt",
+    time: "Sat 12-1",
+    num: 1
+  },
+  {
+    area: "Treasure Hunt",
+    time: "Sat 1-2",
+    num: 1
+  },
+  {
+    area: "Treasure Hunt",
+    time: "Sat 2-3",
+    num: 1
+  },
+  # Cake Walk
+  {
+    area: "Cake Walk",
+    time: "Sat 11-12",
+    num: 2
+  },
+  {
+    area: "Cake Walk",
+    time: "Sat 12-1",
+    num: 2
+  },
+  {
+    area: "Cake Walk",
+    time: "Sat 1-2",
+    num: 2
+  },
+  {
+    area: "Cake Walk",
+    time: "Sat 2-3",
+    num: 2
+  }
+]
+
+@slots.each do |slot|
+
+  num = slot[:num]
+  area = slot[:area]
+  time = slot[:time]
+  
+  num.times do
+    Timeslot.create!([
+                       {
+                         activity_id: get_activity_id(area),
+                         shift_id: get_shift_id(time)
+                       }
+                     ])
+  end
+end
+
+p "Created #{Timeslot.count} timeslots"
+
+# ARTICLES
 Article.destroy_all
 
 Article.create!([
@@ -122,3 +456,5 @@ Article.create!([
                     category: "innovation, philosophy"
                   }
                 ])
+
+p "Created #{Article.count} articles"
