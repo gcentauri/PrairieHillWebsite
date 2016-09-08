@@ -8,15 +8,16 @@
 
 Activity.destroy_all
 
-@activities = ["Signage", "General Setup", "General Teardown", "Coffee Sale",
-              "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
-              "Pony Rides", "Face Painting", "Water Play and Bubbles",
-              "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
-              "Penny Toss", "Pocket Person", "Dunk Tank",
-              "Older Elementary and Adolescent Booth", "Tshirt and PH Book Sale",
-              "Parking Cars", "Photographers", "Runners",
-              "Recycling, Compost, Trash Tracker", "Cider Press", "Corn Box",
-              "Live Music"]
+@activities = [
+  "Signage", "General Setup", "General Teardown", "Coffee Sale",
+  "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
+  "Face Painting", "Water Play and Bubbles",
+  "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
+  "Penny Toss", "Pocket Person", "Dunk Tank",
+  "Older Elementary and Adolescent Booth", "Tshirt and PH Book Sale",
+  "Parking Cars", "Photographers", "Runners",
+  "Recycling, Compost, Trash Tracker", "Cider Press"
+]
 
 @activities.each do |activity|
   Activity.create!([
@@ -95,26 +96,26 @@ end
   {
     area: "Signage",
     time: "Sat 9-11",
-    num: 1
-  },
-  {
-    area: "Signage",
-    time: "Sat 3-5",
-    num: 1
-  },
+    num: 1 }, { area: "Signage",
+                time: "Sat 3-5",
+                num: 1
+              },
+
   # General Setup
   ## Friday
   {
     area: "General Setup",
     time: "Fri 4-6",
-    num: 6
+    num: 10
   },
+
   ## Saturday
   {
     area: "General Setup",
     time: "Sat 9-11",
-    num: 4
+    num: 6
   },
+
   # General Teardown
   ## Saturday
   {
@@ -122,70 +123,43 @@ end
     time: "Sat 3-5",
     num: 4
   },
+  
   # Coffee Sale
   ## Saturday
   {
     area: "Coffee Sale",
     time: "Sat 9-11",
-    num: 1
-  },
-  {
-    area: "Coffee Sale",
-    time: "Sat 11-12",
-    num: 1
-  },
-  {
-    area: "Coffee Sale",
-    time: "Sat 12-1",
-    num: 1
-  },
-  {
-    area: "Coffee Sale",
-    time: "Sat 1-2",
-    num: 1
-  },
-  {
-    area: "Coffee Sale",
-    time: "Sat 2-3",
-    num: 1
-  },
-  {
-    area: "Coffee Sale",
-    time: "Sat 3-5",
-    num: 1
-  },
+    num: 1 }, { area: "Coffee Sale",
+                time: "Sat 11-12",
+                num: 1 }, { area: "Coffee Sale",
+                            time: "Sat 12-1",
+                            num: 1 }, { area: "Coffee Sale",
+                                        time: "Sat 1-2",
+                                        num: 1 }, { area: "Coffee Sale",
+                                                    time: "Sat 2-3",
+                                                    num: 1 }, { area: "Coffee Sale",
+                                                                time: "Sat 3-5",
+                                                                num: 1
+                                                              },
+  
   # Food, Beverage and Bake Sale
   ## Saturday
   {
     area: "Food, Beverage, Bake Sale",
     time: "Sat 9-11",
-    num: 5
-  },
-  {
-    area: "Food, Beverage, Bake Sale",
-    time: "Sat 11-12",
-    num: 5
-  },
-  {
-    area: "Food, Beverage, Bake Sale",
-    time: "Sat 12-1",
-    num: 5
-  },
-  {
-    area: "Food, Beverage, Bake Sale",
-    time: "Sat 1-2",
-    num: 5
-  },
-  {
-    area: "Food, Beverage, Bake Sale",
-    time: "Sat 2-3",
-    num: 5
-  },
-  {
-    area: "Food, Beverage, Bake Sale",
-    time: "Sat 3-5",
-    num: 3
-  },
+    num: 8 }, { area: "Food, Beverage, Bake Sale",
+                time: "Sat 11-12",
+                num: 8 }, { area: "Food, Beverage, Bake Sale",
+                            time: "Sat 12-1",
+                            num: 8 }, { area: "Food, Beverage, Bake Sale",
+                                        time: "Sat 1-2",
+                                        num: 8 }, { area: "Food, Beverage, Bake Sale",
+                                                    time: "Sat 2-3",
+                                                    num: 5 }, { area: "Food, Beverage, Bake Sale",
+                                                                time: "Sat 3-5",
+                                                                num: 3
+                                                              },
+  
   # Ticket Sales, Raffles, Country Store
   ## Friday
   {
@@ -193,154 +167,261 @@ end
     time: "Fri 4-6",
     num: 1
   },
+  
   ## Saturday
   {
     area: "Ticket Sales, Raffles, Country Store",
     time: "Sat 9-11",
-    num: 3
-  },
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 11-12",
-    num: 3
-  },
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 12-1",
-    num: 3
-  },
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 1-2",
-    num: 3
-  },
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 2-3",
-    num: 3
-  },
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 3-5",
-    num: 3
-  },
+    num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                time: "Sat 11-12",
+                num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                            time: "Sat 12-1",
+                            num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                                        time: "Sat 1-2",
+                                        num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                                                    time: "Sat 2-3",
+                                                    num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                                                                time: "Sat 3-5",
+                                                                num: 3
+                                                              },
+  
   # Pony Rides
-  {
-    area: "Pony Rides",
-    time: "Sat 9-11",
-    num: 4
-  },
-  {
-    area: "Pony Rides",
-    time: "Sat 11-12",
-    num: 4
-  },
-  {
-    area: "Pony Rides",
-    time: "Sat 12-1",
-    num: 4
-  },
-  {
-    area: "Pony Rides",
-    time: "Sat 1-2",
-    num: 4
-  },
-  {
-    area: "Pony Rides",
-    time: "Sat 2-3",
-    num: 4
-  },
-  {
-    area: "Pony Rides",
-    time: "Sat 3-5",
-    num: 4
-  },
-  # Pony Wagon Rides?
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 9-11",
+  #   num: 4
+  # },
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 11-12",
+  #   num: 4
+  # },
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 12-1",
+  #   num: 4
+  # },
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 1-2",
+  #   num: 4
+  # },
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 2-3",
+  #   num: 4
+  # },
+  # {
+  #   area: "Pony Rides",
+  #   time: "Sat 3-5",
+  #   num: 4
+  # },
 
   # Face Painting
   {
     area: "Face Painting",
     time: "Sat 11-12",
-    num: 2
-  },
-  {
-    area: "Face Painting",
-    time: "Sat 12-1",
-    num: 2
-  },
-  {
-    area: "Face Painting",
-    time: "Sat 1-2",
-    num: 2
-  },
-  {
-    area: "Face Painting",
-    time: "Sat 2-3",
-    num: 2
-  },
+    num: 2 }, { area: "Face Painting",
+                time: "Sat 12-1",
+                num: 2 }, { area: "Face Painting",
+                            time: "Sat 1-2",
+                            num: 2 }, { area: "Face Painting",
+                                        time: "Sat 2-3",
+                                        num: 2
+                                      },
+  
   # Water Play and Bubbles
   {
     area: "Water Play and Bubbles",
     time: "Sat 11-12",
-    num: 1
-  },
-  {
-    area: "Water Play and Bubbles",
-    time: "Sat 12-1",
-    num: 1
-  },
-  {
-    area: "Water Play and Bubbles",
-    time: "Sat 1-2",
-    num: 1
-  },
-  {
-    area: "Water Play and Bubbles",
-    time: "Sat 2-3",
-    num: 1
-  },
+    num: 1 }, { area: "Water Play and Bubbles",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Water Play and Bubbles",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Water Play and Bubbles",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
   # Treasure Hunt
   {
     area: "Treasure Hunt",
     time: "Sat 11-12",
-    num: 1
-  },
-  {
-    area: "Treasure Hunt",
-    time: "Sat 12-1",
-    num: 1
-  },
-  {
-    area: "Treasure Hunt",
-    time: "Sat 1-2",
-    num: 1
-  },
-  {
-    area: "Treasure Hunt",
-    time: "Sat 2-3",
-    num: 1
-  },
+    num: 1 }, { area: "Treasure Hunt",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Treasure Hunt",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Treasure Hunt",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
   # Cake Walk
   {
     area: "Cake Walk",
     time: "Sat 11-12",
-    num: 2
-  },
+    num: 2 }, { area: "Cake Walk",
+                time: "Sat 12-1",
+                num: 2 }, { area: "Cake Walk",
+                            time: "Sat 1-2",
+                            num: 2 }, { area: "Cake Walk",
+                                        time: "Sat 2-3",
+                                        num: 2
+                                      },
+  
+  # Dress Up
   {
-    area: "Cake Walk",
-    time: "Sat 12-1",
-    num: 2
-  },
+    area: "Dress Up",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Dress Up",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Dress Up",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Dress Up",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Bird's Eye View
   {
-    area: "Cake Walk",
-    time: "Sat 1-2",
-    num: 2
-  },
+    area: "Bird's Eye View",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Bird's Eye View",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Bird's Eye View",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Bird's Eye View",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Penny Toss
   {
-    area: "Cake Walk",
-    time: "Sat 2-3",
-    num: 2
-  }
+    area: "Penny Toss",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Penny Toss",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Penny Toss",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Penny Toss",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Pocket Person
+  {
+    area: "Pocket Person",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Pocket Person",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Pocket Person",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Pocket Person",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Dunk Tank
+  {
+    area: "Dunk Tank",
+    time: "Sat 11-12",
+    num: 2 }, { area: "Dunk Tank",
+                time: "Sat 12-1",
+                num: 2 }, { area: "Dunk Tank",
+                            time: "Sat 1-2",
+                            num: 2 }, { area: "Dunk Tank",
+                                        time: "Sat 2-3",
+                                        num: 2
+                                      },
+  
+  # Older Elementary and Adolescent Booth
+  {
+    area: "Older Elementary and Adolescent Booth",
+    time: "Sat 9-11",
+    num: 1 }, { area: "Older Elementary and Adolescent Booth",
+                time: "Sat 11-12",
+                num: 2 }, { area: "Older Elementary and Adolescent Booth",
+                            time: "Sat 12-1",
+                            num: 2 }, { area: "Older Elementary and Adolescent Booth",
+                                        time: "Sat 1-2",
+                                        num: 2 }, { area: "Older Elementary and Adolescent Booth",
+                                                    time: "Sat 2-3",
+                                                    num: 2 }, { area: "Older Elementary and Adolescent Booth",
+                                                                time: "Sat 3-5",
+                                                                num: 1
+                                                              },
+  
+
+  # Tshirt and PH Book Sale ?
+
+  #
+
+  # Parking Cars
+  {
+    area: "Parking Cars",
+    time: "Sat 9-11",
+    num: 1 }, { area: "Parking Cars",
+                time: "Sat 11-12",
+                num: 4 }, { area: "Parking Cars",
+                            time: "Sat 12-1",
+                            num: 4 }, { area: "Parking Cars",
+                                        time: "Sat 1-2",
+                                        num: 4 }, { area: "Parking Cars",
+                                                    time: "Sat 2-3",
+                                                    num: 4
+                                                  },
+  
+  # Photographers
+  {
+    area: "Photographers",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Photographers",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Photographers",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Photographers",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Runners
+  {
+    area: "Runners",
+    time: "Sat 11-12",
+    num: 2 }, { area: "Runners",
+                time: "Sat 12-1",
+                num: 2 }, { area: "Runners",
+                            time: "Sat 1-2",
+                            num: 2 }, { area: "Runners",
+                                        time: "Sat 2-3",
+                                        num: 2
+                                      },
+  
+  # Recycling, Compost, Trash Tracker
+  {
+    area: "Recycling, Compost, Trash Tracker",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Recycling, Compost, Trash Tracker",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Recycling, Compost, Trash Tracker",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Recycling, Compost, Trash Tracker",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      },
+  
+  # Cider Press
+  {
+    area: "Cider Press",
+    time: "Sat 11-12",
+    num: 1 }, { area: "Cider Press",
+                time: "Sat 12-1",
+                num: 1 }, { area: "Cider Press",
+                            time: "Sat 1-2",
+                            num: 1 }, { area: "Cider Press",
+                                        time: "Sat 2-3",
+                                        num: 1
+                                      }
 ]
 
 @slots.each do |slot|

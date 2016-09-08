@@ -59,15 +59,11 @@ body {
 }
 
 html, body {
-    //background-color: #f2f9ff;
-    background: rgba(242,249,255,0.5);
-    background: linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
-    background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
-    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
-    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    //background: image-url('cardboard.jpg');
 
-    background-color:rgba(230,248,255,0.1);
+    background: white;
     
+
     font-family: 'News Cycle', 'Kaushan Script', 'Roboto';
     font-size: 1vw;
 }
@@ -88,6 +84,12 @@ label {
     -webkit-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
     -moz-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
     box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
+}
+
+.bottom-shadow-dark {
+    //-webkit-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
+    //-moz-box-shadow: 0 4px 4px -2px rgba(1,1,1,0.5);
+    box-shadow: 0 4px 4px -2px rgba(1,1,1,0.9);
 }
 
 .center {
@@ -227,6 +229,10 @@ ul.nav-auth {
     }
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 ul.nav-main {
     @extend .bottom-shadow;
     
@@ -321,15 +327,35 @@ ul.nav-main {
 #sidebar-left {
     position: fixed;
     left: 0;
+    //background: white;
+
+        background: rgba(242,249,255,0.5);
+    background: linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+
 }
 
 #sidebar-right {
     position: fixed;
     right: 0;
+    //background: white;
+
+        background: rgba(242,249,255,0.5);
+    background: linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+    background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
+
 }
 
 .sidebar-item {
     margin-bottom: 10px;
+
+    div {
+
+    }
 }
 
 .sidebar-headline {
@@ -342,6 +368,32 @@ ul.nav-main {
 
     border-left: 1px solid rgba(0,39,23,0.1);
     position: relative;
+    background: white !important;
+}
+
+.activity-shifts {
+    display: none;
+}
+.activity-area {
+
+}
+
+.sidebar-scrollable {
+    overflow-y: auto;
+}
+
+#philosophy-sidebar {
+    @extend .sidebar-scrollable;
+    //height: 500px;
+}
+
+#activities-sidebar {
+    @extend .sidebar-scrollable;
+    //height: 500px;
+}
+
+.toggle {
+    display: none;
 }
 
 .shift-content {
@@ -349,6 +401,19 @@ ul.nav-main {
     border-top: 1px solid rgba(0,39,23,0.2);
     border-left: 1px solid rgba(0,39,23,0.2);
     position: relative;
+}
+
+#shifts-modal {
+    @extend .padded;
+    @extend .bottom-shadow;
+    @extend .special-box;
+
+    background: white;
+    position: relative;
+    //display: inline-block;
+//    top: 300px;
+//    left: 100px;
+    width: 100%;
 }
 
 .staff-content {
@@ -565,6 +630,13 @@ select {
 }
 
 //https://css-tricks.com/hash-tag-links-padding/
+.special-case-full:before {
+    display: block;
+    content: " ";
+    margin-top: 10px;
+    height: 630px;
+    visibility: hidden;
+}
 .special-case:before {
     display: block;
     content: " ";

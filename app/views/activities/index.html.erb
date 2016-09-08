@@ -1,10 +1,5 @@
 <%= render 'pages/metadata_partial' %>
 
-<!--TOP-->
-<div id='top' class='expanded row'>
-  <span class='special-case'></span>
-</div>
-
 <!--VOLUNTEER-->
 <div id='shifts-volunteer' class='expanded row'>
   <span class='hidden special-case'></span>
@@ -64,21 +59,27 @@
         <div class='small-12 small-centered columns'>
           <% @activities.each do |activity| %>
 
-            <div class='small-12 medium-4 columns'>
-              <div class='activity-area row'>
+            <div class='small-12 medium-4 columns' style='display:inline;'>
+
+              <div data-open="activity-<%= activity.id %>-modal" class='activity-area row'>
                 <!--work area-->
-                <a href="<%= edit_activity_path(activity) %>"
+                <!--<a href="<%#= edit_activity_path(activity) %>"-->
+                <a href="#"
                    class='button large expanded bottom-shadow rounded-five'
                    style='border:3px solid white;height:100px;'>
-                  <h3 style='margin-top:10!important;'>
-                    <strong>
+                  <strong>
+                    <p style='font-size:1.555rem;margin-top:10!important; color: rgba(255,255,255,0.8);'>
                       <%= activity.work_area %>
-                    </strong>
-                  </h3>
+                    </p>
+                  </strong>
+                  <span class="badge"><%= activity.timeslots.count %></span> &nbsp
                 </a>
               </div>
 
-              <div class='activity-shifts row'>
+              <div id="activity-<%= activity.id %>-modal" class='reveal activity-shifts row' data-reveal>
+                <button class="close-button" data-close aria-label="Close" type="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
                 <!--activity shifts-->
                 <div class='small-11 columns'>
 
@@ -152,11 +153,14 @@
         <%= image_tag('treasure.jpg', class: 'bottom-shadow padded') %>
       </div>
     </div>
-
-    
-    
   </div>
 
+  <div id='activities-sidebar' class='small-11 small-centered columns'>
+    <% content_for :leftside do %>
+      <%= render 'activities_sidebar' %>
+    <% end %>
+  </div>
+  
   <!--FUN RUN-->
   <div id='fun-run' class='hidden expanded row bottom-shadow content-box special-box'>
 

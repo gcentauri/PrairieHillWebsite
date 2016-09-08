@@ -1,14 +1,10 @@
 <%= render 'pages/metadata_partial' %>
-<!--TOP-->
-<div id='top' class='expanded row'>
-  <span class='special-case'></span>
-</div>
 
 <!--TOPNAV-->
 <div id='home-nav' class='expanded row blue-box-dark-outline'>
   <div class='small-12 columns'>
     <h4 style='text-align:right;'>
-      <em><%= link_to 'EDIT', edit_activity_path %></em> 
+      <em><%= link_to 'ACTIVITIES', activities_path %></em>
     </h4>
   </div>
 </div>
@@ -24,3 +20,8 @@
     
   </div>
 </div>
+
+<% content_for :leftside do %>
+  <%= render 'activities_sidebar' %>
+<% end %>
+

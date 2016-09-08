@@ -1,6 +1,24 @@
 //HEY THERE!!
+
+
 $(document).ready(function() {
+
+    //$('.activity-shifts').hide();    
+    $(".activity-area").on("click", function (e) {
+        //$(".activity-area").hover( function () {
+        e.preventDefault();
+        /*$(this).next(".activity-shifts").slideToggle("slow", function () {
+            // Animation complete.
+        });*/
+    });
+
+
+    $('.close-button').on('click', function () {
+        $(this).parent().slideToggle('slow', function () {
+        });
+    });
     
+    /*
     $(function($) {
         $('.shifts-link').on('click', function() {
             var li = $(this).parent();
@@ -17,7 +35,7 @@ $(document).ready(function() {
         });
     });
 
-$('#all-link').on('click', function() {
+    $('#all-link').on('click', function() {
         $(this).addClass('success');
         var prev_links = $('ul#category-selection').children("li").children("a");
         prev_links.each(function() {
@@ -464,7 +482,7 @@ $('#all-link').on('click', function() {
         //     }
         // });
     });
-    
+*/    
 });
 
 //use js spread arguments? (like splat arguments) => https://javascriptweblog.wordpress.com/2011/01/18/javascripts-arguments-object-and-beyond/

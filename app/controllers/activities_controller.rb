@@ -27,6 +27,7 @@ class ActivitiesController < ApplicationController
 
   def show
     #respond_with(@activity)
+    @activities = Activity.all
   end
 
   def new

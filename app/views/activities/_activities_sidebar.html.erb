@@ -1,0 +1,20 @@
+<div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+  <strong>
+    <i class='fa fa-pagelines padded-left-5'></i>
+    <em>
+      <%= link_to 'Activities', ccf_volunteer_path %>
+    </em>
+  </strong>
+</div>
+<div class='row'>
+  <div id='activities-sidebar' class='sidebar-content sidebar-scrollable small-11 small-centered columns padded-top-5'>
+    <div class='raise'>
+      <% @activities.each do |activity| %>
+        <strong>
+          <span class="badge"><%= activity.timeslots.count %></span> &nbsp
+          <%= link_to activity.work_area, activity %><br>
+        </strong>
+      <% end %>
+    </div>
+  </div>
+</div>
