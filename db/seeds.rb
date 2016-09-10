@@ -429,14 +429,15 @@ end
   num = slot[:num]
   area = slot[:area]
   time = slot[:time]
-  
+
   num.times do
-    Timeslot.create!([
-                       {
-                         activity_id: get_activity_id(area),
-                         shift_id: get_shift_id(time)
-                       }
-                     ])
+  Timeslot.create!([
+                     {
+                       activity_id: get_activity_id(area),
+                       shift_id: get_shift_id(time),
+                       nick: time
+                     }
+                   ])
   end
 end
 

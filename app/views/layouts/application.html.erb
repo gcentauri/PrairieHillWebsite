@@ -126,6 +126,13 @@
             </div>
 
             <div class='sidebar-item'>
+              <div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+                <strong>
+                  <i class='fa fa-pagelines padded-left-5'></i>
+                  <em><%= link_to 'About Us', about_path %></em>
+                </strong>
+              </div>
+
               <div class='small-12 columns padded'>
                 <div id='philosophy-sidebar' class='sidebar-scrollable sidebar-content'>
                   <%= cms_snippet_content('philosophy', @cms_site).html_safe %>

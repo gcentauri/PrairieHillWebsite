@@ -6,7 +6,7 @@ class Shift < ActiveRecord::Base
   has_many :activities, :through => :timeslots
 
   belongs_to :user
-  belongs_to :guest
+  #belongs_to :guest
 
   # def self.to_xlsx(options = {})
 

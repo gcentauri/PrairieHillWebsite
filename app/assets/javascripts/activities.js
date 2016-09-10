@@ -3,6 +3,13 @@
 
 $(document).ready(function() {
 
+    $(".guest-button").on("click", function(e) {
+        e.preventDefault();
+        $(this).next(".guest-field").slideToggle("slow", function() {
+            
+        });
+    });
+    
     //$('.activity-shifts').hide();    
     $(".activity-area").on("click", function (e) {
         //$(".activity-area").hover( function () {
@@ -12,11 +19,10 @@ $(document).ready(function() {
         });*/
     });
 
-
-    $('.close-button').on('click', function () {
+    /*$('.close-button').on('click', function () {
         $(this).parent().slideToggle('slow', function () {
         });
-    });
+    });*/
     
     /*
     $(function($) {

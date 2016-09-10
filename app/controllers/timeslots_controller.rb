@@ -28,7 +28,8 @@ class TimeslotsController < ApplicationController
 
   def update
     @timeslot.update(timeslot_params)
-    respond_with(@timeslot)
+    #respond_with(@timeslot)
+    redirect_to activities_path, notice: 'Activity was successfully updated.'
   end
 
   def destroy
@@ -42,6 +43,6 @@ class TimeslotsController < ApplicationController
     end
 
     def timeslot_params
-      params.require(:timeslot).permit(:activity_id, :shift_id)
+      params.require(:timeslot).permit(:activity_id, :shift_id, :guestname, :user_id)
     end
 end

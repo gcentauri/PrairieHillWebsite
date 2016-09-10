@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   
   has_many :shifts
-  has_many :guests
+  #has_many :guests
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

@@ -78,12 +78,16 @@ module ShiftsHelper
     datetime.strftime("%l%p")
   end
 
-  def get_friday_shifts(activity)
-    activity.shifts.select { |shift| shift.start_time.strftime("%A") == "Friday" }
+  def get_timeslot_shift(ts)
+    Shift.find(ts.shift_id)
   end
-
+  
+  def get_friday_shifts(activity)
+    activity.timeslots.select { |ts| ts.shift.nick.include?("Fri") }
+  end
+  
   def get_saturday_shifts(activity)
-    activity.shifts.select { |shift| shift.start_time.strftime("%A") == "Saturday" }
+    activity.timeslots.select { |ts| ts.shift.nick.include?("Sat") }
   end
 
   # def get_time_title

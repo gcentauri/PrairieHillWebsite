@@ -10,10 +10,20 @@
   <div id='activities-sidebar' class='sidebar-content sidebar-scrollable small-11 small-centered columns padded-top-5'>
     <div class='raise'>
       <% @activities.each do |activity| %>
-        <strong>
-          <span class="badge"><%= activity.timeslots.count %></span> &nbsp
-          <%= link_to activity.work_area, activity %><br>
-        </strong>
+
+        <div class='padded-top-5'>
+          <strong>
+            <div class='row expanded'>
+              <div class='small-6 columns left'>
+                <span class="warning badge"><%= activity.timeslots.count %></span>
+              </div>
+              <div class='small-6 columns right'>
+                <%= link_to activity.work_area, activity, style: 'text-align:right;' %><br>
+              </div>
+            </div>
+          </strong>
+        </div>
+
       <% end %>
     </div>
   </div>

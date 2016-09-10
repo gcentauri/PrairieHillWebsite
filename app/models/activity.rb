@@ -4,6 +4,7 @@ class Activity < ActiveRecord::Base
   has_many :shifts, :through => :timeslots
 
   accepts_nested_attributes_for :shifts, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :timeslots
  
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
