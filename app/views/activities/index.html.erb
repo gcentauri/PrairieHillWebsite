@@ -110,7 +110,7 @@
                   <% if get_friday_shifts(activity).count > 0 %>
                     <div id="friday-<%= activity.id %>">
 
-                      <h3 class='green kaushan'>Friday, Oct 7th</h3>
+                      <h2 class='green kaushan'>Friday, Oct 7th</h2>
                       <!--friday timeslots Array loop -->
 
                       <% @shifts.each do |shift| %>
@@ -121,7 +121,7 @@
                         <% end %>
 
                       <% end %>
-                      <hr>
+
                     </div>
                   <% end %>                  
 

@@ -1,51 +1,52 @@
 <% slots = activity.timeslots.select { |t| t.nick == shift.nick } %>
 
 <% unless slots.count == 0 %>
-  <%= shift.nick %><br>
+  <h3 class='padded-left kaushan'><%= shift.nick.split(" ").last %><hr></h3>
+  
   <% slots.each do |ts| %>
-    
-    <div class='small-12 columns'>
 
-      <% unless ts.user_id.nil? %>
+    <% unless ts.user_id.nil? %>
+      <div class='small-12 columns left bottom-shadow blue-box-outline'>
         <div class='small-12 columns'>
-          <h4 class='kaushan'>
-            <% if ts.guestname != "" %>
-              <%= ts.guestname %>
-            <% else %>
-              <% if ts.user %>
-                <%= ts.user.name %>
-              <% end %>
-            <% end %>
-          </h4>
-        </div>
 
-      <% else %>
-                
+          <h4 class='text-outline-dark padded-5'
+              style='text-align:center;'>
+            <span class='hi-li-gradient kaushan'>
+              <% if ts.guestname != "" %>
+                <%= ts.guestname %>
+              <% else %>
+                <% if ts.user %>
+                  <%= ts.user.name %>
+                <% end %>
+              <% end %>
+            </span>
+            Volunteered!
+          </h4>
+          
+        </div>
+      </div>
+    <% else %>
+      <div class='small-12 columns bottom-shadow padded-top blue-box-outline'>
         <%= form_for ts do |t| %>
           <%= t.hidden_field :user_id, value: current_user.id %>
 
           <div class='guest-section small-6 columns'>
-            <a href="#" class='guest-button button expanded large success'>Add a Guest</a>
-                    
+            <a href="#" class='guest-button button expanded large success'>Guest Volunteer <i class='fa fa-angle-down'></i></a>
+
+            
             <div class='guest-field row expanded'>
-              <div class='small-8 columns'>
-                <%= t.text_field :guestname, placeholder: "Enter a guest volunteer name" %>
-              </div>
-              <div class='small-4 columns'>
-                <span class='info label'>Press ENTER</span>
-              </div>
+              <%= t.text_field :guestname, placeholder: "Enter a guest volunteer name" %>
             </div>
             
           </div>
 
           <div class='user-submit small-6 columns'>
-            <strong>
-              <%= t.submit "Sign me UP!", class: "button expanded large", data: { :confirm => "Are you sure?" } %>
-            </strong>
+            <%= t.submit "Sign me UP!", class: "button expanded large", data: { :confirm => "Are you sure?" } %>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+    
     <br>  
   <% end %>
   <hr>
