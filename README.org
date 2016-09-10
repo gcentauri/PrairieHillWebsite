@@ -525,7 +525,7 @@
 *** ├── concerns
 *** ├── [[./app/controllers][controllers]]
 
-**** ├── activities_controller.rb
+**** ├── [[./app/controllers/activities_controller.rb][activities_controller.rb]]
 **** ├── [[./app/controllers/api][api]]
 
 ***** ├── [[./app/controllers/api/base.rb][base.rb]]

@@ -6,12 +6,13 @@ class SessionsController < Devise::SessionsController
   end
   
   def after_sign_in_path_for(resource)
-    activities_path
+    #activities_path
+    ccf_volunteer_path
     #events_path
   end
 
   def after_sign_out_path_for(resource)
-    root_path
+    ccf_path
     #events_path
   end
   

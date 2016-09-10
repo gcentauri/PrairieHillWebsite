@@ -15,9 +15,11 @@ class TimeslotsController < ApplicationController
   def new
     @timeslot = Timeslot.new
     respond_with(@timeslot)
+    authorize! :manage, @timeslot
   end
 
   def edit
+    authorize! :manage, @timeslot
   end
 
   def create
@@ -35,6 +37,7 @@ class TimeslotsController < ApplicationController
   def destroy
     @timeslot.destroy
     respond_with(@timeslot)
+    authorize! :manage, @timeslot
   end
 
   private

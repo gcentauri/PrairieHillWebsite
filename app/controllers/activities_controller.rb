@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
 #class ActivitiesController < InheritedResources::Base
+  load_and_authorize_resource
 
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
