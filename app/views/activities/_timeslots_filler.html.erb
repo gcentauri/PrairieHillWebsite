@@ -1,0 +1,52 @@
+<% slots = activity.timeslots.select { |t| t.nick == shift.nick } %>
+
+<% unless slots.count == 0 %>
+  <%= shift.nick %><br>
+  <% slots.each do |ts| %>
+    
+    <div class='small-12 columns'>
+
+      <% unless ts.user_id.nil? %>
+        <div class='small-12 columns'>
+          <h4 class='kaushan'>
+            <% if ts.guestname != "" %>
+              <%= ts.guestname %>
+            <% else %>
+              <% if ts.user %>
+                <%= ts.user.name %>
+              <% end %>
+            <% end %>
+          </h4>
+        </div>
+
+      <% else %>
+                
+        <%= form_for ts do |t| %>
+          <%= t.hidden_field :user_id, value: current_user.id %>
+
+          <div class='guest-section small-6 columns'>
+            <a href="#" class='guest-button button expanded large success'>Add a Guest</a>
+                    
+            <div class='guest-field row expanded'>
+              <div class='small-8 columns'>
+                <%= t.text_field :guestname, placeholder: "Enter a guest volunteer name" %>
+              </div>
+              <div class='small-4 columns'>
+                <span class='info label'>Press ENTER</span>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class='user-submit small-6 columns'>
+            <strong>
+              <%= t.submit "Sign me UP!", class: "button expanded large", data: { :confirm => "Are you sure?" } %>
+            </strong>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <br>  
+  <% end %>
+  <hr>
+<% end %>

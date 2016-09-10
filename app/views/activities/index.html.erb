@@ -74,7 +74,9 @@
                 </div>
                 <div class='small-1 columns left'>
                   <strong>
-                    <span class="warning badge"><%= activity.timeslots.count %></span> &nbsp
+                    <span class="warning badge">
+                      <%= get_available_slots(activity).count %>
+                    </span> &nbsp
                   </strong>
                 </div>
                 
@@ -110,95 +112,32 @@
 
                       <h3 class='green kaushan'>Friday, Oct 7th</h3>
                       <!--friday timeslots Array loop -->
-                      
-                      <% activity.timeslots.each do |ts| %>
-                        <% if ts.shift.nick.include?("Fri") %>
 
-                          <div class='small-4 columns'>
-                            <h4><%= get_time(ts.shift.start_time) %> - <%= get_time(ts.shift.end_time) %></h4>
-                          </div>
+                      <% @shifts.each do |shift| %>
+                        <% unless shift.nick.include?("Sat") %>
 
-                          <div class='small-8 columns'>
-
-                            <% unless ts.user_id.nil? %>
-                              <div class='small-12 columns'>
-                                <h4 class='kaushan'>
-                                  <% if ts.guestname != "" %>
-                                    <%= ts.guestname %>
-                                  <% else %>
-                                    <% if ts.user %>
-                                      <%= ts.user.name %>
-                                    <% end %>
-                                  <% end %>
-                                </h4>
-                              </div>
-                            <% else %>
-                              
-                              <%= form_for ts do |t| %>
-                                <%= t.hidden_field :user_id, value: current_user.id %>
-                                <div class='small-6 columns'>
-                                  <a href="#" class='guest-button button expanded large success'>Add a Guest</a>
-                                  <%= t.text_field :guestname, placeholder: "Enter a guest volunteer", class: 'guest-field' %>
-                                </div>
-                                <div class='small-6 columns'>
-                                  <%= t.submit "Add to your Shifts", class: "button expanded large success", data: { :confirm => "Are you sure?" } %>
-                                </div>
-                              <% end %>
-                            <% end %>
-                          </div>
+                          <%= render 'timeslots_filler', activity: activity, shift: shift %>
                           
                         <% end %>
-                        <br>
+
                       <% end %>
                       <hr>
                     </div>
-                  <% end %>
+                  <% end %>                  
 
                   <!--SATURDAY-->
                   <% if get_saturday_shifts(activity).count > 0 %>
                     <div id="saturday-<%= activity.id %>">
 
                       <h3 class='green kaushan'>Saturday, Oct 8th</h3>
-                      <!--friday timeslots Array loop -->
-                      
-                      <% activity.timeslots.each do |ts| %>
-                        <% if ts.shift.nick.include?("Sat") %>
 
-                          <div class='small-4 columns'>
-                            <h4><%= get_time(ts.shift.start_time) %> - <%= get_time(ts.shift.end_time) %></h4>
-                          </div>
+                      <% @shifts.each do |shift| %>
+                        <% unless shift.nick.include?("Fri") %>
 
-                          <div class='small-8 columns'>
-
-                            <% unless ts.user_id.nil? %>
-                              <div class='small-12 columns'>
-                                <h4 class='kaushan'>
-                                  <% if ts.guestname != "" %>
-                                    <%= ts.guestname %>
-                                  <% else %>
-                                    <% if ts.user %>
-                                      <%= ts.user.name %>
-                                    <% end %>
-                                  <% end %>
-                                </h4>
-                              </div>
-                            <% else %>
-                              
-                              <%= form_for ts do |t| %>
-                                <%= t.hidden_field :user_id, value: current_user.id %>
-                                <div class='small-6 columns'>
-                                  <a href="#" class='guest-button button expanded large success'>Add a Guest</a>
-                                  <%= t.text_field :guestname, placeholder: "Enter a guest volunteer", class: 'guest-field' %>
-                                </div>
-                                <div class='small-6 columns'>
-                                  <%= t.submit "Add to your Shifts", class: "button expanded large success", data: { :confirm => "Are you sure?" } %>
-                                </div>
-                              <% end %>
-                            <% end %>
-                          </div>
-                          <br>  
+                          <%= render 'timeslots_filler', activity: activity, shift: shift %>
+                          
                         <% end %>
-                        
+
                       <% end %>
                       <hr>
                     </div>

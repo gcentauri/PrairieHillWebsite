@@ -15,10 +15,10 @@
           <strong>
             <div class='row expanded'>
               <div class='small-6 columns left'>
-                <span class="warning badge"><%= activity.timeslots.count %></span>
+                <span class="warning badge"><%= get_available_slots(activity).count %></span>
               </div>
               <div class='small-6 columns right'>
-                <%= link_to activity.work_area, activity, style: 'text-align:right;' %><br>
+                <%= activity.work_area %>
               </div>
             </div>
           </strong>

@@ -1,7 +1,7 @@
 module ActivitiesHelper
 
-  def get_activity_shifts
-
+  def get_available_slots(activity)
+    activity.timeslots.where(user_id: nil)
   end
 
   ###############################

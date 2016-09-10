@@ -8,6 +8,9 @@ $(document).ready(function() {
         $(this).next(".guest-field").slideToggle("slow", function() {
             
         });
+
+        $(this).parent().next('.user-submit').slideToggle("slow", function() {
+        });
     });
     
     //$('.activity-shifts').hide();    
