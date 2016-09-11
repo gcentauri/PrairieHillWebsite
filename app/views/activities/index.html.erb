@@ -87,7 +87,7 @@
                 
               </div>
 
-              <div id="activity-<%= activity.id %>-modal" class='reveal activity-shifts row' data-reveal>
+              <div id="activity-<%= activity.id %>-modal" class='scrollable reveal activity-shifts row' style='max-height:600px;' data-reveal >
                 <button class="close-button" data-close aria-label="Close" type="button">
                   <span aria-hidden="true" class='blue-box-outline padded'>&times; <span class='two-rem'>Close</span></span>
                 </button>
@@ -96,20 +96,8 @@
                   <span class='kaushan green two-rem'><%= activity.work_area %></span>
                 </div>
 
-                <!--timeslots day nav-->
-                <% if get_friday_shifts(activity).count > 0 %>
-                  <div class='hidden section-nav row expanded blue-box-dark-outline'>
-                    <h4 style='text-align:right;'>
-
-                      <em><a href="#friday-<%= activity.id %>">Friday</a> | </em>
-                      <em><a href="#saturday-<%= activity.id %>">Saturday</a></em>
-
-                    </h4>
-                  </div>
-                <% end %>
-                
                 <!--activity shifts-->
-                <div class='scrollable small-12 columns'>
+                <div class='small-12 columns'>
 
                   <!--FRIDAY-->
                   <% if get_friday_shifts(activity).count > 0 %>

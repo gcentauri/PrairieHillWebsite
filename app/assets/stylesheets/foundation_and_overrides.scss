@@ -687,6 +687,17 @@ select {
 
 /*MIN*/
 
+/* http://foundation.zurb.com/forum/posts/3333-reveal-modal-takes-up-full-screen-on-mobile-521
+override mobile modal feature that prevents scrolling on small screens
+*/
+@media screen and (max-width: 638px) {
+    html.overlayVisible, html.overlayVisible body {
+        height: 100%;
+        overflow: hidden;
+        user-select: none;
+    }
+}
+
 @media screen and (min-width:1018px) {
     #mobile-auth-nav {
         //display: none;

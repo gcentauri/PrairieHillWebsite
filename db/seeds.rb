@@ -155,9 +155,9 @@ end
                                         time: "Sat 1-2",
                                         num: 8 }, { area: "Food, Beverage, Bake Sale",
                                                     time: "Sat 2-3",
-                                                    num: 5 }, { area: "Food, Beverage, Bake Sale",
+                                                    num: 8 }, { area: "Food, Beverage, Bake Sale",
                                                                 time: "Sat 3-5",
-                                                                num: 3
+                                                                num: 8
                                                               },
   
   # Ticket Sales, Raffles, Country Store
@@ -414,13 +414,13 @@ end
   {
     area: "Cider Press",
     time: "Sat 11-12",
-    num: 1 }, { area: "Cider Press",
+    num: 2 }, { area: "Cider Press",
                 time: "Sat 12-1",
-                num: 1 }, { area: "Cider Press",
+                num: 2 }, { area: "Cider Press",
                             time: "Sat 1-2",
-                            num: 1 }, { area: "Cider Press",
+                            num: 2 }, { area: "Cider Press",
                                         time: "Sat 2-3",
-                                        num: 1
+                                        num: 2
                                       }
 ]
 
