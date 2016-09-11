@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   get "financial" => "pages#financial"
   get "ccf" => "pages#ccf"
   get "ccf_volunteer" => "activities#index"
-  #get "user_shifts" => "shifts#user_shifts"
+  get "user_shifts" => "activities#my_shifts"
 
   # devise_scope :user do
   #   get '/auth/:provider/callback', to: 'devise/sessions#create'

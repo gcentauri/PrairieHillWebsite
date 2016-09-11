@@ -1,0 +1,38 @@
+<!--TOPNAV-->
+<div id='top-nav' class='section-nav expanded row blue-box-dark-outline'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'>
+      <strong>
+      <em>
+        <%= link_to ccf_volunteer_path, class: '' do %>
+          VOLUNTEER! |
+        <% end %>
+      </em>
+      <em>
+        <%= link_to '#fun-run' do %>
+          Little Run on the Prairie! 
+        <% end %>
+      </em>
+      </strong>
+    </h4>
+  </div>
+</div>
+
+<div id='ycc' class='expanded row bottom-shadow content-box special-box'>
+  <!--title-->
+  <div class='small-12 columns'>
+    <div class='hi-li-gradient content-box'>
+      <strong>
+        <h1 class='padded kaushan text-outline-dark'>
+          <span class='text-outline-darker' style='color:white;'>
+            <i class='fa fa-child'></i></span>
+          <span class='green'>Young Children's Community</span>
+        </h1>
+      </strong>
+    </div>
+  </div>
+
+  <div class='small-12 columns'>
+    <%= render 'my_shifts' %>
+  </div>
+</div>

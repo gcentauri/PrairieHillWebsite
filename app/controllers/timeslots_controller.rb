@@ -31,7 +31,13 @@ class TimeslotsController < ApplicationController
   def update
     @timeslot.update(timeslot_params)
     #respond_with(@timeslot)
-    redirect_to activities_path, notice: 'Activity was successfully updated.'
+    shift = Shift.find(@timeslot.shift_id)
+    activity = Activity.find(@timeslot.activity_id)
+    unless @timeslot.user_id.nil?
+      redirect_to activities_path, notice: "Thank you for signing up for #{activity.work_area}, #{shift.nick}!"
+    else
+      redirect_to activities_path, notice: "Your shift, #{activity.work_area}, #{shift.nick} has successfully been cancelled!"
+    end
   end
 
   def destroy

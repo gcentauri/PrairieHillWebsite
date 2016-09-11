@@ -3,9 +3,16 @@ $(document).ready(function () {
 
     //$('.toggle').hide();
     
-    $("#sidebar-toggle").on('click', function () {
+    $(".sidebar-toggle").on('click', function () {
         $(this).next(".toggle").slideToggle("slow", function () {
-            // Animation complete.
+
+        });
+        $(this).find(".caret-toggle").toggleClass(function() {
+            if ( $(this).is(".fa-ca") ) {
+                return "fa-caret-down";
+            } else {
+                return "fa-caret-up";
+            }
         });
     });
 

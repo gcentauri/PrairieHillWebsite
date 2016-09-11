@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @timeslots = Timeslot.all
     @shifts = Shift.all
     @activities = Activity.all
     @sorted = @activities.sort_by { |a| a.work_area }
@@ -20,6 +21,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def my_shifts
+    @timeslots = Timeslot.all
+    @activities = Activity.all
+    @shifts = Shift.all
+  end
+  
   def full_list
     @shifts = Shift.all
     @activities = Activity.all

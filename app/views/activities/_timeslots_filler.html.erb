@@ -9,6 +9,7 @@
       <div class='small-12 columns left bottom-shadow blue-box-outline'>
         <div class='small-12 columns'>
 
+          <div class='small-6 columns'>
           <h4 class='text-outline-dark padded-5'
               style='text-align:center;'>
             <span class='hi-li-gradient kaushan'>
@@ -22,6 +23,16 @@
             </span>
             Volunteered!
           </h4>
+          </div>
+
+          <div class='small-6 columns'>
+            <% if ts.user_id == current_user.id %>
+              <%= form_for ts do |t| %>
+                <%= t.hidden_field :user_id, value: nil %>
+                <%= t.submit "CANCEL", class: 'button large expanded warning', data: { :confirm => "Are you sure?" } %>
+              <% end %>
+            <% end %>
+          </div>
           
         </div>
       </div>
