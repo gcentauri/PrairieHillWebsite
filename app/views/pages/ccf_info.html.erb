@@ -7,7 +7,8 @@
 <div class='row expanded' data-equalizer data-equalize-on='large' id='header-eq'>
   <div class='small-12 large-6 columns left' data-equalizer-watch>
 
-    <h1 class='hi-li padded green kaushan center'>
+    <h1 class='hi-li padded green kaushan center text-outline'>
+      <i class='fa fa-pagelines padded-left-5'></i>
       The Children's Country Fair
     </h1>
 
@@ -21,8 +22,8 @@
 
 <hr>
 
-<div class='expanded row'>
-  <div class='hidden small-12 columns'>
+<div class='hidden expanded row'>
+  <div class='small-12 columns'>
     <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
       <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
     <% end %>
@@ -41,9 +42,18 @@
   </div>
 </div>
 
-<hr>
+<div class='expanded row'>
+  <div class='small-12 columns'>
+    <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
+      <h4 class='kaushan four-rem text-outline'>
+        <i class='fa fa-check-square-o padded-left-5'></i>
+        <strong>Volunteer Here!</strong></h4>
+    <% end %>
+  </div>
+</div>
 
-<!--ACTIVITY EXAMPLES-->
+
+<!--HIDDEN ACTIVITY EXAMPLES-->
 <div class='hidden small-12 columns content-box padded p-box'>
   <div class='small-11 small-centered columns'>
     <ul id='activity-examples' class='padded'>
@@ -85,14 +95,4 @@
     </ul>
   </div>
 </div>
-
-<div class='expanded row'>
-  <div class='hidden small-12 columns'>
-    <%= link_to ccf_volunteer_path, class: 'button large expanded bottom-shadow' do %>
-      <h4 class='four-rem'><strong>VOLUNTEER!</strong></h4>
-    <% end %>
-  </div>
-</div>
-
-
 
