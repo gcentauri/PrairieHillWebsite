@@ -156,6 +156,7 @@ label {
 
 .header {
     @extend .bottom-shadow;
+    //@extend .hi-li-green-gradient;
 
     position:fixed;
     z-index: 1;
@@ -165,12 +166,13 @@ label {
     //height:205px;
     height: 110px;
     width:100%;
-    background: rgba(255,252,216,0.9);
 
+    background: rgba(255,252,216,0.9);
     background: repeating-linear-gradient(to left top, white, rgba(50,154,17,0.9));
     background: -webkit-repeating-linear-gradient(to left top, white, rgba(50,154,17,0.9));
     background: -o-repeating-linear-gradient(to left top, white, rgba(50,154,17,0.9));
     background: -moz-repeating-linear-gradient(to left top, white, rgba(50,154,17,0.9));
+
 }
 
 .title {
@@ -201,6 +203,7 @@ label {
         color: rgba(255,237,0,0.9);
     }
 }
+
 
 .logo {
     @extend .bottom-shadow;
@@ -331,6 +334,10 @@ ul.nav-main {
 #main {
     @extend .white-shade;
     margin-top: 1em;
+}
+
+.sidebar {
+    height: 100%;
 }
 
 #sidebar-left {
@@ -467,6 +474,12 @@ select {
     /*background: -webkit-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
     background: -o-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));
     background: -moz-linear-gradient(to left top, rgba(255,252,216,0.7), rgba(242,249,255,0.9));*/
+}
+
+.hi-li-green-gradient {
+    background: rgba(255,252,216,0.9);
+
+    background: repeating-linear-gradient(to left top, rgba(50,154,17,0.4), rgba(50,154,17,0.9));
 }
 
 .hi-li-button {
@@ -669,6 +682,14 @@ select {
     visibility: hidden;
 }
 
+.sidebar-buffer-top-small:before {
+    display: block;
+    content: " ";
+    margin-top: 10px;
+    height: 170px;
+    visibility: hidden;
+}
+
 .sidebar-buffer-top:before {
     display: block;
     content: " ";
@@ -687,14 +708,10 @@ select {
 
 /*MIN*/
 
-/* http://foundation.zurb.com/forum/posts/3333-reveal-modal-takes-up-full-screen-on-mobile-521
-override mobile modal feature that prevents scrolling on small screens
-*/
-@media screen and (max-width: 638px) {
-    html.overlayVisible, html.overlayVisible body {
-        height: 100%;
-        overflow: hidden;
-        user-select: none;
+@media screen and (min-width:1028px) {
+    #logo {
+        position:fixed;
+        left: 15px;
     }
 }
 
@@ -744,6 +761,18 @@ override mobile modal feature that prevents scrolling on small screens
 
 
 /*MAX*/
+
+/* http://foundation.zurb.com/forum/posts/3333-reveal-modal-takes-up-full-screen-on-mobile-521
+override mobile modal feature that prevents scrolling on small screens
+*/
+@media screen and (max-width: 638px) {
+    html.overlayVisible, html.overlayVisible body {
+        height: 100%;
+        overflow: hidden;
+        user-select: none;
+    }
+}
+
 @media screen and (max-width:848px) {
 }
 
@@ -782,6 +811,12 @@ override mobile modal feature that prevents scrolling on small screens
 
     #sidebar-right {
         display: none;
+    }
+}
+
+@media screen and (max-width:1028px) {
+    #logo {
+        transform: translate(55px,0);
     }
 }
 

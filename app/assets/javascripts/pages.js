@@ -16,7 +16,7 @@ $(document).ready(function () {
         });
     });
 
-    var newheight = $(window).height()*0.51;    
+    var newheight = $(window).height()*0.41;    
     $('.sidebar-scrollable').height(newheight);
     
     $(window).resize(function(){

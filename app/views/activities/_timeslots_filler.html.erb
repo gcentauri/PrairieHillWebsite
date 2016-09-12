@@ -17,7 +17,7 @@
                 <%= ts.guestname %>
               <% else %>
                 <% if ts.user %>
-                  <%= ts.user.name %>
+                  <%= ts.user.name || (ts.user.first_name.capitalize + " " + ts.user.last_name.capitalize) %>
                 <% end %>
               <% end %>
             </span>

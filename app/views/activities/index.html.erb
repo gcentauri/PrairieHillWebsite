@@ -1,5 +1,14 @@
 <%= render 'pages/metadata_partial' %>
 
+<!--TOPNAV-->
+<div id='top-nav' class='section-nav expanded row blue-box-dark-outline'>
+  <div class='small-12 columns'>
+    <h4 style='text-align:right;'>
+      <em><%= link_to 'My Shifts', user_shifts_path %></em> 
+    </h4>
+  </div>
+</div>
+
 <!--VOLUNTEER-->
 <div id='shifts-volunteer' class='expanded row'>
   <span class='hidden special-case'></span>
@@ -30,7 +39,7 @@
 
   <div class='small-12 columns bottom-shadow content-box special-box'>
     <div class='small-12 columns'>
-      <h2 class='hi-li-green-box padded kaushan center five-rem text-outline-dark bottom-shadow' style='color:white;'>
+      <h2 class='hi-li-green-gradient padded kaushan center five-rem text-outline-dark bottom-shadow' style='color:white;'>
         <i class='fa fa-sun-o yellow'></i> Country Fair Activities!
       </h2>
 
@@ -55,8 +64,8 @@
         </div>
       </div>
 
-      <div class='row'>
-        <p class='center padded' id="notice"><%= notice %></p>
+      <div class='row expanded'>
+        <h1 class='center padded hi-li-gradient padded bottom-shadow' id="notice"><%= notice %></h1>
       </div>
       
       <!--ACTIVITY BUTTONS-->
@@ -67,13 +76,10 @@
             <div class='small-12 medium-4 columns' style='display:inline;'>
 
               <div data-open="activity-<%= activity.id %>-modal" class='activity-area row button large expanded bottom-shadow rounded-five' style='border:3px solid white;height:100px;'>
-                <!--work area-->
-                <!--<a href="<%#= edit_activity_path(activity) %>"-->
-
                 <div class='small-11 columns left'>
                   <strong>
-                    <p class='kaushan text-outline-darkest activity-title'>
-                      <%= activity.work_area %>
+                    <p class='text-outline-darkest activity-title'>
+                      <%= activity.work_area.upcase %>
                     </p>
                   </strong>
                 </div>
@@ -151,7 +157,7 @@
         </div>
         <!--image-->
         <div class='small-12 medium-4 columns padded'>
-          <%= image_tag('button-flop.jpg', class: 'bottom-shadow padded') %>
+          <%= image_tag('button-making.jpg', class: 'bottom-shadow padded') %>
         </div>
         <!--image-->
         <div class='small-12 medium-4 columns padded'>
@@ -174,7 +180,9 @@
 
     <div id='activities-sidebar' class='small-11 small-centered columns'>
       <% content_for :leftside do %>
+
         <div class='sidebar-item'>
+
           <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
             <strong>
               <i class='fa fa-pagelines padded-left-5'></i>

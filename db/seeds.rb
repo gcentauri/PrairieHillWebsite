@@ -14,7 +14,7 @@ Activity.destroy_all
   "Face Painting", "Water Play and Bubbles",
   "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
   "Penny Toss", "Pocket Person", "Dunk Tank",
-  "Older Elementary and Adolescent Booth", "Tshirt and PH Book Sale",
+  "T-shirt and Book Sale",
   "Parking Cars", "Photographers", "Runners",
   "Recycling, Compost, Trash Tracker", "Cider Press"
 ]
@@ -54,7 +54,9 @@ Shift.destroy_all
 
 shifts = [
   [ 'Fri 4-6',   @times['Fri 4pm' ],  @times['Fri 6pm' ] ],
+  [ 'Sat 9-10',   @times['Sat 9am' ],  @times['Sat 10am' ] ],
   [ 'Sat 9-11',  @times['Sat 9am' ],  @times['Sat 11am'] ],
+  [ 'Sat 10-11',  @times['Sat 10am' ],  @times['Sat 11am'] ],
   [ 'Sat 11-12', @times['Sat 11am'],  @times['Sat 12pm'] ],
   [ 'Sat 12-1',  @times['Sat 12pm'],  @times['Sat 1pm' ] ],
   [ 'Sat 1-2',   @times['Sat 1pm' ],  @times['Sat 2pm' ] ],
@@ -106,7 +108,7 @@ end
   {
     area: "General Setup",
     time: "Fri 4-6",
-    num: 10
+    num: 8
   },
 
   ## Saturday
@@ -121,7 +123,7 @@ end
   {
     area: "General Teardown",
     time: "Sat 3-5",
-    num: 4
+    num: 8
   },
   
   # Coffee Sale
@@ -137,10 +139,7 @@ end
                                         time: "Sat 1-2",
                                         num: 1 }, { area: "Coffee Sale",
                                                     time: "Sat 2-3",
-                                                    num: 1 }, { area: "Coffee Sale",
-                                                                time: "Sat 3-5",
-                                                                num: 1
-                                                              },
+                                                    num: 1 },
   
   # Food, Beverage and Bake Sale
   ## Saturday
@@ -155,10 +154,7 @@ end
                                         time: "Sat 1-2",
                                         num: 8 }, { area: "Food, Beverage, Bake Sale",
                                                     time: "Sat 2-3",
-                                                    num: 8 }, { area: "Food, Beverage, Bake Sale",
-                                                                time: "Sat 3-5",
-                                                                num: 8
-                                                              },
+                                                    num: 8 },
   
   # Ticket Sales, Raffles, Country Store
   ## Friday
@@ -180,10 +176,7 @@ end
                                         time: "Sat 1-2",
                                         num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
                                                     time: "Sat 2-3",
-                                                    num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
-                                                                time: "Sat 3-5",
-                                                                num: 3
-                                                              },
+                                                    num: 3 }, 
   
   # Pony Rides
   # {
@@ -335,41 +328,52 @@ end
                                       },
   
   # Older Elementary and Adolescent Booth
-  {
-    area: "Older Elementary and Adolescent Booth",
-    time: "Sat 9-11",
-    num: 1 }, { area: "Older Elementary and Adolescent Booth",
-                time: "Sat 11-12",
-                num: 2 }, { area: "Older Elementary and Adolescent Booth",
-                            time: "Sat 12-1",
-                            num: 2 }, { area: "Older Elementary and Adolescent Booth",
-                                        time: "Sat 1-2",
-                                        num: 2 }, { area: "Older Elementary and Adolescent Booth",
-                                                    time: "Sat 2-3",
-                                                    num: 2 }, { area: "Older Elementary and Adolescent Booth",
-                                                                time: "Sat 3-5",
-                                                                num: 1
-                                                              },
+  # {
+  #   area: "Older Elementary and Adolescent Booth",
+  #   time: "Sat 9-11",
+  #   num: 1 }, { area: "Older Elementary and Adolescent Booth",
+  #               time: "Sat 11-12",
+  #               num: 2 }, { area: "Older Elementary and Adolescent Booth",
+  #                           time: "Sat 12-1",
+  #                           num: 2 }, { area: "Older Elementary and Adolescent Booth",
+  #                                       time: "Sat 1-2",
+  #                                       num: 2 }, { area: "Older Elementary and Adolescent Booth",
+  #                                                   time: "Sat 2-3",
+  #                                                   num: 2 }, { area: "Older Elementary and Adolescent Booth",
+  #                                                               time: "Sat 3-5",
+  #                                                               num: 1
+  #                                                             },
   
 
   # Tshirt and PH Book Sale ?
+  {
+    area: "T-shirt and Book Sale",
+    time: "Sat 11-12",
+    num: 2 }, { area: "T-shirt and Book Sale",
+                time: "Sat 12-1",
+                num: 2 }, { area: "T-shirt and Book Sale",
+                            time: "Sat 1-2",
+                            num: 2 }, { area: "T-shirt and Book Sale",
+                                        time: "Sat 2-3",
+                                        num: 2 }, 
 
-  #
 
   # Parking Cars
   {
     area: "Parking Cars",
-    time: "Sat 9-11",
-    num: 1 }, { area: "Parking Cars",
-                time: "Sat 11-12",
-                num: 4 }, { area: "Parking Cars",
-                            time: "Sat 12-1",
+    time: "Sat 9-10",
+    num: 2 }, { area: "Parking Cars",
+                time: "Sat 10-11",
+                num: 3 }, { area: "Parking Cars",
+                            time: "Sat 11-12",
                             num: 4 }, { area: "Parking Cars",
-                                        time: "Sat 1-2",
+                                        time: "Sat 12-1",
                                         num: 4 }, { area: "Parking Cars",
-                                                    time: "Sat 2-3",
-                                                    num: 4
-                                                  },
+                                                    time: "Sat 1-2",
+                                                    num: 4 }, { area: "Parking Cars",
+                                                                time: "Sat 2-3",
+                                                                num: 3
+                                                              },
   
   # Photographers
   {
