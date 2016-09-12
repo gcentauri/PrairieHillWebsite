@@ -1,8 +1,5 @@
-//HEY THERE!!
-
-
 $(document).ready(function() {
-    
+
     $(".guest-button").on("click", function(e) {
         e.preventDefault();
         $(this).next(".guest-field").slideToggle("slow", function() {

@@ -791,12 +791,6 @@ override mobile modal feature that prevents scrolling on small screens
         //font-size: 5vw;
     }
 
-    ul.nav-main {
-        left: 15px;
-    }
-    ul.nav-auth {
-        left: 45px;
-    }
 
 }
 
@@ -812,6 +806,16 @@ override mobile modal feature that prevents scrolling on small screens
     #sidebar-right {
         display: none;
     }
+
+    ul.nav-main {
+        left: 15px;
+    }
+    
+    ul.nav-auth {
+        //left: 45px;
+        left: 90px;
+    }
+
 }
 
 @media screen and (max-width:1028px) {
@@ -831,7 +835,8 @@ override mobile modal feature that prevents scrolling on small screens
     
     ul.nav-main {
         top: 90px;
-        z-index: -2;
+        z-index: -4;
+        width: 70px;
     }
 }
 
