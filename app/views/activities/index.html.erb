@@ -37,6 +37,12 @@
     </div>
   </div>
 
+  <div class='row expanded'>
+    <p class='center' id="notice">
+      <span class='hi-li-gradient'><%= notice %></span>
+    </p>
+  </div>
+  
   <div class='small-12 columns bottom-shadow content-box special-box'>
     <div class='small-12 columns'>
       <h2 class='hi-li-green-gradient padded kaushan center five-rem text-outline-dark bottom-shadow' style='color:white;'>
@@ -64,9 +70,6 @@
         </div>
       </div>
 
-      <div class='row expanded'>
-        <h1 class='center padded hi-li-gradient padded bottom-shadow' id="notice"><%= notice %></h1>
-      </div>
       
       <!--ACTIVITY BUTTONS-->
       <div class='row expanded'>
@@ -76,16 +79,16 @@
             <div class='small-12 medium-4 columns' style='display:inline;'>
 
               <div data-open="activity-<%= activity.id %>-modal" class='activity-area row button large expanded bottom-shadow rounded-five' style='border:3px solid white;height:100px;'>
-                <div class='small-11 columns left'>
+                <div class='small-10 columns left'>
                   <strong>
-                    <p class='text-outline-darkest activity-title'>
-                      <%= activity.work_area.upcase %>
+                    <p class='text-outline-darkest activity-title' style='font-weight:normal;font-size:2.15rem;'>
+                      <%= text_adjust(activity.work_area.upcase).html_safe %>
                     </p>
                   </strong>
                 </div>
-                <div class='small-1 columns left'>
+                <div class='small-2 columns left'>
                   <strong>
-                    <span class="warning badge">
+                    <span class="warning badge bottom-shadow">
                       <%= get_available_slots(activity).count %>
                     </span> &nbsp
                   </strong>

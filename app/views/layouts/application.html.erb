@@ -71,16 +71,17 @@
             <!--SPECIAL-->
             <div class='sidebar-item'>
               <!--headline-->
-              <div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+              <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
                 <strong>
                   <i class='fa fa-pagelines padded-left-5'></i>
                   <em>
                     <%= link_to "Children's Country Fair!", ccf_path %>
                   </em>
+                  <span class='padded-sides' style='float:right;'><i class='caret-toggle fa fa-caret-down'></i></span>
                 </strong>
               </div>
               <!--content-->
-              <div class='row'>
+              <div class='row toggle'>
                 <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <div class='raise'>
                     <strong>
@@ -93,14 +94,15 @@
 
             <div class='sidebar-item'>
               <!--headline-->
-              <div class='sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+              <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
                 <strong>
                   <i class='fa fa-pagelines padded-left-5'></i>
                   <em><%= link_to 'Parent Tours', tours_path %></em>
+                  <span class='padded-sides' style='float:right;'><i class='caret-toggle fa fa-caret-down'></i></span>
                 </strong>
               </div>
               <!--content-->
-              <div class='row'>
+              <div class='row toggle'>
                 <div class='sidebar-content small-11 columns small-centered padded-top-5'>
                   <strong>
                     <%= cms_snippet_content('parent-tour', @cms_site).html_safe %>

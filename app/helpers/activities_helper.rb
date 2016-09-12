@@ -4,6 +4,25 @@ module ActivitiesHelper
     activity.timeslots.where(user_id: nil)
   end
 
+  def text_adjust(string)
+    # takes in activity work_area string (title)
+    # returns formatted html string
+
+    if string.include?(",")
+      words = string.split(",")
+      first = words[0]
+      last = words[(1..-1)]
+      
+      first +
+        ", <span style='font-size:1.5rem;'>" +
+        "<br>" +
+        last.join(",") +
+        "</span>"
+    else
+      return string
+    end
+  end
+  
   ###############################
   def get_closed_shifts
     Shift.where.not(user_id: nil)
