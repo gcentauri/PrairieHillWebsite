@@ -1,13 +1,5 @@
 <%= render 'pages/metadata_partial' %>
 
-<!--TOPNAV-->
-<div id='top-nav' class='section-nav expanded row blue-box-dark-outline'>
-  <div class='small-12 columns'>
-    <h4 style='text-align:right;'>
-      <em><%= link_to 'My Shifts', user_shifts_path %></em> 
-    </h4>
-  </div>
-</div>
 
 <!--VOLUNTEER-->
 <div id='shifts-volunteer' class='expanded row'>
@@ -15,6 +7,7 @@
 
   <!--SECTiONNAV-->
   <div class='expanded row blue-box-dark-outline'>
+
     <div class='small-11 columns'>
       <h4 style='text-align:right;'>
       </h4>
@@ -45,10 +38,24 @@
   
   <div class='small-12 columns bottom-shadow content-box special-box'>
     <div class='small-12 columns'>
-      <h2 class='hi-li-green-gradient padded kaushan center five-rem text-outline-dark bottom-shadow' style='color:white;'>
+      <h2 class='hi-li-green-gradient padded kaushan center four-rem text-outline-dark bottom-shadow' style='color:white;'>
         <i class='fa fa-sun-o yellow'></i> Country Fair Activities!
       </h2>
 
+    </div>
+
+    <!--TOPNAV-->
+    <div id='top-nav' class='section-nav expanded row blue-box-dark-outline'>
+      <div class='small-11 small-centered columns'>
+        <h4 style='text-align:right;'>
+
+          <em><%= link_to user_shifts_path, class: 'hi-li-gradient bottom-shadow', style: 'border-left: 1px solid rgba(0,39,23,0.1);padding-top:2px;padding-left:0;padding-right:7px;' do %>
+            <i class='fa fa-briefcase padded-left-5'></i>
+            My Shifts
+            <% end %>
+          </em> 
+        </h4>
+      </div>
     </div>
 
     <!--activities-->
@@ -186,7 +193,8 @@
 
         <div class='sidebar-item'>
 
-          <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+          <div class='sidebar-toggle sidebar-headline expanded row bottom-shadow'>
+            <div class='small-12 columns hi-li-gradient'>
             <strong>
               <i class='fa fa-pagelines padded-left-5'></i>
               <em>
@@ -196,6 +204,7 @@
                 <i class='caret-toggle fa fa-caret-down'></i>
               </span>
             </strong>
+            </div>
           </div>
           <div class='toggle row'>
             <div class='sidebar-content sidebar-scrollable small-11 small-centered columns padded-top-5'>

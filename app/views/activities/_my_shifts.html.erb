@@ -4,16 +4,18 @@
       <div class='row expanded'>
 
         <div class='small-6 columns left'>
-          <span class='green kaushan'>
+          <span class='green kaushan' style='font-size:2rem;'>
             <%= @activities.find(ts.activity_id).work_area %>
           </span><br>
-          <em><%= @shifts.find(ts.shift_id).nick %></em>
+          <span style='font-size:1.7rem;'>
+            <em><%= @shifts.find(ts.shift_id).nick %></em>
+          </span>
         </div>
 
         <div class='small-6 columns right'>
           <%= form_for ts do |t| %>
             <%= t.hidden_field :user_id, value: nil %>
-            <%= t.submit "CANCEL", class: 'button large expanded warning', data: { :confirm => "Are you sure?" } %>
+            <%= t.submit "CANCEL", class: 'button large expanded warning bottom-shadow', data: { :confirm => "Are you sure?" } %>
           <% end %>
         </div>
 

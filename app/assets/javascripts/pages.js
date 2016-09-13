@@ -1,18 +1,17 @@
 
 $(document).ready(function () {
 
-    //$('.toggle').hide();
-    
     $(".sidebar-toggle").on('click', function () {
-        $(this).next(".toggle").slideToggle("slow", function () {
 
-        });
         $(this).find(".caret-toggle").toggleClass(function() {
             if ( $(this).is(".fa-ca") ) {
                 return "fa-caret-down";
             } else {
                 return "fa-caret-up";
             }
+        });
+        
+        $(this).next(".toggle").slideToggle(600, function () {
         });
     });
 

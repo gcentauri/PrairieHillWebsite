@@ -151,7 +151,8 @@ label {
 }
 
 #header {
-
+    position: fixed;
+    z-index: 2;
 }
 
 .header {
@@ -223,6 +224,7 @@ ul.nav-auth {
     border-radius: 2px;
     
     position: absolute;
+    z-index: -2 !important;
     top: 90px;
     left: 6.5%;
     background: white;
@@ -295,6 +297,14 @@ ul.nav-main {
     border-bottom: 1px solid rgba(0,39,23,0.1) !important;
 }
 
+#nav-mobile {
+    position:absolute;
+    top: 6px;
+    left: 2px;
+    z-index: -4;
+    
+}
+
 #nav-mobile-icon {
     //font-size: 2vw;
     margin:0;
@@ -355,6 +365,7 @@ ul.nav-main {
 
 .sidebar-item {
     margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,39,23,0.1);
 
     div {
 

@@ -36,8 +36,31 @@
               <span class='sidebar-buffer-top-small'></span>
             </div>
 
-
             <!--SPECIAL-->
+            <div class='sidebar-item' style=''>
+              <!--headline-->
+              <div class='sidebar-toggle sidebar-headline expanded row bottom-shadow'>
+                <div class='small-12 columns hi-li-gradient'>
+                <strong>
+                  <i class='fa fa-pagelines padded-left-5'></i>
+                  <em>
+                    <%= link_to "Children's Country Fair!", ccf_path %>
+                  </em>
+                  <span class='padded-sides' style='float:right;'><i class='caret-toggle fa fa-caret-down'></i></span>
+                </strong>
+                </div>
+              </div>
+              <!--content-->
+              <div class='row toggle'>
+                <div class='sidebar-content small-11 columns small-centered padded-top-5'>
+                  <div class='raise'>
+                    <strong>
+                      Saturday, October 8th! <em><%= link_to 'Sign Up!', ccf_volunteer_path %></em>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class='sidebar-item'>
               <%= yield :leftside %>
             </div>
@@ -69,7 +92,7 @@
             </div>
 
             <!--SPECIAL-->
-            <div class='sidebar-item'>
+            <div class='hidden sidebar-item' style=''>
               <!--headline-->
               <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
                 <strong>

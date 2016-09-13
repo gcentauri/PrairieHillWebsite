@@ -3,16 +3,16 @@
   <div class='small-12 columns'>
     <h4 style='text-align:right;'>
       <strong>
-      <em>
-        <%= link_to ccf_volunteer_path, class: '' do %>
-          VOLUNTEER! |
-        <% end %>
-      </em>
-      <em>
-        <%= link_to '#fun-run' do %>
-          Little Run on the Prairie! 
-        <% end %>
-      </em>
+        <em>
+          <%= link_to ccf_volunteer_path, class: 'button large success bottom-shadow' do %>
+            <span style=''>VOLUNTEER!</span>
+          <% end %>
+        </em>
+        <em>
+          <%= link_to '#fun-run' do %>
+            Little Run on the Prairie! 
+          <% end %>
+        </em>
       </strong>
     </h4>
   </div>
@@ -26,13 +26,49 @@
         <h1 class='padded kaushan text-outline-dark'>
           <span class='text-outline-darker' style='color:white;'>
             <i class='fa fa-child'></i></span>
-          <span class='green'>Young Children's Community</span>
+          <span class='green'>My Shifts</span>
         </h1>
       </strong>
     </div>
   </div>
+</div>
 
+<div class='expanded row bottom-shadow content-box special-box'>
   <div class='small-12 columns'>
     <%= render 'my_shifts' %>
   </div>
+</div>
+
+<div class='scrollable'>
+<% content_for :leftside do %>
+  <% @activities.each do |activity| %>
+
+    <div class='sidebar-item'>
+
+      <div class='sidebar-toggle sidebar-headline hi-li-gradient expanded row bottom-shadow'>
+        <strong>
+          <i class='fa fa-pagelines padded-left-5'></i>
+          <em>
+            <%= activity.work_area %>
+          </em>
+          <span class='padded-sides' style='float:right;'>
+            <i class='caret-toggle fa fa-caret-down'></i>
+          </span>
+        </strong>
+      </div>
+
+      <div class='toggle row'>
+        <div class='sidebar-content sidebar-scrollable small-11 small-centered columns padded-top-5'>
+
+          <% activity.timeslots.each do |ts| %>
+            <%= ts.nick%>
+          <% end %>
+          
+        </div>
+      </div>
+
+    </div>
+    
+  <% end %>
+<% end %>
 </div>
