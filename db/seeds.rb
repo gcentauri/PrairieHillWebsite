@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Activity.destroy_all
 
 @activities = [
@@ -177,38 +169,6 @@ end
                                         num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
                                                     time: "Sat 2-3",
                                                     num: 3 }, 
-  
-  # Pony Rides
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 9-11",
-  #   num: 4
-  # },
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 11-12",
-  #   num: 4
-  # },
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 12-1",
-  #   num: 4
-  # },
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 1-2",
-  #   num: 4
-  # },
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 2-3",
-  #   num: 4
-  # },
-  # {
-  #   area: "Pony Rides",
-  #   time: "Sat 3-5",
-  #   num: 4
-  # },
 
   # Face Painting
   {
@@ -327,24 +287,6 @@ end
                                         num: 2
                                       },
   
-  # Older Elementary and Adolescent Booth
-  # {
-  #   area: "Older Elementary and Adolescent Booth",
-  #   time: "Sat 9-11",
-  #   num: 1 }, { area: "Older Elementary and Adolescent Booth",
-  #               time: "Sat 11-12",
-  #               num: 2 }, { area: "Older Elementary and Adolescent Booth",
-  #                           time: "Sat 12-1",
-  #                           num: 2 }, { area: "Older Elementary and Adolescent Booth",
-  #                                       time: "Sat 1-2",
-  #                                       num: 2 }, { area: "Older Elementary and Adolescent Booth",
-  #                                                   time: "Sat 2-3",
-  #                                                   num: 2 }, { area: "Older Elementary and Adolescent Booth",
-  #                                                               time: "Sat 3-5",
-  #                                                               num: 1
-  #                                                             },
-  
-
   # Tshirt and PH Book Sale ?
   {
     area: "T-shirt and Book Sale",

@@ -81,6 +81,10 @@ module ShiftsHelper
   def get_timeslot_shift(ts)
     Shift.find(ts.shift_id)
   end
+
+  def friday_shifts?(activity)
+    get_friday_shifts(activity).count > 0
+  end
   
   def get_friday_shifts(activity)
     activity.timeslots.select { |ts| ts.shift.nick.include?("Fri") }

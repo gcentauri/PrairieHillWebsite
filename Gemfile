@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '4.2.6'
-
 gem 'sass-rails', '~> 5.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '2.5.1'
@@ -73,6 +72,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'unicorn-rails'
   gem 'rails-dev-tweaks', '~> 1.1'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :production do

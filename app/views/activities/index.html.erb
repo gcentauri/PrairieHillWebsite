@@ -116,17 +116,19 @@
                 <div class='small-12 columns'>
 
                   <!--FRIDAY-->
-                  <% if get_friday_shifts(activity).count > 0 %>
+                  <%# if get_friday_shifts(activity).count > 0 %>
+                  <% if friday_shifts?(activity) %>
                     <div id="friday-<%= activity.id %>">
 
                       <h2 class='green kaushan'>Friday, Oct 7th</h2>
-                      <!--friday timeslots Array loop -->
 
                       <% @shifts.each do |shift| %>
-                        <% unless shift.nick.include?("Sat") %>
+                      
+                        <% unless shift.nick.include?("Sat") && shift.nick != nil %>
 
+                      <%# get_friday_shifts(activity).each do |shift| %>
                           <%= render 'timeslots_filler', activity: activity, shift: shift %>
-                          
+                      <%# end %>
                         <% end %>
 
                       <% end %>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= metamagic title: "PRAIRIE HILL Learning Center", description: "Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment", keywords: %w(Montessori education children Nebraska) %>
+    <%= metamagic title: "PRAIRIE HILL Learning Center", description: @metadata, keywords: %w(Montessori education children Nebraska) %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag( 'http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two') %>
     <%= javascript_include_tag 'application' %>
-    <%#= javascript_include_tag 'vendor/modernizr' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://fonts.googleapis.com/css?family=Lobster|Pacifico' rel='stylesheet' type='text/css'>
@@ -15,7 +14,8 @@
 
     <!--HEADER-->
     <div class='expanded row'>
-      <div class='small-12 large-12 right columns'>
+      <div class='small-12 large-12 columns
+           right'>
         <div id='header' class='header' style=''>
           <%= render 'layouts/header' %>
         </div>
@@ -41,13 +41,13 @@
               <!--headline-->
               <div class='sidebar-toggle sidebar-headline expanded row bottom-shadow'>
                 <div class='small-12 columns hi-li-gradient'>
-                <strong>
-                  <i class='fa fa-pagelines padded-left-5'></i>
-                  <em>
-                    <%= link_to "Children's Country Fair!", ccf_path %>
-                  </em>
-                  <span class='padded-sides' style='float:right;'><i class='caret-toggle fa fa-caret-down'></i></span>
-                </strong>
+                  <strong>
+                    <i class='fa fa-pagelines padded-left-5'></i>
+                    <em>
+                      <%= link_to "Children's Country Fair!", ccf_path %>
+                    </em>
+                    <span class='padded-sides' style='float:right;'><i class='caret-toggle fa fa-caret-down'></i></span>
+                  </strong>
                 </div>
               </div>
               <!--content-->

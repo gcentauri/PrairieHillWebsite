@@ -1,5 +1,24 @@
 module ApplicationHelper
 
+  @metadata = "Montessori education for children with an emphasis on meeting the individual and communal developmental needs of each child in a historic indoor and a country outdoor environment"
+  
+  def nav_link(link_text, link_path, *class_option)
+    if current_page?(link_path)
+      class_name = 'active'
+    else
+      class_name = class_option
+    end
+
+    #class_name = current_page?(link_path) ? 'active' : ''
+
+    content_tag(:li, class: class_name) do
+      link_to(link_text, link_path)
+      #link_to(link_text, link_path, method: link_method, class: class_name)
+    end
+  end
+
+  # REFACTOR
+  ##############################################################################
   def featured_event
     events = Event.all
     public_events = events.select { |e| e.public }
@@ -17,7 +36,10 @@ module ApplicationHelper
     end
 
   end
+
   
+  # REDUNDANCIES
+  ##############################################################################
   def print_shift_time(shift_time, opt)
     unless shift_time.nil?
       case opt
@@ -43,20 +65,5 @@ module ApplicationHelper
     "#{print_shift_time(shift.start_time, 'date-short')} ( #{print_shift_time(shift.start_time, 'time')} - #{print_shift_time(shift.end_time, 'time')} )"
   end
 
-  def nav_link(link_text, link_path, *class_option)
-  #def nav_link(link_text, link_path, *link_method, *class_name)
-    if current_page?(link_path)
-      class_name = 'active'
-    else
-      class_name = class_option
-    end
-
-    #class_name = current_page?(link_path) ? 'active' : ''
-
-    content_tag(:li, class: class_name) do
-      link_to(link_text, link_path)
-      #link_to(link_text, link_path, method: link_method, class: class_name)
-    end
-  end
 
 end
