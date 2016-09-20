@@ -39,7 +39,7 @@ end
 
 tickets = Activity.where(work_area: 'Ticket Sales, Raffles, Country Store').first
 
-tickets.comments << "One volunteer per hour should be an adolescent or older el student, Setup starts at 8:30am"
+tickets.comments << "One volunteer per hour should be an adolescent or older elementary student, Setup starts at 8:30am"
 #tickets.comments << "Setup starts at 8:30am"
 tickets.save!
 
