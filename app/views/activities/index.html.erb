@@ -118,7 +118,9 @@
                       <% if c.is_a?(String) %>
                         <strong><p><%= c.gsub("--- []","")  %></p></strong>
                       <% else %>
-                        <strong><p><%= c %></p></strong>
+                        <% c[0].split(",").each do |d| %>
+                          <strong><p><%= d %></p></strong>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>
