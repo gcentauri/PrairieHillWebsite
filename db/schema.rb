@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910003043) do
+ActiveRecord::Schema.define(version: 20160920015746) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "work_area"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160910003043) do
     t.text     "shift_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "comments"
+    t.text     "comments",    default: "--- []\n"
   end
 
   create_table "articles", force: :cascade do |t|

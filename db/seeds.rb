@@ -1,7 +1,7 @@
 Activity.destroy_all
 
 @activities = [
-  "Signage", "General Setup", "General Teardown", "Coffee Sale",
+  "Little Run on the Prairie", "Signage", "Live Music", "General Setup", "General Teardown", "Coffee Sale",
   "Food, Beverage, Bake Sale", "Ticket Sales, Raffles, Country Store",
   "Face Painting", "Water Play and Bubbles",
   "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
@@ -12,12 +12,41 @@ Activity.destroy_all
 ]
 
 @activities.each do |activity|
-  Activity.create!([
-                    {
-                      work_area: activity
-                    }
-                  ])
+  if activity == "Ticket Sales, Raffles, Country Store"
+    Activity.create!([
+                       {
+                         work_area: activity,
+                         comments: "One volunteer per hour should be an adolescent or older elementary student,
+                                    Setup starts at 8:30am"
+                       }
+                     ])
+  elsif activity == "Little Run on the Prairie"
+    Activity.create!([
+                       {
+                         work_area: activity,
+                         comments: "Setup and Run from 10-11am"
+                       }
+                     ])
+  else
+    Activity.create!([
+                       {
+                         work_area: activity
+                       }
+                     ])
+  end
+
 end
+
+# tickets = Activity.where(work_area: 'Ticket Sales, Raffles, Country Store').first
+
+# tickets.comments << "One volunteer per hour should be an adolescent or older el student"
+# tickets.comments << "Setup starts at 8:30am"
+# tickets.save!
+
+# little_run = Activity.where(work_area: 'Little Run on the Prairie').first
+
+# little_run.comments << "Setup and Run from 10-11am"
+# little_run.save!
 
 p "Created #{Activity.count} activities"
 
@@ -85,6 +114,23 @@ def get_shift_id(nick)
 end
 
 @slots = [
+
+  # Little Run on the Prairie
+  ## Friday
+  {
+    area: "Little Run on the Prairie",
+    time: "Fri 4-6",
+    num: 1
+  },
+
+  ## Saturday
+  {
+    area: "Little Run on the Prairie",
+    time: "Sat 9-11",
+    num: 10 }, { area: "Little Run on the Prairie",
+                 time: "Sat 3-5",
+                 num: 1 },
+  
   # Signage
   ## Saturday
   {
@@ -93,6 +139,15 @@ end
     num: 1 }, { area: "Signage",
                 time: "Sat 3-5",
                 num: 1
+              },
+
+  # Live Music
+  {
+    area: "Live Music",
+    time: "Sat 9-11",
+    num: 2 }, { area: "Live Music",
+                time: "Sat 3-5",
+                num: 2
               },
 
   # General Setup
@@ -138,15 +193,17 @@ end
   {
     area: "Food, Beverage, Bake Sale",
     time: "Sat 9-11",
-    num: 8 }, { area: "Food, Beverage, Bake Sale",
+    num: 4 }, { area: "Food, Beverage, Bake Sale",
                 time: "Sat 11-12",
-                num: 8 }, { area: "Food, Beverage, Bake Sale",
+                num: 5 }, { area: "Food, Beverage, Bake Sale",
                             time: "Sat 12-1",
-                            num: 8 }, { area: "Food, Beverage, Bake Sale",
+                            num: 5 }, { area: "Food, Beverage, Bake Sale",
                                         time: "Sat 1-2",
-                                        num: 8 }, { area: "Food, Beverage, Bake Sale",
+                                        num: 5 }, { area: "Food, Beverage, Bake Sale",
                                                     time: "Sat 2-3",
-                                                    num: 8 },
+                                                    num: 4 },{ area: "Food, Beverage, Bake Sale",
+                                                               time: "Sat 3-5",
+                                                               num: 4 },
   
   # Ticket Sales, Raffles, Country Store
   ## Friday
@@ -157,18 +214,19 @@ end
   },
   
   ## Saturday
+  #add variance feature for unique cases (8:30am)
   {
     area: "Ticket Sales, Raffles, Country Store",
     time: "Sat 9-11",
-    num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+    num: 4 }, { area: "Ticket Sales, Raffles, Country Store",
                 time: "Sat 11-12",
-                num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                num: 4 }, { area: "Ticket Sales, Raffles, Country Store",
                             time: "Sat 12-1",
                             num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
                                         time: "Sat 1-2",
                                         num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
                                                     time: "Sat 2-3",
-                                                    num: 3 }, 
+                                                    num: 4 }, 
 
   # Face Painting
   {
@@ -360,14 +418,13 @@ end
   {
     area: "Cider Press",
     time: "Sat 11-12",
-    num: 2 }, { area: "Cider Press",
+    num: 1 }, { area: "Cider Press",
                 time: "Sat 12-1",
-                num: 2 }, { area: "Cider Press",
+                num: 1 }, { area: "Cider Press",
                             time: "Sat 1-2",
-                            num: 2 }, { area: "Cider Press",
+                            num: 1 }, { area: "Cider Press",
                                         time: "Sat 2-3",
-                                        num: 2
-                                      }
+                                        num: 1 }
 ]
 
 @slots.each do |slot|

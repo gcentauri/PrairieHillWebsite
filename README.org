@@ -797,7 +797,7 @@
 *** ├── development.sqlite3
 *** ├── [[./db/migrate][migrate]]
 *** ├── [[./db/schema.rb][schema.rb]]
-*** ├── seeds.rb
+*** ├── [[./db/seeds.rb][seeds.rb]]
 *** ├── VolSpreadsheet.csv
 *** └── VolSpreedsheet.xlsx
 
@@ -829,7 +829,19 @@
 ** └── vendor
 
 
-* MVC
+* Stories
+
+** AA dev I would like to set Comments on Activities  
+
+   - [ ] supplimental information
+
+     Activity.work_area = "Ticket Sales..."
+     Activity.comments = ["One volunteer per hour should be an adolescent or older el student", "Setup starts at 8:30am"]
+     #may require adjusting comments property
+
+     
+
+* MVC :noexport:
 
 ** APPLICATION
 
@@ -912,7 +924,7 @@
    - [ ] belongs to a [[User]]
 
 
-* Content
+* Content :noexport:
 
 ** Pages
 

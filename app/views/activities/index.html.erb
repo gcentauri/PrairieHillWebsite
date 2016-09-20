@@ -112,6 +112,14 @@
                   <span class='kaushan green two-rem'><%= activity.work_area %></span>
                 </div>
 
+                <div class='small-12 columns'>
+                <div class='callout success small-12 small-centered columns'>
+                  <% activity.comments.split(",").each do |c| %>
+                    <h3><%= c %></h3>
+                  <% end %>
+                </div>
+                </div>
+
                 <!--activity shifts-->
                 <div class='small-12 columns'>
 
@@ -123,8 +131,9 @@
                       <h2 class='green kaushan'>Friday, Oct 7th</h2>
 
                       <% @shifts.each do |shift| %>
-                      
-                        <% unless shift.nick.include?("Sat") && shift.nick != nil %>
+
+                        <%#= this obviously needs some work %>
+                        <% unless shift.nick.include?("Sat") && shift.nick != nil && shift.nick != "" %>
 
                       <%# get_friday_shifts(activity).each do |shift| %>
                           <%= render 'timeslots_filler', activity: activity, shift: shift %>
