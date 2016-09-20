@@ -115,9 +115,7 @@
                 <div class='small-12 columns'>
                   <div class='callout success small-12 small-centered columns'>
                     <% activity.comments.split(",").each do |c| %>
-                      <% unless c.include?("--- []") %>
-                        <h3><%= c %></h3>
-                      <% end %>
+                      <h3><%= c.gsub("--- []","") %></h3><hr>
                     <% end %>
                   </div>
                 </div>
