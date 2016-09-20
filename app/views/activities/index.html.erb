@@ -117,10 +117,11 @@
                     <% activity.comments.split(",").each do |c| %>
                       <% if c.is_a?(String) %>
                         <strong><p><%= c.gsub("--- []","")  %></p></strong>
-                      <% else %>
-                        <% c.split(",").each do |d| %>
+                      <% elsif c.is_a?(Array) %>
+                        <% c[0].split(",").each do |d| %>
                           <strong><p><%= d %></p></strong>
                         <% end %>
+                      <% else %>
                       <% end %>
                     <% end %>
                   </div>
