@@ -37,16 +37,16 @@ Activity.destroy_all
 
 end
 
-# tickets = Activity.where(work_area: 'Ticket Sales, Raffles, Country Store').first
+tickets = Activity.where(work_area: 'Ticket Sales, Raffles, Country Store').first
 
-# tickets.comments << "One volunteer per hour should be an adolescent or older el student"
-# tickets.comments << "Setup starts at 8:30am"
-# tickets.save!
+tickets.comments << "One volunteer per hour should be an adolescent or older el student"
+tickets.comments << "Setup starts at 8:30am"
+tickets.save!
 
-# little_run = Activity.where(work_area: 'Little Run on the Prairie').first
+little_run = Activity.where(work_area: 'Little Run on the Prairie').first
 
-# little_run.comments << "Setup and Run from 10-11am"
-# little_run.save!
+little_run.comments << "Setup and Run from 10-11am"
+little_run.save!
 
 p "Created #{Activity.count} activities"
 
