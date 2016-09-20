@@ -118,10 +118,10 @@
                     <% activity.comments.split("\n").each do |c| %>
                       <% if c.is_a?(String) %>
                         <strong><p><%= c.gsub("--- []","")  %></p></strong>
-                      <% elsif c.is_a?(Array) %>
-                        <% c.first.split(",").each do |d| %>
-                          <strong><p><%= d %></p></strong>
-                        <% end %>
+                        <% elsif c.is_a?(Array) %>
+                        <%# c.first.split(",").each do |d| %>
+                          <strong><p><%= c %></p></strong>
+                        <%# end %>
                       <% else %>
                       <% end %>
                     <% end %>
