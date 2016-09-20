@@ -114,11 +114,12 @@
 
                 <div class='small-12 columns'>
                   <div class='callout success small-12 small-centered columns'>
-                    <% activity.comments.split(",").each do |c| %>
+                    <%# activity.comments.split(",").each do |c| %>
+                    <% activity.comments.split("\n").each do |c| %>
                       <% if c.is_a?(String) %>
                         <strong><p><%= c.gsub("--- []","")  %></p></strong>
                       <% elsif c.is_a?(Array) %>
-                        <% c[0].split(",").each do |d| %>
+                        <% c.first.split(",").each do |d| %>
                           <strong><p><%= d %></p></strong>
                         <% end %>
                       <% else %>
