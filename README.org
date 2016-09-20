@@ -3,7 +3,7 @@
 #+EMAIL: son@lincolnix.net
 #+OPTIONS: toc:nil num:nil
 
-* Files
+* Files :noexport:
 
 ** ├── [[./app][app]]
 
@@ -829,7 +829,7 @@
 ** └── vendor
 
 
-* Stories
+* Stories :noexport:
 
 ** AA dev I would like to set Comments on Activities  
 
@@ -839,7 +839,6 @@
      Activity.comments = ["One volunteer per hour should be an adolescent or older el student", "Setup starts at 8:30am"]
      #may require adjusting comments property
 
-     
 
 * MVC :noexport:
 
@@ -929,6 +928,7 @@
 ** Pages
 
    [[./app/views/pages/home.html.erb][home.html.erb]]
+
 
 * Prairie Hill Learning Center :noexport:
   
