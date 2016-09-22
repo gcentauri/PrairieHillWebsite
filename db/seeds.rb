@@ -118,13 +118,6 @@ end
 @slots = [
 
   # Little Run on the Prairie
-  ## Friday
-  {
-    area: "Little Run on the Prairie",
-    time: "Fri 4-6",
-    num: 1
-  },
-
   ## Saturday
   {
     area: "Little Run on the Prairie",
