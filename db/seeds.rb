@@ -1,3 +1,5 @@
+#Due for cleanup
+
 Activity.destroy_all
 
 @activities = [
@@ -6,28 +8,12 @@ Activity.destroy_all
   "Face Painting", "Water Play and Bubbles",
   "Treasure Hunt", "Cake Walk", "Dress Up", "Bird's Eye View",
   "Penny Toss", "Pocket Person", "Dunk Tank",
-  "T-shirt and Book Sale",
+  #"T-shirt and Book Sale",
   "Parking Cars", "Photographers", "Runners",
   "Recycling, Compost, Trash Tracker", "Cider Press"
 ]
 
 @activities.each do |activity|
-  # if activity == "Ticket Sales, Raffles, Country Store"
-  #   Activity.create!([
-  #                      {
-  #                        work_area: activity,
-  #                        comments: "One volunteer per hour should be an adolescent or older elementary student,
-  #                                   Setup starts at 8:30am"
-  #                      }
-  #                    ])
-  # elsif activity == "Little Run on the Prairie"
-  #   Activity.create!([
-  #                      {
-  #                        work_area: activity,
-  #                        comments: "Setup and Run from 10-11am"
-  #                      }
-  #                    ])
-  # else
     Activity.create!([
                        {
                          work_area: activity
@@ -37,16 +23,26 @@ Activity.destroy_all
 
 end
 
-tickets = Activity.where(work_area: 'Ticket Sales, Raffles, Country Store').first
 
-tickets.comments << "One volunteer per hour should be an adolescent or older elementary student, Setup starts at 8:30am"
-#tickets.comments << "Setup starts at 8:30am"
-tickets.save!
+def add_comments_to_activities(work_area, comments)
+  activity = Activity.where(work_area: work_area).first
+  activity.comments << comments
+  activity.save!
+end
 
-little_run = Activity.where(work_area: 'Little Run on the Prairie').first
-
-little_run.comments << "Setup and Run from 10-11am"
-little_run.save!
+add_comments_to_activities(
+  "Ticket Sales, Raffles, Country Store",
+  "One volunteer per hour should be an adolescent or older elementary student," +
+  "Setup starts at 8:30am, Teardown: 3-4pm"
+)
+add_comments_to_activities(
+  "Little Run on the Prairie",
+  "Setup and Run from 10-11am"
+)
+add_comments_to_activities(
+  "Live Music",
+  "Setup 9-11am"
+)
 
 p "Created #{Activity.count} activities"
 
@@ -55,8 +51,10 @@ Shift.destroy_all
 @times = {
   'Fri 4pm'  => '2016-10-07 16:00:00 UTC',
   'Fri 6pm'  => '2016-10-07 18:00:00 UTC',
+  'Sat 8:30' => '2016-10-08 08:30:00 UTC',
   'Sat 9am'  => '2016-10-08 09:00:00 UTC',
   'Sat 9:30am'  => '2016-10-08 09:30:00 UTC',
+  'Sat 10:30' => '2016-10-08 10:30:00 UTC',  
   'Sat 10am' => '2016-10-08 10:00:00 UTC',
   'Sat 11am' => '2016-10-08 11:00:00 UTC',
   'Sat 11:15am' => '2016-10-08 11:15:00 UTC',
@@ -70,20 +68,24 @@ Shift.destroy_all
   'Sat 2pm'  => '2016-10-08 14:00:00 UTC',
   'Sat 2:30pm'  => '2016-10-08 14:30:00 UTC',
   'Sat 3pm'  => '2016-10-08 15:00:00 UTC',
+  'Sat 4pm'  => '2016-10-08 16:00:00 UTC',
   'Sat 5pm'  => '2016-10-08 17:00:00 UTC'
 }
 
 shifts = [
-  [ 'Fri 4-6',   @times['Fri 4pm' ],  @times['Fri 6pm' ] ],
-  [ 'Sat 9-10',   @times['Sat 9am' ],  @times['Sat 10am' ] ],
-  [ 'Sat 9-11',  @times['Sat 9am' ],  @times['Sat 11am'] ],
-  [ 'Sat 10-11',  @times['Sat 10am' ],  @times['Sat 11am'] ],
-  [ 'Sat 11-12', @times['Sat 11am'],  @times['Sat 12pm'] ],
-  [ 'Sat 12-1',  @times['Sat 12pm'],  @times['Sat 1pm' ] ],
-  [ 'Sat 1-2',   @times['Sat 1pm' ],  @times['Sat 2pm' ] ],
-  [ 'Sat 2-3',   @times['Sat 2pm' ],  @times['Sat 3pm' ] ],
-  [ 'Sat 3-5',   @times['Sat 3pm' ],  @times['Sat 5pm' ] ]
+  [ 'Fri 4-6',        @times['Fri 4pm'   ],  @times['Fri 6pm'    ] ],
+  [ 'Sat 8:30-10:30', @times['Sat 8:30pm'],  @times['Sat 10:30pm'] ],
+  [ 'Sat 9-10',       @times['Sat 9am'   ],  @times['Sat 10am'   ] ],
+  [ 'Sat 9-11',       @times['Sat 9am'   ],  @times['Sat 11am'   ] ],
+  [ 'Sat 10-11',      @times['Sat 10am'  ],  @times['Sat 11am'   ] ],
+  [ 'Sat 11-12',      @times['Sat 11am'  ],  @times['Sat 12pm'   ] ],
+  [ 'Sat 12-1',       @times['Sat 12pm'  ],  @times['Sat 1pm'    ] ],
+  [ 'Sat 1-2',        @times['Sat 1pm'   ],  @times['Sat 2pm'    ] ],
+  [ 'Sat 2-3',        @times['Sat 2pm'   ],  @times['Sat 3pm'    ] ],
+  [ 'Sat 3-4',        @times['Sat 3pm'   ],  @times['Sat 4pm'    ] ],
+  [ 'Sat 3-5',        @times['Sat 3pm'   ],  @times['Sat 5pm'    ] ]
 ]
+
 
 shifts.each do |shift|
   Shift.create!([
@@ -126,10 +128,10 @@ end
   ## Saturday
   {
     area: "Little Run on the Prairie",
-    time: "Sat 9-11",
-    num: 10 }, { area: "Little Run on the Prairie",
-                 time: "Sat 3-5",
-                 num: 1 },
+    time: "Sat 9-10",
+    num: 2 }, { area: "Little Run on the Prairie",
+                time: "Sat 10-11",
+                num: 10 },
   
   # Signage
   ## Saturday
@@ -186,7 +188,9 @@ end
                                         time: "Sat 1-2",
                                         num: 1 }, { area: "Coffee Sale",
                                                     time: "Sat 2-3",
-                                                    num: 1 },
+                                                    num: 1 }, { area: "Coffee Sale",
+                                                                time: "Sat 3-5",
+                                                                num: 1 },
   
   # Food, Beverage and Bake Sale
   ## Saturday
@@ -207,26 +211,28 @@ end
   
   # Ticket Sales, Raffles, Country Store
   ## Friday
-  {
-    area: "Ticket Sales, Raffles, Country Store",
-    time: "Fri 4-6",
-    num: 1
-  },
+  # {
+  #   area: "Ticket Sales, Raffles, Country Store",
+  #   time: "Fri 4-6",
+  #   num: 1
+  # },
   
   ## Saturday
   #add variance feature for unique cases (8:30am)
   {
     area: "Ticket Sales, Raffles, Country Store",
-    time: "Sat 9-11",
+    time: "Sat 8:30-10:30",
     num: 4 }, { area: "Ticket Sales, Raffles, Country Store",
                 time: "Sat 11-12",
                 num: 4 }, { area: "Ticket Sales, Raffles, Country Store",
                             time: "Sat 12-1",
-                            num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                            num: 4 }, { area: "Ticket Sales, Raffles, Country Store",
                                         time: "Sat 1-2",
                                         num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
                                                     time: "Sat 2-3",
-                                                    num: 4 }, 
+                                                    num: 3 }, { area: "Ticket Sales, Raffles, Country Store",
+                                                                time: "Sat 3-4",
+                                                                num: 4 },
 
   # Face Painting
   {
@@ -346,16 +352,16 @@ end
                                       },
   
   # Tshirt and PH Book Sale ?
-  {
-    area: "T-shirt and Book Sale",
-    time: "Sat 11-12",
-    num: 2 }, { area: "T-shirt and Book Sale",
-                time: "Sat 12-1",
-                num: 2 }, { area: "T-shirt and Book Sale",
-                            time: "Sat 1-2",
-                            num: 2 }, { area: "T-shirt and Book Sale",
-                                        time: "Sat 2-3",
-                                        num: 2 }, 
+  # {
+  #   area: "T-shirt and Book Sale",
+  #   time: "Sat 11-12",
+  #   num: 2 }, { area: "T-shirt and Book Sale",
+  #               time: "Sat 12-1",
+  #               num: 2 }, { area: "T-shirt and Book Sale",
+  #                           time: "Sat 1-2",
+  #                           num: 2 }, { area: "T-shirt and Book Sale",
+  #                                       time: "Sat 2-3",
+  #                                       num: 2 }, 
 
 
   # Parking Cars
