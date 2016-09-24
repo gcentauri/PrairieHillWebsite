@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-#class ActivitiesController < InheritedResources::Base
   load_and_authorize_resource
 
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
@@ -25,6 +24,7 @@ class ActivitiesController < ApplicationController
     @timeslots = Timeslot.all
     @activities = Activity.all
     @shifts = Shift.all
+
   end
   
   def full_list
