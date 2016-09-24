@@ -65,6 +65,8 @@ gem 'jscrollpane-rails'
 gem 'spring',        group: :development
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'rack-canonical-host'
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

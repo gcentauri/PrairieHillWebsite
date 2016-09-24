@@ -285,6 +285,9 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-canonical-host (0.2.2)
+      addressable (> 0, < 3)
+      rack (>= 1.0.0, < 3)
     rack-cors (0.4.0)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
@@ -474,6 +477,7 @@ DEPENDENCIES
   pg
   picturefill
   pry-rails
+  rack-canonical-host
   rack-cors
   rails (= 4.2.6)
   rails-dev-tweaks (~> 1.1)
