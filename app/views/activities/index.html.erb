@@ -77,7 +77,54 @@
         </div>
       </div>
 
-      
+      <div class='row expanded'>
+        <div class='small-11 small-centered columns blue-box-dark-outline'>
+          <div class='special-toggle small-6 left columns'>
+            <a href='#'>
+              <h3 style='color:rgba(0,39,23,0.9);'><strong><i class='hi-li-gradient fa fa-check-square-o fa-2x'></i>Check out our volunteers! =></strong></h3>
+            </a>
+            <div class='inner-toggle p-box content-box'>
+              This many people have signed up to help!
+            </div>
+          </div>
+          <div class='toggle small-6 right columns padded'>
+            <div class='hi-li-gradient padded bottom-shadow content-box special-box'>
+              <table>
+              <tbody>
+
+                <% filled_slots.each do |ts| %>
+                  <tr>
+                    <td>
+                      <i class='fa fa-check-square-o'></i>
+                      <strong>
+                        <% if ts.guestname.nil? || ts.guestname == "" %>
+                          <%= User.find(ts.user_id).name %>
+                        <% else %>
+                          <%= ts.guestname %>
+                        <% end %>
+                      </strong>
+                    </td>
+                    <td>
+                      <strong>
+                        <em><%= ts.activity.work_area %></em>
+                      </strong>
+                    </td>
+                    <td>
+                      <strong>
+                        <%= ts.shift.nick %>
+                      </strong>
+                    </td>
+                  </tr>
+                <% end %>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <hr>
       <!--ACTIVITY BUTTONS-->
       <div class='row expanded'>
         <div class='small-12 small-centered columns'>

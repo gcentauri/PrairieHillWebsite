@@ -5,6 +5,21 @@
 
 * Recent Changes
 
+** Sun Sep 25 19:59:12 CDT 2016
+
+   - [ ] create attentiion grabbing info about recent signups
+
+     Example: "Anderson signed up for General Setup Sat 9-11!"
+
+     [[./app/controllers/activities_controller.rb]]
+     [[./app/helpers/activities_helper.rb]]
+     [[./app/views/activities/index.html.erb]]
+
+     - [ ] most recent OR
+     - [ ] complete list
+
+       - [ ] small text
+
 ** Sat Sep 24 10:53:44 CDT 2016
 
    - [X] resolve issue with naked url redirecting to heroku app domain

@@ -1,6 +1,13 @@
 
 $(document).ready(function () {
 
+    $(".special-toggle").on('click', function (e) {
+        $(this).next(".toggle").slideToggle(600, function () {
+        });
+        $(this).children(".inner-toggle").slideToggle(600, function () {});
+        e.preventDefault();
+    });
+    
     $(".sidebar-toggle").on('click', function () {
 
         $(this).find(".caret-toggle").toggleClass(function() {

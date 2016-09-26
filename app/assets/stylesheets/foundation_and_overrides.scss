@@ -59,18 +59,13 @@ body {
 }
 
 html, body {
-    //background: image-url('cardboard.jpg');
-
     background: white;
-    
-
     font-family: 'News Cycle', 'Kaushan Script', 'Roboto';
     font-size: 1vw;
 }
 
 h1,h2,h3,h4,
 p,li {
-    //color: #002717;
     color: rgba(0,39,23,0.9);
 }
 
@@ -416,6 +411,10 @@ ul.nav-main {
 #activities-sidebar {
     @extend .sidebar-scrollable;
     //height: 500px;
+}
+
+.inner-toggle {
+    display: none;
 }
 
 .toggle {

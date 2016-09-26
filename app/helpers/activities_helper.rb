@@ -4,6 +4,10 @@ module ActivitiesHelper
     activity.timeslots.where(user_id: nil)
   end
 
+  def filled_slots
+    @timeslots.where.not(user_id: nil)
+  end
+  
   def text_adjust(string)
     # takes in activity work_area string (title)
     # returns formatted html string
